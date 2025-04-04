@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Optimized Title & Description -->
-    <title data-i18n="seo_title">Screen Size Checker: Check Resolution, Viewport & Browser Info Online</title>
+    <title data-i18n="seo_title">Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More</title>
     <meta name="description" content="" data-i18n="[content]seo_description">
 
     <link rel="stylesheet" href="style.css">
@@ -14,6 +14,10 @@
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
     <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <!-- UA Parser JS Library (for OS/Browser detection) -->
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/src/ua-parser.min.js"></script>
+
 </head>
 <body>
 
@@ -32,59 +36,112 @@
 
     <div class="container">
         <!-- Updated Main Heading -->
-        <h1 data-i18n="main_heading">Screen Size & Browser Information Checker</h1>
-        <p data-i18n="intro_paragraph">Instantly detect your display details. This online tool helps you find your screen resolution, browser viewport dimensions, device pixel ratio (DPR), color depth, and check your user agent string.</p>
+        <h1 data-i18n="main_heading">Screen Size & Device Information Checker</h1>
+        <p data-i18n="intro_paragraph">Instantly detect your display and device details. This online tool helps you find screen resolution, viewport size, DPR, OS, browser version, user agent, and more.</p>
+
+        <!-- Detected Information Section -->
+        <h2 data-i18n="detected_info_heading">Detected Information</h2>
 
         <!-- Screen Resolution -->
         <div class="info-item">
             <span class="label" data-i18n="screen_resolution_label">Screen Resolution:</span>
             <span class="value" id="screen-resolution" data-i18n="detecting">Detecting...</span>
+            <button class="copy-btn" data-clipboard-target="screen-resolution" data-i18n="copy_btn">Copy</button>
         </div>
-        <p class="explanation" data-i18n="screen_resolution_explanation">Displays the total width and height of your entire screen in pixels. Useful for knowing your monitor's full display specs.</p>
+        <p class="explanation" data-i18n="screen_resolution_explanation">Displays the total width and height of your entire screen in pixels.</p>
 
         <!-- Viewport Size -->
         <div class="info-item">
             <span class="label" data-i18n="viewport_size_label">Browser Viewport Size:</span>
             <span class="value" id="viewport-size">
-                <span data-i18n="detecting">Detecting...</span>
+                <span id="viewport-value" data-i18n="detecting">Detecting...</span>
                 <span class="note" data-i18n="viewport_dynamic_note">(Try resizing the browser window)</span>
             </span>
+             <button class="copy-btn" data-clipboard-target="viewport-value" data-i18n="copy_btn">Copy</button>
         </div>
-        <p class="explanation" data-i18n="viewport_size_explanation">This is the visible area width and height within your current browser window. Crucial information for responsive web design and development.</p>
+        <p class="explanation" data-i18n="viewport_size_explanation">The visible area width and height within your browser window. Key for responsive design.</p>
 
         <!-- Device Pixel Ratio -->
         <div class="info-item">
             <span class="label" data-i18n="dpr_label">Device Pixel Ratio (DPR):</span>
             <span class="value" id="dpr" data-i18n="detecting">Detecting...</span>
+            <button class="copy-btn" data-clipboard-target="dpr" data-i18n="copy_btn">Copy</button>
         </div>
-        <p class="explanation" data-i18n="dpr_explanation">Indicates how many physical screen pixels render each CSS pixel. A DPR value of 2 or higher usually means a high-resolution 'Retina' display, important for sharp images and UI rendering.</p>
+        <p class="explanation" data-i18n="dpr_explanation">Ratio of physical screen pixels to CSS pixels. DPR ≥ 2 often indicates a 'Retina'/HiDPI display.</p>
 
         <!-- Color Depth -->
         <div class="info-item">
             <span class="label" data-i18n="color_depth_label">Color Depth:</span>
             <span class="value" id="color-depth" data-i18n="detecting">Detecting...</span>
+             <button class="copy-btn" data-clipboard-target="color-depth" data-i18n="copy_btn">Copy</button>
         </div>
-        <p class="explanation" data-i18n="color_depth_explanation">Represents the number of bits used to represent the color of a single pixel on your screen.</p>
+        <p class="explanation" data-i18n="color_depth_explanation">Number of bits used for each color component of a single pixel.</p>
 
+        <!-- Operating System (OS) -->
+        <div class="info-item">
+            <span class="label" data-i18n="os_label">Operating System (OS):</span>
+            <span class="value" id="os-info" data-i18n="detecting">Detecting...</span>
+            <button class="copy-btn" data-clipboard-target="os-info" data-i18n="copy_btn">Copy</button>
+        </div>
+        <p class="explanation" data-i18n="os_explanation">The operating system running on your device.</p>
+
+        <!-- Browser Information -->
+        <div class="info-item">
+            <span class="label" data-i18n="browser_label">Browser:</span>
+            <span class="value" id="browser-info" data-i18n="detecting">Detecting...</span>
+            <button class="copy-btn" data-clipboard-target="browser-info" data-i18n="copy_btn">Copy</button>
+        </div>
+        <p class="explanation" data-i18n="browser_explanation">Your web browser name and version.</p>
+
+        <!-- Cookies Enabled -->
+        <div class="info-item">
+            <span class="label" data-i18n="cookies_enabled_label">Cookies Enabled:</span>
+            <span class="value" id="cookies-enabled" data-i18n="detecting">Detecting...</span>
+             <button class="copy-btn" data-clipboard-target="cookies-enabled" data-i18n="copy_btn">Copy</button>
+        </div>
+        <p class="explanation" data-i18n="cookies_enabled_explanation">Indicates if your browser accepts cookies.</p>
+
+        <!-- Touch Screen Support -->
+        <div class="info-item">
+            <span class="label" data-i18n="touch_support_label">Touch Screen Support:</span>
+            <span class="value" id="touch-support" data-i18n="detecting">Detecting...</span>
+             <button class="copy-btn" data-clipboard-target="touch-support" data-i18n="copy_btn">Copy</button>
+        </div>
+        <p class="explanation" data-i18n="touch_support_explanation">Whether your device has touch screen capabilities.</p>
 
         <!-- User Agent -->
-        <div class="info-item">
-            <!-- Updated Label -->
+        <div class="info-item info-item-full-width"> <!-- Add class for potential full width styling -->
             <span class="label" data-i18n="user_agent_label">User Agent String:</span>
             <textarea class="value ua-value" id="user-agent" readonly data-i18n="[placeholder]detecting">Detecting...</textarea>
+            <button class="copy-btn ua-copy-btn" data-clipboard-target="user-agent" data-i18n="copy_btn">Copy</button>
         </div>
-         <p class="explanation" data-i18n="user_agent_explanation">Your browser sends this string to websites to identify itself, including browser type, version, and operating system (OS). Useful for debugging and web development.</p>
+        <p class="explanation" data-i18n="user_agent_explanation">The full string your browser sends to identify itself to web servers.</p>
 
-        <!-- Optional: Device Simulator -->
-        <h2 data-i18n="simulator_heading">Device Simulation Preview (Example)</h2>
+
+        <!-- Device Simulator Section -->
+        <h2 data-i18n="simulator_heading">Device Simulation Preview</h2>
         <div class="simulator-controls">
-            <button onclick="setPreviewSize(375, 667)">iPhone 6/7/8</button>
-            <button onclick="setPreviewSize(1024, 768)">iPad Air</button>
+            <!-- More Presets -->
+            <button onclick="setPreviewSize(375, 667)">iPhone SE/6/7/8</button>
+            <button onclick="setPreviewSize(414, 896)">iPhone XR/11</button>
+            <button onclick="setPreviewSize(390, 844)">iPhone 12/13 Pro</button>
+            <button onclick="setPreviewSize(360, 740)">Galaxy S20 Ultra</button>
+            <button onclick="setPreviewSize(768, 1024)">iPad Mini/Air</button>
+            <button onclick="setPreviewSize(1024, 1366)">iPad Pro 12.9"</button>
+            <button onclick="setPreviewSize(1366, 768)">Laptop Small</button>
             <button onclick="setPreviewSize(1920, 1080)">Desktop HD</button>
             <button onclick="setPreviewSize(window.innerWidth, window.innerHeight)" data-i18n="current_window_button">Current Window</button>
         </div>
+        <!-- Custom Size Input -->
+        <div class="simulator-custom-controls">
+             <label for="custom-width" data-i18n="custom_width_label">W:</label>
+             <input type="number" id="custom-width" min="100" max="4000" placeholder="Width">
+             <label for="custom-height" data-i18n="custom_height_label">H:</label>
+             <input type="number" id="custom-height" min="100" max="4000" placeholder="Height">
+             <button id="apply-custom-size" data-i18n="apply_btn">Apply</button>
+        </div>
         <div id="simulator-frame">
-            <p data-i18n="simulator_note">This is a simulated preview box. The displayed dimensions change based on the buttons selected above.</p>
+            <p data-i18n="simulator_note">Simulated preview box. Select a preset or enter custom dimensions.</p>
             <p id="simulator-size-display"><span data-i18n="simulator_current_size">Simulated Size:</span> ---</p>
         </div>
 

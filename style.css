@@ -4,154 +4,209 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-    position: relative; /* Needed for absolute positioning of language selector */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    background-color: #f8f9fa; /* Slightly lighter background */
+    color: #343a40; /* Darker text */
+    position: relative;
+    min-height: 100vh;
 }
 
 /* Container for main content */
 .container {
-    max-width: 800px;
+    max-width: 850px; /* Slightly wider */
     margin: 20px auto;
-    margin-top: 70px; /* Increased top margin to prevent overlap with language selector */
-    padding: 20px;
+    margin-top: 70px;
+    padding: 25px 30px; /* More padding */
     background-color: #fff;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    border-radius: 10px; /* More rounded corners */
+    border: 1px solid #e9ecef; /* Subtle border */
 }
 
 /* Headings */
 h1, h2 {
-    color: #444;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0; /* Remove default top margin for h1 inside container */
+    color: #212529; /* Darker heading */
+    border-bottom: 1px solid #dee2e6; /* Slightly darker border */
+    padding-bottom: 12px;
+    margin-top: 0;
 }
 
 h1 {
-    font-size: 1.8em;
-    margin-bottom: 15px; /* Reduced margin below h1 */
+    font-size: 2em; /* Larger h1 */
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 h2 {
-    font-size: 1.4em;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    font-size: 1.5em; /* Larger h2 */
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
 /* Intro paragraph style */
-.container > p:first-of-type { /* Style the first paragraph after h1 */
-     font-size: 1.05em;
-     color: #555;
-     margin-bottom: 25px;
+.container > p:first-of-type {
+     font-size: 1.1em;
+     color: #495057; /* Slightly lighter than main text */
+     margin-bottom: 30px; /* More space after intro */
+     line-height: 1.7;
 }
 
 
 /* Information items styling */
 .info-item {
     margin-bottom: 15px;
-    padding: 12px 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 5px;
+    padding: 15px 20px; /* More padding */
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px; /* Slightly more rounded */
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    font-size: 0.95em;
+    align-items: center; /* Vertically center items */
+    font-size: 1em; /* Standard font size */
+    position: relative; /* For positioning copy button */
 }
 
+/* Special case for full width items like User Agent */
+.info-item-full-width {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.info-item-full-width .label {
+     margin-bottom: 8px;
+}
+.info-item-full-width .copy-btn { /* Adjust copy button position */
+     position: absolute;
+     top: 12px; /* Align with label top */
+     right: 15px;
+}
+
+
 .label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: #555;
-    min-width: 180px; /* Give labels consistent width */
-    flex-shrink: 0; /* Prevent label from shrinking */
+    font-weight: 600; /* Bolder label */
+    margin-right: 15px; /* More space after label */
+    color: #495057;
+    min-width: 200px; /* Adjusted width */
+    flex-shrink: 0;
 }
 
 .value {
-    color: #0056b3; /* Darker blue for better readability */
-    word-break: break-all; /* Break long strings like User Agent */
-    flex-grow: 1; /* Allow value to take remaining space */
+    color: #0056b3;
+    word-break: break-all;
+    flex-grow: 1;
+    margin-right: 60px; /* Space before copy button */
 }
+
+/* Copy Button Styling */
+.copy-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #e9ecef;
+    color: #495057;
+    border: none;
+    padding: 4px 10px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+.copy-btn:hover {
+    background-color: #ced4da;
+    color: #212529;
+}
+.copy-btn.copied {
+    background-color: #28a745; /* Green background */
+    color: white;
+}
+
 
 /* Special styling for User Agent textarea */
 .ua-value {
     width: 100%;
     min-height: 60px;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da; /* Match other borders */
     background-color: #fff;
-    padding: 8px;
-    font-family: 'Courier New', Courier, monospace; /* Monospace for UA */
+    padding: 10px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace; /* Better monospace fonts */
     font-size: 0.9em;
     resize: vertical;
-    margin-top: 5px;
+    margin-top: 0; /* Remove top margin as label is above */
     box-sizing: border-box;
+    border-radius: 4px;
 }
 
-textarea::placeholder { /* Standard */
-    color: #999;
-    opacity: 1; /* Needed for Firefox */
+textarea::placeholder {
+    color: #adb5bd; /* Lighter placeholder */
+    opacity: 1;
 }
 
 /* Note next to viewport size */
 .note {
     font-size: 0.85em;
-    color: #777;
-    margin-left: 8px;
+    color: #6c757d; /* Slightly darker grey */
+    margin-left: 10px;
     font-style: italic;
 }
 
 /* Explanation text styling */
 .explanation {
-    font-size: 0.88em; /* Slightly smaller */
-    color: #666;      /* Grey color */
-    margin-top: -8px; /* Reduce space after info-item */
-    margin-bottom: 20px; /* Space before next info-item/heading */
-    padding-left: 15px; /* Indent slightly */
-    border-left: 2px solid #eee; /* Add a subtle left border */
-    line-height: 1.5;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: -10px; /* Pull up slightly closer */
+    margin-bottom: 25px; /* More space before next item */
+    padding-left: 20px;
+    border-left: 3px solid #e9ecef; /* Slightly thicker border */
+    line-height: 1.6;
 }
 
 
 /* Language Selector Styling */
 .language-selector-wrapper {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 18px; /* Slightly lower */
+    right: 25px; /* Slightly more inset */
     z-index: 10;
     background-color: #fff;
-    padding: 6px 12px;
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-    border: 1px solid #eee;
+    padding: 8px 15px; /* More padding */
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Slightly stronger shadow */
+    border: 1px solid #dee2e6;
 }
 
 .language-selector-wrapper label {
-    margin-right: 6px;
-    font-size: 0.9em;
-    color: #555;
+    margin-right: 8px;
+    font-size: 0.95em;
+    color: #495057;
     font-weight: 500;
 }
 
 .language-selector-wrapper select {
-    padding: 4px 6px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 0.9em;
+    padding: 5px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
     cursor: pointer;
+    background-color: #fff; /* Ensure background */
 }
 
 /* Simulator Styling */
+.simulator-controls {
+    margin-bottom: 15px; /* Space between presets and custom */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Use gap for spacing */
+}
+
 .simulator-controls button {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 8px 15px;
+    margin: 0; /* Remove margin as gap handles spacing */
+    padding: 9px 16px; /* Slightly larger buttons */
     cursor: pointer;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px; /* More rounded */
     font-size: 0.9em;
     transition: background-color 0.2s ease;
 }
@@ -162,20 +217,64 @@ textarea::placeholder { /* Standard */
     background-color: #004085;
 }
 
+/* Custom Simulator Controls */
+.simulator-custom-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.simulator-custom-controls label {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #495057;
+}
+.simulator-custom-controls input[type="number"] {
+    width: 80px; /* Fixed width for inputs */
+    padding: 6px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+/* Hide spinner arrows on number inputs (optional) */
+.simulator-custom-controls input[type=number]::-webkit-inner-spin-button,
+.simulator-custom-controls input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.simulator-custom-controls input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+#apply-custom-size {
+    padding: 6px 15px;
+    font-size: 0.9em;
+    background-color: #28a745; /* Green apply button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#apply-custom-size:hover {
+    background-color: #218838;
+}
+
 
 #simulator-frame {
-    border: 2px dashed #ccc;
+    border: 2px dashed #ced4da;
     margin-top: 15px;
-    padding: 20px;
-    background-color: #fdfdfd;
+    padding: 25px; /* More padding */
+    background-color: #f8f9fa; /* Match item background */
     overflow: hidden;
     transition: width 0.3s ease, height 0.3s ease;
     box-sizing: border-box;
     text-align: center;
-    color: #777;
-    border-radius: 5px;
-    min-height: 80px; /* Give it some minimum height */
-    display: flex; /* Center content vertically and horizontally */
+    color: #6c757d;
+    border-radius: 6px;
+    min-height: 100px; /* Slightly larger min-height */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -183,67 +282,118 @@ textarea::placeholder { /* Standard */
 
 #simulator-size-display {
     font-weight: bold;
-    color: #555;
+    color: #495057;
     margin-top: 10px;
-    font-size: 0.95em;
+    font-size: 1em; /* Slightly larger */
 }
 
 
-/* Basic Responsive Adjustments */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+     .label {
+         min-width: 150px; /* Reduce label width */
+     }
+     .info-item .value {
+         margin-right: 55px; /* Adjust space for copy button */
+     }
+      .info-item-full-width .copy-btn {
+         top: 10px;
+         right: 10px;
+     }
+      .copy-btn {
+         padding: 3px 8px;
+         font-size: 0.75em;
+     }
+}
+
+
 @media (max-width: 650px) {
     .container {
         margin-left: 10px;
         margin-right: 10px;
-        padding: 15px;
-        margin-top: 80px; /* More space needed if language selector wraps */
+        padding: 20px 15px;
+        margin-top: 80px;
     }
 
-    .info-item {
-        flex-direction: column; /* Stack label above value */
+    .info-item:not(.info-item-full-width) { /* Apply stacking only to standard items */
+        flex-direction: column;
         align-items: flex-start;
+        position: static; /* Reset position for stacking */
     }
-
-    .label {
-        min-width: 100%; /* Label takes full width */
+     .info-item:not(.info-item-full-width) .label {
+        min-width: 100%;
         margin-bottom: 5px;
         margin-right: 0;
     }
+     .info-item:not(.info-item-full-width) .value {
+         margin-right: 0; /* Remove right margin */
+         margin-bottom: 10px; /* Add space below value */
+     }
+
+     .info-item:not(.info-item-full-width) .copy-btn {
+         position: static; /* Reset positioning */
+         transform: none;
+         margin-top: 5px; /* Space above button */
+     }
+
 
     .language-selector-wrapper {
-        /* Optional: Make selector full width or center it on small screens */
-         position: static; /* Remove absolute positioning */
-         margin-bottom: 15px;
-         text-align: right; /* Align to right still */
+         position: static;
+         margin-bottom: 20px; /* More space */
+         text-align: right;
          box-shadow: none;
          border: none;
          background: none;
          padding: 0;
     }
 
-    /* Adjust container margin if selector becomes static */
     .container {
-        margin-top: 20px; /* Reset top margin */
+        margin-top: 20px;
     }
 
     .explanation {
-        margin-top: 5px; /* Adjust spacing on mobile */
+        margin-top: 5px;
         padding-left: 0;
         border-left: none;
+        margin-bottom: 20px; /* Ensure space below */
     }
+     .simulator-custom-controls {
+         gap: 8px; /* Reduce gap */
+     }
+     .simulator-custom-controls input[type="number"] {
+         width: 65px; /* Smaller inputs */
+     }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     h1 {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
     h2 {
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
      .simulator-controls button {
-        width: calc(50% - 15px); /* Two buttons per row */
+        flex-basis: calc(50% - 5px); /* Try two buttons per row */
+        font-size: 0.85em;
+        padding: 8px 10px;
      }
     .container > p:first-of-type {
-         font-size: 1em; /* Adjust intro paragraph size */
+         font-size: 1em;
     }
+     .simulator-custom-controls {
+        justify-content: space-between; /* Space out custom controls */
+     }
+      .simulator-custom-controls input[type="number"] {
+         width: 60px;
+     }
+      #apply-custom-size {
+         flex-grow: 1; /* Let apply button take space if needed */
+         margin-top: 5px; /* Add space if it wraps */
+     }
+      .info-item-full-width .copy-btn {
+         top: 8px; /* Adjust for smaller screens */
+         right: 8px;
+     }
 
 }
