@@ -1,0 +1,18 @@
+{
+  "title": "屏幕与浏览器信息检测器",
+  "description": "在线检测您的屏幕分辨率、浏览器视窗大小、设备像素比(DPR)、颜色深度和 User Agent 信息。",
+  "main_heading": "屏幕与浏览器信息检测器",
+  "screen_resolution_label": "屏幕分辨率:",
+  "viewport_size_label": "浏览器视窗可用大小:",
+  "viewport_dynamic_note": "(尝试调整浏览器窗口大小)",
+  "dpr_label": "设备像素比 (DPR):",
+  "color_depth_label": "颜色深度:",
+  "user_agent_label": "用户代理 (User Agent):",
+  "simulator_heading": "设备模拟预览 (示例)",
+  "simulator_note": "这是一个模拟预览框，尺寸会根据上方按钮变化。",
+  "simulator_current_size": "模拟尺寸:",
+  "detecting": "检测中...",
+  "not_available": "无法获取",
+  "current_window_button": "当前窗口",
+  "language_select_label": "语言:"
+}

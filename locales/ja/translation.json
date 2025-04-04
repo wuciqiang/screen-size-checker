@@ -1,0 +1,18 @@
+{
+  "title": "画面・ブラウザ情報チェッカー",
+  "description": "画面解像度、ビューポートサイズ、DPR、色深度、ユーザーエージェントを検出するオンラインツールです。",
+  "main_heading": "画面・ブラウザ情報チェッカー",
+  "screen_resolution_label": "画面解像度：",
+  "viewport_size_label": "ブラウザビューポートサイズ：",
+  "viewport_dynamic_note": "（ブラウザウィンドウのサイズを変更してみてください）",
+  "dpr_label": "デバイスピクセル比 (DPR)：",
+  "color_depth_label": "色深度：",
+  "user_agent_label": "ユーザーエージェント：",
+  "simulator_heading": "デバイスシミュレーションプレビュー（例）",
+  "simulator_note": "これはシミュレートされたプレビューボックスです。サイズは上のボタンに基づいて変更されます。",
+  "simulator_current_size": "シミュレートされたサイズ：",
+  "detecting": "検出中...",
+  "not_available": "N/A",
+  "current_window_button": "現在のウィンドウ",
+  "language_select_label": "言語："
+}

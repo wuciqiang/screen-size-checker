@@ -1,0 +1,18 @@
+{
+  "title": "Bildschirm- & Browser-Info Prüfer",
+  "description": "Online-Tool zur Erkennung Ihrer Bildschirmauflösung, Viewport-Größe, DPR, Farbtiefe und User Agent.",
+  "main_heading": "Bildschirm- & Browser-Info Prüfer",
+  "screen_resolution_label": "Bildschirmauflösung:",
+  "viewport_size_label": "Größe des Browser-Ansichtsfensters:",
+  "viewport_dynamic_note": "(Versuchen Sie, die Größe des Browserfensters zu ändern)",
+  "dpr_label": "Gerätepixelverhältnis (DPR):",
+  "color_depth_label": "Farbtiefe:",
+  "user_agent_label": "User Agent:",
+  "simulator_heading": "Gerätesimulationsvorschau (Beispiel)",
+  "simulator_note": "Dies ist ein simuliertes Vorschaufenster. Die Größe ändert sich basierend auf den obigen Schaltflächen.",
+  "simulator_current_size": "Simulierte Größe:",
+  "detecting": "Erkennung läuft...",
+  "not_available": "N/V",
+  "current_window_button": "Aktuelles Fenster",
+  "language_select_label": "Sprache:"
+}

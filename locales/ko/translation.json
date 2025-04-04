@@ -1,0 +1,18 @@
+{
+  "title": "화면 및 브라우저 정보 검사기",
+  "description": "화면 해상도, 뷰포트 크기, DPR, 색 농도 및 사용자 에이전트를 감지하는 온라인 도구입니다.",
+  "main_heading": "화면 및 브라우저 정보 검사기",
+  "screen_resolution_label": "화면 해상도:",
+  "viewport_size_label": "브라우저 뷰포트 크기:",
+  "viewport_dynamic_note": "(브라우저 창 크기를 조절해 보세요)",
+  "dpr_label": "장치 픽셀 비율 (DPR):",
+  "color_depth_label": "색 농도:",
+  "user_agent_label": "사용자 에이전트 (User Agent):",
+  "simulator_heading": "장치 시뮬레이션 미리보기 (예시)",
+  "simulator_note": "이것은 시뮬레이션된 미리보기 상자입니다. 크기는 위의 버튼에 따라 변경됩니다.",
+  "simulator_current_size": "시뮬레이션된 크기:",
+  "detecting": "감지 중...",
+  "not_available": "해당 없음",
+  "current_window_button": "현재 창",
+  "language_select_label": "언어:"
+}

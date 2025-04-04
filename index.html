@@ -1,57 +1,91 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en"> <!-- Default language attribute -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>屏幕与浏览器信息检测器</title>
-    <meta name="description" content="在线检测您的屏幕分辨率、浏览器视窗大小、设备像素比(DPR)、颜色深度和 User Agent 信息。">
+    <!-- Title and Description will be set by i18next -->
+    <title data-i18n="title">Screen & Browser Info Checker</title>
+    <meta name="description" content="" data-i18n="[content]description">
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- i18next Libraries -->
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
 
+    <!-- Language Selector -->
+    <div class="language-selector-wrapper">
+         <label for="language-select" data-i18n="language_select_label">Language:</label>
+         <select id="language-select">
+             <option value="en">English</option>
+             <option value="zh">中文 (Chinese)</option>
+             <option value="fr">Français (French)</option>
+             <option value="de">Deutsch (German)</option>
+             <option value="ko">한국어 (Korean)</option>
+             <option value="ja">日本語 (Japanese)</option>
+         </select>
+    </div>
+
     <div class="container">
-        <h1>屏幕与浏览器信息检测器</h1>
+        <!-- Main Heading -->
+        <h1 data-i18n="main_heading">Screen & Browser Info Checker</h1>
 
+        <!-- Screen Resolution -->
         <div class="info-item">
-            <span class="label">屏幕分辨率 (Screen Resolution):</span>
-            <span class="value" id="screen-resolution">检测中...</span>
+            <span class="label" data-i18n="screen_resolution_label">Screen Resolution:</span>
+            <span class="value" id="screen-resolution" data-i18n="detecting">Detecting...</span>
         </div>
 
+        <!-- Viewport Size -->
         <div class="info-item">
-            <span class="label">浏览器视窗可用大小 (Viewport Size):</span>
-            <span class="value" id="viewport-size">检测中... (尝试调整浏览器窗口大小)</span>
+            <span class="label" data-i18n="viewport_size_label">Browser Viewport Size:</span>
+            <span class="value" id="viewport-size">
+                <!-- Initial text, will be replaced by script -->
+                <span data-i18n="detecting">Detecting...</span>
+                <!-- Dynamic note -->
+                <span class="note" data-i18n="viewport_dynamic_note">(Try resizing the browser window)</span>
+            </span>
         </div>
 
+        <!-- Device Pixel Ratio -->
         <div class="info-item">
-            <span class="label">设备像素比 (Device Pixel Ratio / DPR):</span>
-            <span class="value" id="dpr">检测中...</span>
+            <span class="label" data-i18n="dpr_label">Device Pixel Ratio / DPR:</span>
+            <span class="value" id="dpr" data-i18n="detecting">Detecting...</span>
         </div>
 
+        <!-- Color Depth -->
         <div class="info-item">
-            <span class="label">颜色深度 (Color Depth):</span>
-            <span class="value" id="color-depth">检测中...</span>
+            <span class="label" data-i18n="color_depth_label">Color Depth:</span>
+            <span class="value" id="color-depth" data-i18n="detecting">Detecting...</span>
         </div>
 
+        <!-- User Agent -->
         <div class="info-item">
-            <span class="label">User Agent:</span>
-            <textarea class="value ua-value" id="user-agent" readonly>检测中...</textarea>
+            <span class="label" data-i18n="user_agent_label">User Agent:</span>
+            <!-- Placeholder will be set by i18next -->
+            <textarea class="value ua-value" id="user-agent" readonly data-i18n="[placeholder]detecting">Detecting...</textarea>
         </div>
 
-        <!-- 可选: 模拟预览框 -->
-        <h2>设备模拟预览 (示例)</h2>
+        <!-- Optional: Device Simulator -->
+        <h2 data-i18n="simulator_heading">Device Simulation Preview (Example)</h2>
         <div class="simulator-controls">
             <button onclick="setPreviewSize(375, 667)">iPhone 6/7/8</button>
             <button onclick="setPreviewSize(1024, 768)">iPad Air</button>
             <button onclick="setPreviewSize(1920, 1080)">Desktop HD</button>
-            <button onclick="setPreviewSize(window.innerWidth, window.innerHeight)">当前窗口</button>
+            <button onclick="setPreviewSize(window.innerWidth, window.innerHeight)" data-i18n="current_window_button">Current Window</button>
         </div>
         <div id="simulator-frame">
-            <p>这是一个模拟预览框，尺寸会根据上方按钮变化。</p>
-            <p id="simulator-size-display"></p>
+            <p data-i18n="simulator_note">This is a simulated preview box. Size changes based on buttons above.</p>
+            <!-- Size display will be updated by script -->
+            <p id="simulator-size-display"><span data-i18n="simulator_current_size">Simulated Size:</span> ---</p>
         </div>
 
     </div>
 
+    <!-- Link to your JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>

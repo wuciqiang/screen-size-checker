@@ -1,0 +1,18 @@
+{
+  "title": "Vérificateur d'informations d'écran et de navigateur",
+  "description": "Outil en ligne pour détecter la résolution de votre écran, la taille de la fenêtre d'affichage, le DPR, la profondeur de couleur et l'User Agent.",
+  "main_heading": "Vérificateur d'informations d'écran et de navigateur",
+  "screen_resolution_label": "Résolution de l'écran :",
+  "viewport_size_label": "Taille de la fenêtre du navigateur :",
+  "viewport_dynamic_note": "(Essayez de redimensionner la fenêtre du navigateur)",
+  "dpr_label": "Ratio pixels/appareil (DPR) :",
+  "color_depth_label": "Profondeur de couleur :",
+  "user_agent_label": "User Agent :",
+  "simulator_heading": "Aperçu de simulation d'appareil (Exemple)",
+  "simulator_note": "Ceci est une boîte d'aperçu simulée. La taille change en fonction des boutons ci-dessus.",
+  "simulator_current_size": "Taille simulée :",
+  "detecting": "Détection...",
+  "not_available": "N/D",
+  "current_window_button": "Fenêtre actuelle",
+  "language_select_label": "Langue :"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Screen & Browser Info Checker",
+  "description": "Online tool to detect your screen resolution, viewport size, DPR, color depth, and User Agent.",
+  "main_heading": "Screen & Browser Info Checker",
+  "screen_resolution_label": "Screen Resolution:",
+  "viewport_size_label": "Browser Viewport Size:",
+  "viewport_dynamic_note": "(Try resizing the browser window)",
+  "dpr_label": "Device Pixel Ratio / DPR:",
+  "color_depth_label": "Color Depth:",
+  "user_agent_label": "User Agent:",
+  "simulator_heading": "Device Simulation Preview (Example)",
+  "simulator_note": "This is a simulated preview box. Size changes based on buttons above.",
+  "simulator_current_size": "Simulated Size:",
+  "detecting": "Detecting...",
+  "not_available": "N/A",
+  "current_window_button": "Current Window",
+  "language_select_label": "Language:"
+}
