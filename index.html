@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屏幕与浏览器信息检测器</title>
+    <meta name="description" content="在线检测您的屏幕分辨率、浏览器视窗大小、设备像素比(DPR)、颜色深度和 User Agent 信息。">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>屏幕与浏览器信息检测器</h1>
+
+        <div class="info-item">
+            <span class="label">屏幕分辨率 (Screen Resolution):</span>
+            <span class="value" id="screen-resolution">检测中...</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">浏览器视窗可用大小 (Viewport Size):</span>
+            <span class="value" id="viewport-size">检测中... (尝试调整浏览器窗口大小)</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">设备像素比 (Device Pixel Ratio / DPR):</span>
+            <span class="value" id="dpr">检测中...</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">颜色深度 (Color Depth):</span>
+            <span class="value" id="color-depth">检测中...</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">User Agent:</span>
+            <textarea class="value ua-value" id="user-agent" readonly>检测中...</textarea>
+        </div>
+
+        <!-- 可选: 模拟预览框 -->
+        <h2>设备模拟预览 (示例)</h2>
+        <div class="simulator-controls">
+            <button onclick="setPreviewSize(375, 667)">iPhone 6/7/8</button>
+            <button onclick="setPreviewSize(1024, 768)">iPad Air</button>
+            <button onclick="setPreviewSize(1920, 1080)">Desktop HD</button>
+            <button onclick="setPreviewSize(window.innerWidth, window.innerHeight)">当前窗口</button>
+        </div>
+        <div id="simulator-frame">
+            <p>这是一个模拟预览框，尺寸会根据上方按钮变化。</p>
+            <p id="simulator-size-display"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
