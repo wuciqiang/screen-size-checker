@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Default language attribute -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title and Description will be set by i18next -->
-    <title data-i18n="title">Screen & Browser Info Checker</title>
-    <meta name="description" content="" data-i18n="[content]description">
+
+    <!-- SEO Optimized Title & Description -->
+    <title data-i18n="seo_title">Screen Size Checker: Check Resolution, Viewport & Browser Info Online</title>
+    <meta name="description" content="" data-i18n="[content]seo_description">
 
     <link rel="stylesheet" href="style.css">
 
@@ -30,44 +31,49 @@
     </div>
 
     <div class="container">
-        <!-- Main Heading -->
-        <h1 data-i18n="main_heading">Screen & Browser Info Checker</h1>
+        <!-- Updated Main Heading -->
+        <h1 data-i18n="main_heading">Screen Size & Browser Information Checker</h1>
+        <p data-i18n="intro_paragraph">Instantly detect your display details. This online tool helps you find your screen resolution, browser viewport dimensions, device pixel ratio (DPR), color depth, and check your user agent string.</p>
 
         <!-- Screen Resolution -->
         <div class="info-item">
             <span class="label" data-i18n="screen_resolution_label">Screen Resolution:</span>
             <span class="value" id="screen-resolution" data-i18n="detecting">Detecting...</span>
         </div>
+        <p class="explanation" data-i18n="screen_resolution_explanation">Displays the total width and height of your entire screen in pixels. Useful for knowing your monitor's full display specs.</p>
 
         <!-- Viewport Size -->
         <div class="info-item">
             <span class="label" data-i18n="viewport_size_label">Browser Viewport Size:</span>
             <span class="value" id="viewport-size">
-                <!-- Initial text, will be replaced by script -->
                 <span data-i18n="detecting">Detecting...</span>
-                <!-- Dynamic note -->
                 <span class="note" data-i18n="viewport_dynamic_note">(Try resizing the browser window)</span>
             </span>
         </div>
+        <p class="explanation" data-i18n="viewport_size_explanation">This is the visible area width and height within your current browser window. Crucial information for responsive web design and development.</p>
 
         <!-- Device Pixel Ratio -->
         <div class="info-item">
-            <span class="label" data-i18n="dpr_label">Device Pixel Ratio / DPR:</span>
+            <span class="label" data-i18n="dpr_label">Device Pixel Ratio (DPR):</span>
             <span class="value" id="dpr" data-i18n="detecting">Detecting...</span>
         </div>
+        <p class="explanation" data-i18n="dpr_explanation">Indicates how many physical screen pixels render each CSS pixel. A DPR value of 2 or higher usually means a high-resolution 'Retina' display, important for sharp images and UI rendering.</p>
 
         <!-- Color Depth -->
         <div class="info-item">
             <span class="label" data-i18n="color_depth_label">Color Depth:</span>
             <span class="value" id="color-depth" data-i18n="detecting">Detecting...</span>
         </div>
+        <p class="explanation" data-i18n="color_depth_explanation">Represents the number of bits used to represent the color of a single pixel on your screen.</p>
+
 
         <!-- User Agent -->
         <div class="info-item">
-            <span class="label" data-i18n="user_agent_label">User Agent:</span>
-            <!-- Placeholder will be set by i18next -->
+            <!-- Updated Label -->
+            <span class="label" data-i18n="user_agent_label">User Agent String:</span>
             <textarea class="value ua-value" id="user-agent" readonly data-i18n="[placeholder]detecting">Detecting...</textarea>
         </div>
+         <p class="explanation" data-i18n="user_agent_explanation">Your browser sends this string to websites to identify itself, including browser type, version, and operating system (OS). Useful for debugging and web development.</p>
 
         <!-- Optional: Device Simulator -->
         <h2 data-i18n="simulator_heading">Device Simulation Preview (Example)</h2>
@@ -78,8 +84,7 @@
             <button onclick="setPreviewSize(window.innerWidth, window.innerHeight)" data-i18n="current_window_button">Current Window</button>
         </div>
         <div id="simulator-frame">
-            <p data-i18n="simulator_note">This is a simulated preview box. Size changes based on buttons above.</p>
-            <!-- Size display will be updated by script -->
+            <p data-i18n="simulator_note">This is a simulated preview box. The displayed dimensions change based on the buttons selected above.</p>
             <p id="simulator-size-display"><span data-i18n="simulator_current_size">Simulated Size:</span> ---</p>
         </div>
 
