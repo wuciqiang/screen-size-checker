@@ -116,10 +116,30 @@ export async function copyAllInfo() {
     
     infoItems.forEach(item => {
         const label = item.querySelector('.label')?.textContent.trim();
-        const value = item.querySelector('.value')?.textContent.trim();
+        let value;
+        
+        // 特殊处理用户代理字符串
+        if (item.classList.contains('info-item-full-width')) {
+            const textarea = item.querySelector('textarea#user-agent');
+            value = textarea?.value.trim();
+        } else {
+            const valueElement = item.querySelector('.value');
+            // 特殊处理浏览器视窗大小，只获取数值部分
+            if (valueElement.id === 'viewport-size') {
+                const viewportValue = valueElement.querySelector('#viewport-value');
+                value = viewportValue?.textContent.trim();
+            } else {
+                value = valueElement?.textContent.trim();
+            }
+        }
         
         if (label && value && value !== i18next.t('detecting') && value !== i18next.t('not_available')) {
-            allInfo += `${label} ${value}\n`;
+            // 对于用户代理字符串，保持原始格式
+            if (item.classList.contains('info-item-full-width')) {
+                allInfo += `${label}\n${value}\n\n`;
+            } else {
+                allInfo += `${label} ${value}\n`;
+            }
         }
     });
 
