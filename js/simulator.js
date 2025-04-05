@@ -47,4 +47,31 @@ export function applyCustomSize() {
         alert(i18next.t('invalid_custom_size_alert') || 'Please enter valid positive numbers for width and height.');
         console.warn("Invalid custom dimensions entered.");
     }
+}
+
+/**
+ * Set up event listeners for simulator buttons
+ */
+export function setupSimulatorListeners() {
+    // Set up preset buttons
+    const presetButtons = document.querySelectorAll('.simulator-controls button');
+    presetButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.dataset.currentWindow === 'true') {
+                setPreviewSize(window.innerWidth, window.innerHeight);
+            } else {
+                const width = parseInt(button.dataset.width, 10);
+                const height = parseInt(button.dataset.height, 10);
+                if (!isNaN(width) && !isNaN(height)) {
+                    setPreviewSize(width, height);
+                }
+            }
+        });
+    });
+
+    // Set up custom size apply button
+    const applyButton = document.getElementById('apply-custom-size');
+    if (applyButton) {
+        applyButton.addEventListener('click', applyCustomSize);
+    }
 } 

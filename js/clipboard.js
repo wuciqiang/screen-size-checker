@@ -22,12 +22,27 @@ export async function handleCopyClick(event) {
         return;
     }
 
-    let textToCopy = '';
+    // Get the label text if available
+    let labelText = '';
+    const labelElement = targetElement.closest('.info-item')?.querySelector('.label');
+    if (labelElement) {
+        labelText = labelElement.textContent.trim();
+    }
+
+    let valueText = '';
     // Check if target is textarea or other element
     if (targetElement.tagName === 'TEXTAREA' || targetElement.tagName === 'INPUT') {
-        textToCopy = targetElement.value;
+        valueText = targetElement.value;
     } else {
-        textToCopy = targetElement.textContent;
+        valueText = targetElement.textContent;
+    }
+
+    // Combine label and value if both exist
+    let textToCopy = '';
+    if (labelText && valueText) {
+        textToCopy = `${labelText} ${valueText}`;
+    } else {
+        textToCopy = valueText;
     }
 
     if (!textToCopy || textToCopy === i18next.t('detecting') || textToCopy === i18next.t('not_available')) {
@@ -44,7 +59,30 @@ export async function handleCopyClick(event) {
     }
 
     try {
-        await navigator.clipboard.writeText(textToCopy);
+        // Try using the modern Clipboard API first
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(textToCopy);
+        } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                textArea.remove();
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+                textArea.remove();
+                throw new Error('Fallback: Oops, unable to copy');
+            }
+        }
+
         // Visual feedback
         const originalText = i18next.t('copy_btn'); // Get translated "Copy" text
         button.textContent = i18next.t('copied_btn'); // Get translated "Copied!" text

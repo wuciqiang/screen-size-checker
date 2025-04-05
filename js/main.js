@@ -3,7 +3,7 @@
 // Import modules
 import { initializeI18next, updateUIElements, setupLanguageSelector } from './i18n.js';
 import { updateDisplay, updateViewportSize } from './device-detector.js';
-import { setPreviewSize, applyCustomSize } from './simulator.js';
+import { setPreviewSize, applyCustomSize, setupSimulatorListeners } from './simulator.js';
 import { handleCopyClick } from './clipboard.js';
 
 // Wait for DOM to be fully loaded
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Set up event listeners
         setupEventListeners();
+        setupSimulatorListeners();
         console.log('Event listeners set up');
         
         console.log('Application initialized successfully');
@@ -62,20 +63,12 @@ function setupEventListeners() {
         updateViewportSize();
     });
 
-    // Copy button click event
-    const copyButton = document.getElementById('copy-button');
-    if (copyButton) {
-        copyButton.addEventListener('click', () => {
-            const userAgentTextarea = document.getElementById('user-agent');
-            if (userAgentTextarea) {
-                userAgentTextarea.select();
-                document.execCommand('copy');
-                copyButton.textContent = i18next.t('copy_success');
-                setTimeout(() => {
-                    copyButton.textContent = i18next.t('copy_button');
-                }, 2000);
-            }
-        });
+    // Set up copy button delegation
+    const container = document.querySelector('.container');
+    if (container) {
+        container.addEventListener('click', handleCopyClick);
+    } else {
+        console.warn("Container element not found for copy delegation.");
     }
 }
 
