@@ -41,5 +41,8 @@
   "copy_btn": "Копировать",
   "copied_btn": "Скопировано!",
   "copy_nothing_feedback": "Нечего копировать",
-  "copy_failed_feedback": "Ошибка копирования"
+  "copy_failed_feedback": "Ошибка копирования",
+  "copy_all_btn": "Копировать Все",
+  "copied_all_btn": "Все Скопировано!",
+  "copy_all_failed_btn": "Ошибка Копирования"
 } 

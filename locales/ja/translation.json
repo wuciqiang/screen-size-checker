@@ -41,5 +41,8 @@
   "copy_btn": "コピー",
   "copied_btn": "コピーしました！",
   "copy_nothing_feedback": "コピーするものがありません",
-  "copy_failed_feedback": "コピー失敗"
+  "copy_failed_feedback": "コピー失敗",
+  "copy_all_btn": "すべてコピー",
+  "copied_all_btn": "すべてコピーしました！",
+  "copy_all_failed_btn": "コピー失敗"
 }

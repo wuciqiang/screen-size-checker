@@ -16,6 +16,12 @@ export async function initializeI18next() {
         const detectedLng = detectUserLanguage();
         const defaultLng = savedLng || detectedLng || 'en';
         
+        console.log('Initializing i18next with:', {
+            savedLng,
+            detectedLng,
+            defaultLng
+        });
+        
         // Initialize with default language first
         await i18next
             .use(i18nextHttpBackend)
@@ -25,9 +31,14 @@ export async function initializeI18next() {
                 fallbackLng: 'en',
                 supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
                 backend: {
-                    loadPath: '/locales/{{lng}}/translation.json',
+                    loadPath: 'locales/{{lng}}/translation.json',
                     allowMultiLoading: true,
-                    reloadInterval: false
+                    reloadInterval: false,
+                    queryStringParams: { v: new Date().getTime() },
+                    customHeaders: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json; charset=utf-8'
+                    }
                 },
                 detection: {
                     order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
@@ -42,8 +53,18 @@ export async function initializeI18next() {
                 keySeparator: '.',
                 nsSeparator: ':',
                 // Debug mode - set to true to see i18next debug messages
-                debug: false
+                debug: false,
+                // 添加以下配置以确保正确处理中文
+                interpolation: {
+                    escapeValue: false
+                },
+                compatibilityJSON: 'v4'
             });
+
+        // 如果是中文，使用特殊处理
+        if (defaultLng === 'zh') {
+            await loadChineseTranslations();
+        }
 
         // Wait for the initial language to be loaded
         await i18next.loadNamespaces(i18next.language);
@@ -55,6 +76,8 @@ export async function initializeI18next() {
         preloadOtherLanguages();
         
         console.log('i18next initialized with language:', i18next.language);
+        console.log('Current translations:', i18next.getResourceBundle(i18next.language));
+        
         return i18next;
     } catch (error) {
         console.error('Failed to initialize i18next:', error);
@@ -126,11 +149,54 @@ function preloadOtherLanguages() {
     const languages = ['zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
     languages.forEach(lng => {
         if (lng !== i18next.language) {
-            i18next.loadNamespaces(lng, () => {
-                console.log(`Preloaded language: ${lng}`);
-            });
+            // 对于中文，使用特殊处理
+            if (lng === 'zh') {
+                loadChineseTranslations();
+            } else {
+                i18next.loadNamespaces(lng, () => {
+                    console.log(`Preloaded language: ${lng}`);
+                });
+            }
         }
     });
+}
+
+/**
+ * 直接加载中文翻译文件
+ */
+async function loadChineseTranslations() {
+    try {
+        console.log('Attempting to load Chinese translations...');
+        const response = await fetch('locales/zh/translation.json', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        console.log('Chinese translation file fetched successfully');
+        const text = await response.text();
+        console.log('Raw Chinese translation content:', text.substring(0, 100) + '...');
+        
+        try {
+            const data = JSON.parse(text);
+            console.log('Chinese translations parsed successfully');
+            i18next.addResourceBundle('zh', 'translation', data, true, true);
+            console.log('Chinese translations added to i18next');
+            return true;
+        } catch (parseError) {
+            console.error('Error parsing Chinese translations:', parseError);
+            console.log('Failed content:', text);
+            return false;
+        }
+    } catch (error) {
+        console.error('Error loading Chinese translations:', error);
+        return false;
+    }
 }
 
 /**
@@ -189,6 +255,8 @@ export function setupLanguageSelector() {
         const currentLang = localStorage.getItem('i18nextLng') || i18next.language.split('-')[0];
         langSelector.value = currentLang;
         
+        console.log('Setting up language selector with current language:', currentLang);
+        
         // Add all supported languages
         const supportedLngs = i18next.options.supportedLngs;
         langSelector.innerHTML = supportedLngs.map(lng => {
@@ -201,20 +269,43 @@ export function setupLanguageSelector() {
         
         langSelector.addEventListener('change', async (event) => {
             const chosenLng = event.target.value;
+            console.log('Language change requested to:', chosenLng);
             
             // Add transition class
             document.body.classList.add('language-changing');
             
-            // Save to localStorage
-            localStorage.setItem('i18nextLng', chosenLng);
-            
-            // Change language
-            await i18next.changeLanguage(chosenLng);
-            
-            // Remove transition class after a short delay
-            setTimeout(() => {
-                document.body.classList.remove('language-changing');
-            }, 300);
+            try {
+                // Save to localStorage
+                localStorage.setItem('i18nextLng', chosenLng);
+                
+                // 对于中文，使用特殊处理
+                if (chosenLng === 'zh') {
+                    await loadChineseTranslations();
+                    await i18next.changeLanguage(chosenLng);
+                } else {
+                    // Change language
+                    await i18next.changeLanguage(chosenLng);
+                }
+                
+                console.log('Language changed successfully to:', chosenLng);
+                console.log('Current translations:', i18next.getResourceBundle(chosenLng));
+                
+                // Update UI elements
+                updateUIElements();
+                
+                // Update html lang attribute
+                document.documentElement.lang = chosenLng;
+                
+                // Remove transition class after a short delay
+                setTimeout(() => {
+                    document.body.classList.remove('language-changing');
+                }, 300);
+            } catch (error) {
+                console.error('Error changing language:', error);
+                // Revert to previous language on error
+                langSelector.value = i18next.language;
+                alert('Failed to change language. Please try again.');
+            }
         });
     } else {
         console.warn("Language selector not found.");

@@ -4,7 +4,7 @@
 import { initializeI18next, updateUIElements, setupLanguageSelector } from './i18n.js';
 import { updateDisplay, updateViewportSize } from './device-detector.js';
 import { setPreviewSize, applyCustomSize, setupSimulatorListeners } from './simulator.js';
-import { handleCopyClick } from './clipboard.js';
+import { handleCopyClick, copyAllInfo } from './clipboard.js';
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -69,6 +69,27 @@ function setupEventListeners() {
         container.addEventListener('click', handleCopyClick);
     } else {
         console.warn("Container element not found for copy delegation.");
+    }
+
+    // Set up copy all button
+    const copyAllBtn = document.getElementById('copy-all-btn');
+    if (copyAllBtn) {
+        copyAllBtn.addEventListener('click', async () => {
+            const success = await copyAllInfo();
+            if (success) {
+                copyAllBtn.textContent = i18next.t('copied_all_btn');
+                copyAllBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyAllBtn.textContent = i18next.t('copy_all_btn');
+                    copyAllBtn.classList.remove('copied');
+                }, 1500);
+            } else {
+                copyAllBtn.textContent = i18next.t('copy_all_failed_btn');
+                setTimeout(() => {
+                    copyAllBtn.textContent = i18next.t('copy_all_btn');
+                }, 2000);
+            }
+        });
     }
 }
 

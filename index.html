@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Optimized Title & Description -->
@@ -27,16 +28,16 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- Preload language files -->
-    <link rel="preload" href="/locales/en/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/zh/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/fr/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/de/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/ko/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/ja/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/es/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/ru/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/pt/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="/locales/it/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/en/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/zh/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/fr/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/de/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/ko/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/ja/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/es/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/ru/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/pt/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="locales/it/translation.json" as="fetch" crossorigin="anonymous">
 
     <!-- Preload critical resources -->
     <link rel="preload" href="css/main.css" as="style">
@@ -100,7 +101,10 @@
         <p data-i18n="intro_paragraph">Instantly detect your display and device details. This online tool helps you find screen resolution, viewport size, DPR, OS, browser version, user agent, and more.</p>
 
         <!-- Detected Information Section -->
-        <h2 data-i18n="detected_info_heading">Detected Information</h2>
+        <div class="info-section-header">
+            <h2 data-i18n="detected_info_heading">Detected Information</h2>
+            <button id="copy-all-btn" class="copy-all-btn" data-i18n="copy_all_btn">Copy All</button>
+        </div>
 
         <!-- Screen Resolution -->
         <div class="info-item">

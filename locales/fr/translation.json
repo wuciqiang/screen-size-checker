@@ -41,5 +41,8 @@
   "copy_btn": "Copier",
   "copied_btn": "Copié !",
   "copy_nothing_feedback": "Rien à copier",
-  "copy_failed_feedback": "Copie échouée"
+  "copy_failed_feedback": "Copie échouée",
+  "copy_all_btn": "Tout Copier",
+  "copied_all_btn": "Tout Copié !",
+  "copy_all_failed_btn": "Échec de la Copie"
 }

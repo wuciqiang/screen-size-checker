@@ -105,4 +105,56 @@ export async function handleCopyClick(event) {
             button.textContent = originalText;
         }, 2000);
     }
+}
+
+/**
+ * Copy all detected information
+ */
+export async function copyAllInfo() {
+    const infoItems = document.querySelectorAll('.info-item');
+    let allInfo = '';
+    
+    infoItems.forEach(item => {
+        const label = item.querySelector('.label')?.textContent.trim();
+        const value = item.querySelector('.value')?.textContent.trim();
+        
+        if (label && value && value !== i18next.t('detecting') && value !== i18next.t('not_available')) {
+            allInfo += `${label} ${value}\n`;
+        }
+    });
+
+    if (!allInfo) {
+        console.info("No information available to copy.");
+        return false;
+    }
+
+    try {
+        // Try using the modern Clipboard API first
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(allInfo);
+        } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = allInfo;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                textArea.remove();
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+                textArea.remove();
+                throw new Error('Fallback: Oops, unable to copy');
+            }
+        }
+        return true;
+    } catch (err) {
+        console.error('Failed to copy all information: ', err);
+        return false;
+    }
 } 

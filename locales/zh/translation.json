@@ -10,7 +10,7 @@
   "viewport_dynamic_note": "(调整大小时更新)",
   "viewport_size_explanation": "您浏览器窗口内的可见区域宽度和高度。响应式设计的关键。",
   "dpr_label": "设备像素比 (DPR):",
-  "dpr_explanation": "物理屏幕像素与 CSS 像素的比率。DPR ≥ 2 通常表示“视网膜”/高分屏。",
+  "dpr_explanation": "物理屏幕像素与 CSS 像素的比率。DPR ≥ 2 通常表示视网膜/高分屏。",
   "color_depth_label": "颜色深度:",
   "color_depth_explanation": "用于表示单个像素每个颜色分量的位数。",
   "os_label": "操作系统 (OS):",
@@ -41,5 +41,8 @@
   "copy_btn": "复制",
   "copied_btn": "已复制!",
   "copy_nothing_feedback": "无可复制内容",
-  "copy_failed_feedback": "复制失败"
+  "copy_failed_feedback": "复制失败",
+  "copy_all_btn": "复制全部",
+  "copied_all_btn": "已复制全部！",
+  "copy_all_failed_btn": "复制失败"
 }

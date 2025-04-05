@@ -30,6 +30,7 @@ export async function updateDisplay() {
             const width = window.screen.width;
             const height = window.screen.height;
             screenResolution.textContent = `${formatNumber(width)} × ${formatNumber(height)}`;
+            screenResolution.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // Viewport Size
@@ -39,12 +40,14 @@ export async function updateDisplay() {
         const dprValue = document.getElementById('dpr');
         if (dprValue) {
             dprValue.textContent = window.devicePixelRatio.toFixed(2);
+            dprValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // Color Depth
         const colorDepthValue = document.getElementById('color-depth');
         if (colorDepthValue) {
             colorDepthValue.textContent = formatNumber(window.screen.colorDepth);
+            colorDepthValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // OS Info
@@ -52,6 +55,7 @@ export async function updateDisplay() {
         const osValue = document.getElementById('os-info');
         if (osValue) {
             osValue.textContent = osInfo || t('not_available');
+            osValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // Browser Info
@@ -59,12 +63,14 @@ export async function updateDisplay() {
         const browserValue = document.getElementById('browser-info');
         if (browserValue) {
             browserValue.textContent = browserInfo || t('not_available');
+            browserValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // Cookies Enabled
         const cookiesValue = document.getElementById('cookies-enabled');
         if (cookiesValue) {
             cookiesValue.textContent = navigator.cookieEnabled ? t('cookies_enabled_yes') : t('cookies_enabled_no');
+            cookiesValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // Touch Support
@@ -72,12 +78,14 @@ export async function updateDisplay() {
         if (touchValue) {
             const touchSupport = ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0) || ('ontouchstart' in window);
             touchValue.textContent = touchSupport ? t('touch_supported') : t('touch_not_supported');
+            touchValue.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         // User Agent
         const userAgentTextarea = document.getElementById('user-agent');
         if (userAgentTextarea) {
             userAgentTextarea.value = navigator.userAgent || t('not_available');
+            userAgentTextarea.removeAttribute('data-i18n'); // Remove detecting state
         }
 
         console.log('Device information updated successfully');

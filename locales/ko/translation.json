@@ -41,5 +41,8 @@
   "copy_btn": "복사",
   "copied_btn": "복사됨!",
   "copy_nothing_feedback": "복사할 내용 없음",
-  "copy_failed_feedback": "복사 실패"
+  "copy_failed_feedback": "복사 실패",
+  "copy_all_btn": "모두 복사",
+  "copied_all_btn": "모두 복사됨!",
+  "copy_all_failed_btn": "복사 실패"
 }
