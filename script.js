@@ -2,35 +2,75 @@
 document.addEventListener('DOMContentLoaded', initializeApp);
 
 async function initializeApp() {
-    await initializeI18next();
+    // Load i18next resources in parallel with other initialization
+    const i18nextPromise = initializeI18next();
+    
+    // Setup event listeners that don't depend on i18next
     setupEventListeners();
-    updateDisplay(); // Initial data fetch and display
+    
+    // Wait for i18next to be ready
+    await i18nextPromise;
+    
+    // Update display after i18next is ready
+    updateDisplay();
 }
 
 // --- i18next Initialization ---
 async function initializeI18next() {
+    // Preload the default language (English) to avoid initial flash
+    const defaultLng = 'en';
+    
+    // Initialize with default language first
     await i18next
         .use(i18nextHttpBackend)
         .use(i18nextBrowserLanguageDetector)
         .init({
-            // debug: true, // Enable for development logs
-            lng: 'en', // Force English on initial load
-            fallbackLng: 'en',
+            lng: defaultLng,
+            fallbackLng: defaultLng,
             supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja'],
             backend: {
-                loadPath: 'locales/{{lng}}/{{ns}}.json'
+                loadPath: 'locales/{{lng}}/{{ns}}.json',
+                // Add cache control headers
+                allowMultiLoading: true,
+                reloadInterval: false
             },
             detection: {
                 order: ['localStorage', 'navigator'],
                 caches: ['localStorage'],
                 lookupLocalStorage: 'i18nextLng'
-            }
+            },
+            // Performance optimizations
+            initImmediate: true,
+            appendNamespaceToCIMode: false,
+            keySeparator: '.',
+            nsSeparator: ':',
+            // Disable debug in production
+            debug: false
         });
-    updateUIElements(); // Initial translation
+    
+    // Update UI with initial translations
+    updateUIElements();
     setupLanguageSelector();
-
-    // Update html lang attribute on initial load
+    
+    // Update html lang attribute
     document.documentElement.lang = i18next.language.split('-')[0];
+    
+    // Preload other languages in the background
+    preloadOtherLanguages();
+    
+    return i18next;
+}
+
+// Preload other languages in the background
+function preloadOtherLanguages() {
+    const languages = ['zh', 'fr', 'de', 'ko', 'ja'];
+    languages.forEach(lng => {
+        if (lng !== i18next.language) {
+            i18next.loadNamespaces(lng, () => {
+                console.log(`Preloaded language: ${lng}`);
+            });
+        }
+    });
 }
 
 // --- UI Update Functions ---

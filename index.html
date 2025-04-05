@@ -8,7 +8,31 @@
     <title data-i18n="seo_title">Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More</title>
     <meta name="description" content="" data-i18n="[content]seo_description">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://screensizechecker.com/">
+    <meta property="og:title" content="Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More">
+    <meta property="og:description" content="Instantly check screen resolution, viewport size, DPR, OS, browser version, cookies, touch support & user agent. Free online tool for developers & designers.">
+    <meta property="og:image" content="https://screensizechecker.com/images/screen-size-checker-og.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://screensizechecker.com/">
+    <meta property="twitter:title" content="Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More">
+    <meta property="twitter:description" content="Instantly check screen resolution, viewport size, DPR, OS, browser version, cookies, touch support & user agent. Free online tool for developers & designers.">
+    <meta property="twitter:image" content="https://screensizechecker.com/images/screen-size-checker-og.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="locales/en/translation.json" as="fetch" crossorigin="anonymous">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- i18next Libraries -->
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
@@ -18,6 +42,27 @@
     <!-- UA Parser JS Library (for OS/Browser detection) -->
     <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/src/ua-parser.min.js"></script>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Screen Size Checker",
+      "url": "https://screensizechecker.com",
+      "description": "Instantly check screen resolution, viewport size, DPR, OS, browser version, cookies, touch support & user agent. Free online tool for developers & designers.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Screen Size Checker"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -31,6 +76,10 @@
              <option value="de">Deutsch (German)</option>
              <option value="ko">한국어 (Korean)</option>
              <option value="ja">日本語 (Japanese)</option>
+             <option value="es">Español (Spanish)</option>
+             <option value="ru">Русский (Russian)</option>
+             <option value="pt">Português (Portuguese)</option>
+             <option value="it">Italiano (Italian)</option>
          </select>
     </div>
 
@@ -148,6 +197,6 @@
     </div>
 
     <!-- Link to your JavaScript file -->
-    <script src="script.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

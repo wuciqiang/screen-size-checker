@@ -1,0 +1,13 @@
+/* Main CSS file - imports all other CSS files */
+
+/* Base styles */
+@import 'base.css';
+
+/* Information items */
+@import 'info-items.css';
+
+/* Language selector */
+@import 'language-selector.css';
+
+/* Simulator */
+@import 'simulator.css'; 
