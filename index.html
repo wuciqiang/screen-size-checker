@@ -26,18 +26,29 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <!-- Preload language files -->
+    <link rel="preload" href="/locales/en/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/zh/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/fr/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/de/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/ko/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/ja/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/es/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/ru/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/pt/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/locales/it/translation.json" as="fetch" crossorigin="anonymous">
+
     <!-- Preload critical resources -->
     <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="js/main.js" as="script">
-    <link rel="preload" href="locales/en/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="js/main.js" as="script" crossorigin="anonymous">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
 
     <!-- i18next Libraries -->
-    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
 
     <!-- UA Parser JS Library (for OS/Browser detection) -->
     <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/src/ua-parser.min.js"></script>

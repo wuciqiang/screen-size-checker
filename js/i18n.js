@@ -1,49 +1,122 @@
 // i18n.js - Internationalization module
 
+// 确保 i18next 已加载
+if (typeof i18next === 'undefined') {
+    console.error('i18next library not loaded');
+}
+
 /**
  * Initialize i18next with optimized configuration
  * @returns {Promise} i18next instance
  */
 export async function initializeI18next() {
-    // Get saved language from localStorage or use browser default
-    const savedLng = localStorage.getItem('i18nextLng');
-    const defaultLng = savedLng || 'en';
-    
-    // Initialize with default language first
-    await i18next
-        .use(i18nextHttpBackend)
-        .use(i18nextBrowserLanguageDetector)
-        .init({
-            lng: defaultLng,
-            fallbackLng: 'en',
-            supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
-            backend: {
-                loadPath: '/locales/{{lng}}/translation.json',
-                // Add cache control headers
-                allowMultiLoading: true,
-                reloadInterval: false
-            },
-            detection: {
-                order: ['localStorage', 'navigator'],
-                caches: ['localStorage'],
-                lookupLocalStorage: 'i18nextLng'
-            },
-            // Performance optimizations
-            initImmediate: true,
-            appendNamespaceToCIMode: false,
-            keySeparator: '.',
-            nsSeparator: ':',
-            // Disable debug in production
-            debug: false
-        });
-    
-    // Update html lang attribute
-    document.documentElement.lang = i18next.language.split('-')[0];
-    
-    // Preload other languages in the background
-    preloadOtherLanguages();
-    
-    return i18next;
+    try {
+        // Get saved language from localStorage or detect from browser
+        const savedLng = localStorage.getItem('i18nextLng');
+        const detectedLng = detectUserLanguage();
+        const defaultLng = savedLng || detectedLng || 'en';
+        
+        // Initialize with default language first
+        await i18next
+            .use(i18nextHttpBackend)
+            .use(i18nextBrowserLanguageDetector)
+            .init({
+                lng: defaultLng,
+                fallbackLng: 'en',
+                supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
+                backend: {
+                    loadPath: '/locales/{{lng}}/translation.json',
+                    allowMultiLoading: true,
+                    reloadInterval: false
+                },
+                detection: {
+                    order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+                    lookupQuerystring: 'lng',
+                    lookupLocalStorage: 'i18nextLng',
+                    caches: ['localStorage'],
+                    checkWhitelist: true
+                },
+                // Performance optimizations
+                initImmediate: false,
+                appendNamespaceToCIMode: false,
+                keySeparator: '.',
+                nsSeparator: ':',
+                // Debug mode - set to true to see i18next debug messages
+                debug: false
+            });
+
+        // Wait for the initial language to be loaded
+        await i18next.loadNamespaces(i18next.language);
+        
+        // Update html lang attribute
+        document.documentElement.lang = i18next.language.split('-')[0];
+        
+        // Preload other languages in the background
+        preloadOtherLanguages();
+        
+        console.log('i18next initialized with language:', i18next.language);
+        return i18next;
+    } catch (error) {
+        console.error('Failed to initialize i18next:', error);
+        throw error;
+    }
+}
+
+/**
+ * Detect user's preferred language
+ * @returns {string} Detected language code
+ */
+function detectUserLanguage() {
+    try {
+        // Check browser language
+        const browserLang = navigator.language || navigator.userLanguage;
+        const langCode = browserLang.split('-')[0].toLowerCase();
+        
+        // Check if language is supported
+        const supportedLngs = ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
+        if (supportedLngs.includes(langCode)) {
+            console.log('Detected language:', langCode);
+            return langCode;
+        }
+        
+        // Check browser languages in order of preference
+        const browserLangs = navigator.languages || [browserLang];
+        for (const lang of browserLangs) {
+            const code = lang.split('-')[0].toLowerCase();
+            if (supportedLngs.includes(code)) {
+                console.log('Detected language from browser preferences:', code);
+                return code;
+            }
+        }
+        
+        console.log('No supported language detected, defaulting to English');
+        return 'en';
+    } catch (error) {
+        console.error('Error detecting language:', error);
+        return 'en';
+    }
+}
+
+/**
+ * Format number according to locale
+ * @param {number} number - Number to format
+ * @param {Object} options - Intl.NumberFormat options
+ * @returns {string} Formatted number
+ */
+export function formatNumber(number, options = {}) {
+    const locale = i18next.language;
+    return new Intl.NumberFormat(locale, options).format(number);
+}
+
+/**
+ * Format date according to locale
+ * @param {Date} date - Date to format
+ * @param {Object} options - Intl.DateTimeFormat options
+ * @returns {string} Formatted date
+ */
+export function formatDate(date, options = {}) {
+    const locale = i18next.language;
+    return new Intl.DateTimeFormat(locale, options).format(date);
 }
 
 /**
