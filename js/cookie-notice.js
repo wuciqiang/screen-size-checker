@@ -63,8 +63,26 @@ function acceptCookies() {
 /**
  * Show cookie settings
  */
-function showCookieSettings() {
+export function showCookieSettings() {
     console.log('Showing cookie settings...');
+    
+    // 获取已保存的Cookie偏好设置
+    let savedPreferences = {
+        necessary: true,
+        analytics: true,
+        preferences: true
+    };
+    
+    try {
+        const savedPrefs = localStorage.getItem('cookiePreferences');
+        if (savedPrefs) {
+            savedPreferences = JSON.parse(savedPrefs);
+            console.log('Loaded saved preferences:', savedPreferences);
+        }
+    } catch (error) {
+        console.error('Error loading saved preferences:', error);
+    }
+    
     const settings = document.createElement('div');
     settings.className = 'cookie-settings';
     settings.innerHTML = `
@@ -79,14 +97,14 @@ function showCookieSettings() {
             </div>
             <div class="cookie-setting-item">
                 <label>
-                    <input type="checkbox" id="analytics-cookies">
+                    <input type="checkbox" id="analytics-cookies" ${savedPreferences.analytics ? 'checked' : ''}>
                     Analytics Cookies
                 </label>
                 <p>Help us understand how visitors interact with our website.</p>
             </div>
             <div class="cookie-setting-item">
                 <label>
-                    <input type="checkbox" id="preferences-cookies">
+                    <input type="checkbox" id="preferences-cookies" ${savedPreferences.preferences ? 'checked' : ''}>
                     Preference Cookies
                 </label>
                 <p>Remember your settings and preferences.</p>
@@ -110,6 +128,10 @@ function showCookieSettings() {
 
     settings.querySelector('.accept-all-btn').addEventListener('click', () => {
         console.log('Accept all clicked');
+        // 设置所有选项为选中状态
+        settings.querySelector('#analytics-cookies').checked = true;
+        settings.querySelector('#preferences-cookies').checked = true;
+        // 保存并关闭设置
         acceptCookies();
         settings.remove();
     });

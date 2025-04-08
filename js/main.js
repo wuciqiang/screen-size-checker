@@ -5,7 +5,7 @@ import { initializeI18next, updateUIElements, setupLanguageSelector } from './i1
 import { updateDisplay, updateViewportSize } from './device-detector.js';
 import { setPreviewSize, applyCustomSize, setupSimulatorListeners } from './simulator.js';
 import { handleCopyClick, copyAllInfo } from './clipboard.js';
-import { initCookieNotice } from './cookie-notice.js';
+import { initCookieNotice, showCookieSettings } from './cookie-notice.js';
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -95,6 +95,18 @@ function setupEventListeners() {
                 }, 2000);
             }
         });
+    }
+    
+    // Set up cookie settings link
+    const cookieSettingsLink = document.getElementById('cookie-settings-link');
+    if (cookieSettingsLink) {
+        cookieSettingsLink.addEventListener('click', (event) => {
+            event.preventDefault(); // 阻止默认行为（跳转到#）
+            console.log('Cookie settings link clicked');
+            showCookieSettings();
+        });
+    } else {
+        console.warn("Cookie settings link not found.");
     }
 }
 
