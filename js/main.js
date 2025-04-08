@@ -5,6 +5,7 @@ import { initializeI18next, updateUIElements, setupLanguageSelector } from './i1
 import { updateDisplay, updateViewportSize } from './device-detector.js';
 import { setPreviewSize, applyCustomSize, setupSimulatorListeners } from './simulator.js';
 import { handleCopyClick, copyAllInfo } from './clipboard.js';
+import { initCookieNotice } from './cookie-notice.js';
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -34,6 +35,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         setupEventListeners();
         setupSimulatorListeners();
         console.log('Event listeners set up');
+
+        // Initialize cookie notice
+        initCookieNotice();
+        console.log('Cookie notice initialized');
         
         console.log('Application initialized successfully');
     } catch (error) {

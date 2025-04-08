@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Screen Size Checker",
+  "url": "https://screensizechecker.com",
+  "description": "Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more. Perfect for web developers and designers.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Screen Size Checker"
+  },
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "softwareVersion": "1.0.0",
+  "featureList": [
+    "Screen Resolution Detection",
+    "Viewport Size Measurement",
+    "Device Pixel Ratio (DPR) Check",
+    "Operating System Detection",
+    "Browser Version Information",
+    "Touch Support Detection",
+    "User Agent String Display"
+  ],
+  "keywords": "screen size checker, screen resolution, viewport size, device pixel ratio, DPR, browser detection, OS detection, web development tools, responsive design",
+  "inLanguage": ["en", "zh", "fr", "de", "ko", "ja", "es", "ru", "pt", "it"],
+  "license": "https://screensizechecker.com/terms-of-service"
+} 
