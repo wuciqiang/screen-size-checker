@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Screen Size Checker</title>
+    <title data-i18n="privacy_policy_title">Privacy Policy - Screen Size Checker</title>
     <link rel="stylesheet" href="css/main.css">
     <style>
         .privacy-content {
@@ -48,65 +48,127 @@
         .back-to-home:hover {
             background-color: #45a049;
         }
+        .language-selector-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .language-selector-wrapper select {
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector-wrapper">
+        <label for="language-select" data-i18n="language_select_label">Language:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="zh">中文 (Chinese)</option>
+            <option value="fr">Français (French)</option>
+            <option value="de">Deutsch (German)</option>
+            <option value="ko">한국어 (Korean)</option>
+            <option value="ja">日本語 (Japanese)</option>
+            <option value="es">Español (Spanish)</option>
+            <option value="ru">Русский (Russian)</option>
+            <option value="pt">Português (Portuguese)</option>
+            <option value="it">Italiano (Italian)</option>
+        </select>
+    </div>
+
     <div class="privacy-content">
-        <h1>Privacy Policy</h1>
-        <p>Last updated: April 6, 2024</p>
+        <h1 data-i18n="privacy_policy_title">Privacy Policy</h1>
+        <p data-i18n="privacy_policy_last_updated">Last updated: April 6, 2024</p>
 
-        <h2>1. Introduction</h2>
-        <p>Welcome to Screen Size Checker. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
+        <h2 data-i18n="privacy_policy_intro">1. Introduction</h2>
+        <p data-i18n="privacy_policy_intro">Welcome to Screen Size Checker. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
 
-        <h2>2. Information We Collect</h2>
-        <p>We collect and process the following information:</p>
+        <h2 data-i18n="privacy_policy_info_collection">2. Information We Collect</h2>
+        <p data-i18n="privacy_policy_info_collection_text">We collect and process the following information:</p>
         <ul>
-            <li>Device information (screen resolution, viewport size, DPR)</li>
-            <li>Browser information (browser type, version)</li>
-            <li>Operating system information</li>
-            <li>User agent string</li>
-            <li>Language preferences</li>
-            <li>Cookie preferences</li>
+            <li data-i18n="privacy_policy_info_item1">Device information (screen resolution, viewport size, DPR)</li>
+            <li data-i18n="privacy_policy_info_item2">Browser information (browser type, version)</li>
+            <li data-i18n="privacy_policy_info_item3">Operating system information</li>
+            <li data-i18n="privacy_policy_info_item4">User agent string</li>
+            <li data-i18n="privacy_policy_info_item5">Language preferences</li>
+            <li data-i18n="privacy_policy_info_item6">Cookie preferences</li>
         </ul>
 
-        <h2>3. How We Use Your Information</h2>
-        <p>We use the collected information to:</p>
+        <h2 data-i18n="privacy_policy_info_usage">3. How We Use Your Information</h2>
+        <p data-i18n="privacy_policy_info_usage_text">We use the collected information to:</p>
         <ul>
-            <li>Provide and improve our screen size checking service</li>
-            <li>Analyze and enhance website performance</li>
-            <li>Remember your language preferences</li>
-            <li>Improve user experience</li>
+            <li data-i18n="privacy_policy_usage_item1">Provide and improve our screen size checking service</li>
+            <li data-i18n="privacy_policy_usage_item2">Analyze and enhance website performance</li>
+            <li data-i18n="privacy_policy_usage_item3">Remember your language preferences</li>
+            <li data-i18n="privacy_policy_usage_item4">Improve user experience</li>
         </ul>
 
-        <h2>4. Cookies</h2>
-        <p>We use cookies to:</p>
+        <h2 data-i18n="privacy_policy_cookies">4. Cookies</h2>
+        <p data-i18n="privacy_policy_cookies_text">We use cookies to:</p>
         <ul>
-            <li>Remember your language preferences</li>
-            <li>Analyze website usage</li>
-            <li>Improve our service</li>
+            <li data-i18n="privacy_policy_cookies_item1">Remember your language preferences</li>
+            <li data-i18n="privacy_policy_cookies_item2">Analyze website usage</li>
+            <li data-i18n="privacy_policy_cookies_item3">Improve our service</li>
         </ul>
-        <p>You can control cookies through your browser settings. However, disabling cookies may affect some website functionality.</p>
+        <p data-i18n="privacy_policy_cookies_control">You can control cookies through your browser settings. However, disabling cookies may affect some website functionality.</p>
 
-        <h2>5. Data Storage</h2>
-        <p>All information is processed locally in your browser. We do not store any personal information on our servers.</p>
+        <h2 data-i18n="privacy_policy_data_storage">5. Data Storage</h2>
+        <p data-i18n="privacy_policy_data_storage_text">All information is processed locally in your browser. We do not store any personal information on our servers.</p>
 
-        <h2>6. Your Rights</h2>
-        <p>You have the right to:</p>
+        <h2 data-i18n="privacy_policy_user_rights">6. Your Rights</h2>
+        <p data-i18n="privacy_policy_user_rights_text">You have the right to:</p>
         <ul>
-            <li>Access your personal data</li>
-            <li>Correct your personal data</li>
-            <li>Request deletion of your data</li>
-            <li>Object to processing of your data</li>
-            <li>Request restriction of processing your data</li>
+            <li data-i18n="privacy_policy_rights_item1">Access your personal data</li>
+            <li data-i18n="privacy_policy_rights_item2">Correct your personal data</li>
+            <li data-i18n="privacy_policy_rights_item3">Request deletion of your data</li>
+            <li data-i18n="privacy_policy_rights_item4">Object to processing of your data</li>
+            <li data-i18n="privacy_policy_rights_item5">Request restriction of processing your data</li>
         </ul>
 
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions about this privacy policy or our privacy practices, please contact us at:</p>
+        <h2 data-i18n="privacy_policy_contact">7. Contact Us</h2>
+        <p data-i18n="privacy_policy_contact_text">If you have any questions about this privacy policy or our privacy practices, please contact us at:</p>
         <p>Email: privacy@screensizechecker.com</p>
 
-        <p class="last-updated">Last updated: April 6, 2024</p>
+        <p class="last-updated" data-i18n="privacy_policy_last_updated">Last updated: April 6, 2024</p>
         
-        <a href="index.html" class="back-to-home">Back to Home</a>
+        <a href="index.html" class="back-to-home" data-i18n="back_to_home">Back to Home</a>
     </div>
+
+    <!-- i18next Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <!-- Link to your JavaScript file -->
+    <script type="module" src="js/i18n.js"></script>
+    <script type="module">
+        // 确保i18n初始化完成后再更新UI
+        import { initializeI18next, updateUIElements, setupLanguageSelector } from './js/i18n.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                console.log('Initializing i18n for privacy policy page...');
+                const i18n = await initializeI18next();
+                if (i18n) {
+                    console.log('i18n initialized successfully');
+                    setupLanguageSelector();
+                    updateUIElements();
+                    console.log('UI elements updated with translations');
+                } else {
+                    console.error('Failed to initialize i18n');
+                }
+            } catch (error) {
+                console.error('Error initializing i18n:', error);
+            }
+        });
+    </script>
 </body>
 </html> 
