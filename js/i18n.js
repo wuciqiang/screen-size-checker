@@ -257,8 +257,8 @@ export function setupLanguageSelector() {
         
         console.log('Setting up language selector with current language:', currentLang);
         
-        // Add all supported languages
-        const supportedLngs = i18next.options.supportedLngs;
+        // Add all supported languages, excluding cimode
+        const supportedLngs = i18next.options.supportedLngs.filter(lng => lng !== 'cimode');
         langSelector.innerHTML = supportedLngs.map(lng => {
             const langName = getLanguageName(lng);
             return `<option value="${lng}">${langName}</option>`;
