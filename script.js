@@ -130,7 +130,12 @@ function updateDisplay() {
     setTextContent('screen-resolution', `${window.screen.width} x ${window.screen.height}`, t('not_available'));
 
     // Viewport Size
-    updateViewportSize(); // Call dedicated function for viewport
+    const viewportW = window.innerWidth;
+    const viewportH = window.innerHeight;
+    const viewportValueEl = document.getElementById('viewport-value');
+    if (viewportValueEl) {
+        viewportValueEl.textContent = viewportW && viewportH ? `${viewportW} x ${viewportH}` : t('not_available');
+    }
 
     // DPR
     setTextContent('dpr', window.devicePixelRatio, t('not_available'));
@@ -266,17 +271,29 @@ function setupEventListeners() {
 }
 
 function setupLanguageSelector() {
-     const langSelector = document.getElementById('language-select');
+    const langSelector = document.getElementById('language-select');
     if (langSelector) {
         langSelector.value = i18next.language.split('-')[0];
         langSelector.addEventListener('change', (event) => {
             const chosenLng = event.target.value;
             i18next.changeLanguage(chosenLng, (err) => {
                 if (err) return console.error('Error changing language:', err);
+                // 语言切换后更新所有显示
+                updateUIElements();
+                updateDisplay();
+                // 使用 setTimeout 确保在语言切换完成后更新视口大小
+                setTimeout(() => {
+                    const viewportW = window.innerWidth;
+                    const viewportH = window.innerHeight;
+                    const viewportValueEl = document.getElementById('viewport-value');
+                    if (viewportValueEl) {
+                        viewportValueEl.textContent = `${viewportW} x ${viewportH}`;
+                    }
+                }, 100);
             });
         });
     } else {
-         console.warn("Language selector not found.");
+        console.warn("Language selector not found.");
     }
 }
 
