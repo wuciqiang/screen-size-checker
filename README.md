@@ -1,3 +1,86 @@
+# Screen Size Checker
+
+一个简单而强大的工具，用于检测和显示设备屏幕信息。
+
+## 功能特点
+
+- 实时显示设备屏幕分辨率
+- 显示视口（viewport）尺寸
+- 检测设备像素比（DPR）
+- 显示颜色深度
+- 显示操作系统信息
+- 显示浏览器信息
+- 检测 Cookie 支持
+- 检测触摸支持
+- 显示完整的 User Agent 信息
+- 支持屏幕尺寸模拟器
+- 支持中英文双语界面
+
+## 技术栈
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- i18next 用于国际化
+- Express.js 用于本地服务器
+
+## 本地开发
+
+1. 克隆仓库：
+```bash
+git clone [repository-url]
+cd screen-size-checker
+```
+
+2. 安装依赖：
+```bash
+npm install
+```
+
+3. 启动本地服务器：
+```bash
+node server.js
+```
+
+4. 访问 http://127.0.0.1:5000
+
+## 项目结构
+
+```
+screen-size-checker/
+├── index.html          # 主页面
+├── script.js           # 主要JavaScript逻辑
+├── server.js           # Express服务器
+├── sitemap.xml         # 网站地图
+├── locales/            # 语言文件
+│   ├── en/            # 英文翻译
+│   └── zh/            # 中文翻译
+└── README.md          # 项目文档
+```
+
+## 国际化支持
+
+- 支持语言：英文（默认）和中文
+- 使用 localStorage 保存语言偏好
+- 支持自动检测浏览器语言
+
+## 性能优化
+
+- 使用 Service Worker 进行缓存
+- 图片懒加载
+- 资源预加载
+- 性能监控和报告
+
+## 浏览器支持
+
+- Chrome (最新版)
+- Firefox (最新版)
+- Safari (最新版)
+- Edge (最新版)
+
+## 许可证
+
+MIT License
 
 ## 运行本地副本 (Running Locally)
 

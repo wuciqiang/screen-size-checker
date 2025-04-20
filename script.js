@@ -27,7 +27,8 @@ async function initializeI18next() {
         .init({
             lng: defaultLng,
             fallbackLng: defaultLng,
-            supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja'],
+            supportedLngs: ['en', 'zh'],
+            nonExplicitSupportedLngs: false,
             backend: {
                 loadPath: 'locales/{{lng}}/{{ns}}.json',
                 // Add cache control headers
@@ -37,7 +38,8 @@ async function initializeI18next() {
             detection: {
                 order: ['localStorage', 'navigator'],
                 caches: ['localStorage'],
-                lookupLocalStorage: 'i18nextLng'
+                lookupLocalStorage: 'i18nextLng',
+                checkWhitelist: true
             },
             // Performance optimizations
             initImmediate: true,
@@ -63,7 +65,7 @@ async function initializeI18next() {
 
 // Preload other languages in the background
 function preloadOtherLanguages() {
-    const languages = ['zh', 'fr', 'de', 'ko', 'ja'];
+    const languages = ['zh'];
     languages.forEach(lng => {
         if (lng !== i18next.language) {
             i18next.loadNamespaces(lng, () => {

@@ -47,14 +47,6 @@
     <!-- Preload language files -->
     <link rel="preload" href="locales/en/translation.json" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="locales/zh/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/fr/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/de/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/ko/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/ja/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/es/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/ru/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/pt/translation.json" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="locales/it/translation.json" as="fetch" crossorigin="anonymous">
 
     <!-- Preload critical resources -->
     <link rel="preload" href="css/main.css" as="style">
@@ -103,7 +95,7 @@
         "User Agent String Display"
       ],
       "keywords": "screen size checker, screen resolution, viewport size, device pixel ratio, DPR, browser detection, OS detection, web development tools, responsive design",
-      "inLanguage": ["en", "zh", "fr", "de", "ko", "ja", "es", "ru", "pt", "it"],
+      "inLanguage": ["en", "zh"],
       "license": "https://screensizechecker.com/terms-of-service",
       "potentialAction": {
         "@type": "UseAction",
@@ -129,17 +121,9 @@
     <!-- Language Selector -->
     <div class="language-selector-wrapper">
          <label for="language-select" data-i18n="language_select_label">Language:</label>
-         <select id="language-select">
+         <select id="language-select" class="language-select">
              <option value="en">English</option>
-             <option value="zh">中文 (Chinese)</option>
-             <option value="fr">Français (French)</option>
-             <option value="de">Deutsch (German)</option>
-             <option value="ko">한국어 (Korean)</option>
-             <option value="ja">日本語 (Japanese)</option>
-             <option value="es">Español (Spanish)</option>
-             <option value="ru">Русский (Russian)</option>
-             <option value="pt">Português (Portuguese)</option>
-             <option value="it">Italiano (Italian)</option>
+             <option value="zh">中文</option>
          </select>
     </div>
 

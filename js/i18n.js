@@ -29,7 +29,8 @@ export async function initializeI18next() {
             .init({
                 lng: defaultLng,
                 fallbackLng: 'en',
-                supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
+                // supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
+                supportedLngs: ['en', 'zh'],
                 backend: {
                     loadPath: 'locales/{{lng}}/translation.json',
                     allowMultiLoading: true,
@@ -96,7 +97,8 @@ function detectUserLanguage() {
         const langCode = browserLang.split('-')[0].toLowerCase();
         
         // Check if language is supported
-        const supportedLngs = ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
+        // const supportedLngs = ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
+        const supportedLngs = ['en', 'zh'];
         if (supportedLngs.includes(langCode)) {
             console.log('Detected language:', langCode);
             return langCode;
@@ -146,7 +148,8 @@ export function formatDate(date, options = {}) {
  * Preload other languages in the background
  */
 function preloadOtherLanguages() {
-    const languages = ['zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
+    // const languages = ['zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
+    const languages = ['zh'];
     languages.forEach(lng => {
         if (lng !== i18next.language) {
             // 对于中文，使用特殊处理
@@ -319,14 +322,6 @@ function getLanguageName(code) {
     const languages = {
         'en': 'English',
         'zh': '中文 (Chinese)',
-        'fr': 'Français (French)',
-        'de': 'Deutsch (German)',
-        'ko': '한국어 (Korean)',
-        'ja': '日本語 (Japanese)',
-        'es': 'Español (Spanish)',
-        'ru': 'Русский (Russian)',
-        'pt': 'Português (Portuguese)',
-        'it': 'Italiano (Italian)'
     };
     return languages[code] || code;
 } 
