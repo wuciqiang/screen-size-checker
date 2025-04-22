@@ -29,10 +29,9 @@ export async function initializeI18next() {
             .init({
                 lng: defaultLng,
                 fallbackLng: 'en',
-                // supportedLngs: ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'],
                 supportedLngs: ['en', 'zh'],
                 backend: {
-                    loadPath: 'locales/{{lng}}/translation.json',
+                    loadPath: '../locales/{{lng}}/translation.json',
                     allowMultiLoading: true,
                     reloadInterval: false,
                     queryStringParams: { v: new Date().getTime() },
@@ -48,14 +47,11 @@ export async function initializeI18next() {
                     caches: ['localStorage'],
                     checkWhitelist: true
                 },
-                // Performance optimizations
                 initImmediate: false,
                 appendNamespaceToCIMode: false,
                 keySeparator: '.',
                 nsSeparator: ':',
-                // Debug mode - set to true to see i18next debug messages
                 debug: false,
-                // 添加以下配置以确保正确处理中文
                 interpolation: {
                     escapeValue: false
                 },
@@ -77,7 +73,6 @@ export async function initializeI18next() {
         preloadOtherLanguages();
         
         console.log('i18next initialized with language:', i18next.language);
-        console.log('Current translations:', i18next.getResourceBundle(i18next.language));
         
         return i18next;
     } catch (error) {
@@ -92,30 +87,9 @@ export async function initializeI18next() {
  */
 function detectUserLanguage() {
     try {
-        // Check browser language
         const browserLang = navigator.language || navigator.userLanguage;
         const langCode = browserLang.split('-')[0].toLowerCase();
-        
-        // Check if language is supported
-        // const supportedLngs = ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
-        const supportedLngs = ['en', 'zh'];
-        if (supportedLngs.includes(langCode)) {
-            console.log('Detected language:', langCode);
-            return langCode;
-        }
-        
-        // Check browser languages in order of preference
-        const browserLangs = navigator.languages || [browserLang];
-        for (const lang of browserLangs) {
-            const code = lang.split('-')[0].toLowerCase();
-            if (supportedLngs.includes(code)) {
-                console.log('Detected language from browser preferences:', code);
-                return code;
-            }
-        }
-        
-        console.log('No supported language detected, defaulting to English');
-        return 'en';
+        return ['en', 'zh'].includes(langCode) ? langCode : 'en';
     } catch (error) {
         console.error('Error detecting language:', error);
         return 'en';
@@ -145,183 +119,112 @@ export function formatDate(date, options = {}) {
 }
 
 /**
- * Preload other languages in the background
+ * Preload other supported languages
  */
 function preloadOtherLanguages() {
-    // const languages = ['zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
-    const languages = ['zh'];
-    languages.forEach(lng => {
-        if (lng !== i18next.language) {
-            // 对于中文，使用特殊处理
-            if (lng === 'zh') {
-                loadChineseTranslations();
-            } else {
-                i18next.loadNamespaces(lng, () => {
-                    console.log(`Preloaded language: ${lng}`);
-                });
-            }
+    const supportedLngs = ['en', 'zh'];
+    const currentLng = i18next.language;
+    
+    supportedLngs.forEach(lng => {
+        if (lng !== currentLng) {
+            i18next.loadNamespaces(lng).catch(error => {
+                console.error(`Failed to preload language ${lng}:`, error);
+            });
         }
     });
 }
 
 /**
- * 直接加载中文翻译文件
+ * Load Chinese translations with special handling
  */
 async function loadChineseTranslations() {
     try {
-        console.log('Attempting to load Chinese translations...');
-        const response = await fetch('locales/zh/translation.json', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json; charset=utf-8'
-            }
-        });
-        
+        const response = await fetch('../locales/zh/translation.json');
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error('Failed to load Chinese translations');
         }
-        
-        console.log('Chinese translation file fetched successfully');
-        const text = await response.text();
-        console.log('Raw Chinese translation content:', text.substring(0, 100) + '...');
-        
-        try {
-            const data = JSON.parse(text);
-            console.log('Chinese translations parsed successfully');
-            i18next.addResourceBundle('zh', 'translation', data, true, true);
-            console.log('Chinese translations added to i18next');
-            return true;
-        } catch (parseError) {
-            console.error('Error parsing Chinese translations:', parseError);
-            console.log('Failed content:', text);
-            return false;
-        }
+        const translations = await response.json();
+        i18next.addResourceBundle('zh', 'translation', translations, true, true);
     } catch (error) {
         console.error('Error loading Chinese translations:', error);
-        return false;
     }
 }
 
 /**
- * Update UI elements with translations
+ * Update all UI elements with current language
  */
 export function updateUIElements() {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        let attribute = 'textContent';
-        let actualKey = key;
-
-        if (key.startsWith('[')) {
-            const parts = key.match(/\[(.*?)\](.*)/);
-            if (parts && parts.length === 3) {
-                attribute = parts[1];
-                actualKey = parts[2];
-            } else {
-                console.warn(`Invalid data-i18n attribute format: ${key}`);
-                return; // Skip invalid format
-            }
-        }
-
-        const translation = i18next.t(actualKey);
-
-        if (el.tagName === 'TITLE') {
-            document.title = translation;
-        } else if (el.tagName === 'META' && attribute === 'content') {
-            el.setAttribute('content', translation);
-        } else if (attribute === 'placeholder') {
-            el.setAttribute('placeholder', translation);
-        } else if (attribute !== 'textContent' && el.hasAttribute(attribute)) {
-            el.setAttribute(attribute, translation);
-        } else {
-            // Ensure we don't try to set textContent on elements that shouldn't have it directly
-            if (typeof el.textContent !== 'undefined') {
-                el.textContent = translation;
-            }
-        }
-    });
-    
-    // Specifically re-translate copy button texts if they were in "Copied!" state
-    document.querySelectorAll('.copy-btn.copied').forEach(btn => {
-        btn.textContent = i18next.t('copy_btn');
-        btn.classList.remove('copied'); // Reset class if language changes
-    });
-}
-
-/**
- * Setup language selector
- */
-export function setupLanguageSelector() {
-    const langSelector = document.getElementById('language-select');
-    if (langSelector) {
-        // Set initial value from localStorage or current language
-        const currentLang = localStorage.getItem('i18nextLng') || i18next.language.split('-')[0];
-        langSelector.value = currentLang;
-        
-        console.log('Setting up language selector with current language:', currentLang);
-        
-        // Add all supported languages, excluding cimode
-        const supportedLngs = i18next.options.supportedLngs.filter(lng => lng !== 'cimode');
-        langSelector.innerHTML = supportedLngs.map(lng => {
-            const langName = getLanguageName(lng);
-            return `<option value="${lng}">${langName}</option>`;
-        }).join('');
-        
-        // Set the current language
-        langSelector.value = currentLang;
-        
-        langSelector.addEventListener('change', async (event) => {
-            const chosenLng = event.target.value;
-            console.log('Language change requested to:', chosenLng);
-            
-            // Add transition class
-            document.body.classList.add('language-changing');
-            
-            try {
-                // Save to localStorage
-                localStorage.setItem('i18nextLng', chosenLng);
-                
-                // 对于中文，使用特殊处理
-                if (chosenLng === 'zh') {
-                    await loadChineseTranslations();
-                    await i18next.changeLanguage(chosenLng);
-                } else {
-                    // Change language
-                    await i18next.changeLanguage(chosenLng);
+    try {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (key) {
+                const translation = i18next.t(key);
+                if (translation && translation !== key) {
+                    if (element.tagName === 'INPUT' && element.type === 'text') {
+                        element.placeholder = translation;
+                    } else if (element.tagName === 'IMG') {
+                        element.alt = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
                 }
-                
-                console.log('Language changed successfully to:', chosenLng);
-                console.log('Current translations:', i18next.getResourceBundle(chosenLng));
-                
-                // Update UI elements
-                updateUIElements();
-                
-                // Update html lang attribute
-                document.documentElement.lang = chosenLng;
-                
-                // Remove transition class after a short delay
-                setTimeout(() => {
-                    document.body.classList.remove('language-changing');
-                }, 300);
-            } catch (error) {
-                console.error('Error changing language:', error);
-                // Revert to previous language on error
-                langSelector.value = i18next.language;
-                alert('Failed to change language. Please try again.');
             }
         });
-    } else {
-        console.warn("Language selector not found.");
+        
+        // Update select options
+        const selectElements = document.querySelectorAll('select[data-i18n-options]');
+        selectElements.forEach(select => {
+            const options = select.getAttribute('data-i18n-options').split(',');
+            options.forEach(option => {
+                const optionElement = select.querySelector(`option[value="${option}"]`);
+                if (optionElement) {
+                    const translation = i18next.t(`select.${option}`);
+                    if (translation) {
+                        optionElement.textContent = translation;
+                    }
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Error updating UI elements:', error);
     }
 }
 
 /**
- * Get language name in its native form
+ * Set up language selector functionality
+ */
+export function setupLanguageSelector() {
+    const languageSelect = document.getElementById('language-select');
+    if (!languageSelect) {
+        console.error('Language selector not found');
+        return;
+    }
+
+    // Set initial value
+    languageSelect.value = i18next.language;
+
+    // Add change event listener
+    languageSelect.addEventListener('change', async (event) => {
+        const newLang = event.target.value;
+        try {
+            await i18next.changeLanguage(newLang);
+            localStorage.setItem('i18nextLng', newLang);
+            document.documentElement.lang = newLang;
+            updateUIElements();
+        } catch (error) {
+            console.error('Error changing language:', error);
+        }
+    });
+}
+
+/**
+ * Get language name from code
  */
 function getLanguageName(code) {
     const languages = {
-        'en': 'English',
-        'zh': '中文 (Chinese)',
+        en: 'English',
+        zh: '中文'
     };
     return languages[code] || code;
 } 

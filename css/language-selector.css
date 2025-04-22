@@ -1,49 +1,58 @@
-/* Language Selector Styling */
-.language-selector-wrapper {
+/* Language Selector Styles */
+.language-selector {
     position: absolute;
-    top: 18px;
-    right: 25px;
-    z-index: 10;
-    background-color: #fff;
-    padding: 8px 15px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border: 1px solid #dee2e6;
-    transition: all 0.3s ease;
-}
-
-.language-selector-wrapper:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: translateY(-1px);
-}
-
-.language-selector-wrapper label {
-    margin-right: 8px;
-    font-size: 0.95em;
-    color: #495057;
-    font-weight: 500;
-}
-
-.language-selector-wrapper select {
-    padding: 5px 8px;
-    border: 1px solid #ced4da;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    padding: 8px 12px;
     border-radius: 4px;
-    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector label {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.language-selector select {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
     cursor: pointer;
-    background-color: #fff;
-    transition: all 0.2s ease;
-    min-width: 140px;
+    min-width: 100px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 30px;
 }
 
-.language-selector-wrapper select:hover {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+.language-selector select:hover {
+    border-color: #999;
 }
 
-.language-selector-wrapper select:focus {
+.language-selector select:focus {
     outline: none;
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .language-selector {
+        position: static;
+        margin: 10px 0;
+        justify-content: flex-end;
+    }
 }
 
 /* Language transition animation */

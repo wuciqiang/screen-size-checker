@@ -28,10 +28,18 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/main.css">
     
+    <!-- Preload language files -->
+    <link rel="preload" href="../locales/en/translation.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="../locales/zh/translation.json" as="fetch" crossorigin="anonymous">
+    
     <!-- i18next Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/i18n.js" type="module"></script>
+    <script src="../js/main.js" type="module"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -59,6 +67,14 @@
 </head>
 <body>
     <div class="container">
+        <div class="language-selector">
+            <label for="language-select" data-i18n="language_select_label">Language:</label>
+            <select id="language-select" class="language-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+            </select>
+        </div>
+        
         <h1 data-i18n="android_viewport_heading">Android Viewport Sizes: Complete Guide</h1>
         
         <div class="breadcrumb">
@@ -70,55 +86,55 @@
         </div>
         
         <div class="device-table">
-            <h2>Android Viewport Sizes Table</h2>
+            <h2 data-i18n="device_table_heading">Android Viewport Sizes Table</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Model</th>
-                        <th>Viewport Size</th>
-                        <th>Screen Resolution</th>
-                        <th>DPR</th>
-                        <th>Release Year</th>
+                        <th data-i18n="device_table_model">Model</th>
+                        <th data-i18n="device_table_viewport">Viewport Size</th>
+                        <th data-i18n="device_table_resolution">Screen Resolution</th>
+                        <th data-i18n="device_table_dpr">DPR</th>
+                        <th data-i18n="device_table_year">Release Year</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Samsung Galaxy S23 Ultra</td>
+                        <td data-i18n="samsung_s23_ultra">Samsung Galaxy S23 Ultra</td>
                         <td>412 x 878</td>
                         <td>1440 x 3088</td>
                         <td>3.5</td>
                         <td>2023</td>
                     </tr>
                     <tr>
-                        <td>Samsung Galaxy S23+</td>
+                        <td data-i18n="samsung_s23_plus">Samsung Galaxy S23+</td>
                         <td>393 x 851</td>
                         <td>1080 x 2340</td>
                         <td>2.75</td>
                         <td>2023</td>
                     </tr>
                     <tr>
-                        <td>Samsung Galaxy S23</td>
+                        <td data-i18n="samsung_s23">Samsung Galaxy S23</td>
                         <td>360 x 780</td>
                         <td>1080 x 2340</td>
                         <td>3.0</td>
                         <td>2023</td>
                     </tr>
                     <tr>
-                        <td>Google Pixel 7 Pro</td>
+                        <td data-i18n="pixel_7_pro">Google Pixel 7 Pro</td>
                         <td>412 x 892</td>
                         <td>1440 x 3120</td>
                         <td>3.5</td>
                         <td>2022</td>
                     </tr>
                     <tr>
-                        <td>Google Pixel 7</td>
+                        <td data-i18n="pixel_7">Google Pixel 7</td>
                         <td>393 x 851</td>
                         <td>1080 x 2400</td>
                         <td>2.75</td>
                         <td>2022</td>
                     </tr>
                     <tr>
-                        <td>OnePlus 11</td>
+                        <td data-i18n="oneplus_11">OnePlus 11</td>
                         <td>412 x 892</td>
                         <td>1440 x 3216</td>
                         <td>3.5</td>
@@ -129,33 +145,33 @@
         </div>
         
         <div class="content-section">
-            <h2>Understanding Android Viewport Sizes</h2>
-            <p>When designing for Android devices, it's important to consider several factors:</p>
+            <h2 data-i18n="understanding_viewport_heading">Understanding Android Viewport Sizes</h2>
+            <p data-i18n="viewport_size_explanation">When designing for Android devices, it's important to consider several factors:</p>
             <ul>
-                <li><strong>Viewport Size:</strong> The visible area in CSS pixels that your website can use</li>
-                <li><strong>Screen Resolution:</strong> The actual number of physical pixels on the device</li>
-                <li><strong>Device Pixel Ratio (DPR):</strong> The ratio between physical pixels and CSS pixels</li>
-                <li><strong>Notch and Punch-hole:</strong> Consider the status bar and navigation bar areas</li>
+                <li><strong data-i18n="viewport_size_point1">Viewport Size:</strong> <span data-i18n="viewport_size_point1_desc">The visible area in CSS pixels that your website can use</span></li>
+                <li><strong data-i18n="viewport_size_point2">Screen Resolution:</strong> <span data-i18n="viewport_size_point2_desc">The actual number of physical pixels on the device</span></li>
+                <li><strong data-i18n="viewport_size_point3">Device Pixel Ratio (DPR):</strong> <span data-i18n="viewport_size_point3_desc">The ratio between physical pixels and CSS pixels</span></li>
+                <li><strong data-i18n="notch_punch_hole">Notch and Punch-hole:</strong> <span data-i18n="notch_punch_hole_desc">Consider the status bar and navigation bar areas</span></li>
             </ul>
         </div>
         
         <div class="content-section">
-            <h2>Best Practices for Android Development</h2>
+            <h2 data-i18n="best_practices_heading">Best Practices for Android Development</h2>
             <ul>
-                <li>Design for various screen sizes and densities</li>
-                <li>Consider the status bar and navigation bar</li>
-                <li>Test on multiple Android devices</li>
-                <li>Use appropriate media queries</li>
-                <li>Consider different aspect ratios</li>
+                <li data-i18n="best_practices_point1">Design for various screen sizes and densities</li>
+                <li data-i18n="best_practices_point2">Consider the status bar and navigation bar</li>
+                <li data-i18n="best_practices_point3">Test on multiple Android devices</li>
+                <li data-i18n="best_practices_point4">Use appropriate media queries</li>
+                <li data-i18n="best_practices_point5">Consider different aspect ratios</li>
             </ul>
         </div>
         
         <div class="related-links">
-            <h2>Related Resources</h2>
+            <h2 data-i18n="related_resources_heading">Related Resources</h2>
             <ul>
-                <li><a href="/devices/iphone-viewport-sizes.html">iPhone Viewport Sizes Guide</a></li>
-                <li><a href="/devices/ipad-viewport-sizes.html">iPad Viewport Sizes Guide</a></li>
-                <li><a href="/devices/compare.html">Device Size Comparison Tool</a></li>
+                <li><a href="/devices/iphone-viewport-sizes.html" data-i18n="related_resources_iphone">iPhone Viewport Sizes Guide</a></li>
+                <li><a href="/devices/ipad-viewport-sizes.html" data-i18n="related_resources_ipad">iPad Viewport Sizes Guide</a></li>
+                <li><a href="/devices/compare.html" data-i18n="related_resources_compare">Device Size Comparison Tool</a></li>
             </ul>
         </div>
     </div>
@@ -163,15 +179,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-left">
-            <span>© 2025 Screen Size Checker. All rights reserved.</span>
+            <span data-i18n="footer_copyright">© 2025 Screen Size Checker. All rights reserved.</span>
         </div>
         <div class="footer-right">
-            <a href="/privacy-policy.html">Privacy Policy</a>
-            <a href="/terms-of-service.html">Terms of Service</a>
+            <a href="/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
         </div>
     </footer>
-    
-    <!-- Scripts -->
-    <script type="module" src="../js/main.js"></script>
 </body>
 </html> 

@@ -7,14 +7,17 @@ import { setPreviewSize, applyCustomSize, setupSimulatorListeners } from './simu
 import { handleCopyClick, copyAllInfo } from './clipboard.js';
 import { initCookieNotice, showCookieSettings } from './cookie-notice.js';
 
+// 全局变量，用于存储 i18next 实例
+let i18nInstance = null;
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         console.log('Starting application initialization...');
         
         // Initialize i18next first and wait for it to complete
-        const i18n = await initializeI18next();
-        if (!i18n) {
+        i18nInstance = await initializeI18next();
+        if (!i18nInstance) {
             throw new Error('i18next initialization failed');
         }
         console.log('i18next initialized successfully');
@@ -51,16 +54,20 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Set up all event listeners
  */
 function setupEventListeners() {
-    if (!i18next.isInitialized) {
+    if (!i18nInstance) {
         console.error('i18next not initialized');
         return;
     }
 
     // Language change event
-    i18next.on('languageChanged', async (lng) => {
+    i18nInstance.on('languageChanged', async (lng) => {
         console.log('Language changed to:', lng);
-        updateUIElements();
-        await updateDisplay(); // Update device info when language changes
+        try {
+            updateUIElements();
+            await updateDisplay();
+        } catch (error) {
+            console.error('Error updating UI after language change:', error);
+        }
     });
 
     // Window resize event
@@ -82,16 +89,16 @@ function setupEventListeners() {
         copyAllBtn.addEventListener('click', async () => {
             const success = await copyAllInfo();
             if (success) {
-                copyAllBtn.textContent = i18next.t('copied_all_btn');
+                copyAllBtn.textContent = i18nInstance.t('copied_all_btn');
                 copyAllBtn.classList.add('copied');
                 setTimeout(() => {
-                    copyAllBtn.textContent = i18next.t('copy_all_btn');
+                    copyAllBtn.textContent = i18nInstance.t('copy_all_btn');
                     copyAllBtn.classList.remove('copied');
                 }, 1500);
             } else {
-                copyAllBtn.textContent = i18next.t('copy_all_failed_btn');
+                copyAllBtn.textContent = i18nInstance.t('copy_all_failed_btn');
                 setTimeout(() => {
-                    copyAllBtn.textContent = i18next.t('copy_all_btn');
+                    copyAllBtn.textContent = i18nInstance.t('copy_all_btn');
                 }, 2000);
             }
         });
@@ -101,7 +108,7 @@ function setupEventListeners() {
     const cookieSettingsLink = document.getElementById('cookie-settings-link');
     if (cookieSettingsLink) {
         cookieSettingsLink.addEventListener('click', (event) => {
-            event.preventDefault(); // 阻止默认行为（跳转到#）
+            event.preventDefault();
             console.log('Cookie settings link clicked');
             showCookieSettings();
         });
@@ -116,6 +123,8 @@ function setupEventListeners() {
 function showErrorMessage() {
     const errorMessage = document.createElement('div');
     errorMessage.className = 'error-message';
-    errorMessage.textContent = 'Failed to initialize application. Please refresh the page.';
+    errorMessage.textContent = i18nInstance ? 
+        i18nInstance.t('initialization_error') : 
+        'Failed to initialize application. Please try refreshing the page.';
     document.body.appendChild(errorMessage);
 } 
