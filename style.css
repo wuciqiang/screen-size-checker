@@ -8,6 +8,7 @@ body {
     color: #343a40; /* Darker text */
     position: relative;
     min-height: 100vh;
+    padding-bottom: 60px; /* 为页脚留出空间 */
 }
 
 /* Container for main content */
@@ -364,6 +365,17 @@ textarea::placeholder {
          width: 65px; /* Smaller inputs */
      }
 
+    .footer {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -396,4 +408,42 @@ textarea::placeholder {
          right: 8px;
      }
 
+}
+
+/* Footer Styling */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px;
+}
+
+.footer a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #495057;
+    text-decoration: underline;
 }
