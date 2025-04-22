@@ -212,5 +212,16 @@
   "iphone_16_pro_max": "iPhone 16 Pro Max",
   "iphone_16_pro": "iPhone 16 Pro",
   "iphone_16_plus": "iPhone 16 Plus",
-  "iphone_16": "iPhone 16"
+  "iphone_16": "iPhone 16",
+  "faq_heading": "常见问题",
+  "faq_question1": "什么是屏幕分辨率？",
+  "faq_answer1": "屏幕分辨率是指屏幕上显示的像素数量，通常表示为宽度 x 高度（例如 1920 x 1080）。更高的分辨率意味着更多的像素和更清晰的图像。",
+  "faq_question2": "什么是视口大小？",
+  "faq_answer2": "视口大小是网页在浏览器窗口中的可见区域。对于响应式设计很重要，因为它决定了您的网站在不同设备上的显示方式。",
+  "faq_question3": "什么是设备像素比（DPR）？",
+  "faq_answer3": "DPR 是物理像素和 CSS 像素之间的比率。DPR 为 2 意味着每个 CSS 像素对应 2 个物理像素。这在 Retina 屏幕等高分辨率显示器中很常见。",
+  "faq_question4": "这些信息为什么对网页开发很重要？",
+  "faq_answer4": "了解屏幕尺寸、分辨率和 DPR 有助于开发人员创建在所有设备上看起来都很好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。",
+  "faq_question5": "应该多久检查一次设备信息？",
+  "faq_answer5": "在测试响应式设计、调试显示问题或确保您的网站在不同设备和浏览器上正常工作的时候，检查设备信息是一个很好的做法。"
 }
