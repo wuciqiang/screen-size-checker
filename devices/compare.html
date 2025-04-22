@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title & Description -->
+    <title data-i18n="compare_title">Device Size Comparison Tool: Compare Screen Sizes & Resolutions | Screen Size Checker</title>
+    <meta name="description" content="Interactive tool to compare screen sizes and resolutions across different devices. Compare iPhone, iPad, Android phones, and tablets side by side. Perfect for responsive design planning.">
+    <meta name="keywords" content="device size comparison, screen size comparison, viewport comparison, responsive design tool, device simulator, screen resolution comparison">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://screensizechecker.com/devices/compare.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://screensizechecker.com/devices/compare.html">
+    <meta property="og:title" content="Device Size Comparison Tool: Compare Screen Sizes & Resolutions">
+    <meta property="og:description" content="Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://screensizechecker.com/devices/compare.html">
+    <meta property="twitter:title" content="Device Size Comparison Tool: Compare Screen Sizes & Resolutions">
+    <meta property="twitter:description" content="Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- i18next Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Device Size Comparison Tool",
+      "url": "https://screensizechecker.com/devices/compare.html",
+      "description": "Interactive tool to compare screen sizes and resolutions across different devices.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Side-by-side device comparison",
+        "Interactive size visualization",
+        "Multiple device categories",
+        "Custom size input",
+        "Resolution comparison"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 data-i18n="compare_heading">Device Size Comparison Tool</h1>
+        
+        <div class="breadcrumb">
+            <a href="/" data-i18n="home">Home</a> > <a href="/devices/" data-i18n="devices">Devices</a> > <span data-i18n="compare_breadcrumb">Device Comparison</span>
+        </div>
+        
+        <div class="content-intro">
+            <p data-i18n="compare_intro">Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your design will look on various devices.</p>
+        </div>
+        
+        <div class="comparison-tool">
+            <div class="device-selectors">
+                <div class="device-selector">
+                    <h3>Device 1</h3>
+                    <select id="device1-select">
+                        <option value="">Select Device</option>
+                        <optgroup label="iPhone">
+                            <option value="iphone-14-pro-max">iPhone 14 Pro Max</option>
+                            <option value="iphone-14-pro">iPhone 14 Pro</option>
+                            <option value="iphone-14">iPhone 14</option>
+                            <option value="iphone-13-pro-max">iPhone 13 Pro Max</option>
+                            <option value="iphone-13-pro">iPhone 13 Pro</option>
+                            <option value="iphone-13">iPhone 13</option>
+                            <option value="iphone-13-mini">iPhone 13 mini</option>
+                        </optgroup>
+                        <optgroup label="iPad">
+                            <option value="ipad-pro-12.9">iPad Pro 12.9"</option>
+                            <option value="ipad-pro-11">iPad Pro 11"</option>
+                            <option value="ipad-air">iPad Air</option>
+                            <option value="ipad-mini">iPad Mini</option>
+                        </optgroup>
+                        <optgroup label="Android">
+                            <option value="samsung-s23-ultra">Samsung Galaxy S23 Ultra</option>
+                            <option value="samsung-s23-plus">Samsung Galaxy S23+</option>
+                            <option value="samsung-s23">Samsung Galaxy S23</option>
+                            <option value="pixel-7-pro">Google Pixel 7 Pro</option>
+                            <option value="pixel-7">Google Pixel 7</option>
+                            <option value="oneplus-11">OnePlus 11</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="device-selector">
+                    <h3>Device 2</h3>
+                    <select id="device2-select">
+                        <option value="">Select Device</option>
+                        <optgroup label="iPhone">
+                            <option value="iphone-14-pro-max">iPhone 14 Pro Max</option>
+                            <option value="iphone-14-pro">iPhone 14 Pro</option>
+                            <option value="iphone-14">iPhone 14</option>
+                            <option value="iphone-13-pro-max">iPhone 13 Pro Max</option>
+                            <option value="iphone-13-pro">iPhone 13 Pro</option>
+                            <option value="iphone-13">iPhone 13</option>
+                            <option value="iphone-13-mini">iPhone 13 mini</option>
+                        </optgroup>
+                        <optgroup label="iPad">
+                            <option value="ipad-pro-12.9">iPad Pro 12.9"</option>
+                            <option value="ipad-pro-11">iPad Pro 11"</option>
+                            <option value="ipad-air">iPad Air</option>
+                            <option value="ipad-mini">iPad Mini</option>
+                        </optgroup>
+                        <optgroup label="Android">
+                            <option value="samsung-s23-ultra">Samsung Galaxy S23 Ultra</option>
+                            <option value="samsung-s23-plus">Samsung Galaxy S23+</option>
+                            <option value="samsung-s23">Samsung Galaxy S23</option>
+                            <option value="pixel-7-pro">Google Pixel 7 Pro</option>
+                            <option value="pixel-7">Google Pixel 7</option>
+                            <option value="oneplus-11">OnePlus 11</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="comparison-display">
+                <div class="device-display" id="device1-display">
+                    <div class="device-frame">
+                        <div class="device-screen"></div>
+                    </div>
+                    <div class="device-info">
+                        <h4>Device 1</h4>
+                        <p>Viewport: <span id="device1-viewport">---</span></p>
+                        <p>Resolution: <span id="device1-resolution">---</span></p>
+                        <p>DPR: <span id="device1-dpr">---</span></p>
+                    </div>
+                </div>
+                
+                <div class="device-display" id="device2-display">
+                    <div class="device-frame">
+                        <div class="device-screen"></div>
+                    </div>
+                    <div class="device-info">
+                        <h4>Device 2</h4>
+                        <p>Viewport: <span id="device2-viewport">---</span></p>
+                        <p>Resolution: <span id="device2-resolution">---</span></p>
+                        <p>DPR: <span id="device2-dpr">---</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="custom-size-input">
+                <h3>Custom Size</h3>
+                <div class="input-group">
+                    <label for="custom-width">Width:</label>
+                    <input type="number" id="custom-width" min="100" max="4000" placeholder="Width">
+                    <label for="custom-height">Height:</label>
+                    <input type="number" id="custom-height" min="100" max="4000" placeholder="Height">
+                    <button id="apply-custom-size">Apply</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>How to Use the Comparison Tool</h2>
+            <ol>
+                <li>Select two devices from the dropdown menus</li>
+                <li>View their sizes side by side</li>
+                <li>Compare viewport sizes and resolutions</li>
+                <li>Use custom size input for specific dimensions</li>
+                <li>Consider DPR (Device Pixel Ratio) for high-resolution displays</li>
+            </ol>
+        </div>
+        
+        <div class="related-links">
+            <h2>Related Resources</h2>
+            <ul>
+                <li><a href="/devices/iphone-viewport-sizes.html">iPhone Viewport Sizes Guide</a></li>
+                <li><a href="/devices/ipad-viewport-sizes.html">iPad Viewport Sizes Guide</a></li>
+                <li><a href="/devices/android-viewport-sizes.html">Android Viewport Sizes Guide</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <span>© 2025 Screen Size Checker. All rights reserved.</span>
+        </div>
+        <div class="footer-right">
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/terms-of-service.html">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script type="module" src="../js/device-comparison.js"></script>
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html> 
