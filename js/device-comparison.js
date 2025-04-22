@@ -61,7 +61,13 @@ const deviceData = {
     'samsung-s23': { viewport: '360 x 780', resolution: '1080 x 2340', dpr: 3.0 },
     'pixel-7-pro': { viewport: '412 x 892', resolution: '1440 x 3120', dpr: 3.5 },
     'pixel-7': { viewport: '393 x 851', resolution: '1080 x 2400', dpr: 2.75 },
-    'oneplus-11': { viewport: '412 x 892', resolution: '1440 x 3216', dpr: 3.5 }
+    'oneplus-11': { viewport: '412 x 892', resolution: '1440 x 3216', dpr: 3.5 },
+
+    // iPhone 16系列
+    'iphone-16-pro-max': { viewport: '440 x 956', resolution: '1320 x 2868', dpr: 3.0 },
+    'iphone-16-pro': { viewport: '402 x 874', resolution: '1206 x 2622', dpr: 3.0 },
+    'iphone-16-plus': { viewport: '428 x 926', resolution: '1284 x 2778', dpr: 3.0 },
+    'iphone-16': { viewport: '393 x 852', resolution: '1179 x 2556', dpr: 3.0 },
 };
 
 /**

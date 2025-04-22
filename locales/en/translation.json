@@ -149,5 +149,13 @@
   "compare_step2": "View their sizes side by side",
   "compare_step3": "Compare viewport sizes and resolutions",
   "compare_step4": "Use custom size input for specific dimensions",
-  "compare_step5": "Consider DPR (Device Pixel Ratio) for high-resolution displays"
+  "compare_step5": "Consider DPR (Device Pixel Ratio) for high-resolution displays",
+  "iphone_15_pro_max": "iPhone 15 Pro Max",
+  "iphone_15_pro": "iPhone 15 Pro",
+  "iphone_15_plus": "iPhone 15 Plus",
+  "iphone_15": "iPhone 15",
+  "iphone_16_pro_max": "iPhone 16 Pro Max",
+  "iphone_16_pro": "iPhone 16 Pro",
+  "iphone_16_plus": "iPhone 16 Plus",
+  "iphone_16": "iPhone 16"
 }
