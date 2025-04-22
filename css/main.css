@@ -12,6 +12,9 @@
 /* Simulator */
 @import 'simulator.css';
 
+/* Device Comparison */
+@import 'comparison.css';
+
 /* Error message styling */
 .error-message {
     background-color: #fff3f3;
