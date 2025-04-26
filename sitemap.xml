@@ -10,32 +10,32 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://screensizechecker.com/privacy-policy.html</loc>
-        <lastmod>2024-03-21</lastmod>
+        <loc>https://screensizechecker.com/privacy-policy</loc>
+        <lastmod>2024-04-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://screensizechecker.com/devices/iphone-viewport-sizes.html</loc>
-        <lastmod>2024-03-21</lastmod>
+        <loc>https://screensizechecker.com/devices/iphone-viewport-sizes</loc>
+        <lastmod>2024-04-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://screensizechecker.com/devices/ipad-viewport-sizes.html</loc>
-        <lastmod>2024-03-21</lastmod>
+        <loc>https://screensizechecker.com/devices/ipad-viewport-sizes</loc>
+        <lastmod>2024-04-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://screensizechecker.com/devices/android-viewport-sizes.html</loc>
-        <lastmod>2024-03-21</lastmod>
+        <loc>https://screensizechecker.com/devices/android-viewport-sizes</loc>
+        <lastmod>2024-04-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://screensizechecker.com/devices/compare.html</loc>
-        <lastmod>2024-03-21</lastmod>
+        <loc>https://screensizechecker.com/devices/compare</loc>
+        <lastmod>2024-04-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
