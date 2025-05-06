@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Screen Size Checker 项目结构指南
+
+这是一个用于检测和比较设备屏幕尺寸的网页工具。以下是主要文件和目录的说明：
+
+## 主要入口文件
+- [index.html](mdc:index.html): 主页面，显示设备和屏幕信息
+- [server.js](mdc:server.js): Express.js 服务器，用于本地开发和静态文件服务
+
+## JavaScript 逻辑
+- [script.js](mdc:script.js): 经典版本的主要逻辑，包含设备检测、UI更新和国际化
+- [js/main.js](mdc:js/main.js): 现代版本的入口点，负责应用初始化、事件监听和模块协调
+- [js/i18n.js](mdc:js/i18n.js): 使用 i18next 处理国际化
+- [js/device-detector.js](mdc:js/device-detector.js): 设备检测和显示更新逻辑
+- [js/clipboard.js](mdc:js/clipboard.js): 复制检测信息到剪贴板的功能
+- [js/simulator.js](mdc:js/simulator.js): 设备尺寸模拟和预览逻辑
+- [js/cookie-notice.js](mdc:js/cookie-notice.js): Cookie 通知和设置逻辑
+
+## 样式文件
+- [style.css](mdc:style.css): 经典版本的主样式表
+- [css/](mdc:css): 包含不同UI组件和页面的模块化CSS文件
+  - [main.css](mdc:css/main.css): 主要样式
+  - [comparison.css](mdc:css/comparison.css): 比较工具样式
+  - [simulator.css](mdc:css/simulator.css): 模拟器样式
+  - [info-items.css](mdc:css/info-items.css): 信息项样式
+  - [language-selector.css](mdc:css/language-selector.css): 语言选择器样式
+
+## 设备数据和页面
+- [devices/compare.html](mdc:devices/compare.html): 设备尺寸比较工具页面
+- [devices/ipad-viewport-sizes.html](mdc:devices/ipad-viewport-sizes.html): iPad 视口尺寸参考
+- [devices/iphone-viewport-sizes.html](mdc:devices/iphone-viewport-sizes.html): iPhone 视口尺寸参考
+- [devices/android-viewport-sizes.html](mdc:devices/android-viewport-sizes.html): Android 视口尺寸参考
+
+## 国际化
+- [locales/](mdc:locales): 包含支持语言的翻译文件
+  - [en/translation.json](mdc:locales/en/translation.json): 英文翻译
+  - [zh/translation.json](mdc:locales/zh/translation.json): 中文翻译
+  - 其他语言...
+
+## SEO 和元数据
+- [sitemap.xml](mdc:sitemap.xml): 搜索引擎站点地图
+- [robots.txt](mdc:robots.txt): 搜索引擎爬虫规则
+- [structured-data.json](mdc:structured-data.json): SEO 结构化数据
+- [privacy-policy.html](mdc:privacy-policy.html): 隐私政策页面
+
+## 文档
+- [README.md](mdc:README.md): 项目概述、设置和结构文档
+
+## 开发说明
+- 所有用户界面文本都使用 i18next 和 `locales/` 中的翻译文件进行国际化
+- 设备比较和参考页面位于 `devices/` 目录，每个页面都有自己的 HTML 并引用共享的 JS/CSS
+- 应用可以作为静态网站运行，也可以使用内置的 Express 服务器进行本地开发
+- 支持的语言：英文（默认）和中文
+- 使用 localStorage 保存语言偏好
+- 支持自动检测浏览器语言
+
+## 技术栈
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- i18next 用于国际化
+- Express.js 用于本地服务器
+
+
