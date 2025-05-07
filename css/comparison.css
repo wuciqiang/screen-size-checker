@@ -1,309 +1,170 @@
-/* Device Comparison Tool Styles */
-
-.comparison-tool {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.device-selectors {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.device-selector {
-    flex: 1;
-}
-
-.device-selector h3 {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.device-selector select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fff;
-    font-size: 1rem;
-}
-
-.device-selector select:focus {
-    outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-}
-
 .comparison-display {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-    min-height: 500px;
-}
-
-.device-display {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.device-frame {
-    position: relative;
+    align-items: stretch;
     width: 100%;
-    max-width: 300px;
+    gap: 2rem;
+  }
+  
+  .comparison-canvas {
+    display: block;
+    width: 100%;
+    max-width: 600px;
     height: 400px;
+    margin: 0 auto;
+    position: relative;
     background: #fff;
     border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  
+  .device-info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 0;
+  }
+  
+  .device-info-row .device-display {
+    flex: 1 1 300px;
+    max-width: 400px;
+    min-width: 260px;
+  }
+  
+  @media (max-width: 900px) {
+    .comparison-canvas {
+      max-width: 98vw;
+      min-width: 220px;
+      height: 320px;
+    }
+    .device-info-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .device-info-row .device-display {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+    }
+  }
 
-/* 设备外观模拟 */
-.device-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 20px;
-    background: #000;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    z-index: 2;
-}
 
-.device-frame::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -2px;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 40px;
-    background: #e0e0e0;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
 
-.device-screen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #f0f2f5;
-    border: 2px solid #0066cc;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
-    transition: all 0.3s ease;
-}
-
-/* 设备尺寸标注 */
-.device-dimensions {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: monospace;
-    pointer-events: none;
-    z-index: 3;
-}
-
-.device-dimensions.width {
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.device-dimensions.height {
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg);
-    transform-origin: right center;
-}
-
-/* 设备比例尺 */
-.device-scale {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    color: #666;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  /* 强制覆盖其他样式，保证对比画布和信息分行 */
+.comparison-display {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 2rem !important;
+  }
+  
+  .comparison-canvas {
+    display: block !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    height: 400px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    background: #fff !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+  }
+  
+  .device-info-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 2rem !important;
+    margin-top: 0 !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  .device-info-row .device-display {
+    flex: 1 1 320px !important;
+    max-width: 400px !important;
+    min-width: 220px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 900px) {
+    .comparison-canvas {
+      max-width: 98vw !important;
+      min-width: 220px !important;
+      height: 320px !important;
+    }
+    .device-info-row {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 1.5rem !important;
+    }
+    .device-info-row .device-display {
+      max-width: 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  }
 
 .device-info {
-    width: 100%;
-    text-align: left;
-    padding: 1.5rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 0;
 }
 
 .device-info h4 {
-    margin: 0 0 1rem 0;
-    color: #0066cc;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-bottom: 2px solid #0066cc;
-    padding-bottom: 0.5rem;
+  margin: 0 0 1rem 0;
+  color: #0066cc;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 2px solid #0066cc;
+  padding-bottom: 0.5rem;
 }
 
 .device-info p {
-    margin: 0.75rem 0;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
+  margin: 0.75rem 0;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
 }
 
 .device-info span:first-child {
-    font-weight: 500;
-    color: #666;
+  font-weight: 500;
+  color: #666;
 }
 
 .device-info span:last-child {
-    font-weight: 600;
-    color: #0066cc;
-    background: rgba(0, 102, 204, 0.1);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-family: monospace;
-}
-
-.custom-size-input {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
-
-.custom-size-input h3 {
-    margin: 0 0 1rem 0;
-    color: #333;
-}
-
-.input-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    align-items: end;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #666;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-}
-
-.input-group button {
-    padding: 0.75rem 1.5rem;
-    background: #0066cc;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.input-group button:hover {
-    background: #0052a3;
-    transform: translateY(-1px);
-}
-
-/* 设备旋转动画 */
-@keyframes rotateDevice {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(90deg);
-    }
+  font-weight: 600;
+  color: #0066cc;
+  background: rgba(0, 102, 204, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-family: monospace;
 }
 
 .device-screen.rotated {
-    animation: rotateDevice 0.3s ease-out forwards;
-}
-
-/* 设备缩放动画 */
-@keyframes scaleDevice {
-    from {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
+  transform: rotate(90deg) !important;
+  transition: transform 0.3s;
 }
 
 .device-screen.scaled {
-    animation: scaleDevice 0.3s ease-out forwards;
+  transform: scale(1.2) !important;
+  transition: transform 0.3s;
 }
-
-/* 设备出现动画 */
-@keyframes deviceAppear {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -40%) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-.device-screen {
-    animation: deviceAppear 0.4s ease-out;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .comparison-display {
-        grid-template-columns: 1fr;
-    }
-    
-    .device-frame {
-        height: 350px;
-    }
-    
-    .device-info p {
-        font-size: 1rem;
-    }
-    
-    .device-dimensions {
-        display: none;
-    }
-} 

@@ -407,9 +407,6 @@ function initDeviceComparison() {
         });
     }
 
-    // 添加设备旋转和缩放按钮
-    addDeviceControls();
-
     // Initial update
     updateDeviceDisplay();
 }
@@ -418,40 +415,97 @@ function initDeviceComparison() {
  * Add device control buttons
  */
 function addDeviceControls() {
-    const deviceDisplays = document.querySelectorAll('.device-display');
-    deviceDisplays.forEach(display => {
-        const controls = document.createElement('div');
-        controls.className = 'device-controls';
-        controls.innerHTML = `
-            <button class="rotate-btn" title="Rotate Device">↻</button>
-            <button class="scale-btn" title="Scale Device">+</button>
-        `;
-        display.appendChild(controls);
-
-        // 添加旋转按钮事件
-        const rotateBtn = controls.querySelector('.rotate-btn');
-        rotateBtn.addEventListener('click', () => {
-            const screen = display.querySelector('.device-screen');
-            screen.classList.toggle('rotated');
-            updateDeviceDimensions(display);
-        });
-
-        // 添加缩放按钮事件
-        const scaleBtn = controls.querySelector('.scale-btn');
-        scaleBtn.addEventListener('click', () => {
-            const screen = display.querySelector('.device-screen');
-            screen.classList.toggle('scaled');
-            updateDeviceDimensions(display);
-        });
-    });
+    // 不再添加任何按钮
 }
 
 /**
  * Update device display based on selected devices
  */
 function updateDeviceDisplay() {
+    // 先清空画布
+    const canvas = document.getElementById('comparison-canvas');
+    if (canvas) canvas.innerHTML = '';
+
+    // 获取两个设备的物理宽高（毫米）
+    const device1Select = document.getElementById('device1-select');
+    const device2Select = document.getElementById('device2-select');
+    let device1 = null, device2 = null;
+    let w1 = 0, h1 = 0, w2 = 0, h2 = 0;
+    if (device1Select && device1Select.value && deviceData[device1Select.value]) {
+        device1 = deviceData[device1Select.value];
+        [w1, h1] = parsePhysicalSize(device1.physicalSize);
+    }
+    if (device2Select && device2Select.value && deviceData[device2Select.value]) {
+        device2 = deviceData[device2Select.value];
+        [w2, h2] = parsePhysicalSize(device2.physicalSize);
+    }
+    // 只有两个设备都被选择后才渲染
+    if (!device1 || !device2) {
+        if (canvas) {
+            canvas.style.width = '';
+            canvas.style.height = '';
+            canvas.innerHTML = '';
+        }
+        updateSingleDevice('device1');
+        updateSingleDevice('device2');
+        return;
+    }
+    // 画布最大宽高
+    const CANVAS_MAX_W = 600;
+    const CANVAS_MAX_H = 400;
+    const PADDING_RATIO = 0.1; // 10%留白
+    // 计算最大物理宽高
+    const maxW = Math.max(w1, w2);
+    const maxH = Math.max(h1, h2);
+    // 计算缩放比例，保证两个设备都能完整显示，且有留白
+    const scaleW = (CANVAS_MAX_W * (1 - PADDING_RATIO)) / maxW;
+    const scaleH = (CANVAS_MAX_H * (1 - PADDING_RATIO)) / maxH;
+    const scale = Math.min(scaleW, scaleH);
+    // 画布实际宽高（含留白）
+    const canvasW = Math.ceil(maxW * scale / (1 - PADDING_RATIO));
+    const canvasH = Math.ceil(maxH * scale / (1 - PADDING_RATIO));
+    if (canvas) {
+        canvas.style.width = canvasW + 'px';
+        canvas.style.height = canvasH + 'px';
+        canvas.style.position = 'relative';
+        canvas.style.background = '#fff';
+    }
+    // 设备左下角对齐，底边和左边距为 padding
+    const padX = Math.round(canvasW * PADDING_RATIO / 2);
+    const padY = Math.round(canvasH * PADDING_RATIO / 2);
+    // 渲染 device1
+    renderDeviceScreenToCanvasDW(device1, 'device1', scale, w1, h1, padX, padY, 1);
+    // 渲染 device2
+    renderDeviceScreenToCanvasDW(device2, 'device2', scale, w2, h2, padX, padY, 2);
+    // 保持设备信息部分逻辑不变
     updateSingleDevice('device1');
     updateSingleDevice('device2');
+}
+
+// displaywars风格渲染，两设备左下角对齐，颜色区分，重叠透明
+function renderDeviceScreenToCanvasDW(device, colorClass, scale, widthMM, heightMM, padX, padY, zIndex = 1) {
+    const canvas = document.getElementById('comparison-canvas');
+    if (!canvas) return;
+    const screen = document.createElement('div');
+    screen.className = `device-screen ${colorClass}`;
+    screen.style.position = 'absolute';
+    screen.style.left = padX + 'px';
+    screen.style.bottom = padY + 'px';
+    screen.style.width = `${widthMM * scale}px`;
+    screen.style.height = `${heightMM * scale}px`;
+    screen.style.borderRadius = '8px';
+    screen.style.opacity = '0.6';
+    screen.title = `${device.physicalSize}`;
+    // 颜色和边框
+    if (colorClass === 'device1') {
+        screen.style.background = 'rgba(52, 152, 219, 0.45)'; // 蓝色
+        screen.style.border = '3px solid #2980b9';
+    } else {
+        screen.style.background = 'rgba(46, 204, 113, 0.45)'; // 绿色
+        screen.style.border = '3px solid #27ae60';
+    }
+    screen.style.zIndex = zIndex;
+    canvas.appendChild(screen);
 }
 
 /**
@@ -580,6 +634,17 @@ function calculateScale(width, height) {
     
     // 限制最小和最大缩放值
     return Math.min(Math.max(scale, 0.1), 1.0);
+}
+
+// 解析物理尺寸字符串，返回[宽, 高]（单位mm）
+function parsePhysicalSize(str) {
+    // 形如 "160.7 x 77.6 x 7.85 mm"
+    if (!str) return [0, 0];
+    const match = str.match(/([\d.]+)\s*x\s*([\d.]+)/);
+    if (match) {
+        return [parseFloat(match[1]), parseFloat(match[2])];
+    }
+    return [0, 0];
 }
 
 // Initialize when DOM is loaded
