@@ -70,6 +70,34 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 设备外观模拟 */
+.device-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #000;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 2;
+}
+
+.device-frame::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -2px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: #e0e0e0;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
 .device-screen {
     position: absolute;
     top: 50%;
@@ -80,6 +108,45 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
     transition: all 0.3s ease;
+}
+
+/* 设备尺寸标注 */
+.device-dimensions {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: monospace;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.device-dimensions.width {
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.device-dimensions.height {
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: right center;
+}
+
+/* 设备比例尺 */
+.device-scale {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #666;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .device-info {
@@ -178,7 +245,35 @@
     transform: translateY(-1px);
 }
 
-/* Animation */
+/* 设备旋转动画 */
+@keyframes rotateDevice {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+}
+
+.device-screen.rotated {
+    animation: rotateDevice 0.3s ease-out forwards;
+}
+
+/* 设备缩放动画 */
+@keyframes scaleDevice {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.device-screen.scaled {
+    animation: scaleDevice 0.3s ease-out forwards;
+}
+
+/* 设备出现动画 */
 @keyframes deviceAppear {
     from {
         opacity: 0;
@@ -194,7 +289,7 @@
     animation: deviceAppear 0.4s ease-out;
 }
 
-/* Responsive Adjustments */
+/* 响应式调整 */
 @media (max-width: 768px) {
     .comparison-display {
         grid-template-columns: 1fr;
@@ -206,5 +301,9 @@
     
     .device-info p {
         font-size: 1rem;
+    }
+    
+    .device-dimensions {
+        display: none;
     }
 } 

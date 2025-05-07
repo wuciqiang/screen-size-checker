@@ -32,14 +32,10 @@ git clone [repository-url]
 cd screen-size-checker
 ```
 
-2. 安装依赖：
-```bash
-npm install
-```
 
 3. 启动本地服务器：
 ```bash
-node server.js
+python -m http.server 8000
 ```
 
 4. 访问 http://127.0.0.1:5000
