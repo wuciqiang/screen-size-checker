@@ -185,12 +185,14 @@
             flex: 1 1 calc(50% - 20px);
             min-width: 300px;
             border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
         }
         
         .stats-table th, .stats-table td,
         .comparison-table th, .comparison-table td {
             border: 1px solid #ddd;
-            padding: 8px 12px;
+            padding: 8px;
             text-align: left;
         }
         
@@ -227,6 +229,61 @@
             
             .stats-table, .comparison-table {
                 width: 100%;
+                min-width: auto;
+                font-size: 14px;
+            }
+            
+            .stats-table th, .stats-table td,
+            .comparison-table th, .comparison-table td {
+                padding: 6px 4px;
+                word-break: break-word;
+            }
+            
+            .stats-table td:first-child,
+            .comparison-table td:first-child {
+                font-weight: bold;
+                max-width: 80px;
+            }
+            
+            .comparison-title {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+            
+            /* 优化小屏幕下的表格内容显示 */
+            .stats-table, .comparison-table {
+                table-layout: fixed;
+            }
+            
+            .stats-table th, .comparison-table th {
+                font-size: 13px;
+            }
+            
+            /* 确保数字更好地对齐和显示 */
+            .stats-table td:not(:first-child),
+            .comparison-table td:not(:first-child) {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-table, .comparison-table {
+                font-size: 12px;
+            }
+            
+            .stats-table th, .stats-table td,
+            .comparison-table th, .comparison-table td {
+                padding: 4px 2px;
+            }
+            
+            .stats-table td:first-child,
+            .comparison-table td:first-child {
+                max-width: 60px;
+            }
+            
+            /* 超窄屏幕优化 */
+            .comparison-visual {
+                height: 250px;
             }
         }
     </style>
@@ -415,8 +472,7 @@
                 <div class="comparison-title" id="comparison-title">52 inch 16x9 display vs 56 inch 16x9 display</div>
                 
                 <div class="comparison-visual" id="comparison-visual">
-                    <div class="comparison-display1" id="comparison-display1"></div>
-                    <div class="comparison-display2" id="comparison-display2"></div>
+                    <!-- 这里将由Canvas自动填充，不需要预定义div元素 -->
                 </div>
                 
                 <div class="comparison-tables">
