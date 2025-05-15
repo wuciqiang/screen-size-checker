@@ -298,5 +298,27 @@
   "diagonal": "对角线",
   
   "larger": "更大",
-  "smaller": "更小"
+  "smaller": "更小",
+  
+  "diagonal_diff": "对角线差异",
+  "width_diff": "宽度差异",
+  "height_diff": "高度差异",
+  "area_diff": "面积差异",
+  "ratio_diff": "宽高比差异",
+  
+  "diagonal_short": "对角线",
+  "width_short": "宽",
+  "height_short": "高",
+  "area_short": "面积",
+  "ratio_short": "比例",
+  
+  "share_heading": "分享对比结果",
+  "share_copy_link": "复制链接",
+  "share_facebook": "分享到Facebook",
+  "share_twitter": "分享到Twitter",
+  "share_linkedin": "分享到LinkedIn",
+  "share_pinterest": "分享到Pinterest",
+  "copied_link": "已复制链接!",
+  "display_comparison": "显示器尺寸对比",
+  "close": "关闭"
 }

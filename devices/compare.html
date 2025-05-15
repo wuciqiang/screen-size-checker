@@ -211,6 +211,25 @@
             color: #4CAF50;
         }
         
+        /* 新增样式：优化比较单元格和百分比指示器 */
+        .comparison-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .comparison-value {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            font-size: 14px;
+        }
+        
+        .comparison-value.highlight {
+            font-weight: bold;
+        }
+        
         .comparison-title {
             text-align: center;
             font-size: 18px;
@@ -264,6 +283,15 @@
             .comparison-table td:not(:first-child) {
                 text-align: center;
             }
+            
+            /* 优化比较单元格在移动设备上的显示 */
+            .comparison-cell {
+                gap: 4px;
+            }
+            
+            .comparison-value {
+                font-size: 13px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -284,6 +312,108 @@
             /* 超窄屏幕优化 */
             .comparison-visual {
                 height: 250px;
+            }
+            
+            /* 进一步优化比较单元格在超窄屏幕上的显示 */
+            .comparison-value {
+                font-size: 12px;
+            }
+        }
+        
+        .share-options {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .share-options h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn img {
+            width: 18px;
+            height: 18px;
+            filter: invert(1);
+        }
+        
+        .url-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .url-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .facebook-btn {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .facebook-btn:hover {
+            background-color: #344e86;
+        }
+        
+        .twitter-btn {
+            background-color: #1DA1F2;
+            color: white;
+        }
+        
+        .twitter-btn:hover {
+            background-color: #0d95e8;
+        }
+        
+        .linkedin-btn {
+            background-color: #0077B5;
+            color: white;
+        }
+        
+        .linkedin-btn:hover {
+            background-color: #006699;
+        }
+        
+        .pinterest-btn {
+            background-color: #E60023;
+            color: white;
+        }
+        
+        .pinterest-btn:hover {
+            background-color: #cc0000;
+        }
+        
+        @media (max-width: 768px) {
+            .share-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .share-btn {
+                width: 100%;
             }
         }
     </style>
@@ -549,6 +679,30 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                
+                <!-- Share Section -->
+                <div id="share-options" class="share-options">
+                    <h3 data-i18n="share_heading">分享对比结果</h3>
+                    <div class="share-buttons">
+                        <button id="share-url-btn" class="share-btn url-btn" data-i18n="share_copy_link">复制链接</button>
+                        <button id="share-facebook-btn" class="share-btn facebook-btn">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" alt="Facebook">
+                            <span data-i18n="share_facebook">Facebook</span>
+                        </button>
+                        <button id="share-twitter-btn" class="share-btn twitter-btn">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" alt="Twitter">
+                            <span data-i18n="share_twitter">Twitter</span>
+                        </button>
+                        <button id="share-linkedin-btn" class="share-btn linkedin-btn">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn">
+                            <span data-i18n="share_linkedin">LinkedIn</span>
+                        </button>
+                        <button id="share-pinterest-btn" class="share-btn pinterest-btn">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/pinterest.svg" alt="Pinterest">
+                            <span data-i18n="share_pinterest">Pinterest</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

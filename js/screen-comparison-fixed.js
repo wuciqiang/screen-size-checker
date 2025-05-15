@@ -112,6 +112,46 @@ window.addEventListener('DOMContentLoaded', function() {
         compareBtn.addEventListener('click', function() {
             console.log('Compare button clicked in simplified script');
             compareDisplays();
+            // 更新URL，以便分享
+            updateURLWithCurrentState(true);
+        });
+    }
+    
+    // 添加分享按钮事件监听
+    var shareUrlBtn = document.getElementById('share-url-btn');
+    if (shareUrlBtn) {
+        shareUrlBtn.addEventListener('click', function() {
+            copyCurrentUrlToClipboard();
+        });
+    }
+
+    // 添加社交媒体分享按钮事件监听
+    var shareFacebookBtn = document.getElementById('share-facebook-btn');
+    var shareTwitterBtn = document.getElementById('share-twitter-btn');
+    var shareLinkedInBtn = document.getElementById('share-linkedin-btn');
+    var sharePinterestBtn = document.getElementById('share-pinterest-btn');
+    
+    if (shareFacebookBtn) {
+        shareFacebookBtn.addEventListener('click', function() {
+            shareToSocialMedia('facebook');
+        });
+    }
+    
+    if (shareTwitterBtn) {
+        shareTwitterBtn.addEventListener('click', function() {
+            shareToSocialMedia('twitter');
+        });
+    }
+    
+    if (shareLinkedInBtn) {
+        shareLinkedInBtn.addEventListener('click', function() {
+            shareToSocialMedia('linkedin');
+        });
+    }
+    
+    if (sharePinterestBtn) {
+        sharePinterestBtn.addEventListener('click', function() {
+            shareToSocialMedia('pinterest');
         });
     }
     
@@ -131,6 +171,10 @@ window.addEventListener('DOMContentLoaded', function() {
             updateVisual(lastCalculatedDisplay1, lastCalculatedDisplay2);
         }
     }, 250));
+
+    // 检查URL参数并初始化页面
+    var shouldShowComparisonOnLoad = false; // 默认不显示对比结果
+    initializeFromURLParams();
 
     // 切换单位（英寸/厘米）
     function switchUnit(unit) {
@@ -199,6 +243,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // 更新可视化
         updateVisual(display1, display2);
+        
+        // 显示分享选项
+        var shareOptions = document.getElementById('share-options');
+        if (shareOptions) {
+            shareOptions.style.display = 'block';
+        }
     }
     
     // debounce函数，防止窗口大小变化时频繁更新
@@ -285,7 +335,14 @@ window.addEventListener('DOMContentLoaded', function() {
     function calculateComparison(display1, display2) {
         // 计算实际对比
         var diagonalDiff = ((display2.diagonal - display1.diagonal) / display1.diagonal) * 100;
+        var widthDiff = ((display2.width - display1.width) / display1.width) * 100;
+        var heightDiff = ((display2.height - display1.height) / display1.height) * 100;
         var areaDiff = ((display2.area - display1.area) / display1.area) * 100;
+
+        // 计算宽高比差异
+        var ratio1 = display1.aspectRatio.width / display1.aspectRatio.height;
+        var ratio2 = display2.aspectRatio.width / display2.aspectRatio.height;
+        var ratioDiff = ((ratio2 - ratio1) / ratio1) * 100;
 
         // 计算4:3对比
         var diagonal4x3Diff = ((display2.as4x3 - display1.as4x3) / display1.as4x3) * 100;
@@ -302,7 +359,10 @@ window.addEventListener('DOMContentLoaded', function() {
         return {
             actual: {
                 diagonalDiff: diagonalDiff,
-                areaDiff: areaDiff
+                widthDiff: widthDiff,
+                heightDiff: heightDiff,
+                areaDiff: areaDiff,
+                ratioDiff: ratioDiff
             },
             as4x3: {
                 diagonalDiff: diagonal4x3Diff,
@@ -409,8 +469,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // 更新对比表格
         // 实际比例下的对比
-        var actualCompText1 = formatComparison(comparison.actual.diagonalDiff, comparison.actual.areaDiff, false, isMobile);
-        var actualCompText2 = formatComparison(comparison.actual.diagonalDiff, comparison.actual.areaDiff, true, isMobile);
+        var actualCompText1 = formatDetailedComparison(comparison.actual, false, isMobile);
+        var actualCompText2 = formatDetailedComparison(comparison.actual, true, isMobile);
         compActual1Cell.innerHTML = actualCompText1;
         compActual2Cell.innerHTML = actualCompText2;
 
@@ -431,6 +491,97 @@ window.addEventListener('DOMContentLoaded', function() {
         var comp235x1Text2 = formatComparison(comparison.as235x1.diagonalDiff, comparison.as235x1.areaDiff, true, isMobile);
         comp235x1_1Cell.innerHTML = comp235x1Text1;
         comp235x1_2Cell.innerHTML = comp235x1Text2;
+    }
+
+    // 格式化详细比较文本，包含更多对比指标
+    function formatDetailedComparison(comparisonData, isSecond, isMobile) {
+        // 反转第一个设备的值，使其显示为比第二个设备小/大
+        var diagonalDiff = isSecond ? comparisonData.diagonalDiff : -comparisonData.diagonalDiff;
+        var widthDiff = isSecond ? comparisonData.widthDiff : -comparisonData.widthDiff;
+        var heightDiff = isSecond ? comparisonData.heightDiff : -comparisonData.heightDiff;
+        var areaDiff = isSecond ? comparisonData.areaDiff : -comparisonData.areaDiff;
+        
+        // 获取本地化文本
+        var largerText = getLocalizedText('larger', '更大');
+        var smallerText = getLocalizedText('smaller', '更小');
+        
+        // 在移动设备上使用更简洁的文本
+        if (isMobile) {
+            largerText = '↑';
+            smallerText = '↓';
+        }
+
+        // 创建可视化的百分比指示器
+        var diagonalIndicator = createPercentageIndicator(diagonalDiff, isMobile);
+        var widthIndicator = createPercentageIndicator(widthDiff, isMobile);
+        var heightIndicator = createPercentageIndicator(heightDiff, isMobile);
+        var areaIndicator = createPercentageIndicator(areaDiff, isMobile);
+
+        // 格式化文本
+        var diagonalText = diagonalDiff >= 0 ?
+            formatNumber(diagonalDiff) + '% ' + largerText :
+            formatNumber(-diagonalDiff) + '% ' + smallerText;
+        
+        var widthText = widthDiff >= 0 ?
+            formatNumber(widthDiff) + '% ' + largerText :
+            formatNumber(-widthDiff) + '% ' + smallerText;
+        
+        var heightText = heightDiff >= 0 ?
+            formatNumber(heightDiff) + '% ' + largerText :
+            formatNumber(-heightDiff) + '% ' + smallerText;
+        
+        var areaText = areaDiff >= 0 ?
+            formatNumber(areaDiff) + '% ' + largerText :
+            formatNumber(-areaDiff) + '% ' + smallerText;
+
+        // 添加高亮类
+        var diagonalClass = Math.abs(diagonalDiff) > 10 ? 'highlight' : '';
+        var widthClass = Math.abs(widthDiff) > 10 ? 'highlight' : '';
+        var heightClass = Math.abs(heightDiff) > 10 ? 'highlight' : '';
+        var areaClass = Math.abs(areaDiff) > 20 ? 'highlight' : '';
+        
+        // 创建HTML
+        var html = '<div class="comparison-cell">';
+        
+        // 在移动设备上可能使用更紧凑的布局
+        if (isMobile) {
+            // 对角线
+            html += '<div class="' + diagonalClass + ' comparison-value" title="' + 
+                    getLocalizedText('diagonal_diff', '对角线差异') + '">' + 
+                    diagonalText + ' ' + diagonalIndicator + '</div>';
+            
+            // 面积（重要性更高，始终显示）
+            html += '<div class="' + areaClass + ' comparison-value" title="' + 
+                    getLocalizedText('area_diff', '面积差异') + '">' + 
+                    areaText + ' ' + areaIndicator + '</div>';
+        } else {
+            // 对角线
+            html += '<div class="' + diagonalClass + ' comparison-value" title="' + 
+                    getLocalizedText('diagonal_diff', '对角线差异') + '">' + 
+                    '<span>' + getLocalizedText('diagonal_short', '对角线') + ':</span> ' +
+                    diagonalText + ' ' + diagonalIndicator + '</div>';
+            
+            // 宽度
+            html += '<div class="' + widthClass + ' comparison-value" title="' + 
+                    getLocalizedText('width_diff', '宽度差异') + '">' + 
+                    '<span>' + getLocalizedText('width_short', '宽') + ':</span> ' +
+                    widthText + ' ' + widthIndicator + '</div>';
+            
+            // 高度
+            html += '<div class="' + heightClass + ' comparison-value" title="' + 
+                    getLocalizedText('height_diff', '高度差异') + '">' + 
+                    '<span>' + getLocalizedText('height_short', '高') + ':</span> ' +
+                    heightText + ' ' + heightIndicator + '</div>';
+            
+            // 面积
+            html += '<div class="' + areaClass + ' comparison-value" title="' + 
+                    getLocalizedText('area_diff', '面积差异') + '">' + 
+                    '<span>' + getLocalizedText('area_short', '面积') + ':</span> ' +
+                    areaText + ' ' + areaIndicator + '</div>';
+        }
+        
+        html += '</div>';
+        return html;
     }
 
     // 格式化比较文本
@@ -455,6 +606,10 @@ window.addEventListener('DOMContentLoaded', function() {
             smallerAreaText = getLocalizedText('smaller', '↓');
         }
 
+        // 创建可视化的百分比指示器
+        var diagonalIndicator = createPercentageIndicator(diagonalDiff, isMobile);
+        var areaIndicator = createPercentageIndicator(areaDiff, isMobile);
+
         var diagonalText = diagonalDiff >= 0 ?
             formatNumber(diagonalDiff) + '% ' + largerDiagonalText :
             formatNumber(-diagonalDiff) + '% ' + smallerDiagonalText;
@@ -467,13 +622,54 @@ window.addEventListener('DOMContentLoaded', function() {
         var diagonalClass = Math.abs(diagonalDiff) > 10 ? 'highlight' : '';
         var areaClass = Math.abs(areaDiff) > 20 ? 'highlight' : '';
         
-        // 在移动设备上可能使用单行显示
+        // 在移动设备上使用更紧凑的布局
         if (isMobile) {
-            return '<span class="' + diagonalClass + '">' + diagonalText + '</span><br>' +
-                   '<span class="' + areaClass + '">' + areaText + '</span>';
+            return '<div class="comparison-cell">' +
+                   '<div class="' + diagonalClass + ' comparison-value">' + 
+                   diagonalText + ' ' + diagonalIndicator + 
+                   '</div>' +
+                   '<div class="' + areaClass + ' comparison-value">' + 
+                   areaText + ' ' + areaIndicator + 
+                   '</div>' +
+                   '</div>';
         } else {
-            return '<span class="' + diagonalClass + '">' + diagonalText + '</span><br>' +
-                   '<span class="' + areaClass + '">' + areaText + '</span>';
+            return '<div class="comparison-cell">' +
+                   '<div class="' + diagonalClass + ' comparison-value">' + 
+                   diagonalText + ' ' + diagonalIndicator + 
+                   '</div>' +
+                   '<div class="' + areaClass + ' comparison-value">' + 
+                   areaText + ' ' + areaIndicator + 
+                   '</div>' +
+                   '</div>';
+        }
+    }
+
+    // 创建百分比指示器的HTML
+    function createPercentageIndicator(percentage, isMobile) {
+        var absPercentage = Math.abs(percentage);
+        var isPositive = percentage >= 0;
+        var maxWidth = isMobile ? 40 : 60; // 移动设备上使用较小的指示器
+        
+        // 限制指示器的最大宽度
+        var width = Math.min(absPercentage * 0.8, maxWidth);
+        // 确保即使是小百分比也有最小宽度
+        width = Math.max(width, 3);
+        
+        var color = isPositive ? '#4CAF50' : '#f44336'; // 正值为绿色，负值为红色
+        
+        var barStyle = 'display:inline-block; width:' + width + 'px; height:8px; ' +
+                      'background-color:' + color + '; margin:0 5px; vertical-align:middle; ' +
+                      'border-radius:4px;';
+        
+        var arrow = isPositive ? '▲' : '▼';
+        var arrowColor = 'color:' + color + ';';
+        
+        // 在移动设备上可能只返回条形指示器，以节省空间
+        if (isMobile && absPercentage < 5) {
+            return '<span style="' + arrowColor + '">' + arrow + '</span>';
+        } else {
+            return '<span style="' + barStyle + '"></span>' + 
+                   '<span style="' + arrowColor + '">' + arrow + '</span>';
         }
     }
 
@@ -652,9 +848,202 @@ window.addEventListener('DOMContentLoaded', function() {
         ctx.restore();
     }
 
+    // 更新URL参数以反映当前状态
+    function updateURLWithCurrentState(setCompareTrue) {
+        if (!window.history || !window.location) {
+            return; // 如果不支持history API，则不执行操作
+        }
+        
+        var params = new URLSearchParams();
+        
+        // 显示器1参数
+        params.set('a1', aspect1Select.value);
+        if (aspect1Select.value === 'custom') {
+            params.set('cw1', customWidth1.value);
+            params.set('ch1', customHeight1.value);
+        }
+        params.set('s1', size1Input.value);
+        params.set('u1', unit1Select.value);
+        
+        // 显示器2参数
+        params.set('a2', aspect2Select.value);
+        if (aspect2Select.value === 'custom') {
+            params.set('cw2', customWidth2.value);
+            params.set('ch2', customHeight2.value);
+        }
+        params.set('s2', size2Input.value);
+        params.set('u2', unit2Select.value);
+        
+        // 当前单位
+        params.set('unit', currentUnit);
+        
+        // 添加一个参数表示是否应该显示比较结果
+        if (setCompareTrue) {
+            params.set('compare', 'true');
+        }
+        
+        // 构建URL
+        var url = window.location.pathname + '?' + params.toString();
+        
+        // 更新浏览器历史，不刷新页面
+        window.history.replaceState({}, document.title, url);
+    }
+    
+    // 从URL参数初始化页面
+    function initializeFromURLParams() {
+        if (!window.location || !window.location.search) {
+            return; // 如果URL中没有参数，则不执行操作
+        }
+        
+        var params = new URLSearchParams(window.location.search);
+        
+        // 检查是否有参数
+        if (params.toString() === '') {
+            return;
+        }
+        
+        // 设置显示器1参数
+        if (params.has('a1')) {
+            aspect1Select.value = params.get('a1');
+            if (params.get('a1') === 'custom' && customRatio1) {
+                customRatio1.style.display = 'flex';
+                if (params.has('cw1')) customWidth1.value = params.get('cw1');
+                if (params.has('ch1')) customHeight1.value = params.get('ch1');
+            }
+        }
+        if (params.has('s1')) size1Input.value = params.get('s1');
+        if (params.has('u1')) unit1Select.value = params.get('u1');
+        
+        // 设置显示器2参数
+        if (params.has('a2')) {
+            aspect2Select.value = params.get('a2');
+            if (params.get('a2') === 'custom' && customRatio2) {
+                customRatio2.style.display = 'flex';
+                if (params.has('cw2')) customWidth2.value = params.get('cw2');
+                if (params.has('ch2')) customHeight2.value = params.get('ch2');
+            }
+        }
+        if (params.has('s2')) size2Input.value = params.get('s2');
+        if (params.has('u2')) unit2Select.value = params.get('u2');
+        
+        // 设置单位
+        if (params.has('unit')) {
+            switchUnit(params.get('unit'));
+        }
+        
+        // 检查是否应该显示比较结果
+        if (params.has('compare') && params.get('compare') === 'true') {
+            shouldShowComparisonOnLoad = true;
+            // 自动执行比较
+            setTimeout(function() {
+                compareDisplays();
+            }, 300);
+        }
+    }
+    
+    // 社交媒体分享
+    function shareToSocialMedia(platform) {
+        updateURLWithCurrentState(true); // 确保URL包含最新状态并设置compare=true
+        
+        var currentUrl = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent(document.title);
+        var description = encodeURIComponent(comparisonTitle.textContent || getLocalizedText('display_comparison', 'Display Comparison'));
+        var imageUrl = ''; // 可以添加一张默认的分享图片
+        
+        var shareUrl = '';
+        
+        switch (platform) {
+            case 'facebook':
+                shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+                break;
+            case 'twitter':
+                shareUrl = 'https://twitter.com/intent/tweet?url=' + currentUrl + 
+                          '&text=' + description;
+                break;
+            case 'linkedin':
+                shareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + currentUrl;
+                break;
+            case 'pinterest':
+                // Pinterest需要图片URL
+                shareUrl = 'https://pinterest.com/pin/create/button/?url=' + currentUrl + 
+                          '&description=' + description;
+                if (imageUrl) {
+                    shareUrl += '&media=' + encodeURIComponent(imageUrl);
+                }
+                break;
+            default:
+                console.error('Unsupported platform: ' + platform);
+                return;
+        }
+        
+        // 打开分享窗口
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+
+    // 复制当前URL到剪贴板
+    function copyCurrentUrlToClipboard() {
+        updateURLWithCurrentState(true); // 确保URL包含最新状态
+        
+        var currentUrl = window.location.href;
+        
+        // 尝试使用Clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(currentUrl).then(function() {
+                showCopySuccessMessage();
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                fallbackCopyMethod(currentUrl);
+            });
+        } else {
+            fallbackCopyMethod(currentUrl);
+        }
+    }
+
+    // 后备复制方法
+    function fallbackCopyMethod(text) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        
+        // 避免滚动到底部
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+        
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            var successful = document.execCommand('copy');
+            if (successful) {
+                showCopySuccessMessage();
+            } else {
+                console.error('Fallback: Unable to copy');
+            }
+        } catch (err) {
+            console.error('Fallback: Unable to copy', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    // 显示复制成功消息
+    function showCopySuccessMessage() {
+        var shareUrlBtn = document.getElementById('share-url-btn');
+        if (shareUrlBtn) {
+            var originalText = shareUrlBtn.textContent;
+            shareUrlBtn.textContent = getLocalizedText('copied_link', '已复制链接!');
+            
+            setTimeout(function() {
+                shareUrlBtn.textContent = originalText;
+            }, 2000);
+        }
+    }
+
     // 初始化时尝试自动比较
     setTimeout(function() {
-        if (aspect1Select.value && aspect2Select.value && size1Input.value && size2Input.value) {
+        // 只有在URL参数中有compare=true的情况下，才显示对比结果
+        if (shouldShowComparisonOnLoad) {
             compareDisplays();
         }
     }, 500);

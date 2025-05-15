@@ -243,5 +243,27 @@
   "diagonal": "diagonal",
   
   "larger": "larger",
-  "smaller": "smaller"
+  "smaller": "smaller",
+  
+  "diagonal_diff": "Diagonal Difference",
+  "width_diff": "Width Difference",
+  "height_diff": "Height Difference",
+  "area_diff": "Area Difference",
+  "ratio_diff": "Aspect Ratio Difference",
+  
+  "diagonal_short": "Diag",
+  "width_short": "W",
+  "height_short": "H",
+  "area_short": "Area",
+  "ratio_short": "Ratio",
+  
+  "share_heading": "Share Comparison Results",
+  "share_copy_link": "Copy Link",
+  "share_facebook": "Share on Facebook",
+  "share_twitter": "Share on Twitter",
+  "share_linkedin": "Share on LinkedIn",
+  "share_pinterest": "Share on Pinterest",
+  "copied_link": "Link Copied!",
+  "display_comparison": "Display Size Comparison",
+  "close": "Close"
 }
