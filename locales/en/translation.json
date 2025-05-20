@@ -265,5 +265,15 @@
   "share_pinterest": "Share on Pinterest",
   "copied_link": "Link Copied!",
   "display_comparison": "Display Size Comparison",
-  "close": "Close"
+  "close": "Close",
+  "faq_question1": "What is screen resolution?",
+  "faq_answer1": "Screen resolution refers to the number of pixels displayed on your screen, typically represented as width x height (e.g., 1920 x 1080). Higher resolutions mean more pixels and sharper images.",
+  "faq_question2": "What is viewport size?",
+  "faq_answer2": "Viewport size is the visible area of a webpage in your browser window. It's important for responsive design as it determines how your website will be displayed on different devices.",
+  "faq_question3": "What is Device Pixel Ratio (DPR)?",
+  "faq_answer3": "DPR is the ratio between physical pixels and CSS pixels. A DPR of 2 means that for every CSS pixel, there are 2 physical pixels. This is common in high-resolution displays like Retina screens.",
+  "faq_question4": "Why is this information important for web development?",
+  "faq_answer4": "Understanding screen sizes, resolutions, and DPR helps developers create responsive websites that look great on all devices. It's essential for optimizing user experience across different screens.",
+  "faq_question5": "How often should I check my device information?",
+  "faq_answer5": "It's good practice to check device information when testing responsive designs, debugging display issues, or ensuring your website works correctly across different devices and browsers."
 }
