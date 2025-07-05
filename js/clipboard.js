@@ -1,180 +1,270 @@
-// clipboard.js - Clipboard functionality module
+// clipboard.js - Clipboard functionality for copying device information
 
 /**
- * Handle copy button click
+ * Handle copy button clicks using event delegation
  * @param {Event} event - Click event
  */
-export async function handleCopyClick(event) {
-    if (!event.target.classList.contains('copy-btn')) {
-        return; // Ignore clicks not on a copy button
-    }
-
-    const button = event.target;
-    const targetId = button.dataset.clipboardTarget;
-    if (!targetId) {
-        console.warn("Copy button missing data-clipboard-target attribute.");
-        return;
-    }
-
-    const targetElement = document.getElementById(targetId);
-    if (!targetElement) {
-        console.warn(`Target element with ID "${targetId}" not found for copying.`);
-        return;
-    }
-
-    // Get the label text if available
-    let labelText = '';
-    const labelElement = targetElement.closest('.info-item')?.querySelector('.label');
-    if (labelElement) {
-        labelText = labelElement.textContent.trim();
-    }
-
-    let valueText = '';
-    // Check if target is textarea or other element
-    if (targetElement.tagName === 'TEXTAREA' || targetElement.tagName === 'INPUT') {
-        valueText = targetElement.value;
-    } else {
-        valueText = targetElement.textContent;
-    }
-
-    // Combine label and value if both exist
-    let textToCopy = '';
-    if (labelText && valueText) {
-        textToCopy = `${labelText} ${valueText}`;
-    } else {
-        textToCopy = valueText;
-    }
-
-    if (!textToCopy || textToCopy === i18next.t('detecting') || textToCopy === i18next.t('not_available')) {
-        console.info("Attempted to copy placeholder or unavailable text.");
-        // Optional: Provide visual feedback that nothing was copied
-        const originalText = button.textContent;
-        button.textContent = i18next.t('copy_nothing_feedback') || "Nothing to copy";
-        button.disabled = true;
-        setTimeout(() => {
-            button.textContent = originalText; // Restore original text
-            button.disabled = false;
-        }, 1500);
-        return;
-    }
-
-    try {
-        // Try using the modern Clipboard API first
-        if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(textToCopy);
-        } else {
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = textToCopy;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-
-            try {
-                document.execCommand('copy');
-                textArea.remove();
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-                textArea.remove();
-                throw new Error('Fallback: Oops, unable to copy');
-            }
+export function handleCopyClick(event) {
+    // Check if the clicked element is a copy button
+    if (event.target.classList.contains('copy-btn')) {
+        event.preventDefault();
+        
+        const copyBtn = event.target;
+        const targetId = copyBtn.getAttribute('data-clipboard-target');
+        
+        if (targetId) {
+            copyToClipboard(targetId, copyBtn);
         }
-
-        // Visual feedback
-        const originalText = i18next.t('copy_btn'); // Get translated "Copy" text
-        button.textContent = i18next.t('copied_btn'); // Get translated "Copied!" text
-        button.classList.add('copied');
-        button.disabled = true; // Briefly disable button
-
-        // Reset button after a delay
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.classList.remove('copied');
-            button.disabled = false;
-        }, 1500); // 1.5 seconds
-
-    } catch (err) {
-        console.error('Failed to copy text: ', err);
-        // Optional: Provide user feedback about the error
-        const originalText = button.textContent;
-        button.textContent = i18next.t('copy_failed_feedback') || "Copy failed";
-        setTimeout(() => {
-            button.textContent = originalText;
-        }, 2000);
     }
 }
 
 /**
- * Copy all detected information
+ * Copy text content to clipboard
+ * @param {string} targetId - ID of the element to copy from
+ * @param {HTMLElement} copyBtn - The copy button element
  */
-export async function copyAllInfo() {
-    const infoItems = document.querySelectorAll('.info-item');
-    let allInfo = '';
-    
-    infoItems.forEach(item => {
-        const label = item.querySelector('.label')?.textContent.trim();
-        let value;
+async function copyToClipboard(targetId, copyBtn) {
+    try {
+        const targetElement = document.getElementById(targetId);
         
-        // 特殊处理用户代理字符串
-        if (item.classList.contains('info-item-full-width')) {
-            const textarea = item.querySelector('textarea#user-agent');
-            value = textarea?.value.trim();
-        } else {
-            const valueElement = item.querySelector('.value');
-            // 特殊处理浏览器视窗大小，只获取数值部分
-            if (valueElement.id === 'viewport-size') {
-                const viewportValue = valueElement.querySelector('#viewport-value');
-                value = viewportValue?.textContent.trim();
-            } else {
-                value = valueElement?.textContent.trim();
-            }
+        if (!targetElement) {
+            console.error(`Element with ID "${targetId}" not found`);
+            return;
         }
         
-        if (label && value && value !== i18next.t('detecting') && value !== i18next.t('not_available')) {
-            // 对于用户代理字符串，保持原始格式
-            if (item.classList.contains('info-item-full-width')) {
-                allInfo += `${label}\n${value}\n\n`;
+        let textToCopy = '';
+        
+        // Get text based on element type
+        if (targetElement.tagName === 'TEXTAREA' || targetElement.tagName === 'INPUT') {
+            textToCopy = targetElement.value;
+        } else {
+            textToCopy = targetElement.textContent || targetElement.innerText;
+        }
+        
+        if (!textToCopy || textToCopy.trim() === '') {
+            console.warn('No text to copy');
+            return;
+        }
+        
+        // Try to use the modern clipboard API
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(textToCopy);
+        } else {
+            // Fallback for older browsers
+            await fallbackCopyToClipboard(textToCopy);
+        }
+        
+        // Show success feedback
+        showCopySuccess(copyBtn);
+        
+        // Show toast notification
+        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
+        showToastNotification(message);
+        
+        console.log('Text copied to clipboard:', textToCopy);
+        
+    } catch (error) {
+        console.error('Failed to copy text:', error);
+        showCopyError(copyBtn);
+        
+        // Show error toast
+        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
+        showToastNotification(message, 3000);
+    }
+}
+
+/**
+ * Show toast notification (internal implementation to avoid circular dependency)
+ */
+function showToastNotification(message, duration = 2000) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.querySelector('.toast-message');
+    
+    if (toast && toastMessage) {
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, duration);
+    }
+}
+
+/**
+ * Fallback copy method for older browsers
+ * @param {string} text - Text to copy
+ */
+function fallbackCopyToClipboard(text) {
+    return new Promise((resolve, reject) => {
+        // Create a temporary textarea element
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        
+        try {
+            textArea.focus();
+            textArea.select();
+            
+            // Execute copy command
+            const successful = document.execCommand('copy');
+            
+            if (successful) {
+                resolve();
             } else {
-                allInfo += `${label} ${value}\n`;
+                reject(new Error('execCommand failed'));
             }
+        } catch (error) {
+            reject(error);
+        } finally {
+            document.body.removeChild(textArea);
         }
     });
+}
 
-    if (!allInfo) {
-        console.info("No information available to copy.");
-        return false;
-    }
+/**
+ * Show copy success feedback
+ * @param {HTMLElement} copyBtn - The copy button element
+ */
+function showCopySuccess(copyBtn) {
+    const originalText = copyBtn.textContent;
+    const successText = '✓';
+    
+    copyBtn.textContent = successText;
+    copyBtn.classList.add('copied');
+    
+    // Reset after 1.5 seconds
+    setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.classList.remove('copied');
+    }, 1500);
+}
 
+/**
+ * Show copy error feedback
+ * @param {HTMLElement} copyBtn - The copy button element
+ */
+function showCopyError(copyBtn) {
+    const originalText = copyBtn.textContent;
+    const errorText = '✗';
+    
+    copyBtn.textContent = errorText;
+    copyBtn.style.backgroundColor = '#dc3545';
+    copyBtn.style.color = 'white';
+    
+    // Reset after 2 seconds
+    setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.style.backgroundColor = '';
+        copyBtn.style.color = '';
+    }, 2000);
+}
+
+/**
+ * Copy all device information to clipboard
+ */
+export async function copyAllInfo() {
     try {
-        // Try using the modern Clipboard API first
+        const infoData = [];
+        
+        // Collect all information
+        const dataElements = [
+            { label: 'Screen Resolution', id: 'screen-resolution-display' },
+            { label: 'Viewport Size', id: 'viewport-display' },
+            { label: 'Aspect Ratio', id: 'aspect-ratio' },
+            { label: 'Device Pixel Ratio', id: 'dpr' },
+            { label: 'Color Depth', id: 'color-depth' },
+            { label: 'Operating System', id: 'os-info' },
+            { label: 'Browser', id: 'browser-info' },
+            { label: 'Cookies Enabled', id: 'cookies-enabled' },
+            { label: 'Touch Support', id: 'touch-support' },
+            { label: 'User Agent', id: 'user-agent' }
+        ];
+        
+        for (const item of dataElements) {
+            const element = document.getElementById(item.id);
+            if (element) {
+                let value = '';
+                
+                if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
+                    value = element.value;
+                } else if (item.id === 'screen-resolution-display') {
+                    const span = element.querySelector('span:last-child');
+                    value = span ? span.textContent : element.textContent;
+                } else {
+                    value = element.textContent;
+                }
+                
+                if (value && value.trim() !== '') {
+                    infoData.push(`${item.label}: ${value.trim()}`);
+                }
+            }
+        }
+        
+        if (infoData.length === 0) {
+            console.warn('No information to copy');
+            return false;
+        }
+        
+        const allInfo = infoData.join('\n');
+        
+        // Copy to clipboard
         if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(allInfo);
         } else {
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = allInfo;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-
-            try {
-                document.execCommand('copy');
-                textArea.remove();
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-                textArea.remove();
-                throw new Error('Fallback: Oops, unable to copy');
-            }
+            await fallbackCopyToClipboard(allInfo);
         }
+        
+        // Show success message
+        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('all_info_copied') : '所有信息已复制!';
+        showToastNotification(message);
+        
+        console.log('All device information copied to clipboard');
         return true;
-    } catch (err) {
-        console.error('Failed to copy all information: ', err);
+        
+    } catch (error) {
+        console.error('Failed to copy all information:', error);
+        
+        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_all_failed') : '复制失败';
+        showToastNotification(message, 3000);
+        
         return false;
     }
+}
+
+/**
+ * Format device information for copying
+ * @param {Object} data - Device information object
+ * @returns {string} Formatted string
+ */
+function formatDeviceInfo(data) {
+    const sections = [];
+    
+    if (data.display) {
+        sections.push('=== Display Information ===');
+        sections.push(`Screen Resolution: ${data.display.screenResolution}`);
+        sections.push(`Viewport Size: ${data.display.viewportSize}`);
+        sections.push(`Aspect Ratio: ${data.display.aspectRatio}`);
+        sections.push(`Device Pixel Ratio: ${data.display.dpr}`);
+        sections.push(`Color Depth: ${data.display.colorDepth}`);
+        sections.push('');
+    }
+    
+    if (data.system) {
+        sections.push('=== System Information ===');
+        sections.push(`Operating System: ${data.system.os}`);
+        sections.push(`Browser: ${data.system.browser}`);
+        sections.push('');
+    }
+    
+    if (data.advanced) {
+        sections.push('=== Advanced Information ===');
+        sections.push(`Cookies Enabled: ${data.advanced.cookies}`);
+        sections.push(`Touch Support: ${data.advanced.touch}`);
+        sections.push(`User Agent: ${data.advanced.userAgent}`);
+    }
+    
+    return sections.join('\n');
 } 

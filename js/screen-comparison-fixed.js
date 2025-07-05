@@ -700,9 +700,20 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // 更新可视化
     function updateVisual(display1, display2) {
+        if (!comparisonVisual) {
+            console.warn('Comparison visual container not found');
+            return;
+        }
+        
         // 获取容器尺寸
         var containerWidth = comparisonVisual.clientWidth;
         var containerHeight = comparisonVisual.clientHeight;
+        
+        // 确保容器有有效尺寸
+        if (containerWidth <= 0 || containerHeight <= 0) {
+            console.warn('Invalid container dimensions:', containerWidth, containerHeight);
+            return;
+        }
 
         // 清除旧内容
         while (comparisonVisual.firstChild) {
@@ -711,19 +722,31 @@ window.addEventListener('DOMContentLoaded', function() {
         
         // 创建Canvas元素
         var canvas = document.createElement('canvas');
-        canvas.width = containerWidth;
-        canvas.height = containerHeight;
+        
+        // 设置Canvas的实际分辨率（考虑设备像素比）
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = containerWidth * dpr;
+        canvas.height = containerHeight * dpr;
+        
+        // 设置Canvas的显示尺寸
+        canvas.style.width = containerWidth + 'px';
+        canvas.style.height = containerHeight + 'px';
+        
         comparisonVisual.appendChild(canvas);
         
         var ctx = canvas.getContext('2d');
+        
+        // 缩放上下文以匹配设备像素比
+        ctx.scale(dpr, dpr);
         
         // 找出两个显示器中较大的尺寸，用于缩放
         var maxWidth = Math.max(display1.width, display2.width);
         var maxHeight = Math.max(display1.height, display2.height);
 
-        // 计算缩放因子（保持宽高比）
-        var scaleFactorWidth = (containerWidth * 0.8) / maxWidth;
-        var scaleFactorHeight = (containerHeight * 0.8) / maxHeight;
+        // 计算缩放因子（保持宽高比），为移动端留更多边距
+        var padding = window.innerWidth <= 768 ? 0.7 : 0.8;
+        var scaleFactorWidth = (containerWidth * padding) / maxWidth;
+        var scaleFactorHeight = (containerHeight * padding) / maxHeight;
         var scaleFactor = Math.min(scaleFactorWidth, scaleFactorHeight);
 
         // 计算缩放后的尺寸
@@ -756,8 +779,11 @@ window.addEventListener('DOMContentLoaded', function() {
         var width1Text = formatNumber(currentUnit === 'inches' ? display1.width : display1.width * CM_PER_INCH) + unit;
         var height1Text = formatNumber(currentUnit === 'inches' ? display1.height : display1.height * CM_PER_INCH) + unit;
         
+        // 根据屏幕尺寸调整字体大小
+        var fontSize = window.innerWidth <= 480 ? 10 : (window.innerWidth <= 768 ? 11 : 12);
+        
         ctx.fillStyle = 'rgba(70, 130, 180, 1)';
-        ctx.font = 'bold 12px Arial';
+        ctx.font = 'bold ' + fontSize + 'px Arial';
         ctx.textAlign = 'center';
         // 宽度标注
         ctx.fillText(width1Text, left1 + scaledWidth1/2, top1 - 5);
@@ -782,10 +808,12 @@ window.addEventListener('DOMContentLoaded', function() {
         ctx.fillText(height2Text, 0, 0);
         ctx.restore();
         
-        // 添加图例
-        var legendX = 10;
-        var legendY = 20;
-        var legendSize = 15;
+        // 添加图例 - 根据屏幕尺寸调整位置和大小
+        var isMobile = window.innerWidth <= 768;
+        var legendX = isMobile ? 5 : 10;
+        var legendY = isMobile ? 10 : 20;
+        var legendSize = isMobile ? 12 : 15;
+        var legendFontSize = isMobile ? 10 : 12;
         
         // 显示器1图例
         ctx.fillStyle = 'rgba(70, 130, 180, 0.4)';
@@ -794,18 +822,20 @@ window.addEventListener('DOMContentLoaded', function() {
         ctx.strokeRect(legendX, legendY, legendSize, legendSize);
         
         ctx.fillStyle = '#000';
+        ctx.font = legendFontSize + 'px Arial';
         ctx.textAlign = 'left';
         var display1Name = display1Header.textContent || getLocalizedText('display_1', 'Display 1');
         ctx.fillText(display1Name, legendX + legendSize + 5, legendY + legendSize - 2);
         
         // 显示器2图例
-        legendY += legendSize + 10;
+        legendY += legendSize + (isMobile ? 8 : 10);
         ctx.fillStyle = 'rgba(60, 179, 113, 0.4)';
         ctx.strokeStyle = 'rgba(60, 179, 113, 0.8)';
         ctx.fillRect(legendX, legendY, legendSize, legendSize);
         ctx.strokeRect(legendX, legendY, legendSize, legendSize);
         
         ctx.fillStyle = '#000';
+        ctx.font = legendFontSize + 'px Arial';
         var display2Name = display2Header.textContent || getLocalizedText('display_2', 'Display 2');
         ctx.fillText(display2Name, legendX + legendSize + 5, legendY + legendSize - 2);
         

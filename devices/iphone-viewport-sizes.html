@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Optimized Title & Description -->
-    <title data-i18n="iphone_viewport_title">iPhone Viewport Sizes: Complete Guide for All iPhone Models | Screen Size Checker</title>
-    <!-- <meta name="description" content="Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models including iPhone 16, 15, 14, 13, and more. Essential for web developers and designers."> -->
+    <title data-i18n="iphone_page_title">iPhone Viewport Sizes: Complete Guide for All iPhone Models | Screen Size Checker</title>
+    <meta name="description" data-i18n="iphone_page_description" content="Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models including iPhone 16, 15, 14, 13, and more. Essential for web developers and designers.">
     <meta name="keywords" content="iphone viewport sizes, iphone screen resolution, iphone dimensions, iphone 16 viewport, iphone 15 viewport, iphone 14 viewport, iphone 13 viewport, iphone 12 viewport, web development, responsive design, device pixel ratio, dpr, retina display">
     
     <!-- Canonical URL -->
@@ -25,7 +25,6 @@
     <meta property="twitter:description" content="Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models.">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/main.css">
     
     <!-- Preload language files -->
@@ -36,15 +35,10 @@
     <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script src="../js/i18n.js" type="module"></script>
-    <script src="../js/main.js" type="module"></script>
 
     <!-- Google Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868"
-    crossorigin="anonymous">
-    </script>
+    crossorigin="anonymous"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -71,228 +65,286 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="language-selector">
-            <label for="language-select" data-i18n="language_select_label">Language:</label>
-            <select id="language-select" class="language-select">
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-            </select>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1><a href="../index.html" data-i18n="site_title">Screen Size Checker</a></h1>
+            </div>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <label for="language-select" data-i18n="language_select_label">Language:</label>
+                    <select id="language-select" class="language-select">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
-        
-        <h1 data-i18n="iphone_viewport_heading">iPhone Viewport Sizes: Complete Guide</h1>
-        
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
         <!-- Breadcrumb Navigation -->
         <nav class="breadcrumb">
-            <a href="/" data-i18n="home">首页</a> >
-            <a href="/" data-i18n="devices">设备</a> >
-            <span data-i18n="iphone_viewport_breadcrumb">iPhone 视口尺寸</span>
+            <a href="../index.html" data-i18n="home">首页</a> > 
+            <a href="../index.html#devices" data-i18n="devices">设备</a> > 
+            <span data-i18n="iphone_sizes">iPhone 尺寸</span>
         </nav>
-        
-        <div class="content-intro">
-            <p data-i18n="iphone_viewport_intro">This comprehensive guide provides detailed viewport sizes and screen resolutions for all iPhone models. Essential information for web developers and designers working on responsive websites and applications.</p>
-        </div>
-        
-        <div class="device-table">
-            <h2 data-i18n="device_table_heading">iPhone Viewport Sizes Table</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th data-i18n="device_table_model">Model</th>
-                        <th data-i18n="device_table_viewport">Viewport Size</th>
-                        <th data-i18n="device_table_resolution">Screen Resolution</th>
-                        <th data-i18n="device_table_dpr">DPR</th>
-                        <th data-i18n="device_table_year">Release Year</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-i18n="iphone_16_pro_max">iPhone 16 Pro Max</td>
-                        <td>440 x 956</td>
-                        <td>1320 x 2868</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_16_pro">iPhone 16 Pro</td>
-                        <td>402 x 874</td>
-                        <td>1206 x 2622</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_16_plus">iPhone 16 Plus</td>
-                        <td>428 x 926</td>
-                        <td>1284 x 2778</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_16">iPhone 16</td>
-                        <td>393 x 852</td>
-                        <td>1179 x 2556</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_15_pro_max">iPhone 15 Pro Max</td>
-                        <td>430 x 932</td>
-                        <td>1290 x 2796</td>
-                        <td>3.0</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_15_pro">iPhone 15 Pro</td>
-                        <td>393 x 852</td>
-                        <td>1179 x 2556</td>
-                        <td>3.0</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_15_plus">iPhone 15 Plus</td>
-                        <td>430 x 932</td>
-                        <td>1290 x 2796</td>
-                        <td>3.0</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_15">iPhone 15</td>
-                        <td>393 x 852</td>
-                        <td>1179 x 2556</td>
-                        <td>3.0</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_14_pro_max">iPhone 14 Pro Max</td>
-                        <td>430 x 932</td>
-                        <td>1290 x 2796</td>
-                        <td>3.0</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_14_pro">iPhone 14 Pro</td>
-                        <td>393 x 852</td>
-                        <td>1179 x 2556</td>
-                        <td>3.0</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_14">iPhone 14</td>
-                        <td>390 x 844</td>
-                        <td>1170 x 2532</td>
-                        <td>3.0</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_13_pro_max">iPhone 13 Pro Max</td>
-                        <td>428 x 926</td>
-                        <td>1284 x 2778</td>
-                        <td>3.0</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_13_pro">iPhone 13 Pro</td>
-                        <td>390 x 844</td>
-                        <td>1170 x 2532</td>
-                        <td>3.0</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_13">iPhone 13</td>
-                        <td>390 x 844</td>
-                        <td>1170 x 2532</td>
-                        <td>3.0</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_13_mini">iPhone 13 mini</td>
-                        <td>375 x 812</td>
-                        <td>1125 x 2436</td>
-                        <td>3.0</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_12_pro_max">iPhone 12 Pro Max</td>
-                        <td>428 x 926</td>
-                        <td>1284 x 2778</td>
-                        <td>3.0</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_12_pro">iPhone 12 Pro</td>
-                        <td>390 x 844</td>
-                        <td>1170 x 2532</td>
-                        <td>3.0</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_12">iPhone 12</td>
-                        <td>390 x 844</td>
-                        <td>1170 x 2532</td>
-                        <td>3.0</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="iphone_12_mini">iPhone 12 mini</td>
-                        <td>375 x 812</td>
-                        <td>1125 x 2436</td>
-                        <td>3.0</td>
-                        <td>2020</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="content-section">
-            <h2 data-i18n="understanding_viewport_heading">Understanding iPhone Viewport Sizes</h2>
-            <h3 data-i18n="viewport_basics">Viewport Basics</h3>
-            <p data-i18n="viewport_size_explanation">When designing for iPhone devices, it's crucial to understand the difference between viewport size and screen resolution:</p>
-            <ul>
-                <li><strong data-i18n="viewport_size_point1">Viewport Size:</strong> <span data-i18n="viewport_size_point1_desc">The visible area in CSS pixels that your website can use</span></li>
-                <li><strong data-i18n="viewport_size_point2">Screen Resolution:</strong> <span data-i18n="viewport_size_point2_desc">The actual number of physical pixels on the device</span></li>
-                <li><strong data-i18n="viewport_size_point3">Device Pixel Ratio (DPR):</strong> <span data-i18n="viewport_size_point3_desc">The ratio between physical pixels and CSS pixels</span></li>
-            </ul>
-        </div>
-        
-        <div class="content-section">
-            <h2 data-i18n="best_practices_heading">Best Practices for iPhone Development</h2>
-            <h3 data-i18n="design_considerations">Design Considerations</h3>
-            <ul>
-                <li data-i18n="best_practices_point1">Use responsive design techniques</li>
-                <li data-i18n="best_practices_point2">Test on multiple iPhone models</li>
-                <li data-i18n="best_practices_point3">Consider the notch and home indicator areas</li>
-                <li data-i18n="best_practices_point4">Optimize for different orientations</li>
-                <li data-i18n="best_practices_point5">Use appropriate media queries</li>
-            </ul>
-            
-            <h3 data-i18n="technical_implementation">Technical Implementation</h3>
-            <ul>
-                <li data-i18n="technical_point1">Implement proper viewport meta tags</li>
-                <li data-i18n="technical_point2">Use CSS media queries effectively</li>
-                <li data-i18n="technical_point3">Consider safe area insets</li>
-                <li data-i18n="technical_point4">Optimize for different DPR values</li>
-            </ul>
-        </div>
-        
-        <div class="related-links">
-            <h2 data-i18n="related_resources_heading">Related Resources</h2>
-            <ul>
-                <li><a href="/devices/ipad-viewport-sizes.html" data-i18n="related_resources_ipad">iPad Viewport Sizes Guide</a></li>
-                <li><a href="/devices/android-viewport-sizes.html" data-i18n="related_resources_android">Android Viewport Sizes Guide</a></li>
-                <li><a href="/devices/compare.html" data-i18n="related_resources_compare">Device Size Comparison Tool</a></li>
-            </ul>
-        </div>
-    </div>
-    
+
+        <!-- Hero Section -->
+        <section class="devices-hero-section">
+            <div class="devices-hero-container">
+                <h1 class="devices-hero-title" data-i18n="iphone_page_heading">iPhone 视口尺寸完整指南</h1>
+                <p class="devices-hero-subtitle" data-i18n="iphone_page_intro">这份综合指南提供了所有iPhone机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。</p>
+            </div>
+        </section>
+
+        <!-- Device Table Section -->
+        <section class="device-table-section">
+            <div class="section-container">
+                <h2 class="section-title" data-i18n="device_table_heading">iPhone 视口尺寸表</h2>
+                
+                <div class="table-container">
+                    <table class="device-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="device_table_model">机型</th>
+                                <th data-i18n="device_table_viewport">视口尺寸</th>
+                                <th data-i18n="device_table_resolution">屏幕分辨率</th>
+                                <th data-i18n="device_table_dpr">DPR</th>
+                                <th data-i18n="device_table_year">发布年份</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="iphone_16_pro_max">iPhone 16 Pro Max</td>
+                                <td>440 × 956</td>
+                                <td>1320 × 2868</td>
+                                <td>3.0</td>
+                                <td>2024</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_16_pro">iPhone 16 Pro</td>
+                                <td>402 × 874</td>
+                                <td>1206 × 2622</td>
+                                <td>3.0</td>
+                                <td>2024</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_16_plus">iPhone 16 Plus</td>
+                                <td>428 × 926</td>
+                                <td>1284 × 2778</td>
+                                <td>3.0</td>
+                                <td>2024</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_16">iPhone 16</td>
+                                <td>393 × 852</td>
+                                <td>1179 × 2556</td>
+                                <td>3.0</td>
+                                <td>2024</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_15_pro_max">iPhone 15 Pro Max</td>
+                                <td>430 × 932</td>
+                                <td>1290 × 2796</td>
+                                <td>3.0</td>
+                                <td>2023</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_15_pro">iPhone 15 Pro</td>
+                                <td>393 × 852</td>
+                                <td>1179 × 2556</td>
+                                <td>3.0</td>
+                                <td>2023</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_15_plus">iPhone 15 Plus</td>
+                                <td>430 × 932</td>
+                                <td>1290 × 2796</td>
+                                <td>3.0</td>
+                                <td>2023</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_15">iPhone 15</td>
+                                <td>393 × 852</td>
+                                <td>1179 × 2556</td>
+                                <td>3.0</td>
+                                <td>2023</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_14_pro_max">iPhone 14 Pro Max</td>
+                                <td>430 × 932</td>
+                                <td>1290 × 2796</td>
+                                <td>3.0</td>
+                                <td>2022</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_14_pro">iPhone 14 Pro</td>
+                                <td>393 × 852</td>
+                                <td>1179 × 2556</td>
+                                <td>3.0</td>
+                                <td>2022</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_14">iPhone 14</td>
+                                <td>390 × 844</td>
+                                <td>1170 × 2532</td>
+                                <td>3.0</td>
+                                <td>2022</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_13_pro_max">iPhone 13 Pro Max</td>
+                                <td>428 × 926</td>
+                                <td>1284 × 2778</td>
+                                <td>3.0</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_13_pro">iPhone 13 Pro</td>
+                                <td>390 × 844</td>
+                                <td>1170 × 2532</td>
+                                <td>3.0</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_13">iPhone 13</td>
+                                <td>390 × 844</td>
+                                <td>1170 × 2532</td>
+                                <td>3.0</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_13_mini">iPhone 13 mini</td>
+                                <td>375 × 812</td>
+                                <td>1125 × 2436</td>
+                                <td>3.0</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_12_pro_max">iPhone 12 Pro Max</td>
+                                <td>428 × 926</td>
+                                <td>1284 × 2778</td>
+                                <td>3.0</td>
+                                <td>2020</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_12_pro">iPhone 12 Pro</td>
+                                <td>390 × 844</td>
+                                <td>1170 × 2532</td>
+                                <td>3.0</td>
+                                <td>2020</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_12">iPhone 12</td>
+                                <td>390 × 844</td>
+                                <td>1170 × 2532</td>
+                                <td>3.0</td>
+                                <td>2020</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="iphone_12_mini">iPhone 12 mini</td>
+                                <td>375 × 812</td>
+                                <td>1125 × 2436</td>
+                                <td>3.0</td>
+                                <td>2020</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Understanding Section -->
+        <section class="content-section">
+            <div class="section-container">
+                <h2 class="section-title" data-i18n="understanding_viewport_heading">理解iPhone视口尺寸</h2>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3 data-i18n="viewport_basics">视口基础知识</h3>
+                        <p data-i18n="viewport_size_explanation">在为iPhone设备进行设计时，理解视口尺寸和屏幕分辨率之间的区别至关重要：</p>
+                        <ul>
+                            <li><strong data-i18n="viewport_size_point1">视口尺寸：</strong> <span data-i18n="viewport_size_point1_desc">您的网站可以使用的CSS像素可见区域</span></li>
+                            <li><strong data-i18n="viewport_size_point2">屏幕分辨率：</strong> <span data-i18n="viewport_size_point2_desc">设备上实际的物理像素数量</span></li>
+                            <li><strong data-i18n="viewport_size_point3">设备像素比 (DPR)：</strong> <span data-i18n="viewport_size_point3_desc">物理像素与CSS像素之间的比率</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3 data-i18n="design_considerations">设计考虑</h3>
+                        <ul>
+                            <li data-i18n="best_practices_point1">使用响应式设计技术</li>
+                            <li data-i18n="best_practices_point2">在多个iPhone机型上进行测试</li>
+                            <li data-i18n="best_practices_point3">考虑刘海和主页指示器区域</li>
+                            <li data-i18n="best_practices_point4">针对不同方向进行优化</li>
+                            <li data-i18n="best_practices_point5">使用适当的媒体查询</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3 data-i18n="technical_implementation">技术实现</h3>
+                        <ul>
+                            <li data-i18n="technical_point1">实现正确的视口元标签</li>
+                            <li data-i18n="technical_point2">有效使用CSS媒体查询</li>
+                            <li data-i18n="technical_point3">考虑安全区域插图</li>
+                            <li data-i18n="technical_point4">针对不同DPR值进行优化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Links Section -->
+        <section class="related-links-section">
+            <div class="section-container">
+                <h2 class="section-title" data-i18n="related_resources_heading">相关资源</h2>
+                <div class="toolbar-grid">
+                    <a href="ipad-viewport-sizes.html" class="tool-card">
+                        <span class="tool-icon">📐</span>
+                        <span class="tool-title" data-i18n="related_resources_ipad">iPad 视口尺寸指南</span>
+                    </a>
+                    <a href="android-viewport-sizes.html" class="tool-card">
+                        <span class="tool-icon">🤖</span>
+                        <span class="tool-title" data-i18n="related_resources_android">Android 视口尺寸指南</span>
+                    </a>
+                    <a href="compare.html" class="tool-card">
+                        <span class="tool-icon">🆚</span>
+                        <span class="tool-title" data-i18n="related_resources_compare">设备尺寸对比工具</span>
+                    </a>
+                    <a href="../index.html" class="tool-card">
+                        <span class="tool-icon">🏠</span>
+                        <span class="tool-title" data-i18n="back_to_home">返回主页</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-left">
-            <span data-i18n="footer_copyright">© 2025 Screen Size Checker. All rights reserved.</span>
-        </div>
-        <div class="footer-right">
-            <a href="/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
-            <a href="/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="../privacy-policy.html" data-i18n="privacy_policy">隐私政策</a>
+                <a href="#" data-i18n="about_us">关于我们</a>
+                <a href="#" data-i18n="contact_us">联系我们</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 <span data-i18n="site_name">Screen Size Checker</span>. <span data-i18n="all_rights_reserved">保留所有权利</span></p>
+            </div>
         </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" data-i18n="copied_success">已复制!</span>
+    </div>
+
+    <!-- JavaScript Module -->
+    <script src="../js/app.js" type="module"></script>
 </body>
 </html> 

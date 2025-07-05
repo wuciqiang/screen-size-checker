@@ -1,8 +1,36 @@
 // i18n.js - Internationalization module
 
+console.log('🌐 Loading i18n.js module...');
+
 // 确保 i18next 已加载
 if (typeof i18next === 'undefined') {
-    console.error('i18next library not loaded');
+    console.error('❌ i18next library not loaded');
+} else {
+    console.log('✅ i18next library is available');
+}
+
+/**
+ * Get correct path for locales based on current page location
+ * @returns {string} Correct path to locales directory
+ */
+function getLocalesPath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/devices/')) {
+        return '../locales/{{lng}}/translation.json';
+    }
+    return './locales/{{lng}}/translation.json';
+}
+
+/**
+ * Get correct path for Chinese translations
+ * @returns {string} Correct path to Chinese translations
+ */
+function getChineseTranslationsPath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/devices/')) {
+        return '../locales/zh/translation.json';
+    }
+    return './locales/zh/translation.json';
 }
 
 /**
@@ -19,7 +47,8 @@ export async function initializeI18next() {
         console.log('Initializing i18next with:', {
             savedLng,
             detectedLng,
-            defaultLng
+            defaultLng,
+            path: getLocalesPath()
         });
         
         // Initialize with default language first
@@ -31,7 +60,7 @@ export async function initializeI18next() {
                 fallbackLng: 'en',
                 supportedLngs: ['en', 'zh'],
                 backend: {
-                    loadPath: '../locales/{{lng}}/translation.json',
+                    loadPath: getLocalesPath(),
                     allowMultiLoading: true,
                     reloadInterval: false,
                     queryStringParams: { v: new Date().getTime() },
@@ -51,26 +80,18 @@ export async function initializeI18next() {
                 appendNamespaceToCIMode: false,
                 keySeparator: '.',
                 nsSeparator: ':',
-                debug: false,
+                debug: true, // 开启调试模式
                 interpolation: {
                     escapeValue: false
                 },
                 compatibilityJSON: 'v4'
             });
 
-        // 如果是中文，使用特殊处理
-        if (defaultLng === 'zh') {
-            await loadChineseTranslations();
-        }
-
         // Wait for the initial language to be loaded
         await i18next.loadNamespaces(i18next.language);
         
         // Update html lang attribute
         document.documentElement.lang = i18next.language.split('-')[0];
-        
-        // Preload other languages in the background
-        preloadOtherLanguages();
         
         console.log('i18next initialized with language:', i18next.language);
         
@@ -139,7 +160,7 @@ function preloadOtherLanguages() {
  */
 async function loadChineseTranslations() {
     try {
-        const response = await fetch('../locales/zh/translation.json');
+        const response = await fetch(getChineseTranslationsPath());
         if (!response.ok) {
             throw new Error('Failed to load Chinese translations');
         }
@@ -155,11 +176,57 @@ async function loadChineseTranslations() {
  */
 export function updateUIElements() {
     try {
+        console.log('Updating UI elements with language:', i18next.language);
+        
         const elements = document.querySelectorAll('[data-i18n]');
+        console.log('Found elements with data-i18n:', elements.length);
+        
+        // 定义不应该被翻译覆盖的动态内容元素（只包含实际的动态值元素）
+        const dynamicValueElements = [
+            'viewport-display', 'aspect-ratio', 'dpr', 'color-depth', 
+            'os-info', 'browser-info', 'cookies-enabled', 'touch-support'
+        ];
+        
+        let translatedCount = 0;
+        
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (key) {
+                // 跳过已经包含实际检测值的动态元素
+                if (element.id && dynamicValueElements.includes(element.id)) {
+                    // 检查是否还在显示 "检测中..." 或 "Detecting..."
+                    const currentText = element.textContent || element.value;
+                    if (currentText.includes('检测中') || currentText.includes('Detecting')) {
+                        // 如果还在检测中，则更新翻译
+                        const translation = i18next.t(key);
+                        if (translation && translation !== key) {
+                            element.textContent = translation;
+                            translatedCount++;
+                        }
+                    } else {
+                        console.log('Skipping dynamic element with actual value:', element.id);
+                    }
+                    return;
+                }
+                
+                // 跳过用户代理文本区域（除非它还在显示检测中）
+                if (element.tagName === 'TEXTAREA' && element.id === 'user-agent') {
+                    const currentText = element.value || element.textContent;
+                    if (currentText.includes('检测中') || currentText.includes('Detecting')) {
+                        const translation = i18next.t(key);
+                        if (translation && translation !== key) {
+                            element.value = translation;
+                            translatedCount++;
+                        }
+                    } else {
+                        console.log('Skipping user agent textarea with actual value');
+                    }
+                    return;
+                }
+                
                 const translation = i18next.t(key);
+                console.log('Translating key:', key, 'to:', translation);
+                
                 if (translation && translation !== key) {
                     if (element.tagName === 'INPUT' && element.type === 'text') {
                         element.placeholder = translation;
@@ -168,26 +235,34 @@ export function updateUIElements() {
                     } else {
                         element.textContent = translation;
                     }
+                    translatedCount++;
                 }
             }
         });
         
-        // Update select options
-        const selectElements = document.querySelectorAll('select[data-i18n-options]');
-        selectElements.forEach(select => {
-            const options = select.getAttribute('data-i18n-options').split(',');
-            options.forEach(option => {
-                const optionElement = select.querySelector(`option[value="${option}"]`);
-                if (optionElement) {
-                    const translation = i18next.t(`select.${option}`);
-                    if (translation) {
-                        optionElement.textContent = translation;
-                    }
-                }
-            });
-        });
+        console.log(`UI elements updated successfully: ${translatedCount} elements translated`);
     } catch (error) {
         console.error('Error updating UI elements:', error);
+    }
+}
+
+/**
+ * Set text content without interfering with translations
+ * @param {string} elementId - Element ID
+ * @param {string} text - Text to set
+ */
+export function setTextContent(elementId, text) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        console.log('Setting text content for:', elementId, 'to:', text);
+        
+        if (element.tagName === 'TEXTAREA') {
+            element.value = text;
+        } else {
+            element.textContent = text;
+        }
+    } else {
+        console.warn('Element not found:', elementId);
     }
 }
 
@@ -201,19 +276,38 @@ export function setupLanguageSelector() {
         return;
     }
 
+    console.log('Setting up language selector');
+
     // Set initial value
     languageSelect.value = i18next.language;
 
     // Add change event listener
     languageSelect.addEventListener('change', async (event) => {
         const newLang = event.target.value;
+        console.log('Language selector changed to:', newLang);
+        
         try {
+            // 先更新选择器状态
+            languageSelect.disabled = true;
+            
+            // 改变语言
             await i18next.changeLanguage(newLang);
             localStorage.setItem('i18nextLng', newLang);
             document.documentElement.lang = newLang;
+            
+            console.log('Language changed successfully, updating UI...');
+            
+            // 立即更新UI
             updateUIElements();
+            
+            // 重新启用选择器
+            languageSelect.disabled = false;
+            
+            console.log('Language switch completed');
+            
         } catch (error) {
             console.error('Error changing language:', error);
+            languageSelect.disabled = false;
         }
     });
 }

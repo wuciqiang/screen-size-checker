@@ -2,77 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Optimized Title & Description -->
-    <title data-i18n="seo_title">Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More</title>
-    <meta name="description" content="Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more. Perfect for web developers and designers." data-i18n="[content]seo_description">
-    <!-- <meta name="keywords" content="screen size checker, screen resolution, viewport size, device pixel ratio, DPR, browser detection, OS detection, web development tools, responsive design"> -->
-    <meta name="author" content="Screen Size Checker">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="revisit-after" content="7 days">
-    <meta name="generator" content="Screen Size Checker">
-    <meta name="copyright" content="Screen Size Checker">
-    <meta name="coverage" content="Worldwide">
-    <meta name="distribution" content="Global">
-    <meta name="rating" content="General">
-    <meta name="target" content="all">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="theme-color" content="#ffffff">
-
+    
+    <!-- SEO Meta Tags -->
+    <title data-i18n="page_title">Screen Size Checker - 检测屏幕尺寸和浏览器信息</title>
+    <meta name="description" data-i18n="page_description" content="免费检测您的屏幕分辨率、浏览器视口大小、设备像素比等详细信息。支持所有设备和浏览器。">
+    <meta name="keywords" content="screen size, viewport size, screen resolution, browser detection, device pixel ratio, responsive design">
+    
     <!-- Canonical URL -->
     <link rel="canonical" href="https://screensizechecker.com/">
-
-    <!-- Open Graph / Facebook -->
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Screen Size Checker - 检测屏幕尺寸和浏览器信息">
+    <meta property="og:description" content="免费检测您的屏幕分辨率、浏览器视口大小、设备像素比等详细信息">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://screensizechecker.com/">
-    <meta property="og:title" content="Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More">
-    <meta property="og:description" content="Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more. Perfect for web developers and designers.">
-    <meta property="og:image" content="https://screensizechecker.com/images/screen-size-checker-og.png" alt="Screen Size Checker Preview">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://screensizechecker.com/">
-    <meta property="twitter:title" content="Screen Size Checker: Resolution, Viewport, DPR, OS, Browser & More">
-    <meta property="twitter:description" content="Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more. Perfect for web developers and designers.">
-    <meta property="twitter:image" content="https://screensizechecker.com/images/screen-size-checker-og.png" alt="Screen Size Checker Preview">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" alt="Screen Size Checker Favicon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" alt="Screen Size Checker Apple Touch Icon">
-
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    
     <!-- Preload language files -->
     <link rel="preload" href="locales/en/translation.json" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="locales/zh/translation.json" as="fetch" crossorigin="anonymous">
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="js/main.js" as="script" crossorigin="anonymous">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
-
+    
     <!-- i18next Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <script src="js/i18n.js" type="module"></script>
-    <script src="js/main.js" type="module"></script>
-
+    
+    <!-- UAParser.js for device detection -->
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+    
     <!-- Google Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868"
-     crossorigin="anonymous">
-    </script>
-
-    <!-- UA Parser JS Library (for OS/Browser detection) -->
-    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/src/ua-parser.min.js"></script>
-
+    crossorigin="anonymous"></script>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -80,244 +44,254 @@
       "@type": "WebApplication",
       "name": "Screen Size Checker",
       "url": "https://screensizechecker.com",
-      "description": "Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more. Perfect for web developers and designers.",
-      "applicationCategory": "DeveloperApplication",
+      "description": "Free tool to detect screen resolution, viewport size, and browser information",
+      "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Screen Size Checker"
-      },
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "softwareVersion": "1.0.0",
-      "featureList": [
-        "Screen Resolution Detection",
-        "Viewport Size Measurement",
-        "Device Pixel Ratio (DPR) Check",
-        "Operating System Detection",
-        "Browser Version Information",
-        "Touch Support Detection",
-        "User Agent String Display"
-      ],
-      "keywords": "screen size checker, screen resolution, viewport size, device pixel ratio, DPR, browser detection, OS detection, web development tools, responsive design",
-      "inLanguage": ["en", "zh"],
-      "license": "https://screensizechecker.com/terms-of-service",
-      "potentialAction": {
-        "@type": "UseAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://screensizechecker.com"
-        }
       }
     }
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0Y5SZGFMX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-X0Y5SZGFMX');
-    </script>
 </head>
 <body>
-
-    <!-- Language Selector -->
-    <div class="language-selector">
-         <label for="language-select" data-i18n="language_select_label">Language:</label>
-         <select id="language-select" class="language-select">
-             <option value="en">English</option>
-             <option value="zh">中文</option>
-         </select>
-    </div>
-
-    <div class="container">
-        <!-- Updated Main Heading -->
-        <h1 data-i18n="main_heading">Screen Size & Device Information Checker</h1>
-        <p data-i18n="intro_paragraph">Instantly detect your display and device details. This online tool helps you find screen resolution, viewport size, DPR, OS, browser version, user agent, and more.</p>
-
-        <!-- Detected Information Section -->
-        <div class="info-section-header">
-            <h2 data-i18n="detected_info_heading">Detected Information</h2>
-            <button id="copy-all-btn" class="copy-all-btn" data-i18n="copy_all_btn">Copy All</button>
-        </div>
-
-        <!-- Screen Resolution -->
-        <div class="info-item">
-            <span class="label" data-i18n="screen_resolution_label">Screen Resolution:</span>
-            <span class="value" id="screen-resolution" data-i18n="detecting">Detecting...</span>
-            <button class="copy-btn" data-clipboard-target="screen-resolution" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="screen_resolution_explanation">Displays the total width and height of your entire screen in pixels.</p>
-
-        <!-- Viewport Size -->
-        <div class="info-item">
-            <span class="label" data-i18n="viewport_size_label">Browser Viewport Size:</span>
-            <span class="value" id="viewport-size">
-                <span id="viewport-value">Detecting...</span>
-                <span class="note" data-i18n="viewport_dynamic_note">(Try resizing the browser window)</span>
-            </span>
-             <button class="copy-btn" data-clipboard-target="viewport-value" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="viewport_size_explanation">The visible area width and height within your browser window. Key for responsive design.</p>
-
-        <!-- Device Pixel Ratio -->
-        <div class="info-item">
-            <span class="label" data-i18n="dpr_label">Device Pixel Ratio (DPR):</span>
-            <span class="value" id="dpr" data-i18n="detecting">Detecting...</span>
-            <button class="copy-btn" data-clipboard-target="dpr" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="dpr_explanation">Ratio of physical screen pixels to CSS pixels. DPR ≥ 2 often indicates a 'Retina'/HiDPI display.</p>
-
-        <!-- Color Depth -->
-        <div class="info-item">
-            <span class="label" data-i18n="color_depth_label">Color Depth:</span>
-            <span class="value" id="color-depth" data-i18n="detecting">Detecting...</span>
-             <button class="copy-btn" data-clipboard-target="color-depth" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="color_depth_explanation">Number of bits used for each color component of a single pixel.</p>
-
-        <!-- Operating System (OS) -->
-        <div class="info-item">
-            <span class="label" data-i18n="os_label">Operating System (OS):</span>
-            <span class="value" id="os-info" data-i18n="detecting">Detecting...</span>
-            <button class="copy-btn" data-clipboard-target="os-info" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="os_explanation">The operating system running on your device.</p>
-
-        <!-- Browser Information -->
-        <div class="info-item">
-            <span class="label" data-i18n="browser_label">Browser:</span>
-            <span class="value" id="browser-info" data-i18n="detecting">Detecting...</span>
-            <button class="copy-btn" data-clipboard-target="browser-info" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="browser_explanation">Your web browser name and version.</p>
-
-        <!-- Cookies Enabled -->
-        <div class="info-item">
-            <span class="label" data-i18n="cookies_enabled_label">Cookies Enabled:</span>
-            <span class="value" id="cookies-enabled" data-i18n="detecting">Detecting...</span>
-             <button class="copy-btn" data-clipboard-target="cookies-enabled" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="cookies_enabled_explanation">Indicates if your browser accepts cookies.</p>
-
-        <!-- Touch Screen Support -->
-        <div class="info-item">
-            <span class="label" data-i18n="touch_support_label">Touch Screen Support:</span>
-            <span class="value" id="touch-support" data-i18n="detecting">Detecting...</span>
-             <button class="copy-btn" data-clipboard-target="touch-support" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="touch_support_explanation">Whether your device has touch screen capabilities.</p>
-
-        <!-- User Agent -->
-        <div class="info-item info-item-full-width"> <!-- Add class for potential full width styling -->
-            <span class="label" data-i18n="user_agent_label">User Agent String:</span>
-            <textarea class="value ua-value" id="user-agent" readonly data-i18n="[placeholder]detecting">Detecting...</textarea>
-            <button class="copy-btn ua-copy-btn" data-clipboard-target="user-agent" data-i18n="copy_btn">Copy</button>
-        </div>
-        <p class="explanation" data-i18n="user_agent_explanation">The full string your browser sends to identify itself to web servers.</p>
-
-        <!-- Device Simulator Section -->
-        <h2 data-i18n="simulator_heading">Device Simulation Preview</h2>
-        <div class="simulator-controls">
-            <!-- More Presets -->
-            <button data-width="375" data-height="667">iPhone SE/6/7/8</button>
-            <button data-width="414" data-height="896">iPhone XR/11</button>
-            <button data-width="390" data-height="844">iPhone 12/13 Pro</button>
-            <button data-width="360" data-height="740">Galaxy S20 Ultra</button>
-            <button data-width="768" data-height="1024">iPad Mini/Air</button>
-            <button data-width="1024" data-height="1366">iPad Pro 12.9"</button>
-            <button data-width="1366" data-height="768">Laptop Small</button>
-            <button data-width="1920" data-height="1080">Desktop HD</button>
-            <button data-current-window="true" data-i18n="current_window_button">Current Window</button>
-        </div>
-        <!-- Custom Size Input -->
-        <div class="simulator-custom-controls">
-             <label for="custom-width" data-i18n="custom_width_label">W:</label>
-             <input type="number" id="custom-width" min="100" max="4000" placeholder="Width">
-             <label for="custom-height" data-i18n="custom_height_label">H:</label>
-             <input type="number" id="custom-height" min="100" max="4000" placeholder="Height">
-             <button id="apply-custom-size" data-i18n="apply_btn">Apply</button>
-        </div>
-        <div id="simulator-frame">
-            <p data-i18n="simulator_note">Simulated preview box. Select a preset or enter custom dimensions.</p>
-            <p id="simulator-size-display"><span data-i18n="simulator_current_size">Simulated Size:</span> ---</p>
-        </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2 data-i18n="faq_heading">Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <h3 data-i18n="faq_question1">What is screen resolution?</h3>
-                <p data-i18n="faq_answer1">Screen resolution refers to the number of pixels displayed on your screen, typically represented as width x height (e.g., 1920 x 1080). Higher resolutions mean more pixels and sharper images.</p>
+    <!-- Part 1: Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1 data-i18n="site_title">Screen Size Checker</h1>
             </div>
-            
-            <div class="faq-item">
-                <h3 data-i18n="faq_question2">What is viewport size?</h3>
-                <p data-i18n="faq_answer2">Viewport size is the visible area of a webpage in your browser window. It's important for responsive design as it determines how your website will be displayed on different devices.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3 data-i18n="faq_question3">What is Device Pixel Ratio (DPR)?</h3>
-                <p data-i18n="faq_answer3">DPR is the ratio between physical pixels and CSS pixels. A DPR of 2 means that for every CSS pixel, there are 2 physical pixels. This is common in high-resolution displays like Retina screens.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3 data-i18n="faq_question4">Why is this information important for web development?</h3>
-                <p data-i18n="faq_answer4">Understanding screen sizes, resolutions, and DPR helps developers create responsive websites that look great on all devices. It's essential for optimizing user experience across different screens.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3 data-i18n="faq_question5">How often should I check my device information?</h3>
-                <p data-i18n="faq_answer5">It's good practice to check device information when testing responsive designs, debugging display issues, or ensuring your website works correctly across different devices and browsers.</p>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <label for="language-select" data-i18n="language_select_label">Language:</label>
+                    <select id="language-select" class="language-select">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
             </div>
         </div>
+    </header>
 
-        <!-- Quick Links Section -->
-        <div class="quick-links">
-            <h2 data-i18n="quick_links_heading">Quick Links</h2>
-            <div class="quick-links-grid">
-                <a href="/devices/iphone-viewport-sizes.html" class="quick-link-card">
-                    <h3 data-i18n="quick_links_iphone_title">iPhone Viewport Sizes</h3>
-                    <p data-i18n="quick_links_iphone_desc">Complete guide to iPhone screen dimensions and resolutions</p>
-                </a>
-                <a href="/devices/ipad-viewport-sizes.html" class="quick-link-card">
-                    <h3 data-i18n="quick_links_ipad_title">iPad Viewport Sizes</h3>
-                    <p data-i18n="quick_links_ipad_desc">Detailed iPad screen specifications and dimensions</p>
-                </a>
-                <a href="/devices/android-viewport-sizes.html" class="quick-link-card">
-                    <h3 data-i18n="quick_links_android_title">Android Viewport Sizes</h3>
-                    <p data-i18n="quick_links_android_desc">Comprehensive Android device screen information</p>
-                </a>
-                <a href="/devices/compare.html" class="quick-link-card">
-                    <h3 data-i18n="quick_links_compare_title">Device Comparison Tool</h3>
-                    <p data-i18n="quick_links_compare_desc">Compare screen sizes and resolutions side by side</p>
-                </a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Part 2: Hero Display -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <p class="hero-subtitle" data-i18n="hero_subtitle">你的浏览器视口大小</p>
+                <h1 class="hero-title huge-number" id="viewport-display">
+                    <span data-i18n="detecting">检测中...</span>
+                </h1>
+                <p class="hero-secondary" id="screen-resolution-display">
+                    <span data-i18n="screen_resolution">屏幕分辨率</span>: <span data-i18n="detecting">检测中...</span>
+                </p>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Footer -->
+        <!-- Part 3: Info Dashboard -->
+        <section class="info-dashboard">
+            <div class="dashboard-container">
+                <!-- Card 1: Display Properties -->
+                <div class="info-card card-display">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🖥️</span>
+                            <span data-i18n="display_properties">显示属性</span>
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="aspect_ratio">宽高比</span>
+                            <span class="info-value" id="aspect-ratio">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="aspect-ratio" aria-label="Copy aspect ratio">📋</button>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="device_pixel_ratio">设备像素比 (DPR)</span>
+                            <span class="info-value" id="dpr">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="dpr" aria-label="Copy DPR">📋</button>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="color_depth">颜色深度</span>
+                            <span class="info-value" id="color-depth">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="color-depth" aria-label="Copy color depth">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: System & Browser -->
+                <div class="info-card card-system">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">⚙️</span>
+                            <span data-i18n="system_browser">系统与浏览器</span>
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="operating_system">操作系统</span>
+                            <span class="info-value" id="os-info">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="os-info" aria-label="Copy OS info">📋</button>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="browser">浏览器</span>
+                            <span class="info-value" id="browser-info">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="browser-info" aria-label="Copy browser info">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Advanced Info -->
+                <div class="info-card card-advanced">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">ℹ️</span>
+                            <span data-i18n="advanced_info">高级信息</span>
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="cookies_enabled">Cookie已启用</span>
+                            <span class="info-value" id="cookies-enabled">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="cookies-enabled" aria-label="Copy cookie status">📋</button>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="touch_support">触摸支持</span>
+                            <span class="info-value" id="touch-support">
+                                <span data-i18n="detecting">检测中...</span>
+                            </span>
+                            <button class="copy-btn" data-clipboard-target="touch-support" aria-label="Copy touch support">📋</button>
+                        </div>
+                        <div class="info-row info-row-full">
+                            <span class="info-label" data-i18n="user_agent">用户代理</span>
+                            <textarea class="info-value-textarea" id="user-agent" readonly data-i18n="detecting">检测中...</textarea>
+                            <button class="copy-btn" data-clipboard-target="user-agent" aria-label="Copy user agent">📋</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 4: Interactive Toolbar -->
+        <section class="interactive-toolbar">
+            <div class="toolbar-container">
+                <h2 class="toolbar-title" data-i18n="quick_links">快速链接</h2>
+                <div class="toolbar-grid">
+                    <a href="devices/iphone-viewport-sizes.html" class="tool-card">
+                        <span class="tool-icon">📱</span>
+                        <span class="tool-title" data-i18n="iphone_sizes">iPhone 尺寸</span>
+                    </a>
+                    <a href="devices/ipad-viewport-sizes.html" class="tool-card">
+                        <span class="tool-icon">📐</span>
+                        <span class="tool-title" data-i18n="ipad_sizes">iPad 尺寸</span>
+                    </a>
+                    <a href="devices/android-viewport-sizes.html" class="tool-card">
+                        <span class="tool-icon">🤖</span>
+                        <span class="tool-title" data-i18n="android_sizes">Android 尺寸</span>
+                    </a>
+                    <a href="devices/compare.html" class="tool-card">
+                        <span class="tool-icon">🆚</span>
+                        <span class="tool-title" data-i18n="compare_tool">对比工具</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 5: FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2 class="faq-title" data-i18n="faq_title">常见问题</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq_screen_resolution">
+                            什么是屏幕分辨率？
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq_screen_resolution_answer">
+                                屏幕分辨率是指显示器能够显示的像素总数，通常以宽度×高度的格式表示（如1920×1080）。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq_viewport_size">
+                            什么是视口大小？
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq_viewport_size_answer">
+                                视口大小是指浏览器窗口中可以显示网页内容的区域大小，以CSS像素为单位。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq_device_pixel_ratio">
+                            什么是设备像素比？
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq_device_pixel_ratio_answer">
+                                设备像素比（DPR）是物理像素与CSS像素的比值，用于支持高分辨率（Retina）显示器。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq_web_development">
+                            为什么这些信息对Web开发很重要？
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq_web_development_answer">
+                                了解屏幕尺寸、分辨率和DPR有助于开发者创建在所有设备上都表现良好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq_check_frequency">
+                            我应该多久检查一次设备信息？
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq_check_frequency_answer">
+                                在测试响应式设计、调试显示问题或确保网站在不同设备和浏览器上正常工作时，建议定期检查设备信息。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Part 6: Footer -->
     <footer class="footer">
-        <div class="footer-left">
-            <span data-i18n="footer_copyright">© 2025 Screen Size Checker. 保留所有权利。</span>
-        </div>
-        <div class="footer-right">
-            <a href="/privacy-policy.html" data-i18n="footer_privacy">隐私政策</a>
-            <a href="/terms-of-service.html" data-i18n="footer_terms">服务条款</a>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="privacy-policy.html" data-i18n="privacy_policy">隐私政策</a>
+                <a href="#" data-i18n="about_us">关于我们</a>
+                <a href="#" data-i18n="contact_us">联系我们</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 <span data-i18n="site_name">Screen Size Checker</span>. <span data-i18n="all_rights_reserved">All rights reserved.</span></p>
+            </div>
         </div>
     </footer>
 
-    <!-- Link to your JavaScript file -->
-    <script type="module" src="js/device-detector.js"></script>
-    <script type="module" src="js/simulator.js"></script>
-    <script type="module" src="js/clipboard.js"></script>
-    <script type="module" src="js/cookie-notice.js"></script>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" data-i18n="copied_success">已复制!</span>
+    </div>
+
+    <!-- JavaScript Module -->
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>

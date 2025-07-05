@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+        }
+        button:hover { background: #0056b3; }
+        #results { margin-top: 20px; }
+        #viewport-display { font-size: 24px; font-weight: bold; color: #007bff; }
+        #aspect-ratio, #dpr, #color-depth, #os-info, #browser-info { 
+            font-weight: bold; 
+            margin: 5px 0;
+        }
+        select {
+            padding: 5px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>JavaScript 功能测试</h1>
+        
+        <div class="test-item">
+            <h3>语言切换测试</h3>
+            <label for="language-select">Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+            </select>
+            <p data-i18n="detecting">检测中...</p>
+        </div>
+        
+        <div class="test-item">
+            <h3>主题切换测试</h3>
+            <button id="theme-toggle">
+                <span class="theme-icon">🌙</span> 切换主题
+            </button>
+        </div>
+        
+        <div class="test-item">
+            <h3>设备检测测试</h3>
+            <p>视口大小: <span id="viewport-display">检测中...</span></p>
+            <p>宽高比: <span id="aspect-ratio">检测中...</span></p>
+            <p>DPR: <span id="dpr">检测中...</span></p>
+            <p>颜色深度: <span id="color-depth">检测中...</span></p>
+            <p>操作系统: <span id="os-info">检测中...</span></p>
+            <p>浏览器: <span id="browser-info">检测中...</span></p>
+        </div>
+        
+        <div class="test-item">
+            <h3>复制功能测试</h3>
+            <p>测试文本: <span id="test-text">Hello World! 你好世界！</span> 
+            <button class="copy-btn" data-clipboard-target="test-text">📋</button></p>
+        </div>
+        
+        <div id="results">
+            <h3>测试结果</h3>
+            <div id="test-log"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 10px 15px; border-radius: 4px; transform: translateX(100%); transition: transform 0.3s;">
+        <span class="toast-message">测试消息</span>
+    </div>
+    
+    <style>
+        .toast.show { transform: translateX(0); }
+        [data-theme="dark"] {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        [data-theme="dark"] .test-container {
+            background: #2d2d2d;
+            color: #ffffff;
+        }
+        [data-theme="dark"] .test-item {
+            background: #3d3d3d;
+            border-color: #555;
+        }
+    </style>
+
+    <!-- i18next Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <!-- UAParser.js -->
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+
+    <!-- Our App -->
+    <script src="js/app.js" type="module"></script>
+    
+    <script>
+        // Additional test logging
+        function logTest(message, success = true) {
+            const log = document.getElementById('test-log');
+            const div = document.createElement('div');
+            div.className = `test-item ${success ? 'success' : 'error'}`;
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            log.appendChild(div);
+        }
+        
+        // Test logging
+        window.addEventListener('load', () => {
+            logTest('页面加载完成');
+        });
+        
+        // Monitor for successful initialization
+        setTimeout(() => {
+            const viewport = document.getElementById('viewport-display').textContent;
+            if (viewport && viewport !== '检测中...') {
+                logTest('设备检测成功');
+            } else {
+                logTest('设备检测失败', false);
+            }
+        }, 2000);
+    </script>
+</body>
+</html> 
