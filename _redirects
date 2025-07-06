@@ -23,7 +23,7 @@
 /it/devices/* /it/devices/:splat 200
 
 # 语言选择页面路径
-/select-language /index.html 200
+/select-language /select-language.html 200
 
-# 默认重定向到英文版
+# 默认重定向到英文版（备用，主要靠index.html的JavaScript重定向）
 / /en/index.html 302 

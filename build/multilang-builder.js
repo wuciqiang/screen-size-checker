@@ -397,11 +397,79 @@ class MultiLangBuilder extends ComponentBuilder {
     
     // 生成语言选择索引页面
     generateLanguageIndex(outputDir) {
-        console.log('\n📋 Generating language index...');
+        console.log('\n📋 Generating language selection and redirect pages...');
         
         // 定义已启用的语言（只有英文和中文）
         const enabledLanguages = ['en', 'zh'];
         
+        // 1. 生成根目录重定向页面（直接跳转到英文）
+        const redirectHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Size Checker - Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=/en/index.html">
+    <link rel="canonical" href="/en/index.html">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .loading {
+            color: #007bff;
+            font-size: 1.2em;
+            margin-top: 50px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .manual-link {
+            margin-top: 30px;
+        }
+        .manual-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .manual-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌍 Screen Size Checker</h1>
+    <div class="loading">Redirecting to English version...</div>
+    <div class="spinner"></div>
+    <div class="manual-link">
+        <p>If you are not redirected automatically, <a href="/en/index.html">click here for English</a> or <a href="/select-language.html">choose your language</a>.</p>
+    </div>
+    
+    <script>
+        // 立即重定向到英文页面
+        window.location.href = '/en/index.html';
+    </script>
+</body>
+</html>`;
+        
+        fs.writeFileSync(path.join(outputDir, 'index.html'), redirectHtml);
+        console.log('✅ Root redirect page created (redirects to English)');
+        
+        // 2. 生成语言选择页面到 select-language.html
         // 语言配置
         const languageConfigs = [
             { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -435,7 +503,7 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         }).join('\n');
         
-        const indexHtml = `<!DOCTYPE html>
+        const languageSelectionHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -513,8 +581,8 @@ ${languageCards}
 </body>
 </html>`;
         
-        fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
-        console.log('✅ Language index page created');
+        fs.writeFileSync(path.join(outputDir, 'select-language.html'), languageSelectionHtml);
+        console.log('✅ Language selection page created at select-language.html');
     }
 
     // 生成多语言网站地图
