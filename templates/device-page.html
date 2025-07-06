@@ -30,11 +30,12 @@
     <!-- Comparison Tool JavaScript (only for compare page) -->
     <script>
         // Check if this is the compare page and load the correct screen comparison script
-        if (window.location.pathname.includes('/compare.html')) {
+        if (window.location.pathname.includes('/compare')) {
             const script = document.createElement('script');
             script.src = '{{js_path}}/screen-comparison-fixed.js';
             script.defer = true;
             document.head.appendChild(script);
+            console.log('🔧 Loading screen comparison script for compare page');
         }
     </script>
 </body>
