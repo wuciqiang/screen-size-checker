@@ -22,8 +22,11 @@
 /pt/devices/* /pt/devices/:splat 200
 /it/devices/* /it/devices/:splat 200
 
-# 语言选择页面路径
+# 语言选择页面路径（多种访问方式，避免缓存问题）
 /select-language /select-language.html 200
+/language-selection /select-language.html 200
+/languages /select-language.html 200
+/choose-language /select-language.html 200
 
 # 默认重定向到英文版（备用，主要靠index.html的JavaScript重定向）
 / /en/index.html 302 
