@@ -15,19 +15,26 @@ if (typeof i18next === 'undefined') {
  */
 function getLocalesPath() {
     const currentPath = window.location.pathname;
+    // console.log('🔍 Calculating locales path for:', currentPath); // 已注释减少日志
     
-    // 如果在设备页面 (/devices/)，需要回到上两级目录
-    if (currentPath.includes('/devices/')) {
-        return '../locales/{{lng}}/translation.json';
+    // 如果在语言子目录下的设备页面 (/en/devices/, /zh/devices/ 等)，需要回到上两级目录
+    if (currentPath.match(/\/[a-z]{2}\/devices\//) || currentPath.includes('/devices/')) {
+        const path = '../../locales/{{lng}}/translation.json';
+        // console.log('📂 Devices page path:', path); // 已注释减少日志
+        return path;
     }
     
-    // 如果在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+    // 如果只在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
     if (currentPath.match(/\/[a-z]{2}\//)) {
-        return '../locales/{{lng}}/translation.json';
+        const path = '../locales/{{lng}}/translation.json';
+        // console.log('🌍 Language subdirectory path:', path); // 已注释减少日志
+        return path;
     }
     
     // 如果在根目录
-    return './locales/{{lng}}/translation.json';
+    const path = './locales/{{lng}}/translation.json';
+    // console.log('🏠 Root directory path:', path); // 已注释减少日志
+    return path;
 }
 
 /**
@@ -37,12 +44,12 @@ function getLocalesPath() {
 function getChineseTranslationsPath() {
     const currentPath = window.location.pathname;
     
-    // 如果在设备页面 (/devices/)，需要回到上两级目录
-    if (currentPath.includes('/devices/')) {
-        return '../locales/zh/translation.json';
+    // 如果在语言子目录下的设备页面 (/en/devices/, /zh/devices/ 等)，需要回到上两级目录
+    if (currentPath.match(/\/[a-z]{2}\/devices\//) || currentPath.includes('/devices/')) {
+        return '../../locales/zh/translation.json';
     }
     
-    // 如果在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+    // 如果只在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
     if (currentPath.match(/\/[a-z]{2}\//)) {
         return '../locales/zh/translation.json';
     }
@@ -139,7 +146,7 @@ export async function initializeI18next() {
                 appendNamespaceToCIMode: false,
                 keySeparator: '.',
                 nsSeparator: ':',
-                debug: true, // 开启调试模式
+                debug: false, // 关闭调试模式减少日志输出
                 interpolation: {
                     escapeValue: false
                 },
@@ -342,7 +349,7 @@ export function updateUIElements() {
                 }
                 
                 const translation = i18next.t(key);
-                console.log('Translating key:', key, 'to:', translation);
+                // console.log('Translating key:', key, 'to:', translation); // 已注释减少日志输出
                 
                 if (translation && translation !== key) {
                     if (element.tagName === 'INPUT' && element.type === 'text') {

@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title data-i18n="compare_page_title">Screen Size Comparison Tool: Compare Display Dimensions & Resolutions | Screen Size Checker</title>
+<meta name="description" data-i18n="iphone_page_description" content="Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.">Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models including iPhone 16, 15, 14, 13, and more. Essential for web developers and designers.<meta name="keywords" content="screen size comparison, display comparison, screen compare tool, monitor comparison, device screen compare, viewport comparison">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://screensizechecker.com/devices/compare.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Screen Size Comparison Tool - Compare Display Dimensions">
+<meta property="og:description" content="Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://screensizechecker.com/devices/compare.html">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/language-selector.css">
+
+<!-- Preload language files -->
+<link rel="preload" href="../../locales/en/translation.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="../../locales/zh/translation.json" as="fetch" crossorigin="anonymous">
+
+<!-- i18next Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+
+<!-- UAParser.js for device detection -->
+<script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+
+<!-- Google Ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868" crossorigin="anonymous"></script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Screen Size Comparison Tool",
+  "description": "Interactive tool to compare screen sizes and resolutions across different devices.",
+  "url": "https://screensizechecker.com/devices/compare.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script> 
+</head>
+<body>
+    <header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <h1><a href="../index.html" data-i18n="site_title">Screen Size Checker</a></h1>
+        </div>
+        <div class="header-controls">
+            <a href="/select-language" class="language-button" aria-label="Select language">
+                <span class="language-icon">🌐</span>
+                <span class="language-text" data-i18n="language_select_label">Language:</span>
+            </a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </div>
+</header> 
+    
+    <nav class="breadcrumb">
+    <a href="../index.html" data-i18n="home">Home</a>
+     > <a href="../index.html#devices" data-i18n="devices">Devices</a> > <span data-i18n="compare_tool">Compare Tool</span>
+</nav> 
+    
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="devices-hero-section">
+            <div class="devices-hero-container">
+                <h1 class="devices-hero-title" data-i18n="compare_page_heading">Screen Size Comparison Tool</h1>
+                <p class="devices-hero-subtitle" data-i18n="compare_page_intro">Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how display choices compare in real-world dimensions.</p>
+            </div>
+        </section>
+
+        <!-- Comparison Tool Styles - 完整的原始样式 -->
+<style>
+    /* 基础移动端优化 */
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    /* Comparison Form Styling */
+    .comparison-selectors {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .display-selector {
+        padding: var(--spacing-lg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background-color: var(--background-card);
+        box-shadow: var(--shadow-light);
+    }
+    
+    .display-selector h3 {
+        margin: 0 0 var(--spacing-lg) 0;
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-primary);
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+    
+    .aspect-row, .size-row {
+        display: flex;
+        margin-bottom: var(--spacing-md);
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .aspect-row label, .size-row label {
+        flex: 0 0 80px;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+    
+    .aspect-row select, .size-row input, .size-row select {
+        flex: 1;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        background-color: var(--background-primary);
+        color: var(--text-primary);
+        font-size: 0.875rem;
+        transition: border-color var(--transition-fast);
+    }
+    
+    .aspect-row select:focus, .size-row input:focus, .size-row select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px var(--glow-color);
+    }
+    
+    .custom-ratio-inputs {
+        display: none;
+        margin-top: var(--spacing-md);
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+    
+    .custom-ratio-inputs.visible {
+        display: flex;
+    }
+    
+    .custom-ratio-inputs input {
+        width: 70px;
+        padding: var(--spacing-sm);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        background-color: var(--background-primary);
+        color: var(--text-primary);
+        text-align: center;
+    }
+    
+    .custom-ratio-inputs span {
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+    
+    .comparison-btn {
+        width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+        color: white;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: var(--spacing-xl);
+        transition: all var(--transition-medium);
+        box-shadow: var(--shadow-light);
+    }
+    
+    .comparison-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+    }
+    
+    /* Results Section Styling */
+    .unit-toggle {
+        display: flex;
+        margin-bottom: var(--spacing-lg);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background-color: var(--background-primary);
+    }
+    
+    .unit-toggle button {
+        flex: 1;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: none;
+        background-color: var(--background-primary);
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    .unit-toggle button:not(:last-child) {
+        border-right: 1px solid var(--border-color);
+    }
+    
+    .unit-toggle button.active {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+        color: white;
+    }
+    
+    .unit-toggle button:hover:not(.active) {
+        background-color: var(--background-secondary);
+    }
+    
+    .comparison-results {
+        display: none;
+        margin-top: var(--spacing-xl);
+    }
+    
+    .comparison-results.visible {
+        display: block;
+    }
+    
+    .comparison-title {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: var(--spacing-xl) 0;
+        color: var(--text-primary);
+    }
+    
+    .comparison-visual {
+        position: relative;
+        margin: var(--spacing-xl) auto;
+        border: 1px solid var(--border-color);
+        background-color: var(--background-secondary);
+        height: 300px;
+        width: 100%;
+        max-width: 800px;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    .comparison-visual canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    /* Tables Styling */
+    .comparison-tables {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+    }
+    
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-light);
+    }
+    
+    .stats-table, .comparison-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        background-color: var(--background-card);
+    }
+    
+    .stats-table th, .stats-table td,
+    .comparison-table th, .comparison-table td {
+        padding: var(--spacing-md);
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+        white-space: nowrap;
+    }
+    
+    .stats-table th, .comparison-table th {
+        background-color: var(--background-secondary);
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+    
+    .stats-table td, .comparison-table td {
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+    
+    .stats-table tr:hover, .comparison-table tr:hover {
+        background-color: var(--background-secondary);
+    }
+    
+    .stats-table tr:last-child td, .comparison-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .stats-table .highlight,
+    .comparison-table .highlight {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    /* Comparison Values and Indicators */
+    .comparison-cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .comparison-value {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        font-size: 0.875rem;
+        color: var(--text-primary);
+    }
+    
+    .comparison-value.highlight {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    .comparison-arrow {
+        display: inline-block;
+        margin-left: var(--spacing-sm);
+        font-size: 1.125rem;
+    }
+    
+    .arrow-up {
+        color: #10b981;
+    }
+    
+    .arrow-down {
+        color: #ef4444;
+    }
+    
+    /* Share Section Styling */
+    .share-options {
+        margin-top: var(--spacing-2xl);
+        padding: var(--spacing-lg);
+        background-color: var(--background-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        display: none;
+        box-shadow: var(--shadow-light);
+    }
+    
+    .share-options h3 {
+        margin: 0 0 var(--spacing-lg) 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+    
+    .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .share-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all var(--transition-fast);
+        text-decoration: none;
+    }
+    
+    .share-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-light);
+    }
+    
+    .share-btn img {
+        width: 16px;
+        height: 16px;
+        filter: invert(1);
+    }
+    
+    .url-btn {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .url-btn:hover {
+        background-color: var(--primary-hover);
+    }
+    
+    .facebook-btn {
+        background-color: #1877f2;
+        color: white;
+    }
+    
+    .facebook-btn:hover {
+        background-color: #166fe5;
+    }
+    
+    .twitter-btn {
+        background-color: #1da1f2;
+        color: white;
+    }
+    
+    .twitter-btn:hover {
+        background-color: #1991da;
+    }
+    
+    .linkedin-btn {
+        background-color: #0077b5;
+        color: white;
+    }
+    
+    .linkedin-btn:hover {
+        background-color: #006396;
+    }
+    
+    .pinterest-btn {
+        background-color: #bd081c;
+        color: white;
+    }
+    
+    .pinterest-btn:hover {
+        background-color: #a50718;
+    }
+    
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        .comparison-selectors {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .comparison-tables {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .stats-table th:first-child,
+        .comparison-table th:first-child {
+            min-width: 120px;
+        }
+        
+        .stats-table th, .stats-table td,
+        .comparison-table th, .comparison-table td {
+            padding: var(--spacing-sm);
+            font-size: 0.8125rem;
+            white-space: nowrap;
+        }
+        
+        .comparison-title {
+            font-size: 1.125rem;
+            padding: 0 var(--spacing-md);
+            line-height: 1.4;
+        }
+        
+        .comparison-visual {
+            height: 250px;
+            margin: var(--spacing-lg) var(--spacing-md);
+        }
+        
+        .share-buttons {
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .share-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .display-selector {
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .aspect-row, .size-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+        
+        .aspect-row label, .size-row label {
+            flex: none;
+            font-size: 0.875rem;
+        }
+        
+        .aspect-row select, .size-row input, .size-row select {
+            width: 100%;
+            font-size: 0.875rem;
+        }
+        
+        .stats-table th, .stats-table td,
+        .comparison-table th, .comparison-table td {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+        
+        .stats-table th:first-child,
+        .comparison-table th:first-child {
+            min-width: 100px;
+            font-size: 0.7rem;
+        }
+        
+        .comparison-visual {
+            height: 200px;
+            margin: var(--spacing-md) var(--spacing-sm);
+        }
+        
+        .comparison-title {
+            font-size: 1rem;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .comparison-btn {
+            font-size: 0.9375rem;
+            padding: var(--spacing-md);
+        }
+        
+        .unit-toggle {
+            margin: var(--spacing-md) var(--spacing-sm);
+        }
+        
+        .unit-toggle button {
+            font-size: 0.8125rem;
+            padding: var(--spacing-sm);
+        }
+    }
+</style>
+
+<!-- JavaScript已在模板中处理，无需重复加载 -->
+
+<!-- Comparison Tool Section -->
+<section class="section-container">
+    <div class="comparison-tool">
+    <div class="comparison-selectors">
+        <!-- Display 1 Selector -->
+        <div class="display-selector">
+            <h3 data-i18n="display_1">Display 1</h3>
+            
+            <div class="aspect-row">
+                <label data-i18n="aspect_label">Aspect</label>
+                <select id="aspect1-select" class="aspect-select">
+                    <option value="16x9" data-i18n="aspect_16x9">16 x 9 Widescreen</option>
+                    <option value="16x10" data-i18n="aspect_16x10">16 x 10 Widescreen</option>
+                    <option value="2.35x1" data-i18n="aspect_235x1">2.35:1 Ultra Wide</option>
+                    <option value="21x9" data-i18n="aspect_21x9">21 x 9 Ultra Wide</option>
+                    <option value="32x9" data-i18n="aspect_32x9">32 x 9 Super UW</option>
+                    <option value="4x3" data-i18n="aspect_4x3">4 x 3 TV, iPad</option>
+                    <option value="3x2" data-i18n="aspect_3x2">3 x 2 Phone</option>
+                    <option value="5x3" data-i18n="aspect_5x3">5 x 3 Phone</option>
+                    <option value="5x4" data-i18n="aspect_5x4">5 x 4 Monitor</option>
+                    <option value="1x1" data-i18n="aspect_1x1">1 x 1 Square</option>
+                    <option value="custom" data-i18n="aspect_custom">Other</option>
+                </select>
+            </div>
+            
+            <div id="custom-ratio1" class="custom-ratio-inputs">
+                <input type="number" id="custom-width1" min="1" max="100" value="16">
+                <span>x</span>
+                <input type="number" id="custom-height1" min="1" max="100" value="9">
+            </div>
+            
+            <div class="size-row">
+                <label data-i18n="size_label">Size</label>
+                <input type="number" id="size1-input" min="1" max="200" value="52" step="0.1">
+                <select id="unit1-select" class="unit-select">
+                    <option value="inches" data-i18n="unit_inches">Inches</option>
+                    <option value="cm" data-i18n="unit_cm">Centimetres</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Display 2 Selector -->
+        <div class="display-selector">
+            <h3 data-i18n="display_2">Display 2</h3>
+            
+            <div class="aspect-row">
+                <label data-i18n="aspect_label">Aspect</label>
+                <select id="aspect2-select" class="aspect-select">
+                    <option value="16x9" data-i18n="aspect_16x9">16 x 9 Widescreen</option>
+                    <option value="16x10" data-i18n="aspect_16x10">16 x 10 Widescreen</option>
+                    <option value="2.35x1" data-i18n="aspect_235x1">2.35:1 Ultra Wide</option>
+                    <option value="21x9" data-i18n="aspect_21x9">21 x 9 Ultra Wide</option>
+                    <option value="32x9" data-i18n="aspect_32x9">32 x 9 Super UW</option>
+                    <option value="4x3" data-i18n="aspect_4x3">4 x 3 TV, iPad</option>
+                    <option value="3x2" data-i18n="aspect_3x2">3 x 2 Phone</option>
+                    <option value="5x3" data-i18n="aspect_5x3">5 x 3 Phone</option>
+                    <option value="5x4" data-i18n="aspect_5x4">5 x 4 Monitor</option>
+                    <option value="1x1" data-i18n="aspect_1x1">1 x 1 Square</option>
+                    <option value="custom" data-i18n="aspect_custom">Other</option>
+                </select>
+            </div>
+            
+            <div id="custom-ratio2" class="custom-ratio-inputs">
+                <input type="number" id="custom-width2" min="1" max="100" value="16">
+                <span>x</span>
+                <input type="number" id="custom-height2" min="1" max="100" value="9">
+            </div>
+            
+            <div class="size-row">
+                <label data-i18n="size_label">Size</label>
+                <input type="number" id="size2-input" min="1" max="200" value="56" step="0.1">
+                <select id="unit2-select" class="unit-select">
+                    <option value="inches" data-i18n="unit_inches">Inches</option>
+                    <option value="cm" data-i18n="unit_cm">Centimetres</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <button id="compare-btn" class="comparison-btn" data-i18n="compare_button">Compare</button>
+    
+    <!-- Results Section (Initially Hidden) -->
+    <div id="comparison-results" class="comparison-results">
+        <div class="unit-toggle">
+            <button id="unit-inches" class="active" data-i18n="unit_toggle_inches">Inches</button>
+            <button id="unit-cm" data-i18n="unit_toggle_cm">Use cm</button>
+        </div>
+        
+        <div class="comparison-title" id="comparison-title">52 inch 16x9 display vs 56 inch 16x9 display</div>
+        
+        <div class="comparison-visual" id="comparison-visual">
+            <!-- 这里将由Canvas自动填充，不需要预定义div元素 -->
+        </div>
+        
+        <div class="comparison-tables">
+            <div class="table-wrapper">
+                <table class="stats-table" id="stats-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="stats_header">Stats</th>
+                            <th id="display1-header">52 inch 16x9</th>
+                            <th id="display2-header">56 inch 16x9</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="stats_width">Width</td>
+                            <td id="width1">---</td>
+                            <td id="width2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="stats_height">Height</td>
+                            <td id="height1">---</td>
+                            <td id="height2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="stats_area">Area</td>
+                            <td id="area1">---</td>
+                            <td id="area2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="stats_as_4x3">As a 4:3 Display</td>
+                            <td id="as-4x3-1">---</td>
+                            <td id="as-4x3-2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="stats_as_16x9">As a 16:9 Display</td>
+                            <td id="as-16x9-1">---</td>
+                            <td id="as-16x9-2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="stats_as_235x1">As a 2.35:1 Display</td>
+                            <td id="as-235x1-1">---</td>
+                            <td id="as-235x1-2">---</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-wrapper">
+                <table class="comparison-table" id="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="comparison_header">In Comparison</th>
+                            <th id="comparison1-header">52 inch 16x9</th>
+                            <th id="comparison2-header">56 inch 16x9</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="comparison_actual_ratio">Actual Aspect Ratios</td>
+                            <td id="comp-actual1">---</td>
+                            <td id="comp-actual2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comparison_as_4x3">As a 4:3 Display</td>
+                            <td id="comp-4x3-1">---</td>
+                            <td id="comp-4x3-2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comparison_as_16x9">As a 16:9 Display</td>
+                            <td id="comp-16x9-1">---</td>
+                            <td id="comp-16x9-2">---</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comparison_as_235x1">As a 2.35:1 Display</td>
+                            <td id="comp-235x1-1">---</td>
+                            <td id="comp-235x1-2">---</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Share Section -->
+        <div id="share-options" class="share-options">
+            <h3 data-i18n="share_heading">Share Comparison Results</h3>
+            <div class="share-buttons">
+                <button id="share-url-btn" class="share-btn url-btn" data-i18n="share_copy_link">Copy Link</button>
+                <button id="share-facebook-btn" class="share-btn facebook-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" alt="Facebook">
+                    <span data-i18n="share_facebook">Facebook</span>
+                </button>
+                <button id="share-twitter-btn" class="share-btn twitter-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" alt="Twitter">
+                    <span data-i18n="share_twitter">Twitter</span>
+                </button>
+                <button id="share-linkedin-btn" class="share-btn linkedin-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn">
+                    <span data-i18n="share_linkedin">LinkedIn</span>
+                </button>
+                <button id="share-pinterest-btn" class="share-btn pinterest-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/pinterest.svg" alt="Pinterest">
+                    <span data-i18n="share_pinterest">Pinterest</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Content Sections -->
+<section class="content-section">
+    <h2 data-i18n="understanding_comparison_heading">Understanding Device Comparison</h2>
+    <h3 data-i18n="comparison_basics">Comparison Basics</h3>
+    <p data-i18n="comparison_explanation">When comparing device sizes, it's important to understand several key factors:</p>
+    <ul>
+        <li><strong data-i18n="comparison_point1">Viewport Size:</strong> <span data-i18n="comparison_point1_desc">The visible area in CSS pixels that your website can use</span></li>
+        <li><strong data-i18n="comparison_point2">Screen Resolution:</strong> <span data-i18n="comparison_point2_desc">The actual number of physical pixels on the device</span></li>
+        <li><strong data-i18n="comparison_point3">Device Pixel Ratio (DPR):</strong> <span data-i18n="comparison_point3_desc">The ratio between physical pixels and CSS pixels</span></li>
+        <li><strong data-i18n="comparison_point4">Aspect Ratio:</strong> <span data-i18n="comparison_point4_desc">The proportional relationship between width and height</span></li>
+    </ul>
+</section>
+
+<section class="content-section">
+    <h2 data-i18n="best_practices_heading">Best Practices for Display Selection</h2>
+    <h3 data-i18n="design_considerations">Design Considerations</h3>
+    <ul>
+        <li data-i18n="best_practices_point1">Consider different screen sizes and densities</li>
+        <li data-i18n="best_practices_point2">Consider various aspect ratios</li>
+        <li data-i18n="best_practices_point3">Optimize for different orientations</li>
+        <li data-i18n="best_practices_point4">Test on multiple devices</li>
+        <li data-i18n="best_practices_point5">Consider foldable and dual-screen devices</li>
+    </ul>
+    
+    <h3 data-i18n="technical_implementation">Technical Implementation</h3>
+    <ul>
+        <li data-i18n="technical_point1">Implement proper viewport meta tags</li>
+        <li data-i18n="technical_point2">Use CSS media queries effectively</li>
+        <li data-i18n="technical_point3">Consider safe area insets</li>
+        <li data-i18n="technical_point4">Optimize for different DPR values</li>
+        <li data-i18n="technical_point5">Handle orientation changes properly</li>
+    </ul>
+</section>
+
+<section class="content-section">
+    <h2 data-i18n="compare_how_to_use">How to Use the Screen Size Comparison Tool</h2>
+    <ol>
+        <li data-i18n="compare_step1">Select two display aspect ratios from the dropdown menus</li>
+        <li data-i18n="compare_step2">Enter the diagonal screen sizes for both displays</li>
+        <li data-i18n="compare_step3">Click "Compare" to see detailed dimensions and differences</li>
+        <li data-i18n="compare_step4">Use the unit toggle to switch between inches and centimeters</li>
+        <li data-i18n="compare_step5">Share your comparison results with others using the share buttons</li>
+    </ol>
+</section>
+
+<!-- FAQ Section (SEO Enhancement) -->
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-title" id="faq" data-i18n="faq_heading">Frequently Asked Questions About Screen Size Comparison</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_measure_question">How is screen size measured?</button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_measure_answer">Screen size is typically measured diagonally from one corner to the opposite corner, expressed in inches or centimeters. For example, a 50" TV means the diagonal measurement is 50 inches.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_difference_question">What's the difference between screen size and screen dimensions?</button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_difference_answer">Screen size typically refers to the diagonal measurement, while screen dimensions include the width and height measurements. The actual dimensions depend on the aspect ratio of the screen.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_area_question">How do I calculate screen area?</button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_area_answer">Screen area is calculated by multiplying the width by the height. Our comparison tool automatically calculates this for you based on the diagonal size and aspect ratio.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_different_question">Why do screens with the same diagonal size look different?</button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_different_answer">Screens with different aspect ratios will have different widths and heights even with the same diagonal measurement. For example, a 27" 16:9 monitor is wider but shorter than a 27" 4:3 monitor.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_aspect_question">What is aspect ratio and why does it matter?</button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_aspect_answer">Aspect ratio is the proportional relationship between a screen's width and height (width:height). Common ratios include 16:9 (widescreen), 4:3 (traditional), and 21:9 (ultrawide). It matters because it affects how content is displayed and the overall viewing experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Resources - 使用工具卡片样式 -->
+<section class="section-container">
+    <h2 class="section-title" data-i18n="related_resources_heading">Related Resources</h2>
+    
+    <div class="toolbar-grid">
+        <a href="iphone-viewport-sizes.html" class="tool-card">
+            <span class="tool-icon">📱</span>
+            <span class="tool-title" data-i18n="related_resources_iphone">iPhone Viewport Sizes Guide</span>
+        </a>
+        <a href="ipad-viewport-sizes.html" class="tool-card">
+            <span class="tool-icon">📐</span>
+            <span class="tool-title" data-i18n="related_resources_ipad">iPad Viewport Sizes Guide</span>
+        </a>
+        <a href="android-viewport-sizes.html" class="tool-card">
+            <span class="tool-icon">🤖</span>
+            <span class="tool-title" data-i18n="related_resources_android">Android Viewport Sizes Guide</span>
+        </a>
+        <a href="../index.html" class="tool-card">
+            <span class="tool-icon">🏠</span>
+            <span class="tool-title" data-i18n="back_to_home">Back to Home</span>
+        </a>
+    </div>
+</section> 
+    </main>
+    
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
+            <a href="#" data-i18n="about_us">About Us</a>
+            <a href="#" data-i18n="contact_us">Contact Us</a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 <span data-i18n="site_name">Screen Size Checker</span>. <span data-i18n="all_rights_reserved">All rights reserved</span></p>
+        </div>
+    </div>
+</footer> 
+    
+    <!-- Toast Notification -->
+<div class="toast" id="toast">
+    <span class="toast-message" data-i18n="copied_success">Copied!</span>
+</div> 
+    
+    <!-- JavaScript Module -->
+    <script src="../../js/app.js" type="module"></script>
+    
+    <!-- Comparison Tool JavaScript (only for compare page) -->
+    <script>
+        // Enhanced script loading for compare page with better reliability
+        if (window.location.pathname.includes('/compare')) {
+            console.log('🔧 Compare page detected, loading comparison script...');
+            
+            function loadComparisonScript() {
+                return new Promise((resolve, reject) => {
+                    // Check if script already exists
+                    if (document.querySelector('script[src*="screen-comparison-fixed.js"]')) {
+                        console.log('📜 Comparison script already loaded');
+                        resolve();
+                        return;
+                    }
+                    
+                    const script = document.createElement('script');
+                    script.src = '../../js/screen-comparison-fixed.js';
+                    script.type = 'text/javascript';
+                    
+                    script.onload = () => {
+                        console.log('✅ Comparison script loaded successfully');
+                        resolve();
+                    };
+                    
+                    script.onerror = () => {
+                        console.error('❌ Failed to load comparison script');
+                        reject(new Error('Script load failed'));
+                    };
+                    
+                    document.head.appendChild(script);
+                });
+            }
+            
+            // Ensure DOM is ready before loading script
+            function initializeComparison() {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        loadComparisonScript().catch(err => {
+                            console.error('Failed to load comparison script:', err);
+                            // Retry after 1 second
+                            setTimeout(() => loadComparisonScript(), 1000);
+                        });
+                    });
+                } else {
+                    // DOM is already ready
+                    loadComparisonScript().catch(err => {
+                        console.error('Failed to load comparison script:', err);
+                        // Retry after 1 second  
+                        setTimeout(() => loadComparisonScript(), 1000);
+                    });
+                }
+            }
+            
+            initializeComparison();
+        }
+    </script>
+</body>
+</html> 

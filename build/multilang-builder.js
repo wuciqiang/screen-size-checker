@@ -51,7 +51,7 @@ class MultiLangBuilder extends ComponentBuilder {
         result = result.replace(/data-i18n="([^"]+)"[^>]*>([^<]*)</g, (match, key, originalText) => {
             const translation = translations[key];
             if (translation) {
-                console.log(`🔄 Translating: "${key}" -> "${translation}"`);
+                // console.log(`🔄 Translating: "${key}" -> "${translation}"`); // 已注释减少构建日志输出
                 return match.replace(originalText, translation);
             }
             return match;

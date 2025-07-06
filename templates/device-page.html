@@ -29,13 +29,58 @@
     
     <!-- Comparison Tool JavaScript (only for compare page) -->
     <script>
-        // Check if this is the compare page and load the correct screen comparison script
+        // Enhanced script loading for compare page with better reliability
         if (window.location.pathname.includes('/compare')) {
-            const script = document.createElement('script');
-            script.src = '{{js_path}}/screen-comparison-fixed.js';
-            script.defer = true;
-            document.head.appendChild(script);
-            console.log('🔧 Loading screen comparison script for compare page');
+            console.log('🔧 Compare page detected, loading comparison script...');
+            
+            function loadComparisonScript() {
+                return new Promise((resolve, reject) => {
+                    // Check if script already exists
+                    if (document.querySelector('script[src*="screen-comparison-fixed.js"]')) {
+                        console.log('📜 Comparison script already loaded');
+                        resolve();
+                        return;
+                    }
+                    
+                    const script = document.createElement('script');
+                    script.src = '{{js_path}}/screen-comparison-fixed.js';
+                    script.type = 'text/javascript';
+                    
+                    script.onload = () => {
+                        console.log('✅ Comparison script loaded successfully');
+                        resolve();
+                    };
+                    
+                    script.onerror = () => {
+                        console.error('❌ Failed to load comparison script');
+                        reject(new Error('Script load failed'));
+                    };
+                    
+                    document.head.appendChild(script);
+                });
+            }
+            
+            // Ensure DOM is ready before loading script
+            function initializeComparison() {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        loadComparisonScript().catch(err => {
+                            console.error('Failed to load comparison script:', err);
+                            // Retry after 1 second
+                            setTimeout(() => loadComparisonScript(), 1000);
+                        });
+                    });
+                } else {
+                    // DOM is already ready
+                    loadComparisonScript().catch(err => {
+                        console.error('Failed to load comparison script:', err);
+                        // Retry after 1 second  
+                        setTimeout(() => loadComparisonScript(), 1000);
+                    });
+                }
+            }
+            
+            initializeComparison();
         }
     </script>
 </body>

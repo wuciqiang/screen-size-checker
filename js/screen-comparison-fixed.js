@@ -4,9 +4,19 @@
 
 console.log('Simplified screen comparison script loaded!');
 
-// 等待页面加载完成
-window.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded in simplified script');
+// 检查DOM状态
+function checkDOMState() {
+    console.log('🔍 DOM readyState:', document.readyState);
+    console.log('🔍 Compare button exists:', !!document.getElementById('compare-btn'));
+    return document.readyState === 'complete' || document.readyState === 'interactive';
+}
+
+console.log('🔍 Initial DOM check:', checkDOMState());
+
+// 多种方式确保DOM加载完成
+function initializeComparison() {
+    console.log('🚀 Initializing comparison tool...');
+    console.log('🔍 Final DOM check:', checkDOMState());
 
     // 常量
     var CM_PER_INCH = 2.54;
@@ -61,6 +71,14 @@ window.addEventListener('DOMContentLoaded', function() {
     var comp235x1_2Cell = document.getElementById('comp-235x1-2');
 
     console.log('Compare button in simplified script:', compareBtn);
+    console.log('🔍 Debug info:', {
+        compareBtn: !!compareBtn,
+        comparisonResults: !!comparisonResults,
+        aspect1Select: !!aspect1Select,
+        aspect2Select: !!aspect2Select,
+        size1Input: !!size1Input,
+        size2Input: !!size2Input
+    });
 
     // 处理"Other"选项的显示/隐藏
     if (aspect1Select) {
@@ -109,12 +127,31 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // 比较按钮点击事件
     if (compareBtn) {
-        compareBtn.addEventListener('click', function() {
-            console.log('Compare button clicked in simplified script');
-            compareDisplays();
-            // 更新URL，以便分享
-            updateURLWithCurrentState(true);
+        console.log('✅ Found compare button, adding event listener');
+        compareBtn.addEventListener('click', function(event) {
+            console.log('🎯 Compare button clicked in simplified script!', event);
+            console.log('📊 Button state:', {
+                disabled: compareBtn.disabled,
+                classList: compareBtn.classList.toString(),
+                style: compareBtn.style.cssText
+            });
+            try {
+                compareDisplays();
+                // 更新URL，以便分享
+                updateURLWithCurrentState(true);
+            } catch (error) {
+                console.error('❌ Error in compareDisplays:', error);
+            }
         });
+        console.log('✅ Event listener added to compare button');
+        compareBtn.dataset.initialized = 'true';
+    } else {
+        console.error('❌ Compare button not found! Available buttons:', 
+            Array.from(document.querySelectorAll('button')).map(btn => ({
+                id: btn.id,
+                classList: btn.classList.toString(),
+                text: btn.textContent.trim()
+            })));
     }
     
     // 添加分享按钮事件监听
@@ -1077,4 +1114,24 @@ window.addEventListener('DOMContentLoaded', function() {
             compareDisplays();
         }
     }, 500);
-});
+}
+
+// 多种方式确保脚本能正确初始化
+if (document.readyState === 'loading') {
+    console.log('📝 DOM still loading, waiting for DOMContentLoaded');
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 DOMContentLoaded fired, initializing comparison tool');
+        initializeComparison();
+    });
+} else {
+    console.log('📝 DOM already loaded, initializing immediately');
+    initializeComparison();
+}
+
+// 备用初始化方法
+setTimeout(function() {
+    if (!document.getElementById('compare-btn') || !document.getElementById('compare-btn').dataset.initialized) {
+        console.log('🔄 Backup initialization triggered');
+        initializeComparison();
+    }
+}, 1000);
