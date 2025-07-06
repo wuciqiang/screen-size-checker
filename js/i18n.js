@@ -391,39 +391,39 @@ export function setupLanguageSelector() {
     const languageSelect = document.getElementById('language-select');
     if (languageSelect) {
         console.log('Setting up language selector (legacy)');
-        
-        // Set initial value
-        languageSelect.value = i18next.language;
 
-        // Add change event listener
-        languageSelect.addEventListener('change', async (event) => {
-            const newLang = event.target.value;
-            console.log('Language selector changed to:', newLang);
+    // Set initial value
+    languageSelect.value = i18next.language;
+
+    // Add change event listener
+    languageSelect.addEventListener('change', async (event) => {
+        const newLang = event.target.value;
+        console.log('Language selector changed to:', newLang);
+        
+        try {
+            // 先更新选择器状态
+            languageSelect.disabled = true;
             
-            try {
-                // 先更新选择器状态
-                languageSelect.disabled = true;
-                
-                // 改变语言
-                await i18next.changeLanguage(newLang);
-                localStorage.setItem('i18nextLng', newLang);
-                document.documentElement.lang = newLang;
-                
-                console.log('Language changed successfully, updating UI...');
-                
-                // 立即更新UI
-                updateUIElements();
-                
-                // 重新启用选择器
-                languageSelect.disabled = false;
-                
-                console.log('Language switch completed');
-                
-            } catch (error) {
-                console.error('Error changing language:', error);
-                languageSelect.disabled = false;
-            }
-        });
+            // 改变语言
+            await i18next.changeLanguage(newLang);
+            localStorage.setItem('i18nextLng', newLang);
+            document.documentElement.lang = newLang;
+            
+            console.log('Language changed successfully, updating UI...');
+            
+            // 立即更新UI
+            updateUIElements();
+            
+            // 重新启用选择器
+            languageSelect.disabled = false;
+            
+            console.log('Language switch completed');
+            
+        } catch (error) {
+            console.error('Error changing language:', error);
+            languageSelect.disabled = false;
+        }
+    });
     }
     
     // Setup new button-based language selector

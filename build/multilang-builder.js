@@ -390,6 +390,42 @@ class MultiLangBuilder extends ComponentBuilder {
     generateLanguageIndex(outputDir) {
         console.log('\n📋 Generating language index...');
         
+        // 定义已启用的语言（只有英文和中文）
+        const enabledLanguages = ['en', 'zh'];
+        
+        // 语言配置
+        const languageConfigs = [
+            { code: 'en', name: 'English', flag: '🇺🇸' },
+            { code: 'zh', name: '中文', flag: '🇨🇳' },
+            { code: 'fr', name: 'Français', flag: '🇫🇷' },
+            { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+            { code: 'es', name: 'Español', flag: '🇪🇸' },
+            { code: 'ja', name: '日本語', flag: '🇯🇵' },
+            { code: 'ko', name: '한국어', flag: '🇰🇷' },
+            { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+            { code: 'pt', name: 'Português', flag: '🇵🇹' },
+            { code: 'it', name: 'Italiano', flag: '🇮🇹' }
+        ];
+        
+        // 生成语言卡片HTML
+        const languageCards = languageConfigs.map(lang => {
+            const isEnabled = enabledLanguages.includes(lang.code);
+            
+            if (isEnabled) {
+                return `        <a href="${lang.code}/index.html" class="language-card">
+            <div class="flag">${lang.flag}</div>
+            <div class="lang-name">${lang.name}</div>
+            <div class="lang-code">${lang.code}</div>
+        </a>`;
+            } else {
+                return `        <div class="language-card disabled">
+            <div class="flag">${lang.flag}</div>
+            <div class="lang-name">${lang.name}</div>
+            <div class="lang-code">${lang.code}</div>
+        </div>`;
+            }
+        }).join('\n');
+        
         const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -399,13 +435,40 @@ class MultiLangBuilder extends ComponentBuilder {
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
         .language-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
-        .language-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; text-decoration: none; color: #333; transition: all 0.3s; }
+        .language-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; text-decoration: none; color: #333; transition: all 0.3s; position: relative; }
         .language-card:hover { border-color: #007bff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,123,255,0.15); }
+        .language-card.disabled { 
+            background-color: #f8f9fa; 
+            color: #6c757d; 
+            border-color: #e9ecef; 
+            cursor: not-allowed; 
+            opacity: 0.6;
+        }
+        .language-card.disabled:hover { 
+            border-color: #e9ecef; 
+            transform: none; 
+            box-shadow: none; 
+        }
+        .language-card.disabled .flag { opacity: 0.5; }
+        .language-card.disabled::after {
+            content: "即将推出";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(108, 117, 125, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
         .flag { font-size: 2em; margin-bottom: 10px; }
         .lang-name { font-weight: bold; margin-bottom: 5px; }
         .lang-code { color: #666; font-size: 0.9em; }
         h1 { text-align: center; color: #333; }
         .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        .note { text-align: center; color: #6c757d; margin-top: 30px; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -413,69 +476,26 @@ class MultiLangBuilder extends ComponentBuilder {
     <p class="subtitle">Choose your language / 选择您的语言</p>
     
     <div class="language-grid">
-        <a href="en/index.html" class="language-card">
-            <div class="flag">🇺🇸</div>
-            <div class="lang-name">English</div>
-            <div class="lang-code">en</div>
-        </a>
-        <a href="zh/index.html" class="language-card">
-            <div class="flag">🇨🇳</div>
-            <div class="lang-name">中文</div>
-            <div class="lang-code">zh</div>
-        </a>
-        <a href="fr/index.html" class="language-card">
-            <div class="flag">🇫🇷</div>
-            <div class="lang-name">Français</div>
-            <div class="lang-code">fr</div>
-        </a>
-        <a href="de/index.html" class="language-card">
-            <div class="flag">🇩🇪</div>
-            <div class="lang-name">Deutsch</div>
-            <div class="lang-code">de</div>
-        </a>
-        <a href="es/index.html" class="language-card">
-            <div class="flag">🇪🇸</div>
-            <div class="lang-name">Español</div>
-            <div class="lang-code">es</div>
-        </a>
-        <a href="ja/index.html" class="language-card">
-            <div class="flag">🇯🇵</div>
-            <div class="lang-name">日本語</div>
-            <div class="lang-code">ja</div>
-        </a>
-        <a href="ko/index.html" class="language-card">
-            <div class="flag">🇰🇷</div>
-            <div class="lang-name">한국어</div>
-            <div class="lang-code">ko</div>
-        </a>
-        <a href="ru/index.html" class="language-card">
-            <div class="flag">🇷🇺</div>
-            <div class="lang-name">Русский</div>
-            <div class="lang-code">ru</div>
-        </a>
-        <a href="pt/index.html" class="language-card">
-            <div class="flag">🇵🇹</div>
-            <div class="lang-name">Português</div>
-            <div class="lang-code">pt</div>
-        </a>
-        <a href="it/index.html" class="language-card">
-            <div class="flag">🇮🇹</div>
-            <div class="lang-name">Italiano</div>
-            <div class="lang-code">it</div>
-        </a>
+${languageCards}
     </div>
     
+    <p class="note">💡 其他语言版本正在翻译中，敬请期待！<br>Other language versions are being translated, stay tuned!</p>
+    
     <script>
-        // 自动语言检测和重定向
+        // 自动语言检测和重定向（仅限已启用的语言）
         function detectAndRedirect() {
             const userLang = navigator.language || navigator.userLanguage;
             const langCode = userLang.split('-')[0];
-            const supportedLangs = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
+            const availableLangs = ${JSON.stringify(enabledLanguages)}; // 仅已启用的语言
             
-            if (supportedLangs.includes(langCode)) {
+            if (availableLangs.includes(langCode)) {
                 const targetUrl = langCode + '/index.html';
                 console.log('Auto-redirecting to:', targetUrl);
                 // window.location.href = targetUrl; // 取消注释以启用自动重定向
+            } else {
+                // 如果用户语言不在可用列表中，默认跳转到英文
+                console.log('Language not available, defaulting to English');
+                // window.location.href = 'en/index.html'; // 取消注释以启用自动重定向
             }
         }
         
