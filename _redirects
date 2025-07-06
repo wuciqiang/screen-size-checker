@@ -22,5 +22,5 @@
 /pt/devices/* /pt/devices/:splat 200
 /it/devices/* /it/devices/:splat 200
 
-# 默认语言重定向
-/ /en/index.html 302 
+# 默认语言重定向到语言选择页面
+/ /index.html 200 
