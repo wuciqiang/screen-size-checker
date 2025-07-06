@@ -1,15 +1,14 @@
 {
   "name": "screen-size-checker",
-  "version": "1.0.0",
-  "description": "Screen Size Checker - A tool to detect screen resolution, viewport size, and browser information",
-  "main": "server.js",
+  "version": "2.0.0",
+  "description": "Screen Size Checker - A modern multilingual tool to detect screen resolution, viewport size, and compare device dimensions. Built with component-based architecture.",
+  "main": "multilang-build/index.html",
   "scripts": {
-    "start": "node server.js",
+    "build": "node build/multilang-builder.js",
     "test-build": "node build/component-builder.js",
     "batch-build": "node build/component-builder.js --batch",
     "multilang-build": "node build/multilang-builder.js",
     "validate-components": "node build/component-builder.js",
-    "dev": "node server.js",
     "deploy": "node deploy.js"
   },
   "keywords": [
@@ -17,19 +16,31 @@
     "viewport",
     "browser-detection",
     "responsive-design",
-    "web-development"
+    "web-development",
+    "multilingual",
+    "device-comparison",
+    "i18n",
+    "cloudflare-pages",
+    "static-site"
   ],
   "author": "Screen Size Checker",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2"
-  },
   "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/your-username/screen-size-checker"
   },
+  "homepage": "https://screensizechecker.com",
   "engines": {
-    "node": ">=14.0.0"
-  }
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "multilang-build/**/*",
+    "build/**/*",
+    "components/**/*",
+    "templates/**/*",
+    "locales/**/*",
+    "css/**/*",
+    "js/**/*"
+  ]
 } 
