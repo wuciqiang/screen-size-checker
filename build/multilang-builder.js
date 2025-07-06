@@ -177,6 +177,9 @@ class MultiLangBuilder extends ComponentBuilder {
                             'https://screensizechecker.com/',
                             `https://screensizechecker.com/${lang}/`
                         );
+                        
+                        // 移除.html后缀以匹配Cloudflare Pages的URL格式
+                        pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                         pageData.og_url = pageData.canonical_url;
                         
                         // 构建HTML
@@ -217,6 +220,9 @@ class MultiLangBuilder extends ComponentBuilder {
             // 生成语言索引页面
             this.generateLanguageIndex(multiLangDir);
             
+            // 生成多语言网站地图
+            this.generateMultiLanguageSitemap(multiLangDir);
+            
             console.log(`\n📊 Multi-language build completed:`);
             console.log(`🌍 Languages: ${this.supportedLanguages.length}`);
             console.log(`📄 Total pages: ${totalPages}`);
@@ -248,7 +254,10 @@ class MultiLangBuilder extends ComponentBuilder {
             { source: 'favicon.png', dest: 'favicon.png' },
             { source: 'robots.txt', dest: 'robots.txt' },
             { source: 'ads.txt', dest: 'ads.txt' },
-            { source: 'privacy-policy.html', dest: 'privacy-policy.html' }
+            { source: 'privacy-policy.html', dest: 'privacy-policy.html' },
+            { source: 'structured-data.json', dest: 'structured-data.json' },
+            { source: 'googlec786a02f43170c4d.html', dest: 'googlec786a02f43170c4d.html' },
+            { source: '_redirects', dest: '_redirects' }
         ];
         
         resourcesToCopy.forEach(({ source, dest }) => {
@@ -506,6 +515,85 @@ ${languageCards}
         
         fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
         console.log('✅ Language index page created');
+    }
+
+    // 生成多语言网站地图
+    generateMultiLanguageSitemap(outputDir) {
+        console.log('\n🗺️ Generating multilingual sitemap...');
+        
+        const currentDate = new Date().toISOString().split('T')[0];
+        const baseUrl = 'https://screensizechecker.com';
+        
+        // 定义页面结构（无.html后缀，匹配Cloudflare Pages的URL格式）
+        const pages = [
+            { path: '', priority: '1.0', changefreq: 'weekly' },
+            { path: '/devices/iphone-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/ipad-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/android-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' }
+        ];
+        
+        let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+        
+        // 添加根路径（重定向到英文）
+        sitemapContent += `
+    <url>
+        <loc>${baseUrl}/</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>`;
+        
+        // 添加语言选择页面
+        sitemapContent += `
+    <url>
+        <loc>${baseUrl}/select-language</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`;
+        
+        // 为每种语言生成URL
+        this.supportedLanguages.forEach(lang => {
+            pages.forEach(page => {
+                if (page.path === '') {
+                    // 语言首页
+                    sitemapContent += `
+    <url>
+        <loc>${baseUrl}/${lang}/</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+                } else {
+                    // 其他页面
+                    sitemapContent += `
+    <url>
+        <loc>${baseUrl}/${lang}${page.path}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+                }
+            });
+        });
+        
+        // 添加隐私政策页面
+        sitemapContent += `
+    <url>
+        <loc>${baseUrl}/privacy-policy</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`;
+        
+        sitemapContent += `
+</urlset>`;
+        
+        fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
+        console.log('✅ Multilingual sitemap generated');
+        console.log(`   📄 Total URLs: ${this.supportedLanguages.length * pages.length + 2}`);
     }
     
     // 生成构建报告
