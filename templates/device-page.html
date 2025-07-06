@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    {{component:head}}
+</head>
+<body>
+    {{component:header}}
+    
+    {{component:breadcrumb}}
+    
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="devices-hero-section">
+            <div class="devices-hero-container">
+                <h1 class="devices-hero-title" data-i18n="{{page_heading_key}}">{{page_heading}}</h1>
+                <p class="devices-hero-subtitle" data-i18n="{{page_intro_key}}">{{page_intro}}</p>
+            </div>
+        </section>
+
+        {{page_content}}
+    </main>
+    
+    {{component:footer}}
+    
+    {{component:toast}}
+    
+    <!-- JavaScript Module -->
+    <script src="{{js_path}}/app.js" type="module"></script>
+    
+    <!-- Comparison Tool JavaScript (only for compare page) -->
+    <script>
+        // Check if this is the compare page and load the correct screen comparison script
+        if (window.location.pathname.includes('/compare.html')) {
+            const script = document.createElement('script');
+            script.src = '{{js_path}}/screen-comparison-fixed.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html> 

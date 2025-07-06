@@ -1,0 +1,26 @@
+# 语言首页重定向
+/zh /zh/index.html 200
+/en /en/index.html 200
+/fr /fr/index.html 200
+/de /de/index.html 200
+/es /es/index.html 200
+/ja /ja/index.html 200
+/ko /ko/index.html 200
+/ru /ru/index.html 200
+/pt /pt/index.html 200
+/it /it/index.html 200
+
+# 设备页面重定向
+/zh/devices/* /zh/devices/:splat 200
+/en/devices/* /en/devices/:splat 200
+/fr/devices/* /fr/devices/:splat 200
+/de/devices/* /de/devices/:splat 200
+/es/devices/* /es/devices/:splat 200
+/ja/devices/* /ja/devices/:splat 200
+/ko/devices/* /ko/devices/:splat 200
+/ru/devices/* /ru/devices/:splat 200
+/pt/devices/* /pt/devices/:splat 200
+/it/devices/* /it/devices/:splat 200
+
+# 默认语言重定向
+/ /en/index.html 302 

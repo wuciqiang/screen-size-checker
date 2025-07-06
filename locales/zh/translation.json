@@ -2,6 +2,7 @@
   "site_title": "屏幕尺寸检测器",
   "site_name": "屏幕尺寸检测器",
   "language_select_label": "语言:",
+  "all_languages": "所有语言",
   "page_title": "Screen Size Checker - 检测屏幕尺寸和浏览器信息",
   "page_description": "免费检测您的屏幕分辨率、浏览器视口大小、设备像素比等详细信息。支持所有设备和浏览器。",
   
@@ -286,6 +287,15 @@
   "best_practices_heading": "选择显示器的最佳实践",
   "best_practices_point1": "考虑不同的屏幕尺寸和密度",
   "best_practices_point2": "考虑各种宽高比",
+  
+  "size_type": "尺寸类型",
+  "size_value": "尺寸值",
+  "custom": "自定义",
+  "pixels": "像素",
+  "resolution": "分辨率",
+  "metric": "公制",
+  "imperial": "英制",
+  "summary": "对比总结",
   "best_practices_point3": "针对不同方向进行优化",
   "best_practices_point4": "在多个设备上测试",
   "best_practices_point5": "考虑折叠屏和双屏设备",

@@ -1,0 +1,235 @@
+{
+  "pages": [
+    {
+      "name": "index",
+      "template": "base",
+      "output": "index.html",
+      "page_content": "home-content",
+      "config": {
+        "page_title_key": "page_title",
+        "page_description_key": "page_description",
+        "page_keywords": "screen size, viewport size, screen resolution, browser detection, device pixel ratio, responsive design",
+        "canonical_url": "https://screensizechecker.com/",
+        "og_title": "Screen Size Checker - Detect Screen Size and Browser Information",
+        "og_description": "Free tool to detect your screen resolution, browser viewport size, device pixel ratio and more.",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "device_links_base": "devices/",
+        "show_breadcrumb": false,
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Screen Size Checker",
+          "url": "https://screensizechecker.com",
+          "description": "Free tool to detect screen resolution, viewport size, and browser information",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "name": "iphone-viewport-sizes",
+      "template": "device-page",
+      "output": "devices/iphone-viewport-sizes.html",
+      "page_content": "iphone-content",
+      "config": {
+        "page_title_key": "iphone_page_title",
+        "page_description_key": "iphone_page_description",
+        "page_heading_key": "iphone_page_heading",
+        "page_intro_key": "iphone_page_intro",
+        "page_keywords": "iphone viewport sizes, iphone screen resolution, iphone dimensions, iphone 16 viewport, iphone 15 viewport, web development, responsive design",
+        "canonical_url": "https://screensizechecker.com/devices/iphone-viewport-sizes.html",
+        "og_title": "iPhone Viewport Sizes: Complete Guide for All iPhone Models",
+        "og_description": "Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/devices/iphone-viewport-sizes.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "iphone_sizes",
+        "current_name": "iPhone 尺寸",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "iPhone Viewport Sizes: Complete Guide for All iPhone Models",
+          "description": "Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models.",
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-04-22",
+          "dateModified": "2025-04-22"
+        }
+      }
+    },
+    {
+      "name": "ipad-viewport-sizes",
+      "template": "device-page",
+      "output": "devices/ipad-viewport-sizes.html",
+      "page_content": "ipad-content",
+      "config": {
+        "page_title_key": "ipad_page_title",
+        "page_description_key": "ipad_page_description",
+        "page_heading_key": "ipad_page_heading",
+        "page_intro_key": "ipad_page_intro",
+        "page_keywords": "ipad viewport sizes, ipad screen resolution, ipad dimensions, ipad pro viewport, ipad air viewport, web development, responsive design",
+        "canonical_url": "https://screensizechecker.com/devices/ipad-viewport-sizes.html",
+        "og_title": "iPad Viewport Sizes: Complete Guide for All iPad Models",
+        "og_description": "Comprehensive guide to iPad viewport sizes and screen resolutions. Find exact dimensions for all iPad models.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/devices/ipad-viewport-sizes.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "ipad_sizes",
+        "current_name": "iPad 尺寸",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "iPad Viewport Sizes: Complete Guide for All iPad Models",
+          "description": "Comprehensive guide to iPad viewport sizes and screen resolutions. Find exact dimensions for all iPad models.",
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-04-22",
+          "dateModified": "2025-04-22"
+        }
+      }
+    },
+    {
+      "name": "android-viewport-sizes",
+      "template": "device-page",
+      "output": "devices/android-viewport-sizes.html",
+      "page_content": "android-content",
+      "config": {
+        "page_title_key": "android_page_title",
+        "page_description_key": "android_page_description",
+        "page_heading_key": "android_page_heading",
+        "page_intro_key": "android_page_intro",
+        "page_keywords": "android viewport sizes, android screen resolution, android dimensions, samsung galaxy viewport, google pixel viewport, web development, responsive design",
+        "canonical_url": "https://screensizechecker.com/devices/android-viewport-sizes.html",
+        "og_title": "Android Viewport Sizes: Complete Guide for Popular Android Devices",
+        "og_description": "Comprehensive guide to Android viewport sizes and screen resolutions for popular Android devices.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/devices/android-viewport-sizes.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "android_sizes",
+        "current_name": "Android 尺寸",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Android Viewport Sizes: Complete Guide for Popular Android Devices",
+          "description": "Comprehensive guide to Android viewport sizes and screen resolutions for popular Android devices.",
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-04-22",
+          "dateModified": "2025-04-22"
+        }
+      }
+    },
+    {
+      "name": "compare",
+      "template": "device-page",
+      "output": "devices/compare.html",
+      "page_content": "compare-content",
+      "config": {
+        "page_title_key": "compare_page_title",
+        "page_description_key": "compare_page_description",
+        "page_heading_key": "compare_page_heading",
+        "page_intro_key": "compare_page_intro",
+        "page_keywords": "screen size comparison, display comparison, screen compare tool, monitor comparison, device screen compare, viewport comparison",
+        "canonical_url": "https://screensizechecker.com/devices/compare.html",
+        "og_title": "Screen Size Comparison Tool - Compare Display Dimensions",
+        "og_description": "Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/devices/compare.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "compare_tool",
+        "current_name": "对比工具",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Screen Size Comparison Tool",
+          "description": "Interactive tool to compare screen sizes and resolutions across different devices.",
+          "url": "https://screensizechecker.com/devices/compare.html",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    }
+  ]
+} 

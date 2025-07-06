@@ -1,0 +1,191 @@
+<!-- Part 2: Hero Display -->
+<section class="hero-section">
+    <div class="hero-container">
+        <p class="hero-subtitle" data-i18n="hero_subtitle">你的浏览器视口大小</p>
+        <h1 class="hero-title huge-number" id="viewport-display">
+            <span data-i18n="detecting">检测中...</span>
+        </h1>
+        <p class="hero-secondary" id="screen-resolution-display">
+            <span data-i18n="screen_resolution">屏幕分辨率</span>: <span data-i18n="detecting">检测中...</span>
+        </p>
+    </div>
+</section>
+
+<!-- Part 3: Info Dashboard -->
+<section class="info-dashboard">
+    <div class="dashboard-container">
+        <!-- Card 1: Display Properties -->
+        <div class="info-card card-display">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-icon">🖥️</span>
+                    <span data-i18n="display_properties">显示属性</span>
+                </h3>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label" data-i18n="aspect_ratio">宽高比</span>
+                    <span class="info-value" id="aspect-ratio">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="aspect-ratio" aria-label="Copy aspect ratio">📋</button>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" data-i18n="device_pixel_ratio">设备像素比 (DPR)</span>
+                    <span class="info-value" id="dpr">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="dpr" aria-label="Copy DPR">📋</button>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" data-i18n="color_depth">颜色深度</span>
+                    <span class="info-value" id="color-depth">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="color-depth" aria-label="Copy color depth">📋</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: System & Browser -->
+        <div class="info-card card-system">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-icon">⚙️</span>
+                    <span data-i18n="system_browser">系统与浏览器</span>
+                </h3>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label" data-i18n="operating_system">操作系统</span>
+                    <span class="info-value" id="os-info">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="os-info" aria-label="Copy OS info">📋</button>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" data-i18n="browser">浏览器</span>
+                    <span class="info-value" id="browser-info">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="browser-info" aria-label="Copy browser info">📋</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Advanced Info -->
+        <div class="info-card card-advanced">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-icon">ℹ️</span>
+                    <span data-i18n="advanced_info">高级信息</span>
+                </h3>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label" data-i18n="cookies_enabled">Cookie已启用</span>
+                    <span class="info-value" id="cookies-enabled">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="cookies-enabled" aria-label="Copy cookie status">📋</button>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" data-i18n="touch_support">触摸支持</span>
+                    <span class="info-value" id="touch-support">
+                        <span data-i18n="detecting">检测中...</span>
+                    </span>
+                    <button class="copy-btn" data-clipboard-target="touch-support" aria-label="Copy touch support">📋</button>
+                </div>
+                <div class="info-row info-row-full">
+                    <span class="info-label" data-i18n="user_agent">用户代理</span>
+                    <textarea class="info-value-textarea" id="user-agent" readonly data-i18n="detecting">检测中...</textarea>
+                    <button class="copy-btn" data-clipboard-target="user-agent" aria-label="Copy user agent">📋</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Part 4: Interactive Toolbar -->
+<section class="interactive-toolbar">
+    <div class="toolbar-container">
+        <h2 class="toolbar-title" data-i18n="quick_links">快速链接</h2>
+        <div class="toolbar-grid">
+            <a href="{{device_links_base}}iphone-viewport-sizes.html" class="tool-card">
+                <span class="tool-icon">📱</span>
+                <span class="tool-title" data-i18n="iphone_sizes">iPhone 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}ipad-viewport-sizes.html" class="tool-card">
+                <span class="tool-icon">📐</span>
+                <span class="tool-title" data-i18n="ipad_sizes">iPad 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}android-viewport-sizes.html" class="tool-card">
+                <span class="tool-icon">🤖</span>
+                <span class="tool-title" data-i18n="android_sizes">Android 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}compare.html" class="tool-card">
+                <span class="tool-icon">🆚</span>
+                <span class="tool-title" data-i18n="compare_tool">对比工具</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Part 5: FAQ Section -->
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-title" data-i18n="faq_title">常见问题</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_screen_resolution">
+                    什么是屏幕分辨率？
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_screen_resolution_answer">
+                        屏幕分辨率是指显示器能够显示的像素总数，通常以宽度×高度的格式表示（如1920×1080）。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_viewport_size">
+                    什么是视口大小？
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_viewport_size_answer">
+                        视口大小是指浏览器窗口中可以显示网页内容的区域大小，以CSS像素为单位。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_device_pixel_ratio">
+                    什么是设备像素比？
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_device_pixel_ratio_answer">
+                        设备像素比（DPR）是物理像素与CSS像素的比值，用于支持高分辨率（Retina）显示器。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_web_development">
+                    为什么这些信息对Web开发很重要？
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_web_development_answer">
+                        了解屏幕尺寸、分辨率和DPR有助于开发者创建在所有设备上都表现良好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="faq_check_frequency">
+                    我应该多久检查一次设备信息？
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq_check_frequency_answer">
+                        在测试响应式设计、调试显示问题或确保网站在不同设备和浏览器上正常工作时，建议定期检查设备信息。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

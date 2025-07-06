@@ -1,66 +1,139 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 const supportedLanguages = ['en', 'zh', 'fr', 'de', 'ko', 'ja', 'es', 'ru', 'pt', 'it'];
 const defaultLanguage = 'en';
 
-// 静态文件服务
-app.use(express.static(__dirname));
+const buildDir = path.join(__dirname, 'multilang-build');
 
-// 语言路由中间件
-app.use('/:lang/*', (req, res, next) => {
-    const lang = req.params.lang;
-    if (!supportedLanguages.includes(lang)) {
-        // 获取请求的文件名
-        const fileName = req.path.split('/').pop();
-        return res.redirect(`/${defaultLanguage}/${fileName}`);
-    }
-    next();
-});
-
-// 处理根路由
+// 处理根路由 - 默认显示英文版本（必须在静态文件服务之前）
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    const indexPath = path.join(buildDir, 'en', 'index.html');
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        res.redirect('/en/');
+    }
 });
 
-// 处理带语言前缀的路由
+// 静态文件服务 - 提供multilang-build目录中的文件（放在特定路由后面）
+app.use(express.static(buildDir));
+
+// 处理语言选择页面请求
+app.get('/select-language', (req, res) => {
+    const languagePagePath = path.join(buildDir, 'index.html');
+    if (fs.existsSync(languagePagePath)) {
+        res.sendFile(languagePagePath);
+    } else {
+        res.redirect('/en/');
+    }
+});
+
+// 语言选择页面路由
+app.get('/languages', (req, res) => {
+    const indexPath = path.join(buildDir, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        res.redirect('/en/');
+    }
+});
+
+// 处理语言首页路由 /:lang/
+app.get('/:lang/', (req, res) => {
+    const lang = req.params.lang;
+    if (supportedLanguages.includes(lang)) {
+        const filePath = path.join(buildDir, lang, 'index.html');
+        if (fs.existsSync(filePath)) {
+            res.sendFile(filePath);
+        } else {
+            res.redirect(`/${defaultLanguage}/`);
+        }
+    } else {
+        res.redirect(`/${defaultLanguage}/`);
+    }
+});
+
+// 处理语言首页路由 /:lang (无尾部斜杠)
+app.get('/:lang', (req, res) => {
+    const lang = req.params.lang;
+    if (supportedLanguages.includes(lang)) {
+        res.redirect(`/${lang}/`);
+    } else {
+        res.sendFile(path.join(buildDir, req.params.lang));
+    }
+});
+
+// 处理旧的设备页面路由重定向 /devices/:page -> /en/devices/:page
+app.get('/devices/:page', (req, res) => {
+    const { page } = req.params;
+    res.redirect(`/${defaultLanguage}/devices/${page}`);
+});
+
+// 处理设备页面路由 /:lang/devices/:page
+app.get('/:lang/devices/:page', (req, res) => {
+    const { lang, page } = req.params;
+    if (supportedLanguages.includes(lang)) {
+        const filePath = path.join(buildDir, lang, 'devices', page);
+        if (fs.existsSync(filePath)) {
+            res.sendFile(filePath);
+        } else {
+            res.redirect(`/${defaultLanguage}/devices/${page}`);
+        }
+    } else {
+        res.status(404).send('Page not found');
+    }
+});
+
+// 处理其他语言页面路由 /:lang/:page
 app.get('/:lang/:page', (req, res) => {
     const { lang, page } = req.params;
     if (supportedLanguages.includes(lang)) {
-        res.sendFile(path.join(__dirname, page));
+        const filePath = path.join(buildDir, lang, page);
+        if (fs.existsSync(filePath)) {
+            res.sendFile(filePath);
+        } else {
+            // 如果多语言文件不存在，回退到根目录文件
+            const rootFilePath = path.join(buildDir, page);
+            if (fs.existsSync(rootFilePath)) {
+                res.sendFile(rootFilePath);
+            } else {
+                res.redirect(`/${defaultLanguage}/${page}`);
+            }
+        }
     } else {
-        res.sendFile(path.join(__dirname, page));
+        // 如果不是支持的语言，尝试作为普通页面处理
+        const filePath = path.join(buildDir, req.params.page);
+        if (fs.existsSync(filePath)) {
+            res.sendFile(filePath);
+        } else {
+            res.status(404).send('Page not found');
+        }
     }
 });
 
 // 处理无语言前缀的页面请求
 app.get('/:page', (req, res) => {
     const page = req.params.page;
-    res.sendFile(path.join(__dirname, page));
-});
-
-// 处理隐私政策页面路由
-app.get('/:lang/privacy-policy.html', (req, res) => {
-    const lang = req.params.lang;
-    if (supportedLanguages.includes(lang)) {
-        res.sendFile(path.join(__dirname, 'privacy-policy.html'));
+    const filePath = path.join(buildDir, page);
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
     } else {
-        res.redirect(`/${defaultLanguage}/privacy-policy.html`);
+        res.status(404).send('Page not found');
     }
-});
-
-// 处理无语言前缀的隐私政策页面路由
-app.get('/privacy-policy.html', (req, res) => {
-    res.redirect(`/${defaultLanguage}/privacy-policy.html`);
 });
 
 // 404 错误处理
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, '404.html'));
+    res.status(404).send('Page not found');
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Serving files from: ${buildDir}`);
+    console.log(`Supported languages: ${supportedLanguages.join(', ')}`);
+    console.log(`Default language: ${defaultLanguage}`);
 }); 

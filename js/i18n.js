@@ -15,9 +15,18 @@ if (typeof i18next === 'undefined') {
  */
 function getLocalesPath() {
     const currentPath = window.location.pathname;
+    
+    // 如果在设备页面 (/devices/)，需要回到上两级目录
     if (currentPath.includes('/devices/')) {
         return '../locales/{{lng}}/translation.json';
     }
+    
+    // 如果在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+    if (currentPath.match(/\/[a-z]{2}\//)) {
+        return '../locales/{{lng}}/translation.json';
+    }
+    
+    // 如果在根目录
     return './locales/{{lng}}/translation.json';
 }
 
@@ -27,10 +36,49 @@ function getLocalesPath() {
  */
 function getChineseTranslationsPath() {
     const currentPath = window.location.pathname;
+    
+    // 如果在设备页面 (/devices/)，需要回到上两级目录
     if (currentPath.includes('/devices/')) {
         return '../locales/zh/translation.json';
     }
+    
+    // 如果在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+    if (currentPath.match(/\/[a-z]{2}\//)) {
+        return '../locales/zh/translation.json';
+    }
+    
+    // 如果在根目录
     return './locales/zh/translation.json';
+}
+
+/**
+ * Wait for i18next library and plugins to be loaded
+ * @returns {Promise} 
+ */
+async function waitForI18next() {
+    const maxRetries = 50; // 最多等待5秒
+    let retries = 0;
+    
+    while (retries < maxRetries) {
+        if (typeof i18next !== 'undefined' && 
+            typeof i18nextHttpBackend !== 'undefined' && 
+            typeof i18nextBrowserLanguageDetector !== 'undefined') {
+            console.log('✅ All i18next libraries are ready');
+            return;
+        }
+        
+        console.log('Waiting for i18next libraries to load...', {
+            i18next: typeof i18next !== 'undefined',
+            httpBackend: typeof i18nextHttpBackend !== 'undefined',
+            languageDetector: typeof i18nextBrowserLanguageDetector !== 'undefined',
+            retry: retries
+        });
+        
+        await new Promise(resolve => setTimeout(resolve, 100));
+        retries++;
+    }
+    
+    throw new Error('i18next libraries failed to load after 5 seconds');
 }
 
 /**
@@ -39,10 +87,21 @@ function getChineseTranslationsPath() {
  */
 export async function initializeI18next() {
     try {
-        // Get saved language from localStorage or detect from browser
+        // First, wait for i18next library to be loaded
+        await waitForI18next();
+        
+        // Get language from URL path first, then saved language, then detect from browser
+        const pathLng = getLanguageFromPath();
         const savedLng = localStorage.getItem('i18nextLng');
-        const detectedLng = detectUserLanguage();
-        const defaultLng = savedLng || detectedLng || 'en';
+        const detectedLng = detectBrowserLanguage();
+        
+        // 如果URL路径明确指定了语言，优先使用路径语言，忽略localStorage
+        const defaultLng = pathLng || savedLng || detectedLng || 'en';
+        
+        // 如果是从路径检测到的语言，强制使用该语言
+        if (pathLng && pathLng !== savedLng) {
+            console.log(`Path language (${pathLng}) overrides saved language (${savedLng})`);
+        }
         
         console.log('Initializing i18next with:', {
             savedLng,
@@ -103,18 +162,76 @@ export async function initializeI18next() {
 }
 
 /**
- * Detect user's preferred language
+ * Detect user's preferred language (comprehensive detection)
  * @returns {string} Detected language code
  */
 function detectUserLanguage() {
     try {
-        const browserLang = navigator.language || navigator.userLanguage;
-        const langCode = browserLang.split('-')[0].toLowerCase();
-        return ['en', 'zh'].includes(langCode) ? langCode : 'en';
+        // 1. 优先从URL路径检测语言
+        const pathLang = getLanguageFromPath();
+        if (pathLang) {
+            console.log('Language detected from URL path:', pathLang);
+            return pathLang;
+        }
+        
+        // 2. 从HTML标签检测语言
+        const htmlLang = document.documentElement.lang;
+        if (htmlLang && ['en', 'zh'].includes(htmlLang)) {
+            console.log('Language detected from HTML lang attribute:', htmlLang);
+            return htmlLang;
+        }
+        
+        // 3. 从浏览器语言检测
+        return detectBrowserLanguage();
     } catch (error) {
         console.error('Error detecting language:', error);
         return 'en';
     }
+}
+
+/**
+ * Detect language from browser settings only
+ * @returns {string} Detected language code
+ */
+function detectBrowserLanguage() {
+    try {
+        const browserLang = navigator.language || navigator.userLanguage;
+        const langCode = browserLang.split('-')[0].toLowerCase();
+        const detected = ['en', 'zh'].includes(langCode) ? langCode : 'en';
+        console.log('Language detected from browser:', detected);
+        return detected;
+    } catch (error) {
+        console.error('Error detecting browser language:', error);
+        return 'en';
+    }
+}
+
+/**
+ * Get language code from URL path
+ * @returns {string|null} Language code or null if not found
+ */
+function getLanguageFromPath() {
+    const pathname = window.location.pathname;
+    console.log('Current pathname:', pathname);
+    
+    // 检查是否在多语言构建的路径中 (/zh/, /en/, /fr/, 等)
+    const langMatch = pathname.match(/\/([a-z]{2})\//);
+    if (langMatch) {
+        const langCode = langMatch[1];
+        if (['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'].includes(langCode)) {
+            return langCode;
+        }
+    }
+    
+    // 检查是否在根目录的特定语言文件中
+    if (pathname.includes('/zh-index.html') || pathname.endsWith('/zh/')) {
+        return 'zh';
+    }
+    if (pathname.includes('/en-index.html') || pathname.endsWith('/en/')) {
+        return 'en';
+    }
+    
+    return null;
 }
 
 /**
@@ -270,46 +387,119 @@ export function setTextContent(elementId, text) {
  * Set up language selector functionality
  */
 export function setupLanguageSelector() {
+    // Setup legacy select element
     const languageSelect = document.getElementById('language-select');
-    if (!languageSelect) {
-        console.error('Language selector not found');
-        return;
-    }
-
-    console.log('Setting up language selector');
-
-    // Set initial value
-    languageSelect.value = i18next.language;
-
-    // Add change event listener
-    languageSelect.addEventListener('change', async (event) => {
-        const newLang = event.target.value;
-        console.log('Language selector changed to:', newLang);
+    if (languageSelect) {
+        console.log('Setting up language selector (legacy)');
         
-        try {
-            // 先更新选择器状态
-            languageSelect.disabled = true;
+        // Set initial value
+        languageSelect.value = i18next.language;
+
+        // Add change event listener
+        languageSelect.addEventListener('change', async (event) => {
+            const newLang = event.target.value;
+            console.log('Language selector changed to:', newLang);
             
-            // 改变语言
-            await i18next.changeLanguage(newLang);
-            localStorage.setItem('i18nextLng', newLang);
-            document.documentElement.lang = newLang;
-            
-            console.log('Language changed successfully, updating UI...');
-            
-            // 立即更新UI
-            updateUIElements();
-            
-            // 重新启用选择器
-            languageSelect.disabled = false;
-            
-            console.log('Language switch completed');
-            
-        } catch (error) {
-            console.error('Error changing language:', error);
-            languageSelect.disabled = false;
-        }
-    });
+            try {
+                // 先更新选择器状态
+                languageSelect.disabled = true;
+                
+                // 改变语言
+                await i18next.changeLanguage(newLang);
+                localStorage.setItem('i18nextLng', newLang);
+                document.documentElement.lang = newLang;
+                
+                console.log('Language changed successfully, updating UI...');
+                
+                // 立即更新UI
+                updateUIElements();
+                
+                // 重新启用选择器
+                languageSelect.disabled = false;
+                
+                console.log('Language switch completed');
+                
+            } catch (error) {
+                console.error('Error changing language:', error);
+                languageSelect.disabled = false;
+            }
+        });
+    }
+    
+    // Setup new button-based language selector
+    const languageToggle = document.getElementById('language-toggle');
+    const languageDropdown = document.getElementById('language-dropdown');
+    
+    if (languageToggle && languageDropdown) {
+        console.log('Setting up language selector (new button style)');
+        
+        // Toggle dropdown when button is clicked
+        languageToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            languageDropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
+                languageDropdown.classList.remove('active');
+            }
+        });
+        
+        // Handle language option clicks
+        const languageOptions = languageDropdown.querySelectorAll('.language-option[data-lang]');
+        languageOptions.forEach(option => {
+            option.addEventListener('click', async (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                const newLang = option.getAttribute('data-lang');
+                console.log('Language option clicked:', newLang);
+                
+                // Don't change if it's the same language
+                if (newLang === i18next.language) {
+                    languageDropdown.classList.remove('active');
+                    return;
+                }
+                
+                try {
+                    // Show loading state
+                    languageToggle.disabled = true;
+                    languageDropdown.classList.remove('active');
+                    
+                    // Change language
+                    await i18next.changeLanguage(newLang);
+                    localStorage.setItem('i18nextLng', newLang);
+                    document.documentElement.lang = newLang;
+                    
+                    console.log('Language changed successfully, updating UI...');
+                    
+                    // Update UI
+                    updateUIElements();
+                    
+                    // Re-enable button
+                    languageToggle.disabled = false;
+                    
+                    console.log('Language switch completed');
+                    
+                } catch (error) {
+                    console.error('Error changing language:', error);
+                    languageToggle.disabled = false;
+                }
+            });
+        });
+        
+        // Close dropdown when pressing Escape
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                languageDropdown.classList.remove('active');
+            }
+        });
+    }
+    
+    if (!languageSelect && !languageToggle) {
+        console.error('No language selector found (neither select nor button)');
+    }
 }
 
 /**

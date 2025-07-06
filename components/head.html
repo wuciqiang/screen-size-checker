@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title data-i18n="{{page_title_key}}">{{page_title}}</title>
+<meta name="description" data-i18n="{{page_description_key}}" content="{{page_description}}">
+<meta name="keywords" content="{{page_keywords}}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{canonical_url}}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{og_title}}">
+<meta property="og:description" content="{{og_description}}">
+<meta property="og:type" content="{{og_type}}">
+<meta property="og:url" content="{{og_url}}">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{css_path}}/main.css">
+<link rel="stylesheet" href="{{css_path}}/language-selector.css">
+
+<!-- Preload language files -->
+<link rel="preload" href="{{locales_path}}/en/translation.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="{{locales_path}}/zh/translation.json" as="fetch" crossorigin="anonymous">
+
+<!-- i18next Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+
+<!-- UAParser.js for device detection -->
+<script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+
+<!-- Google Ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868" crossorigin="anonymous"></script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{{structured_data}}
+</script> 

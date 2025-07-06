@@ -2,6 +2,7 @@
   "site_title": "Screen Size Checker",
   "site_name": "Screen Size Checker",
   "language_select_label": "Language:",
+  "all_languages": "All Languages",
   "page_title": "Screen Size Checker - Detect Screen Size and Browser Information",
   "page_description": "Free tool to detect your screen resolution, browser viewport size, device pixel ratio and more. Supports all devices and browsers.",
   
@@ -346,5 +347,18 @@
   "faq_aspect_answer": "Aspect ratio is the proportional relationship between a screen's width and height (width:height). Common ratios include 16:9 (widescreen), 4:3 (traditional), and 21:9 (ultrawide). It matters because it affects how content is displayed and the overall viewing experience.",
   
   "area": "Area",
-  "viewport_size_explanation": "When designing for devices, it's important to understand the difference between viewport sizes and screen resolutions:"
+  "viewport_size_explanation": "When designing for devices, it's important to understand the difference between viewport sizes and screen resolutions:",
+  
+  "compare_page_title": "Screen Size Comparison Tool: Compare Display Dimensions & Resolutions | Screen Size Checker",
+  "compare_page_description": "Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.",
+  "compare_page_heading": "Screen Size Comparison Tool",
+  "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how display choices compare in real-world dimensions.",
+  
+  "size_type": "Size Type",
+  "size_value": "Size Value",
+  "pixels": "Pixels",
+  "resolution": "Resolution",
+  "metric": "Metric",
+  "imperial": "Imperial",
+  "summary": "Summary"
 }

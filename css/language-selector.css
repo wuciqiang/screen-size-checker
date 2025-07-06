@@ -1,18 +1,85 @@
-/* Language Selector Styles */
-.language-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+/* 语言选择按钮样式 */
+.language-button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-right: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.language-button:hover {
+    background-color: #f5f5f5;
+    border-color: #007bff;
+    text-decoration: none;
+    color: #333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.language-button:active {
+    transform: translateY(0);
+}
+
+.language-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.language-icon {
+    font-size: 16px;
+}
+
+.language-text {
+    font-weight: 500;
+    user-select: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .language-text {
+        display: none;
+    }
+    
+    .language-button {
+        padding: 8px;
+        min-width: 40px;
+        justify-content: center;
+        margin-right: 8px;
+    }
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .language-button {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .language-button:hover {
+    background: #4a5568;
+    border-color: #63b3ed;
+    color: #e2e8f0;
+}
+
+/* 语言切换动画 */
+[data-i18n] {
+    transition: opacity 0.3s ease;
+}
+
+.language-changing [data-i18n] {
+    opacity: 0;
+}
+
+/* 旧版兼容性样式 */
 .language-selector label {
     font-size: 14px;
     color: #666;
@@ -44,39 +111,4 @@
     outline: none;
     border-color: #0066cc;
     box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .language-selector {
-        position: static;
-        margin: 10px 0;
-        justify-content: flex-end;
-    }
-}
-
-/* Language transition animation */
-[data-i18n] {
-    transition: opacity 0.3s ease;
-}
-
-.language-changing [data-i18n] {
-    opacity: 0;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 650px) {
-    .language-selector-wrapper {
-        position: static;
-        margin-bottom: 20px;
-        text-align: right;
-        box-shadow: none;
-        border: none;
-        background: none;
-        padding: 0;
-    }
-    
-    .language-selector-wrapper select {
-        min-width: 120px;
-    }
 } 

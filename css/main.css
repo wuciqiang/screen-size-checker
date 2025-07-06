@@ -648,17 +648,17 @@ body {
     }
     
     .header-container {
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--spacing-sm); /* 减少左右内边距，为Logo腾出更多空间 */
     }
     
     .header-controls {
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm); /* 减少控件间距，为Logo腾出空间 */
     }
     
     /* 中等屏幕logo优化 */
     .logo h1 {
         font-size: 1.25rem;
-        max-width: 180px;
+        max-width: 220px; /* 增加最大宽度，显示更多文字 */
     }
     
     .footer-links {
@@ -701,7 +701,7 @@ body {
     /* 小屏幕logo优化 */
     .logo h1 {
         font-size: 1.125rem;
-        max-width: 160px;
+        max-width: 200px; /* 增加最大宽度，显示更多文字 */
     }
     
     .info-row {
@@ -765,7 +765,7 @@ body {
     /* 超小屏幕logo优化 */
     .logo h1 {
         font-size: 1rem;
-        max-width: 140px;
+        max-width: 180px; /* 增加最大宽度，显示更多文字 */
     }
 }
 
@@ -776,6 +776,18 @@ body {
     }
     50% {
         opacity: 0.5;
+    }
+}
+
+/* 面包屑导航淡入动画 */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -840,9 +852,13 @@ body {
 .breadcrumb {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-lg) 0;
+    padding: 80px var(--spacing-lg) var(--spacing-lg); /* 稍微增加下边距，配合负margin：80px上边距 + 24px底部间距 */
     color: var(--text-secondary);
     font-size: 0.875rem;
+    /* 添加淡入动画效果 */
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.2s; /* 稍微延迟，让页面先加载 */
 }
 
 .breadcrumb a {
@@ -859,8 +875,13 @@ body {
 .devices-hero-section {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     color: white;
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-lg) 0 var(--spacing-2xl) 0; /* 恢复正常上边距：24px上 + 48px下 */
+    margin-top: -32px; /* 更大的负margin，彻底消除间距 */
     text-align: center;
+    /* 添加淡入动画效果 */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s; /* 比面包屑导航更早显示 */
 }
 
 .devices-hero-container {
@@ -885,7 +906,11 @@ body {
 }
 
 .device-table-section {
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-2xl) 0; /* 减少上下内边距，让布局更紧凑 */
+    /* 添加淡入动画效果 */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s; /* 在面包屑导航之后显示 */
 }
 
 .section-container {
@@ -1060,10 +1085,15 @@ body {
 
 /* Responsive adjustments for device pages */
 @media (max-width: 768px) {
+    .devices-hero-section {
+        padding: var(--spacing-md) 0 var(--spacing-xl) 0; /* 移动端：16px上 + 32px下 */
+        margin-top: -40px; /* 移动端超大负margin，彻底消除间距 */
+    }
+    
     .devices-hero-title {
         font-size: 2rem;
     }
-    
+
     .devices-hero-subtitle {
         font-size: 1rem;
     }
@@ -1086,7 +1116,7 @@ body {
     }
     
     .breadcrumb {
-        padding: var(--spacing-md) var(--spacing-md) 0;
+        padding: 70px var(--spacing-md) var(--spacing-xl); /* 移动端增加下间距，配合负margin：70px上 + 32px下 */
     }
 }
 
