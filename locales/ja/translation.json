@@ -1,6 +1,7 @@
 {
   "seo_title": "画面サイズチェッカー：解像度、ビューポート、DPR、OS、ブラウザ等をオンラインで確認",
   "seo_description": "画面解像度、ビューポートサイズ、DPR、OS、ブラウザバージョン、Cookie、タッチサポート、ユーザーエージェントを即座に確認。開発者とデザイナー向けの無料オンラインツール。",
+  "description": "Quickly check your screen resolution, viewport size, aspect ratio, and pixel density with our free online tool. Perfect for developers, designers, and everyday users.",
   "main_heading": "画面サイズとデバイス情報チェッカー",
   "intro_paragraph": "ディスプレイとデバイスの詳細を即座に検出します。このオンラインツールは、画面解像度、ブラウザビューポートの寸法、デバイスピクセル比（DPR）、OS、ブラウザバージョン、ユーザーエージェントなどを見つけるのに役立ちます。",
   "detected_info_heading": "検出された情報",

@@ -43,7 +43,7 @@ class MultiLangBuilder extends ComponentBuilder {
             if (extraText.trim()) {
                 console.log('📝 Removing extra text:', extraText.trim());
             }
-            return `<meta name="description" data-i18n="iphone_page_description" content="${contentValue}">
+            return `<meta name="description" data-i18n="description" content="${contentValue}">
 <meta name="keywords"`;
         });
         
@@ -128,14 +128,19 @@ class MultiLangBuilder extends ComponentBuilder {
                         if (pageData.page_title_key && translations[pageData.page_title_key]) {
                             pageData.page_title = translations[pageData.page_title_key];
                         }
-                        if (pageData.page_description_key && translations[pageData.page_description_key]) {
-                            pageData.page_description = translations[pageData.page_description_key];
-                        }
                         if (pageData.page_heading_key && translations[pageData.page_heading_key]) {
                             pageData.page_heading = translations[pageData.page_heading_key];
                         }
                         if (pageData.page_intro_key && translations[pageData.page_intro_key]) {
                             pageData.page_intro = translations[pageData.page_intro_key];
+                        }
+                        // 修正description注入逻辑，优先用translations['description']，不被page_description_key覆盖：
+                        if (translations['description']) {
+                            pageData.description = translations['description'];
+                        } else if (pageData.page_description_key && translations[pageData.page_description_key]) {
+                            pageData.description = translations[pageData.page_description_key];
+                        } else {
+                            pageData.description = '';
                         }
                         
                         // 调整静态资源路径为相对于语言目录的路径
@@ -196,7 +201,7 @@ class MultiLangBuilder extends ComponentBuilder {
                         html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {
                             if (extraText && extraText.trim()) {
                                 console.log('📝 Fixed meta description duplicate text');
-                                return `<meta name="description" data-i18n="iphone_page_description" content="${contentValue}">
+                                return `<meta name="description" data-i18n="description" content="${contentValue}">
 <meta name="keywords"`;
                             }
                             return match;
