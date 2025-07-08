@@ -248,8 +248,6 @@ class MultiLangBuilder extends ComponentBuilder {
             { source: 'css', dest: 'css' },
             { source: 'js', dest: 'js' },
             { source: 'locales', dest: 'locales' },
-            { source: 'style.css', dest: 'style.css' },
-            { source: 'script.js', dest: 'script.js' },
             { source: 'favicon.ico', dest: 'favicon.ico' },
             { source: 'favicon.png', dest: 'favicon.png' },
             { source: 'robots.txt', dest: 'robots.txt' },
@@ -312,35 +310,28 @@ class MultiLangBuilder extends ComponentBuilder {
         const depth = outputPath.split('/').length - 1;
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
         
-        // 修复CSS路径 - 支持多种CSS文件路径
+        // 修复CSS路径 - 只处理main.css
         html = html.replace(
             /href="css\/main\.css"/g,
             `href="${prefix}css/main.css"`
         );
         html = html.replace(
-            /href="style\.css"/g,
-            `href="${prefix}style.css"`
-        );
-        html = html.replace(
             /href="\.\.\/css\/main\.css"/g,
             `href="${prefix}css/main.css"`
         );
-        html = html.replace(
-            /href="\.\.\/style\.css"/g,
-            `href="${prefix}style.css"`
-        );
         
-        // 修复JavaScript路径 - 支持多种JS文件路径
-        html = html.replace(
-            /src="script\.js"/g,
-            `src="${prefix}script.js"`
-        );
+        // 修复JavaScript路径 - 保持模块化结构
         html = html.replace(
             /src="js\/app\.js"/g,
-            `src="${prefix}script.js"`
+            `src="${prefix}js/app.js"`
         );
         html = html.replace(
             /src="\.\.\/js\/app\.js"/g,
+            `src="${prefix}js/app.js"`
+        );
+        // Legacy script.js support (if any old references exist)
+        html = html.replace(
+            /src="script\.js"/g,
             `src="${prefix}script.js"`
         );
         html = html.replace(
@@ -728,8 +719,7 @@ function processTemplate(templatePath, config, lang) {
     // Replace static resource paths based on page depth
     const staticResourcePaths = {
         'css/main.css': getStaticResourcePath(config.path, 'css/main.css'),
-        'style.css': getStaticResourcePath(config.path, 'style.css'),
-        'js/app.js': getStaticResourcePath(config.path, 'script.js'), // Use script.js instead of js/app.js
+        'js/app.js': getStaticResourcePath(config.path, 'js/app.js'), // Use modular js/app.js
         'locales/en/translation.json': getStaticResourcePath(config.path, 'locales/en/translation.json'),
         'locales/zh/translation.json': getStaticResourcePath(config.path, 'locales/zh/translation.json'),
     };

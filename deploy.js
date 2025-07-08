@@ -12,8 +12,6 @@ require('./build/multilang-builder.js');
 // 2. 复制必要的静态文件
 console.log('📁 复制静态资源...');
 const staticFiles = [
-    'style.css',
-    'script.js',
     'favicon.ico',
     'favicon.png',
     'robots.txt',
