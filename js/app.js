@@ -68,8 +68,45 @@ async function initializeApp() {
  * Setup all event listeners
  */
 function setupEventListeners() {
-    // Copy button event delegation
+    // Copy button事件委托
     document.addEventListener('click', handleCopyClick);
+    
+    // 一键复制全部按钮事件
+    const copyAllBtn = document.getElementById('copy-all-info');
+    if (copyAllBtn) {
+        copyAllBtn.addEventListener('click', async () => {
+            copyAllBtn.disabled = true;
+            const originalText = copyAllBtn.textContent;
+            try {
+                const result = await import('./clipboard.js').then(m => m.copyAllInfo());
+                if (result) {
+                    copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
+                    copyAllBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyAllBtn.textContent = originalText;
+                        copyAllBtn.classList.remove('copied');
+                        copyAllBtn.disabled = false;
+                    }, 1500);
+                } else {
+                    copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
+                    copyAllBtn.classList.add('error');
+                    setTimeout(() => {
+                        copyAllBtn.textContent = originalText;
+                        copyAllBtn.classList.remove('error');
+                        copyAllBtn.disabled = false;
+                    }, 2000);
+                }
+            } catch (e) {
+                copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
+                copyAllBtn.classList.add('error');
+                setTimeout(() => {
+                    copyAllBtn.textContent = originalText;
+                    copyAllBtn.classList.remove('error');
+                    copyAllBtn.disabled = false;
+                }, 2000);
+            }
+        });
+    }
     
     // FAQ toggle functionality
     setupFAQToggles();

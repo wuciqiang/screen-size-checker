@@ -13,6 +13,11 @@
 
 <!-- Part 3: Info Dashboard -->
 <section class="info-dashboard">
+    <!-- 仪表盘标题和一键复制按钮区域，移到dashboard-container外部 -->
+    <div class="dashboard-header">
+        <h2 class="dashboard-title" data-i18n="device_info_title">设备信息</h2>
+        <button class="copy-all-btn" id="copy-all-info" data-i18n="copy_all_info">复制全部信息</button>
+    </div>
     <div class="dashboard-container">
         <!-- Card 1: Display Properties -->
         <div class="info-card card-display">
