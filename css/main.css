@@ -1403,9 +1403,21 @@ body {
 }
 
 .flag {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    width: 4.5rem!important;
+    height: 2.8rem!important;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    margin-bottom: 1.2rem;
     line-height: 1;
+    vertical-align: middle;
+    background: #eee;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.language-card .flag {
+    margin-bottom: 1.2rem;
 }
 
 .lang-name {
@@ -1466,8 +1478,9 @@ body {
     }
     
     .flag {
-        font-size: 2rem;
-        margin-bottom: var(--spacing-sm);
+        width: 3.2rem;
+        height: 2rem;
+        margin-bottom: 0.8rem;
     }
     
     .lang-name {
@@ -1503,7 +1516,8 @@ body {
     }
     
     .flag {
-        font-size: 1.5rem;
+        width: 2.2rem;
+        height: 1.4rem;
     }
     
     .lang-name {
