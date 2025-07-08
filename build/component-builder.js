@@ -36,8 +36,8 @@ class ComponentBuilder {
         
         let html = fs.readFileSync(templatePath, 'utf8');
         
-        // 替换组件占位符
-        html = html.replace(/\{\{component:(\w+)\}\}/g, (match, componentName) => {
+        // 替换组件占位符（支持连字符）
+        html = html.replace(/\{\{component:([\w-]+)\}\}/g, (match, componentName) => {
             // 检查是否是动态组件名（通过pageData中的变量间接引用）
             let actualComponentName = componentName;
             if (pageData[componentName]) {

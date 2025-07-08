@@ -7,6 +7,7 @@ import { initializeI18next, updateUIElements, setupLanguageSelector, setTextCont
 import { updateDisplay, updateViewportSize } from './device-detector.js';
 import { handleCopyClick } from './clipboard.js';
 import { debounce } from './utils.js';
+import { LanguageModal } from './language-modal.js';
 
 console.log('✅ All modules imported successfully');
 

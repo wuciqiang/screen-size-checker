@@ -3,6 +3,9 @@
   "site_name": "Screen Size Checker",
   "language_select_label": "Language:",
   "all_languages": "All Languages",
+  "language_modal_title": "Choose Language",
+  "language_coming_soon": "Other language versions are being translated, stay tuned!",
+  "language_coming_soon_en": "Other language versions are being translated, stay tuned!",
   "page_title": "Screen Size Checker - Detect Screen Size and Browser Information",
   "page_description": "Free tool to detect your screen resolution, browser viewport size, device pixel ratio and more. Supports all devices and browsers.",
   

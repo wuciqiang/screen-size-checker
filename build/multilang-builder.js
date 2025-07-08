@@ -77,8 +77,12 @@ class MultiLangBuilder extends ComponentBuilder {
             // 创建多语言输出目录
             const multiLangDir = path.join(this.rootPath, 'multilang-build');
             if (fs.existsSync(multiLangDir)) {
-                // 清空现有目录
-                fs.rmSync(multiLangDir, { recursive: true, force: true });
+                // 使用更兼容的删除方法
+                try {
+                    this.removeDirectoryRecursive(multiLangDir);
+                } catch (error) {
+                    console.warn('⚠️  Failed to remove existing directory, continuing...');
+                }
             }
             fs.mkdirSync(multiLangDir, { recursive: true });
             
@@ -240,6 +244,26 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
     
+    // 递归删除目录（兼容性方法）
+    removeDirectoryRecursive(dirPath) {
+        if (fs.existsSync(dirPath)) {
+            const files = fs.readdirSync(dirPath);
+            
+            files.forEach(file => {
+                const filePath = path.join(dirPath, file);
+                const stat = fs.statSync(filePath);
+                
+                if (stat.isDirectory()) {
+                    this.removeDirectoryRecursive(filePath);
+                } else {
+                    fs.unlinkSync(filePath);
+                }
+            });
+            
+            fs.rmdirSync(dirPath);
+        }
+    }
+
     // 复制静态资源文件
     copyStaticResources(outputDir) {
         console.log('\n📦 Copying static resources...');

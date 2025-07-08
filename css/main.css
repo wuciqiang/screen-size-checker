@@ -1224,4 +1224,303 @@ body {
         font-size: 0.875rem;
         padding: var(--spacing-md);
     }
+}
+
+/* Language Modal Styles */
+.language-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-medium), visibility var(--transition-medium);
+}
+
+.language-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.language-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.language-modal-content {
+    position: relative;
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform var(--transition-medium);
+}
+
+.language-modal.show .language-modal-content {
+    transform: scale(1);
+}
+
+.language-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-secondary);
+}
+
+.language-modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.modal-title-primary {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-title-secondary {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.language-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-modal-close:hover {
+    background: var(--background-hover);
+    color: var(--text-primary);
+}
+
+.close-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.language-modal-body {
+    padding: var(--spacing-xl);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.language-card {
+    display: block;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: var(--background-card);
+    transition: all var(--transition-medium);
+    position: relative;
+    cursor: pointer;
+}
+
+.language-card:hover {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.language-card.active:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: var(--background-primary);
+}
+
+.language-card.disabled {
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.language-card.disabled:hover {
+    border-color: var(--border-color);
+    transform: none;
+    box-shadow: none;
+    background: var(--background-secondary);
+}
+
+.language-card.disabled .flag {
+    opacity: 0.5;
+}
+
+.language-card.disabled::after {
+    content: attr(data-coming-soon);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(108, 117, 125, 0.9);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.flag {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1;
+}
+
+.lang-name {
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    font-size: 1rem;
+}
+
+.lang-code {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.language-modal-note {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    padding: var(--spacing-lg);
+    background: var(--background-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.note-icon {
+    font-size: 1rem;
+    margin-right: var(--spacing-xs);
+}
+
+/* Mobile-specific modal styles */
+@media (max-width: 768px) {
+    .language-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+    
+    .language-modal-content {
+        max-width: 100%;
+        width: 100%;
+        max-height: 80vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        transform: translateY(100%);
+    }
+    
+    .language-modal.show .language-modal-content {
+        transform: translateY(0);
+    }
+    
+    .language-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--spacing-md);
+    }
+    
+    .language-card {
+        padding: var(--spacing-md);
+    }
+    
+    .flag {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .lang-name {
+        font-size: 0.875rem;
+    }
+    
+    .lang-code {
+        font-size: 0.75rem;
+    }
+    
+    .modal-title-primary {
+        font-size: 1.25rem;
+    }
+    
+    .modal-title-secondary {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-modal-header,
+    .language-modal-body {
+        padding: var(--spacing-lg);
+    }
+    
+    .language-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .language-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .flag {
+        font-size: 1.5rem;
+    }
+    
+    .lang-name {
+        font-size: 0.8rem;
+    }
+    
+    .lang-code {
+        font-size: 0.7rem;
+    }
+}
+
+/* Dark theme adjustments for language modal */
+[data-theme="dark"] .language-modal-backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .language-card.disabled::after {
+    background: rgba(74, 85, 104, 0.9);
+    color: #e2e8f0;
 } 

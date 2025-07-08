@@ -3,6 +3,9 @@
   "site_name": "屏幕尺寸检测器",
   "language_select_label": "语言:",
   "all_languages": "所有语言",
+  "language_modal_title": "选择语言",
+  "language_coming_soon": "其他语言版本正在翻译中，敬请期待！",
+  "language_coming_soon_en": "Other language versions are being translated, stay tuned!",
   "page_title": "Screen Size Checker - 检测屏幕尺寸和浏览器信息",
   "page_description": "免费检测您的屏幕分辨率、浏览器视口大小、设备像素比等详细信息。支持所有设备和浏览器。",
   
