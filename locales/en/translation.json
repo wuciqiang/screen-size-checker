@@ -13,6 +13,8 @@
   "hero_subtitle": "Your Browser Viewport Size",
   "screen_resolution": "Screen Resolution",
   "detecting": "Detecting...",
+  "device_info_title": "Device Information",
+  "copy_all_info": "Copy All Info",
   
   "display_properties": "Display Properties",
   "system_browser": "System & Browser",

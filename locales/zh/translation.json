@@ -13,6 +13,8 @@
   "hero_subtitle": "你的浏览器视口大小",
   "screen_resolution": "屏幕分辨率",
   "detecting": "检测中...",
+  "device_info_title": "设备信息",
+  "copy_all_info": "复制全部信息",
   
   "display_properties": "显示属性",
   "system_browser": "系统与浏览器",
