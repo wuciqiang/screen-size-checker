@@ -4,30 +4,25 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /en/
+Allow: /zh/
 Allow: /css/
 Allow: /js/
-Allow: /images/
 Allow: /locales/
+Allow: /privacy-policy.html
+Allow: /select-language.html
 
-# Disallow common system files and directories
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /private/
-Disallow: /admin/
-Disallow: /.git/
-Disallow: /.env
-Disallow: /config/
-Disallow: /vendor/
-Disallow: /node_modules/
+# 禁止抓取未启用的语言版本
+Disallow: /de/
+Disallow: /es/
+Disallow: /fr/
+Disallow: /it/
+Disallow: /ja/
+Disallow: /ko/
+Disallow: /pt/
+Disallow: /ru/
 
-# Block specific bots that might cause issues
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-# Sitemap location
+# 网站地图
 Sitemap: https://screensizechecker.com/sitemap.xml
 
 # Crawl-delay for all bots

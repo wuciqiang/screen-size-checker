@@ -67,186 +67,234 @@ class MultiLangBuilder extends ComponentBuilder {
     
     // 生成多语言页面
     buildMultiLangPages() {
-        console.log('\n🌐 Starting multi-language build...');
+        console.log('\n🌐 Building multilingual pages...');
         
-        try {
-            // 读取页面配置
-            const configPath = path.join(this.rootPath, 'build', 'pages-config.json');
-            const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-            
-            // 创建多语言输出目录
-            const multiLangDir = path.join(this.rootPath, 'multilang-build');
-            if (fs.existsSync(multiLangDir)) {
-                // 使用更兼容的删除方法
-                try {
-                    this.removeDirectoryRecursive(multiLangDir);
-                } catch (error) {
-                    console.warn('⚠️  Failed to remove existing directory, continuing...');
-                }
+        // 只构建已启用的语言（英语和中文）
+        const enabledLanguages = ['en', 'zh'];
+        
+        const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
+        let totalPages = 0;
+        let successfulBuilds = 0;
+        
+        const buildReport = {
+            timestamp: new Date().toISOString(),
+            languages: enabledLanguages,
+            pages: {},
+            summary: {}
+        };
+
+        // 确保构建目录存在 - 完全清除并重新创建
+        const outputDir = 'multilang-build';
+        if (fs.existsSync(outputDir)) {
+            // 删除整个目录 - 使用递归删除
+            try {
+                fs.rmSync(outputDir, { recursive: true, force: true });
+                console.log('✅ Cleared existing build directory');
+            } catch (error) {
+                console.warn('⚠️  Warning: Could not remove existing directory:', error.message);
             }
-            fs.mkdirSync(multiLangDir, { recursive: true });
-            
-            // 复制静态资源文件
-            this.copyStaticResources(multiLangDir);
-            
-            let totalPages = 0;
-            let successPages = 0;
-            
-            // 为每种语言构建所有页面
-            for (const lang of this.supportedLanguages) {
-                console.log(`\n📁 Building ${lang.toUpperCase()} pages...`);
-                
-                const translations = this.translations.get(lang);
-                if (!translations) {
-                    console.warn(`⚠️  Skipping ${lang} - no translations available`);
-                    continue;
-                }
-                
-                // 创建语言目录
-                const langDir = path.join(multiLangDir, lang);
-                fs.mkdirSync(langDir, { recursive: true });
-                
-                // 创建设备子目录
-                const devicesDir = path.join(langDir, 'devices');
-                fs.mkdirSync(devicesDir, { recursive: true });
-                
-                // 构建该语言的所有页面
-                for (const page of config.pages) {
-                    totalPages++;
-                    
-                    try {
-                        console.log(`  📄 Building ${lang}/${page.output}`);
-                        
-                        // 准备页面数据并调整路径
-                        const pageData = {
-                            lang: lang,
-                            page_content: page.page_content,
-                            ...page.config
-                        };
-                        
-                        // 从翻译文件中获取页面特定的翻译值
-                        if (pageData.page_title_key && translations[pageData.page_title_key]) {
-                            pageData.page_title = translations[pageData.page_title_key];
-                        }
-                        if (pageData.page_heading_key && translations[pageData.page_heading_key]) {
-                            pageData.page_heading = translations[pageData.page_heading_key];
-                        }
-                        if (pageData.page_intro_key && translations[pageData.page_intro_key]) {
-                            pageData.page_intro = translations[pageData.page_intro_key];
-                        }
-                        // 修正description注入逻辑，优先用translations['description']，不被page_description_key覆盖：
-                        if (translations['description']) {
-                            pageData.description = translations['description'];
-                        } else if (pageData.page_description_key && translations[pageData.page_description_key]) {
-                            pageData.description = translations[pageData.page_description_key];
-                        } else {
-                            pageData.description = '';
-                        }
-                        
-                        // 调整静态资源路径为相对于语言目录的路径
-                        const depth = page.output.split('/').length - 1;
-                        const prefix = '../'.repeat(depth + 1);
-                        
-                        // 更新路径变量 - 所有路径都需要相对于语言目录调整
-                        console.log(`    🔧 Original paths: css=${pageData.css_path}, js=${pageData.js_path}, locales=${pageData.locales_path}`);
-                        
-                        if (pageData.css_path) {
-                            const oldPath = pageData.css_path;
-                            pageData.css_path = prefix + pageData.css_path.replace(/^\.\.\//, '');
-                            console.log(`    🎨 CSS: ${oldPath} -> ${pageData.css_path}`);
-                        }
-                        if (pageData.js_path) {
-                            const oldPath = pageData.js_path;
-                            pageData.js_path = prefix + pageData.js_path.replace(/^\.\.\//, '');
-                            console.log(`    📜 JS: ${oldPath} -> ${pageData.js_path}`);
-                        }
-                        if (pageData.locales_path) {
-                            const oldPath = pageData.locales_path;
-                            pageData.locales_path = prefix + pageData.locales_path.replace(/^\.\.\//, '');
-                            console.log(`    🌍 Locales: ${oldPath} -> ${pageData.locales_path}`);
-                        }
-                        if (pageData.home_url) {
-                            // 对于多语言版本，home_url应该指向当前语言的首页
-                            if (page.output === 'index.html') {
-                                // 如果是首页，home_url指向自身
-                                pageData.home_url = 'index.html';
-                            } else {
-                                // 如果是子页面，home_url指向当前语言目录的首页
-                                pageData.home_url = '../index.html';
-                            }
-                        }
-                        if (pageData.privacy_policy_url) {
-                            pageData.privacy_policy_url = pageData.privacy_policy_url.startsWith('../') 
-                                ? '../'.repeat(depth + 1) + pageData.privacy_policy_url.substring(3)
-                                : prefix + pageData.privacy_policy_url;
-                        }
-                        
-                        // 更新语言相关的URL和路径
-                        pageData.canonical_url = pageData.canonical_url.replace(
-                            'https://screensizechecker.com/',
-                            `https://screensizechecker.com/${lang}/`
-                        );
-                        
-                        // 移除.html后缀以匹配Cloudflare Pages的URL格式
-                        pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
-                        pageData.og_url = pageData.canonical_url;
-                        
-                        // 构建HTML
-                        let html = this.buildPage(page.template, pageData);
-                        
-                        // 应用翻译
-                        html = this.translateContent(html, translations);
-                        
-                        // 修复HTML结构错误 - 移除meta标签后的重复文字
-                        html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {
-                            if (extraText && extraText.trim()) {
-                                console.log('📝 Fixed meta description duplicate text');
-                                return `<meta name="description" data-i18n="description" content="${contentValue}">
-<meta name="keywords"`;
-                            }
-                            return match;
-                        });
-                        
-                        // 更新HTML lang属性
-                        html = html.replace('<html lang="en">', `<html lang="${lang}">`);
-                        
-                        // 静态资源路径已通过路径变量调整正确处理，不需要额外修复
-                        // html = this.fixStaticResourcePaths(html, page.output);
-                        
-                        // 写入文件
-                        const outputPath = path.join(langDir, page.output);
-                        fs.writeFileSync(outputPath, html);
-                        
-                        successPages++;
-                        console.log(`    ✅ ${lang}/${page.output}`);
-                        
-                    } catch (error) {
-                        console.error(`    ❌ Failed to build ${lang}/${page.name}:`, error.message);
-                    }
-                }
-            }
-            
-            // 生成语言索引页面
-            this.generateLanguageIndex(multiLangDir);
-            
-            // 生成多语言网站地图
-            this.generateMultiLanguageSitemap(multiLangDir);
-            
-            console.log(`\n📊 Multi-language build completed:`);
-            console.log(`🌍 Languages: ${this.supportedLanguages.length}`);
-            console.log(`📄 Total pages: ${totalPages}`);
-            console.log(`✅ Successful: ${successPages}/${totalPages}`);
-            console.log(`📁 Output directory: multilang-build/`);
-            
-            // 生成构建报告
-            this.generateBuildReport(multiLangDir, successPages, totalPages);
-            
-            return successPages === totalPages;
-            
-        } catch (error) {
-            console.error('❌ Multi-language build failed:', error.message);
-            return false;
         }
+        fs.mkdirSync(outputDir, { recursive: true });
+
+        // 为每种启用的语言构建页面
+        for (const lang of enabledLanguages) {
+            console.log(`\n📝 Building pages for language: ${lang.toUpperCase()}`);
+            
+            const langDir = path.join(outputDir, lang);
+            fs.mkdirSync(langDir, { recursive: true });
+
+            // 加载该语言的翻译文件
+            const translationPath = path.join('locales', lang, 'translation.json');
+            let translations = {};
+            
+            try {
+                translations = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
+                console.log(`  ✅ Loaded translations for ${lang}`);
+            } catch (error) {
+                console.warn(`  ⚠️  Warning: Could not load translations for ${lang}:`, error.message);
+                continue; // 跳过没有翻译文件的语言
+            }
+
+            buildReport.pages[lang] = [];
+            
+            // 为该语言创建必要的子目录
+            const deviceDir = path.join(langDir, 'devices');
+            fs.mkdirSync(deviceDir, { recursive: true });
+            
+            // 构建该语言的所有页面
+            for (const page of config.pages) {
+                totalPages++;
+                
+                try {
+                    console.log(`  📄 Building ${lang}/${page.output}`);
+                    
+                    // 准备页面数据并调整路径
+                    const pageData = {
+                        lang: lang,
+                        page_content: page.page_content,
+                        ...page.config
+                    };
+                    
+                    // 从翻译文件中获取页面特定的翻译值
+                    if (pageData.page_title_key && translations[pageData.page_title_key]) {
+                        pageData.page_title = translations[pageData.page_title_key];
+                    }
+                    if (pageData.page_heading_key && translations[pageData.page_heading_key]) {
+                        pageData.page_heading = translations[pageData.page_heading_key];
+                    }
+                    if (pageData.page_intro_key && translations[pageData.page_intro_key]) {
+                        pageData.page_intro = translations[pageData.page_intro_key];
+                    }
+                    // 修正description注入逻辑，优先用translations['description']，不被page_description_key覆盖：
+                    if (translations['description']) {
+                        pageData.description = translations['description'];
+                    } else if (pageData.page_description_key && translations[pageData.page_description_key]) {
+                        pageData.description = translations[pageData.page_description_key];
+                    } else {
+                        pageData.description = '';
+                    }
+                    
+                    // 调整静态资源路径为相对于语言目录的路径
+                    const depth = page.output.split('/').length - 1;
+                    const prefix = depth > 0 ? '../'.repeat(depth) : '';
+                    
+                    // 正确更新资源路径 - 根据深度重新计算
+                    if (depth === 0) {
+                        // 主页 (index.html) - 在语言目录下
+                        pageData.css_path = '../css';
+                        pageData.locales_path = '../locales';
+                        pageData.js_path = '../js';
+                    } else {
+                        // 子页面 (devices/xxx.html) - 在语言目录的子目录下
+                        pageData.css_path = '../../css';
+                        pageData.locales_path = '../../locales';  
+                        pageData.js_path = '../../js';
+                    }
+                    
+                    // 更新相对链接路径
+                    if (pageData.home_url) {
+                        pageData.home_url = pageData.home_url.startsWith('../') 
+                            ? '../'.repeat(depth + 1) + pageData.home_url.substring(3)
+                            : (depth > 0 ? prefix + pageData.home_url : pageData.home_url);
+                    }
+                    
+                    if (pageData.device_links_base) {
+                        pageData.device_links_base = pageData.device_links_base.startsWith('../') 
+                            ? '../'.repeat(depth + 1) + pageData.device_links_base.substring(3)
+                            : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
+                    }
+                    
+                    if (pageData.privacy_policy_url) {
+                        pageData.privacy_policy_url = pageData.privacy_policy_url.startsWith('../') 
+                            ? '../'.repeat(depth + 1) + pageData.privacy_policy_url.substring(3)
+                            : prefix + pageData.privacy_policy_url;
+                    }
+                    
+                    // 更新语言相关的URL和路径
+                    pageData.canonical_url = pageData.canonical_url.replace(
+                        'https://screensizechecker.com/',
+                        `https://screensizechecker.com/${lang}/`
+                    );
+                    
+                    // 移除.html后缀以匹配Cloudflare Pages的URL格式
+                    pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
+                    pageData.og_url = pageData.canonical_url;
+                    
+                    // 添加hreflang相关数据
+                    pageData.base_url = 'https://screensizechecker.com';
+                    pageData.page_path = pageData.canonical_url.replace('https://screensizechecker.com/' + lang, '');
+                    if (!pageData.page_path) {
+                        pageData.page_path = '/';
+                    }
+                    
+                    // 构建HTML
+                    let html = this.buildPage(page.template, pageData);
+                    
+                    // 应用翻译
+                    html = this.translateContent(html, translations);
+                    
+                    // 修复HTML结构错误 - 移除meta标签后的重复文字
+                    html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {
+                        if (extraText && extraText.trim()) {
+                            console.log('📝 Fixed meta description duplicate text');
+                            return `<meta name="description" data-i18n="description" content="${contentValue}">
+<meta name="keywords"`;
+                        }
+                        return match;
+                    });
+                    
+                    // 更新HTML lang属性
+                    html = html.replace('<html lang="en">', `<html lang="${lang}">`);
+                    
+                    // 修复静态资源路径 - 传递完整路径包含语言目录
+                    const fullOutputPath = path.join(lang, page.output);
+                    html = this.fixStaticResourcePaths(html, fullOutputPath);
+                    
+                    // 写入文件
+                    const outputPath = path.join(langDir, page.output);
+                    const outputDirPath = path.dirname(outputPath);
+                    
+                    if (!fs.existsSync(outputDirPath)) {
+                        fs.mkdirSync(outputDirPath, { recursive: true });
+                    }
+                    
+                    fs.writeFileSync(outputPath, html);
+                    
+                    console.log(`  ✅ Built: ${lang}/${page.output}`);
+                    successfulBuilds++;
+                    
+                    buildReport.pages[lang].push({
+                        name: page.name,
+                        output: page.output,
+                        status: 'success',
+                        canonical_url: pageData.canonical_url
+                    });
+                    
+                } catch (error) {
+                    console.error(`  ❌ Failed to build ${lang}/${page.output}:`, error.message);
+                    
+                    buildReport.pages[lang].push({
+                        name: page.name,
+                        output: page.output,
+                        status: 'failed',
+                        error: error.message
+                    });
+                }
+            }
+        }
+
+        // 更新 supportedLanguages 只包含启用的语言
+        this.supportedLanguages = enabledLanguages;
+
+        buildReport.summary = {
+            totalPages,
+            successfulBuilds,
+            languages: enabledLanguages.length,
+            enabledOnly: true
+        };
+
+        console.log(`\n📊 Build Summary:`);
+        console.log(`   Languages: ${enabledLanguages.length} (enabled only)`);
+        console.log(`   📄 Total pages: ${totalPages}`);
+        console.log(`   ✅ Successful: ${successfulBuilds}/${totalPages}`);
+        console.log(`   ❌ Failed: ${totalPages - successfulBuilds}/${totalPages}`);
+
+        // 保存构建报告
+        fs.writeFileSync(
+            path.join(outputDir, 'build-report.json'),
+            JSON.stringify(buildReport, null, 2)
+        );
+
+        // 复制静态资源（只复制需要的文件）
+        this.copyRequiredStaticResources(outputDir);
+        
+        // 生成语言选择索引页面
+        this.generateLanguageIndex(outputDir);
+        
+        // 生成多语言网站地图（只包含启用的语言）
+        this.generateMultiLanguageSitemap(outputDir);
+
+        return buildReport;
     }
     
     // 递归删除目录（兼容性方法）
@@ -332,6 +380,66 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         });
     }
+
+    // 复制必要的静态资源（避免复制未启用的语言目录）
+    copyRequiredStaticResources(outputDir) {
+        console.log('\n📦 Copying required static resources...');
+        
+        const resourcesToCopy = [
+            'css',
+            'js', 
+            'locales',
+            'favicon.ico',
+            'favicon.png',
+            'robots.txt',
+            '_redirects',
+            'ads.txt',
+            'structured-data.json',
+            'privacy-policy.html',
+            'googlec786a02f43170c4d.html'
+        ];
+
+        for (const resource of resourcesToCopy) {
+            const sourcePath = path.join(this.rootPath, resource);
+            const targetPath = path.join(outputDir, resource);
+            
+            if (fs.existsSync(sourcePath)) {
+                try {
+                    if (fs.statSync(sourcePath).isDirectory()) {
+                        this.copyDirectoryRecursive(sourcePath, targetPath);
+                        console.log(`  ✅ Copied directory: ${resource}`);
+                    } else {
+                        fs.copyFileSync(sourcePath, targetPath);
+                        console.log(`  ✅ Copied file: ${resource}`);
+                    }
+                } catch (error) {
+                    console.warn(`  ⚠️  Warning: Could not copy ${resource}:`, error.message);
+                }
+            } else {
+                console.warn(`  ⚠️  Warning: ${resource} not found, skipping`);
+            }
+        }
+    }
+
+    // 递归复制目录
+    copyDirectoryRecursive(source, dest) {
+        if (!fs.existsSync(dest)) {
+            fs.mkdirSync(dest, { recursive: true });
+        }
+        
+        const items = fs.readdirSync(source);
+        
+        items.forEach(item => {
+            const sourcePath = path.join(source, item);
+            const destPath = path.join(dest, item);
+            
+            if (fs.statSync(sourcePath).isDirectory()) {
+                this.copyDirectoryRecursive(sourcePath, destPath);
+            } else {
+                fs.copyFileSync(sourcePath, destPath);
+            }
+        });
+    }
     
     // 修复静态资源路径
     fixStaticResourcePaths(html, outputPath) {
@@ -339,36 +447,22 @@ class MultiLangBuilder extends ComponentBuilder {
         const depth = outputPath.split('/').length - 1;
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
         
-        // 修复CSS路径 - 只处理main.css
+        // 注意：我们已经在构建过程中设置了正确的路径变量，
+        // 这里只修复那些可能遗漏的硬编码路径
+        
+        // 修复任何遗留的硬编码CSS路径
         html = html.replace(
             /href="css\/main\.css"/g,
             `href="${prefix}css/main.css"`
         );
-        html = html.replace(
-            /href="\.\.\/css\/main\.css"/g,
-            `href="${prefix}css/main.css"`
-        );
         
-        // 修复JavaScript路径 - 保持模块化结构
+        // 修复任何遗留的硬编码JavaScript路径  
         html = html.replace(
             /src="js\/app\.js"/g,
             `src="${prefix}js/app.js"`
         );
-        html = html.replace(
-            /src="\.\.\/js\/app\.js"/g,
-            `src="${prefix}js/app.js"`
-        );
-        // Legacy script.js support (if any old references exist)
-        html = html.replace(
-            /src="script\.js"/g,
-            `src="${prefix}script.js"`
-        );
-        html = html.replace(
-            /src="\.\.\/script\.js"/g,
-            `src="${prefix}script.js"`
-        );
         
-        // 修复翻译文件路径
+        // 修复任何遗留的翻译文件路径
         html = html.replace(
             /href="locales\/en\/translation\.json"/g,
             `href="${prefix}locales/en/translation.json"`
@@ -377,23 +471,11 @@ class MultiLangBuilder extends ComponentBuilder {
             /href="locales\/zh\/translation\.json"/g,
             `href="${prefix}locales/zh/translation.json"`
         );
-        html = html.replace(
-            /href="\.\.\/locales\/en\/translation\.json"/g,
-            `href="${prefix}locales/en/translation.json"`
-        );
-        html = html.replace(
-            /href="\.\.\/locales\/zh\/translation\.json"/g,
-            `href="${prefix}locales/zh/translation.json"`
-        );
         
         // 修复导航链接
         html = html.replace(
             /href="index\.html"/g,
             depth > 0 ? `href="../index.html"` : `href="index.html"`
-        );
-        html = html.replace(
-            /href="\.\.\/index\.html"/g,
-            depth > 1 ? `href="${'../'.repeat(depth-1)}index.html"` : `href="index.html"`
         );
         
         // 修复设备页面链接
@@ -407,10 +489,6 @@ class MultiLangBuilder extends ComponentBuilder {
             /href="privacy-policy\.html"/g,
             depth > 0 ? `href="../privacy-policy.html"` : `href="privacy-policy.html"`
         );
-        html = html.replace(
-            /href="\.\.\/privacy-policy\.html"/g,
-            depth > 1 ? `href="${'../'.repeat(depth-1)}privacy-policy.html"` : `href="privacy-policy.html"`
-        );
         
         return html;
     }
@@ -422,15 +500,14 @@ class MultiLangBuilder extends ComponentBuilder {
         // 定义已启用的语言（只有英文和中文）
         const enabledLanguages = ['en', 'zh'];
         
-        // 1. 生成根目录重定向页面（直接跳转到英文）
+        // 1. 生成根目录重定向页面（默认重定向到英文）
         const redirectHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screen Size Checker - Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/en/index.html">
-    <link rel="canonical" href="/en/index.html">
+    <title>Screen Size Checker - Redirecting to English</title>
+    <link rel="canonical" href="https://screensizechecker.com/en/">
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -458,16 +535,22 @@ class MultiLangBuilder extends ComponentBuilder {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .manual-link {
+        .language-options {
             margin-top: 30px;
         }
-        .manual-link a {
+        .language-options a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
             color: #007bff;
             text-decoration: none;
+            border: 2px solid #007bff;
+            border-radius: 5px;
             font-weight: bold;
         }
-        .manual-link a:hover {
-            text-decoration: underline;
+        .language-options a:hover {
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
@@ -475,13 +558,25 @@ class MultiLangBuilder extends ComponentBuilder {
     <h1>🌍 Screen Size Checker</h1>
     <div class="loading">Redirecting to English version...</div>
     <div class="spinner"></div>
-    <div class="manual-link">
-        <p>If you are not redirected automatically, <a href="/en/index.html">click here for English</a> or <a href="/select-language.html">choose your language</a>.</p>
+    <div class="language-options">
+        <p>If you are not redirected automatically:</p>
+        <a href="/en/">English (Default)</a>
+        <a href="/zh/">中文</a>
+        <a href="/select-language.html">More Languages</a>
     </div>
     
     <script>
-        // 立即重定向到英文页面
-        window.location.href = '/en/index.html';
+        // 默认重定向到英文页面
+        function redirectToEnglish() {
+            // 直接重定向到英文页面，不进行语言检测
+            window.location.href = '/en/';
+        }
+        
+        // 页面加载后立即重定向到英文
+        window.addEventListener('load', redirectToEnglish);
+        
+        // 备用重定向（防止JavaScript被禁用）
+        setTimeout(redirectToEnglish, 500);
     </script>
 </body>
 </html>`;
@@ -605,12 +700,13 @@ ${languageCards}
         console.log('✅ Language selection page created at select-language.html');
     }
 
-    // 生成多语言网站地图
+    // 生成多语言网站地图（只包含启用的语言）
     generateMultiLanguageSitemap(outputDir) {
-        console.log('\n🗺️ Generating multilingual sitemap...');
+        console.log('\n🗺️ Generating multilingual sitemap (enabled languages only)...');
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
+        const enabledLanguages = ['en', 'zh']; // 只包含启用的语言
         
         // 定义页面结构（无.html后缀，匹配Cloudflare Pages的URL格式）
         const pages = [
@@ -642,8 +738,8 @@ ${languageCards}
         <priority>0.8</priority>
     </url>`;
         
-        // 为每种语言生成URL
-        this.supportedLanguages.forEach(lang => {
+        // 只为启用的语言生成URL
+        enabledLanguages.forEach(lang => {
             pages.forEach(page => {
                 if (page.path === '') {
                     // 语言首页
@@ -680,8 +776,9 @@ ${languageCards}
 </urlset>`;
         
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
-        console.log('✅ Multilingual sitemap generated');
-        console.log(`   📄 Total URLs: ${this.supportedLanguages.length * pages.length + 2}`);
+        console.log('✅ Multilingual sitemap generated (enabled languages only)');
+        console.log(`   📄 Total URLs: ${enabledLanguages.length * pages.length + 3}`);
+        console.log(`   🌍 Languages included: ${enabledLanguages.join(', ')}`);
     }
     
     // 生成构建报告
