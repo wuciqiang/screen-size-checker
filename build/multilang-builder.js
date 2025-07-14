@@ -472,24 +472,6 @@ class MultiLangBuilder extends ComponentBuilder {
             `href="${prefix}locales/zh/translation.json"`
         );
         
-        // 修复导航链接
-        html = html.replace(
-            /href="index\.html"/g,
-            depth > 0 ? `href="../index.html"` : `href="index.html"`
-        );
-        
-        // 修复设备页面链接
-        html = html.replace(
-            /href="devices\//g,
-            depth > 0 ? `href="../devices/` : `href="devices/`
-        );
-        
-        // 修复隐私政策链接
-        html = html.replace(
-            /href="privacy-policy\.html"/g,
-            depth > 0 ? `href="../privacy-policy.html"` : `href="privacy-policy.html"`
-        );
-        
         return html;
     }
     
