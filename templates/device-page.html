@@ -9,14 +9,6 @@
     {{component:breadcrumb}}
     
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="devices-hero-section">
-            <div class="devices-hero-container">
-                <h1 class="devices-hero-title" data-i18n="{{page_heading_key}}">{{page_heading}}</h1>
-                <p class="devices-hero-subtitle" data-i18n="{{page_intro_key}}">{{page_intro}}</p>
-            </div>
-        </section>
-
         {{page_content}}
     </main>
     
@@ -83,6 +75,86 @@
             }
             
             initializeComparison();
+        }
+
+        // Initialize simulator if on responsive tester page
+        if (window.location.pathname.includes('/responsive-tester')) {
+            console.log('🔧 Responsive tester page detected, loading simulator scripts...');
+            
+            function loadSimulatorResources() {
+                return new Promise((resolve, reject) => {
+                    console.log('Loading simulator CSS...');
+                    // First load CSS
+                    if (!document.querySelector('link[href*="simulator.css"]')) {
+                        const link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = '{{css_path}}/simulator.css';
+                        document.head.appendChild(link);
+                    }
+
+                    console.log('Loading simulator JS...');
+                    // Then load JS if not already loaded
+                    if (!window.simulatorLoaded) {
+                        const script = document.createElement('script');
+                        script.src = '{{js_path}}/simulator.js';
+                        script.type = 'text/javascript';
+                        
+                        script.onload = () => {
+                            console.log('✅ Simulator script loaded successfully');
+                            window.simulatorLoaded = true;
+                            // Give a short delay before initialization to ensure DOM is fully processed
+                            setTimeout(() => {
+                                console.log('Initializing simulator...');
+                                if (typeof window.initializeSimulator === 'function') {
+                                    window.initializeSimulator();
+                                    resolve();
+                                } else {
+                                    console.error('❌ initializeSimulator function not found on window object');
+                                    reject(new Error('Simulator initialization function not found'));
+                                }
+                            }, 100);
+                        };
+                        
+                        script.onerror = (err) => {
+                            console.error('❌ Failed to load simulator script:', err);
+                            reject(new Error('Simulator script load failed'));
+                        };
+                        
+                        document.head.appendChild(script);
+                    } else {
+                        // If already loaded, just initialize
+                        if (typeof window.initializeSimulator === 'function') {
+                            window.initializeSimulator();
+                            resolve();
+                        } else {
+                            console.error('❌ initializeSimulator function not found despite script loaded flag');
+                            reject(new Error('Simulator initialization function not found'));
+                        }
+                    }
+                });
+            }
+            
+            // Ensure DOM is ready before loading simulator
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadSimulatorResources().catch(err => {
+                        console.error('Failed to initialize simulator:', err);
+                        // Retry once after a delay
+                        setTimeout(() => loadSimulatorResources().catch(err => {
+                            console.error('Second attempt to load simulator failed:', err);
+                        }), 1000);
+                    });
+                });
+            } else {
+                // DOM is already ready
+                loadSimulatorResources().catch(err => {
+                    console.error('Failed to initialize simulator:', err);
+                    // Retry once after a delay
+                    setTimeout(() => loadSimulatorResources().catch(err => {
+                        console.error('Second attempt to load simulator failed:', err);
+                    }), 1000);
+                });
+            }
         }
     </script>
 </body>

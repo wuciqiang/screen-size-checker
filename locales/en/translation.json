@@ -35,6 +35,8 @@
   "android_sizes": "Android Sizes",
   "compare_tool": "Compare Tool",
   "standard_resolutions": "Standard Resolutions",
+  "responsive_tester": "Responsive Tester",
+  "try_responsive_tester": "Try Responsive Tester",
   
   "faq_title": "Frequently Asked Questions",
   "faq_screen_resolution": "What is screen resolution?",
@@ -103,6 +105,68 @@
   "compare_page_heading": "Screen Size Comparison Tool",
   "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your display choices will compare in real-world dimensions.",
   "screen_comparison": "Screen Comparison",
+  
+  "responsive_tester_title": "Responsive Design Tester: Test Your Website on Different Screen Sizes | Screen Size Checker",
+  "responsive_tester_description": "Interactive tool to test how your website looks and behaves on different screen sizes and devices. Essential for responsive web design.",
+  "responsive_tester_page_title": "Responsive Design Tester",
+  "responsive_tester_intro": "Use this powerful tool to test how your website responds to different screen sizes and devices. Select preset device dimensions or enter custom sizes to see how your site adapts to different screens.",
+  
+  "simulator_title": "Responsive Design Tester",
+  "simulator_description": "Test how your website looks and behaves on different screen sizes and devices. Select preset device dimensions or enter custom sizes.",
+  
+  "website_url_label": "Website URL:",
+  "website_url_placeholder": "https://example.com",
+  "load_website": "Load Website",
+  "url_note": "Note: Some websites may not display due to security restrictions.",
+  
+  "device_presets": "Device Presets",
+  "iphone_se": "iPhone SE (375×667)",
+  "iphone_12": "iPhone 12/13/14 (390×844)",
+  "iphone_promax": "iPhone Pro Max (428×926)",
+  "android_medium": "Android Medium (360×800)",
+  "ipad": "iPad (768×1024)",
+  "ipad_pro11": "iPad Pro 11\" (834×1194)",
+  "ipad_pro13": "iPad Pro 12.9\" (1024×1366)",
+  "laptop": "Laptop (1366×768)",
+  "desktop_medium": "Desktop Medium (1440×900)",
+  "desktop_large": "Desktop Large (1920×1080)",
+  
+  "custom_size": "Custom Size",
+  "width": "Width:",
+  "height": "Height:",
+  "apply_size": "Apply Size",
+  "rotate_device": "Rotate Device",
+  
+  "device_frame": "Device Frame",
+  "frame_none": "No Frame",
+  "frame_phone": "Phone",
+  "frame_tablet": "Tablet",
+  "frame_laptop": "Laptop",
+  
+  "current_size": "Current Size:",
+  "invalid_custom_size_alert": "Please enter valid positive numbers for width and height.",
+  "website_load_error": "Failed to load website. It may be blocked by security policies.",
+  
+  "responsive_design_tips": "Responsive Design Tips",
+  "why_responsive_design": "Why Responsive Design Matters",
+  "why_responsive_design_text": "With the increasing use of mobile devices, responsive design has become essential for modern web development. Responsive websites automatically adjust their layout to fit different screen sizes, from smartphones to tablets to desktop monitors, providing the best user experience.",
+  
+  "common_breakpoints": "Common Breakpoints",
+  "testing_tips": "Testing Tips",
+  "testing_tip_1": "Test with real content instead of placeholders to ensure layouts handle various content lengths",
+  "testing_tip_2": "Check that navigation menus are usable on small screens",
+  "testing_tip_3": "Ensure form elements are usable and easy to fill out on all devices",
+  "testing_tip_4": "Test touch interactions to ensure tap targets are large enough",
+  "testing_tip_5": "Check that images and media scale correctly",
+  
+  "faq_q1": "Why can't some websites load in the tester?",
+  "faq_a1": "Many websites set X-Frame-Options or Content-Security-Policy headers for security reasons, which prevent them from being loaded in iframes. This is a security measure to prevent clickjacking and other attacks. For these websites, you may need to use browser developer tools or other methods for testing.",
+  
+  "faq_q2": "How does the website in the tester differ from real devices?",
+  "faq_a2": "This tester primarily simulates different screen sizes but cannot fully replicate all features of real devices, such as touch interactions, device pixel ratios, or specific browser behaviors. For final testing, it's recommended to verify your designs on actual devices.",
+  
+  "faq_q3": "How can I test specific media query breakpoints?",
+  "faq_a3": "Use the custom size feature to input your media query breakpoint values. For example, if you have a breakpoint at 768px width, you can input 767px and 768px to test layouts on both sides of the breakpoint.",
   
   "device_table_heading": "Viewport Sizes Table",
   "device_table_model": "Model",
@@ -476,5 +540,13 @@
   "tech_point2": "Implement proper viewport meta tags to ensure correct scaling on mobile devices",
   "tech_point3": "Use relative units (em, rem, %) rather than fixed pixel sizes",
   "tech_point4": "Use CSS srcset and picture elements to load images appropriate for different device pixel ratios",
-  "tech_point5": "Leverage CSS Grid and Flexbox to create adaptive layouts"
+  "tech_point5": "Leverage CSS Grid and Flexbox to create adaptive layouts",
+  "breakpoints_mobile": "Mobile:",
+  "breakpoints_mobile_range": "320px - 480px",
+  "breakpoints_tablet": "Tablet:",
+  "breakpoints_tablet_range": "768px - 1024px",
+  "breakpoints_desktop": "Desktop:",
+  "breakpoints_desktop_range": "1025px - 1440px",
+  "breakpoints_large": "Large Screen:",
+  "breakpoints_large_range": "1441px and above"
 }

@@ -68,9 +68,23 @@ class ComponentBuilder {
         return html;
     }
     
+    // 处理变量和条件表达式
     processVariables(content, data) {
+        // 处理嵌套组件引用 {{component:name}}
+        let result = content.replace(/\{\{component:(\w+[-\w]*)\}\}/g, (match, componentName) => {
+            const componentPath = path.join(this.rootPath, 'components', `${componentName}.html`);
+            if (fs.existsSync(componentPath)) {
+                let componentContent = fs.readFileSync(componentPath, 'utf8');
+                // 递归处理嵌套组件中的变量
+                return this.processVariables(componentContent, data);
+            } else {
+                console.warn(`⚠️ Component not found: ${componentName}.html`);
+                return `<!-- Component not found: ${componentName}.html -->`;
+            }
+        });
+        
         // 处理简单的变量替换 {{variable}}
-        let result = content.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+        result = result.replace(/\{\{(\w+)\}\}/g, (match, key) => {
             if (data[key] !== undefined) {
                 if (typeof data[key] === 'object') {
                     return JSON.stringify(data[key], null, 2);

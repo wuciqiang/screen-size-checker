@@ -1,0 +1,171 @@
+<!-- Responsive Design Tester Page Content -->
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title" data-i18n="responsive_tester_title">响应式设计测试器</h1>
+        <p class="devices-hero-subtitle" data-i18n="responsive_tester_intro">
+            使用这个强大的工具测试您的网站在不同设备和屏幕尺寸下的响应式表现。选择预设设备尺寸或输入自定义尺寸，查看您的网站如何适应不同的屏幕。
+        </p>
+    </div>
+</section>
+
+<!-- 嵌入模拟器内容 -->
+<!-- Responsive Design Tester Section -->
+<section class="simulator-section">
+    <div class="section-container">
+        <!-- URL Input Area -->
+        <div class="url-input-container">
+            <label for="website-url" data-i18n="website_url_label">网站URL:</label>
+            <div class="url-input-wrapper">
+                <input type="url" id="website-url" placeholder="https://example.com" 
+                       data-i18n-placeholder="website_url_placeholder">
+                <button id="load-website" class="load-btn" data-i18n="load_website">加载网站</button>
+            </div>
+            <p class="url-note" data-i18n="url_note">
+                注意：某些网站可能因安全策略限制而无法在此处显示。
+            </p>
+        </div>
+
+        <!-- Device Presets -->
+        <div class="simulator-controls">
+            <h3 class="controls-title" data-i18n="device_presets">设备预设</h3>
+            <div class="device-buttons">
+                <!-- Mobile Devices -->
+                <button data-width="375" data-height="667" data-i18n="iphone_se">iPhone SE (375×667)</button>
+                <button data-width="390" data-height="844" data-i18n="iphone_12">iPhone 12/13/14 (390×844)</button>
+                <button data-width="428" data-height="926" data-i18n="iphone_promax">iPhone Pro Max (428×926)</button>
+                <button data-width="360" data-height="800" data-i18n="android_medium">Android Medium (360×800)</button>
+                
+                <!-- Tablets -->
+                <button data-width="768" data-height="1024" data-i18n="ipad">iPad (768×1024)</button>
+                <button data-width="834" data-height="1194" data-i18n="ipad_pro11">iPad Pro 11" (834×1194)</button>
+                <button data-width="1024" data-height="1366" data-i18n="ipad_pro13">iPad Pro 12.9" (1024×1366)</button>
+                
+                <!-- Desktops -->
+                <button data-width="1366" data-height="768" data-i18n="laptop">Laptop (1366×768)</button>
+                <button data-width="1440" data-height="900" data-i18n="desktop_medium">Desktop Medium (1440×900)</button>
+                <button data-width="1920" data-height="1080" data-i18n="desktop_large">Desktop Large (1920×1080)</button>
+            </div>
+        </div>
+
+        <!-- Custom Size Controls -->
+        <div class="simulator-custom-controls">
+            <h3 class="controls-title" data-i18n="custom_size">自定义尺寸</h3>
+            <div class="custom-size-inputs">
+                <div class="input-group">
+                    <label for="custom-width" data-i18n="width">宽度:</label>
+                    <input type="number" id="custom-width" min="50" max="3840" value="1366">
+                </div>
+                <div class="input-group">
+                    <label for="custom-height" data-i18n="height">高度:</label>
+                    <input type="number" id="custom-height" min="50" max="2160" value="768">
+                </div>
+                <button id="apply-custom-size" data-i18n="apply_size">应用尺寸</button>
+                <button id="rotate-device" class="rotate-btn" data-i18n="rotate_device">旋转设备</button>
+            </div>
+        </div>
+
+        <!-- Device Frame Options -->
+        <div class="device-frame-options">
+            <h3 class="controls-title" data-i18n="device_frame">设备边框</h3>
+            <div class="frame-options">
+                <label>
+                    <input type="radio" name="frame" value="none" checked>
+                    <span data-i18n="frame_none">无边框</span>
+                </label>
+                <label>
+                    <input type="radio" name="frame" value="phone">
+                    <span data-i18n="frame_phone">手机</span>
+                </label>
+                <label>
+                    <input type="radio" name="frame" value="tablet">
+                    <span data-i18n="frame_tablet">平板</span>
+                </label>
+                <label>
+                    <input type="radio" name="frame" value="laptop">
+                    <span data-i18n="frame_laptop">笔记本</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Preview Area -->
+        <div class="simulator-preview">
+            <div id="simulator-container" class="frame-none">
+                <div id="simulator-size-display" data-i18n="current_size">当前尺寸: 1366 × 768</div>
+                <div id="simulator-frame-wrapper">
+                    <iframe id="simulator-frame" src="about:blank" title="Website Preview" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+<!-- Additional Information Section -->
+<section class="info-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="responsive_design_tips">响应式设计提示</h2>
+        
+        <div class="info-card">
+            <h3 data-i18n="why_responsive_design">为什么响应式设计很重要</h3>
+            <p data-i18n="why_responsive_design_text">
+                随着移动设备使用量的增加，响应式设计已成为现代网站开发的必备要素。响应式网站能够自动调整布局以适应不同的屏幕尺寸，从智能手机到平板电脑再到桌面显示器，提供最佳的用户体验。
+            </p>
+        </div>
+        
+        <div class="info-card">
+            <h3 data-i18n="common_breakpoints">常见的断点尺寸</h3>
+            <ul>
+                <li><strong data-i18n="breakpoints_mobile">移动设备:</strong> <span data-i18n="breakpoints_mobile_range">320px - 480px</span></li>
+                <li><strong data-i18n="breakpoints_tablet">平板电脑:</strong> <span data-i18n="breakpoints_tablet_range">768px - 1024px</span></li>
+                <li><strong data-i18n="breakpoints_desktop">桌面:</strong> <span data-i18n="breakpoints_desktop_range">1025px - 1440px</span></li>
+                <li><strong data-i18n="breakpoints_large">大屏幕:</strong> <span data-i18n="breakpoints_large_range">1441px 及以上</span></li>
+            </ul>
+        </div>
+        
+        <div class="info-card">
+            <h3 data-i18n="testing_tips">测试技巧</h3>
+            <ul>
+                <li data-i18n="testing_tip_1">测试真实内容而非占位符，以确保布局能够处理各种内容长度</li>
+                <li data-i18n="testing_tip_2">检查导航菜单在小屏幕上是否易于使用</li>
+                <li data-i18n="testing_tip_3">确保表单元素在所有设备上都可用且易于填写</li>
+                <li data-i18n="testing_tip_4">测试触摸交互，确保点击目标足够大</li>
+                <li data-i18n="testing_tip_5">检查图片和媒体是否正确缩放</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="faq_title">常见问题</h2>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq_q1">为什么某些网站无法在测试器中加载？</div>
+                <div class="faq-answer">
+                    <p data-i18n="faq_a1">
+                        许多网站出于安全原因设置了X-Frame-Options或Content-Security-Policy头，禁止其在iframe中被加载。这是一种防止点击劫持等攻击的安全措施。对于这些网站，您可能需要使用浏览器的开发者工具或其他方法进行测试。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq_q2">测试器中显示的网站与真实设备上有什么不同？</div>
+                <div class="faq-answer">
+                    <p data-i18n="faq_a2">
+                        此测试器主要模拟不同的屏幕尺寸，但不能完全复制真实设备的所有特性，如触摸交互、设备像素比或特定的浏览器行为。对于最终测试，建议在实际设备上验证您的设计。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq_q3">如何测试特定的媒体查询断点？</div>
+                <div class="faq-answer">
+                    <p data-i18n="faq_a3">
+                        使用自定义尺寸功能输入您的媒体查询断点值。例如，如果您有一个在768px宽度处的断点，可以输入767px和768px来测试断点两侧的布局变化。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

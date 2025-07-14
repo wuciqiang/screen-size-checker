@@ -276,8 +276,52 @@
               "url": "https://screensizechecker.com/favicon.png"
             }
           },
-          "datePublished": "2025-06-15",
-          "dateModified": "2025-06-15"
+          "datePublished": "2025-04-22",
+          "dateModified": "2025-04-22"
+        }
+      }
+    },
+    {
+      "name": "responsive-tester",
+      "template": "device-page",
+      "output": "devices/responsive-tester.html",
+      "page_content": "simulator-page-content",
+      "config": {
+        "page_title_key": "responsive_tester_title",
+        "page_description_key": "responsive_tester_description",
+        "page_heading_key": "responsive_tester_page_title",
+        "page_intro_key": "responsive_tester_intro",
+        "page_keywords": "responsive design tester, responsive testing tool, screen size simulator, website testing tool, mobile view simulator, responsive design checker",
+        "canonical_url": "https://screensizechecker.com/devices/responsive-tester.html",
+        "og_title": "Responsive Design Tester: Test Your Website on Different Screen Sizes",
+        "og_description": "Interactive tool to test how your website looks and behaves on different screen sizes and devices. Essential for responsive web design.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/responsive-tester.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "responsive_tester",
+        "current_name": "响应式测试器",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Responsive Design Tester",
+          "description": "Interactive tool to test how your website looks and behaves on different screen sizes and devices.",
+          "url": "https://screensizechecker.com/devices/responsive-tester.html",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
         }
       }
     }

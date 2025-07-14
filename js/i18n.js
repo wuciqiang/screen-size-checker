@@ -296,68 +296,104 @@ async function loadChineseTranslations() {
 }
 
 /**
- * Update all UI elements with current language
+ * Update all UI elements with translations
  */
 export function updateUIElements() {
     try {
         console.log('Updating UI elements with language:', i18next.language);
         
+        // 找到所有有data-i18n属性的元素
         const elements = document.querySelectorAll('[data-i18n]');
         console.log('Found elements with data-i18n:', elements.length);
         
-        // 定义不应该被翻译覆盖的动态内容元素（只包含实际的动态值元素）
-        const dynamicValueElements = [
-            'viewport-display', 'aspect-ratio', 'dpr', 'color-depth', 
-            'os-info', 'browser-info', 'cookies-enabled', 'touch-support'
-        ];
+        if (elements.length === 0) {
+            console.warn('No elements with data-i18n attribute found');
+        }
         
         let translatedCount = 0;
         
+        // 对每个元素应用翻译
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
+            
             if (key) {
-                // 跳过已经包含实际检测值的动态元素
-                if (element.id && dynamicValueElements.includes(element.id)) {
-                    // 检查是否还在显示 "检测中..." 或 "Detecting..."
-                    const currentText = element.textContent || element.value;
-                    if (currentText.includes('检测中') || currentText.includes('Detecting')) {
-                        // 如果还在检测中，则更新翻译
+                // 特殊处理：完全跳过视口和分辨率显示元素
+                if (element.id === 'viewport-display' || 
+                    element.id === 'screen-resolution-display') {
+                    return;
+                }
+                
+                // 特殊处理：跳过分辨率元素中已经有内容的span
+                if (element.parentNode && 
+                    (element.parentNode.id === 'viewport-display' || 
+                     element.parentNode.id === 'screen-resolution-display')) {
+                    
+                    // 仅在元素显示"Detecting..."或为空时更新
+                    const currentText = element.textContent || '';
+                    if (currentText.includes('Detecting') || 
+                        currentText.includes('检测中') || 
+                        currentText.trim() === '') {
+                        
                         const translation = i18next.t(key);
                         if (translation && translation !== key) {
                             element.textContent = translation;
                             translatedCount++;
                         }
-                    } else {
-                        console.log('Skipping dynamic element with actual value:', element.id);
                     }
+                    return;
+                }
+                
+                // 特殊处理设备信息元素 - 只有当它们还在显示"Detecting..."时才翻译
+                if (element.parentNode && element.parentNode.className === 'info-item') {
+                    const currentText = element.textContent || element.value || '';
+                    if (currentText.includes('Detecting') || 
+                        currentText.includes('检测中') || 
+                        currentText.trim() === '') {
+                        
+                        const translation = i18next.t(key);
+                        if (translation && translation !== key) {
+                            element.textContent = translation;
+                            translatedCount++;
+                        }
+                    } 
+                    // 已经有实际值的设备信息不更新
                     return;
                 }
                 
                 // 跳过用户代理文本区域（除非它还在显示检测中）
                 if (element.tagName === 'TEXTAREA' && element.id === 'user-agent') {
-                    const currentText = element.value || element.textContent;
-                    if (currentText.includes('检测中') || currentText.includes('Detecting')) {
+                    const currentText = element.value || element.textContent || '';
+                    if (currentText.includes('Detecting') || 
+                        currentText.includes('检测中') || 
+                        currentText.trim() === '') {
+                        
                         const translation = i18next.t(key);
                         if (translation && translation !== key) {
                             element.value = translation;
                             translatedCount++;
                         }
-                    } else {
-                        console.log('Skipping user agent textarea with actual value');
                     }
                     return;
                 }
                 
+                // 常规元素翻译处理
                 const translation = i18next.t(key);
-                // console.log('Translating key:', key, 'to:', translation); // 已注释减少日志输出
                 
                 if (translation && translation !== key) {
+                    // 根据元素类型设置翻译
                     if (element.tagName === 'INPUT' && element.type === 'text') {
                         element.placeholder = translation;
                     } else if (element.tagName === 'IMG') {
                         element.alt = translation;
                     } else {
-                        element.textContent = translation;
+                        // 对于一般元素，不覆盖已有实际数值（不含"Detecting..."的内容）
+                        const currentText = element.textContent || '';
+                        if (currentText.includes('Detecting') || 
+                            currentText.includes('检测中') || 
+                            currentText.trim() === '') {
+                            
+                            element.textContent = translation;
+                        }
                     }
                     translatedCount++;
                 }

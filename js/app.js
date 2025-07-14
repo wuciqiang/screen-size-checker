@@ -8,6 +8,7 @@ import { updateDisplay, updateViewportSize } from './device-detector.js';
 import { handleCopyClick } from './clipboard.js';
 import { debounce } from './utils.js';
 import { LanguageModal } from './language-modal.js';
+// import { initializeSimulator } from './simulator.js';
 
 console.log('✅ All modules imported successfully');
 
@@ -25,6 +26,9 @@ async function initializeApp() {
 
     try {
         console.log('Starting application initialization...');
+        
+        // 直接设置初始值，不等待翻译加载完成
+        updateInitialDisplayValues();
         
         // Step 1: Initialize internationalization
         console.log('Step 1: Initializing i18n...');
@@ -55,12 +59,121 @@ async function initializeApp() {
         updateViewportSize();
         updateViewportDisplay();
         
+        // Step 8: Initialize simulator if on responsive tester page
+        console.log('Step 8: Checking for responsive tester page...');
+        if (window.location.pathname.includes('responsive-tester')) {
+            console.log('Responsive tester page detected, initializing simulator...');
+            if (typeof window.initializeSimulator === 'function') {
+                window.initializeSimulator();
+            } else {
+                console.error('Simulator initialization function not available');
+            }
+        }
+        
         isInitialized = true;
         console.log('✅ Application initialized successfully!');
         
     } catch (error) {
         console.error('❌ Failed to initialize application:', error);
         showErrorMessage();
+        
+        // 即使出错也要确保基本数值显示
+        updateInitialDisplayValues();
+    }
+}
+
+/**
+ * 更新初始显示值，不依赖于i18next或其他系统
+ */
+function updateInitialDisplayValues() {
+    try {
+        console.log('直接更新初始显示值...');
+        
+        // 直接更新视口尺寸，不使用任何依赖
+        const viewportDisplay = document.getElementById('viewport-display');
+        if (viewportDisplay) {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // 移除可能导致被翻译系统覆盖的属性
+            viewportDisplay.removeAttribute('data-i18n');
+            
+            // 清除旧内容，包括可能存在的detecting span
+            const detectingSpan = viewportDisplay.querySelector('span[data-i18n="detecting"]');
+            if (detectingSpan) {
+                // 如果是span元素包含detecting，则替换整个内容
+                viewportDisplay.innerHTML = '';
+            }
+            
+            // 设置新内容
+            viewportDisplay.textContent = `${width} × ${height}`;
+            console.log(`视口尺寸已更新: ${width} × ${height}`);
+        } else {
+            console.warn('视口尺寸元素未找到');
+        }
+        
+        // 直接更新屏幕分辨率，不使用任何依赖
+        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
+        if (screenResolutionDisplay) {
+            const screenWidth = window.screen.width;
+            const screenHeight = window.screen.height;
+            
+            // 检查是否存在旧的结构
+            const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
+            if (detectingSpan) {
+                // 如果找到"detecting..."的span，先移除它
+                detectingSpan.parentNode.removeChild(detectingSpan);
+            }
+            
+            // 查找或创建label和value的span元素
+            let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
+            let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
+            
+            if (!labelSpan) {
+                // 如果没有label span，找第一个子元素，或者创建一个新的
+                labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
+                labelSpan.setAttribute('data-i18n', 'screen_resolution');
+                
+                // 设置默认文本
+                labelSpan.textContent = '屏幕分辨率';
+                
+                // 如果不在DOM中，添加它
+                if (!labelSpan.parentNode) {
+                    screenResolutionDisplay.appendChild(labelSpan);
+                }
+            }
+            
+            // 确保我们有冒号分隔符
+            let colonNode = null;
+            for (let i = 0; i < screenResolutionDisplay.childNodes.length; i++) {
+                const node = screenResolutionDisplay.childNodes[i];
+                if (node.nodeType === Node.TEXT_NODE && 
+                    (node.textContent.includes(':') || node.textContent.includes('：'))) {
+                    colonNode = node;
+                    break;
+                }
+            }
+            
+            if (!colonNode) {
+                colonNode = document.createTextNode(': ');
+                screenResolutionDisplay.appendChild(colonNode);
+            }
+            
+            // 创建或更新value span
+            if (!valueSpan) {
+                valueSpan = document.createElement('span');
+                screenResolutionDisplay.appendChild(valueSpan);
+            }
+            
+            // 更新值
+            valueSpan.removeAttribute('data-i18n');
+            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
+            console.log(`屏幕分辨率已更新: ${screenWidth} × ${screenHeight}`);
+        } else {
+            console.warn('屏幕分辨率元素未找到');
+        }
+    } catch (error) {
+        console.error('更新初始显示值时出错:', error);
     }
 }
 
@@ -177,27 +290,58 @@ function updateViewportDisplay() {
     const viewportDisplay = document.getElementById('viewport-display');
     const screenResolutionDisplay = document.getElementById('screen-resolution-display');
     
-    if (viewportDisplay && screenResolutionDisplay) {
+    if (viewportDisplay) {
         const width = window.innerWidth;
         const height = window.innerHeight;
+        
+        // 直接更新视口尺寸显示，移除翻译属性
+        viewportDisplay.removeAttribute('data-i18n');
+        // 清除旧内容，包括可能存在的detecting span
+        const detectingSpan = viewportDisplay.querySelector('span[data-i18n="detecting"]');
+        if (detectingSpan) {
+            // 如果是span元素包含detecting，则替换整个内容
+            viewportDisplay.innerHTML = '';
+        }
+        viewportDisplay.textContent = `${width} × ${height}`;
+    }
+    
+    if (screenResolutionDisplay) {
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
         
-        // Update hero display
-        setTextContent('viewport-display', `${width} × ${height}`);
-        
-        // Update screen resolution
-        const screenResolutionLabel = screenResolutionDisplay.querySelector('span:first-child');
-        const screenResolutionValue = screenResolutionDisplay.querySelector('span:last-child');
-        
-        if (screenResolutionLabel && typeof i18next !== 'undefined' && i18next.t) {
-            screenResolutionLabel.textContent = i18next.t('screen_resolution');
+        // 检查是否存在旧的结构
+        const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
+        if (detectingSpan) {
+            // 如果找到"detecting..."的span，先移除它
+            detectingSpan.parentNode.removeChild(detectingSpan);
         }
         
-        if (screenResolutionValue) {
-            screenResolutionValue.removeAttribute('data-i18n');
-            screenResolutionValue.textContent = `${screenWidth} × ${screenHeight}`;
+        // 获取或创建标签和值的span
+        let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
+        let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
+        
+        // 如果没有标签span，创建一个
+        if (!labelSpan) {
+            labelSpan = document.createElement('span');
+            labelSpan.setAttribute('data-i18n', 'screen_resolution');
+            labelSpan.textContent = typeof i18next !== 'undefined' && i18next.t ? 
+                i18next.t('screen_resolution') : '屏幕分辨率';
+            
+            // 清空并重建内容
+            screenResolutionDisplay.innerHTML = '';
+            screenResolutionDisplay.appendChild(labelSpan);
+            screenResolutionDisplay.appendChild(document.createTextNode(': '));
         }
+        
+        // 如果没有值span，创建一个
+        if (!valueSpan) {
+            valueSpan = document.createElement('span');
+            screenResolutionDisplay.appendChild(valueSpan);
+        }
+        
+        // 确保值span没有data-i18n属性并设置值
+        valueSpan.removeAttribute('data-i18n');
+        valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
     }
 }
 

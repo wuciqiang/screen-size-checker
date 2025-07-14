@@ -35,6 +35,8 @@
   "android_sizes": "Android 尺寸",
   "compare_tool": "对比工具",
   "standard_resolutions": "标准分辨率",
+  "responsive_tester": "响应式测试器",
+  "try_responsive_tester": "试用响应式测试器",
   
   "faq_title": "常见问题",
   "faq_screen_resolution": "什么是屏幕分辨率？",
@@ -82,6 +84,68 @@
   "android_page_description": "热门Android设备的视口尺寸和屏幕分辨率综合指南。查找Samsung Galaxy、Google Pixel、OnePlus等的精确尺寸。对网页开发者和设计师来说是必不可少的。",
   "android_page_heading": "Android 视口尺寸完整指南",
   "android_page_intro": "这份综合指南提供了热门Android设备的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
+  
+  "responsive_tester_title": "响应式设计测试器：在不同屏幕尺寸上测试您的网站 | Screen Size Checker",
+  "responsive_tester_description": "交互式工具，用于测试您的网站在不同屏幕尺寸和设备上的外观和行为。对响应式网页设计至关重要。",
+  "responsive_tester_page_title": "响应式设计测试器",
+  "responsive_tester_intro": "使用这个强大的工具测试您的网站在不同屏幕尺寸和设备上的响应式表现。选择预设设备尺寸或输入自定义尺寸，查看您的网站如何适应不同的屏幕。",
+  
+  "simulator_title": "响应式设计测试器",
+  "simulator_description": "测试您的网站在不同屏幕尺寸和设备上的外观和行为。选择预设设备尺寸或输入自定义尺寸。",
+  
+  "website_url_label": "网站URL：",
+  "website_url_placeholder": "https://example.com",
+  "load_website": "加载网站",
+  "url_note": "注意：某些网站可能因安全限制而无法显示。",
+  
+  "device_presets": "设备预设",
+  "iphone_se": "iPhone SE (375×667)",
+  "iphone_12": "iPhone 12/13/14 (390×844)",
+  "iphone_promax": "iPhone Pro Max (428×926)",
+  "android_medium": "Android中型 (360×800)",
+  "ipad": "iPad (768×1024)",
+  "ipad_pro11": "iPad Pro 11\" (834×1194)",
+  "ipad_pro13": "iPad Pro 12.9\" (1024×1366)",
+  "laptop": "笔记本 (1366×768)",
+  "desktop_medium": "中型桌面 (1440×900)",
+  "desktop_large": "大型桌面 (1920×1080)",
+  
+  "custom_size": "自定义尺寸",
+  "width": "宽度：",
+  "height": "高度：",
+  "apply_size": "应用尺寸",
+  "rotate_device": "旋转设备",
+  
+  "device_frame": "设备边框",
+  "frame_none": "无边框",
+  "frame_phone": "手机",
+  "frame_tablet": "平板",
+  "frame_laptop": "笔记本",
+  
+  "current_size": "当前尺寸：",
+  "invalid_custom_size_alert": "请输入有效的正数作为宽度和高度。",
+  "website_load_error": "加载网站失败。可能是由于安全策略限制。",
+  
+  "responsive_design_tips": "响应式设计提示",
+  "why_responsive_design": "为什么响应式设计很重要",
+  "why_responsive_design_text": "随着移动设备使用量的增加，响应式设计已成为现代网站开发的必备要素。响应式网站能够自动调整布局以适应不同的屏幕尺寸，从智能手机到平板电脑再到桌面显示器，提供最佳的用户体验。",
+  
+  "common_breakpoints": "常见的断点尺寸",
+  "testing_tips": "测试技巧",
+  "testing_tip_1": "测试真实内容而非占位符，以确保布局能够处理各种内容长度",
+  "testing_tip_2": "检查导航菜单在小屏幕上是否易于使用",
+  "testing_tip_3": "确保表单元素在所有设备上都可用且易于填写",
+  "testing_tip_4": "测试触摸交互，确保点击目标足够大",
+  "testing_tip_5": "检查图片和媒体是否正确缩放",
+  
+  "faq_q1": "为什么某些网站无法在测试器中加载？",
+  "faq_a1": "许多网站出于安全原因设置了X-Frame-Options或Content-Security-Policy头，禁止其在iframe中被加载。这是一种防止点击劫持等攻击的安全措施。对于这些网站，您可能需要使用浏览器的开发者工具或其他方法进行测试。",
+  
+  "faq_q2": "测试器中显示的网站与真实设备上有什么不同？",
+  "faq_a2": "此测试器主要模拟不同的屏幕尺寸，但不能完全复制真实设备的所有特性，如触摸交互、设备像素比或特定的浏览器行为。对于最终测试，建议在实际设备上验证您的设计。",
+  
+  "faq_q3": "如何测试特定的媒体查询断点？",
+  "faq_a3": "使用自定义尺寸功能输入您的媒体查询断点值。例如，如果您有一个在768px宽度处的断点，可以输入767px和768px来测试断点两侧的布局变化。",
   
   "device_table_heading": "视口尺寸表",
   "device_table_model": "机型",
@@ -462,5 +526,13 @@
   "tech_point2": "实现适当的viewport meta标签以确保移动设备上正确缩放",
   "tech_point3": "使用相对单位（如em、rem、%）而非固定像素尺寸",
   "tech_point4": "使用CSS的srcset和picture元素加载适合不同设备像素比的图片",
-  "tech_point5": "利用CSS Grid和Flexbox创建自适应布局"
+  "tech_point5": "利用CSS Grid和Flexbox创建自适应布局",
+  "breakpoints_mobile": "移动设备:",
+  "breakpoints_mobile_range": "320px - 480px",
+  "breakpoints_tablet": "平板电脑:",
+  "breakpoints_tablet_range": "768px - 1024px",
+  "breakpoints_desktop": "桌面:",
+  "breakpoints_desktop_range": "1025px - 1440px",
+  "breakpoints_large": "大屏幕:",
+  "breakpoints_large_range": "1441px 及以上"
 } 

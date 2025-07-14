@@ -30,6 +30,25 @@ export async function updateDisplay() {
 }
 
 /**
+ * Update viewport size information
+ */
+export async function updateViewportSize() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const viewport = `${width} × ${height}`;
+    
+    // 直接更新viewport-display元素的内容，防止被翻译覆盖
+    const viewportDisplay = document.getElementById('viewport-display');
+    if (viewportDisplay) {
+        // 移除data-i18n属性以防止翻译覆盖
+        viewportDisplay.removeAttribute('data-i18n');
+        viewportDisplay.textContent = viewport;
+    }
+    
+    console.log('Viewport size updated:', viewport);
+}
+
+/**
  * Update screen resolution information
  */
 function updateScreenResolution() {
@@ -40,36 +59,41 @@ function updateScreenResolution() {
     // Update hero section
     const screenResolutionDisplay = document.getElementById('screen-resolution-display');
     if (screenResolutionDisplay) {
-        const labelSpan = screenResolutionDisplay.querySelector('span:first-child');
-        const valueSpan = screenResolutionDisplay.querySelector('span:last-child');
-        
-        // Update label with translation if available
-        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
-            labelSpan.textContent = i18next.t('screen_resolution');
+        // 检查是否存在旧的结构
+        const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
+        if (detectingSpan) {
+            // 如果找到"detecting..."的span，先移除它
+            detectingSpan.parentNode.removeChild(detectingSpan);
         }
         
-        // Update value and remove data-i18n attribute to prevent translation override
-        if (valueSpan) {
-            valueSpan.removeAttribute('data-i18n');
-            valueSpan.textContent = resolution;
+        // 获取label和value的span元素
+        let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
+        let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
+        
+        // 如果没有标签span，创建一个
+        if (!labelSpan) {
+            labelSpan = document.createElement('span');
+            labelSpan.setAttribute('data-i18n', 'screen_resolution');
+            labelSpan.textContent = '屏幕分辨率';
+            
+            // 清空并重建内容
+            screenResolutionDisplay.innerHTML = '';
+            screenResolutionDisplay.appendChild(labelSpan);
+            screenResolutionDisplay.appendChild(document.createTextNode(': '));
         }
+        
+        // 如果不存在value span，则创建一个
+        if (!valueSpan) {
+            valueSpan = document.createElement('span');
+            screenResolutionDisplay.appendChild(valueSpan);
+        }
+        
+        // 确保值span没有data-i18n属性
+        valueSpan.removeAttribute('data-i18n');
+        valueSpan.textContent = resolution;
     }
     
     console.log('Screen resolution updated:', resolution);
-}
-
-/**
- * Update viewport size information
- */
-export async function updateViewportSize() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const viewport = `${width} × ${height}`;
-    
-    // Update hero display using setTextContent to avoid conflicts
-    setTextContent('viewport-display', viewport);
-    
-    console.log('Viewport size updated:', viewport);
 }
 
 /**

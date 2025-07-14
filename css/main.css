@@ -209,13 +209,13 @@ body {
 
 /* Part 2: Hero Section */
 .hero-section {
+    padding: var(--spacing-3xl) var(--spacing-lg);
     text-align: center;
-    padding: var(--spacing-3xl) 0;
-    margin-bottom: var(--spacing-2xl);
+    margin-top: 64px;
 }
 
 .hero-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -229,16 +229,39 @@ body {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--primary-color);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.1;
-    transition: all var(--transition-medium);
+    color: var(--primary-color);
+    line-height: 1.2;
 }
 
 .hero-secondary {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-actions {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: var(--shadow-medium);
+}
+
+.hero-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
 }
 
 /* Part 3: Info Dashboard */

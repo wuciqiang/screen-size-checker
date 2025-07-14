@@ -1,114 +1,379 @@
 /* Simulator Styling */
-.simulator-controls {
-    margin-bottom: 15px; /* Space between presets and custom */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Use gap for spacing */
+.simulator-section {
+    background-color: var(--background-secondary);
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-2xl);
 }
 
-.simulator-controls button {
-    margin: 0; /* Remove margin as gap handles spacing */
-    padding: 9px 16px; /* Slightly larger buttons */
-    cursor: pointer;
-    background-color: #007bff;
+.simulator-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.simulator-description {
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.controls-title {
+    font-size: 1.1em;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* URL Input Area */
+.url-input-container {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--background-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.url-input-wrapper {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.url-input-container label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+#website-url {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1em;
+    transition: border-color var(--transition-fast);
+}
+
+#website-url:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+.load-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 5px; /* More rounded */
-    font-size: 0.9em;
-    transition: background-color 0.2s ease;
-}
-.simulator-controls button:hover {
-    background-color: #0056b3;
-}
-.simulator-controls button:active {
-    background-color: #004085;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
 }
 
-/* Custom Simulator Controls */
+.load-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.url-note {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9em;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Device Buttons */
+.simulator-controls {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--background-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.device-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.device-buttons button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all var(--transition-fast);
+}
+
+.device-buttons button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.device-buttons button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Custom Size Controls */
 .simulator-custom-controls {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--background-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.custom-size-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.input-group {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: var(--spacing-xs);
 }
-.simulator-custom-controls label {
-    font-size: 0.9em;
+
+.input-group label {
     font-weight: 500;
-    color: #495057;
+    color: var(--text-primary);
 }
-.simulator-custom-controls input[type="number"] {
-    width: 80px; /* Fixed width for inputs */
-    padding: 6px 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+
+.input-group input {
+    width: 80px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
     font-size: 0.9em;
 }
-/* Hide spinner arrows on number inputs (optional) */
-.simulator-custom-controls input[type=number]::-webkit-inner-spin-button,
-.simulator-custom-controls input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.simulator-custom-controls input[type=number] {
-  -moz-appearance: textfield; /* Firefox */
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
 }
 
 #apply-custom-size {
-    padding: 6px 15px;
-    font-size: 0.9em;
-    background-color: #28a745; /* Green apply button */
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
 }
+
 #apply-custom-size:hover {
-    background-color: #218838;
+    background-color: var(--primary-hover);
 }
 
+.rotate-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
 
-#simulator-frame {
-    border: 2px dashed #ced4da;
-    margin-top: 15px;
-    padding: 25px; /* More padding */
-    background-color: #f8f9fa; /* Match item background */
+.rotate-btn:hover {
+    background-color: var(--border-hover);
+    border-color: var(--border-hover);
+}
+
+/* Device Frame Options */
+.device-frame-options {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--background-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.frame-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+.frame-options label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+}
+
+.frame-options input[type="radio"] {
+    cursor: pointer;
+}
+
+/* Preview Area */
+.simulator-preview {
+    margin-top: var(--spacing-xl);
     overflow: hidden;
-    transition: width 0.3s ease, height 0.3s ease;
-    box-sizing: border-box;
-    text-align: center;
-    color: #6c757d;
-    border-radius: 6px;
-    min-height: 100px; /* Slightly larger min-height */
+    background-color: var(--background-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+}
+
+#simulator-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    transition: all var(--transition-medium);
 }
 
 #simulator-size-display {
-    font-weight: bold;
-    color: #495057;
-    margin-top: 10px;
-    font-size: 1em; /* Slightly larger */
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9em;
+}
+
+#simulator-frame-wrapper {
+    position: relative;
+    transition: all var(--transition-medium);
+    max-width: 100%;
+    overflow: auto;
+}
+
+#simulator-frame {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    transition: width var(--transition-medium), height var(--transition-medium);
+    box-sizing: border-box;
+    min-height: 300px;
+    min-width: 320px;
+    max-width: 100%;
+}
+
+/* Device Frames */
+.frame-phone #simulator-frame-wrapper {
+    border: 16px solid #222;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+    position: relative;
+}
+
+.frame-phone #simulator-frame-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 15%;
+    height: 5px;
+    background: #444;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.frame-tablet #simulator-frame-wrapper {
+    border: 20px solid #222;
+    border-radius: 20px;
+    position: relative;
+}
+
+.frame-tablet #simulator-frame-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #444;
+    top: 50%;
+    right: -14px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.frame-laptop #simulator-frame-wrapper {
+    border: 20px solid #222;
+    border-bottom-width: 40px;
+    border-top-width: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.frame-laptop #simulator-frame-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 33%;
+    height: 5px;
+    background: #444;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    z-index: 1;
 }
 
 /* Responsive Adjustments */
+@media (max-width: 768px) {
+    .simulator-description {
+        font-size: 1em;
+    }
+    
+    .url-input-wrapper {
+        flex-direction: column;
+    }
+    
+    .load-btn {
+        width: 100%;
+    }
+    
+    .device-buttons button {
+        flex-basis: calc(50% - var(--spacing-sm));
+    }
+    
+    .custom-size-inputs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .input-group {
+        width: 100%;
+    }
+    
+    #apply-custom-size, .rotate-btn {
+        width: 100%;
+    }
+    
+    .frame-options {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
 @media (max-width: 480px) {
-    .simulator-controls button {
-        flex-basis: calc(50% - 5px); /* Try two buttons per row */
-        font-size: 0.85em;
-        padding: 8px 10px;
+    .device-buttons button {
+        flex-basis: 100%;
     }
-    .simulator-custom-controls {
-        justify-content: space-between; /* Space out custom controls */
+    
+    .simulator-preview {
+        padding: var(--spacing-sm);
     }
-    .simulator-custom-controls input[type="number"] {
-        width: 60px;
-    }
-    #apply-custom-size {
-        flex-grow: 1; /* Let apply button take space if needed */
-        margin-top: 5px; /* Add space if it wraps */
+    
+    #simulator-frame {
+        min-height: 200px;
     }
 } 
