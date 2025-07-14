@@ -696,7 +696,9 @@ ${languageCards}
             { path: '/devices/iphone-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/ipad-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/android-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
-            { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' }
+            { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/standard-resolutions', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' }
         ];
         
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
