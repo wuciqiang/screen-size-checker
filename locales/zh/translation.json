@@ -34,6 +34,7 @@
   "ipad_sizes": "iPad 尺寸",
   "android_sizes": "Android 尺寸",
   "compare_tool": "对比工具",
+  "standard_resolutions": "标准分辨率",
   
   "faq_title": "常见问题",
   "faq_screen_resolution": "什么是屏幕分辨率？",
@@ -353,5 +354,113 @@
   "test_title": "功能测试页面",
   "theme_description": "点击上面的按钮在浅色和深色主题之间切换。",
   "theme_test": "主题切换测试",
-  "toggle_theme": "切换主题"
+  "toggle_theme": "切换主题",
+
+  "standard_resolutions_page_title": "标准屏幕分辨率：完整指南和尺寸图表 | Screen Size Checker",
+  "standard_resolutions_page_description": "标准屏幕分辨率、宽高比和社交媒体图片尺寸的综合指南。查找显示器、视频标准和流行社交平台的精确尺寸。",
+  "standard_resolutions_page_heading": "标准屏幕分辨率：完整指南",
+  "standard_resolutions_page_intro": "这份综合指南提供了关于标准屏幕分辨率、宽高比和社交媒体推荐图片尺寸的详细信息。对于网页开发者、设计师和内容创作者来说是必不可少的信息。",
+  
+  "standard_table_heading": "标准分辨率表",
+  "monitor_resolutions_heading": "显示器与屏幕分辨率",
+  "aspect_ratios_heading": "常见宽高比",
+  "video_resolutions_heading": "视频分辨率标准",
+  "social_media_sizes_heading": "社交媒体图片尺寸",
+  
+  "resolution_name": "标准名称",
+  "resolution_size": "分辨率",
+  "total_pixels": "总像素数",
+  "common_usage": "常见用途",
+  
+  "hd": "HD (720p)",
+  "full_hd": "Full HD (1080p)",
+  "wuxga": "WUXGA",
+  "qhd": "QHD (1440p)",
+  "wqhd": "WQHD",
+  "uhd_4k": "UHD 4K",
+  "dci_4k": "DCI 4K",
+  "5k": "5K",
+  "8k": "8K UHD",
+  
+  "hd_usage": "入门级显示器，较旧电视",
+  "full_hd_usage": "标准显示器，主流电视",
+  "wuxga_usage": "16:10 宽屏显示器，专业笔记本",
+  "qhd_usage": "高端游戏显示器，专业显示器",
+  "wqhd_usage": "超宽显示器，21:9 比例",
+  "uhd_4k_usage": "高端电视，专业显示器，内容创作",
+  "dci_4k_usage": "影院放映标准，专业电影制作",
+  "5k_usage": "高端专业显示器，iMac等",
+  "8k_usage": "顶级电视，专业影视制作",
+  
+  "common_resolutions": "常见分辨率",
+  "typical_devices": "常见设备",
+  
+  "16_9_devices": "现代电视，大多数显示器，笔记本电脑",
+  "16_10_devices": "苹果MacBook，一些专业笔记本",
+  "21_9_devices": "超宽显示器，影院屏幕",
+  "4_3_devices": "传统显示器，较老的电视",
+  "3_2_devices": "Surface设备，部分Chromebook",
+  "1_1_devices": "Instagram方形照片，部分专业显示器",
+  "32_9_devices": "超宽曲面显示器，双显示器替代品",
+  
+  "video_standard": "视频标准",
+  "resolution": "分辨率",
+  "common_platforms": "常用平台",
+  
+  "360p_platforms": "低带宽YouTube，较旧的移动视频",
+  "480p_platforms": "标清DVD，老旧视频内容",
+  "720p_platforms": "高清视频，YouTube，直播",
+  "1080p_platforms": "全高清视频，主流视频平台",
+  "1440p_platforms": "高端YouTube视频，游戏直播",
+  "4k_platforms": "Netflix 4K，YouTube 4K，UHD蓝光",
+  "8k_platforms": "试验性视频，高端YouTube视频",
+  
+  "facebook_sizes": "Facebook图片尺寸",
+  "instagram_sizes": "Instagram图片尺寸",
+  "twitter_sizes": "Twitter图片尺寸",
+  "youtube_sizes": "YouTube图片尺寸",
+  
+  "image_type": "图片类型",
+  "recommended_size": "推荐尺寸（像素）",
+  
+  "profile_picture": "个人头像",
+  "cover_photo": "封面图片",
+  "shared_image": "分享图片",
+  "event_cover": "活动封面",
+  "group_cover": "群组封面",
+  "square_post": "方形帖子",
+  "portrait_post": "竖向帖子",
+  "landscape_post": "横向帖子",
+  "stories": "Stories",
+  "header_photo": "横幅照片",
+  "in_stream_photo": "信息流图片",
+  "channel_profile": "频道头像",
+  "channel_cover": "频道封面",
+  "video_thumbnail": "视频缩略图",
+  
+  "understanding_resolutions_heading": "理解分辨率和尺寸",
+  "resolution_basics": "分辨率基础知识",
+  
+  "what_is_resolution": "什么是分辨率?",
+  "resolution_explanation": "分辨率是指显示设备上水平和垂直像素的数量。分辨率越高，显示的细节越多，但需要更多的处理能力和带宽。",
+  
+  "what_is_aspect_ratio": "什么是宽高比?",
+  "aspect_ratio_explanation": "宽高比是屏幕宽度与高度的比例，表示为 x:y（例如 16:9）。它决定了显示区域的形状，影响观看体验和内容布局。",
+  
+  "resolution_vs_size": "分辨率与物理尺寸的区别",
+  "resolution_vs_size_explanation": "分辨率是像素数量，而物理尺寸是屏幕的实际大小（通常以英寸或厘米测量）。相同分辨率的屏幕可以有不同的物理尺寸，这影响了像素密度（PPI/DPI）。",
+  
+  "design_considerations_heading": "设计注意事项",
+  "design_point1": "设计时考虑多种分辨率和设备，不要只针对一种固定尺寸",
+  "design_point2": "利用响应式设计确保内容在不同屏幕尺寸上正确显示",
+  "design_point3": "为高分辨率显示器（如Retina屏幕）准备2x或3x图像资源",
+  "design_point4": "测试您的设计在各种常见分辨率下的表现",
+  "design_point5": "为社交媒体平台创建图像时，始终使用平台推荐的最新尺寸",
+  
+  "technical_implementation_heading": "技术实现",
+  "tech_point1": "使用CSS媒体查询为不同屏幕尺寸调整布局",
+  "tech_point2": "实现适当的viewport meta标签以确保移动设备上正确缩放",
+  "tech_point3": "使用相对单位（如em、rem、%）而非固定像素尺寸",
+  "tech_point4": "使用CSS的srcset和picture元素加载适合不同设备像素比的图片",
+  "tech_point5": "利用CSS Grid和Flexbox创建自适应布局"
 } 

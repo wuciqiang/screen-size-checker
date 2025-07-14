@@ -230,6 +230,56 @@
           }
         }
       }
+    },
+    {
+      "name": "standard-resolutions",
+      "template": "device-page",
+      "output": "devices/standard-resolutions.html",
+      "page_content": "standard-resolutions-content",
+      "config": {
+        "page_title_key": "standard_resolutions_page_title",
+        "page_description_key": "standard_resolutions_page_description",
+        "page_heading_key": "standard_resolutions_page_heading",
+        "page_intro_key": "standard_resolutions_page_intro",
+        "page_keywords": "standard screen resolutions, common monitor resolutions, social media image sizes, display resolution standards, aspect ratio comparison, video resolution guide",
+        "canonical_url": "https://screensizechecker.com/devices/standard-resolutions.html",
+        "og_title": "Standard Screen Resolutions: Complete Guide & Size Charts",
+        "og_description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/devices/standard-resolutions.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "standard_resolutions",
+        "current_name": "标准分辨率",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Standard Screen Resolutions: Complete Guide & Size Charts",
+          "description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-06-15",
+          "dateModified": "2025-06-15"
+        }
+      }
     }
   ]
 } 

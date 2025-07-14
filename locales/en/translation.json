@@ -34,6 +34,7 @@
   "ipad_sizes": "iPad Sizes",
   "android_sizes": "Android Sizes",
   "compare_tool": "Compare Tool",
+  "standard_resolutions": "Standard Resolutions",
   
   "faq_title": "Frequently Asked Questions",
   "faq_screen_resolution": "What is screen resolution?",
@@ -366,5 +367,114 @@
   "resolution": "Resolution",
   "metric": "Metric",
   "imperial": "Imperial",
-  "summary": "Summary"
+  "summary": "Summary",
+
+  "standard_resolutions_page_title": "Standard Screen Resolutions: Complete Guide & Size Charts | Screen Size Checker",
+  "standard_resolutions_page_description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+  "standard_resolutions_page_heading": "Standard Screen Resolutions: Complete Guide",
+  "standard_resolutions_page_intro": "This comprehensive guide provides detailed information about standard screen resolutions, aspect ratios, and recommended image sizes for social media. Essential information for web developers, designers, and content creators.",
+  
+  "standard_table_heading": "Standard Resolutions Table",
+  "monitor_resolutions_heading": "Monitor & Display Resolutions",
+  "aspect_ratios_heading": "Common Aspect Ratios",
+  "video_resolutions_heading": "Video Resolution Standards",
+  "social_media_sizes_heading": "Social Media Image Sizes",
+  
+  "resolution_name": "Standard Name",
+  "resolution_size": "Resolution",
+  "total_pixels": "Total Pixels",
+  "common_usage": "Common Usage",
+  
+  "hd": "HD (720p)",
+  "full_hd": "Full HD (1080p)",
+  "wuxga": "WUXGA",
+  "qhd": "QHD (1440p)",
+  "wqhd": "WQHD",
+  "uhd_4k": "UHD 4K",
+  "dci_4k": "DCI 4K",
+  "5k": "5K",
+  "8k": "8K UHD",
+  
+  "hd_usage": "Entry-level monitors, older TVs",
+  "full_hd_usage": "Standard monitors, mainstream TVs",
+  "wuxga_usage": "16:10 widescreen displays, professional laptops",
+  "qhd_usage": "High-end gaming monitors, professional displays",
+  "wqhd_usage": "Ultrawide monitors, 21:9 ratio",
+  "uhd_4k_usage": "Premium TVs, professional monitors, content creation",
+  "dci_4k_usage": "Cinema projection standard, professional film production",
+  "5k_usage": "High-end professional displays, iMac etc.",
+  "8k_usage": "Cutting-edge TVs, professional film production",
+  
+  "aspect_ratio": "Aspect Ratio",
+  "common_resolutions": "Common Resolutions",
+  "typical_devices": "Typical Devices",
+  
+  "16_9_devices": "Modern TVs, most monitors, laptops",
+  "16_10_devices": "Apple MacBooks, some professional laptops",
+  "21_9_devices": "Ultrawide monitors, cinema screens",
+  "4_3_devices": "Traditional monitors, older TVs",
+  "3_2_devices": "Surface devices, some Chromebooks",
+  "1_1_devices": "Instagram square photos, some professional displays",
+  "32_9_devices": "Super ultrawide curved monitors, dual monitor replacements",
+  
+  "video_standard": "Video Standard",
+  "resolution": "Resolution",
+  "common_platforms": "Common Platforms",
+  
+  "360p_platforms": "Low bandwidth YouTube, older mobile videos",
+  "480p_platforms": "Standard definition DVD, older video content",
+  "720p_platforms": "HD videos, YouTube, streaming",
+  "1080p_platforms": "Full HD videos, mainstream video platforms",
+  "1440p_platforms": "Premium YouTube videos, game streaming",
+  "4k_platforms": "Netflix 4K, YouTube 4K, UHD Blu-ray",
+  "8k_platforms": "Experimental videos, high-end YouTube content",
+  
+  "facebook_sizes": "Facebook Image Sizes",
+  "instagram_sizes": "Instagram Image Sizes",
+  "twitter_sizes": "Twitter Image Sizes",
+  "youtube_sizes": "YouTube Image Sizes",
+  
+  "image_type": "Image Type",
+  "recommended_size": "Recommended Size (pixels)",
+  
+  "profile_picture": "Profile Picture",
+  "cover_photo": "Cover Photo",
+  "shared_image": "Shared Image",
+  "event_cover": "Event Cover",
+  "group_cover": "Group Cover",
+  "square_post": "Square Post",
+  "portrait_post": "Portrait Post",
+  "landscape_post": "Landscape Post",
+  "stories": "Stories",
+  "header_photo": "Header Photo",
+  "in_stream_photo": "In-stream Photo",
+  "channel_profile": "Channel Profile",
+  "channel_cover": "Channel Cover",
+  "video_thumbnail": "Video Thumbnail",
+  
+  "understanding_resolutions_heading": "Understanding Resolutions & Sizes",
+  "resolution_basics": "Resolution Basics",
+  
+  "what_is_resolution": "What is Resolution?",
+  "resolution_explanation": "Resolution refers to the number of horizontal and vertical pixels on a display. Higher resolution means more detail but requires more processing power and bandwidth.",
+  
+  "what_is_aspect_ratio": "What is Aspect Ratio?",
+  "aspect_ratio_explanation": "Aspect ratio is the proportional relationship between width and height, expressed as x:y (e.g., 16:9). It determines the shape of the display area, affecting viewing experience and content layout.",
+  
+  "resolution_vs_size": "Resolution vs. Physical Size",
+  "resolution_vs_size_explanation": "Resolution is the pixel count, while physical size is the actual dimensions of the screen (usually measured in inches or centimeters). Screens with the same resolution can have different physical sizes, affecting pixel density (PPI/DPI).",
+  
+  "design_considerations_heading": "Design Considerations",
+  "design_point1": "Design for multiple resolutions and devices, not just one fixed size",
+  "design_point2": "Utilize responsive design to ensure content displays properly across different screen sizes",
+  "design_point3": "Prepare 2x or 3x image assets for high-resolution displays like Retina screens",
+  "design_point4": "Test your designs across various common resolutions",
+  "design_point5": "Always use the latest recommended sizes when creating images for social media platforms",
+  
+  "technical_implementation_heading": "Technical Implementation",
+  "tech_point1": "Use CSS media queries to adjust layouts for different screen sizes",
+  "tech_point2": "Implement proper viewport meta tags to ensure correct scaling on mobile devices",
+  "tech_point3": "Use relative units (em, rem, %) rather than fixed pixel sizes",
+  "tech_point4": "Use CSS srcset and picture elements to load images appropriate for different device pixel ratios",
+  "tech_point5": "Leverage CSS Grid and Flexbox to create adaptive layouts"
 }
