@@ -11,14 +11,14 @@
     </header>
     
     <div class="blog-post-content">
-        <h1>Device Pixel Ratio Explained</h1>
+        <h1 id="device-pixel-ratio-explained">Device Pixel Ratio Explained</h1>
 <p>Device Pixel Ratio (DPR) is a critical concept in modern web development that directly impacts the visual quality and performance of your websites across different devices. This article explains what DPR is, why it matters, and how to account for it in your projects.</p>
-<h2>What is Device Pixel Ratio?</h2>
+<h2 id="what-is-device-pixel-ratio">What is Device Pixel Ratio?</h2>
 <p>Device Pixel Ratio (DPR) is the ratio between physical pixels (the actual dots on a screen) and CSS pixels (the logical pixels used in web development). It&#39;s calculated as:</p>
-<pre><code>Device Pixel Ratio = Physical Pixels / CSS Pixels
+<pre><code>Device Pixel Ratio <span class="hljs-operator">=</span> Physical Pixels / CSS Pixels
 </code></pre>
 <p>For example, if a device has a DPR of 2, it means there are 2×2 (or 4) physical pixels for every CSS pixel.</p>
-<h2>The Evolution of High-DPR Displays</h2>
+<h2 id="the-evolution-of-high-dpr-displays">The Evolution of High-DPR Displays</h2>
 <p>High-density displays began gaining popularity with Apple&#39;s introduction of &quot;Retina&quot; displays in 2010. Since then, high-DPR screens have become standard across most devices:</p>
 <table>
 <thead>
@@ -48,7 +48,7 @@
 <td>1.5 - 2.0</td>
 </tr>
 </tbody></table>
-<h2>Why DPR Matters for Web Developers</h2>
+<h2 id="why-dpr-matters-for-web-developers">Why DPR Matters for Web Developers</h2>
 <p>Understanding DPR is essential for several reasons:</p>
 <ol>
 <li><strong>Image Quality</strong>: Low-resolution images appear blurry on high-DPR displays</li>
@@ -57,58 +57,58 @@
 <li><strong>CSS Precision</strong>: Sub-pixel layouts work differently across DPR values</li>
 <li><strong>Canvas and SVG</strong>: These elements render differently based on DPR</li>
 </ol>
-<h2>How to Detect Device Pixel Ratio</h2>
+<h2 id="how-to-detect-device-pixel-ratio">How to Detect Device Pixel Ratio</h2>
 <p>You can detect a device&#39;s DPR using JavaScript:</p>
-<pre><code class="language-javascript">const dpr = window.devicePixelRatio;
-console.log(`Your device pixel ratio is: ${dpr}`);
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> dpr = <span class="hljs-variable language_">window</span>.<span class="hljs-property">devicePixelRatio</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Your device pixel ratio is: <span class="hljs-subst">${dpr}</span>`</span>);
 </code></pre>
 <p>Or check it directly using our <a href="/en/index.html">Screen Size Checker</a> tool, which displays DPR along with other device information.</p>
-<h2>Optimizing Images for Different DPRs</h2>
+<h2 id="optimizing-images-for-different-dprs">Optimizing Images for Different DPRs</h2>
 <p>To serve the appropriate image for each device&#39;s DPR, you can use these techniques:</p>
-<h3>1. CSS Resolution Media Queries</h3>
-<pre><code class="language-css">/* Default image for standard displays */
-.my-image {
-  background-image: url(&#39;image.png&#39;);
+<h3 id="1-css-resolution-media-queries">1. CSS Resolution Media Queries</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Default image for standard displays */</span>
+<span class="hljs-selector-class">.my-image</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;image.png&#x27;</span>);
 }
 
-/* High-res image for high-DPR displays */
-@media (-webkit-min-device-pixel-ratio: 2), 
-       (min-resolution: 192dpi) { 
-  .my-image {
-    background-image: url(&#39;image@2x.png&#39;);
+<span class="hljs-comment">/* High-res image for high-DPR displays */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">2</span>), 
+       (<span class="hljs-attribute">min-resolution</span>: <span class="hljs-number">192dpi</span>) { 
+  <span class="hljs-selector-class">.my-image</span> {
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;image@2x.png&#x27;</span>);
   }
 }
 </code></pre>
-<h3>2. HTML srcset Attribute</h3>
-<pre><code class="language-html">&lt;img src=&quot;image.png&quot;
-     srcset=&quot;image.png 1x, 
+<h3 id="2-html-srcset-attribute">2. HTML srcset Attribute</h3>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.png&quot;</span>
+     <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image.png 1x, 
              image@2x.png 2x, 
-             image@3x.png 3x&quot;
-     alt=&quot;Responsive image example&quot;&gt;
+             image@3x.png 3x&quot;</span>
+     <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Responsive image example&quot;</span>&gt;</span>
 </code></pre>
-<h3>3. Picture Element</h3>
-<pre><code class="language-html">&lt;picture&gt;
-  &lt;source media=&quot;(min-resolution: 3dppx)&quot; srcset=&quot;image@3x.png&quot;&gt;
-  &lt;source media=&quot;(min-resolution: 2dppx)&quot; srcset=&quot;image@2x.png&quot;&gt;
-  &lt;img src=&quot;image.png&quot; alt=&quot;Responsive image example&quot;&gt;
-&lt;/picture&gt;
+<h3 id="3-picture-element">3. Picture Element</h3>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;(min-resolution: 3dppx)&quot;</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image@3x.png&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;(min-resolution: 2dppx)&quot;</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image@2x.png&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Responsive image example&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span>
 </code></pre>
-<h2>Canvas and DPR Considerations</h2>
+<h2 id="canvas-and-dpr-considerations">Canvas and DPR Considerations</h2>
 <p>When working with HTML Canvas elements, you need to adjust for DPR to ensure sharp rendering:</p>
-<pre><code class="language-javascript">const canvas = document.getElementById(&#39;myCanvas&#39;);
-const ctx = canvas.getContext(&#39;2d&#39;);
-const dpr = window.devicePixelRatio || 1;
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myCanvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+<span class="hljs-keyword">const</span> dpr = <span class="hljs-variable language_">window</span>.<span class="hljs-property">devicePixelRatio</span> || <span class="hljs-number">1</span>;
 
-// Adjust canvas dimensions
-canvas.width = canvas.clientWidth * dpr;
-canvas.height = canvas.clientHeight * dpr;
+<span class="hljs-comment">// Adjust canvas dimensions</span>
+canvas.<span class="hljs-property">width</span> = canvas.<span class="hljs-property">clientWidth</span> * dpr;
+canvas.<span class="hljs-property">height</span> = canvas.<span class="hljs-property">clientHeight</span> * dpr;
 
-// Scale the context
-ctx.scale(dpr, dpr);
+<span class="hljs-comment">// Scale the context</span>
+ctx.<span class="hljs-title function_">scale</span>(dpr, dpr);
 
-// Now draw on the canvas as usual
+<span class="hljs-comment">// Now draw on the canvas as usual</span>
 </code></pre>
-<h2>Common Pitfalls and Solutions</h2>
+<h2 id="common-pitfalls-and-solutions">Common Pitfalls and Solutions</h2>
 <ol>
 <li><strong>Fuzzy Text</strong>: Ensure you&#39;re not scaling text elements with transforms on high-DPR devices</li>
 <li><strong>Blurry UI Elements</strong>: Use SVG where possible for interface elements</li>
@@ -116,7 +116,7 @@ ctx.scale(dpr, dpr);
 <li><strong>Inconsistent Rendering</strong>: Test on various DPR screens during development</li>
 <li><strong>Bandwidth Concerns</strong>: Use responsive image techniques to serve appropriate file sizes</li>
 </ol>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Device Pixel Ratio significantly impacts how your website appears across different devices. By understanding DPR and implementing responsive techniques to account for it, you can ensure your websites look crisp and professional while maintaining good performance.</p>
 <p>Remember that optimizing for different DPRs isn&#39;t just about image quality—it&#39;s about finding the right balance between visual fidelity and performance for each user&#39;s device.</p>
 <p>For more information on how to build responsive websites that look great on all devices, check our other articles on <a href="/en/blog/viewport-basics.html">Viewport Basics</a> and explore our device-specific guides like <a href="/en/devices/iphone-viewport-sizes.html">iPhone Viewport Sizes</a> and <a href="/en/devices/android-viewport-sizes.html">Android Viewport Sizes</a>. </p>

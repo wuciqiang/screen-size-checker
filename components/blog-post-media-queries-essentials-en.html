@@ -11,19 +11,19 @@
     </header>
     
     <div class="blog-post-content">
-        <h1>Media Queries Essentials for Responsive Design</h1>
+        <h1 id="media-queries-essentials-for-responsive-design">Media Queries Essentials for Responsive Design</h1>
 <p>Media queries are the backbone of responsive web design, allowing websites to adapt their layout and styling based on device characteristics. This guide covers everything you need to know to implement effective media queries in your projects.</p>
-<h2>What Are Media Queries?</h2>
+<h2 id="what-are-media-queries">What Are Media Queries?</h2>
 <p>Media queries are CSS techniques that allow you to apply different styles based on the device&#39;s characteristics, such as screen size, resolution, or orientation. They&#39;re defined using the <code>@media</code> rule in CSS:</p>
-<pre><code class="language-css">@media screen and (max-width: 768px) {
-  /* Styles applied when viewport width is 768px or less */
-  .container {
-    flex-direction: column;
+<pre><code class="language-css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-comment">/* Styles applied when viewport width is 768px or less */</span>
+  <span class="hljs-selector-class">.container</span> {
+    <span class="hljs-attribute">flex-direction</span>: column;
   }
 }
 </code></pre>
 <p>This simple concept powers the responsive behavior of modern websites, enabling them to provide optimized experiences across devices.</p>
-<h2>Anatomy of a Media Query</h2>
+<h2 id="anatomy-of-a-media-query">Anatomy of a Media Query</h2>
 <p>A typical media query consists of:</p>
 <ol>
 <li><strong>Media Type</strong>: Specifies the device type (e.g., <code>screen</code>, <code>print</code>, <code>speech</code>)</li>
@@ -31,11 +31,11 @@
 <li><strong>Media Features</strong>: Conditions like <code>width</code>, <code>height</code>, <code>orientation</code>, etc.</li>
 <li><strong>CSS Rules</strong>: The styles to apply when conditions are met</li>
 </ol>
-<pre><code class="language-css">@media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Styles for tablets and small laptops */
+<pre><code class="language-css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-comment">/* Styles for tablets and small laptops */</span>
 }
 </code></pre>
-<h2>Common Media Features</h2>
+<h2 id="common-media-features">Common Media Features</h2>
 <p>Here are the most frequently used media features:</p>
 <table>
 <thead>
@@ -81,9 +81,9 @@
 <td><code>(prefers-color-scheme: dark)</code></td>
 </tr>
 </tbody></table>
-<h2>Breakpoint Strategies</h2>
+<h2 id="breakpoint-strategies">Breakpoint Strategies</h2>
 <p>Breakpoints are the viewport widths at which your design adapts. There are several approaches to choosing breakpoints:</p>
-<h3>1. Device-based Breakpoints</h3>
+<h3 id="1-device-based-breakpoints">1. Device-based Breakpoints</h3>
 <p>Based on common device categories:</p>
 <ul>
 <li>Mobile phones: 360px - 428px</li>
@@ -91,191 +91,191 @@
 <li>Laptops: 1024px - 1440px</li>
 <li>Desktops: 1440px+</li>
 </ul>
-<pre><code class="language-css">/* Mobile styles (default) */
-.container { width: 100%; }
+<pre><code class="language-css"><span class="hljs-comment">/* Mobile styles (default) */</span>
+<span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>; }
 
-/* Tablet styles */
-@media (min-width: 768px) {
-  .container { width: 750px; }
+<span class="hljs-comment">/* Tablet styles */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">750px</span>; }
 }
 
-/* Laptop styles */
-@media (min-width: 1024px) {
-  .container { width: 980px; }
+<span class="hljs-comment">/* Laptop styles */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">980px</span>; }
 }
 
-/* Desktop styles */
-@media (min-width: 1440px) {
-  .container { width: 1200px; }
+<span class="hljs-comment">/* Desktop styles */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1440px</span>) {
+  <span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">1200px</span>; }
 }
 </code></pre>
-<h3>2. Content-based Breakpoints</h3>
+<h3 id="2-content-based-breakpoints">2. Content-based Breakpoints</h3>
 <p>A more flexible approach that adapts based on when your content starts to look broken:</p>
-<pre><code class="language-css">.article-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+<pre><code class="language-css"><span class="hljs-selector-class">.article-grid</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr;
 }
 
-/* When there&#39;s enough space for 2 columns */
-@media (min-width: 600px) {
-  .article-grid {
-    grid-template-columns: repeat(2, 1fr);
+<span class="hljs-comment">/* When there&#x27;s enough space for 2 columns */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.article-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);
   }
 }
 
-/* When there&#39;s enough space for 3 columns */
-@media (min-width: 900px) {
-  .article-grid {
-    grid-template-columns: repeat(3, 1fr);
+<span class="hljs-comment">/* When there&#x27;s enough space for 3 columns */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">900px</span>) {
+  <span class="hljs-selector-class">.article-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>fr);
   }
 }
 </code></pre>
-<h2>Mobile-First vs. Desktop-First</h2>
+<h2 id="mobile-first-vs-desktop-first">Mobile-First vs. Desktop-First</h2>
 <p>There are two main approaches to implementing media queries:</p>
-<h3>Mobile-First Approach</h3>
+<h3 id="mobile-first-approach">Mobile-First Approach</h3>
 <p>Start with styles for small screens and add complexity for larger ones using <code>min-width</code> queries:</p>
-<pre><code class="language-css">/* Base styles for mobile */
-.navigation {
-  flex-direction: column;
+<pre><code class="language-css"><span class="hljs-comment">/* Base styles for mobile */</span>
+<span class="hljs-selector-class">.navigation</span> {
+  <span class="hljs-attribute">flex-direction</span>: column;
 }
 
-/* Enhance for larger screens */
-@media (min-width: 768px) {
-  .navigation {
-    flex-direction: row;
+<span class="hljs-comment">/* Enhance for larger screens */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.navigation</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
   }
 }
 </code></pre>
-<h3>Desktop-First Approach</h3>
+<h3 id="desktop-first-approach">Desktop-First Approach</h3>
 <p>Start with styles for large screens and simplify for smaller ones using <code>max-width</code> queries:</p>
-<pre><code class="language-css">/* Base styles for desktop */
-.navigation {
-  flex-direction: row;
+<pre><code class="language-css"><span class="hljs-comment">/* Base styles for desktop */</span>
+<span class="hljs-selector-class">.navigation</span> {
+  <span class="hljs-attribute">flex-direction</span>: row;
 }
 
-/* Simplify for smaller screens */
-@media (max-width: 767px) {
-  .navigation {
-    flex-direction: column;
+<span class="hljs-comment">/* Simplify for smaller screens */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">767px</span>) {
+  <span class="hljs-selector-class">.navigation</span> {
+    <span class="hljs-attribute">flex-direction</span>: column;
   }
 }
 </code></pre>
 <p>Most modern development favors the mobile-first approach for its progressive enhancement philosophy and typically cleaner code.</p>
-<h2>Advanced Media Query Techniques</h2>
-<h3>1. Range Queries</h3>
+<h2 id="advanced-media-query-techniques">Advanced Media Query Techniques</h2>
+<h3 id="1-range-queries">1. Range Queries</h3>
 <p>Target a specific range of viewport sizes:</p>
-<pre><code class="language-css">@media (min-width: 768px) and (max-width: 1023px) {
-  /* Styles only for tablets */
+<pre><code class="language-css"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">1023px</span>) {
+  <span class="hljs-comment">/* Styles only for tablets */</span>
 }
 </code></pre>
-<h3>2. Orientation Queries</h3>
+<h3 id="2-orientation-queries">2. Orientation Queries</h3>
 <p>Apply styles based on device orientation:</p>
-<pre><code class="language-css">@media (orientation: landscape) {
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);
+<pre><code class="language-css"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">orientation</span>: landscape) {
+  <span class="hljs-selector-class">.gallery</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);
   }
 }
 
-@media (orientation: portrait) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">orientation</span>: portrait) {
+  <span class="hljs-selector-class">.gallery</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);
   }
 }
 </code></pre>
-<h3>3. Feature Queries with <code>@supports</code></h3>
+<h3 id="3-feature-queries-with-supports">3. Feature Queries with <code>@supports</code></h3>
 <p>Combine media queries with feature detection:</p>
-<pre><code class="language-css">@media (min-width: 768px) {
-  @supports (display: grid) {
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+<pre><code class="language-css"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display</span>: <span class="hljs-attribute">grid</span>) {
+    <span class="hljs-selector-class">.container</span> {
+      <span class="hljs-attribute">display</span>: grid;
+      <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fill, <span class="hljs-built_in">minmax</span>(<span class="hljs-number">200px</span>, <span class="hljs-number">1</span>fr));
     }
   }
 }
 </code></pre>
-<h3>4. Container Queries (New!)</h3>
+<h3 id="4-container-queries-new">4. Container Queries (New!)</h3>
 <p>The future of responsive design, allowing styles based on container size rather than viewport:</p>
-<pre><code class="language-css">@container (min-width: 400px) {
-  .card {
-    display: flex;
+<pre><code class="language-css"><span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
   }
 }
 </code></pre>
 <p>Note: Container queries are still being implemented across browsers, so check compatibility before using them.</p>
-<h2>Common Media Query Use Cases</h2>
-<h3>Navigation Menus</h3>
-<pre><code class="language-css">/* Mobile: Hamburger menu */
-.nav-menu {
-  display: none;
+<h2 id="common-media-query-use-cases">Common Media Query Use Cases</h2>
+<h3 id="navigation-menus">Navigation Menus</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Mobile: Hamburger menu */</span>
+<span class="hljs-selector-class">.nav-menu</span> {
+  <span class="hljs-attribute">display</span>: none;
 }
 
-.hamburger-icon {
-  display: block;
+<span class="hljs-selector-class">.hamburger-icon</span> {
+  <span class="hljs-attribute">display</span>: block;
 }
 
-/* Desktop: Expanded menu */
-@media (min-width: 1024px) {
-  .nav-menu {
-    display: flex;
+<span class="hljs-comment">/* Desktop: Expanded menu */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-selector-class">.nav-menu</span> {
+    <span class="hljs-attribute">display</span>: flex;
   }
   
-  .hamburger-icon {
-    display: none;
+  <span class="hljs-selector-class">.hamburger-icon</span> {
+    <span class="hljs-attribute">display</span>: none;
   }
 }
 </code></pre>
-<h3>Grid Layouts</h3>
-<pre><code class="language-css">.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+<h3 id="grid-layouts">Grid Layouts</h3>
+<pre><code class="language-css"><span class="hljs-selector-class">.grid</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">20px</span>;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);
   }
 }
 
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1200px</span>) {
+  <span class="hljs-selector-class">.grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);
   }
 }
 </code></pre>
-<h3>Typography</h3>
-<pre><code class="language-css">body {
-  font-size: 16px;
+<h3 id="typography">Typography</h3>
+<pre><code class="language-css"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
 }
 
-h1 {
-  font-size: 24px;
+<span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;
 }
 
-@media (min-width: 768px) {
-  body {
-    font-size: 18px;
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
   }
   
-  h1 {
-    font-size: 32px;
+  <span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">32px</span>;
   }
 }
 
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 48px;
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1200px</span>) {
+  <span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">48px</span>;
   }
 }
 </code></pre>
-<h2>Testing Media Queries</h2>
+<h2 id="testing-media-queries">Testing Media Queries</h2>
 <p>Properly testing your media queries is crucial for ensuring your responsive design works as expected:</p>
 <ol>
 <li><strong>Browser Developer Tools</strong>: Use responsive mode to resize the viewport</li>
 <li><strong>Real Devices</strong>: Test on actual phones, tablets, and computers</li>
 <li><strong>Screen Size Checker Tool</strong>: Use our <a href="/en/index.html">Screen Size Checker</a> to verify your viewport dimensions and test how your design responds</li>
 </ol>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Media queries are an essential tool for creating modern, responsive websites. By understanding how to structure and implement them effectively, you can ensure your site provides an optimal experience across all devices and screen sizes.</p>
 <p>Remember that responsive design is about more than just making elements fit on different screens—it&#39;s about creating a cohesive user experience regardless of how someone accesses your content.</p>
 <p>For more on related topics, check out our articles on <a href="/en/blog/viewport-basics.html">Viewport Basics</a> and <a href="/en/blog/device-pixel-ratio.html">Device Pixel Ratio</a>. </p>

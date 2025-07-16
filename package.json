@@ -45,6 +45,6 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
-    "marked": "^16.0.0"
+    "marked": "^4.3.0"
   }
 }

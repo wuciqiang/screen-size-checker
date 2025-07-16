@@ -11,14 +11,14 @@
     </header>
     
     <div class="blog-post-content">
-        <h1>设备像素比详解</h1>
+        <h1 id="设备像素比详解">设备像素比详解</h1>
 <p>设备像素比（Device Pixel Ratio，简称DPR）是现代网页开发中的一个关键概念，它直接影响着您的网站在不同设备上的视觉质量和性能表现。本文将解释什么是设备像素比、为什么它很重要，以及如何在项目中考虑这一因素。</p>
-<h2>什么是设备像素比？</h2>
+<h2 id="什么是设备像素比？">什么是设备像素比？</h2>
 <p>设备像素比是物理像素（屏幕上实际的点）与CSS像素（网页开发中使用的逻辑像素）之间的比率。计算公式为：</p>
-<pre><code>设备像素比 = 物理像素 / CSS像素
+<pre><code>设备像素比 <span class="hljs-operator">=</span> 物理像素 / CSS像素
 </code></pre>
 <p>例如，如果一个设备的DPR为2，这意味着每个CSS像素对应2×2（即4个）物理像素。</p>
-<h2>高DPR显示器的演变</h2>
+<h2 id="高dpr显示器的演变">高DPR显示器的演变</h2>
 <p>高密度显示器始于2010年苹果推出的&quot;视网膜&quot;(Retina)显示屏。从那时起，高DPR屏幕已成为大多数设备的标准配置：</p>
 <table>
 <thead>
@@ -48,7 +48,7 @@
 <td>1.5 - 2.0</td>
 </tr>
 </tbody></table>
-<h2>为什么DPR对网页开发者很重要</h2>
+<h2 id="为什么dpr对网页开发者很重要">为什么DPR对网页开发者很重要</h2>
 <p>理解DPR很重要，原因如下：</p>
 <ol>
 <li><strong>图像质量</strong>：低分辨率图像在高DPR显示器上会显得模糊</li>
@@ -57,58 +57,58 @@
 <li><strong>CSS精度</strong>：子像素布局在不同DPR值下工作方式不同</li>
 <li><strong>Canvas和SVG</strong>：这些元素基于DPR的渲染方式不同</li>
 </ol>
-<h2>如何检测设备像素比</h2>
+<h2 id="如何检测设备像素比">如何检测设备像素比</h2>
 <p>您可以使用JavaScript检测设备的DPR：</p>
-<pre><code class="language-javascript">const dpr = window.devicePixelRatio;
-console.log(`您的设备像素比是：${dpr}`);
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> dpr = <span class="hljs-variable language_">window</span>.<span class="hljs-property">devicePixelRatio</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`您的设备像素比是：<span class="hljs-subst">${dpr}</span>`</span>);
 </code></pre>
 <p>或者直接使用我们的<a href="/zh/index.html">屏幕尺寸检查器</a>工具，它会显示DPR和其他设备信息。</p>
-<h2>为不同DPR优化图像</h2>
+<h2 id="为不同dpr优化图像">为不同DPR优化图像</h2>
 <p>要为每个设备的DPR提供适当的图像，您可以使用以下技术：</p>
-<h3>1. CSS分辨率媒体查询</h3>
-<pre><code class="language-css">/* 标准显示器的默认图像 */
-.my-image {
-  background-image: url(&#39;image.png&#39;);
+<h3 id="1-css分辨率媒体查询">1. CSS分辨率媒体查询</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* 标准显示器的默认图像 */</span>
+<span class="hljs-selector-class">.my-image</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;image.png&#x27;</span>);
 }
 
-/* 高DPR显示器的高分辨率图像 */
-@media (-webkit-min-device-pixel-ratio: 2), 
-       (min-resolution: 192dpi) { 
-  .my-image {
-    background-image: url(&#39;image@2x.png&#39;);
+<span class="hljs-comment">/* 高DPR显示器的高分辨率图像 */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">2</span>), 
+       (<span class="hljs-attribute">min-resolution</span>: <span class="hljs-number">192dpi</span>) { 
+  <span class="hljs-selector-class">.my-image</span> {
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;image@2x.png&#x27;</span>);
   }
 }
 </code></pre>
-<h3>2. HTML srcset属性</h3>
-<pre><code class="language-html">&lt;img src=&quot;image.png&quot;
-     srcset=&quot;image.png 1x, 
+<h3 id="2-html-srcset属性">2. HTML srcset属性</h3>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.png&quot;</span>
+     <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image.png 1x, 
              image@2x.png 2x, 
-             image@3x.png 3x&quot;
-     alt=&quot;响应式图像示例&quot;&gt;
+             image@3x.png 3x&quot;</span>
+     <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;响应式图像示例&quot;</span>&gt;</span>
 </code></pre>
-<h3>3. Picture元素</h3>
-<pre><code class="language-html">&lt;picture&gt;
-  &lt;source media=&quot;(min-resolution: 3dppx)&quot; srcset=&quot;image@3x.png&quot;&gt;
-  &lt;source media=&quot;(min-resolution: 2dppx)&quot; srcset=&quot;image@2x.png&quot;&gt;
-  &lt;img src=&quot;image.png&quot; alt=&quot;响应式图像示例&quot;&gt;
-&lt;/picture&gt;
+<h3 id="3-picture元素">3. Picture元素</h3>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;(min-resolution: 3dppx)&quot;</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image@3x.png&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;(min-resolution: 2dppx)&quot;</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image@2x.png&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;响应式图像示例&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span>
 </code></pre>
-<h2>Canvas和DPR考虑因素</h2>
+<h2 id="canvas和dpr考虑因素">Canvas和DPR考虑因素</h2>
 <p>使用HTML Canvas元素时，需要调整DPR以确保清晰渲染：</p>
-<pre><code class="language-javascript">const canvas = document.getElementById(&#39;myCanvas&#39;);
-const ctx = canvas.getContext(&#39;2d&#39;);
-const dpr = window.devicePixelRatio || 1;
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myCanvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+<span class="hljs-keyword">const</span> dpr = <span class="hljs-variable language_">window</span>.<span class="hljs-property">devicePixelRatio</span> || <span class="hljs-number">1</span>;
 
-// 调整canvas尺寸
-canvas.width = canvas.clientWidth * dpr;
-canvas.height = canvas.clientHeight * dpr;
+<span class="hljs-comment">// 调整canvas尺寸</span>
+canvas.<span class="hljs-property">width</span> = canvas.<span class="hljs-property">clientWidth</span> * dpr;
+canvas.<span class="hljs-property">height</span> = canvas.<span class="hljs-property">clientHeight</span> * dpr;
 
-// 缩放上下文
-ctx.scale(dpr, dpr);
+<span class="hljs-comment">// 缩放上下文</span>
+ctx.<span class="hljs-title function_">scale</span>(dpr, dpr);
 
-// 现在可以正常绘制canvas
+<span class="hljs-comment">// 现在可以正常绘制canvas</span>
 </code></pre>
-<h2>常见问题和解决方案</h2>
+<h2 id="常见问题和解决方案">常见问题和解决方案</h2>
 <ol>
 <li><strong>模糊文本</strong>：确保不在高DPR设备上使用变换缩放文本元素</li>
 <li><strong>模糊UI元素</strong>：尽可能为界面元素使用SVG</li>
@@ -116,7 +116,7 @@ ctx.scale(dpr, dpr);
 <li><strong>渲染不一致</strong>：在开发过程中在各种DPR屏幕上测试</li>
 <li><strong>带宽问题</strong>：使用响应式图像技术提供适当的文件大小</li>
 </ol>
-<h2>结论</h2>
+<h2 id="结论">结论</h2>
 <p>设备像素比显著影响您的网站在不同设备上的外观。通过了解DPR并实施考虑到这一因素的响应式技术，您可以确保您的网站看起来清晰专业，同时保持良好的性能。</p>
 <p>请记住，针对不同DPR进行优化不仅仅是关于图像质量——还需要为每个用户的设备找到视觉保真度和性能之间的平衡。</p>
 <p>有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于<a href="/zh/blog/viewport-basics.html">视口基础</a>的其他文章，以及我们的设备专用指南，如<a href="/zh/devices/iphone-viewport-sizes.html">iPhone视口尺寸</a>和<a href="/zh/devices/android-viewport-sizes.html">Android视口尺寸</a>。 </p>
