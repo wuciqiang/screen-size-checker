@@ -711,6 +711,35 @@ ${languageCards}
             { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' }
         ];
         
+        // 定义博客页面结构
+        const blogPages = [
+            { path: '/blog', priority: '0.9', changefreq: 'weekly' },
+            { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/media-queries-essentials', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/viewport-basics', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/category/technical', priority: '0.7', changefreq: 'monthly' },
+            { path: '/blog/category/css', priority: '0.7', changefreq: 'monthly' },
+            { path: '/blog/category/basics', priority: '0.7', changefreq: 'monthly' },
+            { path: '/blog/tag/dpr', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/retina-display', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/responsive-design', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/media-queries', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/css', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/breakpoints', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/viewport', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/web-development', priority: '0.6', changefreq: 'monthly' }
+        ];
+        
+        // 中文特有的标签页面
+        const zhBlogPages = [
+            { path: '/blog/tag/像素密度', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/响应式设计', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/媒体查询', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/断点', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/视网膜显示', priority: '0.6', changefreq: 'monthly' }
+        ];
+        
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
         
@@ -734,6 +763,7 @@ ${languageCards}
         
         // 只为启用的语言生成URL
         enabledLanguages.forEach(lang => {
+            // 添加基础页面
             pages.forEach(page => {
                 if (page.path === '') {
                     // 语言首页
@@ -755,6 +785,30 @@ ${languageCards}
     </url>`;
                 }
             });
+            
+            // 添加博客页面
+            blogPages.forEach(page => {
+                sitemapContent += `
+    <url>
+        <loc>${baseUrl}/${lang}${page.path}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+            });
+            
+            // 为中文添加特有的标签页面
+            if (lang === 'zh') {
+                zhBlogPages.forEach(page => {
+                    sitemapContent += `
+    <url>
+        <loc>${baseUrl}/${lang}${page.path}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+                });
+            }
         });
         
         // 添加隐私政策页面
@@ -770,9 +824,12 @@ ${languageCards}
 </urlset>`;
         
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
+        
+        const totalUrls = 3 + (enabledLanguages.length * (pages.length + blogPages.length)) + zhBlogPages.length;
         console.log('✅ Multilingual sitemap generated (enabled languages only)');
-        console.log(`   📄 Total URLs: ${enabledLanguages.length * pages.length + 3}`);
+        console.log(`   📄 Total URLs: ${totalUrls}`);
         console.log(`   🌍 Languages included: ${enabledLanguages.join(', ')}`);
+        console.log(`   📝 Blog pages included: ${blogPages.length} common + ${zhBlogPages.length} Chinese-specific`);
     }
     
     // 生成构建报告
