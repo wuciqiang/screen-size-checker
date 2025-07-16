@@ -46,8 +46,12 @@ async function initializeApp() {
         console.log('Step 4: Setting up event listeners...');
         setupEventListeners();
         
-        // Step 5: Initialize theme system
-        console.log('Step 5: Initializing theme...');
+        // Step 5: Initialize navigation highlighting
+        console.log('Step 5: Setting up navigation highlighting...');
+        setupNavigationHighlighting();
+        
+        // Step 6: Initialize theme system
+        console.log('Step 6: Initializing theme...');
         initializeTheme();
         
         // Step 6: Start device detection
@@ -256,6 +260,50 @@ function setupEventListeners() {
                 console.error('Error updating UI after language change:', error);
             }
         });
+    }
+}
+
+/**
+ * Setup navigation highlighting based on current page
+ */
+function setupNavigationHighlighting() {
+    try {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+        
+        console.log('Setting up navigation highlighting for path:', currentPath);
+        
+        // First remove all active classes
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Determine which section we're in
+        if (currentPath.includes('/blog/')) {
+            // We're in the blog section, find and highlight the blog link
+            navLinks.forEach(link => {
+                const linkText = link.textContent.trim();
+                const linkDataI18n = link.getAttribute('data-i18n');
+                
+                // Check if this is the blog link by text content or data-i18n attribute
+                if (linkDataI18n === 'nav_blog' || linkText.includes('博客') || linkText.includes('Blog')) {
+                    link.classList.add('active');
+                    console.log('Added active class to blog link');
+                }
+            });
+        } else {
+            // We're not in the blog section, find and highlight the home link
+            navLinks.forEach(link => {
+                const linkDataI18n = link.getAttribute('data-i18n');
+                const linkText = link.textContent.trim();
+                
+                // Check if this is the home link by data-i18n attribute or text content
+                if (linkDataI18n === 'nav_home' || linkText.includes('首页') || linkText.includes('Home')) {
+                    link.classList.add('active');
+                    console.log('Added active class to home link');
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Error setting up navigation highlighting:', error);
     }
 }
 

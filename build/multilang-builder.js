@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const ComponentBuilder = require('./component-builder');
+const BlogBuilder = require('./blog-builder');
 
 class MultiLangBuilder extends ComponentBuilder {
     constructor() {
@@ -123,6 +124,11 @@ class MultiLangBuilder extends ComponentBuilder {
             
             // 构建该语言的所有页面
             for (const page of config.pages) {
+                // 检查页面是否限制了特定语言
+                if (page.enabled_languages && !page.enabled_languages.includes(lang)) {
+                    continue; // 跳过不适用于当前语言的页面
+                }
+                
                 totalPages++;
                 
                 try {
@@ -165,10 +171,11 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.locales_path = '../locales';
                         pageData.js_path = '../js';
                     } else {
-                        // 子页面 (devices/xxx.html) - 在语言目录的子目录下
-                        pageData.css_path = '../../css';
-                        pageData.locales_path = '../../locales';  
-                        pageData.js_path = '../../js';
+                        // 子页面 - 根据实际深度计算路径
+                        const pathPrefix = '../'.repeat(depth + 1);
+                        pageData.css_path = pathPrefix + 'css';
+                        pageData.locales_path = pathPrefix + 'locales';  
+                        pageData.js_path = pathPrefix + 'js';
                     }
                     
                     // 更新相对链接路径
@@ -191,10 +198,13 @@ class MultiLangBuilder extends ComponentBuilder {
                     }
                     
                     // 更新语言相关的URL和路径
-                    pageData.canonical_url = pageData.canonical_url.replace(
-                        'https://screensizechecker.com/',
-                        `https://screensizechecker.com/${lang}/`
-                    );
+                    // 检查URL是否已经包含语言路径，避免重复添加
+                    if (!pageData.canonical_url.includes(`/${lang}/`)) {
+                        pageData.canonical_url = pageData.canonical_url.replace(
+                            'https://screensizechecker.com/',
+                            `https://screensizechecker.com/${lang}/`
+                        );
+                    }
                     
                     // 移除.html后缀以匹配Cloudflare Pages的URL格式
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
@@ -846,6 +856,25 @@ function processTemplate(templatePath, config, lang) {
 if (require.main === module) {
     const builder = new MultiLangBuilder();
     
+    // 首先运行博客构建器
+    console.log('🚀 Starting integrated build process...');
+    console.log('\n📝 Step 1: Building blog system...');
+    
+    try {
+        const blogBuilder = new BlogBuilder();
+        blogBuilder.build();
+        console.log('✅ Blog system build completed successfully!');
+        
+        // 重新加载组件，包括新生成的博客组件
+        console.log('🔄 Reloading components after blog build...');
+        builder.loadComponents();
+        console.log('✅ Components reloaded successfully!');
+    } catch (error) {
+        console.error('❌ Blog build failed:', error.message);
+        console.log('⚠️  Continuing with main build process...');
+    }
+    
+    console.log('\n🌐 Step 2: Building multilingual pages...');
     if (builder.validateComponents()) {
         builder.buildMultiLangPages();
     }

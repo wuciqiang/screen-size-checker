@@ -1,0 +1,146 @@
+<!-- Blog Post: Device Pixel Ratio Explained -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">Device Pixel Ratio Explained</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">October 20, 2023</span>
+            <span class="blog-post-author">Screen Size Checker Team</span>
+            <span class="blog-post-reading-time">4 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h1>Device Pixel Ratio Explained</h1>
+<p>Device Pixel Ratio (DPR) is a critical concept in modern web development that directly impacts the visual quality and performance of your websites across different devices. This article explains what DPR is, why it matters, and how to account for it in your projects.</p>
+<h2>What is Device Pixel Ratio?</h2>
+<p>Device Pixel Ratio (DPR) is the ratio between physical pixels (the actual dots on a screen) and CSS pixels (the logical pixels used in web development). It&#39;s calculated as:</p>
+<pre><code>Device Pixel Ratio = Physical Pixels / CSS Pixels
+</code></pre>
+<p>For example, if a device has a DPR of 2, it means there are 2×2 (or 4) physical pixels for every CSS pixel.</p>
+<h2>The Evolution of High-DPR Displays</h2>
+<p>High-density displays began gaining popularity with Apple&#39;s introduction of &quot;Retina&quot; displays in 2010. Since then, high-DPR screens have become standard across most devices:</p>
+<table>
+<thead>
+<tr>
+<th>Device Type</th>
+<th>Common DPR Range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Budget Phones</td>
+<td>1.5 - 2.0</td>
+</tr>
+<tr>
+<td>Flagship Phones</td>
+<td>2.5 - 4.0</td>
+</tr>
+<tr>
+<td>Tablets</td>
+<td>2.0 - 3.0</td>
+</tr>
+<tr>
+<td>Laptops/Desktops</td>
+<td>1.0 - 2.0</td>
+</tr>
+<tr>
+<td>4K Monitors</td>
+<td>1.5 - 2.0</td>
+</tr>
+</tbody></table>
+<h2>Why DPR Matters for Web Developers</h2>
+<p>Understanding DPR is essential for several reasons:</p>
+<ol>
+<li><strong>Image Quality</strong>: Low-resolution images appear blurry on high-DPR displays</li>
+<li><strong>Performance</strong>: Serving unnecessarily high-resolution images wastes bandwidth</li>
+<li><strong>Font Rendering</strong>: Text appears sharper on high-DPR screens</li>
+<li><strong>CSS Precision</strong>: Sub-pixel layouts work differently across DPR values</li>
+<li><strong>Canvas and SVG</strong>: These elements render differently based on DPR</li>
+</ol>
+<h2>How to Detect Device Pixel Ratio</h2>
+<p>You can detect a device&#39;s DPR using JavaScript:</p>
+<pre><code class="language-javascript">const dpr = window.devicePixelRatio;
+console.log(`Your device pixel ratio is: ${dpr}`);
+</code></pre>
+<p>Or check it directly using our <a href="/en/index.html">Screen Size Checker</a> tool, which displays DPR along with other device information.</p>
+<h2>Optimizing Images for Different DPRs</h2>
+<p>To serve the appropriate image for each device&#39;s DPR, you can use these techniques:</p>
+<h3>1. CSS Resolution Media Queries</h3>
+<pre><code class="language-css">/* Default image for standard displays */
+.my-image {
+  background-image: url(&#39;image.png&#39;);
+}
+
+/* High-res image for high-DPR displays */
+@media (-webkit-min-device-pixel-ratio: 2), 
+       (min-resolution: 192dpi) { 
+  .my-image {
+    background-image: url(&#39;image@2x.png&#39;);
+  }
+}
+</code></pre>
+<h3>2. HTML srcset Attribute</h3>
+<pre><code class="language-html">&lt;img src=&quot;image.png&quot;
+     srcset=&quot;image.png 1x, 
+             image@2x.png 2x, 
+             image@3x.png 3x&quot;
+     alt=&quot;Responsive image example&quot;&gt;
+</code></pre>
+<h3>3. Picture Element</h3>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source media=&quot;(min-resolution: 3dppx)&quot; srcset=&quot;image@3x.png&quot;&gt;
+  &lt;source media=&quot;(min-resolution: 2dppx)&quot; srcset=&quot;image@2x.png&quot;&gt;
+  &lt;img src=&quot;image.png&quot; alt=&quot;Responsive image example&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<h2>Canvas and DPR Considerations</h2>
+<p>When working with HTML Canvas elements, you need to adjust for DPR to ensure sharp rendering:</p>
+<pre><code class="language-javascript">const canvas = document.getElementById(&#39;myCanvas&#39;);
+const ctx = canvas.getContext(&#39;2d&#39;);
+const dpr = window.devicePixelRatio || 1;
+
+// Adjust canvas dimensions
+canvas.width = canvas.clientWidth * dpr;
+canvas.height = canvas.clientHeight * dpr;
+
+// Scale the context
+ctx.scale(dpr, dpr);
+
+// Now draw on the canvas as usual
+</code></pre>
+<h2>Common Pitfalls and Solutions</h2>
+<ol>
+<li><strong>Fuzzy Text</strong>: Ensure you&#39;re not scaling text elements with transforms on high-DPR devices</li>
+<li><strong>Blurry UI Elements</strong>: Use SVG where possible for interface elements</li>
+<li><strong>Performance Issues</strong>: Implement lazy loading for high-resolution images</li>
+<li><strong>Inconsistent Rendering</strong>: Test on various DPR screens during development</li>
+<li><strong>Bandwidth Concerns</strong>: Use responsive image techniques to serve appropriate file sizes</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Device Pixel Ratio significantly impacts how your website appears across different devices. By understanding DPR and implementing responsive techniques to account for it, you can ensure your websites look crisp and professional while maintaining good performance.</p>
+<p>Remember that optimizing for different DPRs isn&#39;t just about image quality—it&#39;s about finding the right balance between visual fidelity and performance for each user&#39;s device.</p>
+<p>For more information on how to build responsive websites that look great on all devices, check our other articles on <a href="/en/blog/viewport-basics.html">Viewport Basics</a> and explore our device-specific guides like <a href="/en/devices/iphone-viewport-sizes.html">iPhone Viewport Sizes</a> and <a href="/en/devices/android-viewport-sizes.html">Android Viewport Sizes</a>. </p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/dpr.html" class="tag-link">#dpr</a> <a href="tag/pixel-density.html" class="tag-link">#pixel-density</a> <a href="tag/retina-display.html" class="tag-link">#retina-display</a> <a href="tag/responsive-design.html" class="tag-link">#responsive-design</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/en/blog/device-pixel-ratio" data-title="Device Pixel Ratio Explained">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/en/blog/device-pixel-ratio" data-title="Device Pixel Ratio Explained">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/en/blog/device-pixel-ratio" data-title="Device Pixel Ratio Explained">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/en/blog/device-pixel-ratio">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="device-pixel-ratio" data-post-lang="en"></div>
+        </div>
+    </div>
+</article>

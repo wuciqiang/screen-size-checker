@@ -1,0 +1,146 @@
+<!-- Blog Post: 设备像素比详解 -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">设备像素比详解</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">2023年10月20日</span>
+            <span class="blog-post-author">Screen Size Checker团队</span>
+            <span class="blog-post-reading-time">2 分钟阅读</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h1>设备像素比详解</h1>
+<p>设备像素比（Device Pixel Ratio，简称DPR）是现代网页开发中的一个关键概念，它直接影响着您的网站在不同设备上的视觉质量和性能表现。本文将解释什么是设备像素比、为什么它很重要，以及如何在项目中考虑这一因素。</p>
+<h2>什么是设备像素比？</h2>
+<p>设备像素比是物理像素（屏幕上实际的点）与CSS像素（网页开发中使用的逻辑像素）之间的比率。计算公式为：</p>
+<pre><code>设备像素比 = 物理像素 / CSS像素
+</code></pre>
+<p>例如，如果一个设备的DPR为2，这意味着每个CSS像素对应2×2（即4个）物理像素。</p>
+<h2>高DPR显示器的演变</h2>
+<p>高密度显示器始于2010年苹果推出的&quot;视网膜&quot;(Retina)显示屏。从那时起，高DPR屏幕已成为大多数设备的标准配置：</p>
+<table>
+<thead>
+<tr>
+<th>设备类型</th>
+<th>常见DPR范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>经济型手机</td>
+<td>1.5 - 2.0</td>
+</tr>
+<tr>
+<td>旗舰手机</td>
+<td>2.5 - 4.0</td>
+</tr>
+<tr>
+<td>平板电脑</td>
+<td>2.0 - 3.0</td>
+</tr>
+<tr>
+<td>笔记本/台式电脑</td>
+<td>1.0 - 2.0</td>
+</tr>
+<tr>
+<td>4K显示器</td>
+<td>1.5 - 2.0</td>
+</tr>
+</tbody></table>
+<h2>为什么DPR对网页开发者很重要</h2>
+<p>理解DPR很重要，原因如下：</p>
+<ol>
+<li><strong>图像质量</strong>：低分辨率图像在高DPR显示器上会显得模糊</li>
+<li><strong>性能</strong>：提供不必要的高分辨率图像会浪费带宽</li>
+<li><strong>字体渲染</strong>：文本在高DPR屏幕上显示更清晰</li>
+<li><strong>CSS精度</strong>：子像素布局在不同DPR值下工作方式不同</li>
+<li><strong>Canvas和SVG</strong>：这些元素基于DPR的渲染方式不同</li>
+</ol>
+<h2>如何检测设备像素比</h2>
+<p>您可以使用JavaScript检测设备的DPR：</p>
+<pre><code class="language-javascript">const dpr = window.devicePixelRatio;
+console.log(`您的设备像素比是：${dpr}`);
+</code></pre>
+<p>或者直接使用我们的<a href="/zh/index.html">屏幕尺寸检查器</a>工具，它会显示DPR和其他设备信息。</p>
+<h2>为不同DPR优化图像</h2>
+<p>要为每个设备的DPR提供适当的图像，您可以使用以下技术：</p>
+<h3>1. CSS分辨率媒体查询</h3>
+<pre><code class="language-css">/* 标准显示器的默认图像 */
+.my-image {
+  background-image: url(&#39;image.png&#39;);
+}
+
+/* 高DPR显示器的高分辨率图像 */
+@media (-webkit-min-device-pixel-ratio: 2), 
+       (min-resolution: 192dpi) { 
+  .my-image {
+    background-image: url(&#39;image@2x.png&#39;);
+  }
+}
+</code></pre>
+<h3>2. HTML srcset属性</h3>
+<pre><code class="language-html">&lt;img src=&quot;image.png&quot;
+     srcset=&quot;image.png 1x, 
+             image@2x.png 2x, 
+             image@3x.png 3x&quot;
+     alt=&quot;响应式图像示例&quot;&gt;
+</code></pre>
+<h3>3. Picture元素</h3>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source media=&quot;(min-resolution: 3dppx)&quot; srcset=&quot;image@3x.png&quot;&gt;
+  &lt;source media=&quot;(min-resolution: 2dppx)&quot; srcset=&quot;image@2x.png&quot;&gt;
+  &lt;img src=&quot;image.png&quot; alt=&quot;响应式图像示例&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<h2>Canvas和DPR考虑因素</h2>
+<p>使用HTML Canvas元素时，需要调整DPR以确保清晰渲染：</p>
+<pre><code class="language-javascript">const canvas = document.getElementById(&#39;myCanvas&#39;);
+const ctx = canvas.getContext(&#39;2d&#39;);
+const dpr = window.devicePixelRatio || 1;
+
+// 调整canvas尺寸
+canvas.width = canvas.clientWidth * dpr;
+canvas.height = canvas.clientHeight * dpr;
+
+// 缩放上下文
+ctx.scale(dpr, dpr);
+
+// 现在可以正常绘制canvas
+</code></pre>
+<h2>常见问题和解决方案</h2>
+<ol>
+<li><strong>模糊文本</strong>：确保不在高DPR设备上使用变换缩放文本元素</li>
+<li><strong>模糊UI元素</strong>：尽可能为界面元素使用SVG</li>
+<li><strong>性能问题</strong>：为高分辨率图像实现懒加载</li>
+<li><strong>渲染不一致</strong>：在开发过程中在各种DPR屏幕上测试</li>
+<li><strong>带宽问题</strong>：使用响应式图像技术提供适当的文件大小</li>
+</ol>
+<h2>结论</h2>
+<p>设备像素比显著影响您的网站在不同设备上的外观。通过了解DPR并实施考虑到这一因素的响应式技术，您可以确保您的网站看起来清晰专业，同时保持良好的性能。</p>
+<p>请记住，针对不同DPR进行优化不仅仅是关于图像质量——还需要为每个用户的设备找到视觉保真度和性能之间的平衡。</p>
+<p>有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于<a href="/zh/blog/viewport-basics.html">视口基础</a>的其他文章，以及我们的设备专用指南，如<a href="/zh/devices/iphone-viewport-sizes.html">iPhone视口尺寸</a>和<a href="/zh/devices/android-viewport-sizes.html">Android视口尺寸</a>。 </p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/dpr.html" class="tag-link">#dpr</a> <a href="tag/像素密度.html" class="tag-link">#像素密度</a> <a href="tag/视网膜显示.html" class="tag-link">#视网膜显示</a> <a href="tag/响应式设计.html" class="tag-link">#响应式设计</a>
+        </div>
+        <div class="blog-post-share">
+            <span>分享: </span>
+            <button class="share-btn share-twitter" data-url="/zh/blog/device-pixel-ratio" data-title="设备像素比详解">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/zh/blog/device-pixel-ratio" data-title="设备像素比详解">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/zh/blog/device-pixel-ratio" data-title="设备像素比详解">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/zh/blog/device-pixel-ratio">复制链接</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>相关文章</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="device-pixel-ratio" data-post-lang="zh"></div>
+        </div>
+    </div>
+</article>

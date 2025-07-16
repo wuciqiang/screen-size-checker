@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    {{component:head}}
+    <!-- 博客页面特定CSS -->
+    <link rel="stylesheet" href="{{css_path}}/blog.css">
+    <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-progress.css">
+</head>
+<body data-theme="light">
+    <!-- 头部导航 -->
+    {{component:header}}
+    
+    <!-- 面包屑导航 -->
+    {{#if show_breadcrumb}}
+    {{component:breadcrumb}}
+    {{/if}}
+    
+    <main class="main-content blog-main">
+        <div class="blog-container">
+            <!-- 文章内容区域 -->
+            <div class="blog-content-area">
+                {{page_content}}
+                
+                <!-- 文章导航 -->
+                <div class="post-navigation">
+                    <div class="prev-post" id="prev-post">
+                        <!-- 上一篇文章链接将由JS动态加载 -->
+                    </div>
+                    <div class="next-post" id="next-post">
+                        <!-- 下一篇文章链接将由JS动态加载 -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 目录和侧边栏 -->
+            <div class="blog-sidebar-area">
+                <!-- 博客侧边栏 -->
+                {{component:blog_sidebar}}
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    {{component:footer}}
+    
+    <!-- 语言选择模态框 -->
+    {{component:language-modal}}
+    
+    <!-- 通知组件 -->
+    {{component:toast}}
+    
+    <!-- 博客特定JavaScript -->
+    <script src="{{js_path}}/highlight.min.js"></script>
+    <script src="{{js_path}}/blog.js" type="module"></script>
+    <script src="{{js_path}}/blog-progress.js" type="module"></script>
+    <script src="{{js_path}}/app.js" type="module"></script>
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+        {{structured_data}}
+    </script>
+</body>
+</html> 

@@ -25,7 +25,6 @@
   ],
   "author": "Screen Size Checker",
   "license": "MIT",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/your-username/screen-size-checker"
@@ -42,5 +41,10 @@
     "locales/**/*",
     "css/**/*",
     "js/**/*"
-  ]
-} 
+  ],
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "marked": "^16.0.0"
+  }
+}

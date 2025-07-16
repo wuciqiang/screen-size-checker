@@ -36,52 +36,123 @@ class ComponentBuilder {
         
         let html = fs.readFileSync(templatePath, 'utf8');
         
-        // 替换组件占位符（支持连字符）
-        html = html.replace(/\{\{component:([\w-]+)\}\}/g, (match, componentName) => {
-            // 检查是否是动态组件名（通过pageData中的变量间接引用）
-            let actualComponentName = componentName;
-            if (pageData[componentName]) {
-                actualComponentName = pageData[componentName];
-            }
-            
-            const component = this.components.get(actualComponentName);
-            if (!component) {
-                console.warn(`Component "${actualComponentName}" not found`);
-                return match;
-            }
-            return this.processVariables(component, pageData);
-        });
-        
-        // 特殊处理page_content - 如果page_content是一个组件名称，则先替换为组件内容
-        if (pageData.page_content && typeof pageData.page_content === 'string') {
-            const component = this.components.get(pageData.page_content);
-            if (component) {
-                html = html.replace(/\{\{page_content\}\}/g, this.processVariables(component, pageData));
-            } else {
-                console.warn(`Component "${pageData.page_content}" not found`);
-            }
-        }
-        
-        // 替换页面变量
-        html = this.processVariables(html, pageData);
+        // 统一的组件处理方法
+        html = this.processAllComponents(html, pageData);
         
         return html;
     }
     
-    // 处理变量和条件表达式
-    processVariables(content, data) {
-        // 处理嵌套组件引用 {{component:name}}
-        let result = content.replace(/\{\{component:(\w+[-\w]*)\}\}/g, (match, componentName) => {
-            const componentPath = path.join(this.rootPath, 'components', `${componentName}.html`);
-            if (fs.existsSync(componentPath)) {
-                let componentContent = fs.readFileSync(componentPath, 'utf8');
-                // 递归处理嵌套组件中的变量
-                return this.processVariables(componentContent, data);
-            } else {
-                console.warn(`⚠️ Component not found: ${componentName}.html`);
-                return `<!-- Component not found: ${componentName}.html -->`;
+    // 统一处理所有类型的组件引用
+    processAllComponents(html, pageData, depth = 0) {
+        // 防止无限递归
+        if (depth > 5) {
+            console.warn(`Maximum recursion depth reached at depth ${depth}`);
+            return html;
+        }
+        
+        let result = html;
+        let hasChanges = true;
+        let iterations = 0;
+        
+        // 循环处理直到没有更多变化，确保所有嵌套都被处理
+        while (hasChanges && iterations < 15) {
+            const originalResult = result;
+            iterations++;
+            
+            // 1. 首先处理最复杂的嵌套组件引用：{{component:{{variable}}}}
+            result = result.replace(/\{\{component:\{\{(\w+)\}\}\}\}/g, (match, variableName) => {
+                if (pageData[variableName]) {
+                    const componentName = pageData[variableName];
+                    const component = this.components.get(componentName);
+                    if (component) {
+                        return this.processAllComponents(component, pageData, depth + 1);
+                    } else {
+                        console.warn(`Component "${componentName}" not found (nested reference)`);
+                        return `<!-- Component not found: ${componentName} -->`;
+                    }
+                }
+                console.warn(`Variable "${variableName}" not found in pageData for nested component reference`);
+                return `<!-- Variable not found: ${variableName} -->`;
+            });
+            
+            // 2. 处理包含变量的组件引用：{{component:name-{{variable}}-suffix}}
+            // 使用更精确的正则表达式来匹配这种模式
+            result = result.replace(/\{\{component:([^{}]*\{\{[^{}]+\}\}[^{}]*)\}\}/g, (match, componentNameWithVar) => {
+                // 先替换组件名中的变量
+                let actualComponentName = componentNameWithVar;
+                
+                // 替换所有变量占位符
+                actualComponentName = actualComponentName.replace(/\{\{(\w+)\}\}/g, (varMatch, varName) => {
+                    return pageData[varName] || varMatch;
+                });
+                
+                // 如果还有未替换的变量，跳过这次处理
+                if (actualComponentName.includes('{{')) {
+                    return match;
+                }
+                
+                const component = this.components.get(actualComponentName);
+                if (component) {
+                    return this.processAllComponents(component, pageData, depth + 1);
+                } else {
+                    console.warn(`Component "${actualComponentName}" not found (variable in name)`);
+                    return `<!-- Component not found: ${actualComponentName} -->`;
+                }
+            });
+            
+            // 3. 处理简单的组件引用：{{component:name}}
+            result = result.replace(/\{\{component:([\w-]+)\}\}/g, (match, componentName) => {
+                // 检查是否是变量引用
+                if (pageData[componentName]) {
+                    const actualComponentName = pageData[componentName];
+                    const component = this.components.get(actualComponentName);
+                    if (component) {
+                        return this.processAllComponents(component, pageData, depth + 1);
+                    }
+                }
+                
+                // 直接组件引用
+                const component = this.components.get(componentName);
+                if (component) {
+                    return this.processAllComponents(component, pageData, depth + 1);
+                } else {
+                    console.warn(`Component "${componentName}" not found (simple reference)`);
+                    return `<!-- Component not found: ${componentName} -->`;
+                }
+            });
+            
+            // 4. 处理页面变量
+            result = this.processVariables(result, pageData, depth);
+            
+            // 检查是否还有变化
+            hasChanges = (result !== originalResult);
+            
+            // 如果还有未处理的组件引用，记录警告
+            if (!hasChanges && result.includes('{{component:')) {
+                console.warn(`Unprocessed component references found after ${iterations} iterations`);
+                const matches = result.match(/\{\{component:[^}]+\}\}/g);
+                if (matches) {
+                    console.warn(`Unprocessed components: ${matches.join(', ')}`);
+                }
+                break;
             }
-        });
+        }
+        
+        if (iterations >= 15) {
+            console.warn(`Maximum iterations (15) reached in component processing`);
+        }
+        
+        return result;
+    }
+    
+    // 处理变量和条件表达式
+    processVariables(content, data, depth = 0) {
+        // 防止无限递归
+        if (depth > 3) {
+            return content;
+        }
+        
+        let result = content;
         
         // 处理简单的变量替换 {{variable}}
         result = result.replace(/\{\{(\w+)\}\}/g, (match, key) => {
@@ -89,7 +160,16 @@ class ComponentBuilder {
                 if (typeof data[key] === 'object') {
                     return JSON.stringify(data[key], null, 2);
                 }
-                return data[key];
+                
+                // 检查变量值是否是组件名
+                const variableValue = data[key];
+                if (typeof variableValue === 'string' && this.components.has(variableValue)) {
+                    // 如果是组件名，返回组件内容并递归处理
+                    const component = this.components.get(variableValue);
+                    return this.processVariables(component, data, depth + 1);
+                }
+                
+                return variableValue;
             }
             return match;
         });

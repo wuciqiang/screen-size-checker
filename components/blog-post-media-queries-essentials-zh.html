@@ -1,0 +1,305 @@
+<!-- Blog Post: 响应式设计中的媒体查询基础 -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">响应式设计中的媒体查询基础</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">2023年10月25日</span>
+            <span class="blog-post-author">Screen Size Checker团队</span>
+            <span class="blog-post-reading-time">3 分钟阅读</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h1>响应式设计中的媒体查询基础</h1>
+<p>媒体查询是响应式网页设计的核心，它允许网站根据设备特性调整布局和样式。本指南涵盖了实现有效媒体查询所需了解的一切知识。</p>
+<h2>什么是媒体查询？</h2>
+<p>媒体查询是CSS技术，允许您根据设备特性（如屏幕尺寸、分辨率或方向）应用不同的样式。它们使用CSS中的<code>@media</code>规则定义：</p>
+<pre><code class="language-css">@media screen and (max-width: 768px) {
+  /* 当视口宽度为768px或更小时应用的样式 */
+  .container {
+    flex-direction: column;
+  }
+}
+</code></pre>
+<p>这个简单的概念支持了现代网站的响应式行为，使其能够在各种设备上提供优化的体验。</p>
+<h2>媒体查询的结构</h2>
+<p>一个典型的媒体查询包括：</p>
+<ol>
+<li><strong>媒体类型</strong>：指定设备类型（如<code>screen</code>、<code>print</code>、<code>speech</code>）</li>
+<li><strong>逻辑运算符</strong>：<code>and</code>、<code>not</code>、<code>only</code>和逗号用于组合多个查询</li>
+<li><strong>媒体特性</strong>：条件如<code>width</code>、<code>height</code>、<code>orientation</code>等</li>
+<li><strong>CSS规则</strong>：满足条件时要应用的样式</li>
+</ol>
+<pre><code class="language-css">@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* 平板电脑和小型笔记本电脑的样式 */
+}
+</code></pre>
+<h2>常见媒体特性</h2>
+<p>以下是最常用的媒体特性：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>width</code></td>
+<td>视口宽度</td>
+<td><code>(min-width: 768px)</code></td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>视口高度</td>
+<td><code>(max-height: 1024px)</code></td>
+</tr>
+<tr>
+<td><code>aspect-ratio</code></td>
+<td>宽高比</td>
+<td><code>(aspect-ratio: 16/9)</code></td>
+</tr>
+<tr>
+<td><code>orientation</code></td>
+<td>纵向或横向</td>
+<td><code>(orientation: landscape)</code></td>
+</tr>
+<tr>
+<td><code>resolution</code></td>
+<td>像素密度</td>
+<td><code>(min-resolution: 2dppx)</code></td>
+</tr>
+<tr>
+<td><code>hover</code></td>
+<td>悬停能力</td>
+<td><code>(hover: hover)</code></td>
+</tr>
+<tr>
+<td><code>prefers-color-scheme</code></td>
+<td>用户颜色偏好</td>
+<td><code>(prefers-color-scheme: dark)</code></td>
+</tr>
+</tbody></table>
+<h2>断点策略</h2>
+<p>断点是设计适应的视口宽度。选择断点有几种方法：</p>
+<h3>1. 基于设备的断点</h3>
+<p>基于常见设备类别：</p>
+<ul>
+<li>手机：360px - 428px</li>
+<li>平板电脑：768px - 1024px</li>
+<li>笔记本电脑：1024px - 1440px</li>
+<li>台式机：1440px+</li>
+</ul>
+<pre><code class="language-css">/* 手机样式（默认） */
+.container { width: 100%; }
+
+/* 平板电脑样式 */
+@media (min-width: 768px) {
+  .container { width: 750px; }
+}
+
+/* 笔记本电脑样式 */
+@media (min-width: 1024px) {
+  .container { width: 980px; }
+}
+
+/* 台式机样式 */
+@media (min-width: 1440px) {
+  .container { width: 1200px; }
+}
+</code></pre>
+<h3>2. 基于内容的断点</h3>
+<p>一种更灵活的方法，根据内容开始看起来破碎的时机进行调整：</p>
+<pre><code class="language-css">.article-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* 当有足够空间显示2列时 */
+@media (min-width: 600px) {
+  .article-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 当有足够空间显示3列时 */
+@media (min-width: 900px) {
+  .article-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</code></pre>
+<h2>移动优先 vs. 桌面优先</h2>
+<p>实施媒体查询有两种主要方法：</p>
+<h3>移动优先方法</h3>
+<p>从小屏幕的样式开始，使用<code>min-width</code>查询为更大的屏幕添加复杂性：</p>
+<pre><code class="language-css">/* 移动设备的基础样式 */
+.navigation {
+  flex-direction: column;
+}
+
+/* 为更大的屏幕增强 */
+@media (min-width: 768px) {
+  .navigation {
+    flex-direction: row;
+  }
+}
+</code></pre>
+<h3>桌面优先方法</h3>
+<p>从大屏幕的样式开始，使用<code>max-width</code>查询为小屏幕简化：</p>
+<pre><code class="language-css">/* 桌面的基础样式 */
+.navigation {
+  flex-direction: row;
+}
+
+/* 为小屏幕简化 */
+@media (max-width: 767px) {
+  .navigation {
+    flex-direction: column;
+  }
+}
+</code></pre>
+<p>大多数现代开发更倾向于移动优先方法，因为它采用渐进增强的理念，通常代码更清晰。</p>
+<h2>高级媒体查询技术</h2>
+<h3>1. 范围查询</h3>
+<p>针对特定范围的视口尺寸：</p>
+<pre><code class="language-css">@media (min-width: 768px) and (max-width: 1023px) {
+  /* 仅适用于平板电脑的样式 */
+}
+</code></pre>
+<h3>2. 方向查询</h3>
+<p>根据设备方向应用样式：</p>
+<pre><code class="language-css">@media (orientation: landscape) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (orientation: portrait) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</code></pre>
+<h3>3. 与<code>@supports</code>结合的功能查询</h3>
+<p>将媒体查询与功能检测结合：</p>
+<pre><code class="language-css">@media (min-width: 768px) {
+  @supports (display: grid) {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+}
+</code></pre>
+<h3>4. 容器查询（新特性！）</h3>
+<p>响应式设计的未来，允许基于容器大小而非视口应用样式：</p>
+<pre><code class="language-css">@container (min-width: 400px) {
+  .card {
+    display: flex;
+  }
+}
+</code></pre>
+<p>注意：容器查询仍在各浏览器中逐步实现，使用前请检查兼容性。</p>
+<h2>常见的媒体查询用例</h2>
+<h3>导航菜单</h3>
+<pre><code class="language-css">/* 移动设备：汉堡菜单 */
+.nav-menu {
+  display: none;
+}
+
+.hamburger-icon {
+  display: block;
+}
+
+/* 桌面：展开菜单 */
+@media (min-width: 1024px) {
+  .nav-menu {
+    display: flex;
+  }
+  
+  .hamburger-icon {
+    display: none;
+  }
+}
+</code></pre>
+<h3>网格布局</h3>
+<pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</code></pre>
+<h3>排版</h3>
+<pre><code class="language-css">body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+</code></pre>
+<h2>测试媒体查询</h2>
+<p>正确测试媒体查询对确保响应式设计按预期工作至关重要：</p>
+<ol>
+<li><strong>浏览器开发者工具</strong>：使用响应式模式调整视口大小</li>
+<li><strong>真实设备</strong>：在实际手机、平板电脑和电脑上测试</li>
+<li><strong>屏幕尺寸检查工具</strong>：使用我们的<a href="/zh/index.html">屏幕尺寸检查器</a>验证视口尺寸并测试设计响应方式</li>
+</ol>
+<h2>结论</h2>
+<p>媒体查询是创建现代响应式网站的重要工具。通过了解如何有效地构建和实现它们，您可以确保您的网站在所有设备和屏幕尺寸上提供最佳体验。</p>
+<p>请记住，响应式设计不仅仅是让元素适应不同的屏幕——它是关于创建一致的用户体验，无论用户如何访问您的内容。</p>
+<p>有关相关主题的更多信息，请查看我们关于<a href="/zh/blog/viewport-basics.html">视口基础</a>和<a href="/zh/blog/device-pixel-ratio.html">设备像素比</a>的文章。 </p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/媒体查询.html" class="tag-link">#媒体查询</a> <a href="tag/响应式设计.html" class="tag-link">#响应式设计</a> <a href="tag/css.html" class="tag-link">#css</a> <a href="tag/断点.html" class="tag-link">#断点</a>
+        </div>
+        <div class="blog-post-share">
+            <span>分享: </span>
+            <button class="share-btn share-twitter" data-url="/zh/blog/media-queries-essentials" data-title="响应式设计中的媒体查询基础">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/zh/blog/media-queries-essentials" data-title="响应式设计中的媒体查询基础">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/zh/blog/media-queries-essentials" data-title="响应式设计中的媒体查询基础">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/zh/blog/media-queries-essentials">复制链接</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>相关文章</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="media-queries-essentials" data-post-lang="zh"></div>
+        </div>
+    </div>
+</article>

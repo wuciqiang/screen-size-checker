@@ -1,0 +1,126 @@
+/**
+ * 博客阅读进度指示器和文章目录样式
+ */
+
+/* 阅读进度条容器 */
+.reading-progress-container {
+  position: fixed;
+  top: 64px; /* 放在导航栏下方 */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 1000;
+  background-color: rgba(230, 230, 230, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 阅读进度条 */
+.reading-progress-bar {
+  height: 100%;
+  background-color: var(--primary-color, #2196f3);
+  width: 0;
+  transition: width 0.1s ease;
+}
+
+/* 接近完成状态 */
+.reading-progress-bar.almost-complete {
+  background-color: var(--success-color, #4caf50);
+}
+
+/* 文章目录容器 */
+.table-of-contents {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem;
+  background-color: rgba(240, 240, 240, 0.6);
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color, #2196f3);
+}
+
+/* 目录标题 */
+.table-of-contents h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--text-primary, #333);
+}
+
+/* 目录列表 */
+.table-of-contents ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style-type: none;
+}
+
+/* 目录项 */
+.table-of-contents li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* H2 级目录项 */
+.table-of-contents .toc-h2 {
+  font-weight: 500;
+}
+
+/* H3 级目录项（缩进） */
+.table-of-contents .toc-h3 {
+  padding-left: 1rem;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+/* 目录链接 */
+.table-of-contents a {
+  color: var(--text-secondary, #555);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.table-of-contents a:hover {
+  color: var(--primary-color, #2196f3);
+  transform: translateX(3px);
+}
+
+/* 活跃的目录项 */
+.table-of-contents a.active {
+  color: var(--primary-color, #2196f3);
+  font-weight: 500;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .reading-progress-container {
+    background-color: rgba(50, 50, 50, 0.8);
+  }
+  
+  .table-of-contents {
+    background-color: rgba(40, 40, 40, 0.6);
+  }
+  
+  .table-of-contents h4 {
+    color: var(--text-primary-dark, #eee);
+  }
+  
+  .table-of-contents a {
+    color: var(--text-secondary-dark, #bbb);
+  }
+  
+  .table-of-contents a:hover,
+  .table-of-contents a.active {
+    color: var(--primary-color-dark, #64b5f6);
+  }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .table-of-contents {
+    margin: 1rem 0;
+    padding: 0.75rem;
+  }
+  
+  .reading-progress-container {
+    height: 3px;
+  }
+} 

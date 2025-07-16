@@ -1,0 +1,93 @@
+<!-- Blog Post: Understanding Viewport Basics -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">Understanding Viewport Basics</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">October 15, 2023</span>
+            <span class="blog-post-author">Screen Size Checker Team</span>
+            <span class="blog-post-reading-time">3 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h1>Understanding Viewport Basics</h1>
+<p>The viewport is one of the most fundamental concepts in web design and development, yet it&#39;s often misunderstood. This article explains what the viewport is, how it differs from screen resolution, and why it matters for creating responsive websites.</p>
+<h2>What is a Viewport?</h2>
+<p>The viewport is the visible area of a web page in your browser window. Think of it as the &quot;window&quot; through which you view a website. The size of this window can vary depending on the device you&#39;re using—from small smartphone screens to large desktop monitors.</p>
+<pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</code></pre>
+<p>This meta tag is essential for responsive web design, as it instructs the browser how to control the page&#39;s dimensions and scaling.</p>
+<h2>Viewport vs. Screen Resolution</h2>
+<p>Many developers confuse viewport size with screen resolution, but they&#39;re different concepts:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Definition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Viewport Size</td>
+<td>The visible area in CSS pixels</td>
+<td>375 × 812 on iPhone 13</td>
+</tr>
+<tr>
+<td>Screen Resolution</td>
+<td>Physical pixels on the device</td>
+<td>1170 × 2532 on iPhone 13</td>
+</tr>
+<tr>
+<td>Device Pixel Ratio (DPR)</td>
+<td>Physical pixels ÷ CSS pixels</td>
+<td>3.0 on iPhone 13</td>
+</tr>
+</tbody></table>
+<h2>Why Viewport Matters for Developers</h2>
+<p>Understanding the viewport is critical for several reasons:</p>
+<ol>
+<li><strong>Responsive Design</strong>: Different devices have different viewport sizes, requiring adaptable layouts.</li>
+<li><strong>Mobile Optimization</strong>: Mobile viewports require special consideration for touch interactions and readability.</li>
+<li><strong>Performance</strong>: Knowing the viewport helps optimize images and assets for different screen sizes.</li>
+<li><strong>User Experience</strong>: A well-implemented responsive design provides a consistent experience across devices.</li>
+</ol>
+<h2>How to Check Your Viewport Size</h2>
+<p>You can easily check your current viewport size using our <a href="/en/index.html">Screen Size Checker</a> tool. This will display your current viewport dimensions in CSS pixels, along with other useful information like device pixel ratio and screen resolution.</p>
+<h2>Common Viewport Sizes to Consider</h2>
+<p>When designing responsive websites, consider these common viewport widths:</p>
+<ul>
+<li><strong>Small Mobile</strong>: 320px - 375px</li>
+<li><strong>Large Mobile</strong>: 376px - 428px</li>
+<li><strong>Tablet</strong>: 768px - 1024px</li>
+<li><strong>Desktop</strong>: 1025px - 1440px</li>
+<li><strong>Large Desktop</strong>: 1441px+</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Understanding the viewport concept is fundamental to modern web development. By properly implementing responsive design techniques based on viewport size rather than device detection, you can create websites that look great and function well across all devices.</p>
+<p>Remember that viewport size can change when users rotate their devices or resize their browser windows, so your designs should be flexible enough to accommodate these changes.</p>
+<p>For more detailed information about specific device viewports, check our <a href="/en/devices/iphone-viewport-sizes.html">iPhone Viewport Sizes</a> and <a href="/en/devices/android-viewport-sizes.html">Android Viewport Sizes</a> guides. </p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/viewport.html" class="tag-link">#viewport</a> <a href="tag/responsive-design.html" class="tag-link">#responsive-design</a> <a href="tag/web-development.html" class="tag-link">#web-development</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/en/blog/viewport-basics" data-title="Understanding Viewport Basics">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/en/blog/viewport-basics" data-title="Understanding Viewport Basics">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/en/blog/viewport-basics" data-title="Understanding Viewport Basics">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/en/blog/viewport-basics">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="viewport-basics" data-post-lang="en"></div>
+        </div>
+    </div>
+</article>

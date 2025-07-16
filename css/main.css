@@ -22,6 +22,16 @@
     --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.12);
     --glow-color: rgba(0, 102, 204, 0.2);
     
+    /* Additional Colors for Blog */
+    --background-hover: #f0f4f8;
+    --background-code: #f8f9fa;
+    --background-code-inline: #e9ecef;
+    --border-light: #f0f0f0;
+    --success-color: #28a745;
+    --primary-color-light: rgba(0, 102, 204, 0.1);
+    --primary-dark: #004080;
+    --primary-darker: #003366;
+    
     /* Typography */
     --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-family-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
@@ -74,6 +84,16 @@ body {
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.4);
     --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.5);
     --glow-color: rgba(74, 158, 255, 0.3);
+    
+    /* Additional Colors for Blog - Dark Theme */
+    --background-hover: #374151;
+    --background-code: #1f2937;
+    --background-code-inline: #374151;
+    --border-light: #4b5563;
+    --success-color: #10b981;
+    --primary-color-light: rgba(74, 158, 255, 0.1);
+    --primary-dark: #60a5fa;
+    --primary-darker: #93c5fd;
 }
 
 [data-theme="dark"] .header {
@@ -144,6 +164,47 @@ body {
     opacity: 0.8;
 }
 
+/* 主导航菜单 */
+.main-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--spacing-lg);
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-sm);
+    display: block;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background-color: var(--background-hover);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--primary-color-light);
+    font-weight: 600;
+}
+
 .header-controls {
     display: flex;
     align-items: center;
@@ -205,6 +266,12 @@ body {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* 博客页面的主内容需要适当的顶部内边距，为JavaScript生成的目录留出空间 */
+.main-content.blog-main {
+    margin-top: 0;
+    padding-top: var(--spacing-xl); /* 保留一些顶部内边距 */
 }
 
 /* Part 2: Hero Section */
@@ -875,7 +942,7 @@ body {
 .breadcrumb {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px var(--spacing-lg) var(--spacing-lg); /* 稍微增加下边距，配合负margin：80px上边距 + 24px底部间距 */
+    padding: 100px var(--spacing-lg) var(--spacing-lg); /* 增加顶部内边距以避免与固定导航栏重叠 */
     color: var(--text-secondary);
     font-size: 0.875rem;
     /* 添加淡入动画效果 */

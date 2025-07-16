@@ -71,6 +71,19 @@
   "error_retry": "Retry",
   
   "test_title": "Functionality Test Page",
+  "nav_home": "Home",
+  "nav_blog": "Blog",
+  "blog": "Blog",
+  "blog_page_title": "Blog: Viewport & Screen Size Knowledge Base | Screen Size Checker",
+  "blog_page_description": "Explore our knowledge base on screen sizes, viewports, and responsive design. Articles and tutorials for web developers and designers.",
+  "blog_page_heading": "Blog",
+  "blog_page_intro": "Explore our knowledge base on screen sizes, viewports, and responsive design",
+  
+  "toc_title": "Table of Contents",
+  "related_articles": "Related Articles",
+  "reading_time": "min read",
+  "read_more": "Read More",
+  
   "language_test": "Language Switching Test",
   "theme_test": "Theme Switching Test",
   "console_test": "Console Test",
