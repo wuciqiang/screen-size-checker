@@ -889,58 +889,13 @@ ${languageCards}
         console.log('\n🔄 Generating optimized _redirects file...');
         
         const redirectsContent = `# Cloudflare Pages 重定向配置文件
-# 修复无限重定向问题 - 重写规则必须在重定向规则之前
+# 简化版本 - 避免重定向循环
 
-# ===== 内部重写规则（200状态码）- 必须放在最前面 =====
-# 语言首页
-/en /en/index.html 200
-/zh /zh/index.html 200
-
-# 设备页面 - 无后缀URL到实际HTML文件的内部重写
-/en/devices/iphone-viewport-sizes /en/devices/iphone-viewport-sizes.html 200
-/en/devices/ipad-viewport-sizes /en/devices/ipad-viewport-sizes.html 200
-/en/devices/android-viewport-sizes /en/devices/android-viewport-sizes.html 200
-/en/devices/compare /en/devices/compare.html 200
-/en/devices/standard-resolutions /en/devices/standard-resolutions.html 200
-/en/devices/responsive-tester /en/devices/responsive-tester.html 200
-
-/zh/devices/iphone-viewport-sizes /zh/devices/iphone-viewport-sizes.html 200
-/zh/devices/ipad-viewport-sizes /zh/devices/ipad-viewport-sizes.html 200
-/zh/devices/android-viewport-sizes /zh/devices/android-viewport-sizes.html 200
-/zh/devices/compare /zh/devices/compare.html 200
-/zh/devices/standard-resolutions /zh/devices/standard-resolutions.html 200
-/zh/devices/responsive-tester /zh/devices/responsive-tester.html 200
-
-# 博客页面
-/en/blog /en/blog/index.html 200
-/zh/blog /zh/blog/index.html 200
-/en/blog/device-pixel-ratio /en/blog/device-pixel-ratio.html 200
-/en/blog/media-queries-essentials /en/blog/media-queries-essentials.html 200
-/en/blog/viewport-basics /en/blog/viewport-basics.html 200
-/zh/blog/device-pixel-ratio /zh/blog/device-pixel-ratio.html 200
-/zh/blog/media-queries-essentials /zh/blog/media-queries-essentials.html 200
-/zh/blog/viewport-basics /zh/blog/viewport-basics.html 200
-
-# 博客分类和标签页面
-/en/blog/category/* /en/blog/category/:splat.html 200
-/zh/blog/category/* /zh/blog/category/:splat.html 200
-/en/blog/tag/* /en/blog/tag/:splat.html 200
-/zh/blog/tag/* /zh/blog/tag/:splat.html 200
-
-# 其他页面
-/privacy-policy /privacy-policy.html 200
-/select-language /select-language.html 200
-
-# ===== 外部重定向规则（301/302状态码）=====
-# 根目录重定向
+# ===== 根目录重定向 =====
 / /en/ 302
 /index.html /en/ 301
 
-# 语言版本重定向
-/en/index.html /en/ 301
-/zh/index.html /zh/ 301
-
-# 旧设备页面.html后缀重定向到无后缀版本
+# ===== 旧URL重定向到新URL（带.html后缀的重定向到无后缀）=====
 /devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
 /devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
 /devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
@@ -948,7 +903,6 @@ ${languageCards}
 /devices/standard-resolutions.html /en/devices/standard-resolutions 301
 /devices/responsive-tester.html /en/devices/responsive-tester 301
 
-# 带语言前缀的.html后缀重定向
 /en/devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
 /en/devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
 /en/devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
@@ -963,7 +917,7 @@ ${languageCards}
 /zh/devices/standard-resolutions.html /zh/devices/standard-resolutions 301
 /zh/devices/responsive-tester.html /zh/devices/responsive-tester 301
 
-# 博客页面.html后缀重定向
+# ===== 博客页面重定向 =====
 /en/blog/index.html /en/blog 301
 /zh/blog/index.html /zh/blog 301
 /en/blog/device-pixel-ratio.html /en/blog/device-pixel-ratio 301
@@ -973,23 +927,21 @@ ${languageCards}
 /zh/blog/media-queries-essentials.html /zh/blog/media-queries-essentials 301
 /zh/blog/viewport-basics.html /zh/blog/viewport-basics 301
 
-# 其他页面重定向
+# ===== 语言版本重定向 =====
+/en/index.html /en/ 301
+/zh/index.html /zh/ 301
+
+# ===== 其他页面重定向 =====
 /privacy-policy.html /privacy-policy 301
 /terms-of-service.html /privacy-policy 301
 /terms-of-service /privacy-policy 301
 
-# 旧路径重定向
+# ===== 旧路径重定向 =====
 /devices/ /en/devices/compare 301
-/devices /en/devices/compare 301
-
-# 查询参数处理
-/devices/compare.html?lang=zh /zh/devices/compare 301
-/?utm_source=oncely /en/ 301
-/?ref=producthunt /en/ 301
-/?ref=hackerchoice.com /en/ 301`;
+/devices /en/devices/compare 301`;
 
         fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent);
-        console.log('✅ Generated optimized _redirects file');
+        console.log('✅ Generated simplified _redirects file');
     }
     
     // 生成优化的robots.txt文件
