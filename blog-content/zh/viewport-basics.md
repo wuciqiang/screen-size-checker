@@ -8,7 +8,7 @@ tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
 ---
 
-# 视口（Viewport）基础知识详解
+## 视口（Viewport）基础知识详解
 
 视口是网页设计和开发中最基本的概念之一，但它常常被误解。本文将解释什么是视口，它与屏幕分辨率的区别，以及为什么它对创建响应式网站至关重要。
 

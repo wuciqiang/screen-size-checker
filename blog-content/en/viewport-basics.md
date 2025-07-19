@@ -8,7 +8,7 @@ tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
 ---
 
-# Understanding Viewport Basics
+## Understanding Viewport Basics
 
 The viewport is one of the most fundamental concepts in web design and development, yet it's often misunderstood. This article explains what the viewport is, how it differs from screen resolution, and why it matters for creating responsive websites.
 

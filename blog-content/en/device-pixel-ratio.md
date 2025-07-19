@@ -8,7 +8,7 @@ tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"
 ---
 
-# Device Pixel Ratio Explained
+## Device Pixel Ratio Explained
 
 Device Pixel Ratio (DPR) is a critical concept in modern web development that directly impacts the visual quality and performance of your websites across different devices. This article explains what DPR is, why it matters, and how to account for it in your projects.
 

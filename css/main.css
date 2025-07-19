@@ -141,7 +141,7 @@ body {
     height: 64px;
 }
 
-.logo h1 {
+.logo .logo-title {
     font-size: 1.375rem;
     font-weight: 600;
     color: var(--primary-color);
@@ -154,13 +154,13 @@ body {
 }
 
 /* logo内的超链接样式优化 */
-.logo h1 a {
+.logo .logo-title a {
     text-decoration: none;
     color: inherit;
     transition: opacity var(--transition-fast);
 }
 
-.logo h1 a:hover {
+.logo .logo-title a:hover {
     opacity: 0.8;
 }
 
@@ -746,7 +746,7 @@ body {
     }
     
     /* 中等屏幕logo优化 */
-    .logo h1 {
+    .logo .logo-title {
         font-size: 1.25rem;
         max-width: 220px; /* 增加最大宽度，显示更多文字 */
     }
@@ -789,7 +789,7 @@ body {
     }
     
     /* 小屏幕logo优化 */
-    .logo h1 {
+    .logo .logo-title {
         font-size: 1.125rem;
         max-width: 200px; /* 增加最大宽度，显示更多文字 */
     }
@@ -853,7 +853,7 @@ body {
     }
     
     /* 超小屏幕logo优化 */
-    .logo h1 {
+    .logo .logo-title {
         font-size: 1rem;
         max-width: 180px; /* 增加最大宽度，显示更多文字 */
     }

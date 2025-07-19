@@ -8,7 +8,7 @@ tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
 ---
 
-# Media Queries Essentials for Responsive Design
+## Media Queries Essentials for Responsive Design
 
 Media queries are the backbone of responsive web design, allowing websites to adapt their layout and styling based on device characteristics. This guide covers everything you need to know to implement effective media queries in your projects.
 
