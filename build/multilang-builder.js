@@ -395,14 +395,13 @@ class MultiLangBuilder extends ComponentBuilder {
     copyRequiredStaticResources(outputDir) {
         console.log('\n📦 Copying required static resources...');
         
+        // 需要直接复制的资源（不包括robots.txt和_redirects，这些将动态生成）
         const resourcesToCopy = [
             'css',
             'js', 
             'locales',
             'favicon.ico',
             'favicon.png',
-            'robots.txt',
-            '_redirects',
             'ads.txt',
             'structured-data.json',
             'privacy-policy.html',
@@ -429,6 +428,10 @@ class MultiLangBuilder extends ComponentBuilder {
                 console.warn(`  ⚠️  Warning: ${resource} not found, skipping`);
             }
         }
+        
+        // 生成优化的_redirects和robots.txt文件
+        this.generateRedirectsFile(outputDir);
+        this.generateRobotsFile(outputDir);
     }
 
     // 递归复制目录
@@ -879,6 +882,162 @@ ${languageCards}
         });
         
         return files;
+    }
+    
+    // 生成优化的_redirects文件
+    generateRedirectsFile(outputDir) {
+        console.log('\n🔄 Generating optimized _redirects file...');
+        
+        const redirectsContent = `# Netlify重定向配置文件
+# 处理搜索引擎收录的旧URL和规范化URL结构
+
+# ===== 根目录重定向 =====
+/ /en/ 302
+/index.html /en/ 301
+
+# ===== 语言版本重定向 =====
+/en/index.html /en/ 301
+/zh/index.html /zh/ 301
+
+# ===== 设备页面.html后缀重定向（301永久重定向）=====
+/devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
+/devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
+/devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
+/devices/compare.html /en/devices/compare 301
+/devices/standard-resolutions.html /en/devices/standard-resolutions 301
+/devices/responsive-tester.html /en/devices/responsive-tester 301
+
+/en/devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
+/en/devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
+/en/devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
+/en/devices/compare.html /en/devices/compare 301
+/en/devices/standard-resolutions.html /en/devices/standard-resolutions 301
+/en/devices/responsive-tester.html /en/devices/responsive-tester 301
+
+/zh/devices/iphone-viewport-sizes.html /zh/devices/iphone-viewport-sizes 301
+/zh/devices/ipad-viewport-sizes.html /zh/devices/ipad-viewport-sizes 301
+/zh/devices/android-viewport-sizes.html /zh/devices/android-viewport-sizes 301
+/zh/devices/compare.html /zh/devices/compare 301
+/zh/devices/standard-resolutions.html /zh/devices/standard-resolutions 301
+/zh/devices/responsive-tester.html /zh/devices/responsive-tester 301
+
+# ===== 博客页面.html后缀重定向 =====
+/en/blog/index.html /en/blog 301
+/zh/blog/index.html /zh/blog 301
+/en/blog/device-pixel-ratio.html /en/blog/device-pixel-ratio 301
+/en/blog/media-queries-essentials.html /en/blog/media-queries-essentials 301
+/en/blog/viewport-basics.html /en/blog/viewport-basics 301
+/zh/blog/device-pixel-ratio.html /zh/blog/device-pixel-ratio 301
+/zh/blog/media-queries-essentials.html /zh/blog/media-queries-essentials 301
+/zh/blog/viewport-basics.html /zh/blog/viewport-basics 301
+
+# ===== 其他页面重定向 =====
+/privacy-policy.html /privacy-policy 301
+/terms-of-service.html /privacy-policy 301
+/terms-of-service /privacy-policy 301
+
+# ===== 旧路径重定向 =====
+/devices/ /en/devices/compare 301
+/devices /en/devices/compare 301
+
+# ===== 查询参数处理 =====
+/devices/compare.html?lang=zh /zh/devices/compare 301
+/?utm_source=oncely /en/ 301
+/?ref=producthunt /en/ 301
+/?ref=hackerchoice.com /en/ 301
+
+# ===== 无后缀URL到实际文件的内部重写（200状态码）=====
+# 语言首页
+/en /en/index.html 200
+/zh /zh/index.html 200
+
+# 设备页面
+/en/devices/iphone-viewport-sizes /en/devices/iphone-viewport-sizes.html 200
+/en/devices/ipad-viewport-sizes /en/devices/ipad-viewport-sizes.html 200
+/en/devices/android-viewport-sizes /en/devices/android-viewport-sizes.html 200
+/en/devices/compare /en/devices/compare.html 200
+/en/devices/standard-resolutions /en/devices/standard-resolutions.html 200
+/en/devices/responsive-tester /en/devices/responsive-tester.html 200
+
+/zh/devices/iphone-viewport-sizes /zh/devices/iphone-viewport-sizes.html 200
+/zh/devices/ipad-viewport-sizes /zh/devices/ipad-viewport-sizes.html 200
+/zh/devices/android-viewport-sizes /zh/devices/android-viewport-sizes.html 200
+/zh/devices/compare /zh/devices/compare.html 200
+/zh/devices/standard-resolutions /zh/devices/standard-resolutions.html 200
+/zh/devices/responsive-tester /zh/devices/responsive-tester.html 200
+
+# 博客页面
+/en/blog /en/blog/index.html 200
+/zh/blog /zh/blog/index.html 200
+/en/blog/device-pixel-ratio /en/blog/device-pixel-ratio.html 200
+/en/blog/media-queries-essentials /en/blog/media-queries-essentials.html 200
+/en/blog/viewport-basics /en/blog/viewport-basics.html 200
+/zh/blog/device-pixel-ratio /zh/blog/device-pixel-ratio.html 200
+/zh/blog/media-queries-essentials /zh/blog/media-queries-essentials.html 200
+/zh/blog/viewport-basics /zh/blog/viewport-basics.html 200
+
+# 博客分类和标签页面
+/en/blog/category/* /en/blog/category/:splat.html 200
+/zh/blog/category/* /zh/blog/category/:splat.html 200
+/en/blog/tag/* /en/blog/tag/:splat.html 200
+/zh/blog/tag/* /zh/blog/tag/:splat.html 200
+
+# 其他页面
+/privacy-policy /privacy-policy.html 200
+/select-language /select-language.html 200`;
+
+        fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent);
+        console.log('✅ Generated optimized _redirects file');
+    }
+    
+    // 生成优化的robots.txt文件
+    generateRobotsFile(outputDir) {
+        console.log('\n🤖 Generating optimized robots.txt file...');
+        
+        const robotsContent = `# robots.txt for screensizechecker.com
+# Last updated: ${new Date().toISOString().split('T')[0]}
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /zh/
+Allow: /css/
+Allow: /js/
+Allow: /locales/
+Allow: /privacy-policy
+Allow: /select-language
+
+# Allow blog content
+Allow: /en/blog/
+Allow: /zh/blog/
+
+# 禁止抓取未启用的语言版本
+Disallow: /de/
+Disallow: /es/
+Disallow: /fr/
+Disallow: /it/
+Disallow: /ja/
+Disallow: /ko/
+Disallow: /pt/
+Disallow: /ru/
+
+# 禁止抓取构建目录和临时文件
+Disallow: /build/
+Disallow: /multilang-build/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.cursor/
+
+# 网站地图
+Sitemap: https://screensizechecker.com/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 5`;
+
+        fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
+        console.log('✅ Generated optimized robots.txt file');
     }
 }
 
