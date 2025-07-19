@@ -217,6 +217,9 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.page_path = '/';
                     }
                     
+                    // 添加结构化数据
+                    pageData.structured_data = this.generateStructuredData(pageData, lang);
+                    
                     // 构建HTML
                     let html = this.buildPage(page.template, pageData);
                     
@@ -454,6 +457,100 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
     
+    // 生成结构化数据
+    generateStructuredData(pageData, lang) {
+        const baseStructuredData = {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": pageData.page_title || "Screen Size Checker",
+            "url": pageData.canonical_url,
+            "description": pageData.description || "Free online tool to check screen resolution, viewport size, device pixel ratio (DPR), operating system, browser version, and more.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "inLanguage": lang,
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Organization",
+                "name": "Screen Size Checker",
+                "url": "https://screensizechecker.com"
+            },
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "softwareVersion": "2.0.0",
+            "featureList": [
+                "Screen Resolution Detection",
+                "Viewport Size Measurement", 
+                "Device Pixel Ratio (DPR) Check",
+                "Operating System Detection",
+                "Browser Version Information",
+                "Touch Support Detection",
+                "User Agent String Display"
+            ]
+        };
+
+        // 如果是博客页面，添加博客特定的结构化数据
+        if (pageData.canonical_url.includes('/blog/') && !pageData.canonical_url.includes('/blog/category/') && !pageData.canonical_url.includes('/blog/tag/')) {
+            // 这是一个具体的博客文章
+            const blogStructuredData = {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": pageData.page_title,
+                "description": pageData.description,
+                "url": pageData.canonical_url,
+                "datePublished": "2025-07-19T00:00:00Z",
+                "dateModified": "2025-07-19T00:00:00Z",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Screen Size Checker",
+                    "url": "https://screensizechecker.com"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Screen Size Checker",
+                    "url": "https://screensizechecker.com",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://screensizechecker.com/favicon.png"
+                    }
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": pageData.canonical_url
+                },
+                "inLanguage": lang
+            };
+            return JSON.stringify(blogStructuredData, null, 2);
+        }
+
+        // 如果是博客索引页面
+        if (pageData.canonical_url.includes('/blog') && !pageData.canonical_url.includes('/blog/')) {
+            const blogIndexStructuredData = {
+                "@context": "https://schema.org",
+                "@type": "Blog",
+                "name": pageData.page_title,
+                "description": pageData.description,
+                "url": pageData.canonical_url,
+                "author": {
+                    "@type": "Organization",
+                    "name": "Screen Size Checker",
+                    "url": "https://screensizechecker.com"
+                },
+                "publisher": {
+                    "@type": "Organization", 
+                    "name": "Screen Size Checker",
+                    "url": "https://screensizechecker.com"
+                },
+                "inLanguage": lang
+            };
+            return JSON.stringify(blogIndexStructuredData, null, 2);
+        }
+
+        return JSON.stringify(baseStructuredData, null, 2);
+    }
+
     // 修复静态资源路径
     fixStaticResourcePaths(html, outputPath) {
         // 计算相对路径深度
