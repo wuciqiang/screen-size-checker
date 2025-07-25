@@ -367,6 +367,57 @@
       }
     },
     {
+      "name": "blog-post-average-laptop-screen-size-2025-en",
+      "template": "blog-post",
+      "output": "blog/average-laptop-screen-size-2025.html",
+      "page_content": "blog-post-average-laptop-screen-size-2025-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+        "page_description": "Discover the current laptop screen size trends and how they impact web development. Learn about aspect ratios, pixel densities, and optimization strategies for modern laptop displays.",
+        "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
+        "canonical_url": "https://screensizechecker.com/en/blog/average-laptop-screen-size-2025",
+        "og_title": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+        "og_description": "Discover the current laptop screen size trends and how they impact web development. Learn about aspect ratios, pixel densities, and optimization strategies for modern laptop displays.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/average-laptop-screen-size-2025",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+        "current_name": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+          "description": "Discover the current laptop screen size trends and how they impact web development. Learn about aspect ratios, pixel densities, and optimization strategies for modern laptop displays.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "blog-post-device-pixel-ratio-en",
       "template": "blog-post",
       "output": "blog/device-pixel-ratio.html",
@@ -616,6 +667,166 @@
       }
     },
     {
+      "name": "blog-tag-laptop-en",
+      "template": "blog-tag",
+      "output": "blog/tag/laptop.html",
+      "page_content": "blog-tag-laptop-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: laptop",
+        "page_description": "Browse all articles tagged with laptop",
+        "page_keywords": "blog, laptop, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/laptop",
+        "og_title": "Tag: laptop",
+        "og_description": "Browse all articles tagged with laptop",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/laptop",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "laptop",
+        "current_name": "#laptop",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-screen-size-en",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-size.html",
+      "page_content": "blog-tag-screen-size-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: screen-size",
+        "page_description": "Browse all articles tagged with screen-size",
+        "page_keywords": "blog, screen-size, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/screen-size",
+        "og_title": "Tag: screen-size",
+        "og_description": "Browse all articles tagged with screen-size",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/screen-size",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-size",
+        "current_name": "#screen-size",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-web-development-en",
+      "template": "blog-tag",
+      "output": "blog/tag/web-development.html",
+      "page_content": "blog-tag-web-development-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: web-development",
+        "page_description": "Browse all articles tagged with web-development",
+        "page_keywords": "blog, web-development, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/web-development",
+        "og_title": "Tag: web-development",
+        "og_description": "Browse all articles tagged with web-development",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/web-development",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "web-development",
+        "current_name": "#web-development",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-responsive-design-en",
+      "template": "blog-tag",
+      "output": "blog/tag/responsive-design.html",
+      "page_content": "blog-tag-responsive-design-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: responsive-design",
+        "page_description": "Browse all articles tagged with responsive-design",
+        "page_keywords": "blog, responsive-design, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/responsive-design",
+        "og_title": "Tag: responsive-design",
+        "og_description": "Browse all articles tagged with responsive-design",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/responsive-design",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "responsive-design",
+        "current_name": "#responsive-design",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-display-technology-en",
+      "template": "blog-tag",
+      "output": "blog/tag/display-technology.html",
+      "page_content": "blog-tag-display-technology-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: display-technology",
+        "page_description": "Browse all articles tagged with display-technology",
+        "page_keywords": "blog, display-technology, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/display-technology",
+        "og_title": "Tag: display-technology",
+        "og_description": "Browse all articles tagged with display-technology",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/display-technology",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "display-technology",
+        "current_name": "#display-technology",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-dpr-en",
       "template": "blog-tag",
       "output": "blog/tag/dpr.html",
@@ -705,38 +916,6 @@
         "show_breadcrumb": true,
         "current_key": "retina-display",
         "current_name": "#retina-display",
-        "parent_url": "../../index.html",
-        "blog_sidebar": "blog-sidebar-sub-en",
-        "parent_key": "blog",
-        "parent_name": "Blog"
-      }
-    },
-    {
-      "name": "blog-tag-responsive-design-en",
-      "template": "blog-tag",
-      "output": "blog/tag/responsive-design.html",
-      "page_content": "blog-tag-responsive-design-en",
-      "enabled_languages": [
-        "en"
-      ],
-      "config": {
-        "page_title": "Tag: responsive-design",
-        "page_description": "Browse all articles tagged with responsive-design",
-        "page_keywords": "blog, responsive-design, tag",
-        "canonical_url": "https://screensizechecker.com/en/blog/tag/responsive-design",
-        "og_title": "Tag: responsive-design",
-        "og_description": "Browse all articles tagged with responsive-design",
-        "og_type": "website",
-        "og_url": "https://screensizechecker.com/en/blog/tag/responsive-design",
-        "css_path": "../../../css",
-        "locales_path": "../../../locales",
-        "js_path": "../../../js",
-        "home_url": "../../../en/index.html",
-        "blog_url": "../../../en/blog/index.html",
-        "privacy_policy_url": "../../../privacy-policy.html",
-        "show_breadcrumb": true,
-        "current_key": "responsive-design",
-        "current_name": "#responsive-design",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-en",
         "parent_key": "blog",
@@ -872,38 +1051,6 @@
       }
     },
     {
-      "name": "blog-tag-web-development-en",
-      "template": "blog-tag",
-      "output": "blog/tag/web-development.html",
-      "page_content": "blog-tag-web-development-en",
-      "enabled_languages": [
-        "en"
-      ],
-      "config": {
-        "page_title": "Tag: web-development",
-        "page_description": "Browse all articles tagged with web-development",
-        "page_keywords": "blog, web-development, tag",
-        "canonical_url": "https://screensizechecker.com/en/blog/tag/web-development",
-        "og_title": "Tag: web-development",
-        "og_description": "Browse all articles tagged with web-development",
-        "og_type": "website",
-        "og_url": "https://screensizechecker.com/en/blog/tag/web-development",
-        "css_path": "../../../css",
-        "locales_path": "../../../locales",
-        "js_path": "../../../js",
-        "home_url": "../../../en/index.html",
-        "blog_url": "../../../en/blog/index.html",
-        "privacy_policy_url": "../../../privacy-policy.html",
-        "show_breadcrumb": true,
-        "current_key": "web-development",
-        "current_name": "#web-development",
-        "parent_url": "../../index.html",
-        "blog_sidebar": "blog-sidebar-sub-en",
-        "parent_key": "blog",
-        "parent_name": "Blog"
-      }
-    },
-    {
       "name": "blog-index-zh",
       "template": "blog-index",
       "output": "blog/index.html",
@@ -935,6 +1082,57 @@
         "blog_sidebar": "blog-sidebar-zh",
         "parent_key": "home",
         "parent_name": "首页"
+      }
+    },
+    {
+      "name": "blog-post-average-laptop-screen-size-2025-zh",
+      "template": "blog-post",
+      "output": "blog/average-laptop-screen-size-2025.html",
+      "page_content": "blog-post-average-laptop-screen-size-2025-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+        "page_description": "了解当前笔记本屏幕尺寸趋势及其对网页开发的影响。学习屏幕比例、像素密度和现代笔记本显示器的优化策略。",
+        "page_keywords": "笔记本, 屏幕尺寸, 网页开发, 响应式设计, 显示技术",
+        "canonical_url": "https://screensizechecker.com/zh/blog/average-laptop-screen-size-2025",
+        "og_title": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+        "og_description": "了解当前笔记本屏幕尺寸趋势及其对网页开发的影响。学习屏幕比例、像素密度和现代笔记本显示器的优化策略。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/average-laptop-screen-size-2025",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+        "current_name": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+          "description": "了解当前笔记本屏幕尺寸趋势及其对网页开发的影响。学习屏幕比例、像素密度和现代笔记本显示器的优化策略。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
       }
     },
     {
@@ -1187,6 +1385,166 @@
       }
     },
     {
+      "name": "blog-tag-笔记本-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/笔记本.html",
+      "page_content": "blog-tag-笔记本-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 笔记本",
+        "page_description": "浏览笔记本标签下的所有文章",
+        "page_keywords": "blog, 笔记本, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/笔记本",
+        "og_title": "标签: 笔记本",
+        "og_description": "浏览笔记本标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/笔记本",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "笔记本",
+        "current_name": "#笔记本",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-屏幕尺寸-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/屏幕尺寸.html",
+      "page_content": "blog-tag-屏幕尺寸-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 屏幕尺寸",
+        "page_description": "浏览屏幕尺寸标签下的所有文章",
+        "page_keywords": "blog, 屏幕尺寸, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/屏幕尺寸",
+        "og_title": "标签: 屏幕尺寸",
+        "og_description": "浏览屏幕尺寸标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/屏幕尺寸",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "屏幕尺寸",
+        "current_name": "#屏幕尺寸",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-网页开发-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/网页开发.html",
+      "page_content": "blog-tag-网页开发-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 网页开发",
+        "page_description": "浏览网页开发标签下的所有文章",
+        "page_keywords": "blog, 网页开发, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/网页开发",
+        "og_title": "标签: 网页开发",
+        "og_description": "浏览网页开发标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/网页开发",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "网页开发",
+        "current_name": "#网页开发",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-响应式设计-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/响应式设计.html",
+      "page_content": "blog-tag-响应式设计-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 响应式设计",
+        "page_description": "浏览响应式设计标签下的所有文章",
+        "page_keywords": "blog, 响应式设计, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/响应式设计",
+        "og_title": "标签: 响应式设计",
+        "og_description": "浏览响应式设计标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/响应式设计",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "响应式设计",
+        "current_name": "#响应式设计",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-显示技术-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/显示技术.html",
+      "page_content": "blog-tag-显示技术-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 显示技术",
+        "page_description": "浏览显示技术标签下的所有文章",
+        "page_keywords": "blog, 显示技术, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示技术",
+        "og_title": "标签: 显示技术",
+        "og_description": "浏览显示技术标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/显示技术",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "显示技术",
+        "current_name": "#显示技术",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
       "name": "blog-tag-dpr-zh",
       "template": "blog-tag",
       "output": "blog/tag/dpr.html",
@@ -1276,38 +1634,6 @@
         "show_breadcrumb": true,
         "current_key": "视网膜显示",
         "current_name": "#视网膜显示",
-        "parent_url": "../../index.html",
-        "blog_sidebar": "blog-sidebar-sub-zh",
-        "parent_key": "blog",
-        "parent_name": "博客"
-      }
-    },
-    {
-      "name": "blog-tag-响应式设计-zh",
-      "template": "blog-tag",
-      "output": "blog/tag/响应式设计.html",
-      "page_content": "blog-tag-响应式设计-zh",
-      "enabled_languages": [
-        "zh"
-      ],
-      "config": {
-        "page_title": "标签: 响应式设计",
-        "page_description": "浏览响应式设计标签下的所有文章",
-        "page_keywords": "blog, 响应式设计, 标签",
-        "canonical_url": "https://screensizechecker.com/zh/blog/tag/响应式设计",
-        "og_title": "标签: 响应式设计",
-        "og_description": "浏览响应式设计标签下的所有文章",
-        "og_type": "website",
-        "og_url": "https://screensizechecker.com/zh/blog/tag/响应式设计",
-        "css_path": "../../../css",
-        "locales_path": "../../../locales",
-        "js_path": "../../../js",
-        "home_url": "../../../zh/index.html",
-        "blog_url": "../../../zh/blog/index.html",
-        "privacy_policy_url": "../../../privacy-policy.html",
-        "show_breadcrumb": true,
-        "current_key": "响应式设计",
-        "current_name": "#响应式设计",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",
