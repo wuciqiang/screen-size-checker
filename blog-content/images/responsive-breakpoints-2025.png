@@ -1,0 +1,8 @@
+# This is a placeholder for the responsive breakpoints diagram
+# In production, this would be replaced with an actual PNG image showing:
+# A visual progression from Mobile → Tablet → Laptop → Desktop
+# with specific breakpoint values:
+# - Mobile: 320-767px
+# - Tablet: 768-1023px  
+# - Laptop: 1024-1439px
+# - Desktop: 1440px+
