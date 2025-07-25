@@ -85,9 +85,9 @@
   "android_page_heading": "Android 视口尺寸完整指南",
   "android_page_intro": "这份综合指南提供了热门Android设备的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
   
-  "responsive_tester_title": "响应式设计测试器：在不同屏幕尺寸上测试您的网站 | Screen Size Checker",
-  "responsive_tester_description": "交互式工具，用于测试您的网站在不同屏幕尺寸和设备上的外观和行为。对响应式网页设计至关重要。",
-  "responsive_tester_page_title": "响应式设计测试器",
+  "responsive_tester_title": "响应式设计测试器 - 在任何屏幕尺寸上测试您的网站",
+  "responsive_tester_description": "免费的响应式设计测试器，用于检查您的网站在各种屏幕分辨率（包括移动设备、平板电脑和桌面）上的布局。非常适合开发者和设计师。",
+  "responsive_tester_page_title": "免费响应式设计测试器",
   "responsive_tester_intro": "使用这个强大的工具测试您的网站在不同屏幕尺寸和设备上的响应式表现。选择预设设备尺寸或输入自定义尺寸，查看您的网站如何适应不同的屏幕。",
   
   "simulator_title": "响应式设计测试器",
@@ -128,7 +128,7 @@
   
   "responsive_design_tips": "响应式设计提示",
   "why_responsive_design": "为什么响应式设计很重要",
-  "why_responsive_design_text": "随着移动设备使用量的增加，响应式设计已成为现代网站开发的必备要素。响应式网站能够自动调整布局以适应不同的屏幕尺寸，从智能手机到平板电脑再到桌面显示器，提供最佳的用户体验。",
+  "why_responsive_design_text": "随着移动设备使用量的增加，响应式设计已成为现代网站开发的必备要素。Google的移动优先索引策略优先考虑移动友好的网站，使响应式设计对SEO成功至关重要。响应式网站能够自动调整布局以适应不同的屏幕尺寸，从智能手机到平板电脑再到桌面显示器，为所有设备提供最佳的用户体验。这种方法通过确保用户能够轻松导航和与内容交互（无论使用何种设备）来显著提高转化率。随着移动流量持续增长并占全球网络流量的50%以上，实施响应式设计不再是可选的——它是有效触达和吸引不断扩大的移动用户群体的必要条件。",
   
   "common_breakpoints": "常见的断点尺寸",
   "testing_tips": "测试技巧",
@@ -137,6 +137,15 @@
   "testing_tip_3": "确保表单元素在所有设备上都可用且易于填写",
   "testing_tip_4": "测试触摸交互，确保点击目标足够大",
   "testing_tip_5": "检查图片和媒体是否正确缩放",
+  "testing_tip_6": "在模拟慢速网络（如3G）环境下测试加载性能，确保最佳的移动体验",
+  "testing_tip_7": "通过确保文字大小和行高在最小的移动屏幕上仍然清晰易读来验证字体可读性",
+  "testing_tip_8": "通过确认按钮和链接之间有足够的间距来验证交互元素，防止触摸设备上的误触",
+  
+  "iframe_welcome_title": "欢迎使用响应式测试器！",
+  "iframe_welcome_subtitle": "在上方输入URL开始测试您网站的响应式表现。",
+  "iframe_welcome_feature1": "测试多种屏幕尺寸",
+  "iframe_welcome_feature2": "在不同设备上预览", 
+  "iframe_welcome_feature3": "检查响应式布局",
   
   "faq_q1": "为什么某些网站无法在测试器中加载？",
   "faq_a1": "许多网站出于安全原因设置了X-Frame-Options或Content-Security-Policy头，禁止其在iframe中被加载。这是一种防止点击劫持等攻击的安全措施。对于这些网站，您可能需要使用浏览器的开发者工具或其他方法进行测试。",

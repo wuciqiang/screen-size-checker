@@ -220,6 +220,13 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 添加结构化数据
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
                     
+                    // 为responsive-tester页面添加FAQ结构化数据
+                    if (page.name === 'responsive-tester') {
+                        pageData.faq_structured_data = this.generateFAQStructuredData(lang);
+                    } else {
+                        pageData.faq_structured_data = '';
+                    }
+                    
                     // 构建HTML
                     let html = this.buildPage(page.template, pageData);
                     
@@ -549,6 +556,47 @@ class MultiLangBuilder extends ComponentBuilder {
         }
 
         return JSON.stringify(baseStructuredData, null, 2);
+    }
+
+    // 生成FAQ结构化数据
+    generateFAQStructuredData(lang) {
+        const translations = this.translations.get(lang);
+        if (!translations) return '';
+
+        const faqStructuredData = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": translations.faq_q1 || "Why can't some websites load in the tester?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": translations.faq_a1 || "Many websites set X-Frame-Options or Content-Security-Policy headers for security reasons, which prevent them from being loaded in iframes. This is a security measure to prevent clickjacking and other attacks. For these websites, you may need to use browser developer tools or other methods for testing."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": translations.faq_q2 || "How does the website in the tester differ from real devices?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": translations.faq_a2 || "This tester primarily simulates different screen sizes but cannot fully replicate all features of real devices, such as touch interactions, device pixel ratios, or specific browser behaviors. For final testing, it's recommended to verify your designs on actual devices."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": translations.faq_q3 || "How can I test specific media query breakpoints?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": translations.faq_a3 || "Use the custom size feature to input your media query breakpoint values. For example, if you have a breakpoint at 768px width, you can input 767px and 768px to test layouts on both sides of the breakpoint."
+                    }
+                }
+            ]
+        };
+
+        return `<script type="application/ld+json">
+${JSON.stringify(faqStructuredData, null, 2)}
+</script>`;
     }
 
     // 修复静态资源路径

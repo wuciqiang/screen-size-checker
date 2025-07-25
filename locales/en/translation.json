@@ -8,7 +8,7 @@
   "language_coming_soon_en": "Other language versions are being translated, stay tuned!",
   "page_title": "Screen Size Checker - Detect Screen Size and Browser Information",
   "page_description": "Quickly check your screen resolution, viewport size, aspect ratio, and pixel density with our free online tool. Perfect for developers, designers, and everyday users.",
-  "title": "What Is My Screen Resolution? - Instant Screen Size & Viewport Checker",
+  "title": "Responsive Design Tester - Test Your Website on Any Screen Size",
   
   "hero_subtitle": "Your Browser Viewport Size",
   "screen_resolution": "Screen Resolution",
@@ -119,9 +119,9 @@
   "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your display choices will compare in real-world dimensions.",
   "screen_comparison": "Screen Comparison",
   
-  "responsive_tester_title": "Responsive Design Tester: Test Your Website on Different Screen Sizes | Screen Size Checker",
-  "responsive_tester_description": "Interactive tool to test how your website looks and behaves on different screen sizes and devices. Essential for responsive web design.",
-  "responsive_tester_page_title": "Responsive Design Tester",
+  "responsive_tester_title": "Responsive Design Tester - Test Your Website on Any Screen Size",
+  "responsive_tester_description": "A free responsive design tester to check your website's layout on various screen resolutions, including mobile, tablet, and desktop. Perfect for developers and designers.",
+  "responsive_tester_page_title": "Free Responsive Design Tester",
   "responsive_tester_intro": "Use this powerful tool to test how your website responds to different screen sizes and devices. Select preset device dimensions or enter custom sizes to see how your site adapts to different screens.",
   
   "simulator_title": "Responsive Design Tester",
@@ -162,7 +162,7 @@
   
   "responsive_design_tips": "Responsive Design Tips",
   "why_responsive_design": "Why Responsive Design Matters",
-  "why_responsive_design_text": "With the increasing use of mobile devices, responsive design has become essential for modern web development. Responsive websites automatically adjust their layout to fit different screen sizes, from smartphones to tablets to desktop monitors, providing the best user experience.",
+  "why_responsive_design_text": "With the increasing use of mobile devices, responsive design has become essential for modern web development. Google's mobile-first indexing prioritizes mobile-friendly websites in search results, making responsive design crucial for SEO success. Responsive websites automatically adjust their layout to fit different screen sizes, from smartphones to tablets to desktop monitors, providing optimal user experience across all devices. This approach significantly improves conversion rates by ensuring users can easily navigate and interact with your content regardless of their device. As mobile traffic continues to grow and represents over 50% of global web traffic, implementing responsive design is no longer optional—it's necessary to reach and engage the expanding mobile user base effectively.",
   
   "common_breakpoints": "Common Breakpoints",
   "testing_tips": "Testing Tips",
@@ -171,6 +171,15 @@
   "testing_tip_3": "Ensure form elements are usable and easy to fill out on all devices",
   "testing_tip_4": "Test touch interactions to ensure tap targets are large enough",
   "testing_tip_5": "Check that images and media scale correctly",
+  "testing_tip_6": "Test loading performance on simulated slow networks (like 3G) to ensure optimal mobile experience",
+  "testing_tip_7": "Verify font readability by ensuring text size and line height remain legible on the smallest mobile screens",
+  "testing_tip_8": "Validate interactive elements by confirming buttons and links have adequate spacing to prevent accidental taps on touch devices",
+  
+  "iframe_welcome_title": "Welcome to Responsive Tester!",
+  "iframe_welcome_subtitle": "Enter a URL above to start testing your website's responsiveness.",
+  "iframe_welcome_feature1": "Test multiple screen sizes",
+  "iframe_welcome_feature2": "Preview on different devices", 
+  "iframe_welcome_feature3": "Check responsive layouts",
   
   "faq_q1": "Why can't some websites load in the tester?",
   "faq_a1": "Many websites set X-Frame-Options or Content-Security-Policy headers for security reasons, which prevent them from being loaded in iframes. This is a security measure to prevent clickjacking and other attacks. For these websites, you may need to use browser developer tools or other methods for testing.",

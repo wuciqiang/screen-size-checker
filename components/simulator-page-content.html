@@ -64,35 +64,14 @@
             </div>
         </div>
 
-        <!-- Device Frame Options -->
-        <div class="device-frame-options">
-            <h3 class="controls-title" data-i18n="device_frame">设备边框</h3>
-            <div class="frame-options">
-                <label>
-                    <input type="radio" name="frame" value="none" checked>
-                    <span data-i18n="frame_none">无边框</span>
-                </label>
-                <label>
-                    <input type="radio" name="frame" value="phone">
-                    <span data-i18n="frame_phone">手机</span>
-                </label>
-                <label>
-                    <input type="radio" name="frame" value="tablet">
-                    <span data-i18n="frame_tablet">平板</span>
-                </label>
-                <label>
-                    <input type="radio" name="frame" value="laptop">
-                    <span data-i18n="frame_laptop">笔记本</span>
-                </label>
-            </div>
-        </div>
+
 
         <!-- Preview Area -->
         <div class="simulator-preview">
             <div id="simulator-container" class="frame-none">
                 <div id="simulator-size-display" data-i18n="current_size">当前尺寸: 1366 × 768</div>
                 <div id="simulator-frame-wrapper">
-                    <iframe id="simulator-frame" src="about:blank" title="Website Preview" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                    <iframe id="simulator-frame" title="Website Preview" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
                 </div>
             </div>
         </div>
@@ -129,6 +108,9 @@
                 <li data-i18n="testing_tip_3">确保表单元素在所有设备上都可用且易于填写</li>
                 <li data-i18n="testing_tip_4">测试触摸交互，确保点击目标足够大</li>
                 <li data-i18n="testing_tip_5">检查图片和媒体是否正确缩放</li>
+                <li data-i18n="testing_tip_6">在模拟慢速网络（如3G）环境下测试加载性能，确保最佳的移动体验</li>
+                <li data-i18n="testing_tip_7">通过确保文字大小和行高在最小的移动屏幕上仍然清晰易读来验证字体可读性</li>
+                <li data-i18n="testing_tip_8">通过确认按钮和链接之间有足够的间距来验证交互元素，防止触摸设备上的误触</li>
             </ul>
         </div>
     </div>
