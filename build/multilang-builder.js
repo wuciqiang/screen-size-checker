@@ -50,9 +50,22 @@ class MultiLangBuilder extends ComponentBuilder {
         
         // 替换 data-i18n 属性对应的文本内容（处理标签内容）
         result = result.replace(/data-i18n="([^"]+)"[^>]*>([^<]*)</g, (match, key, originalText) => {
+            // 特殊处理：如果是title标签，完全跳过翻译处理，保持页面特定的标题
+            if (key === 'title') {
+                // 检查是否是title标签
+                const beforeMatch = result.substring(0, result.indexOf(match));
+                const lastTitleIndex = beforeMatch.lastIndexOf('<title');
+                const lastCloseTitleIndex = beforeMatch.lastIndexOf('</title>');
+                
+                // 如果最近的<title标签在最近的</title>标签之后，说明这是title标签内容
+                if (lastTitleIndex > lastCloseTitleIndex) {
+                    console.log(`  🚫 Skipping title translation for: "${originalText}"`);
+                    return match;
+                }
+            }
+            
             const translation = translations[key];
             if (translation) {
-                // console.log(`🔄 Translating: "${key}" -> "${translation}"`); // 已注释减少构建日志输出
                 return match.replace(originalText, translation);
             }
             return match;
@@ -145,6 +158,9 @@ class MultiLangBuilder extends ComponentBuilder {
                     if (pageData.page_title_key && translations[pageData.page_title_key]) {
                         pageData.page_title = translations[pageData.page_title_key];
                     }
+                    
+                    // 确保title变量也被设置（用于head.html组件）
+                    pageData.title = pageData.page_title || pageData.og_title || 'Screen Size Checker';
                     if (pageData.page_heading_key && translations[pageData.page_heading_key]) {
                         pageData.page_heading = translations[pageData.page_heading_key];
                     }
