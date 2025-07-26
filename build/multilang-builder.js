@@ -194,17 +194,33 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.js_path = pathPrefix + 'js';
                     }
                     
-                    // 更新相对链接路径
+                    // 更新相对链接路径 - 修复语言保持问题
                     if (pageData.home_url) {
-                        pageData.home_url = pageData.home_url.startsWith('../') 
-                            ? '../'.repeat(depth + 1) + pageData.home_url.substring(3)
-                            : (depth > 0 ? prefix + pageData.home_url : pageData.home_url);
+                        // 计算回到当前语言根目录的路径
+                        if (depth === 0) {
+                            // 在语言根目录下，指向当前目录的index.html
+                            pageData.home_url = 'index.html';
+                        } else {
+                            // 在子目录下，回到语言根目录
+                            pageData.home_url = '../'.repeat(depth) + 'index.html';
+                        }
                     }
                     
                     if (pageData.device_links_base) {
                         pageData.device_links_base = pageData.device_links_base.startsWith('../') 
                             ? '../'.repeat(depth + 1) + pageData.device_links_base.substring(3)
                             : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
+                    }
+                    
+                    // 修复博客URL，确保指向当前语言的博客页面
+                    if (pageData.blog_url) {
+                        if (depth === 0) {
+                            // 在语言根目录下，指向当前目录的blog
+                            pageData.blog_url = 'blog/index.html';
+                        } else {
+                            // 在子目录下，回到语言根目录的blog
+                            pageData.blog_url = '../'.repeat(depth) + 'blog/index.html';
+                        }
                     }
                     
                     if (pageData.privacy_policy_url) {

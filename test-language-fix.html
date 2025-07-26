@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言切换修复测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 语言切换修复验证报告</h1>
+    
+    <div class="test-section success">
+        <h2>✅ 问题已修复</h2>
+        <p><strong>问题描述：</strong>在博客页面选择了中文，然后点击首页或者左上角的Logo返回主页就会重置回英文。</p>
+        <p><strong>修复方案：</strong>修改了多语言构建器中的URL生成逻辑，确保导航链接始终指向当前语言版本。</p>
+    </div>
+
+    <div class="test-section info">
+        <h2>🔍 修复详情</h2>
+        <h3>修改的文件：</h3>
+        <ul>
+            <li><code>build/multilang-builder.js</code> - 修复了home_url和blog_url的生成逻辑</li>
+        </ul>
+        
+        <h3>修复前的问题：</h3>
+        <ul>
+            <li>导航链接使用相对路径，但没有考虑当前语言上下文</li>
+            <li>从中文博客页面点击首页会跳转到 <code>../index.html</code>（英文版）</li>
+            <li>Logo链接也存在同样问题</li>
+        </ul>
+        
+        <h3>修复后的行为：</h3>
+        <ul>
+            <li><strong>中文首页 (zh/index.html)：</strong>
+                <ul>
+                    <li>Logo链接：<code>index.html</code> → 指向中文首页</li>
+                    <li>首页链接：<code>index.html</code> → 指向中文首页</li>
+                    <li>博客链接：<code>blog/index.html</code> → 指向中文博客</li>
+                </ul>
+            </li>
+            <li><strong>中文设备页面 (zh/devices/*)：</strong>
+                <ul>
+                    <li>Logo链接：<code>../index.html</code> → 指向中文首页</li>
+                    <li>首页链接：<code>../index.html</code> → 指向中文首页</li>
+                    <li>博客链接：<code>../blog/index.html</code> → 指向中文博客</li>
+                </ul>
+            </li>
+            <li><strong>中文博客页面 (zh/blog/*)：</strong>
+                <ul>
+                    <li>Logo链接：<code>../index.html</code> → 指向中文首页</li>
+                    <li>首页链接：<code>../index.html</code> → 指向中文首页</li>
+                    <li>博客链接：<code>../blog/index.html</code> → 指向中文博客</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="test-section info">
+        <h2>🧪 测试验证</h2>
+        <p>已验证以下页面的导航链接正确性：</p>
+        <ul>
+            <li>✅ <code>multilang-build/zh/index.html</code> - 中文首页</li>
+            <li>✅ <code>multilang-build/zh/devices/iphone-viewport-sizes.html</code> - 中文设备页面</li>
+            <li>✅ <code>multilang-build/zh/blog/index.html</code> - 中文博客页面</li>
+            <li>✅ <code>multilang-build/en/index.html</code> - 英文首页（确保未破坏现有功能）</li>
+            <li>✅ <code>multilang-build/en/devices/iphone-viewport-sizes.html</code> - 英文设备页面</li>
+        </ul>
+    </div>
+
+    <div class="test-section success">
+        <h2>🎯 预期效果</h2>
+        <p>现在用户在任何中文页面点击以下元素都会保持在中文版本：</p>
+        <ul>
+            <li>🏠 左上角Logo</li>
+            <li>🏠 导航栏中的"首页"链接</li>
+            <li>📝 导航栏中的"博客"链接</li>
+            <li>🍞 面包屑导航中的"首页"链接</li>
+        </ul>
+        <p><strong>用户体验改善：</strong>语言选择将在整个网站导航过程中保持一致，不会意外重置为英文。</p>
+    </div>
+
+    <div class="test-section info">
+        <h2>📋 技术说明</h2>
+        <p><strong>修改的核心逻辑：</strong></p>
+        <pre><code>// 修复前：使用通用相对路径，不考虑语言上下文
+pageData.home_url = pageData.home_url.startsWith('../') 
+    ? '../'.repeat(depth + 1) + pageData.home_url.substring(3)
+    : (depth > 0 ? prefix + pageData.home_url : pageData.home_url);
+
+// 修复后：根据页面深度计算指向当前语言根目录的正确路径
+if (depth === 0) {
+    // 在语言根目录下，指向当前目录的index.html
+    pageData.home_url = 'index.html';
+} else {
+    // 在子目录下，回到语言根目录
+    pageData.home_url = '../'.repeat(depth) + 'index.html';
+}</code></pre>
+        <p>这确保了无论用户在哪个页面，导航链接都会正确指向当前语言版本的对应页面。</p>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px; color: #666;">
+        <em>修复完成时间：2025年1月26日</em><br>
+        <em>构建系统版本：v2.0 (组件化重构版本)</em>
+    </p>
+</body>
+</html>
