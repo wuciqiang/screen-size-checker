@@ -21,6 +21,7 @@ export class PPICalculator {
             pixelDiagonal: null,
             screenDensity: null,
             resultDetails: null,
+            contextComment: null,
             errorElements: {}
         };
         
@@ -62,6 +63,7 @@ export class PPICalculator {
         this.elements.pixelDiagonal = document.getElementById('pixel-diagonal');
         this.elements.screenDensity = document.getElementById('screen-density');
         this.elements.resultDetails = document.getElementById('result-details');
+        this.elements.contextComment = document.getElementById('context-comment');
         
         // Error message elements
         this.elements.errorElements = {
@@ -257,6 +259,23 @@ export class PPICalculator {
     }
     
     /**
+     * Get contextual comment based on PPI value
+     * @returns {string} - Contextual comment for the PPI result
+     */
+    getContextualComment() {
+        if (this.result < 150) {
+            return window.i18next && window.i18next.t ? 
+                window.i18next.t('ppiCalculator.context.standard') : '标准分辨率显示器。';
+        } else if (this.result >= 150 && this.result <= 300) {
+            return window.i18next && window.i18next.t ? 
+                window.i18next.t('ppiCalculator.context.retina') : '高分辨率"Retina"显示器，非常适合清晰的文字和图像。';
+        } else {
+            return window.i18next && window.i18next.t ? 
+                window.i18next.t('ppiCalculator.context.professional') : '超高分辨率显示器，非常适合专业创意工作。';
+        }
+    }
+
+    /**
      * Update additional details
      * @param {number} pixelDiagonal - Calculated pixel diagonal
      */
@@ -281,6 +300,13 @@ export class PPICalculator {
                     window.i18next.t('ppiCalculator.veryHighDensity') : '超高密度';
             }
             this.elements.screenDensity.textContent = densityCategory;
+        }
+        
+        // Update contextual comment
+        if (this.elements.contextComment) {
+            const contextComment = this.getContextualComment();
+            this.elements.contextComment.textContent = contextComment;
+            this.elements.contextComment.style.display = 'block';
         }
     }
     

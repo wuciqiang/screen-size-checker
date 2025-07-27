@@ -560,9 +560,10 @@
 
   "ppiCalculator": {
     "title": "PPI 计算器",
+    "optimizedTitle": "像素密度（PPI）计算器",
     "intro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
-    "pageTitle": "PPI 计算器：计算任何显示器的每英寸像素数 | Screen Size Checker",
-    "pageDescription": "免费的 PPI 计算器，用于确定任何显示器的像素密度。输入屏幕分辨率和对角线尺寸来计算每英寸像素数（PPI）。设计师和开发者的必备工具。",
+    "pageTitle": "PPI 计算器 - 轻松计算屏幕像素密度 | Screen Size Checker",
+    "pageDescription": "精确计算任何屏幕的 PPI（每英寸像素数）。只需输入分辨率和对角线尺寸，即可找到显示器、手机或电视的像素密度。",
     "pageHeading": "PPI 计算器",
     "pageIntro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
     
@@ -624,7 +625,48 @@
     "lowPPI": "低密度（72-120 PPI）：传统显示器、大尺寸电视",
     "mediumPPI": "中等密度（120-200 PPI）：标准笔记本电脑、台式机显示器",
     "highPPI": "高密度（200-300 PPI）：高分辨率笔记本、平板电脑",
-    "veryHighPPI": "超高密度（300+ PPI）：智能手机、Retina 显示器"
+    "veryHighPPI": "超高密度（300+ PPI）：智能手机、Retina 显示器",
+    
+    "faq": {
+      "title": "常见问题解答 (FAQ)",
+      "goodPPI": {
+        "question": "显示器的好 PPI 值是多少？",
+        "answer": "对于一般使用，100-150 PPI 就足够了。对于专业工作，建议使用 200+ PPI。游戏通常在 100-200 PPI 下效果很好，而图形设计则受益于 200+ PPI 以获得清晰的细节效果。"
+      },
+      "higherBetter": {
+        "question": "更高的 PPI 总是意味着更好的图像质量吗？",
+        "answer": "不一定。虽然更高的 PPI 提供更清晰的图像，但色彩准确性、对比度和面板技术等其他因素也会显著影响整体图像质量。非常高的 PPI 也可能对系统资源造成压力。"
+      },
+      "gamingEditing": {
+        "question": "PPI 如何影响游戏和视频编辑？",
+        "answer": "对于游戏，中等 PPI（100-200）通常提供清晰度和性能的最佳平衡。对于视频编辑，更高的 PPI（200+ PPI）有助于精确编辑和色彩分级，但需要更强大的硬件支持。"
+      },
+      "humanEye": {
+        "question": "人眼能分辨高 PPI 显示器的差异吗？",
+        "answer": "在正常观看距离下，人眼通常可以分辨高达约 300 PPI 的差异。超过这个点，除非非常近距离观看屏幕，否则改善变得不太明显。"
+      }
+    },
+    
+    "referenceTable": {
+      "title": "常见设备的典型 PPI 值",
+      "device": "设备",
+      "resolution": "分辨率",
+      "size": "尺寸",
+      "ppi": "PPI",
+      "devices": {
+        "iphone15pro": "iPhone 15 Pro",
+        "macbookpro16": "MacBook Pro 16\"",
+        "dell4k": "Dell UltraSharp 4K",
+        "samsung4ktv": "Samsung 4K TV",
+        "ipadpro": "iPad Pro 12.9\""
+      }
+    },
+    
+    "context": {
+      "standard": "标准分辨率显示器。",
+      "retina": "高分辨率"Retina"显示器，非常适合清晰的文字和图像。",
+      "professional": "超高分辨率显示器，非常适合专业创意工作。"
+    }
   },
 
   "ppi_calculator": "PPI 计算器"

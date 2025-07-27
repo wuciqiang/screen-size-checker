@@ -1,7 +1,7 @@
 <!-- Part 1: Hero Section -->
 <section class="devices-hero-section">
     <div class="devices-hero-container">
-        <h1 class="devices-hero-title" data-i18n="ppiCalculator.title">PPI 计算器</h1>
+        <h1 class="devices-hero-title" data-i18n="ppiCalculator.optimizedTitle">像素密度（PPI）计算器</h1>
         <p class="devices-hero-subtitle" data-i18n="ppiCalculator.intro">计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。</p>
     </div>
 </section>
@@ -86,6 +86,7 @@
                         <span class="detail-label" data-i18n="ppiCalculator.screenDensity">屏幕密度：</span>
                         <span class="detail-value" id="screen-density">--</span>
                     </div>
+                    <div class="context-comment" id="context-comment" style="display: none;"></div>
                 </div>
             </div>
         </div>
@@ -118,6 +119,52 @@
             <li data-i18n="ppiCalculator.deviceSelection">设备选择：比较不同显示器的显示质量</li>
         </ul>
 
+        <h3 data-i18n="ppiCalculator.referenceTable.title">Typical PPI Values for Common Devices</h3>
+        <div class="table-responsive">
+            <table class="ppi-reference-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="ppiCalculator.referenceTable.device">Device</th>
+                        <th data-i18n="ppiCalculator.referenceTable.resolution">Resolution</th>
+                        <th data-i18n="ppiCalculator.referenceTable.size">Size</th>
+                        <th data-i18n="ppiCalculator.referenceTable.ppi">PPI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="ppiCalculator.referenceTable.devices.iphone15pro">iPhone 15 Pro</td>
+                        <td>2556×1179</td>
+                        <td>6.1"</td>
+                        <td>460</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ppiCalculator.referenceTable.devices.macbookpro16">MacBook Pro 16"</td>
+                        <td>3456×2234</td>
+                        <td>16.2"</td>
+                        <td>254</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ppiCalculator.referenceTable.devices.dell4k">Dell UltraSharp 4K</td>
+                        <td>3840×2160</td>
+                        <td>27"</td>
+                        <td>163</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ppiCalculator.referenceTable.devices.samsung4ktv">Samsung 4K TV</td>
+                        <td>3840×2160</td>
+                        <td>55"</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ppiCalculator.referenceTable.devices.ipadpro">iPad Pro 12.9"</td>
+                        <td>2732×2048</td>
+                        <td>12.9"</td>
+                        <td>264</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h2 data-i18n="ppiCalculator.howToUse">如何使用我们的 PPI 计算器？</h2>
         <ol>
             <li data-i18n="ppiCalculator.step1">输入屏幕的水平像素数（如 1920）</li>
@@ -145,7 +192,36 @@
     </div>
 </section>
 
-<!-- Part 4: Related Resources -->
+<!-- Part 4: FAQ Section -->
+<section class="faq-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="ppiCalculator.faq.title">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="ppiCalculator.faq.goodPPI.question">What is a good PPI for a monitor?</summary>
+                <div class="faq-answer" data-i18n="ppiCalculator.faq.goodPPI.answer">For general use, 100-150 PPI is adequate. For professional work, 200+ PPI is recommended. Gaming typically works well with 100-200 PPI, while graphic design benefits from 200+ PPI for sharp detail work.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="ppiCalculator.faq.higherBetter.question">Does a higher PPI always mean better image quality?</summary>
+                <div class="faq-answer" data-i18n="ppiCalculator.faq.higherBetter.answer">Not necessarily. While higher PPI provides sharper images, other factors like color accuracy, contrast ratio, and panel technology also significantly impact overall image quality. Very high PPI can also strain system resources.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="ppiCalculator.faq.gamingEditing.question">How does PPI affect gaming and video editing?</summary>
+                <div class="faq-answer" data-i18n="ppiCalculator.faq.gamingEditing.answer">For gaming, moderate PPI (100-200) often provides the best balance of sharpness and performance. For video editing, higher PPI (200+ PPI) helps with precise editing and color grading, but requires more powerful hardware.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="ppiCalculator.faq.humanEye.question">Can the human eye tell the difference between high PPI displays?</summary>
+                <div class="faq-answer" data-i18n="ppiCalculator.faq.humanEye.answer">The human eye can typically distinguish up to about 300 PPI at normal viewing distances. Beyond this point, improvements become less noticeable unless viewing very close to the screen.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- Part 5: Related Resources -->
 <section class="related-resources">
     <div class="section-container">
         <h2 class="section-title" data-i18n="related_resources_heading">相关资源</h2>
@@ -343,6 +419,18 @@
     font-size: 0.75rem;
 }
 
+.context-comment {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--background-primary);
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--primary-color);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
 /* Content Section Styles */
 .content-section {
     padding: var(--spacing-2xl) 0;
@@ -425,6 +513,150 @@
     }
 }
 
+/* FAQ Section Styles */
+.faq-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--background-secondary);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-light);
+}
+
+.faq-item[open] {
+    border-color: var(--primary-color);
+}
+
+.faq-question {
+    padding: var(--spacing-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    background: var(--background-secondary);
+    color: var(--primary-color);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-primary);
+}
+
+/* Remove default details marker */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+/* Reference Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-light);
+}
+
+.ppi-reference-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.ppi-reference-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.ppi-reference-table th,
+.ppi-reference-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ppi-reference-table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ppi-reference-table td {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.ppi-reference-table tbody tr:hover {
+    background: var(--background-secondary);
+}
+
+.ppi-reference-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Mobile responsive table */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+    
+    .ppi-reference-table th,
+    .ppi-reference-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .table-responsive {
+        font-size: 0.75rem;
+    }
+    
+    .ppi-reference-table th,
+    .ppi-reference-table td {
+        padding: var(--spacing-xs);
+    }
+}
+
 /* Dark Theme Support */
 [data-theme="dark"] .ppi-calculator-tool {
     background: var(--background-card);
@@ -438,6 +670,20 @@
 
 [data-theme="dark"] .result-details {
     background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .faq-section {
+    background: var(--background-secondary);
+}
+
+[data-theme="dark"] .faq-item {
+    background: var(--background-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .faq-answer {
+    background: var(--background-primary);
     border-color: var(--border-color);
 }
 </style>
