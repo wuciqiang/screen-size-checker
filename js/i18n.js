@@ -295,15 +295,132 @@ async function loadChineseTranslations() {
     }
 }
 
+// 缺失翻译键的记录
+const missingTranslationKeys = new Set();
+
+// DOM元素缓存
+let cachedElements = null;
+let lastCacheTime = 0;
+const CACHE_DURATION = 5000; // 5秒缓存
+
+// 防抖定时器
+let updateDebounceTimer = null;
+const UPDATE_DEBOUNCE_DELAY = 100; // 100ms防抖延迟
+
+/**
+ * 获取翻译文本，带有回退机制
+ * @param {string} key - 翻译键
+ * @param {string} fallback - 回退文本
+ * @returns {string} - 翻译后的文本
+ */
+function getTranslationWithFallback(key, fallback = null) {
+    try {
+        const translation = i18next.t(key);
+        
+        // 如果翻译存在且不等于键本身，返回翻译
+        if (translation && translation !== key) {
+            return translation;
+        }
+        
+        // 如果当前语言不是英文，尝试获取英文翻译作为回退
+        if (i18next.language !== 'en') {
+            const englishTranslation = i18next.t(key, { lng: 'en' });
+            if (englishTranslation && englishTranslation !== key) {
+                console.warn(`🔄 Using English fallback for key: ${key}`);
+                return englishTranslation;
+            }
+        }
+        
+        // 记录缺失的翻译键
+        if (!missingTranslationKeys.has(key)) {
+            missingTranslationKeys.add(key);
+            console.warn(`❌ Missing translation for key: ${key} (language: ${i18next.language})`);
+        }
+        
+        // 如果提供了回退文本，使用回退文本
+        if (fallback) {
+            console.warn(`🔄 Using fallback text for key: ${key}`);
+            return fallback;
+        }
+        
+        // 最后的回退：返回格式化的键名
+        const formattedKey = key.split('.').pop().replace(/([A-Z])/g, ' $1').trim();
+        console.warn(`🔄 Using formatted key as fallback: ${key} -> ${formattedKey}`);
+        return formattedKey;
+        
+    } catch (error) {
+        console.error(`❌ Error getting translation for key: ${key}`, error);
+        return fallback || key;
+    }
+}
+
+/**
+ * 获取缺失的翻译键列表
+ * @returns {Array} - 缺失的翻译键数组
+ */
+export function getMissingTranslationKeys() {
+    return Array.from(missingTranslationKeys);
+}
+
+/**
+ * 清除缺失翻译键的记录
+ */
+export function clearMissingTranslationKeys() {
+    missingTranslationKeys.clear();
+}
+
+/**
+ * 获取缓存的DOM元素
+ * @returns {NodeList} - 缓存的DOM元素列表
+ */
+function getCachedElements() {
+    const now = Date.now();
+    
+    // 如果缓存过期或不存在，重新获取
+    if (!cachedElements || (now - lastCacheTime) > CACHE_DURATION) {
+        cachedElements = document.querySelectorAll('[data-i18n]');
+        lastCacheTime = now;
+        console.log(`🔄 Refreshed DOM elements cache: ${cachedElements.length} elements`);
+    }
+    
+    return cachedElements;
+}
+
+/**
+ * 防抖的UI更新函数
+ * @param {boolean} immediate - 是否立即执行
+ */
+export function debouncedUpdateUIElements(immediate = false) {
+    // 清除之前的定时器
+    if (updateDebounceTimer) {
+        clearTimeout(updateDebounceTimer);
+    }
+    
+    if (immediate) {
+        updateUIElementsInternal();
+    } else {
+        updateDebounceTimer = setTimeout(() => {
+            updateUIElementsInternal();
+        }, UPDATE_DEBOUNCE_DELAY);
+    }
+}
+
 /**
  * Update all UI elements with translations
  */
 export function updateUIElements() {
+    debouncedUpdateUIElements(true);
+}
+
+/**
+ * 内部UI更新实现
+ */
+function updateUIElementsInternal() {
     try {
         console.log('Updating UI elements with language:', i18next.language);
         
-        // 找到所有有data-i18n属性的元素
-        const elements = document.querySelectorAll('[data-i18n]');
+        // 使用缓存的DOM元素
+        const elements = getCachedElements();
         console.log('Found elements with data-i18n:', elements.length);
         
         if (elements.length === 0) {
@@ -311,6 +428,7 @@ export function updateUIElements() {
         }
         
         let translatedCount = 0;
+        let fallbackCount = 0;
         
         // 对每个元素应用翻译
         elements.forEach(element => {
@@ -334,10 +452,13 @@ export function updateUIElements() {
                         currentText.includes('检测中') || 
                         currentText.trim() === '') {
                         
-                        const translation = i18next.t(key);
-                        if (translation && translation !== key) {
-                            element.textContent = translation;
-                            translatedCount++;
+                        const fallbackText = element.textContent || '';
+                        const translation = getTranslationWithFallback(key, fallbackText);
+                        element.textContent = translation;
+                        translatedCount++;
+                        
+                        if (translation !== i18next.t(key) || i18next.t(key) === key) {
+                            fallbackCount++;
                         }
                     }
                     return;
@@ -350,10 +471,13 @@ export function updateUIElements() {
                         currentText.includes('检测中') || 
                         currentText.trim() === '') {
                         
-                        const translation = i18next.t(key);
-                        if (translation && translation !== key) {
-                            element.textContent = translation;
-                            translatedCount++;
+                        const fallbackText = element.textContent || '';
+                        const translation = getTranslationWithFallback(key, fallbackText);
+                        element.textContent = translation;
+                        translatedCount++;
+                        
+                        if (translation !== i18next.t(key) || i18next.t(key) === key) {
+                            fallbackCount++;
                         }
                     } 
                     // 已经有实际值的设备信息不更新
@@ -367,40 +491,78 @@ export function updateUIElements() {
                         currentText.includes('检测中') || 
                         currentText.trim() === '') {
                         
-                        const translation = i18next.t(key);
-                        if (translation && translation !== key) {
-                            element.value = translation;
-                            translatedCount++;
+                        const fallbackText = element.value || element.textContent || '';
+                        const translation = getTranslationWithFallback(key, fallbackText);
+                        element.value = translation;
+                        translatedCount++;
+                        
+                        if (translation !== i18next.t(key) || i18next.t(key) === key) {
+                            fallbackCount++;
                         }
                     }
                     return;
                 }
                 
                 // 常规元素翻译处理
-                const translation = i18next.t(key);
+                const currentText = element.textContent || '';
+                const fallbackText = currentText.trim() || null;
+                const translation = getTranslationWithFallback(key, fallbackText);
                 
-                if (translation && translation !== key) {
-                    // 根据元素类型设置翻译
-                    if (element.tagName === 'INPUT' && element.type === 'text') {
+                // 根据元素类型设置翻译
+                if (element.tagName === 'INPUT') {
+                    if (element.type === 'text' || element.hasAttribute('placeholder')) {
                         element.placeholder = translation;
-                    } else if (element.tagName === 'IMG') {
-                        element.alt = translation;
                     } else {
-                        // 对于一般元素，不覆盖已有实际数值（不含"Detecting..."的内容）
-                        const currentText = element.textContent || '';
-                        if (currentText.includes('Detecting') || 
-                            currentText.includes('检测中') || 
-                            currentText.trim() === '') {
-                            
-                            element.textContent = translation;
-                        }
+                        element.value = translation;
                     }
-                    translatedCount++;
+                } else if (element.tagName === 'IMG') {
+                    element.alt = translation;
+                } else {
+                    // 对于一般元素，不覆盖已有实际数值（不含"Detecting..."的内容）
+                    if (currentText.includes('Detecting') || 
+                        currentText.includes('检测中') || 
+                        currentText.trim() === '' ||
+                        currentText === key) {
+                        
+                        element.textContent = translation;
+                    }
+                }
+                
+                translatedCount++;
+                
+                if (translation !== i18next.t(key) || i18next.t(key) === key) {
+                    fallbackCount++;
                 }
             }
         });
         
         console.log(`UI elements updated successfully: ${translatedCount} elements translated`);
+        if (fallbackCount > 0) {
+            console.warn(`⚠️  ${fallbackCount} elements used fallback translations`);
+        }
+        
+        // 报告缺失的翻译键
+        const missingKeys = getMissingTranslationKeys();
+        if (missingKeys.length > 0) {
+            console.warn(`❌ Missing translation keys (${missingKeys.length}):`, missingKeys);
+        }
+        
+        // 触发翻译更新事件，通知其他组件
+        window.dispatchEvent(new CustomEvent('translationsUpdated', {
+            detail: { 
+                language: i18next.language,
+                translatedCount,
+                fallbackCount 
+            }
+        }));
+        
+        // 也触发语言变更事件
+        window.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { 
+                language: i18next.language 
+            }
+        }));
+        
     } catch (error) {
         console.error('Error updating UI elements:', error);
     }

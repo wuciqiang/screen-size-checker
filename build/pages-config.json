@@ -333,6 +333,65 @@
       }
     },
     {
+      "name": "ppi-calculator",
+      "template": "device-page",
+      "output": "devices/ppi-calculator.html",
+      "page_content": "ppi-calculator-content",
+      "config": {
+        "page_title_key": "ppiCalculator.pageTitle",
+        "page_description_key": "ppiCalculator.pageDescription",
+        "page_heading_key": "ppiCalculator.pageHeading",
+        "page_intro_key": "ppiCalculator.pageIntro",
+        "page_keywords": "ppi calculator, pixels per inch, pixel density, screen resolution, display calculator, dpi calculator, monitor ppi, screen ppi, web development, responsive design",
+        "canonical_url": "https://screensizechecker.com/devices/ppi-calculator.html",
+        "og_title": "PPI Calculator: Calculate Pixels Per Inch for Any Display",
+        "og_description": "Free PPI calculator to determine pixel density of any display. Enter screen resolution and diagonal size to calculate pixels per inch (PPI). Essential tool for designers and developers.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/ppi-calculator.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "ppi_calculator",
+        "current_name": "PPI 计算器",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "PPI Calculator",
+          "description": "Calculate pixels per inch (PPI) for any display device. Enter screen resolution and diagonal size to get accurate pixel density measurements.",
+          "url": "https://screensizechecker.com/devices/ppi-calculator.html",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-01-26",
+          "dateModified": "2025-01-26"
+        },
+        "blog_url": "../blog/index.html"
+      }
+    },
+    {
       "name": "blog-index-en",
       "template": "blog-index",
       "output": "blog/index.html",

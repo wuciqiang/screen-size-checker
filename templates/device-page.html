@@ -156,6 +156,73 @@
                 });
             }
         }
+
+        // Initialize PPI Calculator if on PPI calculator page
+        if (window.location.pathname.includes('/ppi-calculator')) {
+            console.log('🧮 PPI Calculator page detected, loading calculator script...');
+            
+            function loadPPICalculatorScript() {
+                return new Promise((resolve, reject) => {
+                    // Check if script already exists
+                    if (document.querySelector('script[src*="ppi-calculator.js"]')) {
+                        console.log('📜 PPI Calculator script already loaded');
+                        resolve();
+                        return;
+                    }
+                    
+                    const script = document.createElement('script');
+                    script.src = '{{js_path}}/ppi-calculator.js';
+                    script.type = 'module';
+                    
+                    script.onload = () => {
+                        console.log('✅ PPI Calculator script loaded successfully');
+                        // Import and initialize the calculator
+                        import('{{js_path}}/ppi-calculator.js').then(module => {
+                            if (module.initializePPICalculator) {
+                                module.initializePPICalculator();
+                                console.log('✅ PPI Calculator initialized');
+                                resolve();
+                            } else {
+                                console.error('❌ initializePPICalculator function not found');
+                                reject(new Error('PPI Calculator initialization function not found'));
+                            }
+                        }).catch(err => {
+                            console.error('❌ Failed to import PPI Calculator module:', err);
+                            reject(err);
+                        });
+                    };
+                    
+                    script.onerror = () => {
+                        console.error('❌ Failed to load PPI Calculator script');
+                        reject(new Error('PPI Calculator script load failed'));
+                    };
+                    
+                    document.head.appendChild(script);
+                });
+            }
+            
+            // Ensure DOM is ready before loading script
+            function initializePPICalculator() {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        loadPPICalculatorScript().catch(err => {
+                            console.error('Failed to load PPI Calculator script:', err);
+                            // Retry after 1 second
+                            setTimeout(() => loadPPICalculatorScript(), 1000);
+                        });
+                    });
+                } else {
+                    // DOM is already ready
+                    loadPPICalculatorScript().catch(err => {
+                        console.error('Failed to load PPI Calculator script:', err);
+                        // Retry after 1 second  
+                        setTimeout(() => loadPPICalculatorScript(), 1000);
+                    });
+                }
+            }
+            
+            initializePPICalculator();
+        }
     </script>
 </body>
 </html> 

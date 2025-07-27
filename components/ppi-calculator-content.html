@@ -1,0 +1,429 @@
+<!-- Part 1: Hero Section -->
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title" data-i18n="ppiCalculator.title">PPI 计算器</h1>
+        <p class="devices-hero-subtitle" data-i18n="ppiCalculator.intro">计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。</p>
+    </div>
+</section>
+
+<!-- Part 2: Calculator Section -->
+<section class="section-container">
+    <div class="ppi-calculator-tool">
+        <div class="calculator-container">
+            <!-- Input Form -->
+            <div class="calculator-form">
+                <h2 class="calculator-section-title" data-i18n="ppiCalculator.inputTitle">输入屏幕参数</h2>
+                
+                <div class="input-group">
+                    <label for="horizontal-pixels" class="input-label" data-i18n="ppiCalculator.horizontalPixels">水平像素数</label>
+                    <input 
+                        type="number" 
+                        id="horizontal-pixels" 
+                        class="calculator-input" 
+                        placeholder="1920" 
+                        data-i18n-placeholder="ppiCalculator.horizontalPixelsPlaceholder"
+                        min="1" 
+                        max="10000"
+                        aria-describedby="horizontal-pixels-help"
+                    >
+                    <small class="input-help" id="horizontal-pixels-help" data-i18n="ppiCalculator.horizontalPixelsHelp">屏幕宽度的像素数量</small>
+                    <div class="error-message" id="horizontal-pixels-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="vertical-pixels" class="input-label" data-i18n="ppiCalculator.verticalPixels">垂直像素数</label>
+                    <input 
+                        type="number" 
+                        id="vertical-pixels" 
+                        class="calculator-input" 
+                        placeholder="1080" 
+                        data-i18n-placeholder="ppiCalculator.verticalPixelsPlaceholder"
+                        min="1" 
+                        max="10000"
+                        aria-describedby="vertical-pixels-help"
+                    >
+                    <small class="input-help" id="vertical-pixels-help" data-i18n="ppiCalculator.verticalPixelsHelp">屏幕高度的像素数量</small>
+                    <div class="error-message" id="vertical-pixels-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="diagonal-inches" class="input-label" data-i18n="ppiCalculator.diagonalInches">对角线尺寸（英寸）</label>
+                    <input 
+                        type="number" 
+                        id="diagonal-inches" 
+                        class="calculator-input" 
+                        placeholder="15.6" 
+                        data-i18n-placeholder="ppiCalculator.diagonalInchesPlaceholder"
+                        min="0.1" 
+                        max="100" 
+                        step="0.1"
+                        aria-describedby="diagonal-inches-help"
+                    >
+                    <small class="input-help" id="diagonal-inches-help" data-i18n="ppiCalculator.diagonalInchesHelp">屏幕对角线的长度（英寸）</small>
+                    <div class="error-message" id="diagonal-inches-error"></div>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div class="calculator-result">
+                <h2 class="calculator-section-title" data-i18n="ppiCalculator.resultTitle">计算结果</h2>
+                
+                <div class="result-display">
+                    <div class="result-value-container">
+                        <span class="result-value" id="ppi-result">--</span>
+                        <span class="result-unit" data-i18n="ppiCalculator.ppiUnit">PPI</span>
+                    </div>
+                    <p class="result-description" data-i18n="ppiCalculator.resultDescription">每英寸像素数</p>
+                </div>
+
+                <div class="result-details" id="result-details" style="display: none;">
+                    <div class="detail-item">
+                        <span class="detail-label" data-i18n="ppiCalculator.pixelDiagonal">像素对角线：</span>
+                        <span class="detail-value" id="pixel-diagonal">--</span>
+                        <span class="detail-unit" data-i18n="ppiCalculator.pixelsUnit">像素</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label" data-i18n="ppiCalculator.screenDensity">屏幕密度：</span>
+                        <span class="detail-value" id="screen-density">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Part 3: SEO Content Section -->
+<section class="content-section">
+    <div class="section-container">
+        <h2 data-i18n="ppiCalculator.whatIsPPI">什么是 PPI（像素密度）？</h2>
+        <p data-i18n="ppiCalculator.ppiDefinition">
+            PPI（Pixels Per Inch，每英寸像素数）是衡量显示设备像素密度的单位。它表示在一英寸长度内包含多少个像素点。PPI 值越高，显示效果越细腻，图像和文字看起来越清晰锐利。
+        </p>
+        
+        <h3 data-i18n="ppiCalculator.howPPICalculated">PPI 是如何计算的？</h3>
+        <p data-i18n="ppiCalculator.ppiFormula">
+            PPI 的计算公式为：PPI = √(水平像素² + 垂直像素²) / 对角线英寸数。首先计算屏幕的像素对角线长度，然后除以物理对角线长度，就得到了每英寸的像素数量。
+        </p>
+
+        <h2 data-i18n="ppiCalculator.whyPPIImportant">为什么 PPI 很重要？</h2>
+        <p data-i18n="ppiCalculator.ppiImportance">
+            PPI 对显示质量有直接影响。高 PPI 显示器能够呈现更清晰的文字、更细腻的图像细节，减少像素颗粒感。对于设计师和开发者来说，了解目标设备的 PPI 有助于优化图像资源，确保在不同密度的屏幕上都能获得最佳显示效果。
+        </p>
+
+        <h3 data-i18n="ppiCalculator.ppiApplications">PPI 的应用场景</h3>
+        <ul>
+            <li data-i18n="ppiCalculator.webDesign">网页设计：为不同 PPI 的设备准备合适的图像资源</li>
+            <li data-i18n="ppiCalculator.appDevelopment">应用开发：确保 UI 元素在各种屏幕上的显示效果</li>
+            <li data-i18n="ppiCalculator.printDesign">印刷设计：理解屏幕显示与印刷输出的差异</li>
+            <li data-i18n="ppiCalculator.deviceSelection">设备选择：比较不同显示器的显示质量</li>
+        </ul>
+
+        <h2 data-i18n="ppiCalculator.howToUse">如何使用我们的 PPI 计算器？</h2>
+        <ol>
+            <li data-i18n="ppiCalculator.step1">输入屏幕的水平像素数（如 1920）</li>
+            <li data-i18n="ppiCalculator.step2">输入屏幕的垂直像素数（如 1080）</li>
+            <li data-i18n="ppiCalculator.step3">输入屏幕的对角线尺寸（如 15.6 英寸）</li>
+            <li data-i18n="ppiCalculator.step4">系统会自动计算并显示 PPI 值</li>
+        </ol>
+        
+        <p data-i18n="ppiCalculator.exampleCalculation">
+            例如：一个 15.6 英寸的 1920×1080 显示器，其 PPI 值约为 141.21，这意味着每英寸包含约 141 个像素点。
+        </p>
+
+        <h2 data-i18n="ppiCalculator.ppiVsDpi">PPI vs DPI：有什么区别？</h2>
+        <p data-i18n="ppiCalculator.ppiVsDpiExplanation">
+            PPI 和 DPI 经常被混淆，但它们有不同的应用场景。PPI（每英寸像素数）主要用于描述数字显示设备的像素密度，而 DPI（每英寸点数）主要用于描述打印设备的分辨率。在网页设计和屏幕显示的语境下，我们通常使用 PPI 来衡量显示质量。
+        </p>
+
+        <h3 data-i18n="ppiCalculator.commonPPIValues">常见的 PPI 值参考</h3>
+        <ul>
+            <li data-i18n="ppiCalculator.lowPPI">低密度（72-120 PPI）：传统显示器、大尺寸电视</li>
+            <li data-i18n="ppiCalculator.mediumPPI">中等密度（120-200 PPI）：标准笔记本电脑、台式机显示器</li>
+            <li data-i18n="ppiCalculator.highPPI">高密度（200-300 PPI）：高分辨率笔记本、平板电脑</li>
+            <li data-i18n="ppiCalculator.veryHighPPI">超高密度（300+ PPI）：智能手机、Retina 显示器</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Part 4: Related Resources -->
+<section class="related-resources">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="related_resources_heading">相关资源</h2>
+        
+        <div class="toolbar-grid" style="display: flex; justify-content: space-between; flex-wrap: nowrap; width: 100%; gap: 15px; overflow-x: auto; padding-bottom: 5px;">
+            <a href="{{device_links_base}}iphone-viewport-sizes.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">📱</span>
+                <span class="tool-title" data-i18n="iphone_sizes">iPhone 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}ipad-viewport-sizes.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">📐</span>
+                <span class="tool-title" data-i18n="ipad_sizes">iPad 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}android-viewport-sizes.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">🤖</span>
+                <span class="tool-title" data-i18n="android_sizes">Android 尺寸</span>
+            </a>
+            <a href="{{device_links_base}}compare.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">🆚</span>
+                <span class="tool-title" data-i18n="compare_tool">对比工具</span>
+            </a>
+            <a href="{{device_links_base}}standard-resolutions.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">📊</span>
+                <span class="tool-title" data-i18n="standard_resolutions">标准分辨率</span>
+            </a>
+            <a href="{{device_links_base}}responsive-tester.html" class="tool-card" style="flex: 1; min-width: 0;">
+                <span class="tool-icon">🔍</span>
+                <span class="tool-title" data-i18n="responsive_tester">响应式测试器</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CSS Styles for PPI Calculator -->
+<style>
+.ppi-calculator-tool {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calculator-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.calculator-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+.calculator-input.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.input-help {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    min-height: 1rem;
+    line-height: 1.4;
+}
+
+.result-display {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--primary-color-light), var(--background-secondary));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.result-value-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-family-mono);
+    line-height: 1;
+}
+
+.result-unit {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.result-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.result-details {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--background-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: var(--font-family-mono);
+}
+
+.detail-unit {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+/* Content Section Styles */
+.content-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.content-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+}
+
+.content-section p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.content-section ul,
+.content-section ol {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+}
+
+.content-section li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .ppi-calculator-tool {
+        padding: var(--spacing-lg);
+    }
+    
+    .result-value {
+        font-size: 2.5rem;
+    }
+    
+    .calculator-section-title {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-value {
+        font-size: 2rem;
+    }
+    
+    .result-value-container {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .result-unit {
+        font-size: 1rem;
+    }
+    
+    .ppi-calculator-tool {
+        padding: var(--spacing-md);
+    }
+    
+    .calculator-input {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .ppi-calculator-tool {
+    background: var(--background-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .result-display {
+    background: linear-gradient(135deg, var(--primary-color-light), var(--background-secondary));
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .result-details {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+</style>

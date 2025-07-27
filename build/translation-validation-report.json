@@ -1,0 +1,916 @@
+{
+  "validationDate": "2025-07-27T03:22:00.170Z",
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "summary": {
+    "totalKeys": 450,
+    "missingTranslations": 106,
+    "inconsistentKeys": 158
+  },
+  "missingKeys": {
+    "en": [
+      "samsung_galaxy_s22_ultra",
+      "samsung_galaxy_s22_plus",
+      "samsung_galaxy_s22",
+      "google_pixel_6_pro",
+      "google_pixel_6",
+      "samsung_galaxy_s21_ultra",
+      "samsung_galaxy_s21_plus",
+      "samsung_galaxy_s21",
+      "oneplus_9_pro",
+      "oneplus_9",
+      "xiaomi_mi_11",
+      "samsung_galaxy_s20_ultra",
+      "samsung_galaxy_s20_plus",
+      "samsung_galaxy_s20",
+      "google_pixel_5",
+      "google_pixel_4_xl",
+      "google_pixel_4",
+      "oneplus_8_pro",
+      "samsung_galaxy_note_20_ultra",
+      "samsung_galaxy_s10_plus",
+      "samsung_galaxy_s10",
+      "samsung_galaxy_s10e",
+      "category_title",
+      "category_subtitle",
+      "back_to_all",
+      "blog_title",
+      "blog_subtitle",
+      "latest_articles",
+      "all_categories",
+      "view_all",
+      "categories",
+      "recent_posts",
+      "tags",
+      "tag_title",
+      "tag_subtitle",
+      "{{parent_key}}",
+      "{{current_key}}",
+      "seo_description",
+      "ipad_pro_12_2020",
+      "ipad_pro_11_2020",
+      "ipad_7th_gen",
+      "ipad_air_2019",
+      "ipad_mini_2019",
+      "ipad_pro_12_2018",
+      "ipad_pro_11_2018",
+      "ipad_6th_gen",
+      "ipad_pro_10_5",
+      "ipad_pro_12_2017",
+      "ipad_5th_gen",
+      "ipad_pro_9_7",
+      "ipad_pro_12_2015",
+      "ipad_mini_4",
+      "ipad_air_2"
+    ],
+    "zh": [
+      "samsung_galaxy_s22_ultra",
+      "samsung_galaxy_s22_plus",
+      "samsung_galaxy_s22",
+      "google_pixel_6_pro",
+      "google_pixel_6",
+      "samsung_galaxy_s21_ultra",
+      "samsung_galaxy_s21_plus",
+      "samsung_galaxy_s21",
+      "oneplus_9_pro",
+      "oneplus_9",
+      "xiaomi_mi_11",
+      "samsung_galaxy_s20_ultra",
+      "samsung_galaxy_s20_plus",
+      "samsung_galaxy_s20",
+      "google_pixel_5",
+      "google_pixel_4_xl",
+      "google_pixel_4",
+      "oneplus_8_pro",
+      "samsung_galaxy_note_20_ultra",
+      "samsung_galaxy_s10_plus",
+      "samsung_galaxy_s10",
+      "samsung_galaxy_s10e",
+      "category_title",
+      "category_subtitle",
+      "back_to_all",
+      "blog_title",
+      "blog_subtitle",
+      "latest_articles",
+      "all_categories",
+      "view_all",
+      "categories",
+      "recent_posts",
+      "tags",
+      "tag_title",
+      "tag_subtitle",
+      "{{parent_key}}",
+      "{{current_key}}",
+      "seo_description",
+      "ipad_pro_12_2020",
+      "ipad_pro_11_2020",
+      "ipad_7th_gen",
+      "ipad_air_2019",
+      "ipad_mini_2019",
+      "ipad_pro_12_2018",
+      "ipad_pro_11_2018",
+      "ipad_6th_gen",
+      "ipad_pro_10_5",
+      "ipad_pro_12_2017",
+      "ipad_5th_gen",
+      "ipad_pro_9_7",
+      "ipad_pro_12_2015",
+      "ipad_mini_4",
+      "ipad_air_2"
+    ]
+  },
+  "inconsistentKeys": [
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s22_ultra"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s22_plus"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s22"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "google_pixel_6_pro"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "google_pixel_6"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s21_ultra"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s21_plus"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s21"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "oneplus_9_pro"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "oneplus_9"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "xiaomi_mi_11"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s20_ultra"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s20_plus"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s20"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "google_pixel_5"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "google_pixel_4_xl"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "google_pixel_4"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "oneplus_8_pro"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_note_20_ultra"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s10_plus"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s10"
+    },
+    {
+      "component": "android-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "samsung_galaxy_s10e"
+    },
+    {
+      "component": "blog-category-basics-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-basics-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-basics-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-category-basics-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-basics-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-basics-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-category-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-category-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-category-technical-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-technical-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-technical-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-category-technical-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_title"
+    },
+    {
+      "component": "blog-category-technical-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "category_subtitle"
+    },
+    {
+      "component": "blog-category-technical-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-index-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "blog_title"
+    },
+    {
+      "component": "blog-index-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "blog_subtitle"
+    },
+    {
+      "component": "blog-index-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "latest_articles"
+    },
+    {
+      "component": "blog-index-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "all_categories"
+    },
+    {
+      "component": "blog-index-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "view_all"
+    },
+    {
+      "component": "blog-index-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "blog_title"
+    },
+    {
+      "component": "blog-index-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "blog_subtitle"
+    },
+    {
+      "component": "blog-index-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "latest_articles"
+    },
+    {
+      "component": "blog-index-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "all_categories"
+    },
+    {
+      "component": "blog-index-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "view_all"
+    },
+    {
+      "component": "blog-sidebar-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "categories"
+    },
+    {
+      "component": "blog-sidebar-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "recent_posts"
+    },
+    {
+      "component": "blog-sidebar-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tags"
+    },
+    {
+      "component": "blog-sidebar-sub-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "categories"
+    },
+    {
+      "component": "blog-sidebar-sub-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "recent_posts"
+    },
+    {
+      "component": "blog-sidebar-sub-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tags"
+    },
+    {
+      "component": "blog-sidebar-sub-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "categories"
+    },
+    {
+      "component": "blog-sidebar-sub-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "recent_posts"
+    },
+    {
+      "component": "blog-sidebar-sub-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tags"
+    },
+    {
+      "component": "blog-sidebar-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "categories"
+    },
+    {
+      "component": "blog-sidebar-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "recent_posts"
+    },
+    {
+      "component": "blog-sidebar-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tags"
+    },
+    {
+      "component": "blog-tag-breakpoints-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-breakpoints-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-breakpoints-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-css-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-css-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-display-technology-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-display-technology-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-display-technology-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-dpr-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-dpr-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-dpr-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-dpr-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-dpr-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-dpr-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-laptop-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-laptop-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-laptop-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-media-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-media-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-media-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-pixel-density-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-pixel-density-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-pixel-density-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-responsive-design-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-responsive-design-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-responsive-design-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-responsive-design-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-responsive-design-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-responsive-design-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-retina-display-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-retina-display-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-retina-display-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-screen-size-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-screen-size-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-screen-size-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-viewport-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-viewport-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-viewport-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-viewport-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-viewport-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-viewport-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-web-development-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-web-development-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-web-development-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-web-development-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-web-development-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-web-development-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-像素密度-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-像素密度-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-像素密度-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-响应式设计-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-响应式设计-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-响应式设计-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-媒体查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-媒体查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-媒体查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-屏幕尺寸-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-屏幕尺寸-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-屏幕尺寸-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-断点-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-断点-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-断点-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-显示技术-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-显示技术-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-显示技术-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-笔记本-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-笔记本-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-笔记本-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-网页开发-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-网页开发-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-网页开发-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-视网膜显示-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-视网膜显示-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-视网膜显示-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "breadcrumb.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "{{parent_key}}"
+    },
+    {
+      "component": "breadcrumb.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "{{current_key}}"
+    },
+    {
+      "component": "head.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "seo_description"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_12_2020"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_11_2020"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_7th_gen"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_air_2019"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_mini_2019"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_12_2018"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_11_2018"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_6th_gen"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_10_5"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_12_2017"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_5th_gen"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_9_7"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_pro_12_2015"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_mini_4"
+    },
+    {
+      "component": "ipad-content.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "ipad_air_2"
+    }
+  ]
+}

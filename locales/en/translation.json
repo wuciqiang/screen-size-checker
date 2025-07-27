@@ -570,5 +570,76 @@
   "breakpoints_desktop": "Desktop:",
   "breakpoints_desktop_range": "1025px - 1440px",
   "breakpoints_large": "Large Screen:",
-  "breakpoints_large_range": "1441px and above"
+  "breakpoints_large_range": "1441px and above",
+
+  "ppiCalculator": {
+    "title": "PPI Calculator",
+    "intro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
+    "pageTitle": "PPI Calculator: Calculate Pixels Per Inch for Any Display | Screen Size Checker",
+    "pageDescription": "Free PPI calculator to determine pixel density of any display. Enter screen resolution and diagonal size to calculate pixels per inch (PPI). Essential tool for designers and developers.",
+    "pageHeading": "PPI Calculator",
+    "pageIntro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
+    
+    "inputTitle": "Enter Screen Parameters",
+    "horizontalPixels": "Horizontal Pixels",
+    "horizontalPixelsPlaceholder": "1920",
+    "horizontalPixelsHelp": "Number of pixels across the screen width",
+    "verticalPixels": "Vertical Pixels", 
+    "verticalPixelsPlaceholder": "1080",
+    "verticalPixelsHelp": "Number of pixels across the screen height",
+    "diagonalInches": "Diagonal Size (inches)",
+    "diagonalInchesPlaceholder": "15.6",
+    "diagonalInchesHelp": "Diagonal length of the screen in inches",
+    
+    "resultTitle": "Calculation Result",
+    "ppiUnit": "PPI",
+    "resultDescription": "Pixels Per Inch",
+    "pixelDiagonal": "Pixel Diagonal:",
+    "pixelsUnit": "pixels",
+    "screenDensity": "Screen Density:",
+    
+    "lowDensity": "Low Density",
+    "mediumDensity": "Medium Density", 
+    "highDensity": "High Density",
+    "veryHighDensity": "Very High Density",
+    
+    "errorInvalidNumber": "Please enter a valid number",
+    "errorNegativeValue": "Value must be greater than 0",
+    "errorOutOfRange": "Value must be between {{min}} and {{max}}",
+    "errorCalculation": "An error occurred during calculation",
+    
+    "whatIsPPI": "What is PPI (Pixel Density)?",
+    "ppiDefinition": "PPI (Pixels Per Inch) is a unit that measures the pixel density of display devices. It represents how many pixel points are contained within one inch of length. The higher the PPI value, the finer the display effect, and the clearer and sharper images and text appear.",
+    
+    "howPPICalculated": "How is PPI Calculated?",
+    "ppiFormula": "The PPI calculation formula is: PPI = √(horizontal pixels² + vertical pixels²) / diagonal inches. First calculate the pixel diagonal length of the screen, then divide by the physical diagonal length to get the number of pixels per inch.",
+    
+    "whyPPIImportant": "Why is PPI Important?",
+    "ppiImportance": "PPI has a direct impact on display quality. High PPI displays can present clearer text, finer image details, and reduce pixel graininess. For designers and developers, understanding the PPI of target devices helps optimize image resources and ensure optimal display effects on screens of different densities.",
+    
+    "ppiApplications": "PPI Application Scenarios",
+    "webDesign": "Web Design: Prepare appropriate image resources for devices with different PPI",
+    "appDevelopment": "App Development: Ensure UI elements display correctly on various screens",
+    "printDesign": "Print Design: Understand the difference between screen display and print output",
+    "deviceSelection": "Device Selection: Compare display quality of different monitors",
+    
+    "howToUse": "How to Use Our PPI Calculator?",
+    "step1": "Enter the horizontal pixel count of the screen (e.g., 1920)",
+    "step2": "Enter the vertical pixel count of the screen (e.g., 1080)",
+    "step3": "Enter the diagonal size of the screen (e.g., 15.6 inches)",
+    "step4": "The system will automatically calculate and display the PPI value",
+    
+    "exampleCalculation": "For example: A 15.6-inch 1920×1080 display has a PPI value of approximately 141.21, meaning each inch contains about 141 pixel points.",
+    
+    "ppiVsDpi": "PPI vs DPI: What's the Difference?",
+    "ppiVsDpiExplanation": "PPI and DPI are often confused, but they have different application scenarios. PPI (Pixels Per Inch) is mainly used to describe the pixel density of digital display devices, while DPI (Dots Per Inch) is mainly used to describe the resolution of printing devices. In the context of web design and screen display, we typically use PPI to measure display quality.",
+    
+    "commonPPIValues": "Common PPI Value Reference",
+    "lowPPI": "Low Density (72-120 PPI): Traditional monitors, large TVs",
+    "mediumPPI": "Medium Density (120-200 PPI): Standard laptops, desktop monitors",
+    "highPPI": "High Density (200-300 PPI): High-resolution laptops, tablets",
+    "veryHighPPI": "Very High Density (300+ PPI): Smartphones, Retina displays"
+  },
+
+  "ppi_calculator": "PPI Calculator"
 }

@@ -556,5 +556,76 @@
   "breakpoints_desktop": "桌面:",
   "breakpoints_desktop_range": "1025px - 1440px",
   "breakpoints_large": "大屏幕:",
-  "breakpoints_large_range": "1441px 及以上"
+  "breakpoints_large_range": "1441px 及以上",
+
+  "ppiCalculator": {
+    "title": "PPI 计算器",
+    "intro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
+    "pageTitle": "PPI 计算器：计算任何显示器的每英寸像素数 | Screen Size Checker",
+    "pageDescription": "免费的 PPI 计算器，用于确定任何显示器的像素密度。输入屏幕分辨率和对角线尺寸来计算每英寸像素数（PPI）。设计师和开发者的必备工具。",
+    "pageHeading": "PPI 计算器",
+    "pageIntro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
+    
+    "inputTitle": "输入屏幕参数",
+    "horizontalPixels": "水平像素数",
+    "horizontalPixelsPlaceholder": "1920",
+    "horizontalPixelsHelp": "屏幕宽度的像素数量",
+    "verticalPixels": "垂直像素数",
+    "verticalPixelsPlaceholder": "1080", 
+    "verticalPixelsHelp": "屏幕高度的像素数量",
+    "diagonalInches": "对角线尺寸（英寸）",
+    "diagonalInchesPlaceholder": "15.6",
+    "diagonalInchesHelp": "屏幕对角线的长度（英寸）",
+    
+    "resultTitle": "计算结果",
+    "ppiUnit": "PPI",
+    "resultDescription": "每英寸像素数",
+    "pixelDiagonal": "像素对角线：",
+    "pixelsUnit": "像素",
+    "screenDensity": "屏幕密度：",
+    
+    "lowDensity": "低密度",
+    "mediumDensity": "中等密度",
+    "highDensity": "高密度", 
+    "veryHighDensity": "超高密度",
+    
+    "errorInvalidNumber": "请输入有效的数字",
+    "errorNegativeValue": "值必须大于 0",
+    "errorOutOfRange": "值必须在 {{min}} 到 {{max}} 之间",
+    "errorCalculation": "计算过程中出现错误",
+    
+    "whatIsPPI": "什么是 PPI（像素密度）？",
+    "ppiDefinition": "PPI（Pixels Per Inch，每英寸像素数）是衡量显示设备像素密度的单位。它表示在一英寸长度内包含多少个像素点。PPI 值越高，显示效果越细腻，图像和文字看起来越清晰锐利。",
+    
+    "howPPICalculated": "PPI 是如何计算的？",
+    "ppiFormula": "PPI 的计算公式为：PPI = √(水平像素² + 垂直像素²) / 对角线英寸数。首先计算屏幕的像素对角线长度，然后除以物理对角线长度，就得到了每英寸的像素数量。",
+    
+    "whyPPIImportant": "为什么 PPI 很重要？",
+    "ppiImportance": "PPI 对显示质量有直接影响。高 PPI 显示器能够呈现更清晰的文字、更细腻的图像细节，减少像素颗粒感。对于设计师和开发者来说，了解目标设备的 PPI 有助于优化图像资源，确保在不同密度的屏幕上都能获得最佳显示效果。",
+    
+    "ppiApplications": "PPI 的应用场景",
+    "webDesign": "网页设计：为不同 PPI 的设备准备合适的图像资源",
+    "appDevelopment": "应用开发：确保 UI 元素在各种屏幕上的显示效果",
+    "printDesign": "印刷设计：理解屏幕显示与印刷输出的差异",
+    "deviceSelection": "设备选择：比较不同显示器的显示质量",
+    
+    "howToUse": "如何使用我们的 PPI 计算器？",
+    "step1": "输入屏幕的水平像素数（如 1920）",
+    "step2": "输入屏幕的垂直像素数（如 1080）",
+    "step3": "输入屏幕的对角线尺寸（如 15.6 英寸）",
+    "step4": "系统会自动计算并显示 PPI 值",
+    
+    "exampleCalculation": "例如：一个 15.6 英寸的 1920×1080 显示器，其 PPI 值约为 141.21，这意味着每英寸包含约 141 个像素点。",
+    
+    "ppiVsDpi": "PPI vs DPI：有什么区别？",
+    "ppiVsDpiExplanation": "PPI 和 DPI 经常被混淆，但它们有不同的应用场景。PPI（每英寸像素数）主要用于描述数字显示设备的像素密度，而 DPI（每英寸点数）主要用于描述打印设备的分辨率。在网页设计和屏幕显示的语境下，我们通常使用 PPI 来衡量显示质量。",
+    
+    "commonPPIValues": "常见的 PPI 值参考",
+    "lowPPI": "低密度（72-120 PPI）：传统显示器、大尺寸电视",
+    "mediumPPI": "中等密度（120-200 PPI）：标准笔记本电脑、台式机显示器",
+    "highPPI": "高密度（200-300 PPI）：高分辨率笔记本、平板电脑",
+    "veryHighPPI": "超高密度（300+ PPI）：智能手机、Retina 显示器"
+  },
+
+  "ppi_calculator": "PPI 计算器"
 } 

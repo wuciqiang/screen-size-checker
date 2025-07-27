@@ -74,6 +74,22 @@ async function initializeApp() {
             }
         }
         
+        // Step 9: Initialize PPI calculator if on PPI calculator page
+        console.log('Step 9: Checking for PPI calculator page...');
+        if (window.location.pathname.includes('ppi-calculator')) {
+            console.log('PPI calculator page detected, loading PPI calculator module...');
+            try {
+                import('./ppi-calculator.js').then(module => {
+                    console.log('PPI calculator module loaded, initializing...');
+                    module.initializePPICalculator();
+                }).catch(error => {
+                    console.error('Failed to load PPI calculator module:', error);
+                });
+            } catch (error) {
+                console.error('Error importing PPI calculator module:', error);
+            }
+        }
+        
         isInitialized = true;
         console.log('✅ Application initialized successfully!');
         

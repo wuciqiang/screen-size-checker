@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const ComponentBuilder = require('./component-builder');
 const BlogBuilder = require('./blog-builder');
+const { TranslationValidator } = require('./translation-validator');
 
 class MultiLangBuilder extends ComponentBuilder {
     constructor() {
@@ -29,6 +30,24 @@ class MultiLangBuilder extends ComponentBuilder {
                 console.error(`❌ Error loading ${lang} translations:`, error.message);
             }
         });
+    }
+    
+    // 获取嵌套的翻译值，支持如 "ppiCalculator.pageTitle" 这样的键
+    getNestedTranslation(translations, key) {
+        if (!key || !translations) return null;
+        
+        const keys = key.split('.');
+        let current = translations;
+        
+        for (const k of keys) {
+            if (current && typeof current === 'object' && current.hasOwnProperty(k)) {
+                current = current[k];
+            } else {
+                return null;
+            }
+        }
+        
+        return typeof current === 'string' ? current : null;
     }
     
     // 处理翻译替换
@@ -64,7 +83,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 }
             }
             
-            const translation = translations[key];
+            const translation = this.getNestedTranslation(translations, key);
             if (translation) {
                 return match.replace(originalText, translation);
             }
@@ -73,12 +92,46 @@ class MultiLangBuilder extends ComponentBuilder {
         
         // 替换模板变量如 {{t:key}}
         result = result.replace(/\{\{t:(\w+)\}\}/g, (match, key) => {
-            return translations[key] || match;
+            return this.getNestedTranslation(translations, key) || match;
         });
         
         return result;
     }
     
+    // 运行翻译验证
+    async runTranslationValidation() {
+        console.log('\n🔍 Validating translations...');
+        
+        try {
+            const validator = new TranslationValidator();
+            const result = await validator.runValidation({
+                componentsDir: 'components',
+                localesDir: 'locales',
+                languages: ['en', 'zh'],
+                outputPath: 'build/translation-validation-report.json'
+            });
+            
+            if (!result.success) {
+                console.error('❌ Translation validation failed:', result.error);
+                return { success: false, error: result.error };
+            }
+            
+            if (result.hasErrors) {
+                console.warn('⚠️  Translation validation found issues, but continuing build...');
+                console.warn(`   Missing translations: ${result.report.summary.missingTranslations}`);
+                console.warn(`   Inconsistent keys: ${result.report.summary.inconsistentKeys}`);
+            } else {
+                console.log('✅ Translation validation passed');
+            }
+            
+            return result;
+            
+        } catch (error) {
+            console.error('❌ Translation validation error:', error);
+            return { success: false, error: error.message };
+        }
+    }
+
     // 生成多语言页面
     buildMultiLangPages() {
         console.log('\n🌐 Building multilingual pages...');
@@ -155,25 +208,45 @@ class MultiLangBuilder extends ComponentBuilder {
                     };
                     
                     // 从翻译文件中获取页面特定的翻译值
-                    if (pageData.page_title_key && translations[pageData.page_title_key]) {
-                        pageData.page_title = translations[pageData.page_title_key];
+                    if (pageData.page_title_key) {
+                        // 支持嵌套的翻译键，如 "ppiCalculator.pageTitle"
+                        const translationValue = this.getNestedTranslation(translations, pageData.page_title_key);
+                        if (translationValue) {
+                            pageData.page_title = translationValue;
+                        } else {
+                            // 如果没有找到翻译，使用默认的og_title
+                            pageData.page_title = pageData.og_title || 'Screen Size Checker';
+                        }
+                    } else {
+                        pageData.page_title = pageData.og_title || 'Screen Size Checker';
                     }
                     
                     // 确保title变量也被设置（用于head.html组件）
-                    pageData.title = pageData.page_title || pageData.og_title || 'Screen Size Checker';
-                    if (pageData.page_heading_key && translations[pageData.page_heading_key]) {
-                        pageData.page_heading = translations[pageData.page_heading_key];
+                    pageData.title = pageData.page_title;
+                    if (pageData.page_heading_key) {
+                        const headingValue = this.getNestedTranslation(translations, pageData.page_heading_key);
+                        if (headingValue) {
+                            pageData.page_heading = headingValue;
+                        }
                     }
-                    if (pageData.page_intro_key && translations[pageData.page_intro_key]) {
-                        pageData.page_intro = translations[pageData.page_intro_key];
+                    if (pageData.page_intro_key) {
+                        const introValue = this.getNestedTranslation(translations, pageData.page_intro_key);
+                        if (introValue) {
+                            pageData.page_intro = introValue;
+                        }
                     }
-                    // 修正description注入逻辑，优先用translations['description']，不被page_description_key覆盖：
+                    // 修正description注入逻辑，支持嵌套翻译键
                     if (translations['description']) {
                         pageData.description = translations['description'];
-                    } else if (pageData.page_description_key && translations[pageData.page_description_key]) {
-                        pageData.description = translations[pageData.page_description_key];
+                    } else if (pageData.page_description_key) {
+                        const descriptionValue = this.getNestedTranslation(translations, pageData.page_description_key);
+                        if (descriptionValue) {
+                            pageData.description = descriptionValue;
+                        } else {
+                            pageData.description = pageData.og_description || '';
+                        }
                     } else {
-                        pageData.description = '';
+                        pageData.description = pageData.og_description || '';
                     }
                     
                     // 调整静态资源路径为相对于语言目录的路径
@@ -241,6 +314,10 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 移除.html后缀以匹配Cloudflare Pages的URL格式
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                     pageData.og_url = pageData.canonical_url;
+                    
+                    // 更新Open Graph数据以使用翻译后的内容
+                    pageData.og_title = pageData.page_title || pageData.og_title;
+                    pageData.og_description = pageData.description || pageData.og_description;
                     
                     // 添加hreflang相关数据
                     pageData.base_url = 'https://screensizechecker.com';
@@ -1201,30 +1278,45 @@ function processTemplate(templatePath, config, lang) {
 
 // 如果直接运行此脚本，执行多语言构建
 if (require.main === module) {
-    const builder = new MultiLangBuilder();
-    
-    // 首先运行博客构建器
-    console.log('🚀 Starting integrated build process...');
-    console.log('\n📝 Step 1: Building blog system...');
-    
-    try {
-        const blogBuilder = new BlogBuilder();
-        blogBuilder.build();
-        console.log('✅ Blog system build completed successfully!');
+    (async () => {
+        const builder = new MultiLangBuilder();
         
-        // 重新加载组件，包括新生成的博客组件
-        console.log('🔄 Reloading components after blog build...');
-        builder.loadComponents();
-        console.log('✅ Components reloaded successfully!');
-    } catch (error) {
-        console.error('❌ Blog build failed:', error.message);
-        console.log('⚠️  Continuing with main build process...');
-    }
-    
-    console.log('\n🌐 Step 2: Building multilingual pages...');
-    if (builder.validateComponents()) {
-        builder.buildMultiLangPages();
-    }
+        console.log('🚀 Starting integrated build process...');
+        
+        // Step 0: 运行翻译验证
+        console.log('\n🔍 Step 0: Validating translations...');
+        const validationResult = await builder.runTranslationValidation();
+        
+        if (!validationResult.success) {
+            console.error('❌ Build failed due to translation validation errors');
+            process.exit(1);
+        }
+        
+        // 首先运行博客构建器
+        console.log('\n📝 Step 1: Building blog system...');
+        
+        try {
+            const blogBuilder = new BlogBuilder();
+            blogBuilder.build();
+            console.log('✅ Blog system build completed successfully!');
+            
+            // 重新加载组件，包括新生成的博客组件
+            console.log('🔄 Reloading components after blog build...');
+            builder.loadComponents();
+            console.log('✅ Components reloaded successfully!');
+        } catch (error) {
+            console.error('❌ Blog build failed:', error.message);
+            console.log('⚠️  Continuing with main build process...');
+        }
+        
+        console.log('\n🌐 Step 2: Building multilingual pages...');
+        if (builder.validateComponents()) {
+            builder.buildMultiLangPages();
+        }
+    })().catch(error => {
+        console.error('❌ Build process failed:', error);
+        process.exit(1);
+    });
 }
 
 module.exports = MultiLangBuilder; 

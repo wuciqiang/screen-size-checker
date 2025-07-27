@@ -48,6 +48,36 @@
 - 🇯🇵 **日本語** - `/ja/` (84个基础翻译键值，待完善)
 - 🇰🇷 **한국어** - `/ko/` (83个基础翻译键值，待完善)
 - 🇵🇹 **Português** - `/pt/` (83个基础翻译键值，待完善)
+
+### 翻译系统架构 🔧
+
+#### 构建时翻译处理
+- **嵌套键支持**：支持 `ppiCalculator.title` 等嵌套翻译键结构
+- **模板替换**：自动处理 `data-i18n` 属性和 `{{t:key}}` 模板变量
+- **多语言构建**：为每种语言生成独立的静态页面
+- **翻译验证**：构建时自动检测缺失的翻译键（450个键值验证）
+
+#### 运行时翻译系统
+- **动态语言切换**：基于 i18next 的实时语言切换
+- **事件驱动更新**：通过 `translationsUpdated` 和 `languageChanged` 事件同步更新
+- **组件级翻译**：每个交互组件（如PPI计算器）独立处理翻译更新
+- **回退机制**：缺失翻译时自动回退到英文或显示格式化键名
+
+#### 翻译文件结构
+```json
+{
+  "ppiCalculator": {
+    "title": "PPI Calculator",
+    "intro": "Calculate pixel density...",
+    "form": {
+      "inputTitle": "Enter Screen Parameters",
+      "validation": {
+        "invalidNumber": "Please enter a valid number"
+      }
+    }
+  }
+}
+```
 - 🇷🇺 **Русский** - `/ru/` (83个基础翻译键值)
 
 ## 🏗️ 技术架构
@@ -62,9 +92,10 @@
 ### 前端技术栈
 - **现代JavaScript (ES6+)** - 12个模块化JS文件，支持ES6 import/export
 - **CSS3响应式设计** - 8个专业样式文件，移动优先设计理念
-- **i18next国际化** - 专业的多语言框架，支持动态语言切换
+- **i18next国际化** - 专业的多语言框架，支持动态语言切换和事件驱动更新
 - **设备检测API** - 实时检测屏幕分辨率、DPR、浏览器信息
 - **组件化CSS** - 可维护的样式架构，支持CSS变量和现代布局
+- **交互组件系统** - PPI计算器等专业工具，支持独立翻译处理
 
 ### 博客内容系统
 - **Markdown驱动** - 使用Markdown编写技术文章
@@ -104,6 +135,7 @@ screen-size-checker/
 │       ├── iphone-content.html     # iPhone页面组件 (318行)
 │       ├── ipad-content.html       # iPad页面组件 (270行)
 │       ├── android-content.html    # Android页面组件 (319行)
+│       ├── ppi-calculator-content.html # PPI计算器组件 (支持多语言)
 │       ├── simulator-content.html  # 响应式测试器组件
 │       ├── standard-resolutions-content.html # 标准分辨率组件
 │       └── blog-*.html             # 博客相关组件 (40+个)
@@ -139,10 +171,11 @@ screen-size-checker/
 │       └── ru/translation.json     # 俄文翻译 (83个键值)
 │
 ├── 💻 前端资源
-│   ├── js/ (12个模块)              # JavaScript模块
+│   ├── js/ (13个模块)              # JavaScript模块
 │   │   ├── app.js                  # 主应用逻辑
-│   │   ├── i18n.js                 # 国际化管理
+│   │   ├── i18n.js                 # 国际化管理 (增强翻译系统)
 │   │   ├── device-detector.js      # 设备检测
+│   │   ├── ppi-calculator.js       # PPI计算器 (支持多语言)
 │   │   ├── screen-comparison-fixed.js  # 屏幕对比工具
 │   │   ├── device-comparison.js    # 设备规格对比
 │   │   ├── clipboard.js            # 剪贴板功能
@@ -256,6 +289,7 @@ npm run batch-build
 ### 主要功能页面
 - **首页** - 屏幕检测工具 (`/` → `/en/`)
 - **设备对比** - 屏幕尺寸对比工具 (`/en/devices/compare`)
+- **PPI计算器** - 像素密度计算工具 (`/en/devices/ppi-calculator`)
 - **iPhone尺寸** - iPhone设备规格 (`/en/devices/iphone-viewport-sizes`)
 - **iPad尺寸** - iPad设备规格 (`/en/devices/ipad-viewport-sizes`)
 - **Android尺寸** - Android设备规格 (`/en/devices/android-viewport-sizes`)
@@ -348,6 +382,13 @@ npm run batch-build
 - 文章导航和目录生成
 - 分类标签系统
 
+### PPI计算器 (`ppi-calculator.js`)
+- 像素密度(PPI)精确计算
+- 支持水平/垂直像素数和对角线尺寸输入
+- 实时计算结果显示和密度分类
+- 多语言错误验证和用户友好提示
+- 事件驱动的翻译更新系统
+
 ### 响应式测试器 (`simulator.js`)
 - 多设备尺寸模拟
 - 实时响应式预览
@@ -437,11 +478,32 @@ npm run batch-build
 - **SEO评分**: 多语言sitemap + 结构化数据
 - **性能**: CDN加速 + 静态部署
 
+## 📝 更新日志
+
+### v2.1.0 - 翻译系统优化 (2025年7月27日)
+
+#### 🔧 翻译系统增强
+- **修复构建时翻译处理**：解决嵌套翻译键（如`ppiCalculator.title`）无法正确处理的问题
+- **增强运行时翻译系统**：添加事件驱动的翻译更新机制，支持`translationsUpdated`和`languageChanged`事件
+- **PPI计算器多语言支持**：完整实现PPI计算器的多语言功能，包括实时翻译更新和错误消息本地化
+- **翻译验证系统**：构建时自动验证450个翻译键的完整性，及时发现缺失翻译
+
+#### 🛠️ 技术改进
+- **嵌套键支持**：`multilang-builder.js`现在支持`ppiCalculator.title`等嵌套翻译键结构
+- **事件系统**：`i18n.js`增加自定义事件触发，确保所有组件同步更新翻译
+- **组件级翻译**：每个交互组件独立处理翻译更新，提高系统稳定性
+- **全局实例管理**：确保`window.i18next`在所有场景下正确可用
+
+#### 📊 翻译覆盖率
+- **英文翻译**：474个完整键值，包含PPI计算器专用翻译
+- **中文翻译**：474个完整键值，与英文版本完全对应
+- **翻译验证**：构建时自动检测106个缺失翻译和158个不一致键
+
 ---
 
-**最后更新**: 2025年7月26日  
-**当前版本**: v2.0.0 (组件化重构 + 博客系统)  
-**构建系统**: 多语言组件构建器 + 博客构建器  
+**最后更新**: 2025年7月27日  
+**当前版本**: v2.1.0 (翻译系统优化版本)  
+**构建系统**: 多语言组件构建器 + 博客构建器 + 翻译验证系统  
 **部署平台**: Cloudflare Pages  
 **网站地址**: [screensizechecker.com](https://screensizechecker.com)  
-**技术栈**: 纯静态 + 组件化 + 多语言 + 博客系统
+**技术栈**: 纯静态 + 组件化 + 增强多语言系统 + 博客系统
