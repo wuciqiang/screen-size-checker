@@ -252,9 +252,23 @@
 .error-message {
     color: #dc3545;
     font-size: 0.75rem;
-    margin-top: var(--spacing-xs);
-    min-height: 1rem;
+    font-weight: 500;
     line-height: 1.4;
+    margin-top: 0;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-4px);
+}
+
+.error-message:not(:empty) {
+    max-height: 2.5rem;
+    opacity: 1;
+    margin-top: var(--spacing-xs);
+    padding: var(--spacing-xs) 0;
+    transform: translateY(0);
 }
 
 .result-display {

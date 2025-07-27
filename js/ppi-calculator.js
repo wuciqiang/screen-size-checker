@@ -299,7 +299,7 @@ export class PPICalculator {
     }
     
     /**
-     * Show input error
+     * Show input error with smooth animation
      * @param {HTMLElement} inputElement - Input element
      * @param {HTMLElement} errorElement - Error message element
      * @param {string} message - Error message
@@ -307,20 +307,51 @@ export class PPICalculator {
     showInputError(inputElement, errorElement, message) {
         inputElement.classList.add('error');
         if (errorElement) {
+            // Set the message first
             errorElement.textContent = message;
+            
+            // Force a reflow to ensure the content is set before animation
+            errorElement.offsetHeight;
+            
+            // The CSS :not(:empty) selector will automatically trigger the animation
         }
     }
     
     /**
-     * Clear input error
+     * Clear input error with smooth animation
      * @param {HTMLElement} inputElement - Input element
      * @param {HTMLElement} errorElement - Error message element
      */
     clearError(inputElement, errorElement) {
         inputElement.classList.remove('error');
-        if (errorElement) {
+        if (errorElement && errorElement.textContent) {
+            // Clear the text content, which will trigger the CSS animation
             errorElement.textContent = '';
         }
+    }
+    
+    /**
+     * Clear all errors with animation
+     */
+    clearAllErrors() {
+        const errorElements = [
+            this.elements.errorElements.horizontal,
+            this.elements.errorElements.vertical,
+            this.elements.errorElements.diagonal
+        ];
+        
+        const inputElements = [
+            this.elements.horizontalInput,
+            this.elements.verticalInput,
+            this.elements.diagonalInput
+        ];
+        
+        // Clear all errors simultaneously for smooth animation
+        errorElements.forEach((errorElement, index) => {
+            if (errorElement && inputElements[index]) {
+                this.clearError(inputElements[index], errorElement);
+            }
+        });
     }
     
     /**
