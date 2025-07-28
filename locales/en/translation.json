@@ -683,5 +683,119 @@
     }
   },
 
-  "ppi_calculator": "PPI Calculator"
+  "aspectRatioCalculator": {
+    "title": "Aspect Ratio Calculator",
+    "intro": "Calculate new dimensions while maintaining a specific aspect ratio. Enter original dimensions and get proportionally scaled new dimensions.",
+    "pageTitle": "Aspect Ratio Calculator - Calculate Proportional Dimensions | Screen Size Checker",
+    "pageDescription": "Free aspect ratio calculator to maintain proportions when resizing images, videos, or layouts. Calculate new dimensions while preserving the original aspect ratio.",
+    "pageHeading": "Aspect Ratio Calculator",
+    "pageIntro": "Calculate new dimensions while maintaining a specific aspect ratio. Enter original dimensions and get proportionally scaled new dimensions.",
+    
+    "originalRatio": "Original Ratio",
+    "newDimensions": "New Dimensions",
+    "width1": "Width 1",
+    "width1Placeholder": "1920",
+    "width1Help": "Original width value",
+    "height1": "Height 1", 
+    "height1Placeholder": "1080",
+    "height1Help": "Original height value",
+    "width2": "Width 2",
+    "width2Placeholder": "3840",
+    "width2Help": "Enter new width, height will be calculated automatically",
+    "height2": "Height 2",
+    "height2Placeholder": "2160", 
+    "height2Help": "Enter new height, width will be calculated automatically",
+    
+    "currentRatio": "Current Ratio:",
+    "scaleFactor": "Scale Factor:",
+    "aspectRatio": "Aspect Ratio:",
+    "visualizer": "Aspect Ratio Preview",
+    "previewLabel": "Ratio Preview",
+    "originalSize": "Original Size:",
+    "newSize": "New Size:",
+    
+    "errors": {
+      "invalidNumber": "Please enter a valid number",
+      "negativeValue": "Value must be greater than 0",
+      "outOfRange": "Value must be between {min} and {max}",
+      "calculationError": "An error occurred during calculation"
+    },
+    
+    "whatIsAspectRatio": "What is Aspect Ratio?",
+    "aspectRatioDefinition": "Aspect ratio is the proportional relationship between the width and height of an image, screen, or any rectangular area. It's usually expressed as a ratio of two numbers, such as 16:9 or 4:3. Aspect ratio determines the shape and visual proportions of content, making it an important concept in design and media production.",
+    
+    "howToCalculate": "How to Calculate Aspect Ratio?",
+    "calculationFormula": "Calculating aspect ratio is simple: divide both width and height by their greatest common divisor to get the simplest ratio. For example, a 1920×1080 resolution has a GCD of 120, so the aspect ratio is 16:9. When you need to maintain the same ratio while resizing, use the formula: New Height = (Original Height ÷ Original Width) × New Width.",
+    
+    "commonAspectRatios": "Common Aspect Ratios",
+    
+    "widescreen169": "16:9 Widescreen Ratio",
+    "widescreen169Description": "16:9 is the most common modern aspect ratio, widely used in HD TVs, computer monitors, YouTube videos, and most modern devices. This ratio provides a wide field of view, perfect for watching movies and gaming.",
+    
+    "traditional43": "4:3 Traditional Ratio", 
+    "traditional43Description": "4:3 is the traditional TV and computer monitor ratio, widely used in early CRT monitors and old TVs. While less common now, it's still important in certain professional applications and legacy content.",
+    
+    "square11": "1:1 Square Ratio",
+    "square11Description": "1:1 square ratio is very popular on social media, especially Instagram posts. This ratio displays well on mobile devices and is commonly used for avatars, icons, and certain artwork.",
+    
+    "ultrawide219": "21:9 Ultrawide Ratio",
+    "ultrawide219Description": "21:9 ultrawide ratio is mainly used in film production and high-end monitors. This ratio provides a wider field of view, particularly suitable for movie watching, gaming, and multitasking.",
+    
+    "whyAspectRatioMatters": "Why Does Aspect Ratio Matter?",
+    
+    "responsiveDesign": "Responsive Web Design",
+    "responsiveDesignDescription": "In responsive web design, understanding different device aspect ratios is crucial. Designers need to ensure content displays correctly across various screen ratios, from narrow mobile screens to wide desktop displays.",
+    
+    "videoProduction": "Video Production",
+    "videoProductionDescription": "In video production, choosing the correct aspect ratio determines the visual effect and compatibility of the final work. Different platforms have different recommended ratios: YouTube recommends 16:9, Instagram Stories uses 9:16, while movies typically use 21:9.",
+    
+    "imageEditing": "Image Editing and Photography",
+    "imageEditingDescription": "In image editing, maintaining the correct aspect ratio prevents image distortion. When resizing images for different purposes, understanding how to calculate proportional dimensions is very important.",
+    
+    "howToUse": "How to Use the Aspect Ratio Calculator?",
+    "step1": "Enter the original width and height values",
+    "step2": "Enter a new width or height in the new dimensions area",
+    "step3": "The other dimension will be automatically calculated to maintain the same ratio",
+    "step4": "View the visual preview to understand the ratio effect",
+    
+    "exampleCalculation": "For example: If the original dimensions are 1920×1080 (16:9), when you enter a new width of 3840, the calculator will automatically calculate the new height as 2160, maintaining the same 16:9 ratio.",
+    
+    "practicalApplications": "Practical Applications",
+    "webDesign": "Web Design: Create responsive layouts for different devices",
+    "videoEditing": "Video Editing: Resize videos to fit different platforms",
+    "imageResize": "Image Resizing: Scale images proportionally to avoid distortion",
+    "printDesign": "Print Design: Ensure designs maintain proportions at different sizes",
+    "socialMedia": "Social Media: Create content sized for various platforms",
+    
+    "faq": {
+      "title": "Frequently Asked Questions (FAQ)",
+      "whatIsRatio": {
+        "question": "What is aspect ratio?",
+        "answer": "Aspect ratio is the proportional relationship between width and height, usually expressed as a ratio of two numbers (like 16:9). It determines the shape of a rectangular area and is a fundamental concept in design and media production."
+      },
+      "whyMaintainRatio": {
+        "question": "Why maintain aspect ratio?",
+        "answer": "Maintaining aspect ratio prevents image or content distortion. When you resize without preserving the original ratio, images may be stretched or compressed, resulting in poor visual quality."
+      },
+      "commonRatios": {
+        "question": "What are the most common aspect ratios?",
+        "answer": "The most common include 16:9 (modern displays and video), 4:3 (traditional displays), 1:1 (social media squares), 21:9 (ultrawide), and 3:2 (commonly used in photography)."
+      },
+      "calculateManually": {
+        "question": "How to calculate aspect ratio manually?",
+        "answer": "Divide both width and height by their greatest common divisor. For example, 1920÷120=16, 1080÷120=9, so the ratio is 16:9. Or use the formula: New Height = (Original Height ÷ Original Width) × New Width."
+      }
+    }
+  },
+
+  "ppi_calculator": "PPI Calculator",
+  "aspect_ratio_calculator": "Aspect Ratio Calculator",
+  "loading": "Loading...",
+  
+  "iphone_page_description": "View screen sizes, resolutions, and viewport information for all iPhone models",
+  "ipad_page_description": "View screen sizes, resolutions, and viewport information for all iPad models",
+  "android_page_description": "View screen sizes, resolutions, and viewport information for popular Android devices",
+  "compare_page_description": "Compare screen sizes and specifications of different devices",
+  "standard_resolutions_page_description": "View standard screen resolutions and aspect ratio reference table",
+  "responsive_tester_description": "Test website responsive performance across different screen sizes"
 }

@@ -3,6 +3,7 @@ const path = require('path');
 const ComponentBuilder = require('./component-builder');
 const BlogBuilder = require('./blog-builder');
 const { TranslationValidator } = require('./translation-validator');
+const InternalLinksProcessor = require('./internal-links-processor');
 
 class MultiLangBuilder extends ComponentBuilder {
     constructor() {
@@ -10,6 +11,7 @@ class MultiLangBuilder extends ComponentBuilder {
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
         this.translations = new Map();
+        this.internalLinksProcessor = new InternalLinksProcessor();
         this.loadTranslations();
     }
     
@@ -135,6 +137,12 @@ class MultiLangBuilder extends ComponentBuilder {
     // 生成多语言页面
     buildMultiLangPages() {
         console.log('\n🌐 Building multilingual pages...');
+        
+        // 处理内链配置
+        const internalLinksResult = this.internalLinksProcessor.process(this.translations);
+        if (!internalLinksResult.success) {
+            console.error('❌ Internal links processing failed, continuing with build...');
+        }
         
         // 只构建已启用的语言（英语和中文）
         const enabledLanguages = ['en', 'zh'];
@@ -341,6 +349,9 @@ class MultiLangBuilder extends ComponentBuilder {
                     
                     // 应用翻译
                     html = this.translateContent(html, translations);
+                    
+                    // 处理内链
+                    html = this.internalLinksProcessor.processPageLinks(html, page.name, lang);
                     
                     // 修复HTML结构错误 - 移除meta标签后的重复文字
                     html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {

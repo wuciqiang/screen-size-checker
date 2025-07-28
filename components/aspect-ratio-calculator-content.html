@@ -1,0 +1,682 @@
+<!-- Part 1: Hero Section -->
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title" data-i18n="aspectRatioCalculator.title">长宽比计算器</h1>
+        <p class="devices-hero-subtitle" data-i18n="aspectRatioCalculator.intro">计算新尺寸的同时保持特定的长宽比。输入原始尺寸，自动计算比例相符的新尺寸。</p>
+    </div>
+</section>
+
+<!-- Part 2: Calculator Section -->
+<section class="section-container">
+    <div class="aspect-ratio-calculator-tool">
+        <div class="calculator-container">
+            <!-- Input Form -->
+            <div class="calculator-form">
+                <h2 class="calculator-section-title" data-i18n="aspectRatioCalculator.originalRatio">原始比例</h2>
+                
+                <div class="input-group">
+                    <label for="original-width" class="input-label" data-i18n="aspectRatioCalculator.width1">宽度 1</label>
+                    <input 
+                        type="number" 
+                        id="original-width" 
+                        class="calculator-input" 
+                        placeholder="1920" 
+                        data-i18n-placeholder="aspectRatioCalculator.width1Placeholder"
+                        min="0.1" 
+                        max="10000"
+                        step="0.1"
+                        aria-describedby="original-width-help"
+                    >
+                    <small class="input-help" id="original-width-help" data-i18n="aspectRatioCalculator.width1Help">原始宽度值</small>
+                    <div class="error-message" id="original-width-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="original-height" class="input-label" data-i18n="aspectRatioCalculator.height1">高度 1</label>
+                    <input 
+                        type="number" 
+                        id="original-height" 
+                        class="calculator-input" 
+                        placeholder="1080" 
+                        data-i18n-placeholder="aspectRatioCalculator.height1Placeholder"
+                        min="0.1" 
+                        max="10000"
+                        step="0.1"
+                        aria-describedby="original-height-help"
+                    >
+                    <small class="input-help" id="original-height-help" data-i18n="aspectRatioCalculator.height1Help">原始高度值</small>
+                    <div class="error-message" id="original-height-error"></div>
+                </div>
+
+                <div class="aspect-ratio-display">
+                    <span class="aspect-ratio-label" data-i18n="aspectRatioCalculator.currentRatio">当前比例：</span>
+                    <span class="aspect-ratio-value" id="current-ratio">--</span>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div class="calculator-result">
+                <h2 class="calculator-section-title" data-i18n="aspectRatioCalculator.newDimensions">新尺寸</h2>
+                
+                <div class="input-group">
+                    <label for="new-width" class="input-label" data-i18n="aspectRatioCalculator.width2">宽度 2</label>
+                    <input 
+                        type="number" 
+                        id="new-width" 
+                        class="calculator-input" 
+                        placeholder="3840" 
+                        data-i18n-placeholder="aspectRatioCalculator.width2Placeholder"
+                        min="0.1" 
+                        max="10000"
+                        step="0.1"
+                        aria-describedby="new-width-help"
+                    >
+                    <small class="input-help" id="new-width-help" data-i18n="aspectRatioCalculator.width2Help">输入新宽度，高度将自动计算</small>
+                    <div class="error-message" id="new-width-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="new-height" class="input-label" data-i18n="aspectRatioCalculator.height2">高度 2</label>
+                    <input 
+                        type="number" 
+                        id="new-height" 
+                        class="calculator-input" 
+                        placeholder="2160" 
+                        data-i18n-placeholder="aspectRatioCalculator.height2Placeholder"
+                        min="0.1" 
+                        max="10000"
+                        step="0.1"
+                        aria-describedby="new-height-help"
+                    >
+                    <small class="input-help" id="new-height-help" data-i18n="aspectRatioCalculator.height2Help">输入新高度，宽度将自动计算</small>
+                    <div class="error-message" id="new-height-error"></div>
+                </div>
+
+                <div class="calculation-summary" id="calculation-summary" style="display: none;">
+                    <div class="summary-item">
+                        <span class="summary-label" data-i18n="aspectRatioCalculator.scaleFactor">缩放倍数：</span>
+                        <span class="summary-value" id="scale-factor">--</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label" data-i18n="aspectRatioCalculator.aspectRatio">长宽比：</span>
+                        <span class="summary-value" id="aspect-ratio-result">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Aspect Ratio Preview -->
+        <div class="aspect-ratio-visualizer">
+            <h3 class="visualizer-title" data-i18n="aspectRatioCalculator.visualizer">长宽比预览</h3>
+            <div class="visualizer-container">
+                <div class="visualizer-frame">
+                    <div class="aspect-preview" id="aspect-preview">
+                        <span class="preview-label" data-i18n="aspectRatioCalculator.previewLabel">比例预览</span>
+                    </div>
+                </div>
+                <div class="visualizer-info">
+                    <div class="info-item">
+                        <span class="info-label" data-i18n="aspectRatioCalculator.originalSize">原始尺寸：</span>
+                        <span class="info-value" id="original-size-display">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" data-i18n="aspectRatioCalculator.newSize">新尺寸：</span>
+                        <span class="info-value" id="new-size-display">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Part 3: SEO Content Section -->
+<section class="content-section">
+    <div class="section-container">
+        <h2 data-i18n="aspectRatioCalculator.whatIsAspectRatio">什么是长宽比？</h2>
+        <p data-i18n="aspectRatioCalculator.aspectRatioDefinition">
+            长宽比是指图像、屏幕或任何矩形区域的宽度与高度之间的比例关系。它通常表示为两个数字的比值，如16:9或4:3。长宽比决定了内容的形状和视觉比例，是设计和媒体制作中的重要概念。
+        </p>
+        
+        <h3 data-i18n="aspectRatioCalculator.howToCalculate">如何计算长宽比？</h3>
+        <p data-i18n="aspectRatioCalculator.calculationFormula">
+            长宽比的计算很简单：将宽度和高度都除以它们的最大公约数，得到最简比例。例如，1920×1080的分辨率，最大公约数是120，所以长宽比是16:9。当你需要保持相同比例调整尺寸时，可以使用公式：新高度 = (原高度 ÷ 原宽度) × 新宽度。
+        </p>
+
+        <h2 data-i18n="aspectRatioCalculator.commonAspectRatios">常见的长宽比</h2>
+        
+        <h3 data-i18n="aspectRatioCalculator.widescreen169">16:9 宽屏比例</h3>
+        <p data-i18n="aspectRatioCalculator.widescreen169Description">
+            16:9是现代最常见的长宽比，广泛用于高清电视、电脑显示器、YouTube视频和大多数现代设备。这个比例提供了宽广的视野，非常适合观看电影和游戏。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.traditional43">4:3 传统比例</h3>
+        <p data-i18n="aspectRatioCalculator.traditional43Description">
+            4:3是传统的电视和电脑显示器比例，在早期的CRT显示器和老式电视中广泛使用。虽然现在不太常见，但在某些专业应用和老式内容中仍然重要。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.square11">1:1 正方形比例</h3>
+        <p data-i18n="aspectRatioCalculator.square11Description">
+            1:1正方形比例在社交媒体中非常流行，特别是Instagram的帖子。这种比例在移动设备上显示效果很好，也常用于头像、图标和某些艺术作品。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.ultrawide219">21:9 超宽屏比例</h3>
+        <p data-i18n="aspectRatioCalculator.ultrawide219Description">
+            21:9超宽屏比例主要用于电影制作和高端显示器。这种比例提供了更宽的视野，特别适合电影观看、游戏和多任务处理。
+        </p>
+
+        <h2 data-i18n="aspectRatioCalculator.whyAspectRatioMatters">为什么长宽比很重要？</h2>
+        
+        <h3 data-i18n="aspectRatioCalculator.responsiveDesign">响应式网页设计</h3>
+        <p data-i18n="aspectRatioCalculator.responsiveDesignDescription">
+            在响应式网页设计中，了解不同设备的长宽比至关重要。设计师需要确保内容在各种屏幕比例上都能正确显示，从手机的窄屏到桌面的宽屏。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.videoProduction">视频制作</h3>
+        <p data-i18n="aspectRatioCalculator.videoProductionDescription">
+            视频制作中，选择正确的长宽比决定了最终作品的视觉效果和兼容性。不同平台有不同的推荐比例：YouTube推荐16:9，Instagram Stories使用9:16，而电影通常使用21:9。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.imageEditing">图像编辑和摄影</h3>
+        <p data-i18n="aspectRatioCalculator.imageEditingDescription">
+            在图像编辑中，保持正确的长宽比可以避免图像变形。当需要调整图像尺寸用于不同用途时，了解如何计算比例尺寸非常重要。
+        </p>
+
+        <h2 data-i18n="aspectRatioCalculator.howToUse">如何使用长宽比计算器？</h2>
+        <ol>
+            <li data-i18n="aspectRatioCalculator.step1">输入原始的宽度和高度值</li>
+            <li data-i18n="aspectRatioCalculator.step2">在新尺寸区域输入新的宽度或高度</li>
+            <li data-i18n="aspectRatioCalculator.step3">另一个维度将自动计算以保持相同比例</li>
+            <li data-i18n="aspectRatioCalculator.step4">查看可视化预览了解比例效果</li>
+        </ol>
+        
+        <p data-i18n="aspectRatioCalculator.exampleCalculation">
+            例如：如果原始尺寸是1920×1080（16:9），当你输入新宽度3840时，计算器会自动计算出新高度为2160，保持相同的16:9比例。
+        </p>
+
+        <h3 data-i18n="aspectRatioCalculator.practicalApplications">实际应用场景</h3>
+        <ul>
+            <li data-i18n="aspectRatioCalculator.webDesign">网页设计：为不同设备创建响应式布局</li>
+            <li data-i18n="aspectRatioCalculator.videoEditing">视频编辑：调整视频尺寸适配不同平台</li>
+            <li data-i18n="aspectRatioCalculator.imageResize">图像调整：按比例缩放图片避免变形</li>
+            <li data-i18n="aspectRatioCalculator.printDesign">印刷设计：确保设计在不同尺寸下保持比例</li>
+            <li data-i18n="aspectRatioCalculator.socialMedia">社交媒体：创建适合各平台的内容尺寸</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Part 4: FAQ Section -->
+<section class="faq-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="aspectRatioCalculator.faq.title">常见问题解答 (FAQ)</h2>
+        
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="aspectRatioCalculator.faq.whatIsRatio.question">什么是长宽比？</summary>
+                <div class="faq-answer" data-i18n="aspectRatioCalculator.faq.whatIsRatio.answer">长宽比是宽度与高度的比例关系，通常表示为两个数字的比值（如16:9）。它决定了矩形区域的形状，是设计和媒体制作中的基本概念。</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="aspectRatioCalculator.faq.whyMaintainRatio.question">为什么要保持长宽比？</summary>
+                <div class="faq-answer" data-i18n="aspectRatioCalculator.faq.whyMaintainRatio.answer">保持长宽比可以避免图像或内容变形。当你调整尺寸时，如果不保持原始比例，图像可能会被拉伸或压缩，导致视觉效果不佳。</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="aspectRatioCalculator.faq.commonRatios.question">最常用的长宽比有哪些？</summary>
+                <div class="faq-answer" data-i18n="aspectRatioCalculator.faq.commonRatios.answer">最常见的包括16:9（现代显示器和视频）、4:3（传统显示器）、1:1（社交媒体正方形）、21:9（超宽屏）和3:2（摄影常用）。</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="aspectRatioCalculator.faq.calculateManually.question">如何手动计算长宽比？</summary>
+                <div class="faq-answer" data-i18n="aspectRatioCalculator.faq.calculateManually.answer">将宽度和高度都除以它们的最大公约数。例如，1920÷120=16，1080÷120=9，所以比例是16:9。或者使用公式：新高度 = (原高度 ÷ 原宽度) × 新宽度。</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- Part 5: Related Resources - 使用统一内链组件 -->
+{{component:internal-links}}
+
+<!-- CSS Styles for Aspect Ratio Calculator -->
+<style>
+.aspect-ratio-calculator-tool {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.calculator-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.calculator-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+.calculator-input.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.input-help {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 0;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-4px);
+}
+
+.error-message:not(:empty) {
+    max-height: 2.5rem;
+    opacity: 1;
+    margin-top: var(--spacing-xs);
+    padding: var(--spacing-xs) 0;
+    transform: translateY(0);
+}
+
+.aspect-ratio-display {
+    background: var(--background-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.aspect-ratio-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.aspect-ratio-value {
+    color: var(--primary-color);
+    font-size: 1.125rem;
+    font-weight: 700;
+    font-family: var(--font-family-mono);
+    margin-left: var(--spacing-sm);
+}
+
+.calculation-summary {
+    background: var(--background-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-top: var(--spacing-lg);
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.summary-item:last-child {
+    margin-bottom: 0;
+}
+
+.summary-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.summary-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: var(--font-family-mono);
+}
+
+/* Aspect Ratio Visualizer */
+.aspect-ratio-visualizer {
+    background: var(--background-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+}
+
+.visualizer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.visualizer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.visualizer-frame {
+    width: 300px;
+    height: 200px;
+    background: var(--background-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.aspect-preview {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-light));
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-fast);
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.preview-label {
+    opacity: 0.9;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.visualizer-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--background-primary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.info-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-family-mono);
+}
+
+/* Content Section Styles */
+.content-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.content-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+}
+
+.content-section p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.content-section ul,
+.content-section ol {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+}
+
+.content-section li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .aspect-ratio-calculator-tool {
+        padding: var(--spacing-lg);
+    }
+    
+    .calculator-section-title {
+        font-size: 1.125rem;
+    }
+    
+    .visualizer-frame {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .visualizer-info {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aspect-ratio-calculator-tool {
+        padding: var(--spacing-md);
+    }
+    
+    .calculator-input {
+        padding: var(--spacing-sm);
+    }
+    
+    .visualizer-frame {
+        width: 200px;
+        height: 120px;
+    }
+    
+    .visualizer-info {
+        max-width: 200px;
+    }
+    
+    .aspect-preview {
+        font-size: 0.75rem;
+    }
+    
+    .preview-label {
+        font-size: 0.625rem;
+    }
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--background-secondary);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-light);
+}
+
+.faq-item[open] {
+    border-color: var(--primary-color);
+}
+
+.faq-question {
+    padding: var(--spacing-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    background: var(--background-secondary);
+    color: var(--primary-color);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-primary);
+}
+
+/* Remove default details marker */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .aspect-ratio-calculator-tool {
+    background: var(--background-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .aspect-ratio-display {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .calculation-summary {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .aspect-ratio-visualizer {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .visualizer-frame {
+    background: var(--background-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .info-item {
+    background: var(--background-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .faq-section {
+    background: var(--background-secondary);
+}
+
+[data-theme="dark"] .faq-item {
+    background: var(--background-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .faq-answer {
+    background: var(--background-primary);
+    border-color: var(--border-color);
+}
+</style>

@@ -1,0 +1,373 @@
+{
+  "timestamp": "2025-07-28T03:06:04.053Z",
+  "processedFiles": [
+    {
+      "file": "components\\android-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\aspect-ratio-calculator-content.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-basics-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-basics-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-css-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-css-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-technical-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-category-technical-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-index-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-index-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-average-laptop-screen-size-2025-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-average-laptop-screen-size-2025-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-device-pixel-ratio-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-device-pixel-ratio-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-media-queries-essentials-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-media-queries-essentials-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-viewport-basics-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-post-viewport-basics-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-sidebar-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-sidebar-sub-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-sidebar-sub-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-sidebar-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-breakpoints-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-css-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-css-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-display-technology-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-dpr-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-dpr-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-laptop-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-media-queries-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-pixel-density-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-responsive-design-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-responsive-design-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-retina-display-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-screen-size-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-viewport-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-viewport-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-web-development-en.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-web-development-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-像素密度-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-响应式设计-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-媒体查询-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-屏幕尺寸-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-断点-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-显示技术-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-笔记本-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-网页开发-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\blog-tag-视网膜显示-zh.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\breadcrumb.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\compare-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\footer.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\head.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\header.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\home-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\ipad-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\iphone-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\language-modal.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\ppi-calculator-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\simulator-content.html",
+      "replacements": 0,
+      "status": "no-changes"
+    },
+    {
+      "file": "components\\simulator-page-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\standard-resolutions-content.html",
+      "replacements": 1,
+      "status": "migrated"
+    },
+    {
+      "file": "components\\toast.html",
+      "replacements": 0,
+      "status": "no-changes"
+    }
+  ],
+  "replacements": [
+    {
+      "file": "components\\android-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1960,
+      "newLength": 28
+    },
+    {
+      "file": "components\\compare-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1982,
+      "newLength": 28
+    },
+    {
+      "file": "components\\home-content.html",
+      "pattern": "toolbar-section",
+      "originalLength": 2473,
+      "newLength": 28
+    },
+    {
+      "file": "components\\ipad-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1969,
+      "newLength": 28
+    },
+    {
+      "file": "components\\iphone-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1957,
+      "newLength": 28
+    },
+    {
+      "file": "components\\ppi-calculator-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 2001,
+      "newLength": 28
+    },
+    {
+      "file": "components\\simulator-page-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1965,
+      "newLength": 28
+    },
+    {
+      "file": "components\\standard-resolutions-content.html",
+      "pattern": "related-resources-section",
+      "originalLength": 1968,
+      "newLength": 28
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "totalFiles": 62,
+    "migratedFiles": 8,
+    "unchangedFiles": 54,
+    "totalReplacements": 8,
+    "errors": 0
+  }
+}

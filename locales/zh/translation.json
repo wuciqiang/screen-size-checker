@@ -664,10 +664,124 @@
     
     "context": {
       "standard": "标准分辨率显示器。",
-      "retina": "高分辨率"Retina"显示器，非常适合清晰的文字和图像。",
+      "retina": "高分辨率\"Retina\"显示器，非常适合清晰的文字和图像。",
       "professional": "超高分辨率显示器，非常适合专业创意工作。"
     }
   },
 
-  "ppi_calculator": "PPI 计算器"
+  "aspectRatioCalculator": {
+    "title": "长宽比计算器",
+    "intro": "计算新尺寸的同时保持特定的长宽比。输入原始尺寸，自动计算比例相符的新尺寸。",
+    "pageTitle": "长宽比计算器 - 计算比例尺寸 | Screen Size Checker",
+    "pageDescription": "免费的长宽比计算器，在调整图像、视频或布局尺寸时保持比例。计算新尺寸的同时保持原始长宽比。",
+    "pageHeading": "长宽比计算器",
+    "pageIntro": "计算新尺寸的同时保持特定的长宽比。输入原始尺寸，自动计算比例相符的新尺寸。",
+    
+    "originalRatio": "原始比例",
+    "newDimensions": "新尺寸",
+    "width1": "宽度 1",
+    "width1Placeholder": "1920",
+    "width1Help": "原始宽度值",
+    "height1": "高度 1", 
+    "height1Placeholder": "1080",
+    "height1Help": "原始高度值",
+    "width2": "宽度 2",
+    "width2Placeholder": "3840",
+    "width2Help": "输入新宽度，高度将自动计算",
+    "height2": "高度 2",
+    "height2Placeholder": "2160", 
+    "height2Help": "输入新高度，宽度将自动计算",
+    
+    "currentRatio": "当前比例：",
+    "scaleFactor": "缩放倍数：",
+    "aspectRatio": "长宽比：",
+    "visualizer": "长宽比预览",
+    "previewLabel": "比例预览",
+    "originalSize": "原始尺寸：",
+    "newSize": "新尺寸：",
+    
+    "errors": {
+      "invalidNumber": "请输入有效的数字",
+      "negativeValue": "值必须大于 0",
+      "outOfRange": "值必须在 {min} 到 {max} 之间",
+      "calculationError": "计算过程中出现错误"
+    },
+    
+    "whatIsAspectRatio": "什么是长宽比？",
+    "aspectRatioDefinition": "长宽比是指图像、屏幕或任何矩形区域的宽度与高度之间的比例关系。它通常表示为两个数字的比值，如16:9或4:3。长宽比决定了内容的形状和视觉比例，是设计和媒体制作中的重要概念。",
+    
+    "howToCalculate": "如何计算长宽比？",
+    "calculationFormula": "长宽比的计算很简单：将宽度和高度都除以它们的最大公约数，得到最简比例。例如，1920×1080的分辨率，最大公约数是120，所以长宽比是16:9。当你需要保持相同比例调整尺寸时，可以使用公式：新高度 = (原高度 ÷ 原宽度) × 新宽度。",
+    
+    "commonAspectRatios": "常见的长宽比",
+    
+    "widescreen169": "16:9 宽屏比例",
+    "widescreen169Description": "16:9是现代最常见的长宽比，广泛用于高清电视、电脑显示器、YouTube视频和大多数现代设备。这个比例提供了宽广的视野，非常适合观看电影和游戏。",
+    
+    "traditional43": "4:3 传统比例", 
+    "traditional43Description": "4:3是传统的电视和电脑显示器比例，在早期的CRT显示器和老式电视中广泛使用。虽然现在不太常见，但在某些专业应用和老式内容中仍然重要。",
+    
+    "square11": "1:1 正方形比例",
+    "square11Description": "1:1正方形比例在社交媒体中非常流行，特别是Instagram的帖子。这种比例在移动设备上显示效果很好，也常用于头像、图标和某些艺术作品。",
+    
+    "ultrawide219": "21:9 超宽屏比例",
+    "ultrawide219Description": "21:9超宽屏比例主要用于电影制作和高端显示器。这种比例提供了更宽的视野，特别适合电影观看、游戏和多任务处理。",
+    
+    "whyAspectRatioMatters": "为什么长宽比很重要？",
+    
+    "responsiveDesign": "响应式网页设计",
+    "responsiveDesignDescription": "在响应式网页设计中，了解不同设备的长宽比至关重要。设计师需要确保内容在各种屏幕比例上都能正确显示，从手机的窄屏到桌面的宽屏。",
+    
+    "videoProduction": "视频制作",
+    "videoProductionDescription": "视频制作中，选择正确的长宽比决定了最终作品的视觉效果和兼容性。不同平台有不同的推荐比例：YouTube推荐16:9，Instagram Stories使用9:16，而电影通常使用21:9。",
+    
+    "imageEditing": "图像编辑和摄影",
+    "imageEditingDescription": "在图像编辑中，保持正确的长宽比可以避免图像变形。当需要调整图像尺寸用于不同用途时，了解如何计算比例尺寸非常重要。",
+    
+    "howToUse": "如何使用长宽比计算器？",
+    "step1": "输入原始的宽度和高度值",
+    "step2": "在新尺寸区域输入新的宽度或高度",
+    "step3": "另一个维度将自动计算以保持相同比例",
+    "step4": "查看可视化预览了解比例效果",
+    
+    "exampleCalculation": "例如：如果原始尺寸是1920×1080（16:9），当你输入新宽度3840时，计算器会自动计算出新高度为2160，保持相同的16:9比例。",
+    
+    "practicalApplications": "实际应用场景",
+    "webDesign": "网页设计：为不同设备创建响应式布局",
+    "videoEditing": "视频编辑：调整视频尺寸适配不同平台",
+    "imageResize": "图像调整：按比例缩放图片避免变形",
+    "printDesign": "印刷设计：确保设计在不同尺寸下保持比例",
+    "socialMedia": "社交媒体：创建适合各平台的内容尺寸",
+    
+    "faq": {
+      "title": "常见问题解答 (FAQ)",
+      "whatIsRatio": {
+        "question": "什么是长宽比？",
+        "answer": "长宽比是宽度与高度的比例关系，通常表示为两个数字的比值（如16:9）。它决定了矩形区域的形状，是设计和媒体制作中的基本概念。"
+      },
+      "whyMaintainRatio": {
+        "question": "为什么要保持长宽比？",
+        "answer": "保持长宽比可以避免图像或内容变形。当你调整尺寸时，如果不保持原始比例，图像可能会被拉伸或压缩，导致视觉效果不佳。"
+      },
+      "commonRatios": {
+        "question": "最常用的长宽比有哪些？",
+        "answer": "最常见的包括16:9（现代显示器和视频）、4:3（传统显示器）、1:1（社交媒体正方形）、21:9（超宽屏）和3:2（摄影常用）。"
+      },
+      "calculateManually": {
+        "question": "如何手动计算长宽比？",
+        "answer": "将宽度和高度都除以它们的最大公约数。例如，1920÷120=16，1080÷120=9，所以比例是16:9。或者使用公式：新高度 = (原高度 ÷ 原宽度) × 新宽度。"
+      }
+    }
+  },
+
+  "ppi_calculator": "PPI 计算器",
+  "aspect_ratio_calculator": "长宽比计算器",
+  "loading": "加载中...",
+  
+  "iphone_page_description": "查看所有iPhone机型的屏幕尺寸、分辨率和视口信息",
+  "ipad_page_description": "查看所有iPad机型的屏幕尺寸、分辨率和视口信息", 
+  "android_page_description": "查看主流Android设备的屏幕尺寸、分辨率和视口信息",
+  "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
+  "standard_resolutions_page_description": "查看标准屏幕分辨率和宽高比参考表",
+  "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现"
 } 

@@ -392,6 +392,65 @@
       }
     },
     {
+      "name": "aspect-ratio-calculator",
+      "template": "device-page",
+      "output": "devices/aspect-ratio-calculator.html",
+      "page_content": "aspect-ratio-calculator-content",
+      "config": {
+        "page_title_key": "aspectRatioCalculator.pageTitle",
+        "page_description_key": "aspectRatioCalculator.pageDescription",
+        "page_heading_key": "aspectRatioCalculator.pageHeading",
+        "page_intro_key": "aspectRatioCalculator.pageIntro",
+        "page_keywords": "aspect ratio calculator, proportional dimensions, image resize, video aspect ratio, responsive design, layout calculator, ratio calculator, dimension calculator, web development, design tools",
+        "canonical_url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
+        "og_title": "Aspect Ratio Calculator - Calculate Proportional Dimensions | Screen Size Checker",
+        "og_description": "Free aspect ratio calculator to maintain proportions when resizing images, videos, or layouts. Calculate new dimensions while preserving the original aspect ratio.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "aspect_ratio_calculator",
+        "current_name": "长宽比计算器",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "设备",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Aspect Ratio Calculator",
+          "description": "Calculate new dimensions while maintaining aspect ratio. Perfect for resizing images, videos, and layouts proportionally.",
+          "url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-01-27",
+          "dateModified": "2025-01-27"
+        },
+        "blog_url": "../blog/index.html"
+      }
+    },
+    {
       "name": "blog-index-en",
       "template": "blog-index",
       "output": "blog/index.html",

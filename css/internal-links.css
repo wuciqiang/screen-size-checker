@@ -1,0 +1,398 @@
+/* 统一内链管理系统样式 */
+
+/* 基础布局 */
+.internal-links-section {
+    padding: var(--spacing-2xl, 2rem) 0;
+    background: var(--background-secondary, #f8f9fa);
+    margin: var(--spacing-xl, 1.5rem) 0;
+}
+
+.section-container {
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg, 1rem);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin: 0 0 var(--spacing-lg, 1rem) 0;
+    text-align: center;
+}
+
+/* 网格布局 */
+.internal-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg, 1rem);
+    margin-top: var(--spacing-xl, 1.5rem);
+}
+
+/* 加载状态 */
+.internal-links-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xl, 1.5rem);
+    color: var(--text-secondary, #666);
+    font-size: 0.9rem;
+}
+
+.loading-text {
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* 链接卡片 */
+.internal-link-card {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-lg, 1rem);
+    background: var(--background-card, #ffffff);
+    border: 1px solid var(--border-color, #e1e5e9);
+    border-radius: var(--radius-md, 8px);
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.2s) ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.internal-link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium, 0 4px 12px rgba(0, 0, 0, 0.15));
+    border-color: var(--primary-color, #007bff);
+}
+
+.internal-link-card:focus {
+    outline: 2px solid var(--primary-color, #007bff);
+    outline-offset: 2px;
+}
+
+.internal-link-card:hover .link-arrow {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+/* 图标样式 */
+.link-icon {
+    font-size: 2rem;
+    margin-right: var(--spacing-md, 0.75rem);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: var(--background-secondary, #f8f9fa);
+    border-radius: var(--radius-sm, 6px);
+    transition: all var(--transition-fast, 0.2s) ease;
+}
+
+/* 内容区域 */
+.link-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.link-title {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: var(--spacing-xs, 0.25rem);
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.link-description {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary, #666);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* 箭头指示器 */
+.link-arrow {
+    font-size: 1.2rem;
+    color: var(--primary-color, #007bff);
+    margin-left: var(--spacing-sm, 0.5rem);
+    opacity: 0.6;
+    transition: all var(--transition-fast, 0.2s) ease;
+    flex-shrink: 0;
+}
+
+/* 分类特定样式 */
+.internal-link-card[data-category="calculator"] .link-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.internal-link-card[data-category="device-info"] .link-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.internal-link-card[data-category="tools"] .link-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.internal-link-card[data-category="reference"] .link-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.internal-link-card[data-category="content"] .link-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+/* 错误状态 */
+.internal-links-error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xl, 1.5rem);
+    color: var(--text-secondary, #666);
+    background: var(--background-card, #ffffff);
+    border: 1px solid var(--border-color, #e1e5e9);
+    border-radius: var(--radius-md, 8px);
+}
+
+.internal-links-error .error-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm, 0.5rem);
+    display: block;
+}
+
+.internal-links-error .error-message {
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs, 0.25rem);
+    color: var(--text-primary, #1a1a1a);
+}
+
+.internal-links-error .error-description {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .internal-links-section {
+        padding: var(--spacing-xl, 1.5rem) 0;
+    }
+    
+    .internal-links-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md, 0.75rem);
+        margin-top: var(--spacing-lg, 1rem);
+    }
+    
+    .internal-link-card {
+        padding: var(--spacing-md, 0.75rem);
+    }
+    
+    .link-icon {
+        font-size: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: var(--spacing-sm, 0.5rem);
+    }
+    
+    .link-title {
+        font-size: 0.9rem;
+    }
+    
+    .link-description {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 1;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .internal-links-section {
+        padding: var(--spacing-lg, 1rem) 0;
+    }
+    
+    .section-container {
+        padding: 0 var(--spacing-md, 0.75rem);
+    }
+    
+    .internal-links-grid {
+        margin-top: var(--spacing-md, 0.75rem);
+    }
+    
+    .internal-link-card {
+        padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 0.75rem);
+    }
+    
+    .link-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-md, 0.75rem);
+    }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1200px) {
+    .internal-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+/* 暗色主题支持 */
+[data-theme="dark"] .internal-links-section {
+    background: var(--background-secondary-dark, #1a1a1a);
+}
+
+[data-theme="dark"] .internal-link-card {
+    background: var(--background-card-dark, #2d2d2d);
+    border-color: var(--border-color-dark, #404040);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .internal-link-card:hover {
+    border-color: var(--primary-color, #007bff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .link-icon {
+    background: var(--background-secondary-dark, #1a1a1a);
+}
+
+[data-theme="dark"] .link-title {
+    color: var(--text-primary-dark, #ffffff);
+}
+
+[data-theme="dark"] .link-description {
+    color: var(--text-secondary-dark, #b3b3b3);
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--text-primary-dark, #ffffff);
+}
+
+[data-theme="dark"] .internal-links-loading {
+    color: var(--text-secondary-dark, #b3b3b3);
+}
+
+[data-theme="dark"] .internal-links-error {
+    background: var(--background-card-dark, #2d2d2d);
+    border-color: var(--border-color-dark, #404040);
+    color: var(--text-secondary-dark, #b3b3b3);
+}
+
+[data-theme="dark"] .internal-links-error .error-message {
+    color: var(--text-primary-dark, #ffffff);
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .internal-link-card {
+        border-width: 2px;
+    }
+    
+    .internal-link-card:focus {
+        outline-width: 3px;
+    }
+    
+    .link-title {
+        font-weight: 700;
+    }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+    .internal-link-card,
+    .link-arrow,
+    .link-icon,
+    .loading-text {
+        transition: none;
+        animation: none;
+    }
+    
+    .internal-link-card:hover {
+        transform: none;
+    }
+    
+    .internal-link-card:hover .link-arrow {
+        transform: none;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .internal-links-section {
+        background: white;
+        padding: 1rem 0;
+    }
+    
+    .internal-link-card {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        break-inside: avoid;
+        margin-bottom: 0.5rem;
+    }
+    
+    .internal-link-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .link-arrow {
+        display: none;
+    }
+    
+    .link-icon {
+        background: #f5f5f5;
+    }
+    
+    /* 显示链接URL */
+    .internal-link-card::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8rem;
+        color: #666;
+        display: block;
+        margin-top: 0.25rem;
+    }
+}
+
+/* 无障碍增强 */
+.internal-link-card:focus-visible {
+    outline: 2px solid var(--primary-color, #007bff);
+    outline-offset: 2px;
+}
+
+/* 为屏幕阅读器隐藏装饰性元素 */
+.link-arrow[aria-hidden="true"],
+.link-icon[aria-hidden="true"] {
+    speak: none;
+}
+
+/* 确保足够的颜色对比度 */
+.link-description {
+    color: var(--text-secondary, #4a4a4a);
+}
+
+[data-theme="dark"] .link-description {
+    color: var(--text-secondary-dark, #cccccc);
+}

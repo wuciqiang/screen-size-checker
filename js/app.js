@@ -54,17 +54,17 @@ async function initializeApp() {
         console.log('Step 6: Initializing theme...');
         initializeTheme();
         
-        // Step 6: Start device detection
-        console.log('Step 6: Starting device detection...');
+        // Step 7: Start device detection
+        console.log('Step 7: Starting device detection...');
         await updateDisplay();
         
-        // Step 7: Setup viewport monitoring
-        console.log('Step 7: Setting up viewport monitoring...');
+        // Step 8: Setup viewport monitoring
+        console.log('Step 8: Setting up viewport monitoring...');
         updateViewportSize();
         updateViewportDisplay();
         
-        // Step 8: Initialize simulator if on responsive tester page
-        console.log('Step 8: Checking for responsive tester page...');
+        // Step 9: Initialize simulator if on responsive tester page
+        console.log('Step 9: Checking for responsive tester page...');
         if (window.location.pathname.includes('responsive-tester')) {
             console.log('Responsive tester page detected, initializing simulator...');
             if (typeof window.initializeSimulator === 'function') {
@@ -74,8 +74,8 @@ async function initializeApp() {
             }
         }
         
-        // Step 9: Initialize PPI calculator if on PPI calculator page
-        console.log('Step 9: Checking for PPI calculator page...');
+        // Step 10: Initialize PPI calculator if on PPI calculator page
+        console.log('Step 10: Checking for PPI calculator page...');
         if (window.location.pathname.includes('ppi-calculator')) {
             console.log('PPI calculator page detected, loading PPI calculator module...');
             try {
@@ -88,6 +88,35 @@ async function initializeApp() {
             } catch (error) {
                 console.error('Error importing PPI calculator module:', error);
             }
+        }
+        
+        // Step 11: Initialize Aspect Ratio calculator if on Aspect Ratio calculator page
+        console.log('Step 11: Checking for Aspect Ratio calculator page...');
+        if (window.location.pathname.includes('aspect-ratio-calculator')) {
+            console.log('Aspect Ratio calculator page detected, loading Aspect Ratio calculator module...');
+            try {
+                import('./aspect-ratio-calculator.js').then(module => {
+                    console.log('Aspect Ratio calculator module loaded, initializing...');
+                    module.initializeAspectRatioCalculator();
+                }).catch(error => {
+                    console.error('Failed to load Aspect Ratio calculator module:', error);
+                });
+            } catch (error) {
+                console.error('Error importing Aspect Ratio calculator module:', error);
+            }
+        }
+        
+        // Step 12: Initialize Internal Links Manager
+        console.log('Step 12: Initializing Internal Links Manager...');
+        try {
+            import('./internal-links.js').then(module => {
+                console.log('Internal Links module loaded, initializing...');
+                module.initializeInternalLinks();
+            }).catch(error => {
+                console.error('Failed to load Internal Links module:', error);
+            });
+        } catch (error) {
+            console.error('Error importing Internal Links module:', error);
         }
         
         isInitialized = true;

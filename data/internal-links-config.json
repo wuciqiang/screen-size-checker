@@ -1,0 +1,153 @@
+{
+  "version": "1.0.0",
+  "pages": {
+    "iphone-viewport-sizes": {
+      "id": "iphone-viewport-sizes",
+      "category": "device-info",
+      "priority": 1,
+      "icon": "📱",
+      "urls": {
+        "en": "devices/iphone-viewport-sizes.html",
+        "zh": "devices/iphone-viewport-sizes.html"
+      },
+      "titleKey": "iphone_sizes",
+      "descriptionKey": "iphone_page_description"
+    },
+    "ipad-viewport-sizes": {
+      "id": "ipad-viewport-sizes", 
+      "category": "device-info",
+      "priority": 2,
+      "icon": "🖥️",
+      "urls": {
+        "en": "devices/ipad-viewport-sizes.html",
+        "zh": "devices/ipad-viewport-sizes.html"
+      },
+      "titleKey": "ipad_sizes",
+      "descriptionKey": "ipad_page_description"
+    },
+    "android-viewport-sizes": {
+      "id": "android-viewport-sizes",
+      "category": "device-info", 
+      "priority": 3,
+      "icon": "🤖",
+      "urls": {
+        "en": "devices/android-viewport-sizes.html",
+        "zh": "devices/android-viewport-sizes.html"
+      },
+      "titleKey": "android_sizes",
+      "descriptionKey": "android_page_description"
+    },
+    "ppi-calculator": {
+      "id": "ppi-calculator",
+      "category": "calculator",
+      "priority": 1,
+      "icon": "🔍",
+      "urls": {
+        "en": "devices/ppi-calculator.html",
+        "zh": "devices/ppi-calculator.html"
+      },
+      "titleKey": "ppi_calculator",
+      "descriptionKey": "ppiCalculator.pageDescription"
+    },
+    "aspect-ratio-calculator": {
+      "id": "aspect-ratio-calculator",
+      "category": "calculator",
+      "priority": 2,
+      "icon": "📐",
+      "urls": {
+        "en": "devices/aspect-ratio-calculator.html",
+        "zh": "devices/aspect-ratio-calculator.html"
+      },
+      "titleKey": "aspect_ratio_calculator", 
+      "descriptionKey": "aspectRatioCalculator.pageDescription"
+    },
+    "compare": {
+      "id": "compare",
+      "category": "tools",
+      "priority": 1,
+      "icon": "🆚",
+      "urls": {
+        "en": "devices/compare.html",
+        "zh": "devices/compare.html"
+      },
+      "titleKey": "compare_tool",
+      "descriptionKey": "compare_page_description"
+    },
+    "standard-resolutions": {
+      "id": "standard-resolutions",
+      "category": "reference",
+      "priority": 1,
+      "icon": "📊",
+      "urls": {
+        "en": "devices/standard-resolutions.html",
+        "zh": "devices/standard-resolutions.html"
+      },
+      "titleKey": "standard_resolutions",
+      "descriptionKey": "standard_resolutions_page_description"
+    },
+    "responsive-tester": {
+      "id": "responsive-tester",
+      "category": "tools",
+      "priority": 2,
+      "icon": "📱",
+      "urls": {
+        "en": "devices/responsive-tester.html",
+        "zh": "devices/responsive-tester.html"
+      },
+      "titleKey": "responsive_tester",
+      "descriptionKey": "responsive_tester_description"
+    },
+    "blog": {
+      "id": "blog",
+      "category": "content",
+      "priority": 1,
+      "icon": "📝",
+      "urls": {
+        "en": "blog/index.html",
+        "zh": "blog/index.html"
+      },
+      "titleKey": "blog",
+      "descriptionKey": "blog_page_description"
+    }
+  },
+  "categories": {
+    "calculator": {
+      "priority": 1,
+      "maxItems": 3,
+      "name": "计算工具"
+    },
+    "device-info": {
+      "priority": 2,
+      "maxItems": 4,
+      "name": "设备信息"
+    },
+    "tools": {
+      "priority": 3,
+      "maxItems": 3,
+      "name": "实用工具"
+    },
+    "reference": {
+      "priority": 4,
+      "maxItems": 2,
+      "name": "参考资料"
+    },
+    "content": {
+      "priority": 5,
+      "maxItems": 1,
+      "name": "内容"
+    }
+  },
+  "display": {
+    "maxTotal": 8,
+    "responsive": {
+      "mobile": 4,
+      "tablet": 6,
+      "desktop": 8
+    }
+  },
+  "rules": {
+    "excludeCurrent": true,
+    "prioritizeCategory": true,
+    "fallbackToAll": true
+  }
+}

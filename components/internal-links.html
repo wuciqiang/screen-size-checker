@@ -1,0 +1,28 @@
+<!-- 统一内链组件 -->
+<section class="internal-links-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="related_resources_heading">相关资源</h2>
+        
+        <div class="internal-links-grid" id="internal-links-container">
+            <!-- 动态生成的内链项目 -->
+            <div class="internal-links-loading" id="internal-links-loading">
+                <span class="loading-text" data-i18n="loading">加载中...</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 内链项目模板 -->
+<template id="internal-link-template">
+    <a href="" class="internal-link-card" data-category="" data-page-id="">
+        <span class="link-icon" aria-hidden="true"></span>
+        <div class="link-content">
+            <span class="link-title"></span>
+            <span class="link-description"></span>
+        </div>
+        <span class="link-arrow" aria-hidden="true">→</span>
+    </a>
+</template>
+
+<!-- 内链组件样式通过独立CSS文件加载 -->
+<!-- 请在页面中引入: <link rel="stylesheet" href="../css/internal-links.css"> -->
