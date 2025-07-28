@@ -4,7 +4,6 @@
     {{component:head}}
     <!-- 博客页面特定CSS -->
     <link rel="stylesheet" href="{{css_path}}/blog.css">
-    <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
 </head>
 <body data-theme="light">
     <!-- 头部导航 -->
@@ -27,6 +26,9 @@
                 {{component:{{blog_sidebar}}}}
             </div>
         </div>
+        
+        <!-- 相关链接 -->
+        {{component:internal-links}}
     </main>
     
     <!-- 页脚 -->
@@ -39,7 +41,6 @@
     {{component:toast}}
     
     <!-- 博客特定JavaScript -->
-    <script src="{{js_path}}/blog.js" type="module"></script>
-    <script src="{{js_path}}/main.js" type="module"></script>
+    <script src="{{js_path}}/app.js" type="module"></script>
 </body>
 </html>

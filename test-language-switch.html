@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switch Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .result {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Language Switch Function Test</h1>
+    
+    <div class="test-section">
+        <h3>Current URL Information</h3>
+        <div id="current-info" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Language Navigation</h3>
+        <p>Click the buttons below to test the navigateToLanguage function:</p>
+        <button class="test-button" onclick="testNavigateToLanguage('en')">Navigate to English</button>
+        <button class="test-button" onclick="testNavigateToLanguage('zh')">Navigate to Chinese</button>
+        <div id="test-results" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test URL Patterns</h3>
+        <p>Test different URL patterns:</p>
+        <button class="test-button" onclick="testUrlPattern('/multilang-build/en/index.html', 'zh')">Test Build Path (en → zh)</button>
+        <button class="test-button" onclick="testUrlPattern('/multilang-build/zh/devices/compare.html', 'en')">Test Build Subpath (zh → en)</button>
+        <button class="test-button" onclick="testUrlPattern('/en/index.html', 'zh')">Test Standard Path (en → zh)</button>
+        <button class="test-button" onclick="testUrlPattern('/zh/devices/compare.html', 'en')">Test Standard Subpath (zh → en)</button>
+        <div id="pattern-results" class="result"></div>
+    </div>
+
+    <script>
+        // Copy the navigateToLanguage function from app.js for testing
+        function navigateToLanguage(newLang) {
+            const currentPath = window.location.pathname;
+            const currentSearch = window.location.search;
+            const currentHash = window.location.hash;
+            
+            console.log('Navigating to language:', newLang, 'from path:', currentPath);
+            
+            // Save language preference
+            localStorage.setItem('i18nextLng', newLang);
+            
+            let newPath;
+            
+            // Handle different URL patterns
+            if (currentPath.includes('/multilang-build/')) {
+                // We're in the build directory structure like /multilang-build/en/index.html
+                const buildMatch = currentPath.match(/^(.*)\/multilang-build\/([a-z]{2})(\/.*)?$/);
+                if (buildMatch) {
+                    const basePath = buildMatch[1] || '';
+                    const currentLang = buildMatch[2];
+                    const pathAfterLang = buildMatch[3] || '/index.html';
+                    
+                    if (currentLang === newLang) {
+                        console.log('Already in the correct language');
+                        return;
+                    }
+                    
+                    newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
+                } else {
+                    // Fallback for build directory
+                    newPath = `/multilang-build/${newLang}/index.html`;
+                }
+            } else {
+                // Standard URL pattern like /en/... or /zh/...
+                const langMatch = currentPath.match(/^\/([a-z]{2})(\/.*)?$/);
+                
+                if (langMatch) {
+                    // We're in a language path like /en/... or /zh/...
+                    const currentLang = langMatch[1];
+                    const pathAfterLang = langMatch[2] || '/';
+                    
+                    if (currentLang === newLang) {
+                        console.log('Already in the correct language');
+                        return;
+                    }
+                    
+                    // Replace the language part
+                    newPath = `/${newLang}${pathAfterLang}`;
+                } else if (currentPath === '/' || currentPath === '') {
+                    // We're at the root, go to the language root
+                    newPath = `/${newLang}/`;
+                } else {
+                    // We're in a path without language prefix, add the language
+                    newPath = `/${newLang}${currentPath}`;
+                }
+            }
+            
+            // Construct the full URL
+            const newUrl = newPath + currentSearch + currentHash;
+            
+            console.log('Navigating to:', newUrl);
+            
+            // For testing, don't actually navigate, just return the URL
+            return newUrl;
+        }
+        
+        // Display current URL information
+        function updateCurrentInfo() {
+            const info = document.getElementById('current-info');
+            info.innerHTML = `
+                <strong>Current Path:</strong> ${window.location.pathname}<br>
+                <strong>Current Search:</strong> ${window.location.search}<br>
+                <strong>Current Hash:</strong> ${window.location.hash}<br>
+                <strong>Full URL:</strong> ${window.location.href}
+            `;
+        }
+        
+        // Test the navigation function
+        function testNavigateToLanguage(lang) {
+            const results = document.getElementById('test-results');
+            try {
+                const newUrl = navigateToLanguage(lang);
+                if (newUrl) {
+                    results.innerHTML = `<div class="success">✅ Would navigate to: ${newUrl}</div>`;
+                } else {
+                    results.innerHTML = `<div class="success">✅ Already in ${lang} language</div>`;
+                }
+            } catch (error) {
+                results.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        // Test URL pattern transformation
+        function testUrlPattern(testPath, targetLang) {
+            const results = document.getElementById('pattern-results');
+            
+            // Temporarily change the current path for testing
+            const originalPath = window.location.pathname;
+            
+            // Mock the window.location.pathname for testing
+            Object.defineProperty(window.location, 'pathname', {
+                writable: true,
+                value: testPath
+            });
+            
+            try {
+                const newUrl = navigateToLanguage(targetLang);
+                if (newUrl) {
+                    results.innerHTML += `<div class="success">✅ ${testPath} → ${newUrl}</div>`;
+                } else {
+                    results.innerHTML += `<div class="success">✅ ${testPath} already in ${targetLang}</div>`;
+                }
+            } catch (error) {
+                results.innerHTML += `<div class="error">❌ ${testPath}: ${error.message}</div>`;
+            }
+            
+            // Restore original path
+            Object.defineProperty(window.location, 'pathname', {
+                writable: true,
+                value: originalPath
+            });
+        }
+        
+        // Initialize
+        updateCurrentInfo();
+        
+        // Update info when URL changes
+        window.addEventListener('popstate', updateCurrentInfo);
+    </script>
+</body>
+</html>

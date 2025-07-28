@@ -1,13 +1,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0YSSZGWMX"></script>
+<!-- Google Analytics - Defer loading -->
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-X0YSSZGWMX');
+// Defer Google Analytics loading
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-X0YSSZGWMX';
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-X0YSSZGWMX');
+        };
+    }, 1000); // Delay 1 second after page load
+});
 </script>
 
 <!-- SEO Meta Tags -->
@@ -29,26 +40,237 @@ gtag('config', 'G-X0YSSZGWMX');
 <meta property="og:type" content="{{og_type}}">
 <meta property="og:url" content="{{og_url}}">
 
-<!-- Stylesheets -->
+<!-- Critical CSS - Load immediately -->
 <link rel="stylesheet" href="{{css_path}}/main.css">
-<link rel="stylesheet" href="{{css_path}}/language-selector.css">
-<link rel="stylesheet" href="{{css_path}}/internal-links.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css">
+
+<!-- Non-critical CSS - Load with lower priority -->
+<link rel="preload" href="{{css_path}}/language-selector.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{css_path}}/language-selector.css"></noscript>
+
+<link rel="preload" href="{{css_path}}/internal-links.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{css_path}}/internal-links.css"></noscript>
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"></noscript>
 
 <!-- Preload language files -->
 <link rel="preload" href="{{locales_path}}/en/translation.json" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="{{locales_path}}/zh/translation.json" as="fetch" crossorigin="anonymous">
 
-<!-- i18next Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+<!-- Inline Critical CSS for immediate rendering -->
+<style>
+/* Critical CSS for immediate rendering - prevents FOUC */
+:root {
+    --primary-color: #0066cc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --background-primary: #ffffff;
+    --background-secondary: #f8f9fa;
+    --background-card: #ffffff;
+    --border-color: #e1e5e9;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --radius-lg: 12px;
+    --transition-fast: 0.15s ease;
+    --transition-medium: 0.25s ease;
+}
 
-<!-- UAParser.js for device detection -->
+/* Dark Theme Support */
+[data-theme="dark"] {
+    --primary-color: #4a9eff;
+    --text-primary: #e1e5e9;
+    --text-secondary: #a0a0a0;
+    --background-primary: #1a1a1a;
+    --background-secondary: #2d2d2d;
+    --background-card: #2d2d2d;
+    --border-color: #404040;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .header {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom-color: var(--border-color);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-secondary);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    height: 64px;
+}
+
+.main-content {
+    margin-top: 64px;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    text-align: center;
+    margin-top: 64px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.hero-secondary {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.info-dashboard {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.info-card {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-medium);
+}
+
+/* Hide non-critical elements initially - but keep language button visible */
+.internal-links { opacity: 0; transition: opacity 0.3s ease; }
+.loaded .internal-links { opacity: 1; }
+
+/* Ensure body can scroll properly */
+html, body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+</style>
+
+<!-- Inline Critical JavaScript for immediate screen detection -->
+<script>
+// Immediate screen detection - no dependencies
+(function() {
+    function updateScreenInfo() {
+        const viewport = window.innerWidth + ' × ' + window.innerHeight;
+        const resolution = screen.width + ' × ' + screen.height;
+        const dpr = window.devicePixelRatio || 1;
+        const aspectRatio = (window.innerWidth / window.innerHeight).toFixed(2);
+        
+        // Update viewport display immediately
+        const viewportEl = document.getElementById('viewport-display');
+        if (viewportEl) {
+            viewportEl.innerHTML = viewport;
+        }
+        
+        // Update screen resolution immediately
+        const resolutionEl = document.getElementById('screen-resolution-display');
+        if (resolutionEl) {
+            // Clear existing content first
+            resolutionEl.innerHTML = '';
+            
+            // Create label span
+            const labelSpan = document.createElement('span');
+            labelSpan.setAttribute('data-i18n', 'screen_resolution');
+            labelSpan.textContent = 'Screen Resolution';
+            
+            // Create value span
+            const valueSpan = document.createElement('span');
+            valueSpan.textContent = resolution;
+            
+            // Append elements
+            resolutionEl.appendChild(labelSpan);
+            resolutionEl.appendChild(document.createTextNode(': '));
+            resolutionEl.appendChild(valueSpan);
+        }
+        
+        // Update other critical info
+        const dprEl = document.getElementById('dpr');
+        if (dprEl) dprEl.innerHTML = dpr + 'x';
+        
+        const aspectEl = document.getElementById('aspect-ratio');
+        if (aspectEl) aspectEl.innerHTML = aspectRatio + ':1';
+        
+        const colorDepthEl = document.getElementById('color-depth');
+        if (colorDepthEl) colorDepthEl.innerHTML = screen.colorDepth + ' bits';
+    }
+    
+    // Run immediately when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateScreenInfo);
+    } else {
+        updateScreenInfo();
+    }
+    
+    // Update on resize
+    window.addEventListener('resize', updateScreenInfo);
+    
+    // Mark page as loaded for progressive enhancement
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+})();
+</script>
+
+<!-- UAParser.js for detailed device detection - Load with high priority -->
 <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
 
-<!-- Google Ads -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868" crossorigin="anonymous"></script>
+<!-- i18next Libraries - Defer non-critical -->
+<script defer src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
+
+<!-- Google Ads - Defer loading -->
+<script>
+// Defer Google Ads loading
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868';
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
+    }, 2000); // Delay 2 seconds after page load
+});
+</script>
 
 <!-- Structured Data -->
 <script type="application/ld+json">

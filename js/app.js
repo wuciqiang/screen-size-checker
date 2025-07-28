@@ -1,22 +1,23 @@
-// app.js - Main application entry point
+// app.js - Main application entry point (Performance Optimized)
 
 console.log('🚀 Starting app.js module load...');
 
-// Import all required modules
-import { initializeI18next, updateUIElements, setupLanguageSelector, setTextContent } from './i18n.js';
-import { updateDisplay, updateViewportSize } from './device-detector.js';
-import { handleCopyClick } from './clipboard.js';
+// Only import critical utilities immediately
 import { debounce } from './utils.js';
-import { LanguageModal } from './language-modal.js';
-// import { initializeSimulator } from './simulator.js';
 
-console.log('✅ All modules imported successfully');
+console.log('✅ Critical modules imported successfully');
+
+// Lazy load modules when needed
+let i18nModule = null;
+let deviceDetectorModule = null;
+let clipboardModule = null;
+let languageModalModule = null;
 
 // Global initialization flag
 let isInitialized = false;
 
 /**
- * Initialize the complete application
+ * Initialize the complete application with performance optimization
  */
 async function initializeApp() {
     if (isInitialized) {
@@ -25,110 +26,99 @@ async function initializeApp() {
     }
 
     try {
-        console.log('Starting application initialization...');
+        console.log('Starting optimized application initialization...');
         
-        // 直接设置初始值，不等待翻译加载完成
+        // PHASE 1: Critical immediate initialization
         updateInitialDisplayValues();
-        
-        // Step 1: Initialize internationalization
-        console.log('Step 1: Initializing i18n...');
-        await initializeI18next();
-        
-        // Step 2: Setup language selector
-        console.log('Step 2: Setting up language selector...');
-        setupLanguageSelector();
-        
-        // Step 3: Update UI elements with current language
-        console.log('Step 3: Updating UI elements...');
-        updateUIElements();
-        
-        // Step 4: Setup event listeners
-        console.log('Step 4: Setting up event listeners...');
-        setupEventListeners();
-        
-        // Step 5: Initialize navigation highlighting
-        console.log('Step 5: Setting up navigation highlighting...');
+        initializeTheme();
         setupNavigationHighlighting();
         
-        // Step 6: Initialize theme system
-        console.log('Step 6: Initializing theme...');
-        initializeTheme();
+        // PHASE 2: Setup basic event listeners (non-blocking)
+        setupBasicEventListeners();
         
-        // Step 7: Start device detection
-        console.log('Step 7: Starting device detection...');
-        await updateDisplay();
-        
-        // Step 8: Setup viewport monitoring
-        console.log('Step 8: Setting up viewport monitoring...');
-        updateViewportSize();
-        updateViewportDisplay();
-        
-        // Step 9: Initialize simulator if on responsive tester page
-        console.log('Step 9: Checking for responsive tester page...');
-        if (window.location.pathname.includes('responsive-tester')) {
-            console.log('Responsive tester page detected, initializing simulator...');
-            if (typeof window.initializeSimulator === 'function') {
-                window.initializeSimulator();
-            } else {
-                console.error('Simulator initialization function not available');
-            }
-        }
-        
-        // Step 10: Initialize PPI calculator if on PPI calculator page
-        console.log('Step 10: Checking for PPI calculator page...');
-        if (window.location.pathname.includes('ppi-calculator')) {
-            console.log('PPI calculator page detected, loading PPI calculator module...');
-            try {
-                import('./ppi-calculator.js').then(module => {
-                    console.log('PPI calculator module loaded, initializing...');
-                    module.initializePPICalculator();
-                }).catch(error => {
-                    console.error('Failed to load PPI calculator module:', error);
-                });
-            } catch (error) {
-                console.error('Error importing PPI calculator module:', error);
-            }
-        }
-        
-        // Step 11: Initialize Aspect Ratio calculator if on Aspect Ratio calculator page
-        console.log('Step 11: Checking for Aspect Ratio calculator page...');
-        if (window.location.pathname.includes('aspect-ratio-calculator')) {
-            console.log('Aspect Ratio calculator page detected, loading Aspect Ratio calculator module...');
-            try {
-                import('./aspect-ratio-calculator.js').then(module => {
-                    console.log('Aspect Ratio calculator module loaded, initializing...');
-                    module.initializeAspectRatioCalculator();
-                }).catch(error => {
-                    console.error('Failed to load Aspect Ratio calculator module:', error);
-                });
-            } catch (error) {
-                console.error('Error importing Aspect Ratio calculator module:', error);
-            }
-        }
-        
-        // Step 12: Initialize Internal Links Manager
-        console.log('Step 12: Initializing Internal Links Manager...');
-        try {
-            import('./internal-links.js').then(module => {
-                console.log('Internal Links module loaded, initializing...');
-                module.initializeInternalLinks();
-            }).catch(error => {
-                console.error('Failed to load Internal Links module:', error);
-            });
-        } catch (error) {
-            console.error('Error importing Internal Links module:', error);
-        }
+        // PHASE 3: Lazy load and initialize non-critical modules
+        setTimeout(async () => {
+            await initializeNonCriticalModules();
+        }, 50); // Small delay to allow critical content to render
         
         isInitialized = true;
-        console.log('✅ Application initialized successfully!');
+        console.log('✅ Critical application initialization completed!');
         
     } catch (error) {
         console.error('❌ Failed to initialize application:', error);
         showErrorMessage();
-        
-        // 即使出错也要确保基本数值显示
         updateInitialDisplayValues();
     }
+}
+
+/**
+ * Initialize non-critical modules asynchronously
+ */
+async function initializeNonCriticalModules() {
+    try {
+        console.log('Loading non-critical modules...');
+        
+        // Load i18n module
+        if (!i18nModule) {
+            i18nModule = await import('./i18n.js');
+            await i18nModule.initializeI18next();
+            i18nModule.setupLanguageSelector();
+            i18nModule.updateUIElements();
+        }
+        
+        // Load device detector module
+        if (!deviceDetectorModule) {
+            deviceDetectorModule = await import('./device-detector.js');
+            await deviceDetectorModule.updateDisplay();
+            deviceDetectorModule.updateViewportSize();
+        }
+        
+        // Setup advanced event listeners
+        setupAdvancedEventListeners();
+        
+        // Load page-specific modules
+        loadPageSpecificModules();
+        
+        console.log('✅ Non-critical modules loaded successfully!');
+        
+    } catch (error) {
+        console.error('❌ Error loading non-critical modules:', error);
+    }
+}
+
+/**
+ * Load page-specific modules only when needed
+ */
+function loadPageSpecificModules() {
+    const currentPath = window.location.pathname;
+    
+    // PPI Calculator
+    if (currentPath.includes('ppi-calculator')) {
+        import('./ppi-calculator.js').then(module => {
+            module.initializePPICalculator();
+        }).catch(console.error);
+    }
+    
+    // Aspect Ratio Calculator
+    if (currentPath.includes('aspect-ratio-calculator')) {
+        import('./aspect-ratio-calculator.js').then(module => {
+            module.initializeAspectRatioCalculator();
+        }).catch(console.error);
+    }
+    
+    // Responsive Tester
+    if (currentPath.includes('responsive-tester')) {
+        if (typeof window.initializeSimulator === 'function') {
+            window.initializeSimulator();
+        }
+    }
+    
+    // Internal Links (load for all pages but with low priority)
+    setTimeout(() => {
+        import('./internal-links.js').then(module => {
+            module.initializeInternalLinks();
+        }).catch(console.error);
+    }, 1000);
 }
 
 /**
@@ -227,11 +217,245 @@ function updateInitialDisplayValues() {
 }
 
 /**
- * Setup all event listeners
+ * Setup basic event listeners (critical, non-blocking)
  */
-function setupEventListeners() {
-    // Copy button事件委托
-    document.addEventListener('click', handleCopyClick);
+function setupBasicEventListeners() {
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Language selector basic setup (before i18n loads)
+    setupBasicLanguageSelector();
+    
+    // Viewport size update on window resize (critical for screen checker)
+    window.addEventListener('resize', debounce(updateViewportDisplay, 100));
+    
+    // FAQ toggle functionality
+    setupFAQToggles();
+}
+
+/**
+ * Navigate to the corresponding language URL
+ */
+function navigateToLanguage(newLang) {
+    const currentPath = window.location.pathname;
+    const currentSearch = window.location.search;
+    const currentHash = window.location.hash;
+    
+    console.log('Navigating to language:', newLang, 'from path:', currentPath);
+    
+    // Save language preference
+    localStorage.setItem('i18nextLng', newLang);
+    
+    let newPath;
+    
+    // Handle different URL patterns
+    if (currentPath.includes('/multilang-build/')) {
+        // We're in the build directory structure like /multilang-build/en/index.html
+        const buildMatch = currentPath.match(/^(.*)\/multilang-build\/([a-z]{2})(\/.*)?$/);
+        if (buildMatch) {
+            const basePath = buildMatch[1] || '';
+            const currentLang = buildMatch[2];
+            const pathAfterLang = buildMatch[3] || '/index.html';
+            
+            if (currentLang === newLang) {
+                console.log('Already in the correct language');
+                return;
+            }
+            
+            newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
+        } else {
+            // Fallback for build directory
+            newPath = `/multilang-build/${newLang}/index.html`;
+        }
+    } else {
+        // Standard URL pattern like /en/... or /zh/...
+        const langMatch = currentPath.match(/^\/([a-z]{2})(\/.*)?$/);
+        
+        if (langMatch) {
+            // We're in a language path like /en/... or /zh/...
+            const currentLang = langMatch[1];
+            const pathAfterLang = langMatch[2] || '/';
+            
+            if (currentLang === newLang) {
+                console.log('Already in the correct language');
+                return;
+            }
+            
+            // Replace the language part
+            newPath = `/${newLang}${pathAfterLang}`;
+        } else if (currentPath === '/' || currentPath === '') {
+            // We're at the root, go to the language root
+            newPath = `/${newLang}/`;
+        } else {
+            // We're in a path without language prefix, add the language
+            newPath = `/${newLang}${currentPath}`;
+        }
+    }
+    
+    // Construct the full URL
+    const newUrl = newPath + currentSearch + currentHash;
+    
+    console.log('Navigating to:', newUrl);
+    
+    // Navigate to the new URL
+    window.location.href = newUrl;
+}
+
+/**
+ * Setup basic language selector functionality before i18n loads
+ */
+function setupBasicLanguageSelector() {
+    // Setup modal-based language selector
+    const languageModalTrigger = document.getElementById('language-modal-trigger');
+    const languageModal = document.getElementById('language-modal');
+    const languageModalClose = document.getElementById('language-modal-close');
+    const languageModalBackdrop = document.getElementById('language-modal-backdrop');
+    
+    if (languageModalTrigger && languageModal) {
+        console.log('Setting up basic language modal (before i18n)');
+        
+        // Open modal when button is clicked
+        languageModalTrigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            languageModal.classList.add('show');
+            languageModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            console.log('Language modal opened');
+        });
+        
+        // Close modal function
+        const closeModal = () => {
+            languageModal.classList.remove('show');
+            languageModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            console.log('Language modal closed');
+        };
+        
+        // Close modal when close button is clicked
+        if (languageModalClose) {
+            languageModalClose.addEventListener('click', closeModal);
+        }
+        
+        // Close modal when backdrop is clicked
+        if (languageModalBackdrop) {
+            languageModalBackdrop.addEventListener('click', closeModal);
+        }
+        
+        // Close modal when Escape key is pressed
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && languageModal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+        
+        // Setup language card clicks (direct navigation for multilang build)
+        const languageCards = languageModal.querySelectorAll('.language-card:not(.disabled)');
+        languageCards.forEach(card => {
+            card.addEventListener('click', (event) => {
+                event.preventDefault();
+                const newLang = card.getAttribute('data-lang');
+                console.log('Language card clicked:', newLang);
+                
+                // Show loading state
+                const originalContent = card.innerHTML;
+                card.innerHTML = '<div class="lang-name">Loading...</div>';
+                
+                try {
+                    // Close modal first
+                    const modal = document.getElementById('language-modal');
+                    if (modal) {
+                        modal.classList.remove('show');
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    // Navigate to the new language URL immediately
+                    navigateToLanguage(newLang);
+                } catch (error) {
+                    console.error('Error changing language:', error);
+                    card.innerHTML = originalContent;
+                    
+                    // Show error message
+                    alert('Language switch failed. Please try again.');
+                }
+            });
+        });
+    }
+    
+    // Setup legacy select element
+    const languageSelect = document.getElementById('language-select');
+    if (languageSelect) {
+        console.log('Setting up basic language select (before i18n)');
+        
+        languageSelect.addEventListener('change', async (event) => {
+            const newLang = event.target.value;
+            console.log('Language select changed to:', newLang);
+            
+            // If i18n is not loaded yet, wait for it
+            if (typeof i18next === 'undefined' || !i18nModule) {
+                languageSelect.disabled = true;
+                
+                // Wait for i18n to load
+                let retries = 0;
+                const maxRetries = 50;
+                while (retries < maxRetries && (!i18nModule || typeof i18next === 'undefined')) {
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    retries++;
+                }
+                
+                if (i18nModule && typeof i18next !== 'undefined') {
+                    try {
+                        await i18next.changeLanguage(newLang);
+                        localStorage.setItem('i18nextLng', newLang);
+                        document.documentElement.lang = newLang;
+                        
+                        if (i18nModule.updateUIElements) {
+                            i18nModule.updateUIElements();
+                        }
+                    } catch (error) {
+                        console.error('Error changing language:', error);
+                    }
+                }
+                
+                languageSelect.disabled = false;
+            } else {
+                // i18n is already loaded
+                try {
+                    languageSelect.disabled = true;
+                    await i18next.changeLanguage(newLang);
+                    localStorage.setItem('i18nextLng', newLang);
+                    document.documentElement.lang = newLang;
+                    
+                    if (i18nModule.updateUIElements) {
+                        i18nModule.updateUIElements();
+                    }
+                    
+                    languageSelect.disabled = false;
+                } catch (error) {
+                    console.error('Error changing language:', error);
+                    languageSelect.disabled = false;
+                }
+            }
+        });
+    }
+}
+
+/**
+ * Setup advanced event listeners (non-critical, can be delayed)
+ */
+function setupAdvancedEventListeners() {
+    // Copy button事件委托 - lazy load clipboard module
+    document.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('copy-btn') || event.target.closest('.copy-btn')) {
+            if (!clipboardModule) {
+                clipboardModule = await import('./clipboard.js');
+            }
+            clipboardModule.handleCopyClick(event);
+        }
+    });
     
     // 一键复制全部按钮事件
     const copyAllBtn = document.getElementById('copy-all-info');
@@ -240,7 +464,10 @@ function setupEventListeners() {
             copyAllBtn.disabled = true;
             const originalText = copyAllBtn.textContent;
             try {
-                const result = await import('./clipboard.js').then(m => m.copyAllInfo());
+                if (!clipboardModule) {
+                    clipboardModule = await import('./clipboard.js');
+                }
+                const result = await clipboardModule.copyAllInfo();
                 if (result) {
                     copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
                     copyAllBtn.classList.add('copied');
@@ -270,34 +497,19 @@ function setupEventListeners() {
         });
     }
     
-    // FAQ toggle functionality
-    setupFAQToggles();
-    
-    // Theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        console.log('Setting up theme toggle...');
-        themeToggle.addEventListener('click', toggleTheme);
-    } else {
-        console.warn('Theme toggle button not found');
-    }
-    
-    // Viewport size update on window resize
-    window.addEventListener('resize', debounce(updateViewportSize, 250));
-    window.addEventListener('resize', debounce(updateViewportDisplay, 250));
-    
     // Language change listener
     if (typeof i18next !== 'undefined') {
         i18next.on('languageChanged', async (lng) => {
             console.log('i18next language changed event triggered for:', lng);
             try {
-                // 更新UI元素
-                updateUIElements();
+                if (i18nModule) {
+                    i18nModule.updateUIElements();
+                }
                 
-                // 重新检测设备信息以应用新的翻译
-                await updateDisplay();
+                if (deviceDetectorModule) {
+                    await deviceDetectorModule.updateDisplay();
+                }
                 
-                // 更新视口显示
                 updateViewportDisplay();
                 
                 console.log('UI updated after language change');
@@ -389,12 +601,6 @@ function updateViewportDisplay() {
         
         // 直接更新视口尺寸显示，移除翻译属性
         viewportDisplay.removeAttribute('data-i18n');
-        // 清除旧内容，包括可能存在的detecting span
-        const detectingSpan = viewportDisplay.querySelector('span[data-i18n="detecting"]');
-        if (detectingSpan) {
-            // 如果是span元素包含detecting，则替换整个内容
-            viewportDisplay.innerHTML = '';
-        }
         viewportDisplay.textContent = `${width} × ${height}`;
     }
     
@@ -402,39 +608,19 @@ function updateViewportDisplay() {
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
         
-        // 检查是否存在旧的结构
-        const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
-        if (detectingSpan) {
-            // 如果找到"detecting..."的span，先移除它
-            detectingSpan.parentNode.removeChild(detectingSpan);
-        }
-        
-        // 获取或创建标签和值的span
+        // 获取现有的标签和值的span
         let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
         let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
         
-        // 如果没有标签span，创建一个
-        if (!labelSpan) {
-            labelSpan = document.createElement('span');
-            labelSpan.setAttribute('data-i18n', 'screen_resolution');
-            labelSpan.textContent = typeof i18next !== 'undefined' && i18next.t ? 
-                i18next.t('screen_resolution') : '屏幕分辨率';
-            
-            // 清空并重建内容
-            screenResolutionDisplay.innerHTML = '';
-            screenResolutionDisplay.appendChild(labelSpan);
-            screenResolutionDisplay.appendChild(document.createTextNode(': '));
+        // 如果找到了值span，只更新其内容
+        if (valueSpan) {
+            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
         }
         
-        // 如果没有值span，创建一个
-        if (!valueSpan) {
-            valueSpan = document.createElement('span');
-            screenResolutionDisplay.appendChild(valueSpan);
+        // 如果找到了标签span并且i18next可用，更新翻译
+        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
+            labelSpan.textContent = i18next.t('screen_resolution');
         }
-        
-        // 确保值span没有data-i18n属性并设置值
-        valueSpan.removeAttribute('data-i18n');
-        valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
     }
 }
 

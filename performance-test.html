@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test - Screen Size Checker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-result {
+            background: #f0f8ff;
+            border: 1px solid #0066cc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .good { color: #28a745; }
+        .warning { color: #ffc107; }
+        .poor { color: #dc3545; }
+        button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0052a3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Screen Size Checker - Performance Test</h1>
+    <p>This page tests the performance optimizations we've implemented.</p>
+    
+    <div class="test-result">
+        <h3>Performance Metrics</h3>
+        <div id="metrics"></div>
+    </div>
+    
+    <div class="test-result">
+        <h3>Resource Loading Test</h3>
+        <div id="resources"></div>
+    </div>
+    
+    <div class="test-result">
+        <h3>Critical Path Test</h3>
+        <div id="critical-path"></div>
+    </div>
+    
+    <button onclick="testMainSite()">Test Main Site</button>
+    <button onclick="runPerformanceTest()">Run Performance Test</button>
+    <button onclick="testResourceLoading()">Test Resource Loading</button>
+    <button onclick="testFunctionality()">Test Functionality</button>
+    
+    <script>
+        // Performance testing functions
+        function runPerformanceTest() {
+            const metrics = document.getElementById('metrics');
+            
+            // Test basic performance metrics
+            if ('performance' in window) {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                const paint = performance.getEntriesByType('paint');
+                
+                let html = '';
+                
+                // DOM Content Loaded
+                const domContentLoaded = navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart;
+                html += `<div class="metric">
+                    <span>DOM Content Loaded:</span>
+                    <span class="${domContentLoaded < 100 ? 'good' : domContentLoaded < 300 ? 'warning' : 'poor'}">${domContentLoaded.toFixed(2)}ms</span>
+                </div>`;
+                
+                // Load Event
+                const loadEvent = navigation.loadEventEnd - navigation.loadEventStart;
+                html += `<div class="metric">
+                    <span>Load Event:</span>
+                    <span class="${loadEvent < 200 ? 'good' : loadEvent < 500 ? 'warning' : 'poor'}">${loadEvent.toFixed(2)}ms</span>
+                </div>`;
+                
+                // First Paint
+                const firstPaint = paint.find(p => p.name === 'first-paint');
+                if (firstPaint) {
+                    html += `<div class="metric">
+                        <span>First Paint:</span>
+                        <span class="${firstPaint.startTime < 500 ? 'good' : firstPaint.startTime < 1000 ? 'warning' : 'poor'}">${firstPaint.startTime.toFixed(2)}ms</span>
+                    </div>`;
+                }
+                
+                // First Contentful Paint
+                const firstContentfulPaint = paint.find(p => p.name === 'first-contentful-paint');
+                if (firstContentfulPaint) {
+                    html += `<div class="metric">
+                        <span>First Contentful Paint:</span>
+                        <span class="${firstContentfulPaint.startTime < 800 ? 'good' : firstContentfulPaint.startTime < 1500 ? 'warning' : 'poor'}">${firstContentfulPaint.startTime.toFixed(2)}ms</span>
+                    </div>`;
+                }
+                
+                metrics.innerHTML = html;
+            } else {
+                metrics.innerHTML = '<p>Performance API not supported</p>';
+            }
+        }
+        
+        function testResourceLoading() {
+            const resources = document.getElementById('resources');
+            
+            if ('performance' in window) {
+                const resourceEntries = performance.getEntriesByType('resource');
+                let html = '<h4>Resource Loading Times:</h4>';
+                
+                resourceEntries.forEach(resource => {
+                    const loadTime = resource.responseEnd - resource.startTime;
+                    const resourceName = resource.name.split('/').pop() || resource.name;
+                    
+                    html += `<div class="metric">
+                        <span>${resourceName}:</span>
+                        <span class="${loadTime < 100 ? 'good' : loadTime < 300 ? 'warning' : 'poor'}">${loadTime.toFixed(2)}ms</span>
+                    </div>`;
+                });
+                
+                resources.innerHTML = html;
+            } else {
+                resources.innerHTML = '<p>Performance API not supported</p>';
+            }
+        }
+        
+        function testMainSite() {
+            const criticalPath = document.getElementById('critical-path');
+            
+            // Test if we can access the main site
+            const iframe = document.createElement('iframe');
+            iframe.src = './multilang-build/en/index.html';
+            iframe.style.width = '100%';
+            iframe.style.height = '400px';
+            iframe.style.border = '1px solid #ccc';
+            
+            iframe.onload = function() {
+                const startTime = performance.now();
+                
+                // Test if critical elements are immediately visible
+                setTimeout(() => {
+                    const endTime = performance.now();
+                    const loadTime = endTime - startTime;
+                    
+                    criticalPath.innerHTML = `
+                        <h4>Main Site Load Test:</h4>
+                        <div class="metric">
+                            <span>Iframe Load Time:</span>
+                            <span class="${loadTime < 100 ? 'good' : loadTime < 300 ? 'warning' : 'poor'}">${loadTime.toFixed(2)}ms</span>
+                        </div>
+                        <p>✅ Main site loaded successfully</p>
+                    `;
+                }, 100);
+            };
+            
+            iframe.onerror = function() {
+                criticalPath.innerHTML = '<p>❌ Failed to load main site</p>';
+            };
+            
+            criticalPath.innerHTML = '<p>Loading main site...</p>';
+            criticalPath.appendChild(iframe);
+        }
+        
+        function testFunctionality() {
+            const criticalPath = document.getElementById('critical-path');
+            
+            criticalPath.innerHTML = '<h4>Functionality Test Results:</h4><div id="func-results"></div>';
+            const resultsDiv = document.getElementById('func-results');
+            
+            // Test if we can access the main site and test its functionality
+            const iframe = document.createElement('iframe');
+            iframe.src = './multilang-build/en/index.html';
+            iframe.style.width = '100%';
+            iframe.style.height = '500px';
+            iframe.style.border = '1px solid #ccc';
+            iframe.style.marginTop = '10px';
+            
+            let testResults = [];
+            
+            iframe.onload = function() {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // Test 1: Check if viewport display is working
+                    const viewportDisplay = iframeDoc.getElementById('viewport-display');
+                    if (viewportDisplay && viewportDisplay.textContent.includes('×')) {
+                        testResults.push('✅ Viewport display is working correctly');
+                    } else {
+                        testResults.push('❌ Viewport display is not working');
+                    }
+                    
+                    // Test 2: Check if screen resolution display is working
+                    const screenResDisplay = iframeDoc.getElementById('screen-resolution-display');
+                    if (screenResDisplay && screenResDisplay.textContent.includes('Screen Resolution')) {
+                        testResults.push('✅ Screen resolution display is working correctly');
+                    } else {
+                        testResults.push('❌ Screen resolution display is not working');
+                    }
+                    
+                    // Test 3: Check if theme toggle exists
+                    const themeToggle = iframeDoc.getElementById('theme-toggle');
+                    if (themeToggle) {
+                        testResults.push('✅ Theme toggle button found');
+                        
+                        // Test theme toggle functionality
+                        try {
+                            themeToggle.click();
+                            setTimeout(() => {
+                                const currentTheme = iframeDoc.documentElement.getAttribute('data-theme');
+                                if (currentTheme === 'dark') {
+                                    testResults.push('✅ Theme toggle is working (switched to dark)');
+                                } else {
+                                    testResults.push('⚠️ Theme toggle clicked but theme may not have changed');
+                                }
+                                updateResults();
+                            }, 100);
+                        } catch (e) {
+                            testResults.push('❌ Theme toggle click failed: ' + e.message);
+                            updateResults();
+                        }
+                    } else {
+                        testResults.push('❌ Theme toggle button not found');
+                        updateResults();
+                    }
+                    
+                    // Test 4: Check if language selector exists
+                    const langSelector = iframeDoc.querySelector('.language-select');
+                    if (langSelector) {
+                        testResults.push('✅ Language selector found');
+                    } else {
+                        testResults.push('❌ Language selector not found');
+                    }
+                    
+                    // Test 5: Check if critical CSS is loaded
+                    const heroTitle = iframeDoc.querySelector('.hero-title');
+                    if (heroTitle) {
+                        const styles = iframe.contentWindow.getComputedStyle(heroTitle);
+                        if (styles.fontSize && parseFloat(styles.fontSize) > 30) {
+                            testResults.push('✅ Critical CSS is loaded (hero title styled)');
+                        } else {
+                            testResults.push('⚠️ Critical CSS may not be fully loaded');
+                        }
+                    } else {
+                        testResults.push('❌ Hero title not found');
+                    }
+                    
+                    function updateResults() {
+                        resultsDiv.innerHTML = testResults.map(result => `<p>${result}</p>`).join('');
+                    }
+                    
+                    if (!testResults.some(r => r.includes('Theme toggle'))) {
+                        updateResults();
+                    }
+                    
+                } catch (e) {
+                    resultsDiv.innerHTML = `<p>❌ Error accessing iframe content: ${e.message}</p><p>This might be due to CORS restrictions when testing locally.</p>`;
+                }
+            };
+            
+            iframe.onerror = function() {
+                resultsDiv.innerHTML = '<p>❌ Failed to load main site</p>';
+            };
+            
+            criticalPath.appendChild(iframe);
+        }
+        
+        // Auto-run basic test on page load
+        window.addEventListener('load', () => {
+            setTimeout(runPerformanceTest, 100);
+        });
+    </script>
+</body>
+</html>

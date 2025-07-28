@@ -12,7 +12,7 @@ export class InternalLinksManager {
         this.options = {
             maxItems: 8,
             excludeCurrent: true,
-            configPath: '../data/internal-links-config.json',
+            configPath: this.getConfigPath(),
             ...options
         };
         
@@ -27,6 +27,33 @@ export class InternalLinksManager {
     }
 
     /**
+     * 获取配置文件路径
+     */
+    getConfigPath() {
+        const currentPath = window.location.pathname;
+        
+        // 根据当前页面位置计算配置文件的相对路径
+        if (currentPath.includes('/blog/')) {
+            // 在博客页面中，需要返回上级目录
+            return '../data/internal-links-config.json';
+        } else if (currentPath.includes('/devices/')) {
+            // 在设备页面中，需要返回上级目录
+            return '../data/internal-links-config.json';
+        } else if (currentPath.includes('/multilang-build/')) {
+            // 在构建目录中
+            if (currentPath.includes('/multilang-build/en/') || currentPath.includes('/multilang-build/zh/')) {
+                return '../data/internal-links-config.json';
+            }
+        } else {
+            // 在根目录或其他位置
+            return 'data/internal-links-config.json';
+        }
+        
+        // 默认路径
+        return 'data/internal-links-config.json';
+    }
+
+    /**
      * 初始化内链管理器
      */
     async init() {
@@ -38,7 +65,13 @@ export class InternalLinksManager {
         try {
             console.log('🔗 Initializing Internal Links Manager...');
             
-            this.bindElements();
+            // 检查DOM元素是否存在
+            const elementsFound = this.bindElements();
+            if (!elementsFound) {
+                console.log('Internal links component disabled - required elements not found');
+                return;
+            }
+            
             this.detectCurrentPage();
             this.detectLanguage();
             
@@ -51,7 +84,9 @@ export class InternalLinksManager {
             console.log('✅ Internal Links Manager initialized successfully');
         } catch (error) {
             console.error('❌ Failed to initialize Internal Links Manager:', error);
-            this.showError('初始化失败', '无法加载相关资源链接');
+            if (this.container) {
+                this.showError('初始化失败', '无法加载相关资源链接');
+            }
         }
     }
 
@@ -64,12 +99,16 @@ export class InternalLinksManager {
         this.loadingElement = document.getElementById('internal-links-loading');
         
         if (!this.container) {
-            throw new Error('Internal links container not found');
+            console.warn('Internal links container not found - component will be disabled');
+            return false;
         }
         
         if (!this.template) {
-            throw new Error('Internal link template not found');
+            console.warn('Internal link template not found - component will be disabled');
+            return false;
         }
+        
+        return true;
     }
 
     /**
