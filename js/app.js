@@ -5,6 +5,7 @@ console.log('🚀 Starting app.js module load...');
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
+import { resourceLoadingOptimizer } from './resource-loading-optimizer.js';
 
 console.log('✅ Critical modules imported successfully');
 
@@ -28,6 +29,9 @@ async function initializeApp() {
 
     try {
         console.log('Starting optimized application initialization...');
+        
+        // PHASE 0: Initialize resource loading optimizer first
+        await resourceLoadingOptimizer.initialize();
         
         // PHASE 1: Critical immediate initialization
         updateInitialDisplayValues();
@@ -103,8 +107,9 @@ async function initializeNonCriticalModules() {
 function loadPageSpecificModules() {
     const currentPath = window.location.pathname;
     
-    // PPI Calculator
+    // Add page-specific resources to the optimizer
     if (currentPath.includes('ppi-calculator')) {
+        resourceLoadingOptimizer.addCriticalResource('js/ppi-calculator.js');
         import('./ppi-calculator.js').then(module => {
             module.initializePPICalculator();
         }).catch(console.error);
@@ -112,6 +117,7 @@ function loadPageSpecificModules() {
     
     // Aspect Ratio Calculator
     if (currentPath.includes('aspect-ratio-calculator')) {
+        resourceLoadingOptimizer.addCriticalResource('js/aspect-ratio-calculator.js');
         import('./aspect-ratio-calculator.js').then(module => {
             module.initializeAspectRatioCalculator();
         }).catch(console.error);
@@ -119,9 +125,16 @@ function loadPageSpecificModules() {
     
     // Responsive Tester
     if (currentPath.includes('responsive-tester')) {
+        resourceLoadingOptimizer.addCriticalResource('js/simulator.js');
         if (typeof window.initializeSimulator === 'function') {
             window.initializeSimulator();
         }
+    }
+    
+    // Blog pages
+    if (currentPath.includes('/blog/')) {
+        resourceLoadingOptimizer.addCriticalResource('css/blog.css');
+        resourceLoadingOptimizer.addCriticalResource('js/blog.js');
     }
     
     // Internal Links (load for all pages but with low priority)
