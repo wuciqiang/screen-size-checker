@@ -3,284 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Test - Screen Size Checker</title>
+    <title>Performance Monitor Test</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
         }
-        .test-result {
-            background: #f0f8ff;
-            border: 1px solid #0066cc;
-            border-radius: 8px;
+        
+        .test-section {
+            margin: 20px 0;
             padding: 15px;
-            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .metric {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
+        
+        .metrics-display {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
         }
-        .good { color: #28a745; }
-        .warning { color: #ffc107; }
-        .poor { color: #dc3545; }
+        
         button {
-            background: #0066cc;
+            background: #007cba;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 10px 15px;
+            border-radius: 3px;
             cursor: pointer;
-            margin: 10px 5px;
+            margin: 5px;
         }
+        
         button:hover {
-            background: #0052a3;
+            background: #005a87;
+        }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        
+        .status.good {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.needs-improvement {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .status.poor {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .large-content {
+            height: 1000px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1>Screen Size Checker - Performance Test</h1>
-    <p>This page tests the performance optimizations we've implemented.</p>
+    <h1>Performance Monitor Test Page</h1>
     
-    <div class="test-result">
-        <h3>Performance Metrics</h3>
-        <div id="metrics"></div>
+    <div class="test-section">
+        <h2>Performance Monitor Status</h2>
+        <div id="monitor-status">Initializing...</div>
+        <button onclick="checkMonitorStatus()">Check Status</button>
+        <button onclick="refreshMetrics()">Refresh Metrics</button>
     </div>
     
-    <div class="test-result">
-        <h3>Resource Loading Test</h3>
-        <div id="resources"></div>
+    <div class="test-section">
+        <h2>Core Web Vitals</h2>
+        <div id="cwv-display" class="metrics-display">Loading...</div>
+        <button onclick="displayCoreWebVitals()">Update Core Web Vitals</button>
     </div>
     
-    <div class="test-result">
-        <h3>Critical Path Test</h3>
-        <div id="critical-path"></div>
+    <div class="test-section">
+        <h2>Performance Score</h2>
+        <div id="score-display" class="status">Calculating...</div>
+        <button onclick="calculateScore()">Calculate Score</button>
     </div>
     
-    <button onclick="testMainSite()">Test Main Site</button>
-    <button onclick="runPerformanceTest()">Run Performance Test</button>
-    <button onclick="testResourceLoading()">Test Resource Loading</button>
-    <button onclick="testFunctionality()">Test Functionality</button>
+    <div class="test-section">
+        <h2>Long Task Test</h2>
+        <p>Click the button below to simulate a long task (>50ms) and test long task monitoring:</p>
+        <button onclick="simulateLongTask()">Simulate Long Task</button>
+        <div id="long-task-status"></div>
+    </div>
     
-    <script>
-        // Performance testing functions
-        function runPerformanceTest() {
-            const metrics = document.getElementById('metrics');
+    <div class="test-section">
+        <h2>Layout Shift Test</h2>
+        <p>Click to add content that will cause layout shift (CLS test):</p>
+        <button onclick="causeLayoutShift()">Cause Layout Shift</button>
+        <div id="dynamic-content"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Resource Loading Test</h2>
+        <p>Load additional resources to test resource timing monitoring:</p>
+        <button onclick="loadTestResources()">Load Test Resources</button>
+        <div id="resource-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>All Metrics Summary</h2>
+        <div id="all-metrics" class="metrics-display">Click "Show All Metrics" to display</div>
+        <button onclick="showAllMetrics()">Show All Metrics</button>
+        <button onclick="exportMetrics()">Export to Console</button>
+    </div>
+    
+    <!-- Large content to test LCP -->
+    <div class="large-content">
+        <div>Large Content for LCP Testing</div>
+    </div>
+    
+    <script type="module">
+        import { performanceMonitor } from './js/performance-monitor.js';
+        
+        // Make performanceMonitor globally available for testing
+        window.performanceMonitor = performanceMonitor;
+        
+        // Test functions
+        window.checkMonitorStatus = function() {
+            const statusDiv = document.getElementById('monitor-status');
+            const isInitialized = performanceMonitor.isInitialized;
+            const observerCount = performanceMonitor.observers.size;
             
-            // Test basic performance metrics
-            if ('performance' in window) {
-                const navigation = performance.getEntriesByType('navigation')[0];
-                const paint = performance.getEntriesByType('paint');
+            statusDiv.innerHTML = `
+                <strong>Status:</strong> ${isInitialized ? '✅ Initialized' : '❌ Not Initialized'}<br>
+                <strong>Active Observers:</strong> ${observerCount}<br>
+                <strong>Config:</strong> ${JSON.stringify(performanceMonitor.config, null, 2)}
+            `;
+        };
+        
+        window.displayCoreWebVitals = function() {
+            const cwvDiv = document.getElementById('cwv-display');
+            const metrics = performanceMonitor.getMetrics();
+            const cwv = metrics.coreWebVitals;
+            
+            let display = '';
+            for (const [metric, data] of Object.entries(cwv)) {
+                const value = data.value !== null ? data.value.toFixed(2) : 'Not measured';
+                const rating = data.rating || 'unknown';
+                const timestamp = data.timestamp ? new Date(data.timestamp).toLocaleTimeString() : 'N/A';
                 
-                let html = '';
-                
-                // DOM Content Loaded
-                const domContentLoaded = navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart;
-                html += `<div class="metric">
-                    <span>DOM Content Loaded:</span>
-                    <span class="${domContentLoaded < 100 ? 'good' : domContentLoaded < 300 ? 'warning' : 'poor'}">${domContentLoaded.toFixed(2)}ms</span>
-                </div>`;
-                
-                // Load Event
-                const loadEvent = navigation.loadEventEnd - navigation.loadEventStart;
-                html += `<div class="metric">
-                    <span>Load Event:</span>
-                    <span class="${loadEvent < 200 ? 'good' : loadEvent < 500 ? 'warning' : 'poor'}">${loadEvent.toFixed(2)}ms</span>
-                </div>`;
-                
-                // First Paint
-                const firstPaint = paint.find(p => p.name === 'first-paint');
-                if (firstPaint) {
-                    html += `<div class="metric">
-                        <span>First Paint:</span>
-                        <span class="${firstPaint.startTime < 500 ? 'good' : firstPaint.startTime < 1000 ? 'warning' : 'poor'}">${firstPaint.startTime.toFixed(2)}ms</span>
-                    </div>`;
-                }
-                
-                // First Contentful Paint
-                const firstContentfulPaint = paint.find(p => p.name === 'first-contentful-paint');
-                if (firstContentfulPaint) {
-                    html += `<div class="metric">
-                        <span>First Contentful Paint:</span>
-                        <span class="${firstContentfulPaint.startTime < 800 ? 'good' : firstContentfulPaint.startTime < 1500 ? 'warning' : 'poor'}">${firstContentfulPaint.startTime.toFixed(2)}ms</span>
-                    </div>`;
-                }
-                
-                metrics.innerHTML = html;
-            } else {
-                metrics.innerHTML = '<p>Performance API not supported</p>';
+                display += `${metric}: ${value}ms (${rating}) - ${timestamp}\n`;
             }
-        }
-        
-        function testResourceLoading() {
-            const resources = document.getElementById('resources');
             
-            if ('performance' in window) {
-                const resourceEntries = performance.getEntriesByType('resource');
-                let html = '<h4>Resource Loading Times:</h4>';
-                
-                resourceEntries.forEach(resource => {
-                    const loadTime = resource.responseEnd - resource.startTime;
-                    const resourceName = resource.name.split('/').pop() || resource.name;
-                    
-                    html += `<div class="metric">
-                        <span>${resourceName}:</span>
-                        <span class="${loadTime < 100 ? 'good' : loadTime < 300 ? 'warning' : 'poor'}">${loadTime.toFixed(2)}ms</span>
-                    </div>`;
-                });
-                
-                resources.innerHTML = html;
+            cwvDiv.textContent = display || 'No Core Web Vitals data available yet';
+        };
+        
+        window.calculateScore = function() {
+            const scoreDiv = document.getElementById('score-display');
+            const score = performanceMonitor.getMetrics().performanceScore;
+            
+            let className = 'poor';
+            let message = '';
+            
+            if (score >= 90) {
+                className = 'good';
+                message = 'Excellent performance!';
+            } else if (score >= 70) {
+                className = 'needs-improvement';
+                message = 'Good performance, room for improvement';
             } else {
-                resources.innerHTML = '<p>Performance API not supported</p>';
+                className = 'poor';
+                message = 'Performance needs significant improvement';
             }
-        }
+            
+            scoreDiv.className = `status ${className}`;
+            scoreDiv.innerHTML = `
+                <strong>Performance Score: ${score}/100</strong><br>
+                ${message}
+            `;
+        };
         
-        function testMainSite() {
-            const criticalPath = document.getElementById('critical-path');
+        window.simulateLongTask = function() {
+            const statusDiv = document.getElementById('long-task-status');
+            statusDiv.textContent = 'Simulating long task...';
             
-            // Test if we can access the main site
-            const iframe = document.createElement('iframe');
-            iframe.src = './multilang-build/en/index.html';
-            iframe.style.width = '100%';
-            iframe.style.height = '400px';
-            iframe.style.border = '1px solid #ccc';
+            // Simulate a long task (blocking the main thread)
+            const start = performance.now();
+            while (performance.now() - start < 100) {
+                // Busy wait to block the main thread
+            }
             
-            iframe.onload = function() {
-                const startTime = performance.now();
-                
-                // Test if critical elements are immediately visible
-                setTimeout(() => {
-                    const endTime = performance.now();
-                    const loadTime = endTime - startTime;
-                    
-                    criticalPath.innerHTML = `
-                        <h4>Main Site Load Test:</h4>
-                        <div class="metric">
-                            <span>Iframe Load Time:</span>
-                            <span class="${loadTime < 100 ? 'good' : loadTime < 300 ? 'warning' : 'poor'}">${loadTime.toFixed(2)}ms</span>
-                        </div>
-                        <p>✅ Main site loaded successfully</p>
-                    `;
-                }, 100);
-            };
-            
-            iframe.onerror = function() {
-                criticalPath.innerHTML = '<p>❌ Failed to load main site</p>';
-            };
-            
-            criticalPath.innerHTML = '<p>Loading main site...</p>';
-            criticalPath.appendChild(iframe);
-        }
+            setTimeout(() => {
+                const metrics = performanceMonitor.getMetrics();
+                const longTaskCount = metrics.longTasksCount || 0;
+                statusDiv.innerHTML = `
+                    <strong>Long task completed!</strong><br>
+                    Total long tasks detected: ${longTaskCount}
+                `;
+            }, 100);
+        };
         
-        function testFunctionality() {
-            const criticalPath = document.getElementById('critical-path');
+        window.causeLayoutShift = function() {
+            const contentDiv = document.getElementById('dynamic-content');
+            const newElement = document.createElement('div');
+            newElement.style.cssText = `
+                height: 100px;
+                background: #ffeb3b;
+                margin: 10px 0;
+                padding: 20px;
+                border-radius: 5px;
+                animation: slideIn 0.3s ease-out;
+            `;
+            newElement.textContent = 'This content was added dynamically and may cause layout shift';
             
-            criticalPath.innerHTML = '<h4>Functionality Test Results:</h4><div id="func-results"></div>';
-            const resultsDiv = document.getElementById('func-results');
+            // Add CSS animation
+            if (!document.getElementById('slide-animation')) {
+                const style = document.createElement('style');
+                style.id = 'slide-animation';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { height: 0; padding: 0; margin: 0; opacity: 0; }
+                        to { height: 100px; padding: 20px; margin: 10px 0; opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
             
-            // Test if we can access the main site and test its functionality
-            const iframe = document.createElement('iframe');
-            iframe.src = './multilang-build/en/index.html';
-            iframe.style.width = '100%';
-            iframe.style.height = '500px';
-            iframe.style.border = '1px solid #ccc';
-            iframe.style.marginTop = '10px';
+            contentDiv.appendChild(newElement);
             
-            let testResults = [];
-            
-            iframe.onload = function() {
-                try {
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    
-                    // Test 1: Check if viewport display is working
-                    const viewportDisplay = iframeDoc.getElementById('viewport-display');
-                    if (viewportDisplay && viewportDisplay.textContent.includes('×')) {
-                        testResults.push('✅ Viewport display is working correctly');
-                    } else {
-                        testResults.push('❌ Viewport display is not working');
-                    }
-                    
-                    // Test 2: Check if screen resolution display is working
-                    const screenResDisplay = iframeDoc.getElementById('screen-resolution-display');
-                    if (screenResDisplay && screenResDisplay.textContent.includes('Screen Resolution')) {
-                        testResults.push('✅ Screen resolution display is working correctly');
-                    } else {
-                        testResults.push('❌ Screen resolution display is not working');
-                    }
-                    
-                    // Test 3: Check if theme toggle exists
-                    const themeToggle = iframeDoc.getElementById('theme-toggle');
-                    if (themeToggle) {
-                        testResults.push('✅ Theme toggle button found');
-                        
-                        // Test theme toggle functionality
-                        try {
-                            themeToggle.click();
-                            setTimeout(() => {
-                                const currentTheme = iframeDoc.documentElement.getAttribute('data-theme');
-                                if (currentTheme === 'dark') {
-                                    testResults.push('✅ Theme toggle is working (switched to dark)');
-                                } else {
-                                    testResults.push('⚠️ Theme toggle clicked but theme may not have changed');
-                                }
-                                updateResults();
-                            }, 100);
-                        } catch (e) {
-                            testResults.push('❌ Theme toggle click failed: ' + e.message);
-                            updateResults();
-                        }
-                    } else {
-                        testResults.push('❌ Theme toggle button not found');
-                        updateResults();
-                    }
-                    
-                    // Test 4: Check if language selector exists
-                    const langSelector = iframeDoc.querySelector('.language-select');
-                    if (langSelector) {
-                        testResults.push('✅ Language selector found');
-                    } else {
-                        testResults.push('❌ Language selector not found');
-                    }
-                    
-                    // Test 5: Check if critical CSS is loaded
-                    const heroTitle = iframeDoc.querySelector('.hero-title');
-                    if (heroTitle) {
-                        const styles = iframe.contentWindow.getComputedStyle(heroTitle);
-                        if (styles.fontSize && parseFloat(styles.fontSize) > 30) {
-                            testResults.push('✅ Critical CSS is loaded (hero title styled)');
-                        } else {
-                            testResults.push('⚠️ Critical CSS may not be fully loaded');
-                        }
-                    } else {
-                        testResults.push('❌ Hero title not found');
-                    }
-                    
-                    function updateResults() {
-                        resultsDiv.innerHTML = testResults.map(result => `<p>${result}</p>`).join('');
-                    }
-                    
-                    if (!testResults.some(r => r.includes('Theme toggle'))) {
-                        updateResults();
-                    }
-                    
-                } catch (e) {
-                    resultsDiv.innerHTML = `<p>❌ Error accessing iframe content: ${e.message}</p><p>This might be due to CORS restrictions when testing locally.</p>`;
-                }
-            };
-            
-            iframe.onerror = function() {
-                resultsDiv.innerHTML = '<p>❌ Failed to load main site</p>';
-            };
-            
-            criticalPath.appendChild(iframe);
-        }
+            // Check CLS after a delay
+            setTimeout(() => {
+                displayCoreWebVitals();
+            }, 500);
+        };
         
-        // Auto-run basic test on page load
-        window.addEventListener('load', () => {
-            setTimeout(runPerformanceTest, 100);
+        window.loadTestResources = function() {
+            const statusDiv = document.getElementById('resource-status');
+            statusDiv.textContent = 'Loading test resources...';
+            
+            // Load a test image
+            const img = new Image();
+            img.onload = () => {
+                statusDiv.innerHTML += '<br>✅ Test image loaded';
+            };
+            img.onerror = () => {
+                statusDiv.innerHTML += '<br>❌ Test image failed to load';
+            };
+            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwN2NiYSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVzdDwvdGV4dD48L3N2Zz4=';
+            
+            // Load a test CSS file
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'data:text/css;base64,LyogVGVzdCBDU1MgKi8gLnRlc3QgeyBjb2xvcjogcmVkOyB9';
+            link.onload = () => {
+                statusDiv.innerHTML += '<br>✅ Test CSS loaded';
+            };
+            link.onerror = () => {
+                statusDiv.innerHTML += '<br>❌ Test CSS failed to load';
+            };
+            document.head.appendChild(link);
+            
+            // Check resource metrics after a delay
+            setTimeout(() => {
+                const metrics = performanceMonitor.getMetrics();
+                const resourceCount = metrics.resourceTimingsCount || 0;
+                statusDiv.innerHTML += `<br><strong>Total resources monitored: ${resourceCount}</strong>`;
+            }, 1000);
+        };
+        
+        window.showAllMetrics = function() {
+            const metricsDiv = document.getElementById('all-metrics');
+            const metrics = performanceMonitor.getMetrics();
+            metricsDiv.textContent = JSON.stringify(metrics, null, 2);
+        };
+        
+        window.exportMetrics = function() {
+            const metrics = performanceMonitor.getMetrics();
+            console.log('📊 Performance Metrics Export:', metrics);
+            
+            // Also check sessionStorage for reports
+            const reports = JSON.parse(sessionStorage.getItem('performanceReports') || '[]');
+            console.log('📊 Performance Reports:', reports);
+            
+            alert('Metrics exported to console. Check browser developer tools.');
+        };
+        
+        window.refreshMetrics = function() {
+            displayCoreWebVitals();
+            calculateScore();
+            showAllMetrics();
+        };
+        
+        // Auto-refresh metrics every 5 seconds
+        setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                displayCoreWebVitals();
+                calculateScore();
+            }
+        }, 5000);
+        
+        // Initialize display after a short delay
+        setTimeout(() => {
+            checkMonitorStatus();
+            displayCoreWebVitals();
+            calculateScore();
+        }, 1000);
+        
+        console.log('🧪 Performance Monitor Test Page Loaded');
+        console.log('Available test functions:', {
+            checkMonitorStatus: 'Check if performance monitor is initialized',
+            displayCoreWebVitals: 'Show current Core Web Vitals metrics',
+            calculateScore: 'Calculate and display performance score',
+            simulateLongTask: 'Create a long task to test monitoring',
+            causeLayoutShift: 'Add content to test CLS monitoring',
+            loadTestResources: 'Load resources to test resource timing',
+            showAllMetrics: 'Display all collected metrics',
+            exportMetrics: 'Export metrics to console'
         });
     </script>
 </body>

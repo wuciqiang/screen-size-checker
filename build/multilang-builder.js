@@ -428,6 +428,9 @@ class MultiLangBuilder extends ComponentBuilder {
         // 复制静态资源（只复制需要的文件）
         this.copyRequiredStaticResources(outputDir);
         
+        // 集成性能监控系统
+        this.integratePerformanceMonitoring(outputDir);
+        
         // 生成语言选择索引页面
         this.generateLanguageIndex(outputDir);
         
@@ -582,6 +585,523 @@ class MultiLangBuilder extends ComponentBuilder {
                 fs.copyFileSync(sourcePath, destPath);
             }
         });
+    }
+
+    // 集成性能监控系统
+    integratePerformanceMonitoring(outputDir) {
+        console.log('\n📊 Integrating Performance Monitoring System...');
+        
+        try {
+            // 1. 验证性能监控文件是否存在
+            const performanceMonitorPath = path.join(outputDir, 'js', 'performance-monitor.js');
+            const appJsPath = path.join(outputDir, 'js', 'app.js');
+            
+            if (!fs.existsSync(performanceMonitorPath)) {
+                console.warn('  ⚠️  Warning: performance-monitor.js not found, skipping integration');
+                return;
+            }
+            
+            if (!fs.existsSync(appJsPath)) {
+                console.warn('  ⚠️  Warning: app.js not found, skipping integration');
+                return;
+            }
+            
+            // 2. 验证 app.js 是否包含性能监控导入
+            const appJsContent = fs.readFileSync(appJsPath, 'utf8');
+            if (!appJsContent.includes("import { performanceMonitor } from './performance-monitor.js'")) {
+                console.warn('  ⚠️  Warning: app.js does not import performance monitor');
+            } else {
+                console.log('  ✅ app.js includes performance monitor import');
+            }
+            
+            // 3. 创建性能监控测试页面
+            this.createPerformanceTestPage(outputDir);
+            
+            // 4. 生成性能监控部署报告
+            this.generatePerformanceDeploymentReport(outputDir);
+            
+            // 5. 验证关键文件
+            const requiredFiles = [
+                'js/performance-monitor.js',
+                'js/app.js',
+                'js/utils.js'
+            ];
+            
+            let allFilesExist = true;
+            for (const file of requiredFiles) {
+                const filePath = path.join(outputDir, file);
+                if (fs.existsSync(filePath)) {
+                    const stats = fs.statSync(filePath);
+                    console.log(`  ✅ ${file} (${this.formatFileSize(stats.size)})`);
+                } else {
+                    console.warn(`  ❌ Missing required file: ${file}`);
+                    allFilesExist = false;
+                }
+            }
+            
+            if (allFilesExist) {
+                console.log('  ✅ Performance monitoring system integration completed successfully');
+            } else {
+                console.warn('  ⚠️  Performance monitoring system integration completed with warnings');
+            }
+            
+        } catch (error) {
+            console.error('  ❌ Error integrating performance monitoring system:', error.message);
+        }
+    }
+
+    // 创建性能监控测试页面
+    createPerformanceTestPage(outputDir) {
+        const testPagePath = path.join(outputDir, 'performance-test-production.html');
+        
+        const testPageContent = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生产环境性能监控测试</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .status-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-indicator.good { background: #28a745; }
+        .status-indicator.warning { background: #ffc107; }
+        .status-indicator.error { background: #dc3545; }
+        
+        .metrics-display {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            margin: 15px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        
+        .alert {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 生产环境性能监控测试</h1>
+        <p>此页面用于验证性能监控系统在生产环境中是否正常工作。</p>
+        
+        <div class="status-card">
+            <h3>
+                <span id="system-status" class="status-indicator error"></span>
+                系统状态检查
+            </h3>
+            <div id="status-message">正在检查系统状态...</div>
+            <button onclick="checkSystemStatus()">🔄 重新检查</button>
+        </div>
+        
+        <div class="status-card">
+            <h3>📊 Core Web Vitals 监控</h3>
+            <div id="cwv-status">正在收集性能数据...</div>
+            <div class="metrics-display" id="cwv-display">等待数据...</div>
+            <button onclick="refreshMetrics()">📈 刷新指标</button>
+            <button onclick="exportData()">📤 导出数据</button>
+        </div>
+        
+        <div class="status-card">
+            <h3>🧪 功能测试</h3>
+            <p>运行以下测试来验证监控系统的各项功能：</p>
+            
+            <button onclick="testLongTask()">⏱️ 测试长任务监控</button>
+            <button onclick="testLayoutShift()">📐 测试布局偏移监控</button>
+            <button onclick="testResourceLoading()">📦 测试资源监控</button>
+            
+            <div id="test-results" class="metrics-display" style="min-height: 150px;">
+                测试结果将显示在这里...
+            </div>
+        </div>
+    </div>
+    
+    <script type="module">
+        let testLog = [];
+        let performanceMonitor = null;
+        
+        // 尝试导入性能监控模块
+        async function initializeMonitoring() {
+            try {
+                const module = await import('./js/performance-monitor.js');
+                performanceMonitor = module.performanceMonitor;
+                
+                if (performanceMonitor) {
+                    addTestLog('✅ 性能监控模块加载成功');
+                    updateSystemStatus('good', '性能监控系统运行正常');
+                    return true;
+                } else {
+                    throw new Error('性能监控实例未找到');
+                }
+            } catch (error) {
+                addTestLog(\`❌ 性能监控模块加载失败: \${error.message}\`);
+                updateSystemStatus('error', \`系统加载失败: \${error.message}\`);
+                return false;
+            }
+        }
+        
+        function addTestLog(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = \`[\${timestamp}] \${message}\`;
+            testLog.push(logEntry);
+            
+            if (testLog.length > 20) {
+                testLog = testLog.slice(-20);
+            }
+            
+            updateTestResults();
+        }
+        
+        function updateTestResults() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.textContent = testLog.join('\\n');
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+        
+        function updateSystemStatus(status, message) {
+            const statusIndicator = document.getElementById('system-status');
+            const statusMessage = document.getElementById('status-message');
+            
+            statusIndicator.className = \`status-indicator \${status}\`;
+            statusMessage.innerHTML = message;
+        }
+        
+        // 全局函数
+        window.checkSystemStatus = async function() {
+            addTestLog('🔍 开始系统状态检查...');
+            
+            const checks = [
+                {
+                    name: 'HTTPS 环境',
+                    test: () => location.protocol === 'https:' || location.hostname === 'localhost',
+                    message: 'HTTPS 环境检查'
+                },
+                {
+                    name: 'PerformanceObserver 支持',
+                    test: () => 'PerformanceObserver' in window,
+                    message: 'PerformanceObserver API 支持'
+                }
+            ];
+            
+            let allPassed = true;
+            
+            for (const check of checks) {
+                try {
+                    const result = check.test();
+                    if (result) {
+                        addTestLog(\`✅ \${check.message}: 通过\`);
+                    } else {
+                        addTestLog(\`❌ \${check.message}: 失败\`);
+                        allPassed = false;
+                    }
+                } catch (error) {
+                    addTestLog(\`❌ \${check.message}: 错误 - \${error.message}\`);
+                    allPassed = false;
+                }
+            }
+            
+            const monitoringOk = await initializeMonitoring();
+            
+            if (allPassed && monitoringOk) {
+                updateSystemStatus('good', '✅ 所有系统检查通过，性能监控正常运行');
+            } else {
+                updateSystemStatus('error', '❌ 系统检查发现问题，请查看测试日志');
+            }
+        };
+        
+        window.refreshMetrics = function() {
+            if (!performanceMonitor) {
+                addTestLog('❌ 性能监控系统未初始化');
+                return;
+            }
+            
+            try {
+                const metrics = performanceMonitor.getMetrics();
+                const cwv = metrics.coreWebVitals;
+                
+                let display = '📊 Core Web Vitals 当前数据:\\n\\n';
+                
+                if (cwv.LCP.value !== null) {
+                    const rating = cwv.LCP.rating;
+                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    display += \`\${icon} LCP: \${cwv.LCP.value.toFixed(0)}ms (\${rating})\\n\`;
+                } else {
+                    display += '⏳ LCP: 正在测量...\\n';
+                }
+                
+                if (cwv.FID.value !== null) {
+                    const rating = cwv.FID.rating;
+                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    display += \`\${icon} FID: \${cwv.FID.value.toFixed(0)}ms (\${rating})\\n\`;
+                } else {
+                    display += '⏳ FID: 等待用户交互...\\n';
+                }
+                
+                if (cwv.CLS.value !== null) {
+                    const rating = cwv.CLS.rating;
+                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    display += \`\${icon} CLS: \${cwv.CLS.value.toFixed(3)} (\${rating})\\n\`;
+                } else {
+                    display += '⏳ CLS: 正在监控...\\n';
+                }
+                
+                display += \`\\n📈 综合性能评分: \${metrics.performanceScore}/100\\n\`;
+                display += \`📊 长任务数量: \${metrics.longTasksCount}\\n\`;
+                display += \`📦 资源监控数量: \${metrics.resourceTimingsCount}\`;
+                
+                document.getElementById('cwv-display').textContent = display;
+                document.getElementById('cwv-status').innerHTML = 
+                    \`<div class="alert alert-success">✅ 性能数据收集正常，评分: \${metrics.performanceScore}/100</div>\`;
+                
+                addTestLog('📊 性能指标已刷新');
+                
+            } catch (error) {
+                addTestLog(\`❌ 刷新指标失败: \${error.message}\`);
+            }
+        };
+        
+        window.testLongTask = function() {
+            addTestLog('⏱️ 开始长任务测试...');
+            
+            const start = performance.now();
+            while (performance.now() - start < 100) {
+                // 阻塞主线程
+            }
+            
+            setTimeout(() => {
+                if (performanceMonitor) {
+                    const metrics = performanceMonitor.getMetrics();
+                    addTestLog(\`✅ 长任务测试完成，检测到 \${metrics.longTasksCount} 个长任务\`);
+                }
+            }, 500);
+        };
+        
+        window.testLayoutShift = function() {
+            addTestLog('📐 开始布局偏移测试...');
+            
+            const testDiv = document.createElement('div');
+            testDiv.style.cssText = \`
+                height: 100px;
+                background: #ffeb3b;
+                margin: 10px 0;
+                padding: 20px;
+                border-radius: 5px;
+            \`;
+            testDiv.textContent = '这是测试布局偏移的动态内容';
+            
+            document.body.appendChild(testDiv);
+            
+            setTimeout(() => {
+                testDiv.remove();
+                if (performanceMonitor) {
+                    const cls = performanceMonitor.getMetric('CLS');
+                    addTestLog(\`✅ 布局偏移测试完成，当前 CLS: \${cls !== null ? cls.toFixed(3) : '未测量'}\`);
+                }
+            }, 2000);
+        };
+        
+        window.testResourceLoading = function() {
+            addTestLog('📦 开始资源加载测试...');
+            
+            const img = new Image();
+            img.onload = () => {
+                addTestLog('✅ 测试图片加载完成');
+                if (performanceMonitor) {
+                    const metrics = performanceMonitor.getMetrics();
+                    addTestLog(\`📊 当前监控资源数量: \${metrics.resourceTimingsCount}\`);
+                }
+            };
+            img.onerror = () => {
+                addTestLog('❌ 测试图片加载失败');
+            };
+            img.src = \`data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwN2NiYSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVzdDwvdGV4dD48L3N2Zz4=\`;
+        };
+        
+        window.exportData = function() {
+            if (!performanceMonitor) {
+                addTestLog('❌ 性能监控系统未初始化，无法导出数据');
+                return;
+            }
+            
+            try {
+                const metrics = performanceMonitor.getMetrics();
+                const exportData = {
+                    timestamp: new Date().toISOString(),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent,
+                    metrics: metrics,
+                    testLog: testLog
+                };
+                
+                console.log('📤 性能监控数据导出:', exportData);
+                addTestLog('📤 性能数据已导出到控制台');
+                
+            } catch (error) {
+                addTestLog(\`❌ 数据导出失败: \${error.message}\`);
+            }
+        };
+        
+        // 初始化
+        setTimeout(async () => {
+            addTestLog('🚀 生产环境性能监控测试页面已加载');
+            await checkSystemStatus();
+            
+            setTimeout(() => {
+                refreshMetrics();
+            }, 3000);
+        }, 1000);
+        
+        setInterval(() => {
+            if (document.visibilityState === 'visible' && performanceMonitor) {
+                refreshMetrics();
+            }
+        }, 10000);
+        
+        console.log('🎯 生产环境性能监控测试页面已准备就绪');
+    </script>
+</body>
+</html>`;
+        
+        fs.writeFileSync(testPagePath, testPageContent);
+        console.log('  ✅ Created performance test page: performance-test-production.html');
+    }
+
+    // 生成性能监控部署报告
+    generatePerformanceDeploymentReport(outputDir) {
+        const report = {
+            timestamp: new Date().toISOString(),
+            buildDirectory: outputDir,
+            performanceMonitoring: {
+                enabled: true,
+                version: '1.0.0',
+                features: [
+                    'Core Web Vitals monitoring (LCP, FID, CLS, FCP, TTI)',
+                    'Long task detection (>50ms)',
+                    'Resource timing monitoring',
+                    'Performance budget checking',
+                    'Real User Monitoring (RUM)',
+                    'Automatic reporting and alerting'
+                ]
+            },
+            verificationResults: {
+                requiredFiles: [
+                    'js/performance-monitor.js',
+                    'js/app.js',
+                    'js/utils.js'
+                ].map(file => ({
+                    file,
+                    exists: fs.existsSync(path.join(outputDir, file)),
+                    size: this.getFileSize(path.join(outputDir, file))
+                })),
+                testPage: {
+                    created: fs.existsSync(path.join(outputDir, 'performance-test-production.html')),
+                    path: 'performance-test-production.html'
+                }
+            },
+            deploymentInstructions: {
+                step1: '确保服务器支持 HTTPS (性能监控 API 需要安全上下文)',
+                step2: '配置正确的 MIME 类型 (.js → application/javascript)',
+                step3: '启用 Gzip/Brotli 压缩以减少传输大小',
+                step4: '部署后访问 /performance-test-production.html 验证功能',
+                step5: '在浏览器控制台运行 performanceMonitor.getMetrics() 检查数据'
+            },
+            expectedBehavior: {
+                autoStart: '性能监控系统会在页面加载时自动启动',
+                dataCollection: '系统会自动收集 Core Web Vitals 和其他性能指标',
+                reporting: '每30秒生成一次性能报告',
+                storage: '数据存储在浏览器 sessionStorage 中供调试使用'
+            }
+        };
+        
+        const reportPath = path.join(outputDir, 'performance-monitor-deployment-report.json');
+        fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+        console.log('  ✅ Generated deployment report: performance-monitor-deployment-report.json');
+    }
+
+    // 获取文件大小
+    getFileSize(filePath) {
+        try {
+            const stats = fs.statSync(filePath);
+            return stats.size;
+        } catch (error) {
+            return 0;
+        }
+    }
+
+    // 格式化文件大小
+    formatFileSize(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
     }
     
     // 生成结构化数据

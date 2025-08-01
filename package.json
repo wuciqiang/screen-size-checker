@@ -9,7 +9,9 @@
     "batch-build": "node build/component-builder.js --batch",
     "multilang-build": "node build/multilang-builder.js",
     "validate-components": "node build/component-builder.js",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js",
+    "deploy-check": "node cloudflare-deploy-check.js",
+    "performance-check": "node deploy-performance-monitor.js"
   },
   "keywords": [
     "screen-size",

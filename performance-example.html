@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性能监控原理演示</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .analogy-box {
+            background: #f0f8ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Consolas', monospace;
+            margin: 15px 0;
+        }
+        
+        .status-good { color: #28a745; font-weight: bold; }
+        .status-warning { color: #ffc107; font-weight: bold; }
+        .status-danger { color: #dc3545; font-weight: bold; }
+        
+        .demo-section {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover { background: #0056b3; }
+        
+        .monitor-display {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏥 性能监控系统原理演示</h1>
+    
+    <div class="analogy-box">
+        <h3>🩺 生活类比：网站 = 病人，性能监控 = 医疗设备</h3>
+        <p>就像医院用各种设备监控病人健康，我们用性能监控系统监控网站健康！</p>
+    </div>
+    
+    <div class="demo-section">
+        <h3>1. 📊 "生命体征"监控面板</h3>
+        <p>就像医院的监护仪显示病人的心率、血压等：</p>
+        
+        <div class="monitor-display" id="vitals-display">
+            正在初始化监护设备...
+        </div>
+        
+        <button onclick="checkVitals()">🔍 检查生命体征</button>
+        <button onclick="simulateEmergency()">🚨 模拟紧急情况</button>
+    </div>
+    
+    <div class="demo-section">
+        <h3>2. 🔔 报警系统演示</h3>
+        <p>当网站"生病"时（性能变差），系统会像医院报警器一样提醒我们：</p>
+        
+        <div class="code-example">
+            正常范围设定：<br>
+            • LCP (心率) ≤ 2.5秒 ✅<br>
+            • FID (反应速度) ≤ 100毫秒 ✅<br>
+            • CLS (稳定性) ≤ 0.1 ✅
+        </div>
+        
+        <div id="alert-display" style="margin: 10px 0; padding: 10px; border-radius: 5px;">
+            等待检测结果...
+        </div>
+        
+        <button onclick="triggerSlowLoading()">🐌 模拟网页加载慢</button>
+        <button onclick="triggerLayoutShift()">📐 模拟页面抖动</button>
+    </div>
+    
+    <div class="demo-section">
+        <h3>3. 📈 实时监控日志</h3>
+        <p>就像护士记录病人的体征变化：</p>
+        
+        <div class="monitor-display" id="log-display">
+            [等待监控数据...]
+        </div>
+        
+        <button onclick="clearLog()">🧹 清空记录</button>
+        <button onclick="generateReport()">📋 生成报告</button>
+    </div>
+    
+    <div class="analogy-box">
+        <h3>🤔 为什么需要这个系统？</h3>
+        <ul>
+            <li><strong>预防胜于治疗</strong>：就像定期体检能早发现疾病，性能监控能早发现网站问题</li>
+            <li><strong>24小时守护</strong>：就像ICU监护仪不间断监测，我们的系统也在24小时守护网站</li>
+            <li><strong>数据说话</strong>：就像医生看化验单诊断，我们看性能数据优化网站</li>
+        </ul>
+    </div>
+    
+    <script type="module">
+        import { performanceMonitor } from './js/performance-monitor.js';
+        
+        let logMessages = [];
+        
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}`;
+            logMessages.push(logEntry);
+            
+            if (logMessages.length > 10) {
+                logMessages = logMessages.slice(-10);
+            }
+            
+            updateLogDisplay();
+        }
+        
+        function updateLogDisplay() {
+            const logDisplay = document.getElementById('log-display');
+            logDisplay.textContent = logMessages.join('\n');
+        }
+        
+        // 全局函数
+        window.checkVitals = function() {
+            const vitalsDisplay = document.getElementById('vitals-display');
+            const metrics = performanceMonitor.getMetrics();
+            const cwv = metrics.coreWebVitals;
+            
+            let display = '🏥 网站健康检查报告：\n\n';
+            
+            // LCP - 就像心率
+            const lcp = cwv.LCP.value;
+            if (lcp !== null) {
+                const status = lcp <= 2500 ? '✅ 正常' : lcp <= 4000 ? '⚠️ 需注意' : '🚨 异常';
+                display += `💓 心率 (LCP): ${lcp.toFixed(0)}ms ${status}\n`;
+            } else {
+                display += `💓 心率 (LCP): 正在测量...\n`;
+            }
+            
+            // FID - 就像反应速度
+            const fid = cwv.FID.value;
+            if (fid !== null) {
+                const status = fid <= 100 ? '✅ 正常' : fid <= 300 ? '⚠️ 需注意' : '🚨 异常';
+                display += `⚡ 反应速度 (FID): ${fid.toFixed(0)}ms ${status}\n`;
+            } else {
+                display += `⚡ 反应速度 (FID): 等待用户交互...\n`;
+            }
+            
+            // CLS - 就像血压稳定性
+            const cls = cwv.CLS.value;
+            if (cls !== null) {
+                const status = cls <= 0.1 ? '✅ 正常' : cls <= 0.25 ? '⚠️ 需注意' : '🚨 异常';
+                display += `🩸 稳定性 (CLS): ${cls.toFixed(3)} ${status}\n`;
+            } else {
+                display += `🩸 稳定性 (CLS): 正在监测...\n`;
+            }
+            
+            display += `\n📊 综合健康评分: ${metrics.performanceScore}/100`;
+            
+            vitalsDisplay.textContent = display;
+            addLog('🔍 进行了一次健康检查');
+        };
+        
+        window.simulateEmergency = function() {
+            addLog('🚨 模拟紧急情况：网站响应变慢！');
+            
+            // 模拟长任务（就像病人心率突然加快）
+            const start = performance.now();
+            while (performance.now() - start < 200) {
+                // 阻塞主线程200ms
+            }
+            
+            const alertDisplay = document.getElementById('alert-display');
+            alertDisplay.style.background = '#f8d7da';
+            alertDisplay.style.color = '#721c24';
+            alertDisplay.innerHTML = '🚨 <strong>紧急警报</strong>：检测到长任务执行！主线程被阻塞200ms';
+            
+            setTimeout(() => {
+                alertDisplay.style.background = '#d4edda';
+                alertDisplay.style.color = '#155724';
+                alertDisplay.innerHTML = '✅ <strong>恢复正常</strong>：系统已恢复正常运行';
+                addLog('✅ 紧急情况已解除');
+            }, 3000);
+        };
+        
+        window.triggerSlowLoading = function() {
+            addLog('🐌 模拟慢加载：就像病人发烧体温升高');
+            
+            // 创建一个大图片来模拟慢加载
+            const img = new Image();
+            img.onload = () => {
+                addLog('📸 大图片加载完成，可能影响LCP指标');
+                checkVitals();
+            };
+            img.src = `https://picsum.photos/1200/800?random=${Date.now()}`;
+            
+            const alertDisplay = document.getElementById('alert-display');
+            alertDisplay.style.background = '#fff3cd';
+            alertDisplay.style.color = '#856404';
+            alertDisplay.innerHTML = '⚠️ <strong>注意</strong>：检测到大资源加载，可能影响页面性能';
+        };
+        
+        window.triggerLayoutShift = function() {
+            addLog('📐 模拟布局偏移：就像病人血压不稳定');
+            
+            // 动态添加内容造成布局偏移
+            const newDiv = document.createElement('div');
+            newDiv.style.cssText = `
+                height: 100px;
+                background: #ffeb3b;
+                margin: 10px 0;
+                padding: 20px;
+                border-radius: 5px;
+                animation: slideDown 0.5s ease-out;
+            `;
+            newDiv.textContent = '这是突然出现的内容，会造成布局偏移（就像血压突然升高）';
+            
+            // 添加动画样式
+            if (!document.getElementById('slide-animation')) {
+                const style = document.createElement('style');
+                style.id = 'slide-animation';
+                style.textContent = `
+                    @keyframes slideDown {
+                        from { height: 0; padding: 0; opacity: 0; }
+                        to { height: 100px; padding: 20px; opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(newDiv);
+            
+            const alertDisplay = document.getElementById('alert-display');
+            alertDisplay.style.background = '#f8d7da';
+            alertDisplay.style.color = '#721c24';
+            alertDisplay.innerHTML = '🚨 <strong>布局偏移警报</strong>：检测到页面布局不稳定！';
+            
+            // 3秒后移除
+            setTimeout(() => {
+                newDiv.remove();
+                addLog('📐 布局偏移测试完成');
+                checkVitals();
+            }, 3000);
+        };
+        
+        window.clearLog = function() {
+            logMessages = [];
+            updateLogDisplay();
+            addLog('🧹 护士清空了记录本');
+        };
+        
+        window.generateReport = function() {
+            const metrics = performanceMonitor.getMetrics();
+            const report = `
+📋 网站健康体检报告
+===================
+检查时间: ${new Date().toLocaleString()}
+综合评分: ${metrics.performanceScore}/100
+
+生命体征详情:
+• 心率 (LCP): ${metrics.coreWebVitals.LCP.value ? metrics.coreWebVitals.LCP.value.toFixed(0) + 'ms' : '未测量'}
+• 反应 (FID): ${metrics.coreWebVitals.FID.value ? metrics.coreWebVitals.FID.value.toFixed(0) + 'ms' : '未测量'}
+• 稳定 (CLS): ${metrics.coreWebVitals.CLS.value ? metrics.coreWebVitals.CLS.value.toFixed(3) : '未测量'}
+
+监控统计:
+• 长任务次数: ${metrics.longTasksCount}
+• 资源监控数: ${metrics.resourceTimingsCount}
+• 用户交互数: ${metrics.userExperienceMetrics.interactionCount}
+
+建议:
+${metrics.performanceScore >= 90 ? '✅ 网站健康状况优秀！' : 
+  metrics.performanceScore >= 70 ? '⚠️ 网站健康良好，有改进空间' : 
+  '🚨 网站健康需要重点关注和优化'}
+            `.trim();
+            
+            console.log(report);
+            alert('📋 体检报告已生成！请查看浏览器控制台获取详细信息。');
+            addLog('📋 生成了详细的健康体检报告');
+        };
+        
+        // 初始化
+        setTimeout(() => {
+            addLog('🏥 性能监控系统已启动，开始24小时监护');
+            addLog('💡 点击按钮体验不同的监控功能');
+            checkVitals();
+        }, 1000);
+        
+        // 定期检查（就像护士定时查房）
+        setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                checkVitals();
+            }
+        }, 10000);
+        
+        console.log('🎯 性能监控原理演示页面已加载');
+        console.log('💡 这个系统就像医院的监护设备，24小时守护您的网站健康！');
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ console.log('🚀 Starting app.js module load...');
 
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
+import { performanceMonitor } from './performance-monitor.js';
 
 console.log('✅ Critical modules imported successfully');
 
@@ -60,17 +61,27 @@ async function initializeNonCriticalModules() {
         
         // Load i18n module
         if (!i18nModule) {
+            const i18nStartTime = performance.now();
             i18nModule = await import('./i18n.js');
             await i18nModule.initializeI18next();
             i18nModule.setupLanguageSelector();
             i18nModule.updateUIElements();
+            
+            // Record i18n load time
+            const i18nLoadTime = performance.now() - i18nStartTime;
+            performanceMonitor.recordCustomMetric('translationLoadTime', i18nLoadTime);
         }
         
         // Load device detector module
         if (!deviceDetectorModule) {
+            const deviceDetectorStartTime = performance.now();
             deviceDetectorModule = await import('./device-detector.js');
             await deviceDetectorModule.updateDisplay();
             deviceDetectorModule.updateViewportSize();
+            
+            // Record device detection time
+            const deviceDetectionTime = performance.now() - deviceDetectorStartTime;
+            performanceMonitor.recordCustomMetric('deviceDetectionTime', deviceDetectionTime);
         }
         
         // Setup advanced event listeners
