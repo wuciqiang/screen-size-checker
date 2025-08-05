@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性能错误处理系统测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .test-section {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .test-button:hover {
+            background: #0056b3;
+        }
+        
+        .test-button.danger {
+            background: #dc3545;
+        }
+        
+        .test-button.danger:hover {
+            background: #c82333;
+        }
+        
+        .test-results {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        .error-stats {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .success {
+            color: #28a745;
+        }
+        
+        .error {
+            color: #dc3545;
+        }
+        
+        .warning {
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>性能错误处理系统测试</h1>
+    <p>这个页面用于测试性能错误处理和降级系统的各种功能。</p>
+    
+    <div class="test-section">
+        <h2>1. 资源加载错误测试</h2>
+        <p>测试CSS、JavaScript、图片等资源加载失败时的处理机制。</p>
+        
+        <button class="test-button danger" onclick="testCSSLoadFailure()">测试CSS加载失败</button>
+        <button class="test-button danger" onclick="testJSLoadFailure()">测试JS加载失败</button>
+        <button class="test-button danger" onclick="testImageLoadFailure()">测试图片加载失败</button>
+        <button class="test-button danger" onclick="testFontLoadFailure()">测试字体加载失败</button>
+        
+        <div id="resource-test-results" class="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. JavaScript错误测试</h2>
+        <p>测试JavaScript运行时错误和Promise拒绝的处理。</p>
+        
+        <button class="test-button danger" onclick="testJavaScriptError()">触发JavaScript错误</button>
+        <button class="test-button danger" onclick="testPromiseRejection()">触发Promise拒绝</button>
+        <button class="test-button danger" onclick="testModuleLoadError()">模拟模块加载错误</button>
+        
+        <div id="js-error-test-results" class="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. 降级功能测试</h2>
+        <p>测试各种功能失败时的降级处理。</p>
+        
+        <button class="test-button" onclick="testBasicDeviceDetection()">测试基础设备检测</button>
+        <button class="test-button" onclick="testBasicAppFunctionality()">测试基础应用功能</button>
+        <button class="test-button" onclick="testMinimalCSS()">应用最小化CSS</button>
+        
+        <div id="fallback-test-results" class="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. 错误统计和健康状态</h2>
+        <p>查看错误处理器的统计信息和系统健康状态。</p>
+        
+        <button class="test-button" onclick="showErrorStats()">显示错误统计</button>
+        <button class="test-button" onclick="showHealthStatus()">显示健康状态</button>
+        <button class="test-button" onclick="clearErrorQueue()">清理错误队列</button>
+        
+        <div id="stats-results" class="error-stats"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. 性能监控集成测试</h2>
+        <p>测试错误处理器与性能监控系统的集成。</p>
+        
+        <button class="test-button" onclick="testPerformanceIntegration()">测试性能监控集成</button>
+        <button class="test-button" onclick="showPerformanceReport()">显示性能报告</button>
+        
+        <div id="performance-test-results" class="test-results"></div>
+    </div>
+    
+    <!-- 测试用的元素 -->
+    <div id="test-container" style="display: none;">
+        <img id="test-image" alt="测试图片">
+        <div id="test-content">测试内容</div>
+    </div>
+
+    <script type="module">
+        // 导入错误处理器
+        import('./js/performance-error-handler.js').then(module => {
+            window.PerformanceErrorHandler = module.default || module.PerformanceErrorHandler;
+            
+            // 创建全局错误处理器实例
+            window.errorHandler = new window.PerformanceErrorHandler({
+                enableLogging: true,
+                reportErrors: true,
+                maxRetries: 2,
+                retryDelay: 500
+            });
+            
+            log('✅ 错误处理器已初始化', 'success');
+        }).catch(error => {
+            log('❌ 错误处理器初始化失败: ' + error.message, 'error');
+        });
+        
+        // 尝试导入性能监控器
+        import('./js/performance-monitor.js').then(module => {
+            window.performanceMonitor = module.performanceMonitor;
+            log('✅ 性能监控器已加载', 'success');
+        }).catch(error => {
+            log('⚠️ 性能监控器加载失败: ' + error.message, 'warning');
+        });
+        
+        // 日志函数
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : type === 'warning' ? 'warning' : '';
+            console.log(`[${timestamp}] ${message}`);
+            
+            // 也显示在页面上
+            const logEntry = document.createElement('div');
+            logEntry.className = className;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            
+            // 添加到最近的测试结果区域
+            const activeResults = document.querySelector('.test-results:last-of-type');
+            if (activeResults) {
+                activeResults.appendChild(logEntry);
+                activeResults.scrollTop = activeResults.scrollHeight;
+            }
+        }
+        
+        // 导出日志函数供全局使用
+        window.log = log;
+    </script>
+
+    <script>
+        // 测试函数
+        
+        // 1. 资源加载错误测试
+        function testCSSLoadFailure() {
+            clearResults('resource-test-results');
+            log('开始测试CSS加载失败...');
+            
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'non-existent-file.css';
+            link.onerror = () => {
+                log('CSS加载失败事件触发', 'error');
+            };
+            document.head.appendChild(link);
+        }
+        
+        function testJSLoadFailure() {
+            clearResults('resource-test-results');
+            log('开始测试JavaScript加载失败...');
+            
+            const script = document.createElement('script');
+            script.src = 'non-existent-file.js';
+            script.onerror = () => {
+                log('JavaScript加载失败事件触发', 'error');
+            };
+            document.head.appendChild(script);
+        }
+        
+        function testImageLoadFailure() {
+            clearResults('resource-test-results');
+            log('开始测试图片加载失败...');
+            
+            const img = document.getElementById('test-image');
+            img.src = 'non-existent-image.jpg';
+            img.onerror = () => {
+                log('图片加载失败事件触发', 'error');
+            };
+        }
+        
+        function testFontLoadFailure() {
+            clearResults('resource-test-results');
+            log('开始测试字体加载失败...');
+            
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://fonts.googleapis.com/css2?family=NonExistentFont:wght@400&display=swap';
+            link.onerror = () => {
+                log('字体加载失败事件触发', 'error');
+            };
+            document.head.appendChild(link);
+        }
+        
+        // 2. JavaScript错误测试
+        function testJavaScriptError() {
+            clearResults('js-error-test-results');
+            log('开始测试JavaScript错误...');
+            
+            try {
+                // 故意触发错误
+                nonExistentFunction();
+            } catch (error) {
+                log('JavaScript错误已捕获: ' + error.message, 'error');
+            }
+            
+            // 也触发一个未捕获的错误
+            setTimeout(() => {
+                throw new Error('测试用的未捕获错误');
+            }, 100);
+        }
+        
+        function testPromiseRejection() {
+            clearResults('js-error-test-results');
+            log('开始测试Promise拒绝...');
+            
+            // 创建一个被拒绝的Promise
+            Promise.reject(new Error('测试用的Promise拒绝'))
+                .catch(error => {
+                    log('Promise拒绝已捕获: ' + error.message, 'error');
+                });
+            
+            // 也创建一个未处理的Promise拒绝
+            setTimeout(() => {
+                Promise.reject(new Error('测试用的未处理Promise拒绝'));
+            }, 100);
+        }
+        
+        function testModuleLoadError() {
+            clearResults('js-error-test-results');
+            log('开始测试模块加载错误...');
+            
+            import('./non-existent-module.js')
+                .catch(error => {
+                    log('模块加载错误: ' + error.message, 'error');
+                });
+        }
+        
+        // 3. 降级功能测试
+        function testBasicDeviceDetection() {
+            clearResults('fallback-test-results');
+            log('测试基础设备检测功能...');
+            
+            if (window.errorHandler) {
+                window.errorHandler.provideBasicDeviceDetection();
+                
+                if (window.DeviceDetector) {
+                    const deviceInfo = window.DeviceDetector.getDeviceInfo();
+                    log('设备信息: ' + JSON.stringify(deviceInfo), 'success');
+                } else {
+                    log('基础设备检测功能未生效', 'error');
+                }
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        function testBasicAppFunctionality() {
+            clearResults('fallback-test-results');
+            log('测试基础应用功能...');
+            
+            if (window.errorHandler) {
+                window.errorHandler.provideBasicAppFunctionality();
+                log('基础应用功能已启用', 'success');
+                
+                // 创建一个测试复制按钮
+                const testBtn = document.createElement('button');
+                testBtn.className = 'copy-btn test-button';
+                testBtn.textContent = '测试复制';
+                testBtn.setAttribute('data-copy', '测试复制内容');
+                
+                const container = document.getElementById('fallback-test-results');
+                container.appendChild(testBtn);
+                
+                log('测试复制按钮已创建，点击测试复制功能', 'success');
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        function testMinimalCSS() {
+            clearResults('fallback-test-results');
+            log('应用最小化CSS...');
+            
+            if (window.errorHandler) {
+                window.errorHandler.applyMinimalCSS();
+                log('最小化CSS已应用', 'success');
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        // 4. 错误统计和健康状态
+        function showErrorStats() {
+            clearResults('stats-results');
+            
+            if (window.errorHandler) {
+                const stats = window.errorHandler.getErrorStats();
+                const statsHtml = `
+                    <h4>错误统计</h4>
+                    <p><strong>资源错误:</strong> ${stats.resourceErrors}</p>
+                    <p><strong>模块错误:</strong> ${stats.moduleErrors}</p>
+                    <p><strong>性能错误:</strong> ${stats.performanceErrors}</p>
+                    <p><strong>总错误数:</strong> ${stats.totalErrors}</p>
+                    <p><strong>错误队列长度:</strong> ${stats.errorQueue}</p>
+                    <p><strong>重试尝试次数:</strong> ${stats.retryAttempts}</p>
+                `;
+                
+                document.getElementById('stats-results').innerHTML = statsHtml;
+                log('错误统计已显示', 'success');
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        function showHealthStatus() {
+            if (window.errorHandler) {
+                const health = window.errorHandler.getHealthStatus();
+                const healthHtml = `
+                    <h4>系统健康状态</h4>
+                    <p><strong>状态:</strong> <span class="${health.status}">${health.status}</span></p>
+                    <p><strong>错误率:</strong> ${health.errorRate.toFixed(4)} 错误/秒</p>
+                    <p><strong>总错误数:</strong> ${health.totalErrors}</p>
+                    <p><strong>运行时间:</strong> ${Math.round(health.uptime / 1000)} 秒</p>
+                `;
+                
+                document.getElementById('stats-results').innerHTML = healthHtml;
+                log('健康状态已显示', 'success');
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        function clearErrorQueue() {
+            if (window.errorHandler) {
+                window.errorHandler.clearErrorQueue();
+                log('错误队列已清理', 'success');
+            } else {
+                log('错误处理器未初始化', 'error');
+            }
+        }
+        
+        // 5. 性能监控集成测试
+        function testPerformanceIntegration() {
+            clearResults('performance-test-results');
+            log('测试性能监控集成...');
+            
+            if (window.performanceMonitor && window.errorHandler) {
+                // 获取性能监控器的错误处理器统计
+                const errorStats = window.performanceMonitor.getErrorHandlerStats();
+                log('性能监控器错误统计: ' + JSON.stringify(errorStats), 'success');
+                
+                // 触发一些错误来测试集成
+                window.errorHandler.logError('测试集成错误', { test: true });
+                
+                log('集成测试完成', 'success');
+            } else {
+                log('性能监控器或错误处理器未初始化', 'error');
+            }
+        }
+        
+        function showPerformanceReport() {
+            clearResults('performance-test-results');
+            
+            if (window.performanceMonitor) {
+                const report = window.performanceMonitor.getComprehensiveReport();
+                log('性能报告: ' + JSON.stringify(report, null, 2), 'success');
+            } else {
+                log('性能监控器未初始化', 'error');
+            }
+        }
+        
+        // 辅助函数
+        function clearResults(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = '';
+            }
+        }
+        
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            log('测试页面已加载', 'success');
+        });
+    </script>
+</body>
+</html>

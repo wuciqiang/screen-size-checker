@@ -193,6 +193,7 @@ class PerformanceMonitor {
             enableRUM: true,
             enableLongTaskMonitoring: true,
             enableResourceTimingMonitoring: true,
+            enableErrorHandling: true,
             reportingInterval: 30000,
             performanceBudget: {
                 LCP: 2500,
@@ -209,6 +210,9 @@ class PerformanceMonitor {
         this.reportQueue = [];
         this.isInitialized = false;
         this.startTime = performance.now();
+        
+        // 错误处理器将在初始化时异步加载
+        this.errorHandler = null;
         
         console.log('🔧 PerformanceMonitor initialized with config:', this.config);
     }
@@ -240,6 +244,8 @@ class PerformanceMonitor {
             this.setupNavigationTimingMonitoring();
             this.setupUserInteractionMonitoring();
             
+            // 错误处理器集成暂时禁用以避免阻塞初始化
+            
             if (this.config.enableRUM) {
                 this.startReporting();
             }
@@ -249,6 +255,9 @@ class PerformanceMonitor {
             
         } catch (error) {
             console.error('❌ Failed to initialize PerformanceMonitor:', error);
+            
+            // 如果初始化失败，尝试启用基础监控
+            this.enableFallbackMonitoring();
         }
     }
     
@@ -696,6 +705,173 @@ class PerformanceMonitor {
     }
     
     /**
+     * Setup error handler integration
+     */
+    setupErrorHandlerIntegration() {
+        if (!this.errorHandler) return;
+        
+        console.log('🔧 Setting up error handler integration...');
+        
+        // 监听错误处理器的错误统计
+        const originalLogError = this.errorHandler.logError.bind(this.errorHandler);
+        this.errorHandler.logError = (message, details) => {
+            // 调用原始方法
+            originalLogError(message, details);
+            
+            // 更新性能指标中的错误计数
+            this.metrics.userExperienceMetrics.errorCount++;
+            
+            // 如果错误率过高，触发性能预算违规
+            if (this.metrics.userExperienceMetrics.errorCount > 10) {
+                this.reportViolation('error-rate', {
+                    errorCount: this.metrics.userExperienceMetrics.errorCount,
+                    threshold: 10,
+                    message: 'High error rate detected'
+                });
+            }
+        };
+        
+        console.log('✅ Error handler integration completed');
+    }
+    
+    /**
+     * Enable fallback monitoring when main initialization fails
+     */
+    enableFallbackMonitoring() {
+        console.log('🔄 Enabling fallback monitoring...');
+        
+        try {
+            // 基础的性能监控
+            this.setupBasicPerformanceMonitoring();
+            
+            // 基础的错误监控
+            this.setupBasicErrorMonitoring();
+            
+            // 启用简化的报告
+            if (this.config.enableRUM) {
+                this.startBasicReporting();
+            }
+            
+            this.isInitialized = true;
+            console.log('✅ Fallback monitoring enabled');
+            
+        } catch (error) {
+            console.error('❌ Fallback monitoring also failed:', error);
+        }
+    }
+    
+    /**
+     * Setup basic performance monitoring (fallback)
+     */
+    setupBasicPerformanceMonitoring() {
+        // 使用基础的 Navigation Timing API
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                if (navigation) {
+                    // 记录基础指标
+                    const loadTime = navigation.loadEventEnd - navigation.navigationStart;
+                    const domContentLoaded = navigation.domContentLoadedEventEnd - navigation.navigationStart;
+                    
+                    this.metrics.customMetrics.domContentLoadedTime = domContentLoaded;
+                    this.metrics.resourceMetrics.loadTime = loadTime;
+                    
+                    console.log('📊 Basic performance metrics recorded:', {
+                        loadTime,
+                        domContentLoaded
+                    });
+                }
+            }, 100);
+        });
+    }
+    
+    /**
+     * Setup basic error monitoring (fallback)
+     */
+    setupBasicErrorMonitoring() {
+        // 监听基础的JavaScript错误
+        window.addEventListener('error', (event) => {
+            this.metrics.userExperienceMetrics.errorCount++;
+            console.error('Basic error monitoring:', event.error);
+        });
+        
+        // 监听未处理的Promise拒绝
+        window.addEventListener('unhandledrejection', (event) => {
+            this.metrics.userExperienceMetrics.errorCount++;
+            console.error('Basic promise rejection monitoring:', event.reason);
+        });
+    }
+    
+    /**
+     * Start basic reporting (fallback)
+     */
+    startBasicReporting() {
+        this.reportingInterval = setInterval(() => {
+            const basicReport = {
+                timestamp: Date.now(),
+                url: window.location.href,
+                errorCount: this.metrics.userExperienceMetrics.errorCount,
+                loadTime: this.metrics.resourceMetrics.loadTime,
+                domContentLoadedTime: this.metrics.customMetrics.domContentLoadedTime,
+                sessionDuration: performance.now() - this.startTime
+            };
+            
+            console.log('📊 Basic Performance Report:', basicReport);
+            
+            // 存储基础报告
+            try {
+                const reports = JSON.parse(sessionStorage.getItem('basicPerformanceReports') || '[]');
+                reports.push(basicReport);
+                
+                // 只保留最近的5个报告
+                const recentReports = reports.slice(-5);
+                sessionStorage.setItem('basicPerformanceReports', JSON.stringify(recentReports));
+            } catch (error) {
+                console.error('Error storing basic performance reports:', error);
+            }
+        }, this.config.reportingInterval * 2); // 降低报告频率
+        
+        console.log('📊 Basic performance reporting started');
+    }
+    
+    /**
+     * Get error handler statistics
+     */
+    getErrorHandlerStats() {
+        if (!this.errorHandler) {
+            return { available: false };
+        }
+        
+        return {
+            available: true,
+            stats: this.errorHandler.getErrorStats(),
+            healthStatus: this.errorHandler.getHealthStatus()
+        };
+    }
+    
+    /**
+     * Get comprehensive performance and error report
+     */
+    getComprehensiveReport() {
+        const baseReport = {
+            timestamp: Date.now(),
+            url: window.location.href,
+            metrics: this.metrics.getMetricsSummary(),
+            sessionDuration: performance.now() - this.startTime,
+            deviceInfo: this.getDeviceInfo(),
+            isInitialized: this.isInitialized
+        };
+        
+        // 添加错误处理器统计
+        const errorStats = this.getErrorHandlerStats();
+        if (errorStats.available) {
+            baseReport.errorHandling = errorStats;
+        }
+        
+        return baseReport;
+    }
+    
+    /**
      * Cleanup observers and intervals
      */
     destroy() {
@@ -715,6 +891,11 @@ class PerformanceMonitor {
         if (this.reportingInterval) {
             clearInterval(this.reportingInterval);
             this.reportingInterval = null;
+        }
+        
+        // 清理错误处理器
+        if (this.errorHandler) {
+            this.errorHandler.clearErrorQueue();
         }
         
         this.observers.clear();

@@ -5,7 +5,10 @@ console.log('🚀 Starting app.js module load...');
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
-import { resourceLoadingOptimizer } from './resource-loading-optimizer.js';
+
+// 暂时移除资源加载优化器的导入以避免阻塞
+let resourceLoadingOptimizer = null;
+let performanceErrorHandler = null;
 
 console.log('✅ Critical modules imported successfully');
 
@@ -30,18 +33,25 @@ async function initializeApp() {
     try {
         console.log('Starting optimized application initialization...');
         
-        // PHASE 0: Initialize resource loading optimizer first
-        await resourceLoadingOptimizer.initialize();
+        // PHASE 0: 跳过错误处理器初始化以避免阻塞
+        // await initializeErrorHandler();
         
-        // PHASE 1: Critical immediate initialization
+        // PHASE 1: 跳过资源加载优化器以避免阻塞
+        // await resourceLoadingOptimizer.initialize();
+        
+        // PHASE 2: Critical immediate initialization
         updateInitialDisplayValues();
         initializeTheme();
-        setupNavigationHighlighting();
         
-        // PHASE 2: Setup basic event listeners (non-blocking)
+        // 延迟导航高亮设置，确保DOM完全加载
+        setTimeout(() => {
+            setupNavigationHighlighting();
+        }, 100);
+        
+        // PHASE 3: Setup basic event listeners (non-blocking)
         setupBasicEventListeners();
         
-        // PHASE 3: Lazy load and initialize non-critical modules
+        // PHASE 4: Lazy load and initialize non-critical modules
         setTimeout(async () => {
             await initializeNonCriticalModules();
         }, 50); // Small delay to allow critical content to render
@@ -51,8 +61,51 @@ async function initializeApp() {
         
     } catch (error) {
         console.error('❌ Failed to initialize application:', error);
+        
+        // 如果有错误处理器，记录错误
+        if (performanceErrorHandler) {
+            performanceErrorHandler.logError('Application initialization failed', error);
+        }
+        
+        // 显示降级的错误消息和基础功能
         showErrorMessage();
         updateInitialDisplayValues();
+        
+        // 尝试启用基础功能
+        try {
+            initializeTheme();
+            setupBasicEventListeners();
+        } catch (fallbackError) {
+            console.error('❌ Even fallback initialization failed:', fallbackError);
+        }
+    }
+}
+
+/**
+ * Initialize error handler for critical error handling
+ */
+async function initializeErrorHandler() {
+    try {
+        console.log('🔧 Initializing error handler...');
+        
+        // 动态导入错误处理器
+        const { default: PerformanceErrorHandler } = await import('./performance-error-handler.js');
+        
+        // 创建错误处理器实例
+        performanceErrorHandler = new PerformanceErrorHandler({
+            enableLogging: true,
+            reportErrors: true,
+            maxRetries: 3,
+            retryDelay: 1000,
+            enableFallback: true
+        });
+        
+        console.log('✅ Error handler initialized successfully');
+        
+    } catch (error) {
+        console.error('❌ Failed to initialize error handler:', error);
+        // 错误处理器初始化失败不应该阻止应用启动
+        // 应用将在没有错误处理器的情况下继续运行
     }
 }
 
@@ -98,6 +151,28 @@ async function initializeNonCriticalModules() {
         
     } catch (error) {
         console.error('❌ Error loading non-critical modules:', error);
+        
+        // 如果有错误处理器，记录错误
+        if (performanceErrorHandler) {
+            performanceErrorHandler.logError('Non-critical modules loading failed', error);
+        }
+        
+        // 尝试启用基础功能作为降级
+        try {
+            // 如果i18n加载失败，至少确保基础显示值是正确的
+            if (!i18nModule) {
+                console.log('i18n failed to load, using fallback display values');
+                updateInitialDisplayValues();
+            }
+            
+            // 如果设备检测器加载失败，至少确保视口尺寸更新
+            if (!deviceDetectorModule) {
+                console.log('Device detector failed to load, using basic viewport updates');
+                window.addEventListener('resize', debounce(updateViewportDisplay, 100));
+            }
+        } catch (fallbackError) {
+            console.error('❌ Even fallback for non-critical modules failed:', fallbackError);
+        }
     }
 }
 
@@ -107,9 +182,8 @@ async function initializeNonCriticalModules() {
 function loadPageSpecificModules() {
     const currentPath = window.location.pathname;
     
-    // Add page-specific resources to the optimizer
+    // 直接加载页面特定模块，不依赖资源优化器
     if (currentPath.includes('ppi-calculator')) {
-        resourceLoadingOptimizer.addCriticalResource('js/ppi-calculator.js');
         import('./ppi-calculator.js').then(module => {
             module.initializePPICalculator();
         }).catch(console.error);
@@ -117,7 +191,6 @@ function loadPageSpecificModules() {
     
     // Aspect Ratio Calculator
     if (currentPath.includes('aspect-ratio-calculator')) {
-        resourceLoadingOptimizer.addCriticalResource('js/aspect-ratio-calculator.js');
         import('./aspect-ratio-calculator.js').then(module => {
             module.initializeAspectRatioCalculator();
         }).catch(console.error);
@@ -125,23 +198,25 @@ function loadPageSpecificModules() {
     
     // Responsive Tester
     if (currentPath.includes('responsive-tester')) {
-        resourceLoadingOptimizer.addCriticalResource('js/simulator.js');
         if (typeof window.initializeSimulator === 'function') {
             window.initializeSimulator();
         }
     }
     
-    // Blog pages
+    // Blog pages - 直接加载，不依赖优化器
     if (currentPath.includes('/blog/')) {
-        resourceLoadingOptimizer.addCriticalResource('css/blog.css');
-        resourceLoadingOptimizer.addCriticalResource('js/blog.js');
+        // Blog功能会在需要时自动加载
+        console.log('Blog page detected, modules will load as needed');
     }
     
     // Internal Links (load for all pages but with low priority)
     setTimeout(() => {
         import('./internal-links.js').then(module => {
             module.initializeInternalLinks();
-        }).catch(console.error);
+        }).catch(error => {
+            console.error('Failed to load internal links:', error);
+            // 内链加载失败不应该影响其他功能
+        });
     }, 1000);
 }
 
