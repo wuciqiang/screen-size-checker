@@ -124,27 +124,46 @@ async function initializeNonCriticalModules() {
         i18nModule = moduleLoadingOptimizer.moduleRegistry.get('i18n');
         deviceDetectorModule = moduleLoadingOptimizer.moduleRegistry.get('device-detector');
         
-        // 初始化已加载的i18n模块
+        // 初始化已加载的i18n模块（优化版本）
         if (i18nModule) {
             const i18nStartTime = performance.now();
             await i18nModule.initializeI18next();
             i18nModule.setupLanguageSelector();
             i18nModule.updateUIElements();
             
+            // 预加载其他语言的翻译资源
+            if (i18nModule.preloadTranslations) {
+                i18nModule.preloadTranslations(['en', 'zh']).catch(error => {
+                    console.warn('Translation preloading failed:', error);
+                });
+            }
+            
             // Record i18n load time
             const i18nLoadTime = performance.now() - i18nStartTime;
             performanceMonitor.recordCustomMetric('translationLoadTime', i18nLoadTime);
+            
+            // 记录国际化性能指标
+            if (i18nModule.getI18nPerformanceMetrics) {
+                const i18nMetrics = i18nModule.getI18nPerformanceMetrics();
+                console.log('📊 I18n performance metrics:', i18nMetrics);
+            }
         }
         
-        // 初始化已加载的设备检测器模块
+        // 初始化已加载的设备检测器模块（优化版本）
         if (deviceDetectorModule) {
             const deviceDetectorStartTime = performance.now();
             await deviceDetectorModule.updateDisplay();
-            deviceDetectorModule.updateViewportSize();
+            
+            // 设置优化的视口尺寸更新监听器
+            window.addEventListener('resize', deviceDetectorModule.updateViewportSize);
             
             // Record device detection time
             const deviceDetectionTime = performance.now() - deviceDetectorStartTime;
             performanceMonitor.recordCustomMetric('deviceDetectionTime', deviceDetectionTime);
+            
+            // 记录设备检测性能指标
+            const deviceMetrics = deviceDetectorModule.getPerformanceMetrics();
+            console.log('📊 Device detection performance:', deviceMetrics);
         }
         
         // Setup advanced event listeners
@@ -254,6 +273,23 @@ function loadPageSpecificModulesOptimized() {
             console.warn('Blog progress module failed to load:', error);
         });
     }
+    
+    // Internal Links (load for all pages but with low priority) - 使用优化器加载
+    setTimeout(() => {
+        moduleLoadingOptimizer.loadOnDemand('internal-links').then(module => {
+            if (module && module.initializeInternalLinks) {
+                module.initializeInternalLinks();
+            }
+        }).catch(error => {
+            console.error('Failed to load internal links:', error);
+            // 降级处理：直接导入
+            import('./internal-links.js').then(module => {
+                module.initializeInternalLinks();
+            }).catch(fallbackError => {
+                console.error('Fallback internal links loading also failed:', fallbackError);
+            });
+        });
+    }, 1000);
 }
 
 /**
