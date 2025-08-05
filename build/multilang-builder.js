@@ -4,6 +4,7 @@ const ComponentBuilder = require('./component-builder');
 const BlogBuilder = require('./blog-builder');
 const { TranslationValidator } = require('./translation-validator');
 const InternalLinksProcessor = require('./internal-links-processor');
+const CriticalCSSExtractor = require('./critical-css-extractor');
 
 class MultiLangBuilder extends ComponentBuilder {
     constructor() {
@@ -436,6 +437,9 @@ class MultiLangBuilder extends ComponentBuilder {
         
         // 生成多语言网站地图（只包含启用的语言）
         this.generateMultiLanguageSitemap(outputDir);
+        
+        // 提取并内联关键CSS (临时禁用以修复HTML结构问题)
+        // this.extractAndInlineCriticalCSS(outputDir);
 
         return buildReport;
     }
@@ -1102,6 +1106,40 @@ class MultiLangBuilder extends ComponentBuilder {
         const sizes = ['B', 'KB', 'MB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+    
+    // 提取并内联关键CSS
+    extractAndInlineCriticalCSS(outputDir) {
+        console.log('\n🎨 Extracting and inlining critical CSS...');
+        
+        try {
+            const extractor = new CriticalCSSExtractor({
+                criticalCSSFiles: [
+                    path.join(outputDir, 'css/main.css'),
+                    path.join(outputDir, 'css/base.css')
+                ],
+                outputDir: outputDir,
+                enableMinification: true,
+                inlineThreshold: 50 * 1024 // 50KB
+            });
+            
+            // 运行关键CSS提取流程
+            const result = extractor.run();
+            
+            if (result.success) {
+                console.log('✅ Critical CSS extraction completed successfully');
+                console.log(`   - Critical rules extracted: ${result.stats.criticalRules}`);
+                console.log(`   - Extracted size: ${this.formatFileSize(result.stats.extractedSize)}`);
+                console.log(`   - HTML files processed: ${result.processedFiles.length}`);
+            } else {
+                console.warn('⚠️ Critical CSS extraction failed:', result.error);
+            }
+            
+            return result;
+        } catch (error) {
+            console.error('❌ Error during critical CSS extraction:', error.message);
+            return { success: false, error: error.message };
+        }
     }
     
     // 生成结构化数据

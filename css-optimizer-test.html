@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Optimizer Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.info { background: #d1ecf1; color: #0c5460; }
+        .metrics {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎨 CSS Optimizer Test</h1>
+        <p>This page tests the CSS Optimizer functionality.</p>
+        
+        <div id="status" class="status info">
+            Initializing CSS Optimizer...
+        </div>
+        
+        <div class="test-container">
+            <h3>Test Controls</h3>
+            <button onclick="testCSSOptimizer()">🧪 Test CSS Optimizer</button>
+            <button onclick="testNonCriticalLoading()">📦 Test Non-Critical CSS Loading</button>
+            <button onclick="showOptimizationStats()">📊 Show Optimization Stats</button>
+            <button onclick="clearResults()">🧹 Clear Results</button>
+        </div>
+        
+        <div class="test-container">
+            <h3>Test Results</h3>
+            <div id="results" class="metrics">
+Waiting for tests...
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        let cssOptimizer = null;
+        let testResults = [];
+        
+        // Import CSS Optimizer
+        async function initializeCSSOptimizer() {
+            try {
+                const module = await import('./js/css-optimizer.js');
+                cssOptimizer = new module.default({
+                    enableMinification: true,
+                    enableCaching: true,
+                    deferLoadDelay: 100
+                });
+                
+                updateStatus('success', '✅ CSS Optimizer initialized successfully');
+                addTestResult('✅ CSS Optimizer module loaded and initialized');
+                
+                // Listen for CSS optimization events
+                document.addEventListener('cssOptimized', (event) => {
+                    addTestResult(`🎨 CSS Optimization Event: ${JSON.stringify(event.detail, null, 2)}`);
+                });
+                
+            } catch (error) {
+                updateStatus('error', `❌ Failed to initialize CSS Optimizer: ${error.message}`);
+                addTestResult(`❌ CSS Optimizer initialization failed: ${error.message}`);
+            }
+        }
+        
+        function updateStatus(type, message) {
+            const statusEl = document.getElementById('status');
+            statusEl.className = `status ${type}`;
+            statusEl.textContent = message;
+        }
+        
+        function addTestResult(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            testResults.push(`[${timestamp}] ${message}`);
+            updateResults();
+        }
+        
+        function updateResults() {
+            const resultsEl = document.getElementById('results');
+            resultsEl.textContent = testResults.join('\n');
+            resultsEl.scrollTop = resultsEl.scrollHeight;
+        }
+        
+        // Global test functions
+        window.testCSSOptimizer = function() {
+            if (!cssOptimizer) {
+                addTestResult('❌ CSS Optimizer not initialized');
+                return;
+            }
+            
+            addTestResult('🧪 Starting CSS Optimizer test...');
+            
+            try {
+                // Test critical CSS detection
+                const criticalElements = document.querySelectorAll('.test-container, body, h1');
+                addTestResult(`📄 Found ${criticalElements.length} critical elements`);
+                
+                // Test device capabilities assessment
+                const deviceCapabilities = cssOptimizer.deviceCapabilities;
+                addTestResult(`📱 Device capabilities: ${JSON.stringify(deviceCapabilities, null, 2)}`);
+                
+                // Test page type detection
+                const pageType = cssOptimizer.currentPageType;
+                addTestResult(`📄 Detected page type: ${pageType}`);
+                
+                addTestResult('✅ CSS Optimizer test completed');
+                
+            } catch (error) {
+                addTestResult(`❌ CSS Optimizer test failed: ${error.message}`);
+            }
+        };
+        
+        window.testNonCriticalLoading = function() {
+            if (!cssOptimizer) {
+                addTestResult('❌ CSS Optimizer not initialized');
+                return;
+            }
+            
+            addTestResult('📦 Testing non-critical CSS loading...');
+            
+            try {
+                // Force load non-critical CSS
+                cssOptimizer.forceLoadNonCriticalCSS().then(() => {
+                    addTestResult('✅ Non-critical CSS loading completed');
+                }).catch(error => {
+                    addTestResult(`❌ Non-critical CSS loading failed: ${error.message}`);
+                });
+                
+            } catch (error) {
+                addTestResult(`❌ Non-critical CSS loading test failed: ${error.message}`);
+            }
+        };
+        
+        window.showOptimizationStats = function() {
+            if (!cssOptimizer) {
+                addTestResult('❌ CSS Optimizer not initialized');
+                return;
+            }
+            
+            try {
+                const stats = cssOptimizer.getOptimizationStats();
+                addTestResult('📊 Optimization Statistics:');
+                addTestResult(JSON.stringify(stats, null, 2));
+                
+            } catch (error) {
+                addTestResult(`❌ Failed to get optimization stats: ${error.message}`);
+            }
+        };
+        
+        window.clearResults = function() {
+            testResults = [];
+            updateResults();
+            addTestResult('🧹 Test results cleared');
+        };
+        
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            initializeCSSOptimizer();
+        });
+        
+        console.log('🎯 CSS Optimizer test page loaded');
+    </script>
+</body>
+</html>

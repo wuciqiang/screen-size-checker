@@ -399,6 +399,21 @@ body {
     gap: var(--spacing-sm);
 }
 
+/* 特殊处理用户代理字段的布局 */
+.info-row-full .info-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 用户代理字段的复制按钮定位 */
+.info-row-full .copy-btn {
+    position: static;
+    margin-left: auto;
+    margin-right: 0;
+}
+
 .info-label {
     font-weight: 500;
     color: var(--text-secondary);

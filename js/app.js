@@ -7,6 +7,7 @@ import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
 import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
 import { initializeOptimizedEventManager } from './optimized-event-manager.js';
+// import CSSOptimizer from './css-optimizer.js'; // 临时禁用，避免阻塞页面加载
 
 // 暂时移除资源加载优化器的导入以避免阻塞
 let resourceLoadingOptimizer = null;
@@ -45,6 +46,13 @@ async function initializeApp() {
         // PHASE 2: Critical immediate initialization
         updateInitialDisplayValues();
         initializeTheme();
+        
+        // PHASE 2.1: Initialize CSS Optimizer for critical CSS handling (临时禁用)
+        // const cssOptimizer = new CSSOptimizer({
+        //     enableMinification: true,
+        //     enableCaching: true,
+        //     deferLoadDelay: 100
+        // });
         
         // 延迟导航高亮设置，确保DOM完全加载
         setTimeout(() => {
@@ -673,6 +681,24 @@ function setupBasicLanguageSelector() {
  */
 function setupAdvancedEventListeners() {
     console.log('🎧 Setting up advanced event listeners (optimized event manager handles basic delegation)...');
+    
+    // 个人复制按钮事件委托 - 使用模块加载优化器
+    document.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('copy-btn') && event.target.getAttribute('data-clipboard-target')) {
+            event.preventDefault();
+            
+            if (!clipboardModule) {
+                clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') || 
+                                 await moduleLoadingOptimizer.loadOnDemand('clipboard');
+            }
+            
+            if (clipboardModule && clipboardModule.handleCopyClick) {
+                clipboardModule.handleCopyClick(event);
+            } else {
+                console.warn('Clipboard module not available for individual copy');
+            }
+        }
+    });
     
     // 一键复制全部按钮事件 - 使用模块加载优化器
     const copyAllBtn = document.getElementById('copy-all-info');

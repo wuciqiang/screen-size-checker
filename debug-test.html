@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .debug-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+        .success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+        .info {
+            background: #e3f2fd;
+            color: #1565c0;
+            border-left: 4px solid #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Test Page</h1>
+    
+    <div id="status" class="debug-info info">
+        Initializing debug test...
+    </div>
+    
+    <div class="debug-info">
+        <h3>Basic JavaScript Test</h3>
+        <p id="js-test">Testing JavaScript...</p>
+    </div>
+    
+    <div class="debug-info">
+        <h3>Module Import Test</h3>
+        <p id="module-test">Testing module imports...</p>
+    </div>
+    
+    <div class="debug-info">
+        <h3>Console Errors</h3>
+        <pre id="console-errors">No errors captured yet...</pre>
+    </div>
+
+    <script>
+        // Basic JavaScript test
+        document.getElementById('js-test').textContent = '✅ Basic JavaScript is working!';
+        
+        // Capture console errors
+        const originalError = console.error;
+        const errors = [];
+        
+        console.error = function(...args) {
+            errors.push(args.join(' '));
+            document.getElementById('console-errors').textContent = errors.join('\n');
+            originalError.apply(console, args);
+        };
+        
+        // Test module imports
+        async function testModuleImports() {
+            const moduleTest = document.getElementById('module-test');
+            
+            try {
+                // Test importing utils
+                const utilsModule = await import('./multilang-build/js/utils.js');
+                moduleTest.innerHTML += '<br>✅ utils.js imported successfully';
+                
+                // Test importing performance-monitor
+                const perfModule = await import('./multilang-build/js/performance-monitor.js');
+                moduleTest.innerHTML += '<br>✅ performance-monitor.js imported successfully';
+                
+                // Test importing app.js
+                const appModule = await import('./multilang-build/js/app.js');
+                moduleTest.innerHTML += '<br>✅ app.js imported successfully';
+                
+                document.getElementById('status').className = 'debug-info success';
+                document.getElementById('status').textContent = '✅ All modules imported successfully!';
+                
+            } catch (error) {
+                moduleTest.innerHTML += `<br>❌ Module import failed: ${error.message}`;
+                document.getElementById('status').className = 'debug-info error';
+                document.getElementById('status').textContent = `❌ Module import failed: ${error.message}`;
+                console.error('Module import error:', error);
+            }
+        }
+        
+        // Run tests
+        setTimeout(testModuleImports, 1000);
+        
+        console.log('🎯 Debug test page loaded');
+    </script>
+</body>
+</html>
