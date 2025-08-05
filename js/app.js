@@ -1,10 +1,11 @@
-// app.js - Main application entry point (Performance Optimized)
+// app.js - Main application entry point (Performance Optimized with Module Loading)
 
 console.log('🚀 Starting app.js module load...');
 
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
+import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
 
 // 暂时移除资源加载优化器的导入以避免阻塞
 let resourceLoadingOptimizer = null;
@@ -12,7 +13,7 @@ let performanceErrorHandler = null;
 
 console.log('✅ Critical modules imported successfully');
 
-// Lazy load modules when needed
+// Module references (will be loaded by ModuleLoadingOptimizer)
 let i18nModule = null;
 let deviceDetectorModule = null;
 let clipboardModule = null;
@@ -110,16 +111,22 @@ async function initializeErrorHandler() {
 }
 
 /**
- * Initialize non-critical modules asynchronously
+ * Initialize non-critical modules asynchronously using ModuleLoadingOptimizer
  */
 async function initializeNonCriticalModules() {
     try {
-        console.log('Loading non-critical modules...');
+        console.log('Loading non-critical modules with ModuleLoadingOptimizer...');
         
-        // Load i18n module
-        if (!i18nModule) {
+        // 使用模块加载优化器智能加载页面所需模块
+        await moduleLoadingOptimizer.loadPageModules();
+        
+        // 获取已加载的关键模块
+        i18nModule = moduleLoadingOptimizer.moduleRegistry.get('i18n');
+        deviceDetectorModule = moduleLoadingOptimizer.moduleRegistry.get('device-detector');
+        
+        // 初始化已加载的i18n模块
+        if (i18nModule) {
             const i18nStartTime = performance.now();
-            i18nModule = await import('./i18n.js');
             await i18nModule.initializeI18next();
             i18nModule.setupLanguageSelector();
             i18nModule.updateUIElements();
@@ -129,10 +136,9 @@ async function initializeNonCriticalModules() {
             performanceMonitor.recordCustomMetric('translationLoadTime', i18nLoadTime);
         }
         
-        // Load device detector module
-        if (!deviceDetectorModule) {
+        // 初始化已加载的设备检测器模块
+        if (deviceDetectorModule) {
             const deviceDetectorStartTime = performance.now();
-            deviceDetectorModule = await import('./device-detector.js');
             await deviceDetectorModule.updateDisplay();
             deviceDetectorModule.updateViewportSize();
             
@@ -144,10 +150,14 @@ async function initializeNonCriticalModules() {
         // Setup advanced event listeners
         setupAdvancedEventListeners();
         
-        // Load page-specific modules
-        loadPageSpecificModules();
+        // Load page-specific modules (now handled by ModuleLoadingOptimizer)
+        loadPageSpecificModulesOptimized();
         
-        console.log('✅ Non-critical modules loaded successfully!');
+        console.log('✅ Non-critical modules loaded successfully with optimization!');
+        
+        // 记录模块加载统计
+        const stats = moduleLoadingOptimizer.getLoadingStats();
+        console.log('📊 Module loading stats:', stats);
         
     } catch (error) {
         console.error('❌ Error loading non-critical modules:', error);
@@ -177,7 +187,77 @@ async function initializeNonCriticalModules() {
 }
 
 /**
- * Load page-specific modules only when needed
+ * Load page-specific modules using ModuleLoadingOptimizer (optimized version)
+ */
+function loadPageSpecificModulesOptimized() {
+    const currentPath = window.location.pathname;
+    console.log('Loading page-specific modules for path:', currentPath);
+    
+    // 使用模块加载优化器按需加载特定功能模块
+    if (currentPath.includes('ppi-calculator')) {
+        moduleLoadingOptimizer.loadOnDemand('ppi-calculator').then(module => {
+            if (module && module.initializePPICalculator) {
+                module.initializePPICalculator();
+            }
+        }).catch(error => {
+            console.error('Failed to load PPI calculator module:', error);
+        });
+    }
+    
+    // Aspect Ratio Calculator
+    if (currentPath.includes('aspect-ratio-calculator')) {
+        moduleLoadingOptimizer.loadOnDemand('aspect-ratio-calculator').then(module => {
+            if (module && module.initializeAspectRatioCalculator) {
+                module.initializeAspectRatioCalculator();
+            }
+        }).catch(error => {
+            console.error('Failed to load aspect ratio calculator module:', error);
+        });
+    }
+    
+    // Responsive Tester/Simulator
+    if (currentPath.includes('responsive-tester')) {
+        moduleLoadingOptimizer.loadOnDemand('simulator').then(module => {
+            if (module && typeof window.initializeSimulator === 'function') {
+                window.initializeSimulator();
+            } else if (module && module.initializeSimulator) {
+                module.initializeSimulator();
+            }
+        }).catch(error => {
+            console.error('Failed to load simulator module:', error);
+            // 降级处理：尝试直接调用全局函数
+            if (typeof window.initializeSimulator === 'function') {
+                window.initializeSimulator();
+            }
+        });
+    }
+    
+    // Screen Comparison
+    if (currentPath.includes('compare')) {
+        moduleLoadingOptimizer.loadOnDemand('screen-comparison-fixed').then(module => {
+            console.log('Screen comparison module loaded');
+        }).catch(error => {
+            console.error('Failed to load screen comparison module:', error);
+        });
+    }
+    
+    // Blog pages - 使用优化器加载博客相关模块
+    if (currentPath.includes('/blog/')) {
+        console.log('Blog page detected, loading blog modules with optimizer');
+        
+        // Blog模块已经在页面类型配置中处理，这里只需要确保特定功能加载
+        moduleLoadingOptimizer.loadOnDemand('blog-progress').then(module => {
+            if (module && module.initializeBlogProgress) {
+                module.initializeBlogProgress();
+            }
+        }).catch(error => {
+            console.warn('Blog progress module failed to load:', error);
+        });
+    }
+}
+
+/**
+ * Load page-specific modules only when needed (legacy version - kept for fallback)
  */
 function loadPageSpecificModules() {
     const currentPath = window.location.pathname;
@@ -546,17 +626,35 @@ function setupBasicLanguageSelector() {
  * Setup advanced event listeners (non-critical, can be delayed)
  */
 function setupAdvancedEventListeners() {
-    // Copy button事件委托 - lazy load clipboard module
+    // Copy button事件委托 - 使用模块加载优化器懒加载clipboard模块
     document.addEventListener('click', async (event) => {
         if (event.target.classList.contains('copy-btn') || event.target.closest('.copy-btn')) {
             if (!clipboardModule) {
-                clipboardModule = await import('./clipboard.js');
+                // 优先从模块注册表获取，如果没有则按需加载
+                clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') || 
+                                 await moduleLoadingOptimizer.loadOnDemand('clipboard');
             }
-            clipboardModule.handleCopyClick(event);
+            
+            if (clipboardModule && clipboardModule.handleCopyClick) {
+                clipboardModule.handleCopyClick(event);
+            } else {
+                console.warn('Clipboard module not available, using fallback');
+                // 降级处理：直接复制文本
+                const textToCopy = event.target.getAttribute('data-copy') || 
+                                  event.target.closest('[data-copy]')?.getAttribute('data-copy');
+                if (textToCopy && navigator.clipboard) {
+                    try {
+                        await navigator.clipboard.writeText(textToCopy);
+                        console.log('Text copied using fallback method');
+                    } catch (error) {
+                        console.error('Fallback copy failed:', error);
+                    }
+                }
+            }
         }
     });
     
-    // 一键复制全部按钮事件
+    // 一键复制全部按钮事件 - 使用模块加载优化器
     const copyAllBtn = document.getElementById('copy-all-info');
     if (copyAllBtn) {
         copyAllBtn.addEventListener('click', async () => {
@@ -564,9 +662,19 @@ function setupAdvancedEventListeners() {
             const originalText = copyAllBtn.textContent;
             try {
                 if (!clipboardModule) {
-                    clipboardModule = await import('./clipboard.js');
+                    // 优先从模块注册表获取，如果没有则按需加载
+                    clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') || 
+                                     await moduleLoadingOptimizer.loadOnDemand('clipboard');
                 }
-                const result = await clipboardModule.copyAllInfo();
+                
+                let result = false;
+                if (clipboardModule && clipboardModule.copyAllInfo) {
+                    result = await clipboardModule.copyAllInfo();
+                } else {
+                    console.warn('Clipboard module not available for copyAllInfo');
+                    // 可以在这里添加降级的复制全部信息逻辑
+                }
+                
                 if (result) {
                     copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
                     copyAllBtn.classList.add('copied');
@@ -585,6 +693,7 @@ function setupAdvancedEventListeners() {
                     }, 2000);
                 }
             } catch (e) {
+                console.error('Copy all info failed:', e);
                 copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
                 copyAllBtn.classList.add('error');
                 setTimeout(() => {
