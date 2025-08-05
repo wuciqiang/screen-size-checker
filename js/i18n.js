@@ -704,56 +704,74 @@ export function setTextContent(elementId, text) {
 }
 
 /**
- * 防抖的语言切换函数
+ * 防抖的语言切换函数（优化版本）
+ * 现在与OptimizedEventManager协同工作
  * @param {string} newLang - 新语言代码
  * @param {Function} callback - 切换完成后的回调函数
  */
 function debouncedLanguageChange(newLang, callback = null) {
-    // 清除之前的定时器
-    if (languageChangeTimer) {
-        clearTimeout(languageChangeTimer);
-    }
-    
-    languageChangeTimer = setTimeout(async () => {
-        const startTime = performance.now();
-        
-        try {
-            console.log(`🔄 Starting language change to: ${newLang}`);
-            
-            // 改变语言
-            await i18next.changeLanguage(newLang);
-            localStorage.setItem('i18nextLng', newLang);
-            document.documentElement.lang = newLang;
-            
-            // 清除翻译缓存以确保使用新语言
-            translationCache.clear();
-            translationCacheTimestamp.clear();
-            
-            // 清除DOM元素缓存以强制重新获取
-            cachedElements = null;
-            
-            console.log('Language changed successfully, updating UI...');
-            
-            // 立即更新UI
-            updateUIElements();
-            
-            const endTime = performance.now();
-            const changeTime = endTime - startTime;
-            i18nPerformanceMetrics.languageChangeTimes.push(changeTime);
-            
-            console.log(`✅ Language switch completed in ${changeTime.toFixed(2)}ms`);
-            
-            if (callback) {
-                callback();
-            }
-            
-        } catch (error) {
-            console.error('❌ Error changing language:', error);
-            if (callback) {
-                callback(error);
-            }
+    // 如果存在OptimizedEventManager，使用其防抖功能
+    if (window.optimizedEventManager) {
+        const debouncedChange = window.optimizedEventManager.debounce(async () => {
+            await performLanguageChange(newLang, callback);
+        }, LANGUAGE_CHANGE_DELAY, 'language-change');
+        debouncedChange();
+    } else {
+        // 降级到原有的防抖处理
+        if (languageChangeTimer) {
+            clearTimeout(languageChangeTimer);
         }
-    }, LANGUAGE_CHANGE_DELAY);
+        
+        languageChangeTimer = setTimeout(async () => {
+            await performLanguageChange(newLang, callback);
+        }, LANGUAGE_CHANGE_DELAY);
+    }
+}
+
+/**
+ * 执行语言切换的核心逻辑
+ * @param {string} newLang - 新语言代码
+ * @param {Function} callback - 切换完成后的回调函数
+ */
+async function performLanguageChange(newLang, callback = null) {
+    const startTime = performance.now();
+    
+    try {
+        console.log(`🔄 Starting optimized language change to: ${newLang}`);
+        
+        // 改变语言
+        await i18next.changeLanguage(newLang);
+        localStorage.setItem('i18nextLng', newLang);
+        document.documentElement.lang = newLang;
+        
+        // 清除翻译缓存以确保使用新语言
+        translationCache.clear();
+        translationCacheTimestamp.clear();
+        
+        // 清除DOM元素缓存以强制重新获取
+        cachedElements = null;
+        
+        console.log('Language changed successfully, updating UI...');
+        
+        // 立即更新UI
+        updateUIElements();
+        
+        const endTime = performance.now();
+        const changeTime = endTime - startTime;
+        i18nPerformanceMetrics.languageChangeTimes.push(changeTime);
+        
+        console.log(`✅ Optimized language switch completed in ${changeTime.toFixed(2)}ms`);
+        
+        if (callback) {
+            callback();
+        }
+        
+    } catch (error) {
+        console.error('❌ Error changing language:', error);
+        if (callback) {
+            callback(error);
+        }
+    }
 }
 
 /**

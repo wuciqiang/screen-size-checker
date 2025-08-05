@@ -6,10 +6,12 @@ console.log('🚀 Starting app.js module load...');
 import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
 import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
+import { initializeOptimizedEventManager } from './optimized-event-manager.js';
 
 // 暂时移除资源加载优化器的导入以避免阻塞
 let resourceLoadingOptimizer = null;
 let performanceErrorHandler = null;
+let optimizedEventManager = null;
 
 console.log('✅ Critical modules imported successfully');
 
@@ -49,10 +51,17 @@ async function initializeApp() {
             setupNavigationHighlighting();
         }, 100);
         
-        // PHASE 3: Setup basic event listeners (non-blocking)
+        // PHASE 3: Initialize optimized event manager (critical for performance)
+        optimizedEventManager = initializeOptimizedEventManager({
+            enablePerformanceMonitoring: true,
+            usePassiveListeners: true,
+            longTaskThreshold: 50
+        });
+        
+        // PHASE 4: Setup basic event listeners (non-blocking)
         setupBasicEventListeners();
         
-        // PHASE 4: Lazy load and initialize non-critical modules
+        // PHASE 5: Lazy load and initialize non-critical modules
         setTimeout(async () => {
             await initializeNonCriticalModules();
         }, 50); // Small delay to allow critical content to render
@@ -660,35 +669,10 @@ function setupBasicLanguageSelector() {
 
 /**
  * Setup advanced event listeners (non-critical, can be delayed)
+ * Note: Basic event delegation is now handled by OptimizedEventManager
  */
 function setupAdvancedEventListeners() {
-    // Copy button事件委托 - 使用模块加载优化器懒加载clipboard模块
-    document.addEventListener('click', async (event) => {
-        if (event.target.classList.contains('copy-btn') || event.target.closest('.copy-btn')) {
-            if (!clipboardModule) {
-                // 优先从模块注册表获取，如果没有则按需加载
-                clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') || 
-                                 await moduleLoadingOptimizer.loadOnDemand('clipboard');
-            }
-            
-            if (clipboardModule && clipboardModule.handleCopyClick) {
-                clipboardModule.handleCopyClick(event);
-            } else {
-                console.warn('Clipboard module not available, using fallback');
-                // 降级处理：直接复制文本
-                const textToCopy = event.target.getAttribute('data-copy') || 
-                                  event.target.closest('[data-copy]')?.getAttribute('data-copy');
-                if (textToCopy && navigator.clipboard) {
-                    try {
-                        await navigator.clipboard.writeText(textToCopy);
-                        console.log('Text copied using fallback method');
-                    } catch (error) {
-                        console.error('Fallback copy failed:', error);
-                    }
-                }
-            }
-        }
-    });
+    console.log('🎧 Setting up advanced event listeners (optimized event manager handles basic delegation)...');
     
     // 一键复制全部按钮事件 - 使用模块加载优化器
     const copyAllBtn = document.getElementById('copy-all-info');
@@ -762,6 +746,14 @@ function setupAdvancedEventListeners() {
             }
         });
     }
+    
+    // 监听优化事件管理器的自定义事件
+    window.addEventListener('optimizedResize', (event) => {
+        console.log('📐 Optimized resize event received:', event.detail);
+        // 这里可以添加其他需要响应窗口大小变化的逻辑
+    });
+    
+    console.log('✅ Advanced event listeners setup completed');
 }
 
 /**

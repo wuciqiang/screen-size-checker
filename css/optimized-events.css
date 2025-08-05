@@ -1,0 +1,393 @@
+/* optimized-events.css - 优化事件处理的样式支持 */
+
+/* 触摸反馈样式 */
+.touch-active {
+    transform: scale(0.98);
+    opacity: 0.8;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+/* 按钮点击反馈 */
+button.clicked,
+.btn.clicked,
+.copy-btn.clicked {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* 复制按钮状态 */
+.copy-btn {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.copy-btn.copying {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.copy-btn.copying::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.copy-btn.copied {
+    background-color: var(--success-color, #28a745);
+    color: white;
+    transform: scale(1.05);
+}
+
+.copy-btn.copy-error {
+    background-color: var(--error-color, #dc3545);
+    color: white;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 震动动画 */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 工具卡片点击反馈 */
+.tool-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tool-card:active {
+    transform: scale(0.98);
+}
+
+/* FAQ切换动画 */
+.faq-answer {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+}
+
+.faq-answer.expanded {
+    max-height: 500px; /* 足够大的值 */
+}
+
+/* 导航链接点击反馈 */
+.nav-link {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.nav-link.clicked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: inherit;
+    animation: ripple 0.4s ease-out;
+}
+
+/* 波纹效果 */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* 主题切换按钮优化 */
+#theme-toggle {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#theme-toggle:active {
+    transform: scale(0.9);
+}
+
+/* 语言选择器优化 */
+.language-card {
+    transition: all 0.2s ease;
+}
+
+.language-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.language-card:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 移动端触摸优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 移动设备上的触摸优化 */
+    .touch-active {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    
+    /* 增大触摸目标 */
+    button,
+    .btn,
+    .copy-btn,
+    .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* 移除hover效果 */
+    .tool-card:hover,
+    .language-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* 减少动画的用户偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+    .touch-active,
+    .copy-btn,
+    .tool-card,
+    .nav-link,
+    #theme-toggle,
+    .language-card,
+    .faq-answer {
+        transition: none;
+        animation: none;
+    }
+    
+    .copy-btn.copying::after {
+        animation: none;
+    }
+    
+    .copy-btn.copy-error {
+        animation: none;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .copy-btn.copied {
+        border: 2px solid currentColor;
+    }
+    
+    .copy-btn.copy-error {
+        border: 2px solid currentColor;
+    }
+    
+    .touch-active {
+        outline: 2px solid currentColor;
+    }
+}
+
+/* 焦点管理优化 */
+button:focus-visible,
+.btn:focus-visible,
+.copy-btn:focus-visible,
+.nav-link:focus-visible {
+    outline: 2px solid var(--focus-color, #007bff);
+    outline-offset: 2px;
+}
+
+/* 长任务警告样式（开发模式） */
+.long-task-warning {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 性能监控指示器 */
+.performance-indicator {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: monospace;
+    z-index: 9999;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.performance-indicator.good {
+    background: rgba(40, 167, 69, 0.8);
+}
+
+.performance-indicator.warning {
+    background: rgba(255, 193, 7, 0.8);
+}
+
+.performance-indicator.error {
+    background: rgba(220, 53, 69, 0.8);
+}
+
+/* 防抖/节流状态指示器（调试用） */
+.debounce-indicator {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 123, 255, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.debounce-indicator.active {
+    opacity: 1;
+}
+
+/* 事件委托调试样式 */
+.event-delegated {
+    position: relative;
+}
+
+.event-delegated::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px dashed rgba(0, 123, 255, 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.event-delegated:hover::before {
+    opacity: 1;
+}
+
+/* 响应式断点优化 */
+@media (max-width: 768px) {
+    /* 移动端事件处理优化 */
+    .touch-active {
+        transform: scale(0.92);
+    }
+    
+    /* 增加触摸目标大小 */
+    .copy-btn,
+    button,
+    .btn {
+        padding: 12px 16px;
+        min-height: 48px;
+    }
+    
+    /* 优化FAQ在移动端的动画 */
+    .faq-answer.expanded {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 小屏幕设备进一步优化 */
+    .touch-active {
+        transform: scale(0.90);
+    }
+    
+    /* 简化动画 */
+    .copy-btn,
+    .tool-card,
+    .nav-link {
+        transition-duration: 0.1s;
+    }
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .copy-btn.copied {
+    background-color: #198754;
+}
+
+[data-theme="dark"] .copy-btn.copy-error {
+    background-color: #b02a37;
+}
+
+[data-theme="dark"] .performance-indicator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+[data-theme="dark"] .long-task-warning {
+    background: #dc3545;
+}
+
+/* 打印样式优化 */
+@media print {
+    .touch-active,
+    .copy-btn.copying,
+    .copy-btn.copied,
+    .copy-btn.copy-error,
+    .performance-indicator,
+    .long-task-warning,
+    .debounce-indicator {
+        display: none !important;
+    }
+}
+
+/* 可访问性增强 */
+@media (prefers-reduced-motion: no-preference) {
+    /* 只在用户没有减少动画偏好时应用复杂动画 */
+    .nav-link.clicked::after {
+        animation: ripple 0.4s ease-out;
+    }
+    
+    .copy-btn.copying::after {
+        animation: spin 0.8s linear infinite;
+    }
+}
+
+/* 高刷新率屏幕优化 */
+@media (min-resolution: 120dpi) {
+    .touch-active,
+    .copy-btn,
+    .tool-card,
+    .nav-link {
+        transition-duration: 0.08s;
+    }
+}

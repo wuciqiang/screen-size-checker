@@ -154,39 +154,54 @@ function applyDeviceInfo(deviceInfo) {
 
 /**
  * 优化的视口尺寸更新（带防抖）
+ * 现在与OptimizedEventManager协同工作
  */
 export async function updateViewportSize() {
-    // 清除之前的定时器
-    if (viewportUpdateTimer) {
-        clearTimeout(viewportUpdateTimer);
+    // 如果存在OptimizedEventManager，使用其防抖功能
+    if (window.optimizedEventManager) {
+        const debouncedUpdate = window.optimizedEventManager.debounce(() => {
+            performViewportUpdate();
+        }, VIEWPORT_UPDATE_DELAY, 'viewport-update');
+        debouncedUpdate();
+    } else {
+        // 降级到原有的防抖处理
+        if (viewportUpdateTimer) {
+            clearTimeout(viewportUpdateTimer);
+        }
+        
+        viewportUpdateTimer = setTimeout(() => {
+            performViewportUpdate();
+        }, VIEWPORT_UPDATE_DELAY);
+    }
+}
+
+/**
+ * 执行视口更新的核心逻辑
+ */
+function performViewportUpdate() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const viewport = `${width} × ${height}`;
+    
+    // 直接更新viewport-display元素的内容，防止被翻译覆盖
+    const viewportDisplay = document.getElementById('viewport-display');
+    if (viewportDisplay) {
+        // 移除data-i18n属性以防止翻译覆盖
+        viewportDisplay.removeAttribute('data-i18n');
+        viewportDisplay.textContent = viewport;
     }
     
-    // 防抖处理
-    viewportUpdateTimer = setTimeout(() => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        const viewport = `${width} × ${height}`;
+    // 同时更新缓存中的视口信息
+    if (deviceInfoCache) {
+        deviceInfoCache.viewportWidth = width;
+        deviceInfoCache.viewportHeight = height;
+        deviceInfoCache.aspectRatio = calculateAspectRatio(width, height);
         
-        // 直接更新viewport-display元素的内容，防止被翻译覆盖
-        const viewportDisplay = document.getElementById('viewport-display');
-        if (viewportDisplay) {
-            // 移除data-i18n属性以防止翻译覆盖
-            viewportDisplay.removeAttribute('data-i18n');
-            viewportDisplay.textContent = viewport;
-        }
-        
-        // 同时更新缓存中的视口信息
-        if (deviceInfoCache) {
-            deviceInfoCache.viewportWidth = width;
-            deviceInfoCache.viewportHeight = height;
-            deviceInfoCache.aspectRatio = calculateAspectRatio(width, height);
-            
-            // 更新宽高比显示
-            setTextContent('aspect-ratio', deviceInfoCache.aspectRatio);
-        }
-        
-        console.log('Viewport size updated with debounce:', viewport);
-    }, VIEWPORT_UPDATE_DELAY);
+        // 更新宽高比显示
+        setTextContent('aspect-ratio', deviceInfoCache.aspectRatio);
+    }
+    
+    console.log('Viewport size updated with optimized debounce:', viewport);
 }
 
 /**
