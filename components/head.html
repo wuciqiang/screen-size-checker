@@ -253,6 +253,98 @@ html, body {
 })();
 </script>
 
+<!-- Fallback Theme Toggle Script - Critical for theme switching -->
+<script>
+// Fallback theme toggle function - ensures theme switching works even if main app.js fails
+(function() {
+    'use strict';
+    
+    console.log('🛡️ Initializing fallback theme system...');
+    
+    // Initialize theme from localStorage or default to light
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+        console.log('🎨 Fallback theme initialized:', savedTheme);
+    }
+    
+    // Apply theme to document
+    function applyTheme(theme) {
+        console.log('🎨 Fallback applying theme:', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeIcon(theme);
+        
+        // Trigger custom event
+        window.dispatchEvent(new CustomEvent('themeChanged', {
+            detail: { newTheme: theme }
+        }));
+        
+        console.log('✅ Fallback theme applied successfully:', theme);
+    }
+    
+    // Update theme icon
+    function updateThemeIcon(theme) {
+        const themeIcon = document.querySelector('.theme-icon');
+        if (themeIcon) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+    }
+    
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        console.log('🎨 Fallback toggling theme:', currentTheme, '->', newTheme);
+        applyTheme(newTheme);
+    }
+    
+    // Expose functions globally for compatibility and debugging
+    window.fallbackToggleTheme = toggleTheme;
+    window.fallbackApplyTheme = applyTheme;
+    window.fallbackInitializeTheme = initializeTheme;
+    
+    console.log('✅ Functions exposed to global scope');
+    console.log('fallbackToggleTheme type:', typeof window.fallbackToggleTheme);
+    
+    // Initialize theme immediately
+    initializeTheme();
+    
+    // Setup theme toggle button when DOM is ready
+    function setupThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            console.log('✅ Found theme toggle button, setting up fallback handler');
+            
+            // Add our fallback click handler with high priority
+            themeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🎯 Fallback theme toggle clicked');
+                
+                // Always use fallback for reliability
+                toggleTheme();
+            }, true); // Use capture phase for higher priority
+            
+            console.log('✅ Fallback theme toggle setup completed');
+        } else {
+            console.warn('⚠️ Theme toggle button not found, will retry...');
+            setTimeout(setupThemeToggle, 100);
+        }
+    }
+    
+    // Setup when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupThemeToggle);
+    } else {
+        setupThemeToggle();
+    }
+    
+    console.log('🛡️ Fallback theme system initialized successfully');
+})();
+</script>
+
 <!-- UAParser.js for detailed device detection - Load with high priority -->
 <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
 

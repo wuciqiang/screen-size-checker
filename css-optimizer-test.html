@@ -1,201 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Optimizer Test</title>
+    <title>CSS优化器与主题切换兼容性测试</title>
+    
+    <!-- 引入构建后的CSS文件 -->
+    <link rel="stylesheet" href="multilang-build/css/main.css">
+    <link rel="stylesheet" href="multilang-build/css/base.css">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
         .test-container {
-            background: white;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            background: var(--background-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
         }
-        .status {
-            padding: 10px;
+        
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--background-card);
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .status-card {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
-            margin: 10px 0;
+            background: var(--background-secondary);
         }
-        .status.success { background: #d4edda; color: #155724; }
-        .status.error { background: #f8d7da; color: #721c24; }
-        .status.info { background: #d1ecf1; color: #0c5460; }
-        .metrics {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 14px;
-            white-space: pre-wrap;
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
         }
-        button {
-            background: #007bff;
+        
+        .status-ok { background: #28a745; }
+        .status-error { background: #dc3545; }
+        .status-warning { background: #ffc107; }
+        
+        .test-button {
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 0.75rem 1.5rem;
             border-radius: 4px;
             cursor: pointer;
-            margin: 5px;
+            font-size: 1rem;
+            margin: 0.5rem;
+            transition: background-color 0.3s ease;
         }
-        button:hover { background: #0056b3; }
+        
+        .test-button:hover {
+            background: var(--primary-hover);
+        }
+        
+        .test-button.secondary {
+            background: var(--background-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .test-button.secondary:hover {
+            background: var(--background-hover);
+        }
+        
+        .code-block {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            background: var(--background-code);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .variable-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .variable-item {
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .variable-name {
+            background: var(--background-code);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .variable-value {
+            background: var(--primary-color-light);
+            color: var(--text-primary);
+            border: 1px solid var(--primary-color);
+        }
     </style>
 </head>
 <body>
-    <div class="test-container">
-        <h1>🎨 CSS Optimizer Test</h1>
-        <p>This page tests the CSS Optimizer functionality.</p>
-        
-        <div id="status" class="status info">
-            Initializing CSS Optimizer...
-        </div>
-        
-        <div class="test-container">
-            <h3>Test Controls</h3>
-            <button onclick="testCSSOptimizer()">🧪 Test CSS Optimizer</button>
-            <button onclick="testNonCriticalLoading()">📦 Test Non-Critical CSS Loading</button>
-            <button onclick="showOptimizationStats()">📊 Show Optimization Stats</button>
-            <button onclick="clearResults()">🧹 Clear Results</button>
-        </div>
-        
-        <div class="test-container">
-            <h3>Test Results</h3>
-            <div id="results" class="metrics">
-Waiting for tests...
+    <!-- 复制实际网站的header结构 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-title"><a href="/" data-i18n="site_title">Screen Size Checker</a></div>
             </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link" data-i18n="nav_home">首页</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="language-button" id="language-modal-trigger" aria-label="Select language">
+                    <span class="language-icon">🌐</span>
+                    <span class="language-text" data-i18n="language_select_label">Language</span>
+                </button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="test-container">
+        <h1>🧪 CSS优化器与主题切换兼容性测试</h1>
+        <p>这个页面用于测试CSS优化器是否与主题切换功能兼容，确保性能优化不会破坏主题功能。</p>
+        
+        <div class="test-section">
+            <h3>📊 系统状态检查</h3>
+            <div class="status-grid">
+                <div class="status-card">
+                    <h4><span class="status-indicator" id="theme-status"></span>主题系统</h4>
+                    <p>当前主题：<strong id="current-theme">检测中...</strong></p>
+                    <p>切换次数：<strong id="toggle-count">0</strong></p>
+                </div>
+                
+                <div class="status-card">
+                    <h4><span class="status-indicator" id="css-status"></span>CSS优化器</h4>
+                    <p>状态：<strong id="css-optimizer-status">检测中...</strong></p>
+                    <p>优化级别：<strong id="optimization-level">检测中...</strong></p>
+                </div>
+                
+                <div class="status-card">
+                    <h4><span class="status-indicator" id="js-status"></span>JavaScript</h4>
+                    <p>app.js：<strong id="app-js-status">检测中...</strong></p>
+                    <p>事件绑定：<strong id="event-status">检测中...</strong></p>
+                </div>
+                
+                <div class="status-card">
+                    <h4><span class="status-indicator" id="performance-status"></span>性能监控</h4>
+                    <p>监控器：<strong id="perf-monitor-status">检测中...</strong></p>
+                    <p>响应时间：<strong id="response-time">检测中...</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🎨 CSS变量测试</h3>
+            <p>测试主题切换时CSS变量是否正确更新：</p>
+            <div class="variable-demo">
+                <div class="variable-item variable-name">--primary-color</div>
+                <div class="variable-item variable-value" id="var-primary-color">检测中...</div>
+                
+                <div class="variable-item variable-name">--background-primary</div>
+                <div class="variable-item variable-value" id="var-background-primary">检测中...</div>
+                
+                <div class="variable-item variable-name">--text-primary</div>
+                <div class="variable-item variable-value" id="var-text-primary">检测中...</div>
+                
+                <div class="variable-item variable-name">--border-color</div>
+                <div class="variable-item variable-value" id="var-border-color">检测中...</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔧 测试控制</h3>
+            <button class="test-button" onclick="toggleThemeTest()">切换主题</button>
+            <button class="test-button secondary" onclick="resetTheme()">重置为浅色</button>
+            <button class="test-button secondary" onclick="testCSSOptimizer()">测试CSS优化器</button>
+            <button class="test-button secondary" onclick="runCompatibilityTest()">兼容性测试</button>
+            <button class="test-button secondary" onclick="updateAllStatus()">刷新状态</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 测试结果</h3>
+            <div class="code-block" id="test-results">等待测试...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔍 调试信息</h3>
+            <div class="code-block" id="debug-info">加载中...</div>
         </div>
     </div>
 
-    <script type="module">
-        let cssOptimizer = null;
+    <!-- 引入构建后的JavaScript文件 -->
+    <script type="module" src="multilang-build/js/app.js"></script>
+    
+    <script>
+        let toggleCount = 0;
         let testResults = [];
+        let startTime = Date.now();
         
-        // Import CSS Optimizer
-        async function initializeCSSOptimizer() {
-            try {
-                const module = await import('./js/css-optimizer.js');
-                cssOptimizer = new module.default({
-                    enableMinification: true,
-                    enableCaching: true,
-                    deferLoadDelay: 100
-                });
-                
-                updateStatus('success', '✅ CSS Optimizer initialized successfully');
-                addTestResult('✅ CSS Optimizer module loaded and initialized');
-                
-                // Listen for CSS optimization events
-                document.addEventListener('cssOptimized', (event) => {
-                    addTestResult(`🎨 CSS Optimization Event: ${JSON.stringify(event.detail, null, 2)}`);
-                });
-                
-            } catch (error) {
-                updateStatus('error', `❌ Failed to initialize CSS Optimizer: ${error.message}`);
-                addTestResult(`❌ CSS Optimizer initialization failed: ${error.message}`);
+        // 更新所有状态
+        function updateAllStatus() {
+            updateThemeStatus();
+            updateCSSOptimizerStatus();
+            updateJavaScriptStatus();
+            updatePerformanceStatus();
+            updateCSSVariables();
+            updateDebugInfo();
+        }
+        
+        // 更新主题状态
+        function updateThemeStatus() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const themeStatusEl = document.getElementById('theme-status');
+            const currentThemeEl = document.getElementById('current-theme');
+            const toggleCountEl = document.getElementById('toggle-count');
+            
+            currentThemeEl.textContent = currentTheme === 'dark' ? '深色主题' : '浅色主题';
+            toggleCountEl.textContent = toggleCount;
+            themeStatusEl.className = `status-indicator ${currentTheme !== 'undefined' ? 'status-ok' : 'status-error'}`;
+        }
+        
+        // 更新CSS优化器状态
+        function updateCSSOptimizerStatus() {
+            const cssStatusEl = document.getElementById('css-status');
+            const cssOptimizerStatusEl = document.getElementById('css-optimizer-status');
+            const optimizationLevelEl = document.getElementById('optimization-level');
+            
+            // 检查是否有CSS优化器相关的元素
+            const optimizedStyles = document.querySelectorAll('style[data-css-variables]');
+            const hasOptimizer = typeof window.CSSOptimizer !== 'undefined' || optimizedStyles.length > 0;
+            
+            cssOptimizerStatusEl.textContent = hasOptimizer ? '已启用' : '已禁用';
+            optimizationLevelEl.textContent = optimizedStyles.length > 0 ? '高级优化' : '基础优化';
+            cssStatusEl.className = `status-indicator ${hasOptimizer ? 'status-ok' : 'status-warning'}`;
+        }
+        
+        // 更新JavaScript状态
+        function updateJavaScriptStatus() {
+            const jsStatusEl = document.getElementById('js-status');
+            const appJsStatusEl = document.getElementById('app-js-status');
+            const eventStatusEl = document.getElementById('event-status');
+            
+            const hasAppJs = typeof window.initializeApp === 'function';
+            const themeButton = document.getElementById('theme-toggle');
+            const hasEventBinding = themeButton && (themeButton.onclick || themeButton.addEventListener);
+            
+            appJsStatusEl.textContent = hasAppJs ? '已加载' : '未加载';
+            eventStatusEl.textContent = hasEventBinding ? '已绑定' : '未绑定';
+            jsStatusEl.className = `status-indicator ${hasAppJs && hasEventBinding ? 'status-ok' : 'status-error'}`;
+        }
+        
+        // 更新性能监控状态
+        function updatePerformanceStatus() {
+            const perfStatusEl = document.getElementById('performance-status');
+            const perfMonitorStatusEl = document.getElementById('perf-monitor-status');
+            const responseTimeEl = document.getElementById('response-time');
+            
+            const hasPerformanceMonitor = typeof window.performanceMonitor !== 'undefined';
+            const responseTime = Date.now() - startTime;
+            
+            perfMonitorStatusEl.textContent = hasPerformanceMonitor ? '已启用' : '未启用';
+            responseTimeEl.textContent = `${responseTime}ms`;
+            perfStatusEl.className = `status-indicator ${hasPerformanceMonitor ? 'status-ok' : 'status-warning'}`;
+        }
+        
+        // 更新CSS变量
+        function updateCSSVariables() {
+            const computedStyle = getComputedStyle(document.documentElement);
+            
+            document.getElementById('var-primary-color').textContent = computedStyle.getPropertyValue('--primary-color').trim();
+            document.getElementById('var-background-primary').textContent = computedStyle.getPropertyValue('--background-primary').trim();
+            document.getElementById('var-text-primary').textContent = computedStyle.getPropertyValue('--text-primary').trim();
+            document.getElementById('var-border-color').textContent = computedStyle.getPropertyValue('--border-color').trim();
+        }
+        
+        // 更新调试信息
+        function updateDebugInfo() {
+            const debugInfo = {
+                timestamp: new Date().toLocaleString(),
+                theme: document.documentElement.getAttribute('data-theme') || 'light',
+                localStorage: localStorage.getItem('theme') || 'none',
+                userAgent: navigator.userAgent.substring(0, 100) + '...',
+                viewport: `${window.innerWidth}x${window.innerHeight}`,
+                cssOptimizer: typeof window.CSSOptimizer !== 'undefined',
+                performanceMonitor: typeof window.performanceMonitor !== 'undefined',
+                themeButtonCount: document.querySelectorAll('#theme-toggle').length,
+                styleSheets: document.styleSheets.length,
+                optimizedStyles: document.querySelectorAll('style[data-css-variables]').length
+            };
+            
+            document.getElementById('debug-info').textContent = JSON.stringify(debugInfo, null, 2);
+        }
+        
+        // 主题切换测试
+        function toggleThemeTest() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            console.log(`测试主题切换: ${currentTheme} -> ${newTheme}`);
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // 更新主题图标
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
             }
+            
+            toggleCount++;
+            
+            // 记录测试结果
+            testResults.push(`[${new Date().toLocaleTimeString()}] 主题切换: ${currentTheme} -> ${newTheme}`);
+            updateTestResults();
+            
+            setTimeout(updateAllStatus, 100);
         }
         
-        function updateStatus(type, message) {
-            const statusEl = document.getElementById('status');
-            statusEl.className = `status ${type}`;
-            statusEl.textContent = message;
+        // 重置主题
+        function resetTheme() {
+            console.log('重置主题到浅色');
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = '🌙';
+            }
+            
+            testResults.push(`[${new Date().toLocaleTimeString()}] 主题重置为浅色`);
+            updateTestResults();
+            updateAllStatus();
         }
         
-        function addTestResult(message) {
-            const timestamp = new Date().toLocaleTimeString();
-            testResults.push(`[${timestamp}] ${message}`);
-            updateResults();
+        // 测试CSS优化器
+        function testCSSOptimizer() {
+            console.log('测试CSS优化器兼容性');
+            
+            const beforeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const beforeVars = {
+                primary: getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim(),
+                background: getComputedStyle(document.documentElement).getPropertyValue('--background-primary').trim()
+            };
+            
+            // 切换主题
+            toggleThemeTest();
+            
+            setTimeout(() => {
+                const afterTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const afterVars = {
+                    primary: getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim(),
+                    background: getComputedStyle(document.documentElement).getPropertyValue('--background-primary').trim()
+                };
+                
+                const varsChanged = beforeVars.primary !== afterVars.primary || beforeVars.background !== afterVars.background;
+                const themeChanged = beforeTheme !== afterTheme;
+                
+                const result = themeChanged && varsChanged ? '✅ 通过' : '❌ 失败';
+                testResults.push(`[${new Date().toLocaleTimeString()}] CSS优化器兼容性测试: ${result}`);
+                testResults.push(`  主题变化: ${beforeTheme} -> ${afterTheme} (${themeChanged ? '✅' : '❌'})`);
+                testResults.push(`  变量变化: ${varsChanged ? '✅' : '❌'}`);
+                
+                updateTestResults();
+            }, 200);
         }
         
-        function updateResults() {
-            const resultsEl = document.getElementById('results');
+        // 运行兼容性测试
+        function runCompatibilityTest() {
+            console.log('运行完整兼容性测试');
+            testResults.push(`[${new Date().toLocaleTimeString()}] 开始兼容性测试`);
+            
+            const tests = [
+                () => testThemeToggle(),
+                () => testCSSVariables(),
+                () => testEventBinding(),
+                () => testPerformance()
+            ];
+            
+            let testIndex = 0;
+            function runNextTest() {
+                if (testIndex < tests.length) {
+                    tests[testIndex]();
+                    testIndex++;
+                    setTimeout(runNextTest, 500);
+                } else {
+                    testResults.push(`[${new Date().toLocaleTimeString()}] 兼容性测试完成`);
+                    updateTestResults();
+                }
+            }
+            
+            runNextTest();
+        }
+        
+        // 测试主题切换
+        function testThemeToggle() {
+            const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            toggleThemeTest();
+            
+            setTimeout(() => {
+                const newTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const success = initialTheme !== newTheme;
+                testResults.push(`  主题切换测试: ${success ? '✅ 通过' : '❌ 失败'}`);
+                updateTestResults();
+            }, 100);
+        }
+        
+        // 测试CSS变量
+        function testCSSVariables() {
+            const vars = ['--primary-color', '--background-primary', '--text-primary', '--border-color'];
+            const computedStyle = getComputedStyle(document.documentElement);
+            
+            let allVarsPresent = true;
+            vars.forEach(varName => {
+                const value = computedStyle.getPropertyValue(varName).trim();
+                if (!value) allVarsPresent = false;
+            });
+            
+            testResults.push(`  CSS变量测试: ${allVarsPresent ? '✅ 通过' : '❌ 失败'}`);
+            updateTestResults();
+        }
+        
+        // 测试事件绑定
+        function testEventBinding() {
+            const themeButton = document.getElementById('theme-toggle');
+            const hasButton = !!themeButton;
+            const hasBinding = hasButton && (themeButton.onclick || themeButton.addEventListener);
+            
+            testResults.push(`  事件绑定测试: ${hasButton && hasBinding ? '✅ 通过' : '❌ 失败'}`);
+            updateTestResults();
+        }
+        
+        // 测试性能
+        function testPerformance() {
+            const startTime = performance.now();
+            
+            // 模拟一些操作
+            for (let i = 0; i < 1000; i++) {
+                getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+            }
+            
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            const success = duration < 100; // 100ms内完成
+            
+            testResults.push(`  性能测试: ${success ? '✅ 通过' : '❌ 失败'} (${duration.toFixed(2)}ms)`);
+            updateTestResults();
+        }
+        
+        // 更新测试结果
+        function updateTestResults() {
+            const resultsEl = document.getElementById('test-results');
             resultsEl.textContent = testResults.join('\n');
             resultsEl.scrollTop = resultsEl.scrollHeight;
         }
         
-        // Global test functions
-        window.testCSSOptimizer = function() {
-            if (!cssOptimizer) {
-                addTestResult('❌ CSS Optimizer not initialized');
-                return;
-            }
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('CSS优化器兼容性测试页面加载完成');
             
-            addTestResult('🧪 Starting CSS Optimizer test...');
-            
-            try {
-                // Test critical CSS detection
-                const criticalElements = document.querySelectorAll('.test-container, body, h1');
-                addTestResult(`📄 Found ${criticalElements.length} critical elements`);
+            // 等待app.js加载完成
+            setTimeout(() => {
+                updateAllStatus();
                 
-                // Test device capabilities assessment
-                const deviceCapabilities = cssOptimizer.deviceCapabilities;
-                addTestResult(`📱 Device capabilities: ${JSON.stringify(deviceCapabilities, null, 2)}`);
+                // 监听主题切换按钮点击
+                const themeButton = document.getElementById('theme-toggle');
+                if (themeButton) {
+                    themeButton.addEventListener('click', () => {
+                        console.log('主题切换按钮被点击 (兼容性测试监听器)');
+                        toggleCount++;
+                        setTimeout(updateAllStatus, 100);
+                    });
+                }
                 
-                // Test page type detection
-                const pageType = cssOptimizer.currentPageType;
-                addTestResult(`📄 Detected page type: ${pageType}`);
+                // 定期更新状态
+                setInterval(updateAllStatus, 10000);
                 
-                addTestResult('✅ CSS Optimizer test completed');
-                
-            } catch (error) {
-                addTestResult(`❌ CSS Optimizer test failed: ${error.message}`);
-            }
-        };
-        
-        window.testNonCriticalLoading = function() {
-            if (!cssOptimizer) {
-                addTestResult('❌ CSS Optimizer not initialized');
-                return;
-            }
-            
-            addTestResult('📦 Testing non-critical CSS loading...');
-            
-            try {
-                // Force load non-critical CSS
-                cssOptimizer.forceLoadNonCriticalCSS().then(() => {
-                    addTestResult('✅ Non-critical CSS loading completed');
-                }).catch(error => {
-                    addTestResult(`❌ Non-critical CSS loading failed: ${error.message}`);
-                });
-                
-            } catch (error) {
-                addTestResult(`❌ Non-critical CSS loading test failed: ${error.message}`);
-            }
-        };
-        
-        window.showOptimizationStats = function() {
-            if (!cssOptimizer) {
-                addTestResult('❌ CSS Optimizer not initialized');
-                return;
-            }
-            
-            try {
-                const stats = cssOptimizer.getOptimizationStats();
-                addTestResult('📊 Optimization Statistics:');
-                addTestResult(JSON.stringify(stats, null, 2));
-                
-            } catch (error) {
-                addTestResult(`❌ Failed to get optimization stats: ${error.message}`);
-            }
-        };
-        
-        window.clearResults = function() {
-            testResults = [];
-            updateResults();
-            addTestResult('🧹 Test results cleared');
-        };
-        
-        // Initialize on page load
-        window.addEventListener('load', () => {
-            initializeCSSOptimizer();
+                testResults.push(`[${new Date().toLocaleTimeString()}] 兼容性测试系统初始化完成`);
+                updateTestResults();
+            }, 1000);
         });
         
-        console.log('🎯 CSS Optimizer test page loaded');
+        // 监听主题变化
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    const newTheme = mutation.target.getAttribute('data-theme');
+                    console.log(`检测到主题属性变化: ${newTheme}`);
+                    setTimeout(updateAllStatus, 50);
+                }
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
     </script>
 </body>
 </html>
