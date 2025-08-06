@@ -8,6 +8,7 @@ import { performanceMonitor } from './performance-monitor.js';
 import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
 import { initializeOptimizedEventManager } from './optimized-event-manager.js';
 import CSSOptimizer from './css-optimizer.js';
+import { initializeMobileOptimization } from './mobile-performance-optimizer.js';
 // FontLoadingOptimizer will be imported dynamically to avoid blocking
 
 // 暂时移除资源加载优化器的导入以避免阻塞
@@ -47,6 +48,20 @@ async function initializeApp() {
         // PHASE 2: Critical immediate initialization
         updateInitialDisplayValues();
         initializeTheme();
+
+        // PHASE 2.0: 初始化移动端性能优化系统（关键性能优化）
+        try {
+            const mobileOptimizer = initializeMobileOptimization({
+                enableDeviceDetection: true,
+                enableNetworkAdaptation: true,
+                enableLowEndOptimization: true,
+                debugMode: false
+            });
+            console.log('✅ Mobile performance optimizer initialized successfully');
+        } catch (error) {
+            console.warn('⚠️ Mobile performance optimizer failed to initialize:', error);
+            // 移动端优化器初始化失败不应该阻止应用启动
+        }
 
         // PHASE 2.1: 初始化字体加载优化器（关键性能优化）
         try {

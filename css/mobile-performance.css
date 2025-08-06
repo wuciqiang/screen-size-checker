@@ -1,0 +1,423 @@
+/* mobile-performance.css - 移动端性能优化样式 */
+
+/* 基础移动端优化类 */
+.mobile-optimized {
+    /* 启用硬件加速 */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* 平板设备优化 */
+.tablet-device {
+    /* 平板特定优化 */
+}
+
+/* 低端设备优化 */
+.low-end-device {
+    /* 禁用复杂动画和效果 */
+}
+
+.low-end-device * {
+    /* 禁用所有动画 */
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+.low-end-device .info-card {
+    /* 简化卡片样式 */
+    box-shadow: none !important;
+    border: 1px solid #e0e0e0;
+}
+
+/* 减少动画复杂度 */
+.reduce-animations * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+}
+
+/* 完全禁用动画 */
+.disable-animations *,
+.reduce-motion * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 简化UI样式 */
+.simplified-ui .decorative-element,
+.simplified-ui .non-essential-animation,
+.simplified-ui .complex-shadow {
+    display: none !important;
+}
+
+.simplified-ui .info-card {
+    box-shadow: none !important;
+    border: 1px solid #e0e0e0;
+}
+
+.simplified-ui .gradient-background {
+    background: #f5f5f5 !important;
+}
+
+/* 数据节省模式 */
+.data-saving-mode img {
+    /* 延迟加载所有图片 */
+    loading: lazy;
+}
+
+.data-saving-mode video,
+.data-saving-mode audio {
+    /* 禁用自动播放 */
+    preload: none;
+    autoplay: false;
+}
+
+/* 触摸优化 */
+.mobile-optimized * {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-optimized a,
+.mobile-optimized button,
+.mobile-optimized input,
+.mobile-optimized select,
+.mobile-optimized textarea,
+.mobile-optimized [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 触摸反馈 */
+.touch-active {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+/* 滚动优化 */
+.scrollable,
+.overflow-auto,
+.overflow-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.scroll-container {
+    contain: layout style paint;
+    overflow-anchor: none;
+}
+
+/* 硬件加速优化 */
+.info-card,
+.tool-card,
+.hero-section,
+.fade-in,
+.slide-in {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.animated {
+    transform: translate3d(0, 0, 0);
+    animation-fill-mode: both;
+}
+
+/* 屏幕方向优化 */
+.portrait-mode {
+    /* 竖屏模式特定样式 */
+}
+
+.landscape-mode {
+    /* 横屏模式特定样式 */
+}
+
+/* 响应式断点优化 */
+@media (max-width: 480px) {
+    .mobile-optimized .small-screen-hide {
+        display: none !important;
+    }
+    
+    .mobile-optimized .container {
+        padding: 0.5rem;
+    }
+    
+    .mobile-optimized .info-card {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-optimized .medium-screen-hide {
+        display: none !important;
+    }
+    
+    .mobile-optimized .hero-section {
+        padding: 1rem 0;
+    }
+}
+
+/* 低端设备特定优化 */
+@media (max-width: 480px) {
+    .low-end-device .hero-section {
+        background: #f8f9fa !important;
+        background-image: none !important;
+    }
+    
+    .low-end-device .info-card {
+        border-radius: 4px !important;
+        box-shadow: none !important;
+        border: 1px solid #dee2e6;
+    }
+    
+    .low-end-device .btn {
+        border-radius: 4px !important;
+        box-shadow: none !important;
+    }
+}
+
+/* 网络优化相关样式 */
+.slow-connection .lazy-load {
+    /* 慢网络下的懒加载优化 */
+    background: #f8f9fa;
+    min-height: 200px;
+}
+
+.slow-connection .non-critical {
+    /* 隐藏非关键内容 */
+    display: none !important;
+}
+
+/* 性能监控相关样式 */
+.performance-warning {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    display: none;
+}
+
+.performance-warning.show {
+    display: block;
+}
+
+/* 加载状态优化 */
+.loading-optimized {
+    /* 优化的加载状态 */
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* 低端设备禁用加载动画 */
+.low-end-device .loading-optimized {
+    animation: none;
+    background: #f0f0f0;
+}
+
+/* 内存优化相关样式 */
+.memory-optimized img {
+    /* 图片内存优化 */
+    image-rendering: auto;
+    image-rendering: optimizeSpeed;
+}
+
+.memory-optimized video {
+    /* 视频内存优化 */
+    preload: none;
+}
+
+/* 电池优化相关样式 */
+.battery-saving * {
+    /* 电池节省模式 */
+    animation-play-state: paused !important;
+}
+
+.battery-saving .auto-refresh {
+    /* 禁用自动刷新 */
+    pointer-events: none;
+}
+
+/* 可访问性优化 */
+@media (prefers-reduced-motion: reduce) {
+    .mobile-optimized * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .mobile-optimized .simplified-ui .gradient-background {
+        background: #2d3748 !important;
+    }
+    
+    .mobile-optimized .simplified-ui .info-card {
+        border-color: #4a5568;
+        background: #1a202c;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .mobile-optimized .info-card {
+        border: 2px solid currentColor !important;
+    }
+    
+    .mobile-optimized .btn {
+        border: 2px solid currentColor !important;
+    }
+}
+
+/* 打印优化 */
+@media print {
+    .mobile-optimized .non-printable,
+    .mobile-optimized .interactive-element {
+        display: none !important;
+    }
+}
+
+/* 调试模式样式 */
+.mobile-debug-info {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: monospace;
+    z-index: 9998;
+    max-width: 200px;
+    display: none;
+}
+
+.mobile-debug-info.show {
+    display: block;
+}
+
+.mobile-debug-info .debug-item {
+    margin: 2px 0;
+}
+
+.mobile-debug-info .debug-label {
+    font-weight: bold;
+}
+
+.mobile-debug-info .debug-value {
+    color: #4CAF50;
+}
+
+/* 性能指标显示 */
+.performance-metrics {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: monospace;
+    z-index: 9997;
+    display: none;
+    min-width: 150px;
+}
+
+.performance-metrics.show {
+    display: block;
+}
+
+.performance-metrics .metric-item {
+    margin: 3px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.performance-metrics .metric-label {
+    color: #ccc;
+}
+
+.performance-metrics .metric-value {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.performance-metrics .metric-value.warning {
+    color: #FF9800;
+}
+
+.performance-metrics .metric-value.error {
+    color: #F44336;
+}
+
+/* 网络状态指示器 */
+.network-status {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2196F3;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    z-index: 9996;
+    display: none;
+}
+
+.network-status.show {
+    display: block;
+}
+
+.network-status.slow {
+    background: #FF9800;
+}
+
+.network-status.offline {
+    background: #F44336;
+}
+
+/* 优化级别指示器 */
+.optimization-level {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    z-index: 9995;
+    display: none;
+}
+
+.optimization-level.show {
+    display: block;
+}
+
+.optimization-level.aggressive {
+    background: rgba(244, 67, 54, 0.9);
+}
+
+.optimization-level.moderate {
+    background: rgba(255, 152, 0, 0.9);
+}
+
+.optimization-level.light {
+    background: rgba(76, 175, 80, 0.9);
+}

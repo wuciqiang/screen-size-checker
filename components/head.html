@@ -47,6 +47,10 @@ window.addEventListener('load', function() {
 <!-- Critical CSS - Load immediately -->
 <link rel="stylesheet" href="{{css_path}}/main.css">
 
+<!-- Mobile Performance CSS - Load with high priority for mobile optimization -->
+<link rel="preload" href="{{css_path}}/mobile-performance.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{css_path}}/mobile-performance.css"></noscript>
+
 <!-- Non-critical CSS - Load with lower priority -->
 <link rel="preload" href="{{css_path}}/language-selector.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{css_path}}/language-selector.css"></noscript>
