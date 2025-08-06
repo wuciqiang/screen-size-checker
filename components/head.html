@@ -40,6 +40,10 @@ window.addEventListener('load', function() {
 <meta property="og:type" content="{{og_type}}">
 <meta property="og:url" content="{{og_url}}">
 
+<!-- Font Loading Optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <!-- Critical CSS - Load immediately -->
 <link rel="stylesheet" href="{{css_path}}/main.css">
 
@@ -80,6 +84,39 @@ window.addEventListener('load', function() {
     --radius-lg: 12px;
     --transition-fast: 0.15s ease;
     --transition-medium: 0.25s ease;
+    
+    /* Font optimization variables */
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+    --font-family-fallback: Arial, sans-serif;
+    --font-family-mono-fallback: "Courier New", monospace;
+}
+
+/* Font display optimization */
+@font-face {
+    font-display: swap;
+}
+
+/* Font loading states */
+.font-loading {
+    visibility: hidden;
+}
+
+.font-loaded,
+.font-fallback-active {
+    visibility: visible;
+}
+
+/* Font fallback styles */
+.font-fallback-active * {
+    font-family: var(--font-family-fallback) !important;
+}
+
+.font-fallback-active code,
+.font-fallback-active pre,
+.font-fallback-active .code,
+.font-fallback-active .mono {
+    font-family: var(--font-family-mono-fallback) !important;
 }
 
 /* Dark Theme Support */

@@ -290,6 +290,7 @@ export class ModuleLoadingOptimizer {
             'simulator': () => import('./simulator.js'),
             'screen-comparison-fixed': () => import('./screen-comparison-fixed.js'),
             'cookie-notice': () => import('./cookie-notice.js'),
+            'font-loading-optimizer': () => import('./font-loading-optimizer.js'),
             'utils': () => import('./utils.js')
         };
     }

@@ -66,6 +66,14 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color var(--transition-medium), color var(--transition-medium);
+    
+    /* Font loading optimization */
+    font-display: swap;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    font-synthesis: none;
 }
 
 /* Dark Theme Support */
@@ -429,6 +437,12 @@ body {
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
     margin-right: var(--spacing-xl);
+    
+    /* Font optimization for monospace */
+    font-display: swap;
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-feature-settings: "liga" 1, "calt" 1;
+    font-feature-settings: "liga" 1, "calt" 1;
 }
 
 .info-value-textarea {
@@ -443,6 +457,12 @@ body {
     color: var(--text-primary);
     resize: vertical;
     line-height: 1.4;
+    
+    /* Font optimization for monospace textarea */
+    font-display: swap;
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-feature-settings: "liga" 1, "calt" 1;
+    font-feature-settings: "liga" 1, "calt" 1;
 }
 
 .copy-btn {

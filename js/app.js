@@ -8,6 +8,7 @@ import { performanceMonitor } from './performance-monitor.js';
 import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
 import { initializeOptimizedEventManager } from './optimized-event-manager.js';
 import CSSOptimizer from './css-optimizer.js';
+// FontLoadingOptimizer will be imported dynamically to avoid blocking
 
 // 暂时移除资源加载优化器的导入以避免阻塞
 let resourceLoadingOptimizer = null;
@@ -47,7 +48,25 @@ async function initializeApp() {
         updateInitialDisplayValues();
         initializeTheme();
 
-        // PHASE 2.1: 立即设置基础事件监听器，确保主题切换功能可用
+        // PHASE 2.1: 初始化字体加载优化器（关键性能优化）
+        try {
+            const FontLoadingOptimizerModule = await import('./font-loading-optimizer.js');
+            const FontLoadingOptimizer = FontLoadingOptimizerModule.default;
+
+            const fontOptimizer = new FontLoadingOptimizer({
+                preloadCriticalFonts: true,
+                enableFallback: true,
+                enableMetrics: true,
+                fontDisplay: 'swap'
+            });
+
+            console.log('✅ Font loading optimizer initialized successfully');
+        } catch (error) {
+            console.warn('⚠️ Font loading optimizer failed to initialize:', error);
+            // 字体优化器初始化失败不应该阻止应用启动
+        }
+
+        // PHASE 2.2: 立即设置基础事件监听器，确保主题切换功能可用
         setupBasicEventListeners();
 
         // PHASE 2.2: CSS Optimizer 重新启用，但配置为不影响主题切换
