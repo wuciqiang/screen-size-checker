@@ -299,25 +299,82 @@ export class InternalLinksManager {
      * 根据设备类型获取最大显示数量
      */
     getMaxItemsForDevice() {
-        const defaultMax = this.options.maxItems || this.config.display?.maxTotal || 8;
+        const defaultMax = this.config?.display?.maxTotal || 9;
         
-        if (!this.config.display?.responsive) {
+        if (!this.config?.display?.responsive) {
             return defaultMax;
         }
 
-        // 检测设备类型
+        // 检测设备类型 - 使用更准确的移动端检测
         const screenWidth = window.innerWidth;
+        const isMobileDevice = this.isMobileDevice();
         
-        if (screenWidth <= 480) {
-            // 移动设备
-            return this.config.display.responsive.mobile || 4;
-        } else if (screenWidth <= 768) {
+        console.log(`📱 Device detection: screenWidth=${screenWidth}, isMobile=${isMobileDevice}`);
+        
+        if (isMobileDevice && screenWidth <= 480) {
+            // 小屏幕移动设备
+            const mobileCount = this.config.display.responsive.mobile || 6;
+            console.log(`📱 Using mobile count: ${mobileCount}`);
+            return mobileCount;
+        } else if (isMobileDevice && screenWidth <= 768) {
+            // 大屏幕移动设备/小平板
+            const tabletCount = this.config.display.responsive.tablet || 8;
+            console.log(`📱 Using tablet count: ${tabletCount}`);
+            return tabletCount;
+        } else if (screenWidth <= 1024) {
             // 平板设备
-            return this.config.display.responsive.tablet || 6;
+            const tabletCount = this.config.display.responsive.tablet || 8;
+            console.log(`💻 Using tablet count: ${tabletCount}`);
+            return tabletCount;
         } else {
             // 桌面设备
-            return this.config.display.responsive.desktop || defaultMax;
+            const desktopCount = this.config.display.responsive.desktop || defaultMax;
+            console.log(`🖥️ Using desktop count: ${desktopCount}`);
+            return desktopCount;
         }
+    }
+
+    /**
+     * 检测是否为移动设备
+     */
+    isMobileDevice() {
+        // 检查是否有移动端性能优化器
+        if (window.isMobileDevice && typeof window.isMobileDevice === 'function') {
+            return window.isMobileDevice();
+        }
+        
+        // 改进的移动设备检测逻辑
+        const userAgent = navigator.userAgent.toLowerCase();
+        const screenWidth = window.innerWidth;
+        
+        // 更准确的移动设备UA检测
+        const mobilePatterns = [
+            /android.*mobile/i, 
+            /iphone/i, 
+            /ipod/i, 
+            /mobile/i,
+            /blackberry/i,
+            /windows phone/i
+        ];
+        
+        // 平板设备检测（不应该被认为是移动设备）
+        const tabletPatterns = [
+            /ipad/i,
+            /android(?!.*mobile)/i,
+            /tablet/i
+        ];
+        
+        const hasMobileUA = mobilePatterns.some(pattern => pattern.test(userAgent));
+        const hasTabletUA = tabletPatterns.some(pattern => pattern.test(userAgent));
+        const hasTouchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        // 如果是平板设备，根据屏幕尺寸判断
+        if (hasTabletUA) {
+            return screenWidth <= 768; // 小平板当作移动设备
+        }
+        
+        // 移动设备判断：有移动UA或者（小屏幕+触摸支持）
+        return hasMobileUA || (screenWidth <= 480 && hasTouchSupport);
     }
 
     /**

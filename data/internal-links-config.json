@@ -97,6 +97,18 @@
       "titleKey": "responsive_tester",
       "descriptionKey": "responsive_tester_description"
     },
+    "index": {
+      "id": "index",
+      "category": "main",
+      "priority": 1,
+      "icon": "🏠",
+      "urls": {
+        "en": "index.html",
+        "zh": "index.html"
+      },
+      "titleKey": "nav_home",
+      "descriptionKey": "site_description"
+    },
     "blog": {
       "id": "blog",
       "category": "content",
@@ -111,6 +123,11 @@
     }
   },
   "categories": {
+    "main": {
+      "priority": 0,
+      "maxItems": 1,
+      "name": "主要页面"
+    },
     "calculator": {
       "priority": 1,
       "maxItems": 3,
@@ -138,11 +155,11 @@
     }
   },
   "display": {
-    "maxTotal": 8,
+    "maxTotal": 9,
     "responsive": {
-      "mobile": 4,
-      "tablet": 6,
-      "desktop": 8
+      "mobile": 8,
+      "tablet": 8,
+      "desktop": 9
     }
   },
   "rules": {

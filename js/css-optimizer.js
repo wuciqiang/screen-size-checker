@@ -33,13 +33,18 @@ class CSSOptimizer {
                 'css/base.css'
             ],
             
-            // 非关键CSS文件
+            // 非关键CSS文件（只包含确实存在的文件）
             nonCriticalFiles: [
                 'css/blog.css',
                 'css/blog-progress.css',
                 'css/simulator.css',
                 'css/comparison.css',
-                'css/info-items.css'
+                'css/info-items.css',
+                'css/internal-links.css',
+                'css/language-selector.css',
+                'css/mobile-performance.css',
+                'css/mobile-ui-optimization.css',
+                'css/optimized-events.css'
             ],
             
             // 条件加载CSS文件（基于页面类型）
@@ -47,7 +52,9 @@ class CSSOptimizer {
                 'blog': ['css/blog.css', 'css/blog-progress.css'],
                 'devices': ['css/comparison.css', 'css/info-items.css'],
                 'simulator': ['css/simulator.css'],
-                'calculator': ['css/comparison.css']
+                'calculator': ['css/comparison.css'],
+                'mobile': ['css/mobile-performance.css', 'css/mobile-ui-optimization.css'],
+                'events': ['css/optimized-events.css']
             },
             
             // 性能配置
@@ -448,13 +455,33 @@ class CSSOptimizer {
         
         const filesToLoad = new Set();
         
-        // 添加通用非关键文件
-        this.config.nonCriticalFiles.forEach(file => filesToLoad.add(file));
+        // 添加通用非关键文件（排除移动端专用文件）
+        this.config.nonCriticalFiles.forEach(file => {
+            // 移动端专用CSS只在移动设备上加载
+            if (file.includes('mobile-') && !this.shouldLoadMobileCSS()) {
+                console.log(`📱 Skipping mobile CSS on desktop: ${file}`);
+                return;
+            }
+            filesToLoad.add(file);
+        });
         
         // 添加页面特定的CSS文件
         const pageSpecificFiles = this.config.conditionalFiles[this.currentPageType];
         if (pageSpecificFiles) {
-            pageSpecificFiles.forEach(file => filesToLoad.add(file));
+            pageSpecificFiles.forEach(file => {
+                // 移动端专用CSS只在移动设备上加载
+                if (file.includes('mobile-') && !this.shouldLoadMobileCSS()) {
+                    console.log(`📱 Skipping mobile CSS on desktop: ${file}`);
+                    return;
+                }
+                filesToLoad.add(file);
+            });
+        }
+        
+        // 如果是移动设备，添加移动端优化CSS
+        if (this.shouldLoadMobileCSS()) {
+            const mobileFiles = this.config.conditionalFiles['mobile'] || [];
+            mobileFiles.forEach(file => filesToLoad.add(file));
         }
         
         // 并行加载所有非关键CSS文件
@@ -527,42 +554,63 @@ class CSSOptimizer {
     loadSingleCSS(href, attempt = 1) {
         return new Promise((resolve, reject) => {
             // 检查是否已经存在该样式表
-            const existingLink = document.querySelector(`link[href="${href}"]`);
+            const existingLink = document.querySelector(`link[href*="${href.split('/').pop()}"]`);
             if (existingLink && existingLink.sheet) {
                 resolve();
                 return;
             }
             
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = this.addCacheBuster(href, attempt);
-            link.media = 'print'; // 先设置为print避免阻塞渲染
-            link.crossOrigin = 'anonymous'; // 支持跨域
+            // 构建完整的URL路径
+            const fullUrl = href.startsWith('http') ? href : `${window.location.origin}/${href}`;
+            const testUrl = this.addCacheBuster(fullUrl, attempt);
             
-            // 设置超时
-            const timeout = setTimeout(() => {
-                reject(new Error(`CSS load timeout: ${href}`));
-            }, 10000); // 10秒超时
-            
-            link.onload = () => {
-                clearTimeout(timeout);
-                link.media = 'all'; // 加载完成后切换为all
-                
-                // 验证CSS是否真正加载
-                if (link.sheet && link.sheet.cssRules) {
+            // 先进行HEAD请求检查文件是否存在
+            fetch(testUrl, { 
+                method: 'HEAD',
+                cache: 'no-cache'
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn(`⚠️ CSS file not found: ${href} (${response.status})`);
+                        // 文件不存在时直接resolve，避免阻塞其他CSS加载
+                        resolve();
+                        return;
+                    }
+                    
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = fullUrl;
+                    link.media = 'print'; // 先设置为print避免阻塞渲染
+                    
+                    // 设置超时
+                    const timeout = setTimeout(() => {
+                        console.warn(`⚠️ CSS load timeout: ${href}`);
+                        // 超时时也resolve，避免阻塞
+                        resolve();
+                    }, 3000); // 减少到3秒超时
+                    
+                    link.onload = () => {
+                        clearTimeout(timeout);
+                        link.media = 'all'; // 加载完成后切换为all
+                        console.log(`✅ CSS loaded successfully: ${href}`);
+                        resolve();
+                    };
+                    
+                    link.onerror = (error) => {
+                        clearTimeout(timeout);
+                        console.warn(`⚠️ CSS load error: ${href} - ${error.message || 'Unknown error'}`);
+                        // 错误时也resolve，避免阻塞其他CSS加载
+                        resolve();
+                    };
+                    
+                    // 添加到head
+                    document.head.appendChild(link);
+                })
+                .catch(error => {
+                    console.warn(`⚠️ CSS file check failed for ${href}:`, error.message);
+                    // 网络错误时也resolve，避免阻塞
                     resolve();
-                } else {
-                    reject(new Error(`CSS loaded but no rules found: ${href}`));
-                }
-            };
-            
-            link.onerror = (error) => {
-                clearTimeout(timeout);
-                reject(new Error(`CSS load error: ${href} - ${error.message || 'Unknown error'}`));
-            };
-            
-            // 添加到head
-            document.head.appendChild(link);
+                });
         });
     }
     
@@ -1123,6 +1171,30 @@ class CSSOptimizer {
     }
     
     /**
+     * 判断是否应该加载移动端CSS
+     */
+    shouldLoadMobileCSS() {
+        // 检查是否有移动端性能优化器
+        if (window.mobilePerformanceOptimizer) {
+            return window.mobilePerformanceOptimizer.isRealMobileDevice();
+        }
+        
+        // 如果没有移动端优化器，使用简单的检测逻辑
+        if (window.isMobileDevice) {
+            return window.isMobileDevice();
+        }
+        
+        // 后备检测逻辑
+        const userAgent = navigator.userAgent.toLowerCase();
+        const mobilePatterns = [/android.*mobile/i, /iphone/i, /ipod/i, /mobile/i];
+        const hasMobileUA = mobilePatterns.some(pattern => pattern.test(userAgent));
+        const hasSmallScreen = window.innerWidth <= 768;
+        const hasTouchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        return hasMobileUA && hasSmallScreen && hasTouchSupport;
+    }
+
+    /**
      * 获取优化统计信息
      */
     getOptimizationStats() {
@@ -1132,7 +1204,8 @@ class CSSOptimizer {
             loadedCSSFiles: Array.from(this.loadedCSS),
             pageType: this.currentPageType,
             deviceCapabilities: this.deviceCapabilities,
-            optimizationLevel: this.deviceCapabilities.isLowEnd ? 'aggressive' : 'standard'
+            optimizationLevel: this.deviceCapabilities.isLowEnd ? 'aggressive' : 'standard',
+            isMobileOptimized: this.shouldLoadMobileCSS()
         };
     }
     

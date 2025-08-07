@@ -1,0 +1,507 @@
+/**
+ * 移动端UI和交互优化样式
+ * 只在真正的移动设备上应用，避免影响桌面端布局
+ */
+
+/* 基础移动端优化 - 只在移动设备上应用 */
+@media screen and (max-width: 768px) {
+    /* 移动端视口优化 */
+    .mobile-optimized {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* 触摸优化 */
+    .mobile-optimized * {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 移动端布局优化 */
+    .mobile-optimized .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .mobile-optimized .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .mobile-optimized .info-dashboard {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mobile-optimized .info-card {
+        margin-bottom: 1rem;
+    }
+
+    /* 移动端按钮优化 */
+    .mobile-optimized .copy-btn,
+    .mobile-optimized .theme-toggle,
+    .mobile-optimized .language-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.75rem;
+    }
+
+    /* 移动端表单优化 */
+    .mobile-optimized input,
+    .mobile-optimized select,
+    .mobile-optimized textarea {
+        font-size: 16px; /* 防止iOS缩放 */
+        min-height: 44px;
+    }
+
+    /* 移动端导航优化 */
+    .header {
+        padding: 0.5rem 0.75rem;
+        position: relative;
+    }
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        height: 56px; /* 移动端稍微降低高度 */
+        max-width: 100%;
+        position: relative;
+    }
+
+    /* Logo部分优化 - 左对齐 */
+    .logo {
+        flex: 0 0 auto;
+        min-width: 0;
+        max-width: 50%; /* 增加Logo最大宽度，确保完整显示 */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* 确保左对齐 */
+    }
+
+    .logo .logo-title {
+        font-size: 1.1rem;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .logo .logo-title a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* 中间导航部分优化 - 居中对齐 */
+    .main-nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center; /* 确保导航居中 */
+        align-items: center;
+        margin: 0;
+        min-width: 0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        justify-content: center; /* 确保菜单项居中 */
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        max-width: 100%;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .nav-item {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* 确保文字上下左右居中 */
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+        border-radius: 6px;
+        background: rgba(0, 102, 204, 0.1);
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        min-width: fit-content;
+        min-height: 32px; /* 确保有足够高度 */
+        line-height: 1;
+        text-align: center;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    /* 右侧控制按钮优化 - 右对齐 */
+    .header-controls {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* 确保右对齐 */
+        gap: 0.5rem;
+        min-width: fit-content;
+    }
+
+    .language-button {
+        min-height: 40px;
+        min-width: 40px;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--background-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .language-button:hover {
+        background: var(--background-secondary);
+        border-color: var(--primary-color);
+    }
+
+    .language-button .language-text {
+        display: none; /* 隐藏文字，只显示图标 */
+    }
+
+    .language-button .language-icon {
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        min-height: 40px;
+        min-width: 40px;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--background-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+        background: var(--background-secondary);
+        border-color: var(--primary-color);
+    }
+
+    .theme-toggle .theme-icon {
+        font-size: 1.2rem;
+    }
+}
+
+/* 小屏幕设备专用优化 */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    /* 小屏幕导航栏进一步优化 */
+    .header-container {
+        gap: 0.25rem;
+        padding: 0 0.5rem;
+    }
+
+    .logo {
+        max-width: 45%; /* 小屏幕上也要确保Logo完整显示 */
+    }
+
+    .logo .logo-title {
+        font-size: 0.95rem;
+    }
+
+    .nav-menu {
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.8rem;
+        min-height: 30px;
+    }
+
+    .language-button,
+    .theme-toggle {
+        min-height: 36px;
+        min-width: 36px;
+        padding: 0.4rem;
+    }
+
+    .language-button .language-icon,
+    .theme-toggle .theme-icon {
+        font-size: 1.1rem;
+    }
+}
+
+/* 中等屏幕移动设备优化 */
+@media screen and (min-width: 481px) and (max-width: 768px) and (pointer: coarse) {
+    .medium-screen-optimized .info-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .medium-screen-optimized .hero-section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+/* 平板设备优化 */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (pointer: coarse) {
+    .tablet-device .info-dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tablet-device .container {
+        max-width: 90%;
+    }
+}
+
+/* 低端设备性能优化 */
+.low-end-device {
+    /* 禁用动画以提升性能 */
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    /* 简化阴影效果 */
+    .info-card,
+    .copy-btn,
+    .theme-toggle {
+        box-shadow: none !important;
+        border: 1px solid #e0e0e0;
+    }
+
+    /* 移除复杂的背景效果 */
+    .gradient-background {
+        background: #f8f9fa !important;
+    }
+}
+
+/* 减少动画模式 */
+.reduce-animations {
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* 完全禁用动画模式 */
+.disable-animations {
+    *,
+    *::before,
+    *::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* 简化UI模式 */
+.simplified-ui {
+    /* 隐藏装饰性元素 */
+    .decorative-element,
+    .non-essential-animation,
+    .complex-shadow {
+        display: none !important;
+    }
+
+    /* 简化卡片样式 */
+    .info-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        box-shadow: none !important;
+    }
+
+    /* 简化按钮样式 */
+    .copy-btn,
+    .theme-toggle {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        box-shadow: none !important;
+    }
+
+    .copy-btn:hover,
+    .theme-toggle:hover {
+        background: #e9ecef;
+    }
+}
+
+/* 数据节省模式 */
+.data-saving-mode {
+    /* 隐藏非必要图片 */
+    .decorative-image,
+    .background-image {
+        display: none !important;
+    }
+
+    /* 简化字体 */
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif !important;
+    }
+}
+
+/* 硬件加速优化 */
+.mobile-hw-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.mobile-animated {
+    transform: translate3d(0, 0, 0);
+    animation-fill-mode: both;
+}
+
+/* 滚动优化 */
+.mobile-optimized .scrollable,
+.mobile-optimized .overflow-auto,
+.mobile-optimized .overflow-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.mobile-optimized body {
+    overscroll-behavior-y: none;
+}
+
+/* 开发者工具移动模式限制样式 */
+.dev-tools-mobile-mode {
+    /* 最小化样式，避免影响开发调试 */
+}
+
+.dev-tools-mobile-mode * {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dev-tools-mobile-mode .container {
+    max-width: 100%;
+    padding: 0.5rem;
+}
+
+/* 确保桌面端不受影响的保护性样式 */
+@media screen and (min-width: 1025px) and (pointer: fine) {
+    /* 重置所有移动端优化，确保桌面端正常显示 */
+    .mobile-optimized,
+    .small-screen-optimized,
+    .medium-screen-optimized,
+    .tablet-device,
+    .low-end-device,
+    .reduce-animations,
+    .disable-animations,
+    .simplified-ui,
+    .data-saving-mode {
+        /* 桌面端保持原有样式 */
+    }
+
+    /* 确保桌面端动画正常 */
+    .disable-animations *,
+    .reduce-animations * {
+        animation-duration: initial !important;
+        transition-duration: initial !important;
+    }
+
+    /* 确保桌面端阴影效果正常 */
+    .simplified-ui .info-card,
+    .simplified-ui .copy-btn,
+    .simplified-ui .theme-toggle {
+        box-shadow: initial !important;
+        border: initial !important;
+    }
+}
+
+/* 响应式断点保护 */
+@media screen and (min-width: 769px) {
+    /* 确保中大屏幕设备不应用小屏幕优化 */
+    .small-screen-optimized .hero-title {
+        font-size: initial;
+    }
+
+    .small-screen-optimized .info-card {
+        padding: initial;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    .mobile-optimized,
+    .low-end-device,
+    .simplified-ui {
+        /* 打印时使用简化样式 */
+        color: black !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .mobile-optimized .info-card {
+        border: 2px solid currentColor;
+    }
+
+    .mobile-optimized .copy-btn,
+    .mobile-optimized .theme-toggle {
+        border: 2px solid currentColor;
+    }
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+    .mobile-optimized *,
+    .mobile-optimized *::before,
+    .mobile-optimized *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

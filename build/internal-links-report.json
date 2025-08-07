@@ -1,21 +1,22 @@
 {
-  "timestamp": "2025-08-06T07:15:21.901Z",
-  "totalPages": 9,
-  "totalCategories": 5,
+  "timestamp": "2025-08-07T07:55:58.756Z",
+  "totalPages": 10,
+  "totalCategories": 6,
   "pagesByCategory": {
     "device-info": 3,
     "calculator": 2,
     "tools": 2,
     "reference": 1,
+    "main": 1,
     "content": 1
   },
   "languageSupport": {
     "en": {
-      "totalPages": 9,
+      "totalPages": 10,
       "missingUrls": []
     },
     "zh": {
-      "totalPages": 9,
+      "totalPages": 10,
       "missingUrls": []
     }
   }

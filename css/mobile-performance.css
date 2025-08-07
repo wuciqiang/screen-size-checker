@@ -2,9 +2,51 @@
 
 /* 基础移动端优化类 */
 .mobile-optimized {
-    /* 启用硬件加速 */
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    /* 移动端优化标记，不直接应用样式避免冲突 */
+}
+
+/* 移动端布局保护 - 确保基础布局不被破坏 */
+.mobile-optimized .container,
+.mobile-optimized .main-content {
+    /* 保护主要容器的布局 */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 确保导航和头部在移动端正常显示 */
+.mobile-optimized .header,
+.mobile-optimized .nav,
+.mobile-optimized .navigation {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* 保护关键内容区域 */
+.mobile-optimized .hero-section,
+.mobile-optimized .info-dashboard,
+.mobile-optimized .dashboard-container {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* 确保信息卡片在移动端正常显示 */
+.mobile-optimized .info-card {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+}
+
+/* 移动端文本可读性保护 */
+.mobile-optimized h1,
+.mobile-optimized h2,
+.mobile-optimized h3,
+.mobile-optimized p,
+.mobile-optimized span,
+.mobile-optimized div {
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
 }
 
 /* 平板设备优化 */
@@ -107,18 +149,14 @@
     overflow-anchor: none;
 }
 
-/* 硬件加速优化 */
-.info-card,
-.tool-card,
-.hero-section,
-.fade-in,
-.slide-in {
+/* 硬件加速优化 - 仅在移动端优化启用时应用 */
+.mobile-optimized .mobile-hw-accelerated {
     transform: translateZ(0);
     will-change: transform;
     backface-visibility: hidden;
 }
 
-.animated {
+.mobile-optimized .mobile-animated {
     transform: translate3d(0, 0, 0);
     animation-fill-mode: both;
 }
@@ -132,45 +170,45 @@
     /* 横屏模式特定样式 */
 }
 
-/* 响应式断点优化 */
+/* 响应式断点优化 - 使用更具体的选择器避免冲突 */
 @media (max-width: 480px) {
-    .mobile-optimized .small-screen-hide {
+    .mobile-optimized.small-screen-optimized .small-screen-hide {
         display: none !important;
     }
     
-    .mobile-optimized .container {
+    .mobile-optimized.small-screen-optimized .mobile-container {
         padding: 0.5rem;
     }
     
-    .mobile-optimized .info-card {
+    .mobile-optimized.small-screen-optimized .mobile-info-card {
         margin-bottom: 0.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    .mobile-optimized .medium-screen-hide {
+    .mobile-optimized.medium-screen-optimized .medium-screen-hide {
         display: none !important;
     }
     
-    .mobile-optimized .hero-section {
+    .mobile-optimized.medium-screen-optimized .mobile-hero-section {
         padding: 1rem 0;
     }
 }
 
-/* 低端设备特定优化 */
+/* 低端设备特定优化 - 使用更安全的选择器 */
 @media (max-width: 480px) {
-    .low-end-device .hero-section {
+    .low-end-device.mobile-optimized .hero-section {
         background: #f8f9fa !important;
         background-image: none !important;
     }
     
-    .low-end-device .info-card {
+    .low-end-device.mobile-optimized .info-card {
         border-radius: 4px !important;
         box-shadow: none !important;
         border: 1px solid #dee2e6;
     }
     
-    .low-end-device .btn {
+    .low-end-device.mobile-optimized .btn {
         border-radius: 4px !important;
         box-shadow: none !important;
     }

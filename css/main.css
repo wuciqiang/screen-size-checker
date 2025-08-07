@@ -413,6 +413,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
 }
 
 /* 用户代理字段的复制按钮定位 */
@@ -420,6 +421,7 @@ body {
     position: static;
     margin-left: auto;
     margin-right: 0;
+    flex-shrink: 0;
 }
 
 .info-label {
@@ -457,6 +459,8 @@ body {
     color: var(--text-primary);
     resize: vertical;
     line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-all;
     
     /* Font optimization for monospace textarea */
     font-display: swap;
