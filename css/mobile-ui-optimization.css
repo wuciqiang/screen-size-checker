@@ -26,6 +26,12 @@
 
     .mobile-optimized .hero-section {
         padding: 2rem 1rem;
+        margin-top: 64px; /* 为固定导航栏留出空间 */
+    }
+
+    /* 为固定导航栏调整页面内容 */
+    body {
+        padding-top: 64px; /* 导航栏高度 + 一些边距 */
     }
 
     .mobile-optimized .info-dashboard {
@@ -57,7 +63,14 @@
     /* 移动端导航优化 */
     .header {
         padding: 0.5rem 0.75rem;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--background-primary);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-light);
     }
 
     .header-container {
