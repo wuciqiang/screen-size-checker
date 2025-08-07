@@ -60,6 +60,54 @@
         min-height: 44px;
     }
 
+    /* 移动端信息行优化 - 确保User Agent字段的标签和复制按钮正确对齐 */
+    .info-row-full .info-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .info-row-full .copy-btn {
+        position: static;
+        margin-left: auto;
+        margin-right: 0;
+        flex-shrink: 0;
+        min-height: 32px;
+        min-width: 60px;
+    }
+
+    /* 移动端普通信息行优化 - 修复数值与复制按钮重叠问题 */
+    .info-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: var(--spacing-sm) 0;
+    }
+
+    .info-label {
+        font-size: 0.875rem;
+    }
+
+    .info-value {
+        font-size: 0.875rem;
+        margin-right: var(--spacing-xl);
+    }
+
+    .copy-btn {
+        font-size: 0.8125rem;
+    }
+
+    /* 移动端复制按钮统一尺寸 */
+    .copy-btn {
+        min-height: 32px;
+        min-width: 50px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8125rem;
+    }
+
     /* 移动端导航优化 */
     .header {
         padding: 0.5rem 0.75rem;
@@ -285,6 +333,45 @@
     .language-button .language-icon,
     .theme-toggle .theme-icon {
         font-size: 1.1rem;
+    }
+    
+    /* 小屏幕信息行优化 - 修复重叠和尺寸问题 */
+    .info-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        flex-wrap: nowrap; /* 防止换行 */
+        gap: var(--spacing-xs);
+        min-height: 32px; /* 确保足够的高度 */
+    }
+    
+    .info-label {
+        flex: 0 0 auto;
+        margin-right: var(--spacing-sm);
+        font-size: 0.8125rem;
+        white-space: nowrap; /* 防止标签换行 */
+    }
+    
+    .info-value {
+        flex: 1 1 auto;
+        margin-right: var(--spacing-lg);
+        margin-bottom: 0;
+        font-size: 0.8125rem;
+        padding: var(--spacing-xs);
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* 防止值换行 */
+    }
+    
+    .copy-btn {
+        position: absolute;
+        right: 0;
+        flex: 0 0 auto;
+        font-size: 0.75rem;
+        padding: var(--spacing-xs);
+        min-width: 28px; /* 确保按钮最小宽度 */
     }
 }
 

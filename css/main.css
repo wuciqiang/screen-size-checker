@@ -418,9 +418,10 @@ body {
 
 /* 用户代理字段的复制按钮定位 */
 .info-row-full .copy-btn {
-    position: static;
-    margin-left: auto;
-    margin-right: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
     flex-shrink: 0;
 }
 
@@ -438,7 +439,7 @@ body {
     background: var(--background-secondary);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
-    margin-right: var(--spacing-xl);
+    margin-right: 4rem; /* 增加右边距，避免与复制按钮重叠 */
     
     /* Font optimization for monospace */
     font-display: swap;
