@@ -1583,7 +1583,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.locales_path = 'locales';
         rootPageData.js_path = 'js';
         rootPageData.home_url = 'index.html';
-        rootPageData.blog_url = 'blog/index.html';
+        rootPageData.blog_url = 'en/blog/';
         rootPageData.privacy_policy_url = 'privacy-policy.html';
         rootPageData.device_links_base = 'devices/';
         
@@ -1642,8 +1642,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         fs.writeFileSync(path.join(outputDir, 'index.html'), rootHtml);
         console.log('✅ Root English homepage created (no redirect)');
         
-        // 1.5. 生成根目录博客内容（英文版本）
-        this.generateRootBlogContent(outputDir, config, englishTranslations);
+        // 1.5. 跳过根目录博客内容生成，博客链接将指向 /en/blog/
+        console.log('📝 Skipping root directory blog content generation - blog links will point to /en/blog/');
         
         // 1.6. 生成根目录设备页面（英文版本）
         this.generateRootDevicePages(outputDir, config, englishTranslations);
@@ -2012,6 +2012,11 @@ ${languageCards}
 # 根目录重定向已移除 - 根目录现在直接显示英文内容，无需重定向
 # / /en/ 302  # 已移除：根目录不再重定向
 # /index.html /en/ 301  # 已移除：根目录index.html不再重定向
+
+# ===== 根域名博客重定向 =====
+# 根域名下的博客访问重定向到 /en/blog/ 路径，避免重复内容问题
+/blog/* /en/blog/:splat 301
+/blog /en/blog/ 301
 
 # ===== 旧URL重定向到新URL（带.html后缀的重定向到无后缀）=====
 /devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
