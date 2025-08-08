@@ -521,13 +521,14 @@ function setupBasicEventListeners() {
 
 /**
  * Navigate to the corresponding language URL
+ * Updated for SEO redirect optimization: root = English, /en/ redirects to root
  */
 function navigateToLanguage(newLang) {
     const currentPath = window.location.pathname;
     const currentSearch = window.location.search;
     const currentHash = window.location.hash;
 
-    console.log('Navigating to language:', newLang, 'from path:', currentPath);
+    console.log('🌐 Navigating to language:', newLang, 'from path:', currentPath);
 
     // Save language preference
     localStorage.setItem('i18nextLng', newLang);
@@ -548,40 +549,82 @@ function navigateToLanguage(newLang) {
                 return;
             }
 
-            newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
+            // SEO optimization: English goes to root, others use language prefix
+            if (newLang === 'en') {
+                newPath = `${basePath}/multilang-build${pathAfterLang}`;
+                console.log('🏠 English: using root path for SEO optimization');
+            } else {
+                newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
+            }
         } else {
             // Fallback for build directory
-            newPath = `/multilang-build/${newLang}/index.html`;
+            if (newLang === 'en') {
+                newPath = `/multilang-build/index.html`;
+            } else {
+                newPath = `/multilang-build/${newLang}/index.html`;
+            }
         }
     } else {
-        // Standard URL pattern like /en/... or /zh/...
-        const langMatch = currentPath.match(/^\/([a-z]{2})(\/.*)?$/);
-
-        if (langMatch) {
-            // We're in a language path like /en/... or /zh/...
-            const currentLang = langMatch[1];
-            const pathAfterLang = langMatch[2] || '/';
-
-            if (currentLang === newLang) {
-                console.log('Already in the correct language');
-                return;
-            }
-
-            // Replace the language part
-            newPath = `/${newLang}${pathAfterLang}`;
-        } else if (currentPath === '/' || currentPath === '') {
-            // We're at the root, go to the language root
-            newPath = `/${newLang}/`;
+        // Standard URL pattern - SEO optimized structure
+        const pathParts = currentPath.split('/').filter(part => part);
+        
+        // Determine current language and page path
+        let currentLang = 'en';
+        let pagePath = '';
+        
+        if (pathParts.length === 0) {
+            // Root path (/) - this is English content
+            currentLang = 'en';
+            pagePath = '';
         } else {
-            // We're in a path without language prefix, add the language
-            newPath = `/${newLang}${currentPath}`;
+            // Check if first part is a language code
+            const possibleLang = pathParts[0];
+            const supportedLangs = ['en', 'zh', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'ru'];
+            
+            if (supportedLangs.includes(possibleLang)) {
+                currentLang = possibleLang;
+                pagePath = pathParts.slice(1).join('/');
+            } else {
+                // No language prefix - treat as root English content
+                currentLang = 'en';
+                pagePath = pathParts.join('/');
+            }
+        }
+
+        if (currentLang === newLang) {
+            console.log('Already in the correct language');
+            return;
+        }
+
+        // Build target URL based on SEO-optimized structure
+        if (newLang === 'en') {
+            // English: ALWAYS use root path without language prefix
+            if (pagePath) {
+                newPath = `/${pagePath}`;
+            } else {
+                newPath = '/';
+            }
+            console.log('🏠 English: using root path for SEO optimization');
+        } else {
+            // Other languages: use language prefix
+            newPath = `/${newLang}`;
+            if (pagePath) {
+                newPath += `/${pagePath}`;
+            }
+            
+            // Ensure trailing slash for directory-like paths
+            if (!pagePath || (!pagePath.includes('.') && !pagePath.endsWith('/'))) {
+                newPath += '/';
+            }
+            console.log('🌍 Non-English: using language prefix');
         }
     }
 
     // Construct the full URL
     const newUrl = newPath + currentSearch + currentHash;
 
-    console.log('Navigating to:', newUrl);
+    console.log('🎯 Navigating to:', newUrl);
+    console.log('📊 Language switch mapping:', currentPath, '->', newUrl);
 
     // Navigate to the new URL
     window.location.href = newUrl;

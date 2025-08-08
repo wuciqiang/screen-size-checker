@@ -335,6 +335,18 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.page_path = '/';
                     }
                     
+                    // 为hreflang标签设置正确的URL
+                    // 根目录版本（英文主要版本）
+                    pageData.hreflang_root_url = pageData.page_path === '/' ? 
+                        'https://screensizechecker.com/' : 
+                        `https://screensizechecker.com${pageData.page_path}`;
+                    
+                    // 英文备用版本
+                    pageData.hreflang_en_url = `https://screensizechecker.com/en${pageData.page_path}`;
+                    
+                    // 中文版本
+                    pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+                    
                     // 添加结构化数据
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
                     
@@ -437,6 +449,9 @@ class MultiLangBuilder extends ComponentBuilder {
         
         // 生成多语言网站地图（只包含启用的语言）
         this.generateMultiLanguageSitemap(outputDir);
+        
+        // 执行内容一致性检查
+        this.validateContentConsistency(outputDir);
         
         // 提取并内联关键CSS (临时禁用以修复HTML结构问题)
         // this.extractAndInlineCriticalCSS(outputDir);
@@ -1311,96 +1326,327 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         return html;
     }
     
+    // 生成根目录博客内容（英文版本）
+    generateRootBlogContent(outputDir, config, englishTranslations) {
+        console.log('📝 Generating root directory blog content...');
+        
+        // 创建根目录博客目录
+        const rootBlogDir = path.join(outputDir, 'blog');
+        fs.mkdirSync(rootBlogDir, { recursive: true });
+        
+        // 创建博客子目录
+        const blogSubDirs = ['category', 'tag'];
+        blogSubDirs.forEach(subDir => {
+            fs.mkdirSync(path.join(rootBlogDir, subDir), { recursive: true });
+        });
+        
+        // 获取所有博客相关页面
+        const blogPages = config.pages.filter(page => 
+            page.output.startsWith('blog/') && 
+            (!page.enabled_languages || page.enabled_languages.includes('en'))
+        );
+        
+        console.log(`  📄 Found ${blogPages.length} blog pages to generate at root level`);
+        
+        // 为每个博客页面生成根目录版本
+        for (const page of blogPages) {
+            try {
+                // 准备根目录博客页面数据
+                const rootPageData = {
+                    lang: 'en',
+                    page_content: page.page_content,
+                    ...page.config
+                };
+                
+                // 调整根目录博客页面的路径
+                rootPageData.css_path = '../css';
+                rootPageData.locales_path = '../locales';
+                rootPageData.js_path = '../js';
+                rootPageData.home_url = '../index.html';
+                rootPageData.blog_url = 'index.html';
+                rootPageData.privacy_policy_url = '../privacy-policy.html';
+                
+                // 更新canonical URL为根目录版本
+                if (rootPageData.canonical_url) {
+                    rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/blog/', '/blog/');
+                    rootPageData.og_url = rootPageData.canonical_url;
+                }
+                
+                // 设置hreflang数据
+                rootPageData.base_url = 'https://screensizechecker.com';
+                const blogPath = page.output.replace('blog/', '/blog/');
+                rootPageData.page_path = blogPath.replace('.html', '');
+                rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
+                rootPageData.hreflang_en_url = `https://screensizechecker.com/en${rootPageData.page_path}`;
+                rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
+                
+                // 处理翻译
+                if (rootPageData.page_title_key) {
+                    const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
+                    if (translationValue) {
+                        rootPageData.page_title = translationValue;
+                    } else {
+                        rootPageData.page_title = rootPageData.og_title || page.name;
+                    }
+                } else {
+                    rootPageData.page_title = rootPageData.og_title || page.name;
+                }
+                
+                rootPageData.title = rootPageData.page_title;
+                
+                if (rootPageData.page_description_key) {
+                    const descriptionValue = this.getNestedTranslation(englishTranslations, rootPageData.page_description_key);
+                    if (descriptionValue) {
+                        rootPageData.description = descriptionValue;
+                    } else {
+                        rootPageData.description = rootPageData.og_description || '';
+                    }
+                } else {
+                    rootPageData.description = rootPageData.og_description || '';
+                }
+                
+                // 添加结构化数据
+                rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
+                
+                // 构建HTML
+                let html = this.buildPage(page.template, rootPageData);
+                
+                // 应用英文翻译
+                html = this.translateContent(html, englishTranslations);
+                
+                // 处理内链
+                html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
+                
+                // 修复静态资源路径
+                html = this.fixStaticResourcePaths(html, page.output);
+                
+                // 写入文件
+                const outputPath = path.join(outputDir, page.output);
+                const outputDirPath = path.dirname(outputPath);
+                
+                if (!fs.existsSync(outputDirPath)) {
+                    fs.mkdirSync(outputDirPath, { recursive: true });
+                }
+                
+                fs.writeFileSync(outputPath, html);
+                console.log(`  ✅ Generated root blog page: ${page.output}`);
+                
+            } catch (error) {
+                console.error(`  ❌ Failed to generate root blog page ${page.output}:`, error.message);
+            }
+        }
+        
+        console.log('✅ Root directory blog content generated');
+    }
+    
+    // 生成根目录设备页面（英文版本）
+    generateRootDevicePages(outputDir, config, englishTranslations) {
+        console.log('🔧 Generating root directory device pages...');
+        
+        // 创建根目录设备目录
+        const rootDevicesDir = path.join(outputDir, 'devices');
+        fs.mkdirSync(rootDevicesDir, { recursive: true });
+        
+        // 获取所有设备页面
+        const devicePages = config.pages.filter(page => 
+            page.output.startsWith('devices/') && 
+            (!page.enabled_languages || page.enabled_languages.includes('en'))
+        );
+        
+        console.log(`  🔧 Found ${devicePages.length} device pages to generate at root level`);
+        
+        // 为每个设备页面生成根目录版本
+        for (const page of devicePages) {
+            try {
+                // 准备根目录设备页面数据
+                const rootPageData = {
+                    lang: 'en',
+                    page_content: page.page_content,
+                    ...page.config
+                };
+                
+                // 调整根目录设备页面的路径
+                rootPageData.css_path = '../css';
+                rootPageData.locales_path = '../locales';
+                rootPageData.js_path = '../js';
+                rootPageData.home_url = '../index.html';
+                rootPageData.blog_url = '../blog/index.html';
+                rootPageData.privacy_policy_url = '../privacy-policy.html';
+                rootPageData.device_links_base = '';
+                
+                // 更新canonical URL为根目录版本
+                if (rootPageData.canonical_url) {
+                    rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/devices/', '/devices/').replace('.html', '');
+                    rootPageData.og_url = rootPageData.canonical_url;
+                }
+                
+                // 设置hreflang数据
+                rootPageData.base_url = 'https://screensizechecker.com';
+                const devicePath = page.output.replace('devices/', '/devices/');
+                rootPageData.page_path = devicePath.replace('.html', '');
+                rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
+                rootPageData.hreflang_en_url = `https://screensizechecker.com/en${rootPageData.page_path}`;
+                rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
+                
+                // 处理翻译
+                if (rootPageData.page_title_key) {
+                    const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
+                    if (translationValue) {
+                        rootPageData.page_title = translationValue;
+                    } else {
+                        rootPageData.page_title = rootPageData.og_title || page.name;
+                    }
+                } else {
+                    rootPageData.page_title = rootPageData.og_title || page.name;
+                }
+                
+                rootPageData.title = rootPageData.page_title;
+                
+                if (rootPageData.page_description_key) {
+                    const descriptionValue = this.getNestedTranslation(englishTranslations, rootPageData.page_description_key);
+                    if (descriptionValue) {
+                        rootPageData.description = descriptionValue;
+                    } else {
+                        rootPageData.description = rootPageData.og_description || '';
+                    }
+                } else {
+                    rootPageData.description = rootPageData.og_description || '';
+                }
+                
+                // 添加结构化数据
+                rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
+                
+                // 为responsive-tester页面添加FAQ结构化数据
+                if (page.name === 'responsive-tester') {
+                    rootPageData.faq_structured_data = this.generateFAQStructuredData('en');
+                } else {
+                    rootPageData.faq_structured_data = '';
+                }
+                
+                // 构建HTML
+                let html = this.buildPage(page.template, rootPageData);
+                
+                // 应用英文翻译
+                html = this.translateContent(html, englishTranslations);
+                
+                // 处理内链
+                html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
+                
+                // 修复静态资源路径
+                html = this.fixStaticResourcePaths(html, page.output);
+                
+                // 写入文件
+                const outputPath = path.join(outputDir, page.output);
+                fs.writeFileSync(outputPath, html);
+                console.log(`  ✅ Generated root device page: ${page.output}`);
+                
+            } catch (error) {
+                console.error(`  ❌ Failed to generate root device page ${page.output}:`, error.message);
+            }
+        }
+        
+        console.log('✅ Root directory device pages generated');
+    }
+
     // 生成语言选择索引页面
     generateLanguageIndex(outputDir) {
-        console.log('\n📋 Generating language selection and redirect pages...');
+        console.log('\n📋 Generating root English page and language selection...');
         
         // 定义已启用的语言（只有英文和中文）
         const enabledLanguages = ['en', 'zh'];
         
-        // 1. 生成根目录重定向页面（默认重定向到英文）
-        const redirectHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screen Size Checker - Redirecting to English</title>
-    <link rel="canonical" href="https://screensizechecker.com/en/">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 800px; 
-            margin: 50px auto; 
-            padding: 20px; 
-            text-align: center;
-            background-color: #f8f9fa;
-        }
-        .loading {
-            color: #007bff;
-            font-size: 1.2em;
-            margin-top: 50px;
-        }
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #007bff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .language-options {
-            margin-top: 30px;
-        }
-        .language-options a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            color: #007bff;
-            text-decoration: none;
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .language-options a:hover {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <h1>🌍 Screen Size Checker</h1>
-    <div class="loading">Redirecting to English version...</div>
-    <div class="spinner"></div>
-    <div class="language-options">
-        <p>If you are not redirected automatically:</p>
-        <a href="/en/">English (Default)</a>
-        <a href="/zh/">中文</a>
-        <a href="/select-language.html">More Languages</a>
-    </div>
-    
-    <script>
-        // 默认重定向到英文页面
-        function redirectToEnglish() {
-            // 直接重定向到英文页面，不进行语言检测
-            window.location.href = '/en/';
+        // 1. 生成根目录英文主页内容（不再重定向）
+        console.log('🏠 Generating root directory English homepage...');
+        
+        // 获取英文翻译
+        const englishTranslations = this.translations.get('en') || {};
+        
+        // 配置根目录页面数据，基于pages-config.json中的index页面配置
+        const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
+        const indexPageConfig = config.pages.find(page => page.name === 'index');
+        
+        if (!indexPageConfig) {
+            throw new Error('Index page configuration not found in pages-config.json');
         }
         
-        // 页面加载后立即重定向到英文
-        window.addEventListener('load', redirectToEnglish);
+        // 准备根目录页面数据
+        const rootPageData = {
+            lang: 'en',
+            page_content: indexPageConfig.page_content,
+            ...indexPageConfig.config
+        };
         
-        // 备用重定向（防止JavaScript被禁用）
-        setTimeout(redirectToEnglish, 500);
-    </script>
-</body>
-</html>`;
+        // 设置根目录特定的路径和URL
+        rootPageData.canonical_url = 'https://screensizechecker.com/';
+        rootPageData.og_url = 'https://screensizechecker.com/';
+        rootPageData.css_path = 'css';
+        rootPageData.locales_path = 'locales';
+        rootPageData.js_path = 'js';
+        rootPageData.home_url = 'index.html';
+        rootPageData.blog_url = 'blog/index.html';
+        rootPageData.privacy_policy_url = 'privacy-policy.html';
+        rootPageData.device_links_base = 'devices/';
         
-        fs.writeFileSync(path.join(outputDir, 'index.html'), redirectHtml);
-        console.log('✅ Root redirect page created (redirects to English)');
+        // 设置根目录页面的hreflang数据
+        rootPageData.base_url = 'https://screensizechecker.com';
+        rootPageData.page_path = '/';
+        rootPageData.hreflang_root_url = 'https://screensizechecker.com/';
+        rootPageData.hreflang_en_url = 'https://screensizechecker.com/en/';
+        rootPageData.hreflang_zh_url = 'https://screensizechecker.com/zh/';
+        
+        // 从翻译文件中获取页面特定的翻译值
+        if (rootPageData.page_title_key) {
+            const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
+            if (translationValue) {
+                rootPageData.page_title = translationValue;
+            } else {
+                rootPageData.page_title = rootPageData.og_title || 'Screen Size Checker';
+            }
+        } else {
+            rootPageData.page_title = rootPageData.og_title || 'Screen Size Checker';
+        }
+        
+        // 确保title变量也被设置
+        rootPageData.title = rootPageData.page_title;
+        
+        if (rootPageData.page_description_key) {
+            const descriptionValue = this.getNestedTranslation(englishTranslations, rootPageData.page_description_key);
+            if (descriptionValue) {
+                rootPageData.description = descriptionValue;
+            } else {
+                rootPageData.description = rootPageData.og_description || '';
+            }
+        } else {
+            rootPageData.description = rootPageData.og_description || '';
+        }
+        
+        // 添加结构化数据
+        rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
+        
+        // 构建根目录HTML页面
+        let rootHtml = this.buildPage(indexPageConfig.template, rootPageData);
+        
+        // 应用英文翻译
+        rootHtml = this.translateContent(rootHtml, englishTranslations);
+        
+        // 处理内链（根目录页面使用特殊的页面ID）
+        rootHtml = this.internalLinksProcessor.processPageLinks(rootHtml, 'index-root', 'en');
+        
+        // 更新HTML lang属性
+        rootHtml = rootHtml.replace('<html lang="en">', '<html lang="en">');
+        
+        // 修复静态资源路径（根目录不需要额外的路径前缀）
+        rootHtml = this.fixStaticResourcePaths(rootHtml, 'index.html');
+        
+        // 写入根目录index.html
+        fs.writeFileSync(path.join(outputDir, 'index.html'), rootHtml);
+        console.log('✅ Root English homepage created (no redirect)');
+        
+        // 1.5. 生成根目录博客内容（英文版本）
+        this.generateRootBlogContent(outputDir, config, englishTranslations);
+        
+        // 1.6. 生成根目录设备页面（英文版本）
+        this.generateRootDevicePages(outputDir, config, englishTranslations);
         
         // 2. 生成语言选择页面到 select-language.html
         // 语言配置
@@ -1569,7 +1815,7 @@ ${languageCards}
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
         
-        // 添加根路径（重定向到英文）
+        // 添加根路径（英文版本的主要入口）
         sitemapContent += `
     <url>
         <loc>${baseUrl}/</loc>
@@ -1577,6 +1823,30 @@ ${languageCards}
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>`;
+        
+        // 添加根目录的设备页面（英文主要版本）
+        pages.forEach(page => {
+            if (page.path !== '') {
+                sitemapContent += `
+    <url>
+        <loc>${baseUrl}${page.path}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+            }
+        });
+        
+        // 添加根目录的博客页面（英文主要版本）
+        blogPages.forEach(page => {
+            sitemapContent += `
+    <url>
+        <loc>${baseUrl}${page.path}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>`;
+        });
         
         // 添加语言选择页面
         sitemapContent += `
@@ -1592,34 +1862,49 @@ ${languageCards}
             // 添加基础页面
             pages.forEach(page => {
                 if (page.path === '') {
-                    // 语言首页
+                    // 语言首页 - 调整英文版本的优先级
+                    const priority = lang === 'en' ? '0.9' : page.priority; // 英文备用版本优先级稍低
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}/</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${page.priority}</priority>
+        <priority>${priority}</priority>
     </url>`;
                 } else {
-                    // 其他页面
+                    // 其他页面 - 根据语言调整优先级
+                    let adjustedPriority = page.priority;
+                    if (lang === 'en') {
+                        // 英文版本的子页面优先级稍低，因为根目录版本是主要的
+                        adjustedPriority = (parseFloat(page.priority) - 0.1).toFixed(1);
+                        if (adjustedPriority < 0.1) adjustedPriority = '0.1';
+                    }
+                    
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${page.priority}</priority>
+        <priority>${adjustedPriority}</priority>
     </url>`;
                 }
             });
             
-            // 添加博客页面
+            // 添加博客页面 - 根据语言调整优先级
             blogPages.forEach(page => {
+                let adjustedPriority = page.priority;
+                if (lang === 'en') {
+                    // 英文版本的博客页面优先级稍低，因为根目录版本是主要的
+                    adjustedPriority = (parseFloat(page.priority) - 0.1).toFixed(1);
+                    if (adjustedPriority < 0.1) adjustedPriority = '0.1';
+                }
+                
                 sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${page.priority}</priority>
+        <priority>${adjustedPriority}</priority>
     </url>`;
             });
             
@@ -1651,11 +1936,20 @@ ${languageCards}
         
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
         
-        const totalUrls = 3 + (enabledLanguages.length * (pages.length + blogPages.length)) + zhBlogPages.length;
-        console.log('✅ Multilingual sitemap generated (enabled languages only)');
+        // 计算总URL数量：
+        // 1个根目录 + 根目录的设备页面 + 根目录的博客页面 + 1个语言选择页面 + 1个隐私政策页面
+        // + 语言版本页面 + 中文特有页面
+        const rootUrls = 1 + (pages.length - 1) + blogPages.length; // 根目录相关URL
+        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 语言版本URL
+        const otherUrls = 2; // 语言选择页面 + 隐私政策页面
+        const totalUrls = rootUrls + languageUrls + zhBlogPages.length + otherUrls;
+        
+        console.log('✅ Multilingual sitemap generated with optimized structure');
         console.log(`   📄 Total URLs: ${totalUrls}`);
-        console.log(`   🌍 Languages included: ${enabledLanguages.join(', ')}`);
-        console.log(`   📝 Blog pages included: ${blogPages.length} common + ${zhBlogPages.length} Chinese-specific`);
+        console.log(`   🏠 Root domain URLs: ${rootUrls} (priority 1.0-0.9)`);
+        console.log(`   🌍 Language versions: ${languageUrls} (adjusted priorities)`);
+        console.log(`   🇨🇳 Chinese-specific: ${zhBlogPages.length}`);
+        console.log(`   📝 Other pages: ${otherUrls}`);
     }
     
     // 生成构建报告
@@ -1715,8 +2009,9 @@ ${languageCards}
 # 简化版本 - 避免重定向循环
 
 # ===== 根目录重定向 =====
-/ /en/ 302
-/index.html /en/ 301
+# 根目录重定向已移除 - 根目录现在直接显示英文内容，无需重定向
+# / /en/ 302  # 已移除：根目录不再重定向
+# /index.html /en/ 301  # 已移除：根目录index.html不再重定向
 
 # ===== 旧URL重定向到新URL（带.html后缀的重定向到无后缀）=====
 /devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
@@ -1768,26 +2063,208 @@ ${languageCards}
     }
     
     // 生成优化的robots.txt文件
+    // 内容一致性检查：确保根目录和 /en/ 页面内容同步
+    validateContentConsistency(outputDir) {
+        console.log('\n🔍 Validating content consistency between root and /en/ versions...');
+        
+        const inconsistencies = [];
+        const rootDir = outputDir;
+        const enDir = path.join(outputDir, 'en');
+        
+        // 需要检查的页面列表
+        const pagesToCheck = [
+            'index.html',
+            'devices/iphone-viewport-sizes.html',
+            'devices/ipad-viewport-sizes.html',
+            'devices/android-viewport-sizes.html',
+            'devices/compare.html',
+            'devices/standard-resolutions.html',
+            'devices/responsive-tester.html',
+            'devices/ppi-calculator.html',
+            'devices/aspect-ratio-calculator.html'
+        ];
+        
+        let checkedPages = 0;
+        let consistentPages = 0;
+        
+        pagesToCheck.forEach(pagePath => {
+            const rootPagePath = path.join(rootDir, pagePath);
+            const enPagePath = path.join(enDir, pagePath);
+            
+            // 检查文件是否存在
+            if (!fs.existsSync(rootPagePath)) {
+                inconsistencies.push({
+                    page: pagePath,
+                    issue: 'Root version missing',
+                    severity: 'error'
+                });
+                return;
+            }
+            
+            if (!fs.existsSync(enPagePath)) {
+                inconsistencies.push({
+                    page: pagePath,
+                    issue: '/en/ version missing',
+                    severity: 'error'
+                });
+                return;
+            }
+            
+            try {
+                // 读取文件内容
+                const rootContent = fs.readFileSync(rootPagePath, 'utf8');
+                const enContent = fs.readFileSync(enPagePath, 'utf8');
+                
+                checkedPages++;
+                
+                // 检查关键SEO元素的一致性
+                const seoChecks = [
+                    { name: 'Title', regex: /<title[^>]*>(.*?)<\/title>/i },
+                    { name: 'Meta Description', regex: /<meta[^>]*name="description"[^>]*content="([^"]*)"[^>]*>/i },
+                    { name: 'H1 Tag', regex: /<h1[^>]*>(.*?)<\/h1>/i }
+                ];
+                
+                let pageConsistent = true;
+                
+                seoChecks.forEach(check => {
+                    const rootMatch = rootContent.match(check.regex);
+                    const enMatch = enContent.match(check.regex);
+                    
+                    if (rootMatch && enMatch) {
+                        const rootValue = rootMatch[1].trim();
+                        const enValue = enMatch[1].trim();
+                        
+                        // 对于主页，根目录和/en/版本的内容应该相同
+                        if (pagePath === 'index.html' && rootValue !== enValue) {
+                            inconsistencies.push({
+                                page: pagePath,
+                                issue: `${check.name} differs: Root="${rootValue}" vs En="${enValue}"`,
+                                severity: 'warning'
+                            });
+                            pageConsistent = false;
+                        }
+                    }
+                });
+                
+                // 检查canonical URL的正确性
+                const rootCanonical = rootContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
+                const enCanonical = enContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
+                
+                if (rootCanonical && enCanonical) {
+                    const rootCanonicalUrl = rootCanonical[1];
+                    const enCanonicalUrl = enCanonical[1];
+                    
+                    // 验证canonical URL的正确性
+                    const expectedRootCanonical = rootCanonicalUrl.replace('/en/', '/');
+                    const expectedEnCanonical = enCanonicalUrl;
+                    
+                    if (!rootCanonicalUrl.endsWith('/') && !rootCanonicalUrl.includes('/en/')) {
+                        // 根目录版本的canonical应该指向根域名
+                    } else if (rootCanonicalUrl.includes('/en/')) {
+                        inconsistencies.push({
+                            page: pagePath,
+                            issue: `Root version has incorrect canonical URL: ${rootCanonicalUrl}`,
+                            severity: 'error'
+                        });
+                        pageConsistent = false;
+                    }
+                    
+                    if (!enCanonicalUrl.includes('/en/')) {
+                        inconsistencies.push({
+                            page: pagePath,
+                            issue: `/en/ version has incorrect canonical URL: ${enCanonicalUrl}`,
+                            severity: 'error'
+                        });
+                        pageConsistent = false;
+                    }
+                }
+                
+                if (pageConsistent) {
+                    consistentPages++;
+                }
+                
+            } catch (error) {
+                inconsistencies.push({
+                    page: pagePath,
+                    issue: `Error reading files: ${error.message}`,
+                    severity: 'error'
+                });
+            }
+        });
+        
+        // 生成验证报告
+        const validationReport = {
+            timestamp: new Date().toISOString(),
+            summary: {
+                totalPages: pagesToCheck.length,
+                checkedPages,
+                consistentPages,
+                inconsistencies: inconsistencies.length
+            },
+            issues: inconsistencies
+        };
+        
+        // 保存验证报告
+        fs.writeFileSync(
+            path.join(outputDir, 'content-consistency-report.json'),
+            JSON.stringify(validationReport, null, 2)
+        );
+        
+        // 输出结果
+        console.log(`📊 Content consistency validation completed:`);
+        console.log(`   📄 Pages checked: ${checkedPages}/${pagesToCheck.length}`);
+        console.log(`   ✅ Consistent pages: ${consistentPages}`);
+        console.log(`   ⚠️  Issues found: ${inconsistencies.length}`);
+        
+        if (inconsistencies.length > 0) {
+            console.log('\n⚠️  Content consistency issues:');
+            inconsistencies.slice(0, 5).forEach(issue => {
+                const icon = issue.severity === 'error' ? '❌' : '⚠️';
+                console.log(`   ${icon} ${issue.page}: ${issue.issue}`);
+            });
+            
+            if (inconsistencies.length > 5) {
+                console.log(`   ... and ${inconsistencies.length - 5} more issues`);
+            }
+            console.log(`   📋 Full report saved to: content-consistency-report.json`);
+        }
+        
+        return validationReport;
+    }
+    
     generateRobotsFile(outputDir) {
         console.log('\n🤖 Generating optimized robots.txt file...');
         
         const robotsContent = `# robots.txt for screensizechecker.com
 # Last updated: ${new Date().toISOString().split('T')[0]}
+# Optimized for SEO redirect architecture
 
-# Allow all crawlers
+# Allow all crawlers to access main content
 User-agent: *
 Allow: /
+
+# Explicitly allow language versions
 Allow: /en/
 Allow: /zh/
+
+# Allow static resources
 Allow: /css/
 Allow: /js/
 Allow: /locales/
+
+# Allow important pages
 Allow: /privacy-policy
 Allow: /select-language
 
-# Allow blog content
+# Allow blog content for all enabled languages
+Allow: /blog/
 Allow: /en/blog/
 Allow: /zh/blog/
+
+# Allow device pages for all enabled languages
+Allow: /devices/
+Allow: /en/devices/
+Allow: /zh/devices/
 
 # 禁止抓取未启用的语言版本
 Disallow: /de/
@@ -1806,11 +2283,26 @@ Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.vscode/
 Disallow: /.cursor/
+Disallow: /.kiro/
+
+# 禁止抓取临时和测试文件
+Disallow: /*test*
+Disallow: /*debug*
+Disallow: /*.json$
+Disallow: /*.md$
 
 # 网站地图
 Sitemap: https://screensizechecker.com/sitemap.xml
 
-# Crawl-delay for all bots
+# 针对不同爬虫的特殊规则
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+# 其他爬虫的通用延迟
+User-agent: *
 Crawl-delay: 5`;
 
         fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);

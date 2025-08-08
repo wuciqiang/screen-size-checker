@@ -221,11 +221,21 @@ function getLanguageFromPath() {
     const pathname = window.location.pathname;
     console.log('Current pathname:', pathname);
     
+    // 检查是否在根目录 - 根目录现在默认为英文（SEO优化）
+    if (pathname === '/' || pathname === '/index.html') {
+        console.log('Root directory detected, returning English (SEO optimized)');
+        return 'en';
+    }
+    
     // 检查是否在多语言构建的路径中 (/zh/, /en/, /fr/, 等)
     const langMatch = pathname.match(/\/([a-z]{2})\//);
     if (langMatch) {
         const langCode = langMatch[1];
         if (['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'].includes(langCode)) {
+            // 特殊处理：/en/ 路径也被视为英文，但在SEO优化中应重定向到根目录
+            if (langCode === 'en') {
+                console.log('Detected /en/ path - should redirect to root for SEO optimization');
+            }
             return langCode;
         }
     }
@@ -235,7 +245,19 @@ function getLanguageFromPath() {
         return 'zh';
     }
     if (pathname.includes('/en-index.html') || pathname.endsWith('/en/')) {
+        console.log('Detected /en/ directory path - should redirect to root for SEO optimization');
         return 'en';
+    }
+    
+    // 检查是否是根目录下的页面（无语言前缀）- 默认为英文
+    const pathParts = pathname.split('/').filter(part => part);
+    if (pathParts.length > 0) {
+        const firstPart = pathParts[0];
+        // 如果第一部分不是语言代码，则认为是根目录下的英文页面
+        if (!['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'].includes(firstPart)) {
+            console.log('Root-level page detected (no language prefix), returning English');
+            return 'en';
+        }
     }
     
     return null;

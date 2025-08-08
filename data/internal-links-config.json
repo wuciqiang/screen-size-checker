@@ -97,18 +97,7 @@
       "titleKey": "responsive_tester",
       "descriptionKey": "responsive_tester_description"
     },
-    "index": {
-      "id": "index",
-      "category": "main",
-      "priority": 1,
-      "icon": "🏠",
-      "urls": {
-        "en": "index.html",
-        "zh": "index.html"
-      },
-      "titleKey": "nav_home",
-      "descriptionKey": "site_description"
-    },
+
     "blog": {
       "id": "blog",
       "category": "content",
@@ -126,32 +115,32 @@
     "main": {
       "priority": 0,
       "maxItems": 1,
-      "name": "主要页面"
+      "name": "Main Pages"
     },
     "calculator": {
       "priority": 1,
       "maxItems": 3,
-      "name": "计算工具"
+      "name": "Calculators"
     },
     "device-info": {
       "priority": 2,
       "maxItems": 4,
-      "name": "设备信息"
+      "name": "Device Info"
     },
     "tools": {
       "priority": 3,
       "maxItems": 3,
-      "name": "实用工具"
+      "name": "Tools"
     },
     "reference": {
       "priority": 4,
       "maxItems": 2,
-      "name": "参考资料"
+      "name": "Reference"
     },
     "content": {
       "priority": 5,
       "maxItems": 1,
-      "name": "内容"
+      "name": "Content"
     }
   },
   "display": {

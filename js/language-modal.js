@@ -204,6 +204,7 @@ class LanguageModal {
     
     /**
      * Get target URL for the selected language
+     * Optimized for SEO redirect structure where root = English, /en/ redirects to root
      */
     getTargetUrl(targetLang) {
         const currentPath = window.location.pathname;
@@ -218,8 +219,14 @@ class LanguageModal {
         // Determine current language and page path
         let currentLang = 'en';
         let pagePath = '';
+        let isRootPath = false;
         
-        if (pathParts.length > 0) {
+        if (pathParts.length === 0) {
+            // Root path (/) - this is English content
+            isRootPath = true;
+            currentLang = 'en';
+            pagePath = '';
+        } else {
             // Check if first part is a language code
             const possibleLang = pathParts[0];
             const supportedLangs = ['en', 'zh', 'de', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'ru'];
@@ -227,21 +234,42 @@ class LanguageModal {
             if (supportedLangs.includes(possibleLang)) {
                 currentLang = possibleLang;
                 pagePath = pathParts.slice(1).join('/');
+                
+                // Special handling for /en/ paths - treat as root equivalent
+                if (possibleLang === 'en') {
+                    console.log('🔄 Detected /en/ path, treating as root equivalent');
+                }
             } else {
-                // Default language (no language prefix)
+                // No language prefix - treat as root English content
+                currentLang = 'en';
                 pagePath = pathParts.join('/');
             }
         }
         
-        // Build target URL
-        let targetUrl = `/${targetLang}`;
-        if (pagePath) {
-            targetUrl += `/${pagePath}`;
-        }
+        // Build target URL based on SEO-optimized structure
+        let targetUrl;
         
-        // Ensure trailing slash for directory-like paths
-        if (!pagePath || !pagePath.includes('.')) {
-            targetUrl += '/';
+        if (targetLang === 'en') {
+            // English: ALWAYS use root path without language prefix
+            // This ensures /en/ paths redirect to root for SEO optimization
+            if (pagePath) {
+                targetUrl = `/${pagePath}`;
+            } else {
+                targetUrl = '/';
+            }
+            console.log(`🏠 English target: using root path (${targetUrl})`);
+        } else {
+            // Other languages: use language prefix
+            targetUrl = `/${targetLang}`;
+            if (pagePath) {
+                targetUrl += `/${pagePath}`;
+            }
+            
+            // Ensure trailing slash for directory-like paths (index pages)
+            if (!pagePath || (!pagePath.includes('.') && !pagePath.endsWith('/'))) {
+                targetUrl += '/';
+            }
+            console.log(`🌍 Non-English target: using language prefix (${targetUrl})`);
         }
         
         // Add search params and hash if they exist
@@ -252,7 +280,9 @@ class LanguageModal {
             targetUrl += currentHash;
         }
         
-        console.log(`🎯 Target URL: ${targetUrl}`);
+        console.log(`🎯 Target URL: ${targetUrl} (${currentLang} -> ${targetLang})`);
+        console.log(`📊 Language switch mapping: ${currentPath} -> ${targetUrl}`);
+        
         return targetUrl;
     }
     
