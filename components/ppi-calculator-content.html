@@ -197,7 +197,7 @@
     <div class="section-container">
         <h2 class="section-title" data-i18n="ppiCalculator.faq.title">Frequently Asked Questions (FAQ)</h2>
         
-        <div class="faq-container">
+        <div class="faq-container" id="faq-container">
             <details class="faq-item">
                 <summary class="faq-question" data-i18n="ppiCalculator.faq.goodPPI.question">What is a good PPI for a monitor?</summary>
                 <div class="faq-answer" data-i18n="ppiCalculator.faq.goodPPI.answer">For general use, 100-150 PPI is adequate. For professional work, 200+ PPI is recommended. Gaming typically works well with 100-200 PPI, while graphic design benefits from 200+ PPI for sharp detail work.</div>
@@ -223,6 +223,41 @@
 
 <!-- Part 5: Related Resources -->
 {{component:internal-links}}
+
+<!-- FAQ Accordion JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ手风琴效果
+    const faqContainer = document.getElementById('faq-container');
+    if (faqContainer) {
+        const faqItems = faqContainer.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const summary = item.querySelector('.faq-question');
+            if (summary) {
+                summary.addEventListener('click', function(e) {
+                    // 检查当前项目是否已经打开
+                    const isCurrentlyOpen = item.hasAttribute('open');
+                    
+                    // 关闭所有其他的FAQ项目
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.hasAttribute('open')) {
+                            otherItem.removeAttribute('open');
+                        }
+                    });
+                    
+                    // 如果当前项目之前是关闭的，现在打开它
+                    // 如果之前是打开的，让默认行为关闭它
+                    if (!isCurrentlyOpen) {
+                        // 让浏览器的默认行为处理打开
+                        // 不需要阻止默认行为
+                    }
+                });
+            }
+        });
+    }
+});
+</script>
 
 <!-- CSS Styles for PPI Calculator -->
 <style>
@@ -517,10 +552,13 @@
     color: var(--text-primary);
     cursor: pointer;
     list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
+    position: relative;
     transition: all var(--transition-fast);
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
 }
 
 .faq-question:hover {
@@ -545,13 +583,21 @@
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
     background: var(--background-primary);
 }
 
 /* Remove default details marker */
 .faq-question::-webkit-details-marker {
     display: none;
+}
+
+/* Ensure proper details/summary behavior */
+.faq-item:not([open]) .faq-answer {
+    display: none;
+}
+
+.faq-item[open] .faq-answer {
+    display: block;
 }
 
 /* Reference Table Styles */

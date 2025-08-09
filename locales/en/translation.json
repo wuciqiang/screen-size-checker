@@ -767,6 +767,19 @@
     "printDesign": "Print Design: Ensure designs maintain proportions at different sizes",
     "socialMedia": "Social Media: Create content sized for various platforms",
     
+    "useThisRatio": "Use This Ratio",
+    "photography32": "3:2 Photography Ratio",
+    "photography32Description": "3:2 is a commonly used ratio in traditional photography and is also the standard ratio for 35mm film. This ratio is also common in digital cameras and tablets, providing good compositional balance.",
+    "classic54": "5:4 Classic Ratio",
+    "classic54Description": "5:4 ratio is commonly used in early computer monitors and some professional displays. This ratio is between 4:3 and 16:10, and has certain applications in document processing and graphic design.",
+    
+    "tooltip169": "Widescreen display standard ratio",
+    "tooltip43": "Traditional display ratio",
+    "tooltip11": "Social media square ratio",
+    "tooltip219": "Cinema ultrawide ratio",
+    "tooltip32": "Traditional photography standard ratio",
+    "tooltip54": "Classic display ratio",
+    
     "faq": {
       "title": "Frequently Asked Questions (FAQ)",
       "whatIsRatio": {

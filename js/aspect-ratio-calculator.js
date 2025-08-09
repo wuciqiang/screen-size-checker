@@ -1,6 +1,21 @@
 // aspect-ratio-calculator.js - Aspect Ratio Calculator functionality
 
 /**
+ * Simple debounce function for analytics
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
  * Aspect Ratio Calculator Class
  * Handles aspect ratio calculation logic and user interface interactions
  */
@@ -48,8 +63,13 @@ export class AspectRatioCalculator {
         console.log('🧮 Initializing Aspect Ratio Calculator...');
         
         try {
+            this.initializeAnalytics();
             this.bindElements();
             this.setupEventListeners();
+            this.setupMobileOptimizations();
+            this.setupKeyboardNavigation();
+            // Temporarily disable link preview to fix page issues
+            // this.setupLinkPreview();
             this.updateDisplay();
             console.log('✅ Aspect Ratio Calculator initialized successfully');
         } catch (error) {
@@ -148,6 +168,9 @@ export class AspectRatioCalculator {
                 }
             });
         });
+        
+        // Setup ratio button event listeners
+        this.setupRatioButtonListeners();
     }
     
     /**
@@ -199,6 +222,19 @@ export class AspectRatioCalculator {
                 }
                 
                 this.isValid = true;
+                
+                // Track successful calculation
+                if (this.analytics && (this.newWidth > 0 || this.newHeight > 0)) {
+                    this.trackCalculation('aspect_ratio_calculation', {
+                        originalWidth: this.originalWidth,
+                        originalHeight: this.originalHeight,
+                        aspectRatio: this.aspectRatio.formatted
+                    }, {
+                        newWidth: this.newWidth,
+                        newHeight: this.newHeight,
+                        scaleFactor: this.newWidth > 0 ? this.newWidth / this.originalWidth : this.newHeight / this.originalHeight
+                    });
+                }
             } else {
                 this.isValid = false;
                 this.aspectRatio = null;
@@ -547,12 +583,717 @@ export class AspectRatioCalculator {
     }
     
     /**
+     * Setup ratio button event listeners
+     */
+    setupRatioButtonListeners() {
+        // Use event delegation to handle ratio button clicks
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('.use-ratio-btn')) {
+                this.handleRatioButtonClick(event.target.closest('.use-ratio-btn'));
+            }
+        });
+        
+        // Support keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && event.target.classList.contains('use-ratio-btn')) {
+                this.handleRatioButtonClick(event.target);
+            }
+        });
+    }
+    
+    /**
+     * Handle ratio button click
+     * @param {HTMLElement} button - The clicked button element
+     */
+    handleRatioButtonClick(button) {
+        try {
+            // Get ratio data from button attributes
+            const width = parseFloat(button.dataset.width);
+            const height = parseFloat(button.dataset.height);
+            const ratio = button.dataset.ratio;
+            
+            if (!width || !height || width <= 0 || height <= 0) {
+                console.error('Invalid ratio data:', { width, height, ratio });
+                return;
+            }
+            
+            console.log(`🎯 Applying ratio: ${ratio} (${width}:${height})`);
+            
+            // Clear any existing errors
+            this.clearAllErrors();
+            
+            // Track ratio usage
+            if (this.analytics) {
+                this.trackRatioUsage(ratio);
+            }
+            
+            // Apply visual feedback
+            this.showRatioSelectionFeedback(button);
+            
+            // Fill the calculator inputs
+            this.applyRatioToCalculator(width, height);
+            
+            // Scroll to calculator for better UX
+            this.scrollToCalculator();
+            
+        } catch (error) {
+            console.error('Error handling ratio button click:', error);
+        }
+    }
+    
+    /**
+     * Apply ratio to calculator inputs
+     * @param {number} width - Ratio width
+     * @param {number} height - Ratio height
+     */
+    applyRatioToCalculator(width, height) {
+        // Fill original dimensions
+        this.elements.originalWidthInput.value = width;
+        this.elements.originalHeightInput.value = height;
+        
+        // Add visual feedback to inputs
+        this.elements.originalWidthInput.classList.add('auto-filled');
+        this.elements.originalHeightInput.classList.add('auto-filled');
+        
+        // Update internal values
+        this.originalWidth = width;
+        this.originalHeight = height;
+        this.lastChangedField = 'originalWidth';
+        
+        // Trigger calculation
+        this.calculate();
+        
+        // Remove visual feedback after delay
+        setTimeout(() => {
+            this.elements.originalWidthInput.classList.remove('auto-filled');
+            this.elements.originalHeightInput.classList.remove('auto-filled');
+        }, 3000);
+    }
+    
+    /**
+     * Show visual feedback for ratio selection
+     * @param {HTMLElement} button - The clicked button
+     */
+    showRatioSelectionFeedback(button) {
+        // Remove selected class from all buttons
+        document.querySelectorAll('.use-ratio-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked button
+        button.classList.add('selected');
+        
+        // Create and show success feedback
+        const feedback = document.createElement('div');
+        feedback.className = 'selection-feedback';
+        feedback.textContent = '✓ 已应用';
+        
+        // Position feedback relative to button
+        button.style.position = 'relative';
+        button.appendChild(feedback);
+        
+        // Remove feedback and selected state after delay
+        setTimeout(() => {
+            button.classList.remove('selected');
+            if (feedback.parentNode) {
+                feedback.remove();
+            }
+        }, 2000);
+        
+        // Add pulse animation
+        button.style.animation = 'pulse 0.6s ease-in-out';
+        setTimeout(() => {
+            button.style.animation = '';
+        }, 600);
+    }
+    
+    /**
+     * Scroll to calculator section
+     */
+    scrollToCalculator() {
+        const calculator = document.querySelector('.aspect-ratio-calculator-tool, .calculator-section');
+        if (calculator) {
+            calculator.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+        }
+    }
+    
+    /**
+     * Setup mobile-specific optimizations
+     */
+    setupMobileOptimizations() {
+        // Detect if device is mobile
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                        window.innerWidth <= 768;
+        
+        if (this.isMobile) {
+            console.log('📱 Mobile device detected, applying optimizations...');
+            
+            // Enhanced touch feedback for buttons
+            this.setupTouchFeedback();
+            
+            // Optimize input focus behavior
+            this.setupMobileInputOptimizations();
+            
+            // Setup visual example touch interactions
+            this.setupVisualExampleTouchInteractions();
+            
+            // Prevent zoom on input focus (iOS)
+            this.preventInputZoom();
+            
+            // Setup orientation change handling
+            this.setupOrientationChangeHandling();
+        }
+    }
+    
+    /**
+     * Setup enhanced touch feedback for mobile
+     */
+    setupTouchFeedback() {
+        // Add touch feedback to ratio buttons
+        document.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.use-ratio-btn')) {
+                const button = e.target.closest('.use-ratio-btn');
+                button.classList.add('touch-active');
+            }
+        }, { passive: true });
+        
+        document.addEventListener('touchend', (e) => {
+            if (e.target.closest('.use-ratio-btn')) {
+                const button = e.target.closest('.use-ratio-btn');
+                setTimeout(() => {
+                    button.classList.remove('touch-active');
+                }, 150);
+            }
+        }, { passive: true });
+        
+        // Add touch feedback to visual examples
+        document.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.ratio-visual-example')) {
+                const example = e.target.closest('.ratio-visual-example');
+                example.classList.add('touch-active');
+            }
+        }, { passive: true });
+        
+        document.addEventListener('touchend', (e) => {
+            if (e.target.closest('.ratio-visual-example')) {
+                const example = e.target.closest('.ratio-visual-example');
+                setTimeout(() => {
+                    example.classList.remove('touch-active');
+                }, 150);
+            }
+        }, { passive: true });
+    }
+    
+    /**
+     * Setup mobile input optimizations
+     */
+    setupMobileInputOptimizations() {
+        const inputs = [
+            this.elements.originalWidthInput,
+            this.elements.originalHeightInput,
+            this.elements.newWidthInput,
+            this.elements.newHeightInput
+        ];
+        
+        inputs.forEach(input => {
+            if (input) {
+                // Add mobile-specific attributes
+                input.setAttribute('inputmode', 'decimal');
+                input.setAttribute('pattern', '[0-9]*\\.?[0-9]*');
+                
+                // Enhanced focus handling for mobile
+                input.addEventListener('focus', () => {
+                    // Scroll input into view with some padding
+                    setTimeout(() => {
+                        input.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center',
+                            inline: 'nearest'
+                        });
+                    }, 300); // Delay to account for keyboard animation
+                });
+                
+                // Add touch-specific styling
+                input.addEventListener('touchstart', () => {
+                    input.classList.add('touch-focused');
+                }, { passive: true });
+                
+                input.addEventListener('blur', () => {
+                    input.classList.remove('touch-focused');
+                });
+            }
+        });
+    }
+    
+    /**
+     * Setup visual example touch interactions
+     */
+    setupVisualExampleTouchInteractions() {
+        const visualExamples = document.querySelectorAll('.ratio-visual-example');
+        
+        visualExamples.forEach(example => {
+            // Add tap to show tooltip on mobile
+            example.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent default touch behavior
+                
+                const tooltip = example.querySelector('.ratio-tooltip');
+                if (tooltip) {
+                    tooltip.classList.add('mobile-show');
+                    
+                    // Hide tooltip after 2 seconds
+                    setTimeout(() => {
+                        tooltip.classList.remove('mobile-show');
+                    }, 2000);
+                }
+            }, { passive: false });
+        });
+    }
+    
+    /**
+     * Prevent zoom on input focus for iOS
+     */
+    preventInputZoom() {
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                const originalContent = viewport.getAttribute('content');
+                
+                // Temporarily disable zoom on input focus
+                const inputs = document.querySelectorAll('input[type="number"]');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', () => {
+                        viewport.setAttribute('content', originalContent + ', user-scalable=no');
+                    });
+                    
+                    input.addEventListener('blur', () => {
+                        viewport.setAttribute('content', originalContent);
+                    });
+                });
+            }
+        }
+    }
+    
+    /**
+     * Setup orientation change handling
+     */
+    setupOrientationChangeHandling() {
+        window.addEventListener('orientationchange', () => {
+            // Delay to account for orientation change animation
+            setTimeout(() => {
+                // Recalculate layout if needed
+                this.updateDisplay();
+                
+                // Track orientation change
+                if (this.analytics) {
+                    this.trackEvent('orientation_change', {
+                        orientation: window.orientation || screen.orientation?.angle || 0,
+                        screenSize: `${window.innerWidth}x${window.innerHeight}`
+                    });
+                }
+            }, 500);
+        });
+    }
+    
+    /**
+     * Setup link preview functionality
+     */
+    setupLinkPreview() {
+        // Find all internal links
+        const internalLinks = document.querySelectorAll('.internal-link');
+        
+        internalLinks.forEach(link => {
+            // Add mouseenter event for showing preview
+            link.addEventListener('mouseenter', (e) => {
+                this.showLinkPreview(e.target);
+            });
+            
+            // Add mouseleave event for hiding preview
+            link.addEventListener('mouseleave', () => {
+                this.hideLinkPreview();
+            });
+            
+            // Add click tracking
+            link.addEventListener('click', (e) => {
+                const linkType = e.target.dataset.linkType;
+                const linkId = e.target.dataset.linkId;
+                console.log(`🔗 Internal link clicked: ${linkType} - ${linkId}`);
+            });
+        });
+    }
+    
+    /**
+     * Show link preview
+     * @param {HTMLElement} linkElement - The link element being hovered
+     */
+    showLinkPreview(linkElement) {
+        // Remove any existing preview
+        this.hideLinkPreview();
+        
+        const linkId = linkElement.dataset.linkId;
+        const linkType = linkElement.dataset.linkType;
+        
+        // Get preview content based on link ID
+        const previewContent = this.getLinkPreviewContent(linkId, linkType);
+        
+        if (!previewContent) return;
+        
+        // Create preview element
+        const preview = document.createElement('div');
+        preview.className = 'link-preview';
+        preview.innerHTML = `
+            <div class="preview-content">
+                <div class="preview-header">
+                    <h4 class="preview-title">${previewContent.title}</h4>
+                    <span class="preview-type">${previewContent.type}</span>
+                </div>
+                <p class="preview-description">${previewContent.description}</p>
+                <div class="preview-footer">
+                    <span class="preview-url">${previewContent.url}</span>
+                    <span class="preview-action">点击访问 →</span>
+                </div>
+            </div>
+        `;
+        
+        // Add preview to document
+        document.body.appendChild(preview);
+        
+        // Position preview
+        this.positionLinkPreview(preview, linkElement);
+        
+        // Show preview with animation
+        setTimeout(() => {
+            preview.classList.add('show');
+        }, 10);
+    }
+    
+    /**
+     * Hide link preview
+     */
+    hideLinkPreview() {
+        const existingPreview = document.querySelector('.link-preview');
+        if (existingPreview) {
+            existingPreview.classList.remove('show');
+            setTimeout(() => {
+                if (existingPreview.parentNode) {
+                    existingPreview.remove();
+                }
+            }, 200);
+        }
+    }
+    
+    /**
+     * Get preview content for a specific link
+     * @param {string} linkId - The link identifier
+     * @param {string} linkType - The link type
+     * @returns {object|null} - Preview content object
+     */
+    getLinkPreviewContent(linkId, linkType) {
+        const previewData = {
+            'responsive-design': {
+                title: 'Media Queries Essentials',
+                type: '技术博客',
+                description: '深入了解响应式设计中的媒体查询技术，学习如何创建适应不同设备的网页布局。包含实用示例和最佳实践。',
+                url: '/blog/media-queries-essentials/',
+                readTime: '5分钟阅读'
+            }
+        };
+        
+        return previewData[linkId] || null;
+    }
+    
+    /**
+     * Position link preview relative to the link element
+     * @param {HTMLElement} preview - The preview element
+     * @param {HTMLElement} linkElement - The link element
+     */
+    positionLinkPreview(preview, linkElement) {
+        const rect = linkElement.getBoundingClientRect();
+        const previewWidth = 320;
+        const previewHeight = 160;
+        const margin = 10;
+        
+        let left = rect.left + (rect.width / 2) - (previewWidth / 2);
+        let top = rect.bottom + margin;
+        
+        // Adjust horizontal position if preview would go off screen
+        if (left < margin) {
+            left = margin;
+        } else if (left + previewWidth > window.innerWidth - margin) {
+            left = window.innerWidth - previewWidth - margin;
+        }
+        
+        // Adjust vertical position if preview would go off screen
+        if (top + previewHeight > window.innerHeight - margin) {
+            top = rect.top - previewHeight - margin;
+            preview.classList.add('preview-above');
+        }
+        
+        // Apply position
+        preview.style.left = `${left}px`;
+        preview.style.top = `${top}px`;
+        preview.style.width = `${previewWidth}px`;
+    }
+    
+    /**
+     * Initialize analytics system
+     */
+    initializeAnalytics() {
+        this.analytics = {
+            sessionId: this.generateSessionId(),
+            startTime: Date.now(),
+            events: [],
+            ratioUsage: new Map(),
+            linkClicks: new Map(),
+            pageMetrics: {
+                timeOnPage: 0,
+                calculationsPerformed: 0,
+                ratioButtonClicks: 0,
+                linkClicks: 0
+            }
+        };
+        
+        // Track page load
+        this.trackEvent('page_load', {
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+            screenResolution: `${screen.width}x${screen.height}`,
+            viewportSize: `${window.innerWidth}x${window.innerHeight}`
+        });
+        
+        // Setup page unload tracking
+        window.addEventListener('beforeunload', () => {
+            this.analytics.pageMetrics.timeOnPage = Date.now() - this.analytics.startTime;
+            this.sendAnalyticsData();
+        });
+        
+        // Track scroll depth
+        this.setupScrollTracking();
+        
+        console.log('📊 Analytics system initialized with session:', this.analytics.sessionId);
+    }
+    
+    /**
+     * Generate unique session ID
+     */
+    generateSessionId() {
+        return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    }
+    
+    /**
+     * Track user events
+     */
+    trackEvent(eventName, eventData = {}) {
+        const event = {
+            name: eventName,
+            timestamp: Date.now(),
+            sessionId: this.analytics.sessionId,
+            data: eventData
+        };
+        
+        this.analytics.events.push(event);
+        
+        // Send to analytics service (if available)
+        this.sendEventToAnalytics(event);
+        
+        console.log('📈 Event tracked:', eventName, eventData);
+    }
+    
+    /**
+     * Track ratio button usage
+     */
+    trackRatioUsage(ratio) {
+        // Update local statistics
+        const currentCount = this.analytics.ratioUsage.get(ratio) || 0;
+        this.analytics.ratioUsage.set(ratio, currentCount + 1);
+        this.analytics.pageMetrics.ratioButtonClicks++;
+        
+        // Track the event
+        this.trackEvent('ratio_button_click', {
+            ratio: ratio,
+            totalUsage: currentCount + 1,
+            sessionUsage: this.analytics.pageMetrics.ratioButtonClicks
+        });
+        
+        // Update popular ratios in localStorage
+        this.updatePopularRatios(ratio);
+    }
+    
+    /**
+     * Track internal link clicks
+     */
+    trackLinkClick(linkType, linkId, targetUrl) {
+        // Update local statistics
+        const linkKey = `${linkType}_${linkId}`;
+        const currentCount = this.analytics.linkClicks.get(linkKey) || 0;
+        this.analytics.linkClicks.set(linkKey, currentCount + 1);
+        this.analytics.pageMetrics.linkClicks++;
+        
+        // Track the event
+        this.trackEvent('internal_link_click', {
+            linkType: linkType,
+            linkId: linkId,
+            targetUrl: targetUrl,
+            totalClicks: currentCount + 1,
+            sessionClicks: this.analytics.pageMetrics.linkClicks
+        });
+    }
+    
+    /**
+     * Track calculation events
+     */
+    trackCalculation(calculationType, inputData, resultData) {
+        this.analytics.pageMetrics.calculationsPerformed++;
+        
+        this.trackEvent('calculation_performed', {
+            type: calculationType,
+            input: inputData,
+            result: resultData,
+            sessionCalculations: this.analytics.pageMetrics.calculationsPerformed
+        });
+    }
+    
+    /**
+     * Setup scroll depth tracking
+     */
+    setupScrollTracking() {
+        let maxScrollDepth = 0;
+        let scrollCheckpoints = [25, 50, 75, 90, 100];
+        let reachedCheckpoints = new Set();
+        
+        const trackScrollDepth = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            
+            if (scrollPercent > maxScrollDepth) {
+                maxScrollDepth = scrollPercent;
+            }
+            
+            // Track scroll checkpoints
+            scrollCheckpoints.forEach(checkpoint => {
+                if (scrollPercent >= checkpoint && !reachedCheckpoints.has(checkpoint)) {
+                    reachedCheckpoints.add(checkpoint);
+                    this.trackEvent('scroll_checkpoint', {
+                        checkpoint: checkpoint,
+                        timestamp: Date.now()
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', debounce(trackScrollDepth, 250));
+    }
+    
+    /**
+     * Update popular ratios in localStorage
+     */
+    updatePopularRatios(ratio) {
+        try {
+            let popularRatios = JSON.parse(localStorage.getItem('popularAspectRatios') || '{}');
+            popularRatios[ratio] = (popularRatios[ratio] || 0) + 1;
+            localStorage.setItem('popularAspectRatios', JSON.stringify(popularRatios));
+        } catch (error) {
+            console.warn('Failed to update popular ratios in localStorage:', error);
+        }
+    }
+    
+    /**
+     * Get popular ratios from localStorage
+     */
+    getPopularRatios() {
+        try {
+            const popularRatios = JSON.parse(localStorage.getItem('popularAspectRatios') || '{}');
+            return Object.entries(popularRatios)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5)
+                .map(([ratio, count]) => ({ ratio, count }));
+        } catch (error) {
+            console.warn('Failed to get popular ratios from localStorage:', error);
+            return [];
+        }
+    }
+    
+    /**
+     * Send event to analytics service
+     */
+    sendEventToAnalytics(event) {
+        // Google Analytics 4 (if available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', event.name, {
+                event_category: 'aspect_ratio_calculator',
+                event_label: event.name,
+                custom_parameter_1: JSON.stringify(event.data),
+                session_id: event.sessionId
+            });
+        }
+        
+        // Custom analytics endpoint (if available)
+        if (navigator.sendBeacon && window.location.hostname !== 'localhost') {
+            const analyticsData = {
+                event: event.name,
+                data: event.data,
+                sessionId: event.sessionId,
+                timestamp: event.timestamp,
+                page: 'aspect-ratio-calculator'
+            };
+            
+            navigator.sendBeacon('/api/analytics', JSON.stringify(analyticsData));
+        }
+    }
+    
+    /**
+     * Send complete analytics data
+     */
+    sendAnalyticsData() {
+        const analyticsReport = {
+            sessionId: this.analytics.sessionId,
+            sessionDuration: Date.now() - this.analytics.startTime,
+            pageMetrics: this.analytics.pageMetrics,
+            ratioUsage: Object.fromEntries(this.analytics.ratioUsage),
+            linkClicks: Object.fromEntries(this.analytics.linkClicks),
+            events: this.analytics.events,
+            timestamp: Date.now()
+        };
+        
+        // Send to analytics service
+        if (navigator.sendBeacon && window.location.hostname !== 'localhost') {
+            navigator.sendBeacon('/api/analytics/session', JSON.stringify(analyticsReport));
+        }
+        
+        console.log('📊 Analytics session data sent:', analyticsReport);
+    }
+    
+    /**
+     * Get analytics summary for debugging
+     */
+    getAnalyticsSummary() {
+        return {
+            sessionId: this.analytics.sessionId,
+            sessionDuration: Date.now() - this.analytics.startTime,
+            pageMetrics: this.analytics.pageMetrics,
+            popularRatios: this.getPopularRatios(),
+            totalEvents: this.analytics.events.length,
+            ratioUsage: Object.fromEntries(this.analytics.ratioUsage),
+            linkClicks: Object.fromEntries(this.analytics.linkClicks)
+        };
+    }
+    
+    /**
      * Cleanup method
      */
     destroy() {
         if (this.debounceTimer) {
             clearTimeout(this.debounceTimer);
         }
+        
+        // Send final analytics data
+        if (this.analytics) {
+            this.sendAnalyticsData();
+        }
+        
         console.log('Aspect Ratio Calculator destroyed');
     }
 }

@@ -677,6 +677,9 @@ function updateUIElementsInternal() {
             console.warn(`❌ Missing translation keys (${missingKeys.length}):`, missingKeys.slice(0, 5));
         }
         
+        // Update structured data
+        updateStructuredData();
+        
         // 触发翻译更新事件，通知其他组件
         window.dispatchEvent(new CustomEvent('translationsUpdated', {
             detail: { 
@@ -1010,3 +1013,272 @@ export function updateNestedTranslations(nestedKeys) {
         console.error('❌ Error updating nested translations:', error);
     }
 } 
+/**
+ *
+ Update structured data based on current language
+ */
+export function updateStructuredData() {
+    try {
+        const currentLang = i18next.language;
+        
+        // Update HowTo structured data
+        const structuredDataElement = document.getElementById('structured-data');
+        if (structuredDataElement) {
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                "name": currentLang === 'zh' ? "如何使用长宽比计算器" : "How to Use Aspect Ratio Calculator",
+                "description": currentLang === 'zh' 
+                    ? "学习如何使用在线长宽比计算器来计算和转换不同的屏幕比例，保持图像和视频的正确比例。"
+                    : "Learn how to use the online aspect ratio calculator to calculate and convert different screen ratios while maintaining proper proportions for images and videos.",
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://screensize.cc/images/aspect-ratio-calculator-guide.jpg",
+                    "width": 1200,
+                    "height": 630
+                },
+                "totalTime": "PT2M",
+                "estimatedCost": {
+                    "@type": "MonetaryAmount",
+                    "currency": "USD",
+                    "value": "0"
+                },
+                "supply": [
+                    {
+                        "@type": "HowToSupply",
+                        "name": currentLang === 'zh' ? "网络浏览器" : "Web Browser"
+                    },
+                    {
+                        "@type": "HowToSupply", 
+                        "name": currentLang === 'zh' ? "原始尺寸数据（宽度和高度）" : "Original dimension data (width and height)"
+                    }
+                ],
+                "tool": [
+                    {
+                        "@type": "HowToTool",
+                        "name": currentLang === 'zh' ? "长宽比计算器" : "Aspect Ratio Calculator",
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/"
+                    }
+                ],
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "输入原始尺寸" : "Enter Original Dimensions",
+                        "text": currentLang === 'zh' 
+                            ? "在计算器的左侧输入框中输入您的原始宽度和高度数值。例如，输入1920作为宽度，1080作为高度。"
+                            : "Enter your original width and height values in the calculator's left input boxes. For example, enter 1920 as width and 1080 as height.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step1-input-dimensions.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step1"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "查看当前比例" : "View Current Ratio",
+                        "text": currentLang === 'zh' 
+                            ? "系统会自动计算并显示当前的长宽比，例如16:9。这个比例将在整个计算过程中保持不变。"
+                            : "The system will automatically calculate and display the current aspect ratio, such as 16:9. This ratio will remain constant throughout the calculation process.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step2-view-ratio.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step2"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "输入目标尺寸" : "Enter Target Dimensions",
+                        "text": currentLang === 'zh' 
+                            ? "在右侧的新尺寸区域，输入您希望转换到的新宽度或新高度。只需输入其中一个值即可。"
+                            : "In the new dimensions section on the right, enter the new width or height you want to convert to. You only need to enter one value.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step3-target-size.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step3"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "获取计算结果" : "Get Calculation Results",
+                        "text": currentLang === 'zh' 
+                            ? "系统将自动计算并显示保持相同长宽比的对应尺寸。您可以在计算摘要中查看缩放倍数和最终比例。"
+                            : "The system will automatically calculate and display the corresponding dimensions that maintain the same aspect ratio. You can view the scale factor and final ratio in the calculation summary.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step4-get-result.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step4"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "使用预设比例（可选）" : "Use Preset Ratios (Optional)",
+                        "text": currentLang === 'zh' 
+                            ? "您也可以点击页面下方的常见比例按钮（如16:9、4:3等）快速应用标准比例，系统会自动填入对应的数值。"
+                            : "You can also click the common ratio buttons below the page (such as 16:9, 4:3, etc.) to quickly apply standard ratios, and the system will automatically fill in the corresponding values.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step5-preset-ratios.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step5"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": currentLang === 'zh' ? "查看可视化预览" : "View Visual Preview",
+                        "text": currentLang === 'zh' 
+                            ? "在长宽比预览区域，您可以看到比例的可视化表示，帮助您更好地理解尺寸变化的效果。"
+                            : "In the aspect ratio preview area, you can see a visual representation of the ratio, helping you better understand the effect of dimension changes.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://screensize.cc/images/step6-visual-preview.jpg",
+                            "width": 800,
+                            "height": 450
+                        },
+                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step6"
+                    }
+                ],
+                "video": {
+                    "@type": "VideoObject",
+                    "name": currentLang === 'zh' ? "长宽比计算器使用教程" : "Aspect Ratio Calculator Tutorial",
+                    "description": currentLang === 'zh' 
+                        ? "详细演示如何使用长宽比计算器进行尺寸转换"
+                        : "Detailed demonstration of how to use the aspect ratio calculator for dimension conversion",
+                    "thumbnailUrl": "https://screensize.cc/images/video-thumbnail-aspect-ratio.jpg",
+                    "uploadDate": "2024-01-15",
+                    "duration": "PT1M30S",
+                    "contentUrl": "https://screensize.cc/videos/aspect-ratio-calculator-tutorial.mp4"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "ScreenSize.cc",
+                    "url": "https://screensize.cc"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "ScreenSize.cc",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://screensize.cc/images/logo.png",
+                        "width": 200,
+                        "height": 60
+                    }
+                },
+                "datePublished": "2024-01-15",
+                "dateModified": "2024-01-20"
+            };
+            
+            structuredDataElement.textContent = JSON.stringify(structuredData, null, 2);
+        }
+        
+        // Update FAQ structured data
+        const faqStructuredDataElement = document.getElementById('faq-structured-data');
+        if (faqStructuredDataElement) {
+            const faqData = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "什么是长宽比？" : "What is aspect ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "长宽比是指图像、屏幕或显示器的宽度与高度的比例关系。它通常用两个数字表示，如16:9，表示宽度是高度的16/9倍。长宽比在响应式网页设计、视频制作和显示器选择中都非常重要。"
+                                : "Aspect ratio is the proportional relationship between the width and height of an image, screen, or display. It's usually expressed as two numbers, such as 16:9, indicating that the width is 16/9 times the height. Aspect ratio is very important in responsive web design, video production, and display selection."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "最常见的长宽比有哪些？" : "What are the most common aspect ratios?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "最常见的长宽比包括：16:9（现代显示器和电视）、4:3（传统显示器）、21:9（超宽屏显示器）、1:1（正方形，常用于社交媒体）、3:2（摄影标准）和5:4（老式显示器）。每种比例都有其特定的应用场景。"
+                                : "The most common aspect ratios include: 16:9 (modern displays and TVs), 4:3 (traditional displays), 21:9 (ultrawide displays), 1:1 (square, commonly used for social media), 3:2 (photography standard), and 5:4 (older displays). Each ratio has its specific application scenarios."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "如何计算长宽比？" : "How to calculate aspect ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "计算长宽比的方法是将宽度除以高度。例如，1920x1080的分辨率，长宽比为1920÷1080=1.78，约等于16:9。您也可以使用我们的在线计算器，只需输入尺寸即可自动计算。"
+                                : "The method to calculate aspect ratio is to divide width by height. For example, with a 1920x1080 resolution, the aspect ratio is 1920÷1080=1.78, approximately equal to 16:9. You can also use our online calculator - just input the dimensions and it will calculate automatically."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "为什么长宽比在网页设计中很重要？" : "Why is aspect ratio important in web design?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "长宽比在网页设计中至关重要，因为它影响内容在不同设备上的显示效果。正确的长宽比可以确保图像不变形、布局保持美观、响应式设计正常工作。这对用户体验和SEO都有积极影响。"
+                                : "Aspect ratio is crucial in web design because it affects how content displays on different devices. The correct aspect ratio ensures images don't distort, layouts remain aesthetically pleasing, and responsive design works properly. This has positive impacts on both user experience and SEO."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "如何在保持长宽比的同时调整图像尺寸？" : "How to resize images while maintaining aspect ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "要在保持长宽比的同时调整图像尺寸，您需要按比例缩放宽度和高度。使用我们的计算器，输入原始尺寸和目标宽度（或高度），系统会自动计算出对应的高度（或宽度），确保比例不变。"
+                                : "To resize images while maintaining aspect ratio, you need to scale width and height proportionally. Using our calculator, input the original dimensions and target width (or height), and the system will automatically calculate the corresponding height (or width), ensuring the ratio remains unchanged."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "移动设备和桌面设备的长宽比有什么区别？" : "What's the difference between mobile and desktop device aspect ratios?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "移动设备通常使用竖屏比例，如9:16或9:18，而桌面设备多使用横屏比例，如16:9或16:10。在响应式设计中，需要考虑这些差异，确保内容在不同设备上都能良好显示。"
+                                : "Mobile devices typically use portrait ratios like 9:16 or 9:18, while desktop devices mostly use landscape ratios like 16:9 or 16:10. In responsive design, these differences need to be considered to ensure content displays well on different devices."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "长宽比计算器的主要用途是什么？" : "What are the main uses of an aspect ratio calculator?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "长宽比计算器主要用于：1）网页设计中创建响应式布局；2）视频编辑时调整视频尺寸适配不同平台；3）图像处理中按比例缩放图片避免变形；4）印刷设计中确保设计在不同尺寸下保持比例；5）社交媒体内容创建中制作适合各平台的内容尺寸。"
+                                : "An aspect ratio calculator is mainly used for: 1) Creating responsive layouts in web design; 2) Adjusting video dimensions for different platforms in video editing; 3) Proportionally scaling images in image processing to avoid distortion; 4) Ensuring designs maintain proportions at different sizes in print design; 5) Creating content sized for various platforms in social media content creation."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": currentLang === 'zh' ? "如何选择适合的长宽比？" : "How to choose the right aspect ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentLang === 'zh' 
+                                ? "选择长宽比应考虑用途：网页和视频内容推荐16:9；社交媒体帖子可选择1:1；电影制作适合21:9；传统印刷可选择4:3或3:2。还要考虑目标设备和平台的要求，确保内容在预期环境中有最佳显示效果。"
+                                : "Choosing aspect ratio should consider the purpose: 16:9 is recommended for web and video content; 1:1 can be chosen for social media posts; 21:9 is suitable for film production; 4:3 or 3:2 can be chosen for traditional printing. Also consider the requirements of target devices and platforms to ensure content has the best display effect in the expected environment."
+                        }
+                    }
+                ]
+            };
+            
+            faqStructuredDataElement.textContent = JSON.stringify(faqData, null, 2);
+        }
+        
+        console.log('✅ Structured data updated for language:', currentLang);
+    } catch (error) {
+        console.error('❌ Error updating structured data:', error);
+    }
+}
+
+// Listen for language changes and update structured data
+window.addEventListener('languageChanged', () => {
+    updateStructuredData();
+});

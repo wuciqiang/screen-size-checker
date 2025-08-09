@@ -552,10 +552,18 @@ class OptimizedEventManager {
      * 处理FAQ切换点击
      */
     handleFAQToggleClick(event) {
-        event.preventDefault();
-        
         const question = event.target.closest('.faq-question');
         if (!question) return;
+        
+        // 检查是否是HTML5 details/summary元素
+        const detailsElement = question.closest('details');
+        if (detailsElement) {
+            // 对于HTML5 details/summary元素，让浏览器处理默认行为
+            return;
+        }
+        
+        // 只对自定义FAQ实现使用preventDefault
+        event.preventDefault();
         
         const answer = question.nextElementSibling;
         if (!answer || !answer.classList.contains('faq-answer')) return;
