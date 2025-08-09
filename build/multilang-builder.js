@@ -1623,6 +1623,13 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         // 添加结构化数据
         rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
         
+        // 为responsive-tester页面添加FAQ结构化数据
+        if (indexPageConfig.name === 'responsive-tester') {
+            rootPageData.faq_structured_data = this.generateFAQStructuredData('en');
+        } else {
+            rootPageData.faq_structured_data = '';
+        }
+        
         // 构建根目录HTML页面
         let rootHtml = this.buildPage(indexPageConfig.template, rootPageData);
         

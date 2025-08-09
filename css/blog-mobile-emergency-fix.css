@@ -1,0 +1,257 @@
+/**
+ * 移动端博客紧急修复文件
+ * 修复显示异常和内容截断问题
+ */
+
+/* ===== 紧急修复：移除过度限制的样式 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 确保基础容器不会截断内容 */
+    .blog-mobile-optimized .blog-container,
+    .blog-mobile-optimized .blog-content-area,
+    .blog-mobile-optimized .blog-post,
+    .blog-mobile-optimized .blog-post-content {
+        overflow: visible !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    /* 确保文章内容完全可见 */
+    .blog-mobile-optimized .blog-post-content {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        transform: none !important;
+        clip: none !important;
+        clip-path: none !important;
+    }
+
+    /* 确保所有文本元素可见 */
+    .blog-mobile-optimized .blog-post-content *,
+    .blog-mobile-optimized .blog-post-title,
+    .blog-mobile-optimized .blog-post-meta {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        transform: none !important;
+        clip: none !important;
+        clip-path: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    /* 修复段落显示 */
+    .blog-mobile-optimized .blog-post-content p {
+        display: block !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 0 !important;
+        line-height: 1.6 !important;
+        font-size: 1rem !important;
+        color: var(--text-primary) !important;
+    }
+
+    /* 修复标题显示 */
+    .blog-mobile-optimized .blog-post-content h1,
+    .blog-mobile-optimized .blog-post-content h2,
+    .blog-mobile-optimized .blog-post-content h3,
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        display: block !important;
+        margin: 1.5rem 0 1rem 0 !important;
+        padding: 0 !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-title {
+        display: block !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 0 !important;
+        font-size: 1.75rem !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        color: var(--text-primary) !important;
+    }
+
+    /* 修复列表显示 */
+    .blog-mobile-optimized .blog-post-content ul,
+    .blog-mobile-optimized .blog-post-content ol {
+        display: block !important;
+        margin: 0 0 1rem 0 !important;
+        padding-left: 1.5rem !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content li {
+        display: list-item !important;
+        margin: 0 0 0.5rem 0 !important;
+        padding: 0 !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 修复图片显示 */
+    .blog-mobile-optimized .blog-post-content img {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 1rem auto !important;
+        border-radius: 8px !important;
+    }
+
+    /* 修复代码块显示 */
+    .blog-mobile-optimized .blog-post-content pre {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+        padding: 1rem !important;
+        background: #f8f9fa !important;
+        border-radius: 8px !important;
+        overflow-x: auto !important;
+        font-family: monospace !important;
+        font-size: 0.875rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 修复行内代码显示 */
+    .blog-mobile-optimized .blog-post-content code {
+        display: inline !important;
+        padding: 2px 4px !important;
+        background: #f1f3f4 !important;
+        border-radius: 4px !important;
+        font-family: monospace !important;
+        font-size: 0.875em !important;
+    }
+
+    /* 修复引用块显示 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        display: block !important;
+        margin: 1rem 0 !important;
+        padding: 1rem !important;
+        border-left: 4px solid var(--primary-color) !important;
+        background: #f8f9fa !important;
+        border-radius: 8px !important;
+        font-style: italic !important;
+    }
+
+    /* 修复链接显示 */
+    .blog-mobile-optimized .blog-post-content a {
+        display: inline !important;
+        color: var(--primary-color) !important;
+        text-decoration: underline !important;
+    }
+
+    /* 修复强调文本显示 */
+    .blog-mobile-optimized .blog-post-content strong,
+    .blog-mobile-optimized .blog-post-content b {
+        display: inline !important;
+        font-weight: 700 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content em,
+    .blog-mobile-optimized .blog-post-content i {
+        display: inline !important;
+        font-style: italic !important;
+    }
+}
+
+/* ===== 确保基础布局正常 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 重置博客容器 */
+    .blog-mobile-optimized .blog-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 重置内容区域 */
+    .blog-mobile-optimized .blog-content-area {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 重置文章容器 */
+    .blog-mobile-optimized .blog-post {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 重置文章内容 */
+    .blog-mobile-optimized .blog-post-content {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        color: #333 !important;
+    }
+
+    /* 隐藏侧边栏在移动端 */
+    .blog-mobile-optimized .blog-sidebar-area {
+        display: none !important;
+    }
+}
+
+/* ===== 小屏幕设备修复 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    .blog-mobile-optimized .blog-container {
+        padding: 0.5rem !important;
+    }
+
+    .blog-mobile-optimized .blog-post-title {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: 1.15rem !important;
+    }
+}
+
+/* ===== 调试辅助 ===== */
+
+/* 临时调试样式 - 可以在问题解决后移除 */
+/*
+.blog-mobile-optimized * {
+    outline: 1px solid rgba(255, 0, 0, 0.1) !important;
+}
+
+.blog-mobile-optimized .blog-post-content {
+    background: rgba(0, 255, 0, 0.05) !important;
+}
+*/

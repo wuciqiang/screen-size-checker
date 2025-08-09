@@ -1,0 +1,392 @@
+/**
+ * 移动端博客文字截断修复文件
+ * 专门修复导致文字截断的CSS问题
+ */
+
+/* ===== 修复文字截断的根本原因 ===== */
+
+/* 移动端博客内容截断修复 */
+@media screen and (max-width: 768px) {
+    
+    /* 修复博客容器的宽度限制 */
+    .blog-mobile-optimized .blog-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复博客内容区域的截断 */
+    .blog-mobile-optimized .blog-content-area {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复博客文章的截断 */
+    .blog-mobile-optimized .blog-post {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复博客文章内容的截断 */
+    .blog-mobile-optimized .blog-post-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+    }
+
+    /* 修复所有文本元素的截断 */
+    .blog-mobile-optimized .blog-post-content *,
+    .blog-mobile-optimized .blog-post-title,
+    .blog-mobile-optimized .blog-post-meta,
+    .blog-mobile-optimized .blog-post-header {
+        white-space: normal !important;
+        text-overflow: unset !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复段落和标题的截断 */
+    .blog-mobile-optimized .blog-post-content p,
+    .blog-mobile-optimized .blog-post-content h1,
+    .blog-mobile-optimized .blog-post-content h2,
+    .blog-mobile-optimized .blog-post-content h3,
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复列表项的截断 */
+    .blog-mobile-optimized .blog-post-content ul,
+    .blog-mobile-optimized .blog-post-content ol,
+    .blog-mobile-optimized .blog-post-content li {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复链接的截断 */
+    .blog-mobile-optimized .blog-post-content a {
+        white-space: normal !important;
+        text-overflow: unset !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        display: inline !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复强调文本的截断 */
+    .blog-mobile-optimized .blog-post-content strong,
+    .blog-mobile-optimized .blog-post-content em,
+    .blog-mobile-optimized .blog-post-content b,
+    .blog-mobile-optimized .blog-post-content i {
+        white-space: normal !important;
+        text-overflow: unset !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复引用块的截断 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content blockquote p {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== 修复容器宽度和overflow属性 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 修复主内容容器 */
+    .blog-mobile-optimized .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: var(--spacing-md) !important;
+        padding-right: var(--spacing-md) !important;
+        overflow-x: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复博客主容器 */
+    .blog-mobile-optimized .main-content.blog-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: var(--spacing-md) !important;
+        padding-right: var(--spacing-md) !important;
+        overflow-x: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 确保所有容器都不会导致截断 */
+    .blog-mobile-optimized div,
+    .blog-mobile-optimized section,
+    .blog-mobile-optimized article,
+    .blog-mobile-optimized main {
+        overflow-x: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复可能的固定宽度问题 */
+    .blog-mobile-optimized * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 特殊处理需要滚动的元素 */
+    .blog-mobile-optimized .blog-post-content pre,
+    .blog-mobile-optimized .blog-post-content .table-wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 确保代码块不会导致页面截断 */
+    .blog-mobile-optimized .blog-post-content pre {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 确保表格容器不会导致页面截断 */
+    .blog-mobile-optimized .blog-post-content .table-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== 修复图片和媒体内容的截断 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 修复图片截断 */
+    .blog-mobile-optimized .blog-post-content img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        object-fit: contain !important;
+    }
+
+    /* 修复图表和数据可视化的截断 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: var(--spacing-lg) auto !important;
+        box-sizing: border-box !important;
+        border-radius: var(--radius-md) !important;
+    }
+
+    /* 修复内嵌媒体的截断 */
+    .blog-mobile-optimized .blog-post-content iframe,
+    .blog-mobile-optimized .blog-post-content video,
+    .blog-mobile-optimized .blog-post-content embed,
+    .blog-mobile-optimized .blog-post-content object {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== 修复特殊元素的截断 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 修复CTA框的截断 */
+    .blog-mobile-optimized .cta-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: var(--spacing-lg) !important;
+        margin: var(--spacing-xl) 0 !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .blog-mobile-optimized .cta-box h3,
+    .blog-mobile-optimized .cta-box p {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复作者信息的截断 */
+    .blog-mobile-optimized .author-bio {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-md) !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .author-bio div {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .author-bio h4,
+    .blog-mobile-optimized .author-bio p {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 修复作者头像 */
+    .blog-mobile-optimized .author-avatar {
+        width: 60px !important;
+        height: 60px !important;
+        flex-shrink: 0 !important;
+        border-radius: 50% !important;
+        margin-bottom: var(--spacing-sm) !important;
+        align-self: center !important;
+    }
+}
+
+/* ===== 小屏幕设备的额外修复 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    /* 确保小屏幕上的内容完全可见 */
+    .blog-mobile-optimized .blog-container {
+        padding: var(--spacing-sm) !important;
+        margin: 0 !important;
+    }
+
+    .blog-mobile-optimized .main-content.blog-main {
+        padding-left: var(--spacing-sm) !important;
+        padding-right: var(--spacing-sm) !important;
+    }
+
+    /* 修复小屏幕上的文字大小，确保可读性 */
+    .blog-mobile-optimized .blog-post-content {
+        font-size: clamp(0.95rem, 3vw, 1.05rem) !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 确保小屏幕上的标题不会截断 */
+    .blog-mobile-optimized .blog-post-title {
+        font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+}
+
+/* ===== 超小屏幕设备的修复 ===== */
+
+@media screen and (max-width: 320px) {
+    
+    /* 超小屏幕的容器修复 */
+    .blog-mobile-optimized .blog-container {
+        padding: 8px !important;
+    }
+
+    .blog-mobile-optimized .main-content.blog-main {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    /* 超小屏幕的文字大小调整 */
+    .blog-mobile-optimized .blog-post-content {
+        font-size: clamp(0.9rem, 3.5vw, 1rem) !important;
+        line-height: 1.5 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-title {
+        font-size: clamp(1.1rem, 6vw, 1.5rem) !important;
+        line-height: 1.1 !important;
+    }
+}
+
+/* ===== 调试辅助样式（开发时使用） ===== */
+
+/* 
+.blog-mobile-optimized * {
+    outline: 1px solid rgba(255, 0, 0, 0.1) !important;
+}
+
+.blog-mobile-optimized .blog-post-content * {
+    outline: 1px solid rgba(0, 255, 0, 0.1) !important;
+}
+*/

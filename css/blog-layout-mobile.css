@@ -1,0 +1,435 @@
+/**
+ * 移动端博客布局优化文件
+ * 专门优化博客容器在移动设备上的布局
+ */
+
+/* ===== 移动端博客容器布局重构 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 博客主容器移动端优化 */
+    .blog-mobile-optimized .blog-container {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: var(--spacing-lg) !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: var(--spacing-md) !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 博客内容区域优化 */
+    .blog-mobile-optimized .blog-content-area {
+        flex: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        order: 1 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 博客侧边栏区域优化 */
+    .blog-mobile-optimized .blog-sidebar-area {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        order: 2 !important;
+        margin-top: var(--spacing-xl) !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 博客侧边栏内容优化 */
+    .blog-mobile-optimized .blog-sidebar {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 侧边栏部分优化 */
+    .blog-mobile-optimized .sidebar-section {
+        margin-bottom: var(--spacing-lg) !important;
+        padding: var(--spacing-md) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        background-color: var(--background-card) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 侧边栏标题优化 */
+    .blog-mobile-optimized .sidebar-title {
+        font-size: 1rem !important;
+        margin-bottom: var(--spacing-md) !important;
+        padding-bottom: var(--spacing-sm) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== 移动端博客文章布局优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 博客文章容器 */
+    .blog-mobile-optimized .blog-post {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: var(--spacing-md) 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 博客文章头部 */
+    .blog-mobile-optimized .blog-post-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: var(--spacing-lg) !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 博客文章标题 */
+    .blog-mobile-optimized .blog-post-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(1.5rem, 4vw, 2rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: var(--spacing-md) !important;
+        padding: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 博客文章元信息 */
+    .blog-mobile-optimized .blog-post-meta {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-xs) !important;
+        font-size: 0.85rem !important;
+        color: var(--text-secondary) !important;
+        margin-bottom: var(--spacing-lg) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-meta span {
+        display: block !important;
+        width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== 移动端博客导航优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 文章导航容器 */
+    .blog-mobile-optimized .post-navigation {
+        margin-top: var(--spacing-xl) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-md) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 上一篇和下一篇文章 */
+    .blog-mobile-optimized .prev-post,
+    .blog-mobile-optimized .next-post {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: var(--spacing-md) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        background-color: var(--background-card) !important;
+        transition: all var(--transition-medium) !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+    }
+
+    .blog-mobile-optimized .next-post {
+        text-align: left !important;
+    }
+
+    .blog-mobile-optimized .prev-post:hover,
+    .blog-mobile-optimized .next-post:hover {
+        border-color: var(--primary-color) !important;
+        box-shadow: var(--shadow-light) !important;
+    }
+
+    /* 导航标签和标题 */
+    .blog-mobile-optimized .post-nav-label {
+        font-size: 0.75rem !important;
+        color: var(--text-secondary) !important;
+        margin-bottom: var(--spacing-xs) !important;
+        display: block !important;
+        text-transform: uppercase !important;
+        font-weight: 600 !important;
+    }
+
+    .blog-mobile-optimized .post-nav-title {
+        font-weight: 500 !important;
+        color: var(--text-primary) !important;
+        font-size: 0.9rem !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== 移动端博客页脚优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 博客文章页脚 */
+    .blog-mobile-optimized .blog-post-footer {
+        margin-top: var(--spacing-xl) !important;
+        padding-top: var(--spacing-lg) !important;
+        border-top: 1px solid var(--border-color) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-lg) !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 标签区域 */
+    .blog-mobile-optimized .blog-post-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: var(--spacing-sm) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 分享区域 */
+    .blog-mobile-optimized .blog-post-share {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-sm) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-share span {
+        font-size: 0.85rem !important;
+        color: var(--text-secondary) !important;
+        margin-bottom: var(--spacing-xs) !important;
+        font-weight: 500 !important;
+    }
+
+    /* 分享按钮容器 */
+    .blog-mobile-optimized .blog-post-share > div {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: var(--spacing-sm) !important;
+        width: 100% !important;
+    }
+}
+
+/* ===== 移动端相关文章优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 相关文章容器 */
+    .blog-mobile-optimized .blog-post-related {
+        margin-top: var(--spacing-xl) !important;
+        padding-top: var(--spacing-lg) !important;
+        border-top: 1px solid var(--border-color) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-related h3 {
+        margin-bottom: var(--spacing-lg) !important;
+        font-size: 1.3rem !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* 相关文章网格 */
+    .blog-mobile-optimized .blog-post-related-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-md) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== 移动端目录优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 目录容器 */
+    .blog-mobile-optimized .table-of-contents {
+        position: static !important;
+        top: auto !important;
+        margin-bottom: var(--spacing-lg) !important;
+        padding: var(--spacing-md) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        background-color: var(--background-card) !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 目录标题 */
+    .blog-mobile-optimized .toc-title {
+        font-size: 1rem !important;
+        margin-bottom: var(--spacing-md) !important;
+        padding-bottom: var(--spacing-sm) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+    }
+
+    /* 目录内容 */
+    .blog-mobile-optimized .toc-container {
+        font-size: 0.85rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .toc-container ul {
+        list-style: none !important;
+        padding-left: var(--spacing-md) !important;
+        margin: var(--spacing-sm) 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .toc-container li {
+        margin-bottom: var(--spacing-xs) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .toc-container a {
+        text-decoration: none !important;
+        color: var(--text-primary) !important;
+        transition: color var(--transition-fast) !important;
+        display: block !important;
+        padding: var(--spacing-xs) 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.3 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .toc-container a:hover,
+    .blog-mobile-optimized .toc-container a.active {
+        color: var(--primary-color) !important;
+        font-weight: 500 !important;
+    }
+}
+
+/* ===== 小屏幕设备布局优化 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    /* 小屏幕博客容器 */
+    .blog-mobile-optimized .blog-container {
+        padding: var(--spacing-sm) !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    /* 小屏幕文章标题 */
+    .blog-mobile-optimized .blog-post-title {
+        font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+        margin-bottom: var(--spacing-sm) !important;
+    }
+
+    /* 小屏幕元信息 */
+    .blog-mobile-optimized .blog-post-meta {
+        font-size: 0.8rem !important;
+        gap: 4px !important;
+    }
+
+    /* 小屏幕侧边栏 */
+    .blog-mobile-optimized .sidebar-section {
+        padding: var(--spacing-sm) !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+
+    .blog-mobile-optimized .sidebar-title {
+        font-size: 0.95rem !important;
+        margin-bottom: var(--spacing-sm) !important;
+    }
+
+    /* 小屏幕导航 */
+    .blog-mobile-optimized .prev-post,
+    .blog-mobile-optimized .next-post {
+        padding: var(--spacing-sm) !important;
+    }
+
+    .blog-mobile-optimized .post-nav-title {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ===== 超小屏幕设备布局优化 ===== */
+
+@media screen and (max-width: 320px) {
+    
+    /* 超小屏幕博客容器 */
+    .blog-mobile-optimized .blog-container {
+        padding: 8px !important;
+        gap: var(--spacing-sm) !important;
+    }
+
+    /* 超小屏幕文章标题 */
+    .blog-mobile-optimized .blog-post-title {
+        font-size: clamp(1.1rem, 6vw, 1.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* 超小屏幕元信息 */
+    .blog-mobile-optimized .blog-post-meta {
+        font-size: 0.75rem !important;
+    }
+
+    /* 超小屏幕侧边栏 */
+    .blog-mobile-optimized .sidebar-section {
+        padding: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .blog-mobile-optimized .sidebar-title {
+        font-size: 0.9rem !important;
+    }
+}

@@ -1,0 +1,505 @@
+/**
+ * 移动端专用文字样式类
+ * 提供可重用的移动端排版样式类
+ */
+
+/* ===== 移动端排版增强基础类 ===== */
+
+.mobile-typography-enhanced {
+    /* 基础移动端排版增强 */
+    font-family: var(--font-family-base) !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-feature-settings: "kern" 1, "liga" 1 !important;
+    font-kerning: normal !important;
+    font-display: swap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* ===== 移动端响应式媒体类 ===== */
+
+.mobile-media-responsive {
+    /* 移动端媒体内容响应式基础 */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+/* ===== 移动端标题样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端主标题 */
+    .mobile-title-primary {
+        font-size: clamp(1.75rem, 4.5vw, 2.25rem) !important;
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: clamp(0.75rem, 2vw, 1rem) !important;
+        letter-spacing: -0.025em !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 移动端副标题 */
+    .mobile-title-secondary {
+        font-size: clamp(1.5rem, 4vw, 1.875rem) !important;
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: clamp(1.5rem, 4vw, 2.5rem) !important;
+        margin-bottom: clamp(0.75rem, 2vw, 1rem) !important;
+        letter-spacing: -0.02em !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        border-bottom: 1px solid var(--border-light) !important;
+        padding-bottom: var(--spacing-sm) !important;
+    }
+
+    /* 移动端三级标题 */
+    .mobile-title-tertiary {
+        font-size: clamp(1.25rem, 3.5vw, 1.5rem) !important;
+        line-height: 1.3 !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: clamp(1.25rem, 3.5vw, 2rem) !important;
+        margin-bottom: clamp(0.625rem, 1.5vw, 0.875rem) !important;
+        letter-spacing: -0.015em !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 移动端四级标题 */
+    .mobile-title-quaternary {
+        font-size: clamp(1.125rem, 3vw, 1.25rem) !important;
+        line-height: 1.3 !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: clamp(1rem, 3vw, 1.5rem) !important;
+        margin-bottom: clamp(0.5rem, 1.25vw, 0.75rem) !important;
+        letter-spacing: -0.01em !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+}
+
+/* ===== 移动端正文样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端标准正文 */
+    .mobile-text-body {
+        font-size: clamp(1rem, 2.5vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+        font-weight: 400 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: clamp(1rem, 3vw, 1.5rem) !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        orphans: 3 !important;
+        widows: 3 !important;
+    }
+
+    /* 移动端大号正文 */
+    .mobile-text-large {
+        font-size: clamp(1.125rem, 3vw, 1.25rem) !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: clamp(1.125rem, 3.25vw, 1.625rem) !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 移动端小号正文 */
+    .mobile-text-small {
+        font-size: clamp(0.875rem, 2vw, 0.95rem) !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important;
+        color: var(--text-secondary) !important;
+        margin-bottom: clamp(0.875rem, 2.5vw, 1.25rem) !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 移动端说明文字 */
+    .mobile-text-caption {
+        font-size: clamp(0.75rem, 1.875vw, 0.85rem) !important;
+        line-height: 1.3 !important;
+        font-weight: 400 !important;
+        color: var(--text-secondary) !important;
+        margin-bottom: clamp(0.75rem, 2vw, 1rem) !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        font-style: italic !important;
+    }
+
+    /* 移动端引用文字 */
+    .mobile-text-quote {
+        font-size: clamp(1rem, 2.5vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+        font-weight: 400 !important;
+        color: var(--text-primary) !important;
+        font-style: italic !important;
+        margin: clamp(1rem, 3vw, 1.5rem) 0 !important;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.25rem) !important;
+        border-left: 4px solid var(--primary-color) !important;
+        background-color: var(--background-secondary) !important;
+        border-radius: var(--radius-md) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+}
+
+/* ===== 移动端链接样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端标准链接 */
+    .mobile-link {
+        color: var(--primary-color) !important;
+        text-decoration: underline !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        display: inline !important;
+        line-height: inherit !important;
+        padding: 2px 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all var(--transition-fast) !important;
+    }
+
+    .mobile-link:hover,
+    .mobile-link:focus {
+        color: var(--primary-hover) !important;
+        text-decoration: underline !important;
+        background-color: rgba(0, 102, 204, 0.1) !important;
+        border-radius: var(--radius-sm) !important;
+        outline: 2px solid var(--primary-color) !important;
+        outline-offset: 2px !important;
+    }
+
+    /* 移动端按钮样式链接 */
+    .mobile-link-button {
+        display: inline-block !important;
+        color: white !important;
+        background-color: var(--primary-color) !important;
+        text-decoration: none !important;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.25rem) !important;
+        border-radius: var(--radius-md) !important;
+        font-size: clamp(0.875rem, 2.25vw, 1rem) !important;
+        line-height: 1.2 !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        min-height: 44px !important;
+        min-width: 120px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all var(--transition-fast) !important;
+        border: 2px solid var(--primary-color) !important;
+        cursor: pointer !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    .mobile-link-button:hover,
+    .mobile-link-button:focus {
+        background-color: var(--primary-hover) !important;
+        border-color: var(--primary-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: var(--shadow-medium) !important;
+        outline: 2px solid var(--primary-color) !important;
+        outline-offset: 2px !important;
+    }
+
+    .mobile-link-button:active {
+        transform: translateY(0) !important;
+        box-shadow: var(--shadow-light) !important;
+    }
+
+    /* 移动端次要按钮样式链接 */
+    .mobile-link-button-secondary {
+        display: inline-block !important;
+        color: var(--primary-color) !important;
+        background-color: transparent !important;
+        text-decoration: none !important;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.25rem) !important;
+        border: 2px solid var(--primary-color) !important;
+        border-radius: var(--radius-md) !important;
+        font-size: clamp(0.875rem, 2.25vw, 1rem) !important;
+        line-height: 1.2 !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        min-height: 44px !important;
+        min-width: 120px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all var(--transition-fast) !important;
+        cursor: pointer !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    .mobile-link-button-secondary:hover,
+    .mobile-link-button-secondary:focus {
+        color: white !important;
+        background-color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: var(--shadow-medium) !important;
+        outline: 2px solid var(--primary-color) !important;
+        outline-offset: 2px !important;
+    }
+
+    .mobile-link-button-secondary:active {
+        transform: translateY(0) !important;
+        box-shadow: var(--shadow-light) !important;
+    }
+}
+
+/* ===== 移动端列表样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端标准列表 */
+    .mobile-list {
+        font-size: clamp(1rem, 2.5vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+        margin-bottom: clamp(1rem, 2.5vw, 1.25rem) !important;
+        padding-left: clamp(1rem, 2.5vw, 1.25rem) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    .mobile-list li {
+        font-size: inherit !important;
+        line-height: 1.5 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: clamp(0.5rem, 1.25vw, 0.75rem) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 移动端紧凑列表 */
+    .mobile-list-compact {
+        font-size: clamp(0.875rem, 2.25vw, 1rem) !important;
+        line-height: 1.4 !important;
+        margin-bottom: clamp(0.875rem, 2.25vw, 1rem) !important;
+        padding-left: clamp(0.875rem, 2.25vw, 1rem) !important;
+    }
+
+    .mobile-list-compact li {
+        font-size: inherit !important;
+        line-height: inherit !important;
+        margin-bottom: clamp(0.25rem, 0.625vw, 0.375rem) !important;
+    }
+}
+
+/* ===== 移动端代码样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端行内代码 */
+    .mobile-code-inline {
+        display: inline !important;
+        padding: 2px 4px !important;
+        margin: 0 1px !important;
+        background-color: var(--background-code-inline) !important;
+        border: 1px solid var(--border-light) !important;
+        border-radius: var(--radius-sm) !important;
+        font-family: var(--font-family-mono) !important;
+        font-size: clamp(0.8rem, 2vw, 0.875rem) !important;
+        line-height: 1 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        box-sizing: border-box !important;
+        font-variant-ligatures: common-ligatures !important;
+        -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+        font-feature-settings: "liga" 1, "calt" 1 !important;
+    }
+
+    /* 移动端代码块 */
+    .mobile-code-block {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: clamp(1rem, 2.5vw, 1.25rem) 0 !important;
+        padding: clamp(0.75rem, 2vw, 1rem) !important;
+        background-color: var(--background-code) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        font-family: var(--font-family-mono) !important;
+        font-size: clamp(0.75rem, 2vw, 0.875rem) !important;
+        line-height: 1.4 !important;
+        color: var(--text-primary) !important;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+        white-space: pre !important;
+        word-wrap: normal !important;
+        overflow-wrap: normal !important;
+        font-variant-ligatures: common-ligatures !important;
+        -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+        font-feature-settings: "liga" 1, "calt" 1 !important;
+    }
+}
+
+/* ===== 移动端强调文本样式类 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 移动端粗体文本 */
+    .mobile-text-bold {
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* 移动端斜体文本 */
+    .mobile-text-italic {
+        font-style: italic !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* 移动端高亮文本 */
+    .mobile-text-highlight {
+        background-color: rgba(255, 235, 59, 0.3) !important;
+        padding: 1px 2px !important;
+        border-radius: 2px !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* 移动端标记文本 */
+    .mobile-text-mark {
+        background-color: var(--primary-color-light) !important;
+        color: var(--primary-color) !important;
+        padding: 2px 4px !important;
+        border-radius: var(--radius-sm) !important;
+        font-weight: 500 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+}
+
+/* ===== 小屏幕设备样式类优化 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    /* 小屏幕标题调整 */
+    .mobile-title-primary {
+        font-size: clamp(1.5rem, 5vw, 1.875rem) !important;
+        margin-bottom: clamp(0.625rem, 1.5vw, 0.875rem) !important;
+    }
+
+    .mobile-title-secondary {
+        font-size: clamp(1.3rem, 4.5vw, 1.625rem) !important;
+        margin-top: clamp(1.25rem, 3.5vw, 2rem) !important;
+        margin-bottom: clamp(0.625rem, 1.5vw, 0.875rem) !important;
+    }
+
+    .mobile-title-tertiary {
+        font-size: clamp(1.15rem, 4vw, 1.375rem) !important;
+        margin-top: clamp(1rem, 3vw, 1.5rem) !important;
+        margin-bottom: clamp(0.5rem, 1.25vw, 0.75rem) !important;
+    }
+
+    /* 小屏幕正文调整 */
+    .mobile-text-body {
+        font-size: clamp(0.95rem, 3vw, 1.05rem) !important;
+        margin-bottom: clamp(0.875rem, 2.5vw, 1.25rem) !important;
+    }
+
+    .mobile-text-large {
+        font-size: clamp(1.05rem, 3.5vw, 1.15rem) !important;
+        margin-bottom: clamp(1rem, 3vw, 1.375rem) !important;
+    }
+
+    .mobile-text-small {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem) !important;
+        margin-bottom: clamp(0.75rem, 2.25vw, 1rem) !important;
+    }
+
+    /* 小屏幕按钮调整 */
+    .mobile-link-button,
+    .mobile-link-button-secondary {
+        padding: clamp(0.625rem, 1.75vw, 0.875rem) clamp(0.875rem, 2.25vw, 1rem) !important;
+        font-size: clamp(0.8rem, 2.25vw, 0.9rem) !important;
+        min-height: 40px !important;
+        min-width: 100px !important;
+    }
+}
+
+/* ===== 超小屏幕设备样式类优化 ===== */
+
+@media screen and (max-width: 320px) {
+    
+    /* 超小屏幕标题 */
+    .mobile-title-primary {
+        font-size: clamp(1.25rem, 5.5vw, 1.625rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    .mobile-title-secondary {
+        font-size: clamp(1.125rem, 5vw, 1.375rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    .mobile-title-tertiary {
+        font-size: clamp(1rem, 4.5vw, 1.125rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 超小屏幕正文 */
+    .mobile-text-body {
+        font-size: clamp(0.9rem, 3.5vw, 1rem) !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 超小屏幕按钮 */
+    .mobile-link-button,
+    .mobile-link-button-secondary {
+        padding: 8px 12px !important;
+        font-size: clamp(0.75rem, 2.5vw, 0.85rem) !important;
+        min-height: 36px !important;
+        min-width: 80px !important;
+    }
+}

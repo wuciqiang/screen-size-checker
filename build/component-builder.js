@@ -171,7 +171,9 @@ class ComponentBuilder {
                 
                 return variableValue;
             }
-            return match;
+            // 如果变量未定义，返回空字符串而不是保留原始模板语法
+            console.warn(`Template variable "${key}" is undefined, replacing with empty string`);
+            return '';
         });
         
         // 处理条件语句 {{#if condition}}...{{/if}}

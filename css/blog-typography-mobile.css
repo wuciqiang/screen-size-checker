@@ -1,0 +1,457 @@
+/**
+ * 移动端博客排版优化文件
+ * 实现动态字体大小调整和流体排版
+ */
+
+/* ===== CSS自定义属性定义 ===== */
+
+:root {
+    /* 基础字体大小变量 */
+    --blog-base-font-size: clamp(1rem, 2.5vw, 1.1rem);
+    --blog-small-font-size: clamp(0.875rem, 2vw, 0.95rem);
+    --blog-large-font-size: clamp(1.125rem, 3vw, 1.25rem);
+    
+    /* 标题字体大小变量 */
+    --blog-h1-font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+    --blog-h2-font-size: clamp(1.5rem, 4vw, 1.875rem);
+    --blog-h3-font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+    --blog-h4-font-size: clamp(1.125rem, 3vw, 1.25rem);
+    --blog-h5-font-size: clamp(1rem, 2.5vw, 1.125rem);
+    --blog-h6-font-size: clamp(0.95rem, 2.25vw, 1rem);
+    
+    /* 行高变量 */
+    --blog-base-line-height: 1.6;
+    --blog-heading-line-height: 1.2;
+    --blog-code-line-height: 1.4;
+    --blog-caption-line-height: 1.3;
+    
+    /* 间距变量 */
+    --blog-paragraph-spacing: clamp(1rem, 3vw, 1.5rem);
+    --blog-heading-spacing-top: clamp(1.5rem, 4vw, 2.5rem);
+    --blog-heading-spacing-bottom: clamp(0.75rem, 2vw, 1rem);
+    --blog-list-spacing: clamp(1rem, 2.5vw, 1.25rem);
+    
+    /* 代码字体大小变量 */
+    --blog-code-font-size: clamp(0.8rem, 2vw, 0.9rem);
+    --blog-inline-code-font-size: 0.875em;
+}
+
+/* ===== 高DPI屏幕字体优化 ===== */
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi),
+       screen and (min-resolution: 2dppx) {
+    :root {
+        /* 高DPI屏幕字体微调 */
+        --blog-base-font-size: clamp(0.95rem, 2.25vw, 1.05rem);
+        --blog-h1-font-size: clamp(1.65rem, 4.25vw, 2.125rem);
+        --blog-h2-font-size: clamp(1.4rem, 3.75vw, 1.75rem);
+        --blog-h3-font-size: clamp(1.2rem, 3.25vw, 1.4rem);
+        --blog-code-font-size: clamp(0.75rem, 1.875vw, 0.85rem);
+        
+        /* 高DPI屏幕行高微调 */
+        --blog-base-line-height: 1.65;
+        --blog-heading-line-height: 1.25;
+    }
+}
+
+/* ===== 移动端动态字体大小实现 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 博客文章内容基础字体 */
+    .blog-mobile-optimized .blog-post-content {
+        font-size: var(--blog-base-font-size) !important;
+        line-height: var(--blog-base-line-height) !important;
+        font-weight: 400 !important;
+        color: var(--text-primary) !important;
+        font-family: var(--font-family-base) !important;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        font-feature-settings: "kern" 1, "liga" 1 !important;
+        font-kerning: normal !important;
+    }
+
+    /* 动态标题字体大小 */
+    .blog-mobile-optimized .blog-post-title {
+        font-size: var(--blog-h1-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+        font-family: var(--font-family-base) !important;
+        letter-spacing: -0.025em !important;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+
+    /* 文章内标题动态字体 */
+    .blog-mobile-optimized .blog-post-content h1 {
+        font-size: var(--blog-h1-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+        letter-spacing: -0.025em !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: var(--blog-h2-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+        letter-spacing: -0.02em !important;
+        border-bottom: 1px solid var(--border-light) !important;
+        padding-bottom: var(--spacing-sm) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: var(--blog-h3-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+        letter-spacing: -0.015em !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h4 {
+        font-size: var(--blog-h4-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h5 {
+        font-size: var(--blog-h5-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h6 {
+        font-size: var(--blog-h6-font-size) !important;
+        line-height: var(--blog-heading-line-height) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        margin-top: var(--blog-heading-spacing-top) !important;
+        margin-bottom: var(--blog-heading-spacing-bottom) !important;
+    }
+
+    /* 段落动态字体 */
+    .blog-mobile-optimized .blog-post-content p {
+        font-size: var(--blog-base-font-size) !important;
+        line-height: var(--blog-base-line-height) !important;
+        font-weight: 400 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: var(--blog-paragraph-spacing) !important;
+        text-align: left !important;
+        orphans: 3 !important;
+        widows: 3 !important;
+    }
+
+    /* 列表动态字体 */
+    .blog-mobile-optimized .blog-post-content ul,
+    .blog-mobile-optimized .blog-post-content ol {
+        font-size: var(--blog-base-font-size) !important;
+        line-height: var(--blog-base-line-height) !important;
+        margin-bottom: var(--blog-list-spacing) !important;
+        padding-left: var(--spacing-lg) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content li {
+        font-size: inherit !important;
+        line-height: var(--blog-base-line-height) !important;
+        color: var(--text-primary) !important;
+        margin-bottom: var(--spacing-sm) !important;
+    }
+
+    /* 代码块动态字体 */
+    .blog-mobile-optimized .blog-post-content pre {
+        font-size: var(--blog-code-font-size) !important;
+        line-height: var(--blog-code-line-height) !important;
+        font-family: var(--font-family-mono) !important;
+        font-weight: 400 !important;
+        font-variant-ligatures: common-ligatures !important;
+        -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+        font-feature-settings: "liga" 1, "calt" 1 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content pre code {
+        font-size: inherit !important;
+        line-height: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+    }
+
+    /* 行内代码动态字体 */
+    .blog-mobile-optimized .blog-post-content p code,
+    .blog-mobile-optimized .blog-post-content li code,
+    .blog-mobile-optimized .blog-post-content h1 code,
+    .blog-mobile-optimized .blog-post-content h2 code,
+    .blog-mobile-optimized .blog-post-content h3 code,
+    .blog-mobile-optimized .blog-post-content h4 code,
+    .blog-mobile-optimized .blog-post-content h5 code,
+    .blog-mobile-optimized .blog-post-content h6 code {
+        font-size: var(--blog-inline-code-font-size) !important;
+        line-height: 1 !important;
+        font-family: var(--font-family-mono) !important;
+        font-weight: 400 !important;
+        font-variant-ligatures: common-ligatures !important;
+        -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+        font-feature-settings: "liga" 1, "calt" 1 !important;
+    }
+
+    /* 引用块动态字体 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        font-size: var(--blog-base-font-size) !important;
+        line-height: var(--blog-base-line-height) !important;
+        font-style: italic !important;
+        color: var(--text-primary) !important;
+        margin: var(--blog-paragraph-spacing) 0 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content blockquote p {
+        font-size: inherit !important;
+        line-height: inherit !important;
+        font-style: inherit !important;
+        margin: 0 !important;
+    }
+}
+
+/* ===== 小屏幕设备字体优化 ===== */
+
+@media screen and (max-width: 480px) {
+    :root {
+        /* 小屏幕字体大小调整 */
+        --blog-base-font-size: clamp(0.95rem, 3vw, 1.05rem);
+        --blog-small-font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        --blog-large-font-size: clamp(1.05rem, 3.5vw, 1.15rem);
+        
+        --blog-h1-font-size: clamp(1.5rem, 5vw, 1.875rem);
+        --blog-h2-font-size: clamp(1.3rem, 4.5vw, 1.625rem);
+        --blog-h3-font-size: clamp(1.15rem, 4vw, 1.375rem);
+        --blog-h4-font-size: clamp(1.05rem, 3.5vw, 1.125rem);
+        --blog-h5-font-size: clamp(0.95rem, 3vw, 1rem);
+        --blog-h6-font-size: clamp(0.9rem, 2.75vw, 0.95rem);
+        
+        --blog-code-font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+        --blog-inline-code-font-size: 0.8em;
+        
+        /* 小屏幕间距调整 */
+        --blog-paragraph-spacing: clamp(0.875rem, 2.5vw, 1.25rem);
+        --blog-heading-spacing-top: clamp(1.25rem, 3.5vw, 2rem);
+        --blog-heading-spacing-bottom: clamp(0.625rem, 1.5vw, 0.875rem);
+        --blog-list-spacing: clamp(0.875rem, 2.25vw, 1rem);
+    }
+
+    /* 小屏幕元信息字体 */
+    .blog-mobile-optimized .blog-post-meta {
+        font-size: var(--blog-small-font-size) !important;
+        line-height: var(--blog-caption-line-height) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-meta span {
+        font-size: inherit !important;
+        line-height: inherit !important;
+    }
+
+    /* 小屏幕标签和按钮字体 */
+    .blog-mobile-optimized .tag-link {
+        font-size: var(--blog-small-font-size) !important;
+        line-height: var(--blog-caption-line-height) !important;
+    }
+
+    .blog-mobile-optimized .share-btn {
+        font-size: var(--blog-small-font-size) !important;
+        line-height: var(--blog-caption-line-height) !important;
+    }
+
+    /* 小屏幕导航字体 */
+    .blog-mobile-optimized .post-nav-label {
+        font-size: clamp(0.7rem, 2vw, 0.8rem) !important;
+        line-height: 1.2 !important;
+        text-transform: uppercase !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    .blog-mobile-optimized .post-nav-title {
+        font-size: var(--blog-small-font-size) !important;
+        line-height: var(--blog-caption-line-height) !important;
+        font-weight: 500 !important;
+    }
+}
+
+/* ===== 超小屏幕设备字体优化 ===== */
+
+@media screen and (max-width: 320px) {
+    :root {
+        /* 超小屏幕字体大小 */
+        --blog-base-font-size: clamp(0.9rem, 3.5vw, 1rem);
+        --blog-small-font-size: clamp(0.75rem, 3vw, 0.85rem);
+        
+        --blog-h1-font-size: clamp(1.25rem, 5.5vw, 1.625rem);
+        --blog-h2-font-size: clamp(1.125rem, 5vw, 1.375rem);
+        --blog-h3-font-size: clamp(1rem, 4.5vw, 1.125rem);
+        --blog-h4-font-size: clamp(0.95rem, 4vw, 1rem);
+        --blog-h5-font-size: clamp(0.9rem, 3.5vw, 0.95rem);
+        --blog-h6-font-size: clamp(0.85rem, 3.25vw, 0.9rem);
+        
+        --blog-code-font-size: clamp(0.7rem, 3vw, 0.8rem);
+        --blog-inline-code-font-size: 0.75em;
+        
+        /* 超小屏幕间距 */
+        --blog-paragraph-spacing: clamp(0.75rem, 2.25vw, 1rem);
+        --blog-heading-spacing-top: clamp(1rem, 3vw, 1.5rem);
+        --blog-heading-spacing-bottom: clamp(0.5rem, 1.25vw, 0.75rem);
+        --blog-list-spacing: clamp(0.75rem, 2vw, 0.875rem);
+    }
+
+    /* 超小屏幕行高调整 */
+    .blog-mobile-optimized .blog-post-content {
+        line-height: 1.5 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h1,
+    .blog-mobile-optimized .blog-post-content h2,
+    .blog-mobile-optimized .blog-post-content h3,
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        line-height: 1.1 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-title {
+        line-height: 1.1 !important;
+    }
+}
+
+/* ===== 字体加载优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 字体显示优化 */
+    .blog-mobile-optimized * {
+        font-display: swap !important;
+    }
+
+    /* 字体渲染优化 */
+    .blog-mobile-optimized .blog-post-content,
+    .blog-mobile-optimized .blog-post-title,
+    .blog-mobile-optimized .blog-post-meta {
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        font-synthesis: none !important;
+    }
+
+    /* 代码字体渲染优化 */
+    .blog-mobile-optimized .blog-post-content pre,
+    .blog-mobile-optimized .blog-post-content code {
+        text-rendering: optimizeSpeed !important;
+        -webkit-font-smoothing: auto !important;
+        -moz-osx-font-smoothing: auto !important;
+        font-variant-ligatures: common-ligatures !important;
+        -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+        font-feature-settings: "liga" 1, "calt" 1 !important;
+    }
+}
+
+/* ===== 可访问性字体优化 ===== */
+
+/* 用户偏好：大字体 */
+@media screen and (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .blog-mobile-optimized .blog-post-content {
+        transition: font-size 0.2s ease !important;
+    }
+}
+
+/* 用户偏好：减少动画 */
+@media (prefers-reduced-motion: reduce) {
+    .blog-mobile-optimized * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* 用户偏好：高对比度 */
+@media (prefers-contrast: high) {
+    .blog-mobile-optimized .blog-post-content {
+        font-weight: 500 !important;
+    }
+    
+    .blog-mobile-optimized .blog-post-title,
+    .blog-mobile-optimized .blog-post-content h1,
+    .blog-mobile-optimized .blog-post-content h2,
+    .blog-mobile-optimized .blog-post-content h3,
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        font-weight: 700 !important;
+    }
+}
+
+/* ===== 暗色主题字体优化 ===== */
+
+[data-theme="dark"] .blog-mobile-optimized .blog-post-content,
+[data-theme="dark"] .blog-mobile-optimized .blog-post-title {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .blog-mobile-optimized .blog-post-content code {
+    text-shadow: none !important;
+}
+
+/* ===== 打印字体优化 ===== */
+
+@media print {
+    .blog-mobile-optimized .blog-post-content {
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+        color: black !important;
+    }
+
+    .blog-mobile-optimized .blog-post-title {
+        font-size: 18pt !important;
+        line-height: 1.2 !important;
+        color: black !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h1 {
+        font-size: 16pt !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: 14pt !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: 13pt !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        font-size: 12pt !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content pre,
+    .blog-mobile-optimized .blog-post-content code {
+        font-size: 10pt !important;
+        font-family: "Courier New", monospace !important;
+    }
+}

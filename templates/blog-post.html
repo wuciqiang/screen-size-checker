@@ -2,12 +2,25 @@
 <html lang="{{lang}}">
 <head>
     {{component:head}}
+    
+    <!-- 博客页面性能优化 -->
+    <link rel="preconnect" href="https://quickchart.io" crossorigin>
+    <link rel="dns-prefetch" href="https://quickchart.io">
+    
     <!-- 博客页面特定CSS -->
     <link rel="stylesheet" href="{{css_path}}/blog.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-mobile.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-mobile-fixes.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-layout-mobile.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-content-responsive.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-typography-mobile.css">
+    <link rel="stylesheet" href="{{css_path}}/mobile-typography-classes.css">
+    <link rel="stylesheet" href="{{css_path}}/mobile-chart-optimization.css">
+    <link rel="stylesheet" href="{{css_path}}/blog-mobile-emergency-fix.css">
     <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
     <link rel="stylesheet" href="{{css_path}}/blog-progress.css">
 </head>
-<body data-theme="light">
+<body data-theme="light" class="blog-mobile-optimized">
     <!-- 头部导航 -->
     {{component:header}}
     
@@ -19,7 +32,7 @@
     <main class="main-content blog-main">
         <div class="blog-container">
             <!-- 文章内容区域 -->
-            <div class="blog-content-area">
+            <div class="blog-content-area blog-content-mobile">
                 {{page_content}}
                 
                 <!-- 文章导航 -->
@@ -52,6 +65,7 @@
     
     <!-- 博客特定JavaScript -->
     <script src="{{js_path}}/highlight.min.js"></script>
+    <script src="{{js_path}}/mobile-image-optimizer.js"></script>
     <script src="{{js_path}}/blog.js" type="module"></script>
     <script src="{{js_path}}/blog-progress.js" type="module"></script>
     <script src="{{js_path}}/app.js" type="module"></script>

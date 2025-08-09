@@ -1,0 +1,336 @@
+/**
+ * 移动端图表优化样式
+ * 专门优化QuickChart和其他图表在移动端的显示
+ */
+
+/* ===== 移动端图表基础优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* QuickChart图表优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .mobile-chart {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: var(--spacing-xl) auto !important;
+        padding: var(--spacing-sm) !important;
+        border-radius: var(--radius-md) !important;
+        box-sizing: border-box !important;
+        background-color: white !important;
+        border: 1px solid var(--border-color) !important;
+        box-shadow: var(--shadow-light) !important;
+        object-fit: contain !important;
+        
+        /* 图表加载优化 */
+        loading: lazy !important;
+        decoding: async !important;
+        
+        /* 触摸优化 */
+        touch-action: pan-x pan-y !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        
+        /* 过渡效果 */
+        transition: all var(--transition-medium) !important;
+    }
+
+    /* 图表悬停效果 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"]:hover,
+    .blog-mobile-optimized .mobile-chart:hover {
+        box-shadow: var(--shadow-medium) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    /* 图表加载状态 */
+    .blog-mobile-optimized .mobile-chart.lazy-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%) !important;
+        background-size: 200% 100% !important;
+        animation: chart-loading-shimmer 1.5s infinite !important;
+        min-height: 200px !important;
+    }
+
+    /* 图表错误状态 */
+    .blog-mobile-optimized .mobile-chart.load-error {
+        background: #ffebee !important;
+        border: 2px dashed #e57373 !important;
+        color: #c62828 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 200px !important;
+        font-size: 0.875rem !important;
+        text-align: center !important;
+    }
+
+    .blog-mobile-optimized .mobile-chart.load-error::before {
+        content: "📊 Chart failed to load" !important;
+        display: block !important;
+    }
+}
+
+/* ===== 图表说明文字优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 图表后的说明文字 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + em,
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + i,
+    .blog-mobile-optimized .mobile-chart + em,
+    .blog-mobile-optimized .mobile-chart + i {
+        display: block !important;
+        text-align: center !important;
+        font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
+        line-height: 1.3 !important;
+        color: var(--text-secondary) !important;
+        margin-top: var(--spacing-sm) !important;
+        margin-bottom: var(--spacing-xl) !important;
+        font-style: italic !important;
+        padding: 0 var(--spacing-md) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 图表标题优化 */
+    .blog-mobile-optimized .chart-title {
+        font-size: clamp(1rem, 2.5vw, 1.125rem) !important;
+        line-height: 1.3 !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        text-align: center !important;
+        margin-bottom: var(--spacing-sm) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== 不同类型图表的特殊优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 饼图优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="doughnut"],
+    .blog-mobile-optimized .blog-post-content img[src*="pie"] {
+        max-width: 320px !important;
+        margin: var(--spacing-lg) auto !important;
+    }
+
+    /* 条形图优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="bar"] {
+        max-width: 100% !important;
+        min-height: 250px !important;
+    }
+
+    /* 折线图优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="line"] {
+        max-width: 100% !important;
+        min-height: 200px !important;
+    }
+
+    /* 散点图优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="scatter"] {
+        max-width: 100% !important;
+        min-height: 250px !important;
+    }
+}
+
+/* ===== 小屏幕设备图表优化 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    /* 小屏幕图表基础优化 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .mobile-chart {
+        margin: var(--spacing-lg) auto !important;
+        padding: var(--spacing-xs) !important;
+        border-radius: var(--radius-sm) !important;
+    }
+
+    /* 小屏幕图表说明 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + em,
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + i,
+    .blog-mobile-optimized .mobile-chart + em,
+    .blog-mobile-optimized .mobile-chart + i {
+        font-size: clamp(0.75rem, 2.25vw, 0.85rem) !important;
+        margin-top: var(--spacing-xs) !important;
+        margin-bottom: var(--spacing-lg) !important;
+        padding: 0 var(--spacing-sm) !important;
+    }
+
+    /* 小屏幕饼图 */
+    .blog-mobile-optimized .blog-post-content img[src*="doughnut"],
+    .blog-mobile-optimized .blog-post-content img[src*="pie"] {
+        max-width: 280px !important;
+    }
+
+    /* 小屏幕条形图和折线图 */
+    .blog-mobile-optimized .blog-post-content img[src*="bar"],
+    .blog-mobile-optimized .blog-post-content img[src*="line"] {
+        min-height: 180px !important;
+    }
+}
+
+/* ===== 超小屏幕设备图表优化 ===== */
+
+@media screen and (max-width: 320px) {
+    
+    /* 超小屏幕图表 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .mobile-chart {
+        margin: var(--spacing-md) auto !important;
+        padding: 4px !important;
+    }
+
+    /* 超小屏幕图表说明 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + em,
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"] + i,
+    .blog-mobile-optimized .mobile-chart + em,
+    .blog-mobile-optimized .mobile-chart + i {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem) !important;
+        margin-top: 4px !important;
+        margin-bottom: var(--spacing-md) !important;
+        padding: 0 8px !important;
+    }
+
+    /* 超小屏幕饼图 */
+    .blog-mobile-optimized .blog-post-content img[src*="doughnut"],
+    .blog-mobile-optimized .blog-post-content img[src*="pie"] {
+        max-width: 240px !important;
+    }
+
+    /* 超小屏幕其他图表 */
+    .blog-mobile-optimized .blog-post-content img[src*="bar"],
+    .blog-mobile-optimized .blog-post-content img[src*="line"],
+    .blog-mobile-optimized .blog-post-content img[src*="scatter"] {
+        min-height: 160px !important;
+    }
+}
+
+/* ===== 图表容器优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 图表容器 */
+    .blog-mobile-optimized .chart-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--spacing-xl) 0 !important;
+        padding: var(--spacing-md) !important;
+        background-color: var(--background-card) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-lg) !important;
+        box-shadow: var(--shadow-light) !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    /* 图表容器标题 */
+    .blog-mobile-optimized .chart-container .chart-title {
+        margin-bottom: var(--spacing-md) !important;
+        padding-bottom: var(--spacing-sm) !important;
+        border-bottom: 1px solid var(--border-light) !important;
+    }
+
+    /* 图表容器内的图表 */
+    .blog-mobile-optimized .chart-container img {
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    /* 图表容器说明 */
+    .blog-mobile-optimized .chart-container .chart-description {
+        margin-top: var(--spacing-md) !important;
+        padding-top: var(--spacing-sm) !important;
+        border-top: 1px solid var(--border-light) !important;
+        font-size: clamp(0.85rem, 2.25vw, 0.95rem) !important;
+        line-height: 1.4 !important;
+        color: var(--text-secondary) !important;
+        text-align: left !important;
+    }
+}
+
+/* ===== 图表加载动画 ===== */
+
+@keyframes chart-loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* 低端设备禁用图表动画 */
+.low-end-device .blog-mobile-optimized .mobile-chart.lazy-loading {
+    animation: none !important;
+    background: #f0f0f0 !important;
+}
+
+.low-end-device .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+.low-end-device .blog-mobile-optimized .mobile-chart {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* ===== 暗色主题图表优化 ===== */
+
+[data-theme="dark"] .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+[data-theme="dark"] .blog-mobile-optimized .mobile-chart {
+    background-color: var(--background-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .blog-mobile-optimized .chart-container {
+    background-color: var(--background-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .blog-mobile-optimized .mobile-chart.load-error {
+    background: #3d2626 !important;
+    border-color: #dc2626 !important;
+    color: #fca5a5 !important;
+}
+
+/* ===== 高对比度模式图表优化 ===== */
+
+@media (prefers-contrast: high) {
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .mobile-chart {
+        border: 2px solid currentColor !important;
+        box-shadow: none !important;
+    }
+
+    .blog-mobile-optimized .chart-container {
+        border: 2px solid currentColor !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===== 打印样式图表优化 ===== */
+
+@media print {
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .mobile-chart {
+        max-width: 100% !important;
+        height: auto !important;
+        background: white !important;
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        margin: 1rem 0 !important;
+        padding: 0.5rem !important;
+        page-break-inside: avoid !important;
+    }
+
+    .blog-mobile-optimized .chart-container {
+        background: white !important;
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+    }
+}

@@ -1,0 +1,602 @@
+/**
+ * 博客文章内容响应式显示优化
+ * 专门处理段落、标题、列表、代码块和引用的移动端显示
+ */
+
+/* ===== 博客文章内容基础响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 博客文章内容容器 */
+    .blog-mobile-optimized .blog-post-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        box-sizing: border-box !important;
+        font-size: clamp(1rem, 2.5vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+    /* 段落优化 */
+    .blog-mobile-optimized .blog-post-content p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: var(--spacing-lg) !important;
+        padding: 0 !important;
+        font-size: inherit !important;
+        line-height: 1.6 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+    }
+
+    /* 标题层级优化 */
+    .blog-mobile-optimized .blog-post-content h1 {
+        font-size: clamp(1.4rem, 3.5vw, 1.8rem) !important;
+        line-height: 1.2 !important;
+        margin-top: var(--spacing-xl) !important;
+        margin-bottom: var(--spacing-md) !important;
+        color: var(--text-primary) !important;
+        font-weight: 700 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: clamp(1.3rem, 3vw, 1.6rem) !important;
+        line-height: 1.2 !important;
+        margin-top: var(--spacing-xl) !important;
+        margin-bottom: var(--spacing-md) !important;
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        border-bottom: 1px solid var(--border-light) !important;
+        padding-bottom: var(--spacing-sm) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: clamp(1.2rem, 2.5vw, 1.4rem) !important;
+        line-height: 1.3 !important;
+        margin-top: var(--spacing-lg) !important;
+        margin-bottom: var(--spacing-sm) !important;
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h4,
+    .blog-mobile-optimized .blog-post-content h5,
+    .blog-mobile-optimized .blog-post-content h6 {
+        font-size: clamp(1.1rem, 2vw, 1.2rem) !important;
+        line-height: 1.3 !important;
+        margin-top: var(--spacing-md) !important;
+        margin-bottom: var(--spacing-sm) !important;
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== 列表元素响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 无序列表和有序列表 */
+    .blog-mobile-optimized .blog-post-content ul,
+    .blog-mobile-optimized .blog-post-content ol {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: var(--spacing-lg) !important;
+        padding-left: var(--spacing-lg) !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* 列表项 */
+    .blog-mobile-optimized .blog-post-content li {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: var(--spacing-sm) !important;
+        padding: 0 !important;
+        line-height: 1.5 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+    }
+
+    /* 嵌套列表 */
+    .blog-mobile-optimized .blog-post-content li ul,
+    .blog-mobile-optimized .blog-post-content li ol {
+        margin-top: var(--spacing-sm) !important;
+        margin-bottom: var(--spacing-sm) !important;
+        padding-left: var(--spacing-md) !important;
+    }
+
+    /* 列表项中的强调文本 */
+    .blog-mobile-optimized .blog-post-content li strong,
+    .blog-mobile-optimized .blog-post-content li em,
+    .blog-mobile-optimized .blog-post-content li b,
+    .blog-mobile-optimized .blog-post-content li i {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+}
+
+/* ===== 代码块响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 代码块容器 */
+    .blog-mobile-optimized .blog-post-content pre {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--spacing-lg) 0 !important;
+        padding: var(--spacing-md) !important;
+        background-color: var(--background-code) !important;
+        border-radius: var(--radius-md) !important;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        font-family: var(--font-family-mono) !important;
+        font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
+        line-height: 1.4 !important;
+        -webkit-overflow-scrolling: touch !important;
+        border: 1px solid var(--border-color) !important;
+    }
+
+    /* 代码块内容 */
+    .blog-mobile-optimized .blog-post-content pre code {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+        white-space: pre !important;
+        word-wrap: normal !important;
+        overflow-wrap: normal !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 行内代码 */
+    .blog-mobile-optimized .blog-post-content p code,
+    .blog-mobile-optimized .blog-post-content li code,
+    .blog-mobile-optimized .blog-post-content h1 code,
+    .blog-mobile-optimized .blog-post-content h2 code,
+    .blog-mobile-optimized .blog-post-content h3 code,
+    .blog-mobile-optimized .blog-post-content h4 code,
+    .blog-mobile-optimized .blog-post-content h5 code,
+    .blog-mobile-optimized .blog-post-content h6 code {
+        display: inline !important;
+        padding: 2px 4px !important;
+        margin: 0 1px !important;
+        background-color: var(--background-code-inline) !important;
+        border: 1px solid var(--border-light) !important;
+        border-radius: var(--radius-sm) !important;
+        font-family: var(--font-family-mono) !important;
+        font-size: 0.85em !important;
+        line-height: 1 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 代码高亮优化 */
+    .blog-mobile-optimized .blog-post-content .hljs {
+        background: var(--background-code) !important;
+        color: var(--text-primary) !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* 代码高亮元素 */
+    .blog-mobile-optimized .blog-post-content .hljs-keyword,
+    .blog-mobile-optimized .blog-post-content .hljs-tag,
+    .blog-mobile-optimized .blog-post-content .hljs-attr,
+    .blog-mobile-optimized .blog-post-content .hljs-string,
+    .blog-mobile-optimized .blog-post-content .hljs-regexp,
+    .blog-mobile-optimized .blog-post-content .hljs-number,
+    .blog-mobile-optimized .blog-post-content .hljs-literal,
+    .blog-mobile-optimized .blog-post-content .hljs-comment,
+    .blog-mobile-optimized .blog-post-content .hljs-function,
+    .blog-mobile-optimized .blog-post-content .hljs-built_in,
+    .blog-mobile-optimized .blog-post-content .hljs-variable,
+    .blog-mobile-optimized .blog-post-content .hljs-params,
+    .blog-mobile-optimized .blog-post-content .hljs-name,
+    .blog-mobile-optimized .blog-post-content .hljs-attribute,
+    .blog-mobile-optimized .blog-post-content .hljs-title {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: pre-wrap !important;
+    }
+}
+
+/* ===== 引用块响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 引用块容器 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--spacing-lg) 0 !important;
+        padding: var(--spacing-md) var(--spacing-lg) !important;
+        border-left: 4px solid var(--primary-color) !important;
+        background-color: var(--background-secondary) !important;
+        border-radius: var(--radius-md) !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        font-style: italic !important;
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+    }
+
+    /* 引用块内的段落 */
+    .blog-mobile-optimized .blog-post-content blockquote p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: inherit !important;
+        line-height: 1.5 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-overflow: unset !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content blockquote p:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* 引用块内的其他元素 */
+    .blog-mobile-optimized .blog-post-content blockquote strong,
+    .blog-mobile-optimized .blog-post-content blockquote em,
+    .blog-mobile-optimized .blog-post-content blockquote a,
+    .blog-mobile-optimized .blog-post-content blockquote code {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+}
+
+/* ===== 链接和强调文本响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 文章内链接 */
+    .blog-mobile-optimized .blog-post-content a {
+        color: var(--primary-color) !important;
+        text-decoration: underline !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        display: inline !important;
+        line-height: inherit !important;
+        padding: 1px 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content a:hover,
+    .blog-mobile-optimized .blog-post-content a:focus {
+        color: var(--primary-hover) !important;
+        text-decoration: underline !important;
+        background-color: rgba(0, 102, 204, 0.1) !important;
+        border-radius: var(--radius-sm) !important;
+    }
+
+    /* 强调文本 */
+    .blog-mobile-optimized .blog-post-content strong,
+    .blog-mobile-optimized .blog-post-content b {
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content em,
+    .blog-mobile-optimized .blog-post-content i {
+        font-style: italic !important;
+        color: var(--text-primary) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* 删除线和下划线 */
+    .blog-mobile-optimized .blog-post-content del,
+    .blog-mobile-optimized .blog-post-content s {
+        text-decoration: line-through !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content ins,
+    .blog-mobile-optimized .blog-post-content u {
+        text-decoration: underline !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+}
+
+/* ===== 图片和媒体内容响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 文章内图片 */
+    .blog-mobile-optimized .blog-post-content img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: var(--spacing-lg) auto !important;
+        padding: 0 !important;
+        border-radius: var(--radius-md) !important;
+        box-sizing: border-box !important;
+        object-fit: contain !important;
+        background-color: var(--background-secondary) !important;
+        border: 1px solid var(--border-light) !important;
+    }
+
+    /* 图表和数据可视化 */
+    .blog-mobile-optimized .blog-post-content img[src*="quickchart.io"],
+    .blog-mobile-optimized .blog-post-content img[src*="chart"],
+    .blog-mobile-optimized .blog-post-content img[alt*="Chart"],
+    .blog-mobile-optimized .blog-post-content img[alt*="chart"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: var(--spacing-xl) auto !important;
+        padding: var(--spacing-sm) !important;
+        border-radius: var(--radius-md) !important;
+        box-sizing: border-box !important;
+        background-color: white !important;
+        border: 1px solid var(--border-color) !important;
+        box-shadow: var(--shadow-light) !important;
+    }
+
+    /* 图片说明文字 */
+    .blog-mobile-optimized .blog-post-content img + em,
+    .blog-mobile-optimized .blog-post-content img + i {
+        display: block !important;
+        text-align: center !important;
+        font-size: 0.85rem !important;
+        color: var(--text-secondary) !important;
+        margin-top: var(--spacing-xs) !important;
+        margin-bottom: var(--spacing-lg) !important;
+        font-style: italic !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== 表格响应式优化 ===== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 表格包装器 */
+    .blog-mobile-optimized .blog-post-content .table-wrapper,
+    .blog-mobile-optimized .blog-post-content table {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        margin: var(--spacing-lg) 0 !important;
+        box-sizing: border-box !important;
+        -webkit-overflow-scrolling: touch !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        background-color: var(--background-card) !important;
+    }
+
+    /* 表格本体 */
+    .blog-mobile-optimized .blog-post-content table {
+        min-width: 500px !important;
+        border-collapse: collapse !important;
+        margin: 0 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+    }
+
+    /* 表格头部和单元格 */
+    .blog-mobile-optimized .blog-post-content th,
+    .blog-mobile-optimized .blog-post-content td {
+        padding: var(--spacing-sm) !important;
+        text-align: left !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        border-right: 1px solid var(--border-light) !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        min-width: 100px !important;
+        max-width: 200px !important;
+        box-sizing: border-box !important;
+        vertical-align: top !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content th {
+        background-color: var(--background-secondary) !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content td {
+        color: var(--text-primary) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content tr:hover {
+        background-color: var(--background-hover) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content tr:last-child td {
+        border-bottom: none !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content th:last-child,
+    .blog-mobile-optimized .blog-post-content td:last-child {
+        border-right: none !important;
+    }
+}
+
+/* ===== 小屏幕设备内容优化 ===== */
+
+@media screen and (max-width: 480px) {
+    
+    /* 小屏幕文字大小调整 */
+    .blog-mobile-optimized .blog-post-content {
+        font-size: clamp(0.95rem, 3vw, 1.05rem) !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 小屏幕标题调整 */
+    .blog-mobile-optimized .blog-post-content h1 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: clamp(1.1rem, 3.5vw, 1.4rem) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: clamp(1.05rem, 3vw, 1.25rem) !important;
+    }
+
+    /* 小屏幕代码块调整 */
+    .blog-mobile-optimized .blog-post-content pre {
+        font-size: clamp(0.75rem, 2.5vw, 0.85rem) !important;
+        padding: var(--spacing-sm) !important;
+        margin: var(--spacing-md) 0 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content p code,
+    .blog-mobile-optimized .blog-post-content li code {
+        font-size: 0.8em !important;
+        padding: 1px 3px !important;
+    }
+
+    /* 小屏幕列表调整 */
+    .blog-mobile-optimized .blog-post-content ul,
+    .blog-mobile-optimized .blog-post-content ol {
+        padding-left: var(--spacing-md) !important;
+    }
+
+    /* 小屏幕引用块调整 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        padding: var(--spacing-sm) var(--spacing-md) !important;
+        margin: var(--spacing-md) 0 !important;
+    }
+}
+
+/* ===== 超小屏幕设备内容优化 ===== */
+
+@media screen and (max-width: 320px) {
+    
+    /* 超小屏幕文字大小 */
+    .blog-mobile-optimized .blog-post-content {
+        font-size: clamp(0.9rem, 3.5vw, 1rem) !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 超小屏幕标题 */
+    .blog-mobile-optimized .blog-post-content h1 {
+        font-size: clamp(1rem, 4.5vw, 1.4rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h2 {
+        font-size: clamp(0.95rem, 4vw, 1.2rem) !important;
+    }
+
+    .blog-mobile-optimized .blog-post-content h3 {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem) !important;
+    }
+
+    /* 超小屏幕代码块 */
+    .blog-mobile-optimized .blog-post-content pre {
+        font-size: clamp(0.7rem, 3vw, 0.8rem) !important;
+        padding: 8px !important;
+        margin: 8px 0 !important;
+    }
+
+    /* 超小屏幕引用块 */
+    .blog-mobile-optimized .blog-post-content blockquote {
+        padding: 8px 12px !important;
+        margin: 8px 0 !important;
+        border-left-width: 3px !important;
+    }
+}
