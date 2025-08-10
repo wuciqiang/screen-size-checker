@@ -1,257 +1,288 @@
-/**
- * 移动端博客紧急修复文件
- * 修复显示异常和内容截断问题
- */
+/* PC和移动端统一的复制按钮样式 - 右下角位置，黑色主题，小尺寸 */
 
-/* ===== 紧急修复：移除过度限制的样式 ===== */
+/* 复制按钮样式 - PC和移动端完全一致，右下角位置 - 使用最高优先级 */
+.blog-post-content pre .code-copy-button,
+.code-copy-button {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    color: #e0e0e0 !important;
+    padding: 4px 8px !important;
+    font-size: 0.65rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    height: 24px !important;
+    width: auto !important;
+    max-width: 60px !important;
+    min-width: auto !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+    white-space: nowrap !important;
+    z-index: 15 !important;
+    backdrop-filter: blur(4px) !important;
+}
 
-@media screen and (max-width: 768px) {
+.code-copy-button:hover {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.code-copy-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 复制按钮成功状态样式 */
+.code-copy-button.copied {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+    color: #22c55e;
+}
+
+.code-copy-button.copy-error {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+}
+
+/* 移动端优化 - 保持与PC端完全一致的复制按钮位置 */
+@media (max-width: 768px) {
+    /* 代码块容器调整 - 移除上边距，因为不再需要外部头部空间 */
+    .blog-post-content pre {
+        margin: var(--spacing-lg) calc(-1 * var(--spacing-md)) !important;
+        border-radius: 0 !important;
+        font-size: 0.85rem !important;
+    }
     
-    /* 确保基础容器不会截断内容 */
-    .blog-mobile-optimized .blog-container,
-    .blog-mobile-optimized .blog-content-area,
-    .blog-mobile-optimized .blog-post,
-    .blog-mobile-optimized .blog-post-content {
-        overflow: visible !important;
-        overflow-x: visible !important;
-        overflow-y: visible !important;
-        min-height: auto !important;
-        height: auto !important;
-    }
-
-    /* 确保文章内容完全可见 */
-    .blog-mobile-optimized .blog-post-content {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: static !important;
-        transform: none !important;
-        clip: none !important;
-        clip-path: none !important;
-    }
-
-    /* 确保所有文本元素可见 */
-    .blog-mobile-optimized .blog-post-content *,
-    .blog-mobile-optimized .blog-post-title,
-    .blog-mobile-optimized .blog-post-meta {
-        display: inherit !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: static !important;
-        transform: none !important;
-        clip: none !important;
-        clip-path: none !important;
-        max-height: none !important;
-        overflow: visible !important;
-    }
-
-    /* 修复段落显示 */
-    .blog-mobile-optimized .blog-post-content p {
-        display: block !important;
-        margin: 0 0 1rem 0 !important;
-        padding: 0 !important;
-        line-height: 1.6 !important;
-        font-size: 1rem !important;
-        color: var(--text-primary) !important;
-    }
-
-    /* 修复标题显示 */
-    .blog-mobile-optimized .blog-post-content h1,
-    .blog-mobile-optimized .blog-post-content h2,
-    .blog-mobile-optimized .blog-post-content h3,
-    .blog-mobile-optimized .blog-post-content h4,
-    .blog-mobile-optimized .blog-post-content h5,
-    .blog-mobile-optimized .blog-post-content h6 {
-        display: block !important;
-        margin: 1.5rem 0 1rem 0 !important;
-        padding: 0 !important;
-        font-weight: 600 !important;
-        color: var(--text-primary) !important;
-    }
-
-    .blog-mobile-optimized .blog-post-title {
-        display: block !important;
-        margin: 0 0 1rem 0 !important;
-        padding: 0 !important;
-        font-size: 1.75rem !important;
-        font-weight: 700 !important;
-        line-height: 1.2 !important;
-        color: var(--text-primary) !important;
-    }
-
-    /* 修复列表显示 */
-    .blog-mobile-optimized .blog-post-content ul,
-    .blog-mobile-optimized .blog-post-content ol {
-        display: block !important;
-        margin: 0 0 1rem 0 !important;
-        padding-left: 1.5rem !important;
-    }
-
-    .blog-mobile-optimized .blog-post-content li {
-        display: list-item !important;
-        margin: 0 0 0.5rem 0 !important;
-        padding: 0 !important;
-        line-height: 1.5 !important;
-    }
-
-    /* 修复图片显示 */
-    .blog-mobile-optimized .blog-post-content img {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        margin: 1rem auto !important;
-        border-radius: 8px !important;
-    }
-
-    /* 修复代码块显示 */
-    .blog-mobile-optimized .blog-post-content pre {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 1rem 0 !important;
-        padding: 1rem !important;
-        background: #f8f9fa !important;
-        border-radius: 8px !important;
-        overflow-x: auto !important;
-        font-family: monospace !important;
-        font-size: 0.875rem !important;
+    .blog-post-content pre code {
+        font-size: 0.85rem !important;
         line-height: 1.4 !important;
     }
-
-    /* 修复行内代码显示 */
-    .blog-mobile-optimized .blog-post-content code {
-        display: inline !important;
-        padding: 2px 4px !important;
-        background: #f1f3f4 !important;
-        border-radius: 4px !important;
-        font-family: monospace !important;
-        font-size: 0.875em !important;
-    }
-
-    /* 修复引用块显示 */
-    .blog-mobile-optimized .blog-post-content blockquote {
-        display: block !important;
-        margin: 1rem 0 !important;
-        padding: 1rem !important;
-        border-left: 4px solid var(--primary-color) !important;
-        background: #f8f9fa !important;
-        border-radius: 8px !important;
-        font-style: italic !important;
-    }
-
-    /* 修复链接显示 */
-    .blog-mobile-optimized .blog-post-content a {
-        display: inline !important;
-        color: var(--primary-color) !important;
-        text-decoration: underline !important;
-    }
-
-    /* 修复强调文本显示 */
-    .blog-mobile-optimized .blog-post-content strong,
-    .blog-mobile-optimized .blog-post-content b {
-        display: inline !important;
-        font-weight: 700 !important;
-    }
-
-    .blog-mobile-optimized .blog-post-content em,
-    .blog-mobile-optimized .blog-post-content i {
-        display: inline !important;
-        font-style: italic !important;
-    }
-}
-
-/* ===== 确保基础布局正常 ===== */
-
-@media screen and (max-width: 768px) {
     
-    /* 重置博客容器 */
-    .blog-mobile-optimized .blog-container {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 1rem !important;
-        box-sizing: border-box !important;
+    /* 移动端复制按钮 - 保持与PC端相同的位置和样式 */
+    .code-copy-button {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        height: 28px !important;
+        width: auto !important;
+        max-width: 70px !important;
+        /* 确保触摸目标足够大 */
+        touch-action: manipulation !important;
     }
-
-    /* 重置内容区域 */
-    .blog-mobile-optimized .blog-content-area {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 重置文章容器 */
-    .blog-mobile-optimized .blog-post {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 重置文章内容 */
-    .blog-mobile-optimized .blog-post-content {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-        color: #333 !important;
-    }
-
-    /* 隐藏侧边栏在移动端 */
-    .blog-mobile-optimized .blog-sidebar-area {
-        display: none !important;
-    }
-}
-
-/* ===== 小屏幕设备修复 ===== */
-
-@media screen and (max-width: 480px) {
     
-    .blog-mobile-optimized .blog-container {
-        padding: 0.5rem !important;
+    .code-copy-button:active {
+        transform: scale(0.95);
     }
-
-    .blog-mobile-optimized .blog-post-title {
-        font-size: 1.5rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 0.75rem !important;
-    }
-
-    .blog-mobile-optimized .blog-post-content {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-    }
-
-    .blog-mobile-optimized .blog-post-content h2 {
-        font-size: 1.3rem !important;
-    }
-
-    .blog-mobile-optimized .blog-post-content h3 {
-        font-size: 1.15rem !important;
+    
+    /* 移动端语言标签 */
+    .code-language-label {
+        font-size: 0.65rem;
     }
 }
 
-/* ===== 调试辅助 ===== */
-
-/* 临时调试样式 - 可以在问题解决后移除 */
-/*
-.blog-mobile-optimized * {
-    outline: 1px solid rgba(255, 0, 0, 0.1) !important;
+/* 小屏幕设备进一步优化 */
+@media (max-width: 480px) {
+    .code-copy-button {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+        height: 26px;
+        width: auto;
+        max-width: 60px;
+    }
+    
+    .code-language-label {
+        font-size: 0.6rem;
+    }
 }
 
-.blog-mobile-optimized .blog-post-content {
-    background: rgba(0, 255, 0, 0.05) !important;
+/* 修复代码字体颜色问题 - 确保所有代码文本都有正确的颜色 */
+.blog-post-content pre code {
+    color: #e0e0e0 !important;
 }
-*/
+
+/* 强制修复代码块容器本身的颜色 - 这会影响所有未包含在标签中的文本节点 */
+.blog-post-content pre {
+    color: #e0e0e0 !important;
+}
+
+/* 确保所有highlight.js生成的元素都有正确的颜色 */
+.blog-post-content pre code * {
+    color: inherit !important;
+}
+
+/* 强制修复所有可能的黑色文字 - 使用最高优先级 */
+.blog-post-content pre code,
+.blog-post-content pre code span,
+.blog-post-content pre code div,
+.blog-post-content pre code p,
+.blog-post-content pre code .hljs,
+.blog-post-content pre code .hljs-selector-class,
+.blog-post-content pre code .hljs-selector-id,
+.blog-post-content pre code .hljs-property,
+.blog-post-content pre code .hljs-value {
+    color: #e0e0e0 !important;
+}
+
+/* 特定的highlight.js类颜色修复 */
+.blog-post-content pre code .hljs-keyword,
+.blog-post-content pre code .hljs-tag,
+.blog-post-content pre code .hljs-attr {
+    color: #c792ea !important;
+}
+
+.blog-post-content pre code .hljs-string,
+.blog-post-content pre code .hljs-regexp {
+    color: #89ddff !important;
+}
+
+.blog-post-content pre code .hljs-number,
+.blog-post-content pre code .hljs-literal {
+    color: #f78c6c !important;
+}
+
+.blog-post-content pre code .hljs-comment {
+    color: #676e95 !important;
+}
+
+.blog-post-content pre code .hljs-function,
+.blog-post-content pre code .hljs-built_in {
+    color: #82aaff !important;
+}
+
+.blog-post-content pre code .hljs-variable,
+.blog-post-content pre code .hljs-params {
+    color: #eeffff !important;
+}
+
+.blog-post-content pre code .hljs-name {
+    color: #ffcb6b !important;
+}
+
+.blog-post-content pre code .hljs-attribute {
+    color: #c792ea !important;
+}
+
+.blog-post-content pre code .hljs-title {
+    color: #82aaff !important;
+}
+
+/* 确保没有任何元素使用黑色文本 */
+.blog-post-content pre code span,
+.blog-post-content pre code div,
+.blog-post-content pre code p {
+    color: #e0e0e0 !important;
+}
+
+/* 终极修复 - 覆盖所有可能导致黑色文字的CSS规则 */
+html body .blog-post-content pre code,
+html body .blog-post-content pre code *,
+html body .blog-post-content pre code span,
+html body .blog-post-content pre code div,
+html body .blog-post-content pre code p,
+html body .blog-post-content pre code a,
+html body .blog-post-content pre code strong,
+html body .blog-post-content pre code em,
+html body .blog-post-content pre code i,
+html body .blog-post-content pre code b,
+html body .blog-post-content pre code u,
+html body .blog-post-content pre code small,
+html body .blog-post-content pre code .hljs,
+html body .blog-post-content pre code .hljs-*,
+html body .blog-post-content pre code [class*="hljs-"],
+html body .blog-post-content pre code [class*="language-"],
+html body .blog-post-content pre code .token,
+html body .blog-post-content pre code .punctuation,
+html body .blog-post-content pre code .operator,
+html body .blog-post-content pre code .entity,
+html body .blog-post-content pre code .url,
+html body .blog-post-content pre code .symbol,
+html body .blog-post-content pre code .number,
+html body .blog-post-content pre code .boolean,
+html body .blog-post-content pre code .variable,
+html body .blog-post-content pre code .constant,
+html body .blog-post-content pre code .inserted,
+html body .blog-post-content pre code .atrule,
+html body .blog-post-content pre code .keyword,
+html body .blog-post-content pre code .attr-name,
+html body .blog-post-content pre code .selector {
+    color: #e0e0e0 !important;
+}
+
+/* 终极复制按钮修复 - 使用最高特异性，覆盖所有可能的样式冲突 */
+html body .blog-post-content pre .code-copy-button,
+html body .code-copy-button,
+html body pre .code-copy-button,
+html body [class*="code-copy-button"],
+html body .blog-post-content pre .copy-btn,
+html body .copy-btn,
+html body pre .copy-btn,
+html body [class*="copy-btn"] {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    color: #e0e0e0 !important;
+    padding: 4px 8px !important;
+    font-size: 0.65rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    height: 24px !important;
+    width: auto !important;
+    max-width: 60px !important;
+    min-width: auto !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+    white-space: nowrap !important;
+    z-index: 9999 !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* 特别针对代码块内的复制按钮 - 超高优先级 */
+html body .blog-post-content pre[class*="language-"] .code-copy-button,
+html body .blog-post-content pre[class*="language-"] .copy-btn,
+html body pre[class*="language-"] .code-copy-button,
+html body pre[class*="language-"] .copy-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+/* 移动端特别强化 - 确保移动端没有黑色文字 */
+@media (max-width: 768px) {
+    .blog-post-content pre code,
+    .blog-post-content pre code *,
+    .blog-post-content pre code span,
+    .blog-post-content pre code div {
+        color: #e0e0e0 !important;
+    }
+}
+
+/* 移动端代码块背景和边距优化 */
+@media (max-width: 768px) {
+    .blog-post-content pre {
+        /* 移除多余的上边距，因为按钮已移到左下角 */
+        margin-top: var(--spacing-lg) !important;
+        /* 保持现代化的背景渐变 */
+        background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+}

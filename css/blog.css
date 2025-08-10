@@ -445,58 +445,130 @@
     background-color: var(--background-hover);
 }
 
-/* 代码样式 */
+/* 代码样式 - 现代化优化版本 */
 .blog-post-content pre {
-    margin: var(--spacing-xl) 0;
+    margin: calc(var(--spacing-xl) + 32px) 0 var(--spacing-xl) 0; /* 上边距增加32px为头部留空间 */
     padding: var(--spacing-lg);
-    background-color: var(--background-code);
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: hidden;
     position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* 防止代码换行 - 使用!important确保优先级 */
+    white-space: pre !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    
+    /* 自定义滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
+.blog-post-content pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.blog-post-content pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.blog-post-content pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.blog-post-content pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* 代码块内的代码样式 */
+.blog-post-content pre code {
+    font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Consolas', monospace !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: #e0e0e0 !important;
+    
+    /* 确保代码不换行 - 使用!important确保优先级 */
+    white-space: pre !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    display: block !important;
+}
+
+/* 通用代码样式 */
 .blog-post-content code {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Consolas', monospace;
     font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    
+    /* 确保代码不换行 */
+    white-space: pre;
+    word-wrap: normal;
+    word-break: normal;
 }
 
+/* 针对highlight.js生成的所有span元素 - 确保不换行 */
+.blog-post-content pre code span[class*="hljs-"] {
+    white-space: pre !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    display: inline !important;
+}
+
+/* 确保所有highlight.js元素都不换行 */
+.blog-post-content pre code .hljs-comment,
+.blog-post-content pre code .hljs-string,
+.blog-post-content pre code .hljs-number,
+.blog-post-content pre code .hljs-keyword,
+.blog-post-content pre code .hljs-selector-tag,
+.blog-post-content pre code .hljs-selector-class,
+.blog-post-content pre code .hljs-selector-id,
+.blog-post-content pre code .hljs-property,
+.blog-post-content pre code .hljs-value,
+.blog-post-content pre code .hljs-attribute,
+.blog-post-content pre code .hljs-built_in,
+.blog-post-content pre code .hljs-tag,
+.blog-post-content pre code .hljs-attr,
+.blog-post-content pre code .hljs-regexp,
+.blog-post-content pre code .hljs-literal,
+.blog-post-content pre code .hljs-function,
+.blog-post-content pre code .hljs-variable,
+.blog-post-content pre code .hljs-params,
+.blog-post-content pre code .hljs-name,
+.blog-post-content pre code .hljs-title {
+    white-space: pre !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    display: inline !important;
+}
+
+/* 行内代码样式 */
 .blog-post-content p code,
-.blog-post-content li code {
-    padding: 2px 5px;
-    background-color: var(--background-code-inline);
+.blog-post-content li code,
+.blog-post-content h1 code,
+.blog-post-content h2 code,
+.blog-post-content h3 code,
+.blog-post-content h4 code,
+.blog-post-content h5 code,
+.blog-post-content h6 code {
+    padding: 3px 6px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-sm);
     font-size: 0.9em;
+    color: var(--primary-color);
+    font-weight: 500;
+    white-space: nowrap;
 }
 
-/* 代码复制按钮 */
-.code-copy-button {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: var(--radius-sm);
-    color: #ccc;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    opacity: 0;
-}
-
-.blog-post-content pre:hover .code-copy-button {
-    opacity: 1;
-}
-
-.code-copy-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-.code-copy-button.copied {
-    background: var(--success-color);
-    color: white;
-}
+/* 移除所有自定义的代码块头部容器和复制按钮样式 */
+/* 只保留代码块的基本样式，不添加任何额外的UI元素 */
 
 /* 文章页脚 */
 .blog-post-footer {
@@ -796,6 +868,33 @@
         font-size: 1.5rem;
         margin-bottom: var(--spacing-lg);
     }
+    
+    /* 移动端代码块优化 - 保持与桌面端一致的样式 */
+    .blog-post-content pre {
+        margin: var(--spacing-lg) calc(-1 * var(--spacing-md));
+        padding: var(--spacing-md);
+        border-radius: 0;
+        font-size: 0.85rem;
+        
+        /* 保持桌面端的背景和边框样式 */
+        background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        
+        /* 移动端滚动优化 */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        
+        /* 确保代码内容不被头部遮挡 */
+        padding-top: calc(var(--spacing-md) + 8px) !important;
+    }
+    
+    .blog-post-content pre code {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        color: #e0e0e0 !important;
+    }
+    
+
 }
 
 /* 暗色主题适配 */
@@ -817,14 +916,41 @@
     background-color: var(--background-code);
 }
 
+/* 暗色主题代码块样式 */
+[data-theme="dark"] .blog-post-content pre {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 [data-theme="dark"] .blog-post-content code {
-    color: #e0e0e0;
+    color: #f0f0f0;
 }
 
 [data-theme="dark"] .blog-post-content p code,
-[data-theme="dark"] .blog-post-content li code {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #e0e0e0;
+[data-theme="dark"] .blog-post-content li code,
+[data-theme="dark"] .blog-post-content h1 code,
+[data-theme="dark"] .blog-post-content h2 code,
+[data-theme="dark"] .blog-post-content h3 code,
+[data-theme="dark"] .blog-post-content h4 code,
+[data-theme="dark"] .blog-post-content h5 code,
+[data-theme="dark"] .blog-post-content h6 code {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #4a9eff;
+}
+
+/* 暗色主题滚动条 */
+[data-theme="dark"] .blog-post-content pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .blog-post-content pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .blog-post-content pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* 高亮代码样式 */

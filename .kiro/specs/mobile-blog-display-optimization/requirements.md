@@ -2,46 +2,72 @@
 
 ## Introduction
 
-博客文章在移动设备上显示不完整，需要优化移动端的显示效果。当前问题包括文字被截断、布局不适配移动屏幕等，影响用户在移动设备上的阅读体验。此功能旨在改善博客文章在移动端的显示效果，确保内容完整可见且易于阅读。
+This specification addresses the mobile display optimization issues for blog code blocks. While the desktop version displays correctly with proper dark theme styling and single copy buttons, the mobile version shows several problems including incorrect styling, duplicate UI elements, and poor responsive behavior.
 
 ## Requirements
 
-### Requirement 1
+### Requirement 1: Mobile Code Block Styling
 
-**User Story:** 作为移动端用户，我希望能够完整查看博客文章内容，这样我就能获得完整的阅读体验。
-
-#### Acceptance Criteria
-
-1. WHEN 用户在移动设备上访问博客文章 THEN 系统 SHALL 显示完整的文章内容而不被截断
-2. WHEN 用户在小屏幕设备上浏览 THEN 文字 SHALL 自动换行以适应屏幕宽度
-3. WHEN 文章包含图片或图表 THEN 这些元素 SHALL 自动缩放以适应移动屏幕
-
-### Requirement 2
-
-**User Story:** 作为移动端用户，我希望博客文章的排版在移动设备上易于阅读，这样我就能舒适地浏览内容。
+**User Story:** As a mobile user reading blog posts, I want code blocks to display with consistent dark theme styling and proper formatting, so that the code is readable and visually appealing on my mobile device.
 
 #### Acceptance Criteria
 
-1. WHEN 用户在移动设备上阅读文章 THEN 字体大小 SHALL 适合移动端阅读
-2. WHEN 用户滚动文章 THEN 行间距和段落间距 SHALL 提供良好的可读性
-3. WHEN 文章包含标题 THEN 标题层级 SHALL 在移动端保持清晰的视觉层次
+1. WHEN viewing blog posts on mobile devices THEN code blocks SHALL display with dark background styling consistent with desktop version
+2. WHEN viewing code blocks on mobile THEN text SHALL be properly syntax highlighted with appropriate colors
+3. WHEN viewing long code lines on mobile THEN horizontal scrolling SHALL be available without breaking the layout
+4. IF the device has a small screen THEN code blocks SHALL maintain readability without compromising the overall page layout
 
-### Requirement 3
+### Requirement 2: Mobile UI Element Management
 
-**User Story:** 作为移动端用户，我希望博客页面的导航和交互元素在移动设备上正常工作，这样我就能方便地浏览和操作。
-
-#### Acceptance Criteria
-
-1. WHEN 用户在移动设备上访问博客 THEN 导航菜单 SHALL 适配移动端显示
-2. WHEN 用户点击链接或按钮 THEN 这些交互元素 SHALL 有适当的触摸目标大小
-3. WHEN 页面加载 THEN 移动端 SHALL 优先加载关键内容以提升性能
-
-### Requirement 4
-
-**User Story:** 作为移动端用户，我希望博客文章在不同尺寸的移动设备上都能正常显示，这样无论使用什么设备都能获得一致的体验。
+**User Story:** As a mobile user, I want to see only one set of language labels and copy buttons per code block, so that the interface is clean and functional without duplicate elements.
 
 #### Acceptance Criteria
 
-1. WHEN 用户使用不同尺寸的移动设备访问 THEN 布局 SHALL 响应式适配各种屏幕尺寸
-2. WHEN 设备方向改变时 THEN 页面布局 SHALL 自动调整以适应新的屏幕方向
-3. WHEN 在极小屏幕设备上浏览 THEN 内容 SHALL 保持可读性和可用性
+1. WHEN viewing code blocks on mobile THEN each code block SHALL display exactly one language label
+2. WHEN viewing code blocks on mobile THEN each code block SHALL display exactly one copy button
+3. WHEN JavaScript initializes on mobile THEN duplicate UI elements SHALL be prevented from appearing
+4. IF code blocks are dynamically loaded THEN the duplicate prevention mechanism SHALL still function correctly
+
+### Requirement 3: Mobile Touch Interaction
+
+**User Story:** As a mobile user, I want to easily interact with code block features using touch gestures, so that I can copy code and navigate content efficiently on my mobile device.
+
+#### Acceptance Criteria
+
+1. WHEN tapping the copy button on mobile THEN the code SHALL be copied to clipboard successfully
+2. WHEN tapping the copy button on mobile THEN visual feedback SHALL be provided to confirm the action
+3. WHEN scrolling horizontally in code blocks THEN touch scrolling SHALL work smoothly without interfering with page scrolling
+4. IF the copy button is too small for touch interaction THEN it SHALL be sized appropriately for mobile touch targets (minimum 44px)
+
+### Requirement 4: Mobile Responsive Layout
+
+**User Story:** As a mobile user, I want code blocks to fit properly within the mobile layout without causing horizontal page scrolling or breaking the responsive design.
+
+#### Acceptance Criteria
+
+1. WHEN viewing blog posts on mobile THEN code blocks SHALL not cause horizontal page scrolling
+2. WHEN code blocks contain long lines THEN they SHALL use internal horizontal scrolling only
+3. WHEN the mobile viewport is very narrow THEN code blocks SHALL maintain minimum usability
+4. IF the device orientation changes THEN code blocks SHALL adapt appropriately to the new layout
+
+### Requirement 5: Mobile Performance Optimization
+
+**User Story:** As a mobile user with potentially slower internet connection, I want code blocks to load and render efficiently without impacting page performance.
+
+#### Acceptance Criteria
+
+1. WHEN loading blog pages on mobile THEN code block JavaScript SHALL initialize without blocking page rendering
+2. WHEN multiple code blocks exist on a page THEN they SHALL be processed efficiently without performance degradation
+3. WHEN code block features are not immediately needed THEN they SHALL be loaded with appropriate priority
+4. IF the mobile device has limited resources THEN code block functionality SHALL still work reliably
+
+### Requirement 6: Mobile CSS Media Query Optimization
+
+**User Story:** As a mobile user, I want code blocks to use mobile-optimized CSS that takes into account smaller screens, touch interfaces, and mobile-specific display characteristics.
+
+#### Acceptance Criteria
+
+1. WHEN viewing on mobile devices THEN mobile-specific CSS rules SHALL be applied to code blocks
+2. WHEN the screen width is below tablet breakpoint THEN mobile-optimized spacing and sizing SHALL be used
+3. WHEN viewing on high-DPI mobile screens THEN code blocks SHALL render crisply without blur
+4. IF the mobile device has specific display characteristics THEN appropriate CSS adaptations SHALL be applied
