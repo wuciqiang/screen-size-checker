@@ -1,0 +1,125 @@
+/* 博客表格文本颜色修复 */
+
+/* 确保所有表格文本都有正确的颜色，覆盖语法高亮样式 */
+.blog-post-content table,
+.blog-post-content table *,
+.blog-post-content table code,
+.blog-post-content table .hljs,
+.blog-post-content table .hljs-*,
+.blog-post-content table span,
+.blog-post-content table div {
+    color: var(--text-primary, #1a1a1a) !important;
+}
+
+/* 特别针对被语法高亮器处理的CSS属性名 */
+.blog-post-content table td code,
+.blog-post-content table th code,
+.blog-post-content table .hljs-property,
+.blog-post-content table .hljs-attribute,
+.blog-post-content table .hljs-selector-tag,
+.blog-post-content table .hljs-keyword,
+.blog-post-content table .hljs-built_in,
+.blog-post-content table .hljs-tag,
+.blog-post-content table .hljs-attr,
+.blog-post-content table .hljs-name,
+.blog-post-content table .hljs-title,
+.blog-post-content table .hljs-value,
+.blog-post-content table .hljs-string,
+.blog-post-content table .hljs-number,
+.blog-post-content table .hljs-literal,
+.blog-post-content table .hljs-comment,
+.blog-post-content table .hljs-function,
+.blog-post-content table .hljs-variable,
+.blog-post-content table .hljs-params,
+.blog-post-content table .hljs-regexp {
+    color: var(--text-primary, #1a1a1a) !important;
+    background: transparent !important;
+}
+
+/* 强制覆盖所有可能的语法高亮类 - 使用更高的特异性 */
+.blog-post-content table td[class*="hljs"],
+.blog-post-content table th[class*="hljs"],
+.blog-post-content table td *[class*="hljs"],
+.blog-post-content table th *[class*="hljs"],
+.blog-post-content table td span[class*="hljs"],
+.blog-post-content table th span[class*="hljs"] {
+    color: var(--text-primary, #1a1a1a) !important;
+    background: transparent !important;
+    font-weight: inherit !important;
+}
+
+/* 针对表格中的行内代码元素 */
+.blog-post-content table td > code,
+.blog-post-content table th > code {
+    color: var(--text-primary, #1a1a1a) !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+}
+
+/* 表格头部样式 */
+.blog-post-content table th {
+    background-color: var(--background-secondary, #f8f9fa) !important;
+    color: var(--text-primary, #1a1a1a) !important;
+    font-weight: 600 !important;
+    border: 1px solid var(--border-color, #e1e5e9) !important;
+    padding: 12px !important;
+}
+
+/* 表格单元格样式 */
+.blog-post-content table td {
+    color: var(--text-primary, #1a1a1a) !important;
+    border: 1px solid var(--border-color, #e1e5e9) !important;
+    padding: 12px !important;
+    background-color: var(--background-primary, #ffffff) !important;
+}
+
+/* 表格行悬停效果 */
+.blog-post-content table tr:hover td {
+    background-color: var(--background-hover, #f0f4f8) !important;
+    color: var(--text-primary, #1a1a1a) !important;
+}
+
+/* 确保表格内的所有文本元素都有正确颜色 */
+.blog-post-content table th span,
+.blog-post-content table td span,
+.blog-post-content table th div,
+.blog-post-content table td div,
+.blog-post-content table th p,
+.blog-post-content table td p {
+    color: inherit !important;
+}
+
+/* 移动端表格优化 */
+@media screen and (max-width: 768px) {
+    .blog-post-content table th,
+    .blog-post-content table td {
+        color: var(--text-primary, #1a1a1a) !important;
+        font-size: 0.9rem !important;
+        padding: 8px !important;
+    }
+    
+    .blog-post-content table {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* 暗色主题支持 */
+[data-theme="dark"] .blog-post-content table th {
+    background-color: var(--background-secondary, #2d2d2d) !important;
+    color: var(--text-primary, #e1e5e9) !important;
+    border-color: var(--border-color, #404040) !important;
+}
+
+[data-theme="dark"] .blog-post-content table td {
+    color: var(--text-primary, #e1e5e9) !important;
+    background-color: var(--background-primary, #1a1a1a) !important;
+    border-color: var(--border-color, #404040) !important;
+}
+
+[data-theme="dark"] .blog-post-content table tr:hover td {
+    background-color: var(--background-hover, #374151) !important;
+    color: var(--text-primary, #e1e5e9) !important;
+}

@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-08-10T06:31:46.284Z",
+  "validationDate": "2025-08-11T03:58:28.569Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 536,
     "missingTranslations": 106,
-    "inconsistentKeys": 158
+    "inconsistentKeys": 167
   },
   "missingKeys": {
     "en": [
@@ -478,6 +478,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-debugging-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-debugging-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-debugging-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-display-technology-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -808,6 +823,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-视口-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-视口-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-视口-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-视网膜显示-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -819,6 +849,21 @@
     },
     {
       "component": "blog-tag-视网膜显示-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-调试-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-调试-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-调试-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },

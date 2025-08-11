@@ -689,6 +689,57 @@
       }
     },
     {
+      "name": "blog-post-screen-dimensions-cheat-sheet-en",
+      "template": "blog-post",
+      "output": "blog/screen-dimensions-cheat-sheet.html",
+      "page_content": "blog-post-screen-dimensions-cheat-sheet-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+        "page_description": "Stop guessing screen sizes. Your bookmarkable cheat sheet for all screen dimensions, resolutions, and key concepts for web design in 2025.",
+        "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/en/blog/screen-dimensions-cheat-sheet",
+        "og_title": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+        "og_description": "Stop guessing screen sizes. Your bookmarkable cheat sheet for all screen dimensions, resolutions, and key concepts for web design in 2025.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/screen-dimensions-cheat-sheet",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+        "current_name": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+          "description": "Stop guessing screen sizes. Your bookmarkable cheat sheet for all screen dimensions, resolutions, and key concepts for web design in 2025.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "blog-post-viewport-basics-en",
       "template": "blog-post",
       "output": "blog/viewport-basics.html",
@@ -1252,6 +1303,38 @@
       }
     },
     {
+      "name": "blog-tag-screen-dimensions-en",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-dimensions.html",
+      "page_content": "blog-tag-screen-dimensions-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: screen-dimensions",
+        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_keywords": "blog, screen-dimensions, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/screen-dimensions",
+        "og_title": "Tag: screen-dimensions",
+        "og_description": "Browse all articles tagged with screen-dimensions",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/screen-dimensions",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-dimensions",
+        "current_name": "#screen-dimensions",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-index-zh",
       "template": "blog-index",
       "output": "blog/index.html",
@@ -1473,6 +1556,57 @@
           "@type": "BlogPosting",
           "headline": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
           "description": "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-screen-dimensions-cheat-sheet-zh",
+      "template": "blog-post",
+      "output": "blog/screen-dimensions-cheat-sheet.html",
+      "page_content": "blog-post-screen-dimensions-cheat-sheet-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "Web设计师与开发者屏幕尺寸速查表2025",
+        "page_description": "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。",
+        "page_keywords": "屏幕尺寸, 响应式设计, 断点, 视口, 网页开发",
+        "canonical_url": "https://screensizechecker.com/zh/blog/screen-dimensions-cheat-sheet",
+        "og_title": "Web设计师与开发者屏幕尺寸速查表2025",
+        "og_description": "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/screen-dimensions-cheat-sheet",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Web设计师与开发者屏幕尺寸速查表2025",
+        "current_name": "Web设计师与开发者屏幕尺寸速查表2025",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Web设计师与开发者屏幕尺寸速查表2025",
+          "description": "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。",
           "author": {
             "@type": "Person",
             "name": "Screen Size Checker Team"
