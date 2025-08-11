@@ -638,6 +638,57 @@
       }
     },
     {
+      "name": "blog-post-responsive-debugging-checklist-en",
+      "template": "blog-post",
+      "output": "blog/responsive-debugging-checklist.html",
+      "page_content": "blog-post-responsive-debugging-checklist-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+        "page_description": "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting.",
+        "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/en/blog/responsive-debugging-checklist",
+        "og_title": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+        "og_description": "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/responsive-debugging-checklist",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+        "current_name": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+          "description": "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "blog-post-viewport-basics-en",
       "template": "blog-post",
       "output": "blog/viewport-basics.html",
@@ -1137,6 +1188,38 @@
       }
     },
     {
+      "name": "blog-tag-debugging-en",
+      "template": "blog-tag",
+      "output": "blog/tag/debugging.html",
+      "page_content": "blog-tag-debugging-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: debugging",
+        "page_description": "Browse all articles tagged with debugging",
+        "page_keywords": "blog, debugging, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/debugging",
+        "og_title": "Tag: debugging",
+        "og_description": "Browse all articles tagged with debugging",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/debugging",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "debugging",
+        "current_name": "#debugging",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-viewport-en",
       "template": "blog-tag",
       "output": "blog/tag/viewport.html",
@@ -1344,6 +1427,57 @@
             "name": "Screen Size Checker团队"
           },
           "datePublished": "2023-10-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-responsive-debugging-checklist-zh",
+      "template": "blog-post",
+      "output": "blog/responsive-debugging-checklist.html",
+      "page_content": "blog-post-responsive-debugging-checklist-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+        "page_description": "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。",
+        "page_keywords": "响应式设计, 调试, css, 媒体查询, 视口, 网页开发",
+        "canonical_url": "https://screensizechecker.com/zh/blog/responsive-debugging-checklist",
+        "og_title": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+        "og_description": "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/responsive-debugging-checklist",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+        "current_name": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+          "description": "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1848,6 +1982,70 @@
         "show_breadcrumb": true,
         "current_key": "断点",
         "current_name": "#断点",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-调试-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/调试.html",
+      "page_content": "blog-tag-调试-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 调试",
+        "page_description": "浏览调试标签下的所有文章",
+        "page_keywords": "blog, 调试, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/调试",
+        "og_title": "标签: 调试",
+        "og_description": "浏览调试标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/调试",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "调试",
+        "current_name": "#调试",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-视口-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/视口.html",
+      "page_content": "blog-tag-视口-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 视口",
+        "page_description": "浏览视口标签下的所有文章",
+        "page_keywords": "blog, 视口, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/视口",
+        "og_title": "标签: 视口",
+        "og_description": "浏览视口标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/视口",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "视口",
+        "current_name": "#视口",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",

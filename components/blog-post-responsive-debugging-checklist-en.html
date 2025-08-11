@@ -1,0 +1,486 @@
+<!-- Blog Post: The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">January 15, 2024</span>
+            <span class="blog-post-author">Screen Size Checker Team</span>
+            <span class="blog-post-reading-time">14 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h1 id="the-ultimate-responsive-design-debugging-checklist-15-things-to-check-when-your-layout-breaks">The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks</h1>
+<p>It looks perfect on your 27-inch monitor, but it&#39;s a disaster on your phone. We&#39;ve all been there.</p>
+<p>You&#39;ve spent hours crafting what you thought was a bulletproof responsive design, only to discover that your carefully planned layout crumbles the moment someone views it on a different device. The navigation overlaps the content, images spill out of their containers, and text becomes unreadable. Sound familiar?</p>
+<p>After over a decade of debugging responsive layouts for high-traffic websites, I&#39;ve seen every possible way a design can break—and more importantly, I&#39;ve developed a systematic approach to fix them quickly. The random CSS property tweaking? The endless browser resizing? Those days are over.</p>
+<p>This article provides you with a battle-tested, step-by-step checklist that will help you diagnose and fix almost any responsive layout issue in minutes, not hours. Whether you&#39;re a junior developer encountering your first mobile layout disaster or a senior developer who needs a reliable debugging process, this checklist will become your go-to resource when things go wrong.</p>
+<h2 id="the-debugging-mindset">The Debugging Mindset</h2>
+<p>Before diving into the checklist, let&#39;s establish the right mindset. Effective responsive debugging isn&#39;t about randomly changing CSS properties until something works—it&#39;s about following a systematic approach that saves time and prevents new problems.</p>
+<p>Here are the core principles that separate efficient debugging from frustrating trial-and-error:</p>
+<p><strong>Start with the simplest explanation.</strong> When your layout breaks, resist the urge to immediately blame complex CSS Grid properties or JavaScript interactions. More often than not, the culprit is something basic: a missing viewport meta tag, incorrect box-sizing, or a simple typo in your media queries.</p>
+<p><strong>Isolate the problem.</strong> Don&#39;t try to fix everything at once. Identify the specific element or section that&#39;s causing issues, then work outward. Use your browser&#39;s developer tools to temporarily hide or modify elements until you pinpoint the exact source of the problem.</p>
+<p><strong>Think in boxes.</strong> Every element on your page is a box with specific dimensions, padding, margins, and positioning. When something looks wrong, visualize these boxes and understand how they&#39;re interacting with each other. The CSS box model is your foundation—master it, and half your debugging problems disappear.</p>
+<p>With this mindset in place, let&#39;s dive into the systematic checklist that will solve your responsive design headaches.</p>
+<h2 id="the-ultimate-checklist">The Ultimate Checklist</h2>
+<h3 id="1-check-your-viewport-meta-tag">1. Check Your Viewport Meta Tag</h3>
+<p>This is the most fundamental check, yet it&#39;s often overlooked. The <a href="https://screensizechecker.com/en/blog/viewport-basics.html">viewport</a> meta tag tells the browser how to control the page&#39;s dimensions and scaling on mobile devices.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Ensure you have <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code> in your HTML head</li>
+<li>Verify there are no typos in the viewport declaration</li>
+<li>Check that you&#39;re not using fixed width values like <code>width=320</code></li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Without a proper viewport meta tag, mobile browsers assume your site is designed for desktop and scale it down, making everything tiny and unreadable.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+</code></pre>
+<h3 id="2-inspect-the-box-model-box-sizing">2. Inspect the Box Model (box-sizing)</h3>
+<p>The CSS box model determines how element dimensions are calculated. This is where many responsive layouts fall apart.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify your <code>box-sizing</code> property settings</li>
+<li>Look for elements with <code>width: 100%</code> plus padding or borders</li>
+<li>Check if you&#39;re mixing different box-sizing models</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+By default, CSS uses <code>content-box</code>, meaning padding and borders are added to the width. A div with <code>width: 100%; padding: 20px;</code> will actually be 100% + 40px wide, causing overflow.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Apply to all elements */</span>
+*, *<span class="hljs-selector-pseudo">::before</span>, *<span class="hljs-selector-pseudo">::after</span> {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+}
+
+<span class="hljs-comment">/* Or fix specific problematic elements */</span>
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>; <span class="hljs-comment">/* Now included in the 100% width */</span>
+}
+</code></pre>
+<h3 id="3-validate-your-media-queries">3. Validate Your Media Queries</h3>
+<p><a href="https://screensizechecker.com/en/blog/media-queries-essentials.html">Media queries</a> are the backbone of responsive design, but they&#39;re easy to get wrong.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify syntax: missing commas, incorrect operators, typos</li>
+<li>Check breakpoint logic: ensure ranges don&#39;t overlap incorrectly</li>
+<li>Confirm units are consistent (px, em, rem)</li>
+<li>Look for conflicting rules at the same breakpoint</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+A single syntax error can break an entire media query block. Overlapping breakpoints can cause unexpected behavior where styles conflict.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Correct syntax */</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>; }
+}
+
+<span class="hljs-comment">/* Check for conflicts */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">769px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-selector-class">.container</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">750px</span>; }
+}
+</code></pre>
+<h3 id="4-test-on-a-real-device-or-good-simulator">4. Test on a Real Device (or Good Simulator)</h3>
+<p>Browser resizing doesn&#39;t always replicate real device behavior. You need to test on actual devices or use a <a href="https://screensizechecker.com/en/devices/responsive-tester">good simulator</a>.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Test on multiple real devices if possible</li>
+<li>Use browser dev tools&#39; device simulation mode</li>
+<li>Check both portrait and landscape orientations</li>
+<li>Verify touch interactions work properly</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Desktop browsers don&#39;t perfectly simulate mobile behavior. Touch targets, scrolling, and rendering can differ significantly between simulated and real environments.</p>
+<p><strong>How to fix:</strong></p>
+<ul>
+<li>Use our responsive tester tool to check multiple device sizes</li>
+<li>Test on at least one real mobile device</li>
+<li>Pay attention to touch target sizes (minimum 44px)</li>
+</ul>
+<h3 id="5-the-device-pixel-ratio-dpr-trap">5. The Device Pixel Ratio (DPR) Trap</h3>
+<p>High-resolution displays can make your carefully planned layouts look blurry or incorrectly sized. Understanding <a href="https://screensizechecker.com/en/blog/device-pixel-ratio">Device Pixel Ratio</a> is crucial.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify images look sharp on high-DPR displays</li>
+<li>Check if your CSS pixel calculations account for DPR</li>
+<li>Look for blurry text or UI elements</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+A device with DPR 2 has twice as many physical pixels as CSS pixels. Images and elements designed for standard displays appear blurry on high-DPR screens.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Provide high-resolution images */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">2</span>), (<span class="hljs-attribute">min-resolution</span>: <span class="hljs-number">192dpi</span>) {
+  <span class="hljs-selector-class">.logo</span> {
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;logo@2x.png&#x27;</span>);
+    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100px</span> <span class="hljs-number">50px</span>; <span class="hljs-comment">/* Original size */</span>
+  }
+}
+</code></pre>
+<pre><code class="language-html"><span class="hljs-comment">&lt;!-- Use srcset for responsive images --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.jpg&quot;</span> 
+     <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;image.jpg 1x, image@2x.jpg 2x&quot;</span> 
+     <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Responsive image&quot;</span>&gt;</span>
+</code></pre>
+<h3 id="6-flexbox-and-grid-alignment-issues">6. Flexbox and Grid Alignment Issues</h3>
+<p>Modern layout methods like Flexbox and CSS Grid are powerful, but their alignment properties can behave unexpectedly on different screen sizes.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify <code>align-items</code>, <code>justify-content</code>, and <code>align-content</code> properties</li>
+<li>Check if flex items are wrapping unexpectedly with <code>flex-wrap</code></li>
+<li>Look for grid items overflowing their containers</li>
+<li>Ensure <code>flex-shrink</code> and <code>flex-grow</code> values make sense</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Flexbox and Grid alignment can change dramatically when content wraps or when container dimensions change. What looks centered on desktop might be left-aligned on mobile.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Responsive flexbox container */</span>
+<span class="hljs-selector-class">.flex-container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-wrap</span>: wrap;
+  <span class="hljs-attribute">justify-content</span>: space-between;
+}
+
+<span class="hljs-comment">/* Adjust alignment for smaller screens */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.flex-container</span> {
+    <span class="hljs-attribute">flex-direction</span>: column;
+    <span class="hljs-attribute">align-items</span>: center;
+  }
+}
+</code></pre>
+<h3 id="7-content-overflow-handling">7. Content Overflow Handling</h3>
+<p>Overflowing content is one of the most common responsive design problems, especially with text, images, and fixed-width elements.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Look for horizontal scrollbars on mobile</li>
+<li>Check if text is getting cut off</li>
+<li>Verify images aren&#39;t breaking out of containers</li>
+<li>Examine elements with fixed widths</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Fixed widths, long unbreakable text (like URLs), and images without proper constraints can cause content to overflow, breaking your layout.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Prevent text overflow */</span>
+<span class="hljs-selector-class">.text-container</span> {
+  <span class="hljs-attribute">word-wrap</span>: break-word;
+  <span class="hljs-attribute">overflow-wrap</span>: break-word;
+  <span class="hljs-attribute">hyphens</span>: auto;
+}
+
+<span class="hljs-comment">/* Handle image overflow */</span>
+<span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: auto;
+}
+
+<span class="hljs-comment">/* Container overflow control */</span>
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">overflow-x</span>: hidden; <span class="hljs-comment">/* Use carefully */</span>
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+}
+</code></pre>
+<h3 id="8-absolute-positioning-in-responsive-contexts">8. Absolute Positioning in Responsive Contexts</h3>
+<p>Elements with <code>position: absolute</code> can cause major headaches in responsive designs because they&#39;re removed from the normal document flow.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify absolutely positioned elements don&#39;t overlap content</li>
+<li>Check if positioned elements are still visible on smaller screens</li>
+<li>Look for elements positioned relative to the wrong parent</li>
+<li>Ensure z-index values make sense across breakpoints</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Absolute positioning relies on specific dimensions and positions that may not translate well across different screen sizes.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Make absolute positioning responsive */</span>
+<span class="hljs-selector-class">.positioned-element</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">20px</span>;
+}
+
+<span class="hljs-comment">/* Adjust for mobile */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.positioned-element</span> {
+    <span class="hljs-attribute">position</span>: static; <span class="hljs-comment">/* Remove from absolute positioning */</span>
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span>;
+  }
+}
+</code></pre>
+<h3 id="9-responsive-images-and-media">9. Responsive Images and Media</h3>
+<p>Images and videos that aren&#39;t properly optimized for responsive design can break layouts and hurt performance.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Ensure images have <code>max-width: 100%</code> and <code>height: auto</code></li>
+<li>Verify you&#39;re using appropriate image formats and sizes</li>
+<li>Check if videos are responsive</li>
+<li>Look for images with fixed dimensions in CSS</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Large images can overflow containers, while improperly sized images waste bandwidth and slow loading times.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Basic responsive images */</span>
+<span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: auto;
+}
+
+<span class="hljs-comment">/* Responsive videos */</span>
+<span class="hljs-selector-class">.video-container</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">56.25%</span>; <span class="hljs-comment">/* 16:9 aspect ratio */</span>
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+}
+
+<span class="hljs-selector-class">.video-container</span> <span class="hljs-selector-tag">iframe</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+}
+</code></pre>
+<h3 id="10-typography-and-unit-issues">10. Typography and Unit Issues</h3>
+<p>Font sizes, line heights, and spacing that work on desktop can become unreadable or poorly spaced on mobile devices.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify font sizes are readable on small screens (minimum 16px)</li>
+<li>Check line heights and letter spacing</li>
+<li>Look for text that&#39;s too cramped or too spread out</li>
+<li>Examine the use of viewport units (<code>vw</code>, <code>vh</code>, <code>vmin</code>, <code>vmax</code>)</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Fixed font sizes don&#39;t scale well across devices. Viewport units can cause text to become too small or too large on extreme screen sizes.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Responsive typography */</span>
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;
+}
+
+<span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">clamp</span>(<span class="hljs-number">1.5rem</span>, <span class="hljs-number">4vw</span>, <span class="hljs-number">3rem</span>);
+}
+
+<span class="hljs-comment">/* Adjust for mobile */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4</span>;
+  }
+  
+  <span class="hljs-selector-class">.large-text</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2rem</span>;
+  }
+}
+</code></pre>
+<h3 id="11-javascript-induced-layout-shifts">11. JavaScript-Induced Layout Shifts</h3>
+<p>Dynamic content loaded by JavaScript can cause layout shifts that break your responsive design, especially on slower connections.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Look for content that &quot;jumps&quot; as it loads</li>
+<li>Check if dynamic content causes horizontal scrolling</li>
+<li>Verify that JavaScript-generated elements have proper responsive styles</li>
+<li>Examine the timing of when responsive styles are applied</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+JavaScript often loads after CSS, causing elements to be styled incorrectly initially. Dynamic content insertion can also push existing elements out of place.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Reserve space for dynamic content */</span>
+<span class="hljs-selector-class">.dynamic-content-placeholder</span> {
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">200px</span>; <span class="hljs-comment">/* Prevent layout shift */</span>
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">justify-content</span>: center;
+}
+
+<span class="hljs-comment">/* Ensure JS-generated content is responsive */</span>
+<span class="hljs-selector-class">.js-generated</span> {
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+}
+</code></pre>
+<pre><code class="language-javascript"><span class="hljs-comment">// Apply responsive classes immediately</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addResponsiveContent</span>(<span class="hljs-params">element</span>) {
+  element.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;responsive-element&#x27;</span>);
+  <span class="hljs-comment">// Add content...</span>
+}
+</code></pre>
+<h3 id="12-css-unit-mixing-problems">12. CSS Unit Mixing Problems</h3>
+<p>Mixing different CSS units (px, %, em, rem, vw, vh) without understanding their behavior can create inconsistent responsive layouts.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Look for inconsistent unit usage across similar elements</li>
+<li>Check if percentage-based widths have proper parent containers</li>
+<li>Verify that em/rem units scale appropriately</li>
+<li>Examine viewport unit usage on very small or large screens</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Different units behave differently when the viewport changes. Mixing them carelessly can cause elements to scale unpredictably.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Consistent unit strategy */</span>
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>; <span class="hljs-comment">/* Percentage for flexibility */</span>
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">1200px</span>; <span class="hljs-comment">/* Pixel max for control */</span>
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>; <span class="hljs-comment">/* rem for scalable spacing */</span>
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>; <span class="hljs-comment">/* rem for scalable text */</span>
+}
+
+<span class="hljs-comment">/* Avoid problematic mixing */</span>
+<span class="hljs-selector-class">.problematic</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">50vw</span>; <span class="hljs-comment">/* Viewport width */</span>
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>; <span class="hljs-comment">/* Fixed pixels */</span>
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>; <span class="hljs-comment">/* Relative to parent */</span>
+  <span class="hljs-comment">/* This combination can cause issues */</span>
+}
+</code></pre>
+<h3 id="13-device-specific-quirks">13. Device-Specific Quirks</h3>
+<p>Different devices and browsers have unique behaviors that can break your responsive design. Sometimes, the issue is specific to a certain model. It&#39;s always a good idea to check the exact specifications on our <a href="https://screensizechecker.com/en/devices/iphone-viewport-sizes">iPhone Screen Sizes</a> or <a href="https://screensizechecker.com/en/devices/android-viewport-sizes">Android Screen Sizes</a> pages.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Test on various devices, not just screen sizes</li>
+<li>Look for iOS Safari-specific issues (viewport height, scrolling)</li>
+<li>Check Android browser inconsistencies</li>
+<li>Verify behavior on devices with notches or curved screens</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Each device and browser combination can interpret CSS differently. Mobile Safari, for example, changes the viewport height when the address bar shows/hides.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* iOS Safari viewport height fix */</span>
+<span class="hljs-selector-class">.full-height</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100vh</span>;
+  <span class="hljs-attribute">height</span>: -webkit-fill-available;
+}
+
+<span class="hljs-comment">/* Android-specific fixes */</span>
+<span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">-webkit-appearance</span>: none) {
+  <span class="hljs-selector-class">.android-fix</span> {
+    <span class="hljs-comment">/* Android-specific styles */</span>
+  }
+}
+
+<span class="hljs-comment">/* Handle notched devices */</span>
+<span class="hljs-selector-class">.safe-area</span> {
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-built_in">env</span>(safe-area-inset-top);
+  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-built_in">env</span>(safe-area-inset-bottom);
+}
+</code></pre>
+<h3 id="14-z-index-stacking-issues">14. Z-Index Stacking Issues</h3>
+<p>Z-index problems become more complex in responsive designs where elements may overlap differently at various screen sizes.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Verify modal dialogs and dropdowns appear above all content</li>
+<li>Check if sticky/fixed elements have appropriate z-index values</li>
+<li>Look for elements that disappear behind others on mobile</li>
+<li>Examine stacking contexts created by transforms or opacity</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Elements that don&#39;t overlap on desktop might overlap on mobile. New stacking contexts can also change z-index behavior unexpectedly.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Establish clear z-index hierarchy */</span>
+<span class="hljs-selector-class">.header</span> { <span class="hljs-attribute">z-index</span>: <span class="hljs-number">100</span>; }
+<span class="hljs-selector-class">.navigation</span> { <span class="hljs-attribute">z-index</span>: <span class="hljs-number">90</span>; }
+<span class="hljs-selector-class">.modal</span> { <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1000</span>; }
+<span class="hljs-selector-class">.tooltip</span> { <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1010</span>; }
+
+<span class="hljs-comment">/* Mobile-specific z-index adjustments */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.mobile-menu</span> {
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">999</span>; <span class="hljs-comment">/* Ensure it appears above content */</span>
+  }
+  
+  <span class="hljs-selector-class">.desktop-sidebar</span> {
+    <span class="hljs-attribute">z-index</span>: auto; <span class="hljs-comment">/* Reset for mobile */</span>
+  }
+}
+</code></pre>
+<h3 id="15-performance-related-layout-issues">15. Performance-Related Layout Issues</h3>
+<p>Poor performance can manifest as layout problems, especially on slower devices or connections.</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Look for layout thrashing (constant repaints/reflows)</li>
+<li>Check if large images are causing layout shifts</li>
+<li>Verify that animations don&#39;t interfere with layout</li>
+<li>Examine the critical rendering path</li>
+</ul>
+<p><strong>Why this breaks:</strong>
+Heavy layouts can cause janky scrolling, delayed responsiveness, and even layout failures on resource-constrained devices.</p>
+<p><strong>How to fix:</strong></p>
+<pre><code class="language-css"><span class="hljs-comment">/* Optimize for performance */</span>
+<span class="hljs-selector-class">.optimized-element</span> {
+  <span class="hljs-attribute">will-change</span>: transform; <span class="hljs-comment">/* Hint to browser */</span>
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">/* Force hardware acceleration */</span>
+}
+
+<span class="hljs-comment">/* Avoid layout-triggering properties in animations */</span>
+<span class="hljs-selector-class">.smooth-animation</span> {
+  <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">0.3s</span> ease, opacity <span class="hljs-number">0.3s</span> ease;
+  <span class="hljs-comment">/* Avoid animating width, height, top, left */</span>
+}
+
+<span class="hljs-comment">/* Use containment for isolated components */</span>
+<span class="hljs-selector-class">.contained-component</span> {
+  <span class="hljs-attribute">contain</span>: layout style paint;
+}
+</code></pre>
+<h2 id="your-essential-debugging-toolkit">Your Essential Debugging Toolkit</h2>
+<p>Having the right tools makes responsive debugging significantly faster and more accurate. Here are the essential tools every developer should master:</p>
+<p><strong>Browser Developer Tools</strong> are your primary weapon. Chrome DevTools and Firefox Developer Tools offer powerful responsive design modes that let you:</p>
+<ul>
+<li>Test multiple device sizes instantly</li>
+<li>Simulate different network conditions</li>
+<li>Inspect element dimensions and spacing in real-time</li>
+<li>Debug media queries with visual breakpoint indicators</li>
+<li>Monitor performance and layout shifts</li>
+</ul>
+<p><strong>Key shortcuts to remember:</strong></p>
+<ul>
+<li><code>Ctrl+Shift+M</code> (Chrome) or <code>Ctrl+Shift+M</code> (Firefox): Toggle responsive design mode</li>
+<li><code>Ctrl+Shift+C</code>: Inspect element mode</li>
+<li><code>F12</code>: Open developer tools</li>
+</ul>
+<p><strong>Pro tip:</strong> Use the device toolbar in responsive mode, but don&#39;t rely on it exclusively. Always test on real devices when possible.</p>
+<p><strong>Additional Tools:</strong></p>
+<ul>
+<li><strong>Responsive Design Checker</strong>: Use our <a href="https://screensizechecker.com/en/devices/responsive-tester">responsive tester tool</a> to quickly preview your site across multiple device sizes</li>
+<li><strong>Lighthouse</strong>: Built into Chrome DevTools, it identifies performance issues that can affect responsive layouts</li>
+<li><strong>Can I Use</strong>: Check browser support for CSS features before implementing fixes</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Debugging responsive design doesn&#39;t have to be a frustrating guessing game. By following this systematic 15-point checklist, you now have a proven process that will help you identify and fix layout issues quickly and efficiently.</p>
+<p>Remember the key principles:</p>
+<ul>
+<li><strong>Start simple</strong>: Check the basics first (viewport, box-sizing, media queries)</li>
+<li><strong>Be systematic</strong>: Work through the checklist methodically rather than jumping around</li>
+<li><strong>Test thoroughly</strong>: Use both browser tools and real devices</li>
+<li><strong>Think in boxes</strong>: Understand how elements interact within the CSS box model</li>
+</ul>
+<p>The most important takeaway is that responsive debugging is about having a repeatable process. Bookmark this checklist, and you&#39;ll never again waste hours randomly tweaking CSS properties hoping something will work.</p>
+<p><strong>Ready to put your site to the test?</strong> Now that you have the checklist, why not see how your website performs across different devices? Use our <a href="https://screensizechecker.com/en/devices/responsive-tester">free Responsive Tester</a> to instantly check how your site looks on phones, tablets, and desktops. It&#39;s the perfect complement to this debugging guide—helping you catch issues before your users do.</p>
+<p>Your responsive design problems are solvable. With this checklist in hand, you&#39;re equipped to tackle any layout challenge that comes your way.</p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/responsive-design.html" class="tag-link">#responsive-design</a> <a href="tag/debugging.html" class="tag-link">#debugging</a> <a href="tag/css.html" class="tag-link">#css</a> <a href="tag/media-queries.html" class="tag-link">#media-queries</a> <a href="tag/viewport.html" class="tag-link">#viewport</a> <a href="tag/web-development.html" class="tag-link">#web-development</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/en/blog/responsive-debugging-checklist" data-title="The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/en/blog/responsive-debugging-checklist" data-title="The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/en/blog/responsive-debugging-checklist" data-title="The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/en/blog/responsive-debugging-checklist">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="responsive-debugging-checklist" data-post-lang="en"></div>
+        </div>
+    </div>
+</article>
