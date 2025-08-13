@@ -551,8 +551,13 @@ function navigateToLanguage(newLang) {
 
             // SEO optimization: English goes to root, others use language prefix
             if (newLang === 'en') {
-                newPath = `${basePath}/multilang-build${pathAfterLang}`;
-                console.log('🏠 English: using root path for SEO optimization');
+                // Special case for blog: ensure /en/blog/* exists under multilang build
+                if (pathAfterLang.startsWith('/blog/')) {
+                    newPath = `${basePath}/multilang-build/en${pathAfterLang}`;
+                } else {
+                    newPath = `${basePath}/multilang-build${pathAfterLang}`;
+                }
+                console.log('🏠 English: using root path for SEO optimization (with blog special-case in multilang-build)');
             } else {
                 newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
             }
@@ -598,13 +603,18 @@ function navigateToLanguage(newLang) {
 
         // Build target URL based on SEO-optimized structure
         if (newLang === 'en') {
-            // English: ALWAYS use root path without language prefix
+            // English: prefer root path without language prefix
+            // Special case: blog pages are only available under /en/blog/* in current build output
             if (pagePath) {
-                newPath = `/${pagePath}`;
+                if (pagePath.startsWith('blog/')) {
+                    newPath = `/en/${pagePath}`;
+                } else {
+                    newPath = `/${pagePath}`;
+                }
             } else {
                 newPath = '/';
             }
-            console.log('🏠 English: using root path for SEO optimization');
+            console.log('🏠 English: using root path for SEO optimization (with blog special-case)');
         } else {
             // Other languages: use language prefix
             newPath = `/${newLang}`;

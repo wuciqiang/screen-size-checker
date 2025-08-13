@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-08-11T03:58:28.569Z",
+  "validationDate": "2025-08-13T02:12:42.702Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 536,
     "missingTranslations": 106,
-    "inconsistentKeys": 167
+    "inconsistentKeys": 170
   },
   "missingKeys": {
     "en": [
@@ -624,6 +624,21 @@
     },
     {
       "component": "blog-tag-retina-display-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-screen-dimensions-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-screen-dimensions-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-screen-dimensions-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },

@@ -250,14 +250,18 @@ class LanguageModal {
         let targetUrl;
         
         if (targetLang === 'en') {
-            // English: ALWAYS use root path without language prefix
-            // This ensures /en/ paths redirect to root for SEO optimization
+            // English: prefer root path without language prefix
+            // Special case: blog pages are only available under /en/blog/* in current build output
             if (pagePath) {
-                targetUrl = `/${pagePath}`;
+                if (pagePath.startsWith('blog/')) {
+                    targetUrl = `/en/${pagePath}`;
+                } else {
+                    targetUrl = `/${pagePath}`;
+                }
             } else {
                 targetUrl = '/';
             }
-            console.log(`🏠 English target: using root path (${targetUrl})`);
+            console.log(`🏠 English target: using root path with blog special-case (${targetUrl})`);
         } else {
             // Other languages: use language prefix
             targetUrl = `/${targetLang}`;
