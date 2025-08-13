@@ -46,17 +46,18 @@
 
 - [ ] 4. LCP 资源优先级调整 + 稳定占位（尤其博客首图）
   - 影响文件：博客相关组件与构建输出（`components/blog-*.html`/构建器输出）
-  - 动作要点：首屏/LCP 图片添加 `fetchpriority="high"`、`loading="eager"`、`decoding="async"`，并输出明确的 `width/height` 或 `aspect-ratio`；非首屏图片一律 `loading="lazy"` 且补齐尺寸。
+  - 已做：为文内图片与头像补齐 `width/height`，添加 `loading="lazy"` 与 `decoding="async"`，降低 CLS 与带宽占用。
+  - 待办：当文章存在封面/首图时，为其设置 `fetchpriority="high"`、`loading="eager"` 与明确尺寸。
   - 指标映射：LCP/CLS
   - 验收：博客 LCP 显著下降，CLS 不上升；弱网下图片出现稳定无跳动。
   - 回滚：移除高优先级标记或恢复为懒加载。
 
-- [ ] 5. 异步区块占位与渐显（降低 CLS）
-  - 影响文件：相关组件容器（如 `.internal-links`、博客目录/侧栏）
-  - 动作要点：为异步内容容器设置固定 `min-height` 或 skeleton，占位后再渐显（已用 opacity 过渡，可结合占位）。
+- [x] 5. 异步区块占位与渐显（降低 CLS）
+  - 影响文件：`components/internal-links.html`
+  - 动作要点：为 `.internal-links-section` 与 `#internal-links-container` 添加最小高度占位，保持渐显；避免首次注入时的回流。
   - 指标映射：CLS
   - 验收：CLS ≤ 0.05；页面无“跳动感”。
-  - 回滚：移除占位样式，恢复仅 opacity。
+  - 回滚：移除占位样式。
 
 ### 阶段二（次日实施，观察 A/B）
 
