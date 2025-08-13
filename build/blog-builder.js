@@ -34,6 +34,51 @@ class BlogBuilder {
     }
     
     /**
+     * 为文章 HTML 内容中的 <img> 标签补齐性能属性
+     * - 默认为所有图片添加 loading="lazy" 和 decoding="async"
+     * - 若 URL 查询参数包含 width/height，且元素未声明，则补齐 width/height
+     * - 可选：为首张图片设置 fetchpriority="high" 和 loading="eager"（用于未来首图场景）
+     */
+    enhanceImages(html, options = {}) {
+        const { firstImageHighPriority = false } = options;
+        let firstImgProcessed = false;
+        
+        return html.replace(/<img([^>]*?)src=["']([^"']+)["']([^>]*)>/gi, (match, preAttrs, src, postAttrs) => {
+            let attributes = (preAttrs + ' ' + postAttrs).trim();
+            const hasLoading = /\bloading\s*=\s*(["'])(.*?)\1/i.test(attributes);
+            const hasDecoding = /\bdecoding\s*=\s*(["'])(.*?)\1/i.test(attributes);
+            const hasWidth = /\bwidth\s*=\s*(["'])(.*?)\1/i.test(attributes);
+            const hasHeight = /\bheight\s*=\s*(["'])(.*?)\1/i.test(attributes);
+            const hasFetchPriority = /\bfetchpriority\s*=\s*(["'])(.*?)\1/i.test(attributes);
+            
+            // 从 URL 尝试解析宽高（如 quickchart 的 width/height 参数）
+            let widthParam = null;
+            let heightParam = null;
+            try {
+                const urlObj = new URL(src);
+                const sp = urlObj.searchParams;
+                if (sp.has('width')) widthParam = sp.get('width');
+                if (sp.has('height')) heightParam = sp.get('height');
+            } catch (e) {
+                // 相对路径或无效 URL，忽略
+            }
+            
+            // 拼接需要新增的属性
+            const additions = [];
+            if (!hasLoading) additions.push(firstImageHighPriority && !firstImgProcessed ? 'loading="eager"' : 'loading="lazy"');
+            if (!hasDecoding) additions.push('decoding="async"');
+            if (!hasWidth && widthParam) additions.push(`width="${widthParam}"`);
+            if (!hasHeight && heightParam) additions.push(`height="${heightParam}"`);
+            if (firstImageHighPriority && !firstImgProcessed && !hasFetchPriority) additions.push('fetchpriority="high"');
+            
+            // 生成新的 <img> 标签
+            const newTag = `<img src="${src}"${attributes ? ' ' + attributes.trim() : ''}${additions.length ? ' ' + additions.join(' ') : ''}>`;
+            if (firstImageHighPriority && !firstImgProcessed) firstImgProcessed = true;
+            return newTag;
+        });
+    }
+    
+    /**
      * 确保必要的目录存在
      */
     ensureDirectories() {
@@ -258,6 +303,9 @@ class BlogBuilder {
      * 生成单篇博客文章组件
      */
     generatePostComponent(post) {
+        // 增强文章内容中的图片标签（补齐性能属性）
+        const enhancedContent = this.enhanceImages(post.content, { firstImageHighPriority: !!post.featuredImage });
+        
         return `<!-- Blog Post: ${post.title} -->
 <article class="blog-post">
     <header class="blog-post-header">
@@ -275,7 +323,7 @@ class BlogBuilder {
     </header>
     
     <div class="blog-post-content">
-        ${post.content}
+        ${enhancedContent}
     </div>
     
     <footer class="blog-post-footer">
