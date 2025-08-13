@@ -99,12 +99,27 @@ export class ModuleLoadingOptimizer {
         console.log(`Loading modules for page type: ${this.currentPageType}`);
         
         try {
-            // 阶段1: 立即加载关键模块
-            console.log('Loading critical modules:', pageModules.critical);
-            const criticalPromises = pageModules.critical.map(module => 
+            // 根据设备能力对关键模块做动态调整（低端/慢网延后 i18n）
+            const dynamicCritical = [...(pageModules.critical || [])];
+            const dynamicDeferred = [...(pageModules.deferred || [])];
+
+            const shouldDeferI18n = this.deviceCapabilities.isLowEnd || this.deviceCapabilities.isSlowConnection || this.deviceCapabilities.connectionType === '3g';
+            if (shouldDeferI18n) {
+                const idx = dynamicCritical.indexOf('i18n');
+                if (idx !== -1) {
+                    dynamicCritical.splice(idx, 1);
+                    // 避免重复加入
+                    if (!dynamicDeferred.includes('i18n')) dynamicDeferred.unshift('i18n');
+                    console.log('🕒 Deferring i18n for low-end/slow connection device');
+                }
+            }
+
+            // 阶段1: 立即加载关键模块（可能已移除 i18n）
+            console.log('Loading critical modules:', dynamicCritical);
+            const criticalPromises = dynamicCritical.map(module =>
                 this.loadModule(module, { priority: 'high', timeout: 5000 })
             );
-            
+
             await Promise.all(criticalPromises);
             console.log('✅ Critical modules loaded successfully');
             
@@ -112,8 +127,8 @@ export class ModuleLoadingOptimizer {
             const deferDelay = this.calculateDeferDelay();
             
             setTimeout(async () => {
-                console.log('Loading deferred modules:', pageModules.deferred);
-                const deferredPromises = pageModules.deferred.map(module => 
+                console.log('Loading deferred modules:', dynamicDeferred);
+                const deferredPromises = dynamicDeferred.map(module =>
                     this.loadModule(module, { priority: 'low', timeout: 10000 })
                 );
                 
@@ -123,7 +138,7 @@ export class ModuleLoadingOptimizer {
                 }).catch(error => {
                     console.warn('⚠️ Some deferred modules failed to load:', error);
                 });
-            }, deferDelay);
+            }, shouldDeferI18n ? deferDelay + 300 : deferDelay);
             
             // 阶段3: 预加载按需模块（仅在高端设备上）
             if (!this.deviceCapabilities.isLowEnd && !this.deviceCapabilities.isSlowConnection) {
