@@ -46,7 +46,7 @@
 
 - [ ] 4. LCP 资源优先级调整 + 稳定占位（尤其博客首图）
   - 影响文件：博客相关组件与构建输出（`components/blog-*.html`/构建器输出）
-  - 已做：为文内图片与头像补齐 `width/height`，添加 `loading="lazy"` 与 `decoding="async"`，降低 CLS 与带宽占用。
+  - 已做：为文内图片与头像补齐 `width/height`，添加 `loading="lazy"` 与 `decoding="async"`，降低 CLS 与带宽占用。（上线前建议统一）
   - 待办：当文章存在封面/首图时，为其设置 `fetchpriority="high"`、`loading="eager"` 与明确尺寸。
   - 指标映射：LCP/CLS
   - 验收：博客 LCP 显著下降，CLS 不上升；弱网下图片出现稳定无跳动。
@@ -61,16 +61,16 @@
 
 ### 阶段二（次日实施，观察 A/B）
 
-- [ ] 6. 缩减内联 Critical CSS（只保留首屏必需）
+- [x] 6. 缩减内联 Critical CSS（只保留首屏必需）
   - 影响文件：`components/head.html`（内联 CSS）→ `css/main.css`
-  - 动作要点：仅保留主题变量、头部/主容器尺寸与首屏必要规则，其余迁移到 `main.css`（仍保留 `preload as=style` 的加载策略）。
+  - 动作要点：将头部内联 CSS 缩减为“最小化布局稳定”（固定 header 高度与主容器 top margin 等），其余由 `main.css` 提供；不改样式表现。
   - 指标映射：FCP/TBT（减少样式计算）
   - 验收：首屏样式完整、无闪烁；体感加载更快。
   - 回滚：恢复原内联块。
 
 - [ ] 7. 低端设备/慢网延后 i18n 初始化
   - 影响文件：`js/module-loading-optimizer.js`
-  - 动作要点：基于 `deviceMemory/hardwareConcurrency/effectiveType`，将 i18n 从 `critical` 调整为 `deferred`（延时 300–800ms）；或保留在 `critical` 但动态延迟处理。
+  - 动作要点：基于 `deviceMemory/hardwareConcurrency/effectiveType`，将 i18n 从 `critical` 调整为 `deferred`（延时 300–800ms）；或保留在 `critical` 但动态延迟处理。（代码已实现动态延后）
   - 指标映射：LCP/TBT
   - 验收：弱机/弱网首屏先成像，随后文案替换；无白屏与闪烁。
   - 回滚：恢复原优先级。
