@@ -41,9 +41,9 @@ window.addEventListener('load', function() {
 <meta property="og:type" content="{{og_type}}">
 <meta property="og:url" content="{{og_url}}">
 
-<!-- Font Loading Optimization -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Font Loading Optimization (downgrade to dns-prefetch to reduce early connections) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
 <!-- Critical CSS - Load immediately -->
 <link rel="stylesheet" href="{{css_path}}/main.css">
@@ -65,9 +65,8 @@ window.addEventListener('load', function() {
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"></noscript>
 
-<!-- Preload language files -->
-<link rel="preload" href="{{locales_path}}/en/translation.json" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="{{locales_path}}/zh/translation.json" as="fetch" crossorigin="anonymous">
+<!-- Preload current language file only -->
+<link rel="preload" href="{{locales_path}}/{{lang}}/translation.json" as="fetch" crossorigin="anonymous">
 
 <!-- Inline Critical CSS for immediate rendering -->
 <style>
@@ -387,8 +386,8 @@ html, body {
 })();
 </script>
 
-<!-- UAParser.js for detailed device detection - Load with high priority -->
-<script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+<!-- UAParser.js for detailed device detection - defer to avoid blocking -->
+<script defer src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
 
 <!-- i18next Libraries - Defer non-critical -->
 <script defer src="https://cdn.jsdelivr.net/npm/i18next@24.2.3/dist/umd/i18next.min.js"></script>
