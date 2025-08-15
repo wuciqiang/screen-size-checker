@@ -192,8 +192,8 @@ class AdBuildProcessor {
 
         // 为广告脚本添加性能优化属性
         result = result.replace(
-            /(adsbygoogle = window\.adsbygoogle \|\| \[\]\)\.push\(\{\}\);/g,
-            '$1\n        // 性能优化：延迟执行\n        if (typeof window.requestIdleCallback === "function") {\n            window.requestIdleCallback(() => $1);\n        } else {\n            setTimeout(() => $1, 100);\n        }'
+            /\(adsbygoogle = window\.adsbygoogle \|\| \[\]\)\.push\(\{\}\);/g,
+            '(adsbygoogle = window.adsbygoogle || []).push({});\n        // 性能优化：延迟执行已内置'
         );
 
         // 为广告容器添加加载优化类

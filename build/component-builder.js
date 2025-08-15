@@ -121,7 +121,10 @@ class ComponentBuilder {
                 }
             });
             
-            // 4. 处理页面变量
+            // 4. 处理条件语句（必须在变量处理之前）
+            result = this.processConditions(result, pageData, depth);
+            
+            // 5. 处理页面变量
             result = this.processVariables(result, pageData, depth);
             
             // 检查是否还有变化
@@ -176,7 +179,28 @@ class ComponentBuilder {
             return '';
         });
         
-        // 处理条件语句 {{#if condition}}...{{/if}}
+        return result;
+    }
+    
+    // 处理条件语句
+    processConditions(content, data, depth = 0) {
+        // 防止无限递归
+        if (depth > 3) {
+            return content;
+        }
+        
+        let result = content;
+        
+        // 处理条件语句 {{#if condition}}...{{else}}...{{/if}}
+        result = result.replace(/\{\{#if\s+(\w+)\}\}([\s\S]*?)\{\{else\}\}([\s\S]*?)\{\{\/if\}\}/g, (match, condition, ifContent, elseContent) => {
+            if (data[condition]) {
+                return ifContent;
+            } else {
+                return elseContent;
+            }
+        });
+        
+        // 处理简单条件语句 {{#if condition}}...{{/if}}
         result = result.replace(/\{\{#if\s+(\w+)\}\}([\s\S]*?)\{\{\/if\}\}/g, (match, condition, content) => {
             if (data[condition]) {
                 return content;

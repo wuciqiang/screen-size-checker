@@ -22,6 +22,7 @@
         "privacy_policy_url": "privacy-policy.html",
         "device_links_base": "devices/",
         "show_breadcrumb": false,
+        "with_sidebar": false,
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",

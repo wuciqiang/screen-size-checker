@@ -246,20 +246,32 @@ class LanguageModal {
             }
         }
         
+        console.log(`📍 Parsed: currentLang=${currentLang}, pagePath="${pagePath}"`);
+        console.log(`🔍 Path analysis: pathParts=${JSON.stringify(pathParts)}`);
+        
         // Build target URL based on SEO-optimized structure
         let targetUrl;
         
         if (targetLang === 'en') {
-            // English: prefer root path without language prefix
-            // Special case: blog pages are only available under /en/blog/* in current build output
+            // English: For blog pages, always use /en/blog/* structure
+            // For other pages, use root path without language prefix
             if (pagePath) {
-                if (pagePath.startsWith('blog/')) {
-                    targetUrl = `/en/${pagePath}`;
+                console.log(`🔍 Checking pagePath: "${pagePath}"`);
+                console.log(`🔍 Starts with 'blog/'? ${pagePath.startsWith('blog/')}`);
+                console.log(`🔍 Starts with 'blog'? ${pagePath.startsWith('blog')}`);
+                
+                if (pagePath.startsWith('blog/') || pagePath.startsWith('blog')) {
+                    // Ensure proper blog path format
+                    const blogPath = pagePath.startsWith('blog/') ? pagePath : 'blog/' + pagePath.substring(4);
+                    targetUrl = `/en/${blogPath}`;
+                    console.log(`📝 Blog path detected, using: ${targetUrl}`);
                 } else {
                     targetUrl = `/${pagePath}`;
+                    console.log(`📄 Non-blog path, using: ${targetUrl}`);
                 }
             } else {
                 targetUrl = '/';
+                console.log(`🏠 Root path, using: ${targetUrl}`);
             }
             console.log(`🏠 English target: using root path with blog special-case (${targetUrl})`);
         } else {
