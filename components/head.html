@@ -327,9 +327,9 @@ html, body {
 <script defer src="https://cdn.jsdelivr.net/npm/i18next-http-backend@3.0.2/i18nextHttpBackend.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.4/i18nextBrowserLanguageDetector.min.js"></script>
 
-<!-- Google Ads - Defer loading -->
+<!-- Google Ads - Optimized loading -->
 <script>
-// Defer Google Ads loading
+// Optimized Google Ads loading - reduced delay for better ad serving
 window.addEventListener('load', function() {
     setTimeout(function() {
         var script = document.createElement('script');
@@ -337,7 +337,37 @@ window.addEventListener('load', function() {
         script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868';
         script.crossOrigin = 'anonymous';
         document.head.appendChild(script);
-    }, 2000); // Delay 2 seconds after page load
+        
+        // Add debug logging
+        script.onload = function() {
+            console.log('✅ AdSense script loaded successfully');
+            
+            // Debug: Check for ad elements and their status
+            setTimeout(function() {
+                const adElements = document.querySelectorAll('.adsbygoogle');
+                console.log(`🔍 Found ${adElements.length} ad elements on page`);
+                
+                adElements.forEach((ad, index) => {
+                    const slot = ad.getAttribute('data-ad-slot');
+                    const client = ad.getAttribute('data-ad-client');
+                    const status = ad.getAttribute('data-ad-status');
+                    const filled = ad.getAttribute('data-adsbygoogle-status');
+                    
+                    console.log(`📊 Ad ${index + 1}:`, {
+                        slot: slot,
+                        client: client,
+                        status: status,
+                        filled: filled,
+                        visible: ad.offsetHeight > 0,
+                        height: ad.offsetHeight + 'px'
+                    });
+                });
+            }, 3000); // Check after 3 seconds
+        };
+        script.onerror = function() {
+            console.error('❌ AdSense script failed to load');
+        };
+    }, 500); // Reduced delay to 500ms for faster ad serving
 });
 </script>
 
