@@ -557,6 +557,7 @@ class MultiLangBuilder extends ComponentBuilder {
             'css',
             'js', 
             'locales',
+            'data',
             'favicon.ico',
             'favicon.png',
             'ads.txt',
