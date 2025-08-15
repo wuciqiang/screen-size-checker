@@ -11,6 +11,11 @@ import CSSOptimizer from './css-optimizer.js';
 import { initializeMobileOptimization } from './mobile-performance-optimizer.js';
 // FontLoadingOptimizer will be imported dynamically to avoid blocking
 
+// 动态导入广告相关模块（避免阻塞）
+let adConfigManager = null;
+let adLoadingOptimizer = null;
+let adPerformanceAnalytics = null;
+
 // 暂时移除资源加载优化器的导入以避免阻塞
 let resourceLoadingOptimizer = null;
 let performanceErrorHandler = null;
@@ -94,6 +99,42 @@ async function initializeApp() {
             enableFallbackHandling: true,
             protectThemeCSS: true        // 新增：保护主题相关CSS
         });
+
+        // PHASE 2.3: 初始化广告配置管理器（优先加载以提供配置）
+        setTimeout(async () => {
+            try {
+                const AdConfigManagerModule = await import('./ad-config-manager.js');
+                adConfigManager = AdConfigManagerModule.default || window.adConfigManager;
+                console.log('✅ Ad config manager initialized successfully');
+            } catch (error) {
+                console.warn('⚠️ Ad config manager failed to initialize:', error);
+                // 配置管理器初始化失败不应该阻止应用启动
+            }
+        }, 300); // 延迟300ms加载，优先于广告优化器
+
+        // PHASE 2.4: 初始化广告加载优化器（延迟加载以避免阻塞）
+        setTimeout(async () => {
+            try {
+                const AdLoadingOptimizerModule = await import('./ad-loading-optimizer.js');
+                adLoadingOptimizer = AdLoadingOptimizerModule.default || window.adLoadingOptimizer;
+                console.log('✅ Ad loading optimizer initialized successfully');
+            } catch (error) {
+                console.warn('⚠️ Ad loading optimizer failed to initialize:', error);
+                // 广告优化器初始化失败不应该阻止应用启动
+            }
+        }, 500); // 延迟500ms加载，确保关键内容先渲染
+
+        // PHASE 2.5: 初始化广告性能分析器（延迟加载以避免阻塞）
+        setTimeout(async () => {
+            try {
+                const AdPerformanceAnalyticsModule = await import('./ad-performance-analytics.js');
+                adPerformanceAnalytics = AdPerformanceAnalyticsModule.default || window.adPerformanceAnalytics;
+                console.log('✅ Ad performance analytics initialized successfully');
+            } catch (error) {
+                console.warn('⚠️ Ad performance analytics failed to initialize:', error);
+                // 性能分析器初始化失败不应该阻止应用启动
+            }
+        }, 1000); // 延迟1秒加载，确保广告优化器先初始化
 
         // 延迟导航高亮设置，确保DOM完全加载
         setTimeout(() => {

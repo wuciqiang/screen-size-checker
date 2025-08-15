@@ -5,6 +5,7 @@ const BlogBuilder = require('./blog-builder');
 const { TranslationValidator } = require('./translation-validator');
 const InternalLinksProcessor = require('./internal-links-processor');
 const CriticalCSSExtractor = require('./critical-css-extractor');
+const AdBuildProcessor = require('./ad-build-processor');
 
 class MultiLangBuilder extends ComponentBuilder {
     constructor() {
@@ -13,6 +14,7 @@ class MultiLangBuilder extends ComponentBuilder {
         this.defaultLanguage = 'en';
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
+        this.adBuildProcessor = new AdBuildProcessor();
         this.loadTranslations();
     }
     
@@ -362,6 +364,9 @@ class MultiLangBuilder extends ComponentBuilder {
                     
                     // 应用翻译
                     html = this.translateContent(html, translations);
+                    
+                    // 处理广告组件
+                    html = this.adBuildProcessor.processAdComponents(html, pageData);
                     
                     // 处理内链
                     html = this.internalLinksProcessor.processPageLinks(html, page.name, lang);

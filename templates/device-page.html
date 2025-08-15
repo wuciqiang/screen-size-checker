@@ -8,9 +8,22 @@
     
     {{component:breadcrumb}}
     
+    {{#if with_sidebar}}
+    <div class="main-layout-container">
+        <main class="main-content main-content-area with-sidebar">
+            {{page_content}}
+        </main>
+        <aside class="sidebar-right">
+            <div class="sidebar-content">
+                {{component:ad-skyscraper-right}}
+            </div>
+        </aside>
+    </div>
+    {{else}}
     <main class="main-content">
         {{page_content}}
     </main>
+    {{/if}}
     
     {{component:footer}}
     

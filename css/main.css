@@ -1962,3 +1962,683 @@ body {
     background: rgba(74, 85, 104, 0.9);
     color: #e2e8f0;
 }
+/* ====
+= 高级 AdSense 系统样式 ===== */
+
+/* 广告容器基础样式 */
+.ad-container {
+    position: relative;
+    margin: var(--spacing-xl) 0;
+    transition: min-height var(--transition-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+/* 加载状态指示器 */
+.ad-container::before {
+    content: '广告加载中...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 1;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* 广告加载完成后隐藏指示器 */
+.ad-container.ad-loaded::before,
+.ad-container:has(.adsbygoogle[data-ad-status="filled"])::before {
+    display: none;
+}
+
+/* 广告加载完成后的样式 */
+.ad-container.ad-loaded,
+.ad-container:has(.adsbygoogle[data-ad-status="filled"]) {
+    background: transparent;
+    border: none;
+}
+
+/* 广告加载失败状态 */
+.ad-container.ad-load-failed {
+    background: var(--background-hover);
+    border-color: var(--border-hover);
+    min-height: 60px !important;
+}
+
+.ad-container.ad-load-failed::before {
+    content: '广告暂时无法显示';
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+}
+
+/* 顶部横幅广告样式 */
+.ad-banner-top {
+    min-height: 90px;
+    width: 100%;
+    max-width: 100%;
+    margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+}
+
+/* 内容中矩形广告样式 */
+.ad-rectangle-in-content {
+    min-height: 250px;
+    max-width: 336px;
+    width: 100%;
+    margin: var(--spacing-xl) auto;
+}
+
+/* 右侧摩天楼广告样式 */
+.ad-skyscraper-right {
+    min-height: 600px;
+    width: 160px;
+    margin: 0;
+    position: sticky;
+    top: 84px; /* header高度 + 间距 */
+}
+
+/* AdSense 原生样式重置 */
+.ad-container .adsbygoogle {
+    display: block !important;
+    width: 100%;
+    height: auto;
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .ad-container {
+    background: var(--background-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .ad-container::before {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .ad-container.ad-load-failed {
+    background: var(--background-secondary);
+    border-color: var(--border-hover);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .ad-banner-top {
+        min-height: 80px;
+        margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+    }
+    
+    .ad-rectangle-in-content {
+        min-height: 200px;
+        max-width: 300px;
+        margin: var(--spacing-lg) auto;
+    }
+    
+    /* 移动端隐藏摩天楼广告 */
+    .ad-skyscraper-right {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .ad-banner-top {
+        min-height: 70px;
+        margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+    }
+    
+    .ad-rectangle-in-content {
+        min-height: 180px;
+        max-width: 280px;
+        margin: var(--spacing-md) auto;
+    }
+    
+    .ad-container::before {
+        font-size: 0.75rem;
+    }
+}
+
+/* 打印样式 - 隐藏所有广告 */
+@media print {
+    .ad-container {
+        display: none !important;
+    }
+}
+/* ===== 响应式布局系统 ===== */
+
+/* 主布局容器 */
+.main-layout-container {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    grid-template-areas: 
+        "content sidebar";
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    min-height: 100vh;
+    align-items: start;
+}
+
+/* 主内容区域 */
+.main-content-area {
+    grid-area: content;
+    min-width: 0; /* 防止内容溢出 */
+    width: 100%;
+}
+
+/* 右侧边栏 */
+.sidebar-right {
+    grid-area: sidebar;
+    width: 180px;
+    height: fit-content;
+    position: sticky;
+    top: 84px; /* header高度 + 间距 */
+    z-index: 10;
+}
+
+/* 侧边栏内容容器 */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* 确保现有的 main-content 在新布局中正常工作 */
+.main-content.with-sidebar {
+    margin-top: 64px;
+    padding: var(--spacing-2xl) 0;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 博客页面的特殊处理 */
+.main-content.blog-main.with-sidebar {
+    margin-top: 0;
+    padding-top: var(--spacing-xl);
+}
+
+/* 响应式断点 - 隐藏侧边栏 */
+@media (max-width: 1440px) {
+    .main-layout-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content";
+        gap: 0;
+    }
+    
+    .sidebar-right {
+        display: none;
+    }
+    
+    .main-content.with-sidebar {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+}
+
+/* 中等屏幕优化 */
+@media (max-width: 768px) {
+    .main-layout-container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .main-content.with-sidebar {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
+
+/* 小屏幕优化 */
+@media (max-width: 480px) {
+    .main-layout-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .main-content.with-sidebar {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+}
+
+/* 侧边栏粘性定位优化 */
+@media (min-width: 1441px) {
+    .sidebar-right {
+        position: sticky;
+        top: 84px;
+        max-height: calc(100vh - 104px); /* 视口高度 - header - 间距 */
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border-color) transparent;
+    }
+    
+    /* Webkit 滚动条样式 */
+    .sidebar-right::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .sidebar-right::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .sidebar-right::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 2px;
+    }
+    
+    .sidebar-right::-webkit-scrollbar-thumb:hover {
+        background: var(--border-hover);
+    }
+}
+
+/* 确保侧边栏在页面滚动时的平滑效果 */
+@media (min-width: 1441px) and (prefers-reduced-motion: no-preference) {
+    .sidebar-right {
+        transition: top var(--transition-medium);
+    }
+}
+
+/* 暗色主题下的侧边栏样式 */
+[data-theme="dark"] .sidebar-right::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+}
+
+[data-theme="dark"] .sidebar-right::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
+}/* ===== 博
+客广告系统样式 ===== */
+
+/* 博客侧边栏广告容器 */
+.blog-sidebar-ads {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* 博客内容中的广告样式 */
+.blog-content-area .ad-container {
+    margin: var(--spacing-2xl) 0;
+    clear: both;
+}
+
+/* 博客顶部横幅广告 */
+.blog-content-area .ad-banner-top {
+    margin: var(--spacing-lg) 0 var(--spacing-2xl) 0;
+}
+
+/* 博客内容中矩形广告 */
+.blog-content-area .ad-rectangle-in-content {
+    margin: var(--spacing-2xl) auto;
+    max-width: 336px;
+    width: 100%;
+}
+
+/* 确保广告不干扰博客内容流 */
+.blog-content-area .ad-container + h2,
+.blog-content-area .ad-container + h3,
+.blog-content-area .ad-container + p {
+    margin-top: var(--spacing-xl);
+}
+
+/* 博客响应式广告优化 */
+@media (max-width: 1440px) {
+    .blog-sidebar-ads {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-content-area .ad-container {
+        margin: var(--spacing-xl) 0;
+    }
+    
+    .blog-content-area .ad-banner-top {
+        margin: var(--spacing-md) 0 var(--spacing-xl) 0;
+    }
+    
+    .blog-content-area .ad-rectangle-in-content {
+        margin: var(--spacing-xl) auto;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-content-area .ad-container {
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .blog-content-area .ad-banner-top {
+        margin: var(--spacing-sm) 0 var(--spacing-lg) 0;
+    }
+    
+    .blog-content-area .ad-rectangle-in-content {
+        margin: var(--spacing-lg) auto;
+        max-width: 280px;
+    }
+}
+
+/* 暗色主题下的博客广告样式 */
+[data-theme="dark"] .blog-sidebar-ads {
+    border-top-color: var(--border-color);
+}
+
+/* 博客广告与内容的间距优化 */
+.blog-content-mobile .ad-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 确保广告不影响博客的移动端优化 */
+.blog-mobile-optimized .ad-container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* 博客文章结尾广告样式 */
+.blog-content-area .ad-container.ad-end-of-content {
+    margin-top: var(--spacing-3xl);
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-content-area .ad-container.ad-end-of-content::before {
+    content: '推荐内容';
+    position: absolute;
+    top: var(--spacing-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--background-primary);
+    padding: 0 var(--spacing-sm);
+}
+
+[data-theme="dark"] .blog-content-area .ad-container.ad-end-of-content::before {
+    background: var(--background-primary);
+}
+/* ===
+=====================================
+   高级多平台 AdSense 系统样式
+   ======================================== */
+
+/* 广告容器基础样式 */
+.ad-container {
+    position: relative;
+    margin: var(--spacing-xl) 0;
+    transition: min-height 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 加载状态指示器 */
+.ad-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    opacity: 0.3;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.ad-container.loaded::before,
+.ad-container.ad-loaded::before {
+    opacity: 0;
+}
+
+/* 顶部横幅广告样式 */
+.ad-banner-top {
+    min-height: 90px;
+    max-height: 120px;
+    width: 100%;
+    margin: var(--spacing-lg) 0;
+}
+
+.ad-banner-top .adsbygoogle {
+    width: 100%;
+    height: auto;
+    min-height: 90px;
+}
+
+/* 内容中矩形广告样式 */
+.ad-rectangle-in-content {
+    min-height: 250px;
+    max-height: 300px;
+    max-width: 336px;
+    margin: var(--spacing-xl) auto;
+    width: 100%;
+}
+
+.ad-rectangle-in-content .adsbygoogle {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+}
+
+/* 右侧摩天楼广告样式 */
+.ad-skyscraper-right {
+    min-height: 600px;
+    max-height: 800px;
+    width: 160px;
+    margin: var(--spacing-lg) 0;
+}
+
+.ad-skyscraper-right .adsbygoogle {
+    width: 160px;
+    height: auto;
+    min-height: 600px;
+}
+
+/* 广告加载失败状态 */
+.ad-container.ad-load-failed {
+    min-height: 50px;
+    opacity: 0.5;
+}
+
+.ad-container.ad-load-failed::before {
+    content: '广告加载中...';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    background: var(--background-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 响应式布局系统 */
+.main-layout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.main-content-area {
+    min-width: 0; /* 防止内容溢出 */
+}
+
+.sidebar-right {
+    display: none; /* 默认隐藏侧边栏 */
+}
+
+/* 桌面端布局 - 显示侧边栏 */
+@media (min-width: 1441px) {
+    .main-layout-container {
+        grid-template-columns: 1fr 180px;
+        grid-template-areas: "content sidebar";
+    }
+    
+    .main-content-area {
+        grid-area: content;
+    }
+    
+    .sidebar-right {
+        display: block;
+        grid-area: sidebar;
+        position: sticky;
+        top: 84px; /* header高度 + 间距 */
+        height: fit-content;
+    }
+}
+
+/* 平板端优化 */
+@media (max-width: 1440px) and (min-width: 769px) {
+    .ad-rectangle-in-content {
+        max-width: 300px;
+        min-height: 200px;
+    }
+    
+    .ad-rectangle-in-content .adsbygoogle {
+        min-height: 200px;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .ad-banner-top {
+        min-height: 80px;
+        margin: var(--spacing-md) 0;
+    }
+    
+    .ad-banner-top .adsbygoogle {
+        min-height: 80px;
+    }
+    
+    .ad-rectangle-in-content {
+        min-height: 200px;
+        max-width: 280px;
+        margin: var(--spacing-lg) auto;
+    }
+    
+    .ad-rectangle-in-content .adsbygoogle {
+        min-height: 200px;
+    }
+    
+    /* 移动端隐藏侧边栏广告 */
+    .ad-skyscraper-right {
+        display: none;
+    }
+    
+    .main-layout-container {
+        padding: 0 var(--spacing-sm);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* 广告性能优化 */
+.ad-container[data-lazy="true"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ad-container[data-lazy="true"].loaded {
+    opacity: 1;
+}
+
+/* 广告与内容的间距优化 */
+.ad-container + h1,
+.ad-container + h2,
+.ad-container + h3 {
+    margin-top: var(--spacing-xl);
+}
+
+h1 + .ad-container,
+h2 + .ad-container,
+h3 + .ad-container {
+    margin-top: var(--spacing-lg);
+}
+
+/* 博客文章中的广告样式 */
+.blog-content .ad-container {
+    margin: var(--spacing-2xl) 0;
+}
+
+.blog-content .ad-rectangle-in-content {
+    margin: var(--spacing-2xl) auto;
+}
+
+/* 工具页面中的广告样式 */
+.tool-content .ad-container {
+    margin: var(--spacing-xl) 0;
+}
+
+/* 广告调试模式（开发环境） */
+.ad-debug .ad-container {
+    border: 2px solid #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.ad-debug .ad-container::after {
+    content: attr(data-ad-type);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+    color: #ff6b6b;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* 确保广告不影响页面布局 */
+.adsbygoogle {
+    display: block !important;
+}
+
+/* 防止广告溢出 */
+.ad-container .adsbygoogle {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* 广告容器的最大宽度限制 */
+@media (min-width: 1200px) {
+    .ad-banner-top {
+        max-width: 970px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .ad-container::before {
+        border-color: var(--text-primary);
+        opacity: 0.8;
+    }
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+    .ad-container,
+    .ad-container::before {
+        transition: none;
+    }
+}

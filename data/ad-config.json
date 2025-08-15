@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15T00:00:00Z",
+  "environments": {
+    "development": {
+      "enabled": false,
+      "testMode": true,
+      "client": "ca-pub-test",
+      "slots": {
+        "topBanner": "TEST_TOP_BANNER_SLOT",
+        "inContentRectangle": "TEST_IN_CONTENT_RECTANGLE_SLOT",
+        "skyscraperRight": "TEST_SKYSCRAPER_RIGHT_SLOT",
+        "endOfContent": "TEST_END_OF_CONTENT_SLOT"
+      },
+      "debug": true,
+      "analytics": {
+        "enabled": true,
+        "endpoint": null
+      }
+    },
+    "production": {
+      "enabled": true,
+      "testMode": false,
+      "client": "ca-pub-9212629010224868",
+      "slots": {
+        "topBanner": "TOP_BANNER_SLOT_ID",
+        "inContentRectangle": "IN_CONTENT_RECTANGLE_SLOT_ID",
+        "skyscraperRight": "SKYSCRAPER_RIGHT_SLOT_ID",
+        "endOfContent": "END_OF_CONTENT_SLOT_ID"
+      },
+      "debug": false,
+      "analytics": {
+        "enabled": true,
+        "endpoint": "/api/ad-analytics"
+      }
+    }
+  },
+  "responsive": {
+    "breakpoints": {
+      "mobile": 768,
+      "tablet": 1024,
+      "desktop": 1440
+    },
+    "desktop": {
+      "showSidebar": true,
+      "maxAdsPerPage": 4,
+      "enableStickyAds": true,
+      "adPositions": ["top-banner", "in-content", "sidebar", "end-of-content"]
+    },
+    "tablet": {
+      "showSidebar": false,
+      "maxAdsPerPage": 3,
+      "enableStickyAds": false,
+      "adPositions": ["top-banner", "in-content", "end-of-content"]
+    },
+    "mobile": {
+      "showSidebar": false,
+      "maxAdsPerPage": 3,
+      "enableStickyAds": false,
+      "adPositions": ["top-banner", "in-content", "end-of-content"]
+    }
+  },
+  "pageTypes": {
+    "tool-pages": {
+      "positions": ["after-h1", "after-main-tool"],
+      "maxAds": 2,
+      "priority": "high",
+      "enableSidebar": true
+    },
+    "blog-posts": {
+      "positions": ["after-title", "after-paragraph-2", "at-2/3-mark", "end-of-content"],
+      "maxAds": 4,
+      "priority": "medium",
+      "enableSidebar": true
+    },
+    "device-pages": {
+      "positions": ["after-h1", "after-table"],
+      "maxAds": 2,
+      "priority": "high",
+      "enableSidebar": true
+    },
+    "home-page": {
+      "positions": ["after-hero", "after-dashboard"],
+      "maxAds": 2,
+      "priority": "medium",
+      "enableSidebar": false
+    }
+  },
+  "adTypes": {
+    "banner-top": {
+      "minHeight": "90px",
+      "maxHeight": "120px",
+      "responsive": true,
+      "lazyLoad": false,
+      "priority": "high"
+    },
+    "rectangle-content": {
+      "minHeight": "250px",
+      "maxHeight": "300px",
+      "responsive": true,
+      "lazyLoad": true,
+      "priority": "medium"
+    },
+    "skyscraper-right": {
+      "minHeight": "600px",
+      "maxHeight": "800px",
+      "responsive": false,
+      "lazyLoad": true,
+      "priority": "low",
+      "desktopOnly": true
+    }
+  },
+  "performance": {
+    "lazyLoadThreshold": "200px",
+    "loadTimeout": 10000,
+    "maxRetries": 3,
+    "retryDelay": 2000,
+    "enableIntersectionObserver": true,
+    "enablePerformanceMonitoring": true
+  },
+  "fallback": {
+    "enableFallbackContent": true,
+    "fallbackDelay": 5000,
+    "reducedHeightOnFailure": true,
+    "hideFailedAds": false
+  },
+  "compliance": {
+    "gdprCompliant": true,
+    "ccpaCompliant": true,
+    "enableConsentManagement": true,
+    "respectDoNotTrack": true
+  }
+}

@@ -10,9 +10,22 @@
         {{component:breadcrumb}}
     {{/if}}
     
+    {{#if with_sidebar}}
+    <div class="main-layout-container">
+        <main class="main-content main-content-area with-sidebar">
+            {{component:page_content}}
+        </main>
+        <aside class="sidebar-right">
+            <div class="sidebar-content">
+                {{component:ad-skyscraper-right}}
+            </div>
+        </aside>
+    </div>
+    {{else}}
     <main class="main-content">
         {{component:page_content}}
     </main>
+    {{/if}}
     
     {{component:footer}}
     
