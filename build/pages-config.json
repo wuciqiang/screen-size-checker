@@ -536,6 +536,57 @@
       }
     },
     {
+      "name": "blog-post-black_myth_guide-en",
+      "template": "blog-post",
+      "output": "blog/black_myth_guide.html",
+      "page_content": "blog-post-black_myth_guide-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+        "page_description": "Is your monitor ready for Black Myth: Zhong Kui? Our guide breaks down the PC specs and display technology you need for the ultimate 4K gaming experience.",
+        "page_keywords": "black myth, gaming, hardware, monitors, 4k",
+        "canonical_url": "https://screensizechecker.com/en/blog/black_myth_guide",
+        "og_title": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+        "og_description": "Is your monitor ready for Black Myth: Zhong Kui? Our guide breaks down the PC specs and display technology you need for the ultimate 4K gaming experience.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/black_myth_guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+        "current_name": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+          "description": "Is your monitor ready for Black Myth: Zhong Kui? Our guide breaks down the PC specs and display technology you need for the ultimate 4K gaming experience.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-08-26T01:27:45.681Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "blog-post-device-pixel-ratio-en",
       "template": "blog-post",
       "output": "blog/device-pixel-ratio.html",
@@ -1047,6 +1098,166 @@
       }
     },
     {
+      "name": "blog-tag-black myth-en",
+      "template": "blog-tag",
+      "output": "blog/tag/black myth.html",
+      "page_content": "blog-tag-black myth-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: black myth",
+        "page_description": "Browse all articles tagged with black myth",
+        "page_keywords": "blog, black myth, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/black myth",
+        "og_title": "Tag: black myth",
+        "og_description": "Browse all articles tagged with black myth",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/black myth",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "black myth",
+        "current_name": "#black myth",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-gaming-en",
+      "template": "blog-tag",
+      "output": "blog/tag/gaming.html",
+      "page_content": "blog-tag-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: gaming",
+        "page_description": "Browse all articles tagged with gaming",
+        "page_keywords": "blog, gaming, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/gaming",
+        "og_title": "Tag: gaming",
+        "og_description": "Browse all articles tagged with gaming",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/gaming",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming",
+        "current_name": "#gaming",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-hardware-en",
+      "template": "blog-tag",
+      "output": "blog/tag/hardware.html",
+      "page_content": "blog-tag-hardware-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: hardware",
+        "page_description": "Browse all articles tagged with hardware",
+        "page_keywords": "blog, hardware, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/hardware",
+        "og_title": "Tag: hardware",
+        "og_description": "Browse all articles tagged with hardware",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/hardware",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hardware",
+        "current_name": "#hardware",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-monitors-en",
+      "template": "blog-tag",
+      "output": "blog/tag/monitors.html",
+      "page_content": "blog-tag-monitors-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: monitors",
+        "page_description": "Browse all articles tagged with monitors",
+        "page_keywords": "blog, monitors, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/monitors",
+        "og_title": "Tag: monitors",
+        "og_description": "Browse all articles tagged with monitors",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/monitors",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "monitors",
+        "current_name": "#monitors",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-4k-en",
+      "template": "blog-tag",
+      "output": "blog/tag/4k.html",
+      "page_content": "blog-tag-4k-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: 4k",
+        "page_description": "Browse all articles tagged with 4k",
+        "page_keywords": "blog, 4k, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/4k",
+        "og_title": "Tag: 4k",
+        "og_description": "Browse all articles tagged with 4k",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/4k",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "4k",
+        "current_name": "#4k",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-dpr-en",
       "template": "blog-tag",
       "output": "blog/tag/dpr.html",
@@ -1408,6 +1619,57 @@
             "name": "Blues"
           },
           "datePublished": "2025-01-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-black_myth_guide-zh",
+      "template": "blog-post",
+      "output": "blog/black_myth_guide.html",
+      "page_content": "blog-post-black_myth_guide-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+        "page_description": "你的显示器准备好迎接《黑神话：钟馗》了吗？我们的指南为你详解所需的PC配置和显示技术，助你获得终极4K游戏体验。",
+        "page_keywords": "黑神话, 游戏, 硬件, 显示器, 4k",
+        "canonical_url": "https://screensizechecker.com/zh/blog/black_myth_guide",
+        "og_title": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+        "og_description": "你的显示器准备好迎接《黑神话：钟馗》了吗？我们的指南为你详解所需的PC配置和显示技术，助你获得终极4K游戏体验。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/black_myth_guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+        "current_name": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+          "description": "你的显示器准备好迎接《黑神话：钟馗》了吗？我们的指南为你详解所需的PC配置和显示技术，助你获得终极4K游戏体验。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-08-26T01:27:45.940Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1924,6 +2186,166 @@
         "show_breadcrumb": true,
         "current_key": "显示技术",
         "current_name": "#显示技术",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-黑神话-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/黑神话.html",
+      "page_content": "blog-tag-黑神话-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 黑神话",
+        "page_description": "浏览黑神话标签下的所有文章",
+        "page_keywords": "blog, 黑神话, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/黑神话",
+        "og_title": "标签: 黑神话",
+        "og_description": "浏览黑神话标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/黑神话",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "黑神话",
+        "current_name": "#黑神话",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-游戏-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/游戏.html",
+      "page_content": "blog-tag-游戏-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 游戏",
+        "page_description": "浏览游戏标签下的所有文章",
+        "page_keywords": "blog, 游戏, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/游戏",
+        "og_title": "标签: 游戏",
+        "og_description": "浏览游戏标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/游戏",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "游戏",
+        "current_name": "#游戏",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-硬件-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/硬件.html",
+      "page_content": "blog-tag-硬件-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 硬件",
+        "page_description": "浏览硬件标签下的所有文章",
+        "page_keywords": "blog, 硬件, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/硬件",
+        "og_title": "标签: 硬件",
+        "og_description": "浏览硬件标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/硬件",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "硬件",
+        "current_name": "#硬件",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-显示器-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/显示器.html",
+      "page_content": "blog-tag-显示器-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 显示器",
+        "page_description": "浏览显示器标签下的所有文章",
+        "page_keywords": "blog, 显示器, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器",
+        "og_title": "标签: 显示器",
+        "og_description": "浏览显示器标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/显示器",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "显示器",
+        "current_name": "#显示器",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-4k-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/4k.html",
+      "page_content": "blog-tag-4k-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 4k",
+        "page_description": "浏览4k标签下的所有文章",
+        "page_keywords": "blog, 4k, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/4k",
+        "og_title": "标签: 4k",
+        "og_description": "浏览4k标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/4k",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "4k",
+        "current_name": "#4k",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",
