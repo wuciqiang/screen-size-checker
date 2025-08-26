@@ -49,7 +49,11 @@ class MobileImageOptimizer {
      */
     setup() {
         this.detectMobileDevice();
+        
+        // 先初始化懒加载，确保 Observer 在处理图片之前准备好
         this.setupLazyLoading();
+        
+        // 然后处理现有图片
         this.optimizeExistingImages();
         this.optimizeCharts();
         this.setupResizeHandler();
@@ -96,6 +100,7 @@ class MobileImageOptimizer {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
+                        console.log('Image entering viewport, loading:', img.src || img.dataset.src);
                         this.loadImage(img);
                         observer.unobserve(img);
                     }
@@ -108,6 +113,11 @@ class MobileImageOptimizer {
         );
 
         this.observers.set('lazy', lazyImageObserver);
+        
+        // 添加一个安全检查，确保所有视窗内的图片都能被加载
+        setTimeout(() => {
+            this.ensureVisibleImagesLoaded();
+        }, 1000);
     }
 
     /**
@@ -131,17 +141,53 @@ class MobileImageOptimizer {
         // 添加响应式类
         img.classList.add('mobile-responsive-image');
 
-        // 设置懒加载
-        if (this.options.enableIntersectionObserver && !img.complete) {
-            img.classList.add('lazy-loading');
-            this.setupImagePlaceholder(img);
-            this.observers.get('lazy').observe(img);
-        } else {
-            this.loadImage(img);
-        }
-
         // 优化图片属性
         this.optimizeImageAttributes(img);
+
+        // 检查图片是否已经加载或有有效的src
+        const hasValidSrc = img.src && img.src !== window.location.href;
+        const isImageLoaded = img.complete && hasValidSrc;
+        
+        // 判断是否使用懒加载
+        if (this.options.enableIntersectionObserver && !isImageLoaded) {
+            // 检查图片是否在视窗内，如果在的话直接加载
+            const rect = img.getBoundingClientRect();
+            const inViewport = (
+                rect.top < window.innerHeight + 100 && // 提前100px开始加载
+                rect.bottom > -100 &&
+                rect.left < window.innerWidth + 100 &&
+                rect.right > -100
+            );
+            
+            if (inViewport) {
+                // 图片在视窗内，直接加载
+                this.loadImage(img);
+            } else {
+                // 图片在视窗外，使用懒加载
+                img.classList.add('lazy-loading');
+                this.setupImagePlaceholder(img);
+                
+                // 确保 observer 已经初始化
+                const observer = this.observers.get('lazy');
+                if (observer) {
+                    observer.observe(img);
+                } else {
+                    // 如果 observer 还没初始化，延迟处理
+                    setTimeout(() => {
+                        const retryObserver = this.observers.get('lazy');
+                        if (retryObserver) {
+                            retryObserver.observe(img);
+                        } else {
+                            // 如果仍然没有 observer，直接加载
+                            this.loadImage(img);
+                        }
+                    }, 100);
+                }
+            }
+        } else {
+            // 直接加载图片
+            this.loadImage(img);
+        }
     }
 
     /**
@@ -564,6 +610,34 @@ class MobileImageOptimizer {
                 img.src = img.dataset.src;
             }
             this.optimizeImageAttributes(img);
+        });
+    }
+
+    /**
+     * 确保视窗内的图片都被加载（安全检查）
+     */
+    ensureVisibleImagesLoaded() {
+        const lazyImages = document.querySelectorAll('.blog-mobile-optimized img.lazy-loading');
+        lazyImages.forEach(img => {
+            const rect = img.getBoundingClientRect();
+            const inViewport = (
+                rect.top < window.innerHeight + 200 &&
+                rect.bottom > -200 &&
+                rect.left < window.innerWidth + 200 &&
+                rect.right > -200
+            );
+            
+            if (inViewport) {
+                console.warn('Found lazy image in viewport that should have been loaded:', img.src || img.dataset.src);
+                // 强制加载这个图片
+                this.loadImage(img);
+                
+                // 从 observer 中移除
+                const observer = this.observers.get('lazy');
+                if (observer) {
+                    observer.unobserve(img);
+                }
+            }
         });
     }
 
