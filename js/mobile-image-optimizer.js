@@ -187,12 +187,15 @@ class MobileImageOptimizer {
                 return;
             }
 
+            // 获取优化后的图片源
+            const optimizedSrc = this.getOptimizedImageSrc(originalSrc);
+            
             // 创建新的图片对象进行预加载
             const newImg = new Image();
             
             newImg.onload = () => {
                 // 更新图片源
-                img.src = this.getOptimizedImageSrc(originalSrc);
+                img.src = optimizedSrc;
                 
                 // 移除懒加载类
                 img.classList.remove('lazy-loading');
@@ -216,22 +219,68 @@ class MobileImageOptimizer {
             };
 
             newImg.onerror = () => {
-                // 加载失败，使用原始图片
-                img.src = originalSrc;
-                img.classList.remove('lazy-loading');
-                img.classList.add('load-error');
-                
-                if (img.placeholder) {
-                    img.placeholder.textContent = 'Failed to load image';
-                    img.placeholder.style.background = '#ffebee';
-                    img.placeholder.style.color = '#c62828';
-                }
+                // 如果优化版本加载失败且不是原始图片，尝试加载原始图片
+                if (optimizedSrc !== originalSrc) {
+                    console.warn(`Failed to load optimized image: ${optimizedSrc}, falling back to original: ${originalSrc}`);
+                    
+                    const fallbackImg = new Image();
+                    fallbackImg.onload = () => {
+                        // 使用原始图片
+                        img.src = originalSrc;
+                        
+                        // 移除懒加载类
+                        img.classList.remove('lazy-loading');
+                        img.classList.add('loaded');
 
-                reject(new Error('Failed to load image'));
+                        // 移除占位符
+                        if (img.placeholder) {
+                            img.placeholder.remove();
+                            img.style.display = '';
+                        }
+
+                        // 添加加载动画
+                        img.style.opacity = '0';
+                        img.style.transition = 'opacity 0.3s ease';
+                        
+                        requestAnimationFrame(() => {
+                            img.style.opacity = '1';
+                        });
+
+                        resolve(img);
+                    };
+                    
+                    fallbackImg.onerror = () => {
+                        // 连原始图片也加载失败
+                        img.classList.remove('lazy-loading');
+                        img.classList.add('load-error');
+                        
+                        if (img.placeholder) {
+                            img.placeholder.textContent = 'Failed to load image';
+                            img.placeholder.style.background = '#ffebee';
+                            img.placeholder.style.color = '#c62828';
+                        }
+
+                        reject(new Error('Failed to load both optimized and original image'));
+                    };
+                    
+                    fallbackImg.src = originalSrc;
+                } else {
+                    // 原始图片加载失败
+                    img.classList.remove('lazy-loading');
+                    img.classList.add('load-error');
+                    
+                    if (img.placeholder) {
+                        img.placeholder.textContent = 'Failed to load image';
+                        img.placeholder.style.background = '#ffebee';
+                        img.placeholder.style.color = '#c62828';
+                    }
+
+                    reject(new Error('Failed to load image'));
+                }
             };
 
-            // 开始加载
-            newImg.src = this.getOptimizedImageSrc(originalSrc);
+            // 开始加载优化版本
+            newImg.src = optimizedSrc;
         });
     }
 
@@ -325,12 +374,17 @@ class MobileImageOptimizer {
             return originalSrc;
         }
 
+        // 对于博客图片，默认使用原始图片，不尝试高分辨率版本
+        if (originalSrc.includes('/images/') || originalSrc.includes('blog')) {
+            return originalSrc;
+        }
+
         // 本地图片优化逻辑
         let optimizedSrc = originalSrc;
 
-        // 根据设备像素比调整
-        if (this.options.enableRetina && this.devicePixelRatio > 1) {
-            // 尝试加载高分辨率版本
+        // 根据设备像素比调整 - 只在设备像素比大于2时尝试高分辨率版本
+        if (this.options.enableRetina && this.devicePixelRatio > 2) {
+            // 尝试加载高分辨率版本（只针对非常高的像素比）
             const extension = originalSrc.split('.').pop();
             const baseName = originalSrc.replace(`.${extension}`, '');
             optimizedSrc = `${baseName}@${Math.min(this.devicePixelRatio, 3)}x.${extension}`;

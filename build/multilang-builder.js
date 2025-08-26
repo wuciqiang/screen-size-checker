@@ -559,6 +559,21 @@ class MultiLangBuilder extends ComponentBuilder {
             'privacy-policy.html',
             'googlec786a02f43170c4d.html'
         ];
+        
+        // 博客图片资源（单独处理，因为需要复制到特定位置）
+        const blogImagesSource = path.join(this.rootPath, 'blog-content', 'images');
+        const blogImagesTarget = path.join(outputDir, 'images');
+        
+        if (fs.existsSync(blogImagesSource)) {
+            try {
+                this.copyDirectoryRecursive(blogImagesSource, blogImagesTarget);
+                console.log('  ✅ Copied blog images directory: blog-content/images -> images');
+            } catch (error) {
+                console.warn('  ⚠️  Warning: Could not copy blog images:', error.message);
+            }
+        } else {
+            console.warn('  ⚠️  Warning: blog-content/images not found, skipping');
+        }
 
         for (const resource of resourcesToCopy) {
             const sourcePath = path.join(this.rootPath, resource);
@@ -1294,8 +1309,9 @@ ${JSON.stringify(faqStructuredData, null, 2)}
 
     // 修复静态资源路径
     fixStaticResourcePaths(html, outputPath) {
-        // 计算相对路径深度
-        const depth = outputPath.split('/').length - 1;
+        // 计算相对路径深度 - 标准化路径分隔符为正斜杠
+        const normalizedPath = outputPath.replace(/\\/g, '/');
+        const depth = normalizedPath.split('/').length - 1;
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
         
         // 注意：我们已经在构建过程中设置了正确的路径变量，
@@ -1321,6 +1337,20 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         html = html.replace(
             /href="locales\/zh\/translation\.json"/g,
             `href="${prefix}locales/zh/translation.json"`
+        );
+        
+        // 修复博客内容中的图片路径（重要：修复图片显示问题）
+        // 将 ../images/ 修正为正确的相对路径
+        html = html.replace(
+            /src="\.\.\/(images\/[^"]+)"/g,
+            `src="${prefix}$1"`
+        );
+        
+        // 修复博客文章中的图片路径（直接 images/ 到正确的相对路径）
+        // 博客文章通常在 zh/blog/ 目录下，需要 ../../images/
+        html = html.replace(
+            /src="(images\/[^"]+)"/g,
+            `src="${prefix}$1"`
         );
         
         return html;
