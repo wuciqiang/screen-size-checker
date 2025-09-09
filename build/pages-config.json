@@ -574,7 +574,58 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-09-04T02:11:46.144Z",
+          "datePublished": "2025-09-09T01:20:36.203Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-container-queries-guide-en",
+      "template": "blog-post",
+      "output": "blog/container-queries-guide.html",
+      "page_content": "blog-post-container-queries-guide-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+        "page_description": "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies.",
+        "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
+        "canonical_url": "https://screensizechecker.com/en/blog/container-queries-guide",
+        "og_title": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+        "og_description": "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/container-queries-guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+        "current_name": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+          "description": "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-09T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1258,6 +1309,102 @@
       }
     },
     {
+      "name": "blog-tag-css-en",
+      "template": "blog-tag",
+      "output": "blog/tag/css.html",
+      "page_content": "blog-tag-css-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: css",
+        "page_description": "Browse all articles tagged with css",
+        "page_keywords": "blog, css, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/css",
+        "og_title": "Tag: css",
+        "og_description": "Browse all articles tagged with css",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "#css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-container-queries-en",
+      "template": "blog-tag",
+      "output": "blog/tag/container-queries.html",
+      "page_content": "blog-tag-container-queries-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: container-queries",
+        "page_description": "Browse all articles tagged with container-queries",
+        "page_keywords": "blog, container-queries, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/container-queries",
+        "og_title": "Tag: container-queries",
+        "og_description": "Browse all articles tagged with container-queries",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/container-queries",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "container-queries",
+        "current_name": "#container-queries",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-frontend-en",
+      "template": "blog-tag",
+      "output": "blog/tag/frontend.html",
+      "page_content": "blog-tag-frontend-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: frontend",
+        "page_description": "Browse all articles tagged with frontend",
+        "page_keywords": "blog, frontend, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/frontend",
+        "og_title": "Tag: frontend",
+        "og_description": "Browse all articles tagged with frontend",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/frontend",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "frontend",
+        "current_name": "#frontend",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-dpr-en",
       "template": "blog-tag",
       "output": "blog/tag/dpr.html",
@@ -1379,38 +1526,6 @@
         "show_breadcrumb": true,
         "current_key": "media-queries",
         "current_name": "#media-queries",
-        "parent_url": "../../index.html",
-        "blog_sidebar": "blog-sidebar-sub-en",
-        "parent_key": "blog",
-        "parent_name": "Blog"
-      }
-    },
-    {
-      "name": "blog-tag-css-en",
-      "template": "blog-tag",
-      "output": "blog/tag/css.html",
-      "page_content": "blog-tag-css-en",
-      "enabled_languages": [
-        "en"
-      ],
-      "config": {
-        "page_title": "Tag: css",
-        "page_description": "Browse all articles tagged with css",
-        "page_keywords": "blog, css, tag",
-        "canonical_url": "https://screensizechecker.com/en/blog/tag/css",
-        "og_title": "Tag: css",
-        "og_description": "Browse all articles tagged with css",
-        "og_type": "website",
-        "og_url": "https://screensizechecker.com/en/blog/tag/css",
-        "css_path": "../../../css",
-        "locales_path": "../../../locales",
-        "js_path": "../../../js",
-        "home_url": "../../../en/index.html",
-        "blog_url": "../../../en/blog/index.html",
-        "privacy_policy_url": "../../../privacy-policy.html",
-        "show_breadcrumb": true,
-        "current_key": "css",
-        "current_name": "#css",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-en",
         "parent_key": "blog",
@@ -1669,7 +1784,58 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-09-04T02:11:46.382Z",
+          "datePublished": "2025-09-09T01:20:36.458Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-container-queries-guide-zh",
+      "template": "blog-post",
+      "output": "blog/container-queries-guide.html",
+      "page_content": "blog-post-container-queries-guide-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "CSS 容器查询完全指南：告别媒体查询的痛点",
+        "page_description": "通过这份全面的指南掌握 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小进行自适应。包含实际示例、浏览器支持和迁移策略。",
+        "page_keywords": "css, 响应式设计, 容器查询, 网页开发, 前端",
+        "canonical_url": "https://screensizechecker.com/zh/blog/container-queries-guide",
+        "og_title": "CSS 容器查询完全指南：告别媒体查询的痛点",
+        "og_description": "通过这份全面的指南掌握 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小进行自适应。包含实际示例、浏览器支持和迁移策略。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/container-queries-guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "CSS 容器查询完全指南：告别媒体查询的痛点",
+        "current_name": "CSS 容器查询完全指南：告别媒体查询的痛点",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "CSS 容器查询完全指南：告别媒体查询的痛点",
+          "description": "通过这份全面的指南掌握 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小进行自适应。包含实际示例、浏览器支持和迁移策略。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker 团队"
+          },
+          "datePublished": "2025-01-09T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2353,6 +2519,102 @@
       }
     },
     {
+      "name": "blog-tag-css-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/css.html",
+      "page_content": "blog-tag-css-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: css",
+        "page_description": "浏览css标签下的所有文章",
+        "page_keywords": "blog, css, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/css",
+        "og_title": "标签: css",
+        "og_description": "浏览css标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "#css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-容器查询-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/容器查询.html",
+      "page_content": "blog-tag-容器查询-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 容器查询",
+        "page_description": "浏览容器查询标签下的所有文章",
+        "page_keywords": "blog, 容器查询, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/容器查询",
+        "og_title": "标签: 容器查询",
+        "og_description": "浏览容器查询标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/容器查询",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "容器查询",
+        "current_name": "#容器查询",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-前端-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/前端.html",
+      "page_content": "blog-tag-前端-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 前端",
+        "page_description": "浏览前端标签下的所有文章",
+        "page_keywords": "blog, 前端, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/前端",
+        "og_title": "标签: 前端",
+        "og_description": "浏览前端标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/前端",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "前端",
+        "current_name": "#前端",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
       "name": "blog-tag-dpr-zh",
       "template": "blog-tag",
       "output": "blog/tag/dpr.html",
@@ -2474,38 +2736,6 @@
         "show_breadcrumb": true,
         "current_key": "媒体查询",
         "current_name": "#媒体查询",
-        "parent_url": "../../index.html",
-        "blog_sidebar": "blog-sidebar-sub-zh",
-        "parent_key": "blog",
-        "parent_name": "博客"
-      }
-    },
-    {
-      "name": "blog-tag-css-zh",
-      "template": "blog-tag",
-      "output": "blog/tag/css.html",
-      "page_content": "blog-tag-css-zh",
-      "enabled_languages": [
-        "zh"
-      ],
-      "config": {
-        "page_title": "标签: css",
-        "page_description": "浏览css标签下的所有文章",
-        "page_keywords": "blog, css, 标签",
-        "canonical_url": "https://screensizechecker.com/zh/blog/tag/css",
-        "og_title": "标签: css",
-        "og_description": "浏览css标签下的所有文章",
-        "og_type": "website",
-        "og_url": "https://screensizechecker.com/zh/blog/tag/css",
-        "css_path": "../../../css",
-        "locales_path": "../../../locales",
-        "js_path": "../../../js",
-        "home_url": "../../../zh/index.html",
-        "blog_url": "../../../zh/blog/index.html",
-        "privacy_policy_url": "../../../privacy-policy.html",
-        "show_breadcrumb": true,
-        "current_key": "css",
-        "current_name": "#css",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",

@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-09-04T02:11:46.090Z",
+  "validationDate": "2025-09-09T01:20:36.153Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 536,
     "missingTranslations": 106,
-    "inconsistentKeys": 200
+    "inconsistentKeys": 212
   },
   "missingKeys": {
     "en": [
@@ -493,6 +493,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-container-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-container-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-container-queries-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-css-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -579,6 +594,21 @@
     },
     {
       "component": "blog-tag-dpr-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-frontend-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-frontend-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-frontend-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -823,6 +853,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-前端-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-前端-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-前端-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-响应式设计-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -849,6 +894,21 @@
     },
     {
       "component": "blog-tag-媒体查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-容器查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-容器查询-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-容器查询-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
