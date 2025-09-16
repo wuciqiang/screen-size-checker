@@ -6,8 +6,8 @@
   "language_modal_title": "Choose Language",
   "language_coming_soon": "Other language versions are being translated, stay tuned!",
   "language_coming_soon_en": "Other language versions are being translated, stay tuned!",
-  "page_title": "Screen Size Checker - Detect Screen Size and Browser Information",
-  "page_description": "Quickly check your screen resolution, viewport size, aspect ratio, and pixel density with our free online tool. Perfect for developers, designers, and everyday users.",
+  "page_title": "Screen Size Checker - Free Online Tool to Check Resolution & Viewport",
+  "page_description": "What is my screen resolution? Instantly check your screen size, viewport, pixel density (DPR), and more with our free, professional online tool for developers and designers.",
   "title": "Responsive Design Tester - Test Your Website on Any Screen Size",
   
   "hero_subtitle": "Your Browser Viewport Size",
@@ -113,8 +113,8 @@
   "android_page_heading": "Android Viewport Sizes: Complete Guide",
   "android_page_intro": "This comprehensive guide provides detailed viewport sizes and screen resolutions for popular Android devices. Essential information for web developers and designers working on responsive websites and applications.",
   
-  "compare_page_title": "Screen Size Comparison Tool: Compare Display Dimensions & Resolutions | Screen Size Checker",
-  "compare_page_description": "Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.",
+  "compare_page_title": "Visual Screen Size Comparison Tool | Compare Monitors, Laptops & Phones",
+  "compare_page_description": "Instantly visualize and compare screen sizes, aspect ratios, and dimensions of any two monitors, laptops, or phones side-by-side. The perfect free tool for developers and designers.",
   "compare_page_heading": "Screen Size Comparison Tool",
   "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your display choices will compare in real-world dimensions.",
   "screen_comparison": "Screen Comparison",
@@ -442,8 +442,8 @@
   "area": "Area",
   "viewport_size_explanation": "When designing for devices, it's important to understand the difference between viewport sizes and screen resolutions:",
   
-  "compare_page_title": "Screen Size Comparison Tool: Compare Display Dimensions & Resolutions | Screen Size Checker",
-  "compare_page_description": "Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.",
+  "compare_page_title": "Visual Screen Size Comparison Tool | Compare Monitors, Laptops & Phones",
+  "compare_page_description": "Instantly visualize and compare screen sizes, aspect ratios, and dimensions of any two monitors, laptops, or phones side-by-side. The perfect free tool for developers and designers.",
   "compare_page_heading": "Screen Size Comparison Tool",
   "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how display choices compare in real-world dimensions.",
   
@@ -455,8 +455,8 @@
   "imperial": "Imperial",
   "summary": "Summary",
 
-  "standard_resolutions_page_title": "Standard Screen Resolutions: Complete Guide & Size Charts | Screen Size Checker",
-  "standard_resolutions_page_description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+  "standard_resolutions_page_title": "Standard Screen Resolutions List (2025 Updated) | Mobile, Desktop & 4K",
+  "standard_resolutions_page_description": "Your ultimate, up-to-date cheat sheet for the most common screen resolutions in 2025. Covers all standard sizes for responsive design, from mobile and tablets to desktop and 4K monitors.",
   "standard_resolutions_page_heading": "Standard Screen Resolutions: Complete Guide",
   "standard_resolutions_page_intro": "This comprehensive guide provides detailed information about standard screen resolutions, aspect ratios, and recommended image sizes for social media. Essential information for web developers, designers, and content creators.",
   
