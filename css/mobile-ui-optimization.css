@@ -285,7 +285,7 @@
 /* 小屏幕设备专用优化 */
 @media screen and (max-width: 480px) {
     .hero-title {
-        font-size: 1.75rem;
+        font-size: 3rem;
         line-height: 1.2;
     }
 
