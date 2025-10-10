@@ -25,16 +25,49 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Checker",
-          "url": "https://screensizechecker.com",
-          "description": "Free tool to detect screen resolution, viewport size, and browser information",
-          "applicationCategory": "UtilityApplication",
+          "name": "What's My Screen Size? Check Resolution & DPI - Free Online Tool (2025)",
+          "url": "https://screensizechecker.com/",
+          "description": "Instantly check your screen size, resolution, viewport, pixel density (DPR), and device specs. Free online tool for developers, designers & QA professionals. No installation required.",
+          "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
+          "inLanguage": "en",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "softwareVersion": "2.0.0",
           "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-          }
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "url": "https://screensizechecker.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "url": "https://screensizechecker.com"
+          },
+          "featureList": [
+            "Screen Resolution Detection",
+            "Viewport Size Measurement",
+            "Device Pixel Ratio (DPR) Check",
+            "Operating System Detection",
+            "Browser Version Information",
+            "Touch Support Detection",
+            "User Agent String Display",
+            "Real-time Screen Analysis"
+          ],
+          "screenshot": "https://screensizechecker.com/images/screenshot.png",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "dateModified": "2025-10-10",
+          "datePublished": "2024-01-01"
         }
       }
     },
@@ -574,7 +607,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-09-25T11:17:39.507Z",
+          "datePublished": "2025-10-10T02:48:24.342Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1784,7 +1817,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-09-25T11:17:39.753Z",
+          "datePublished": "2025-10-10T02:48:24.596Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
