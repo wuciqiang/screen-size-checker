@@ -311,6 +311,26 @@ body {
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.huge-number {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.hero-title-suffix {
+    font-size: 0.2em;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: var(--spacing-xs);
 }
 
 .hero-secondary {
@@ -773,6 +793,12 @@ body {
 
     .hero-title {
         font-size: 2.5rem;
+        gap: var(--spacing-xs);
+    }
+
+    .hero-title-suffix {
+        font-size: 0.25em;
+        letter-spacing: 0.05em;
     }
 
     .dashboard-container {
@@ -940,6 +966,12 @@ body {
 @media (max-width: 480px) {
     .hero-title {
         font-size: 3rem;
+        gap: var(--spacing-xs);
+    }
+
+    .hero-title-suffix {
+        font-size: 0.22em;
+        letter-spacing: 0.03em;
     }
 
     .info-card {
