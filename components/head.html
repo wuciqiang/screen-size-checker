@@ -164,66 +164,90 @@ html, body {
 
 <!-- Inline Critical JavaScript for immediate screen detection -->
 <script>
-// Immediate screen detection - no dependencies
+// Immediate screen detection - optimized for performance
 (function() {
+    'use strict';
+
+    // Cache elements to avoid repeated DOM queries
+    let elements = {};
+    let lastViewport = '';
+    let resizeTimeout;
+
+    function cacheElements() {
+        elements = {
+            viewport: document.getElementById('viewport-display'),
+            resolution: document.getElementById('screen-resolution-display'),
+            dpr: document.getElementById('dpr'),
+            aspect: document.getElementById('aspect-ratio'),
+            colorDepth: document.getElementById('color-depth')
+        };
+    }
+
     function updateScreenInfo() {
         const viewport = window.innerWidth + ' × ' + window.innerHeight;
         const resolution = screen.width + ' × ' + screen.height;
         const dpr = window.devicePixelRatio || 1;
         const aspectRatio = (window.innerWidth / window.innerHeight).toFixed(2);
-        
-        // Update viewport display immediately
-        const viewportEl = document.getElementById('viewport-display');
-        if (viewportEl) {
-            viewportEl.innerHTML = viewport;
+
+        // Only update viewport if it changed (avoid unnecessary DOM updates)
+        if (elements.viewport && viewport !== lastViewport) {
+            elements.viewport.textContent = viewport;
+            lastViewport = viewport;
         }
-        
-        // Update screen resolution immediately
-        const resolutionEl = document.getElementById('screen-resolution-display');
-        if (resolutionEl) {
-            // Clear existing content first
-            resolutionEl.innerHTML = '';
-            
-            // Create label span
-            const labelSpan = document.createElement('span');
-            labelSpan.setAttribute('data-i18n', 'screen_resolution');
-            labelSpan.textContent = 'Screen Resolution';
-            
-            // Create value span
-            const valueSpan = document.createElement('span');
-            valueSpan.textContent = resolution;
-            
-            // Append elements
-            resolutionEl.appendChild(labelSpan);
-            resolutionEl.appendChild(document.createTextNode(': '));
-            resolutionEl.appendChild(valueSpan);
+
+        // Update screen resolution with optimized DOM manipulation
+        if (elements.resolution) {
+            // Use textContent instead of innerHTML for better performance
+            if (!elements.resolution.hasAttribute('data-initialized')) {
+                elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: ' + resolution;
+                elements.resolution.setAttribute('data-initialized', 'true');
+            } else {
+                // Only update the value part, not the label
+                const valueSpan = elements.resolution.querySelector('span:nth-child(2)');
+                if (valueSpan) {
+                    valueSpan.textContent = resolution;
+                } else {
+                    // Fallback if structure changed
+                    elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: ' + resolution;
+                }
+            }
         }
-        
-        // Update other critical info
-        const dprEl = document.getElementById('dpr');
-        if (dprEl) dprEl.innerHTML = dpr + 'x';
-        
-        const aspectEl = document.getElementById('aspect-ratio');
-        if (aspectEl) aspectEl.innerHTML = aspectRatio + ':1';
-        
-        const colorDepthEl = document.getElementById('color-depth');
-        if (colorDepthEl) colorDepthEl.innerHTML = screen.colorDepth + ' bits';
+
+        // Update other critical info with textContent for better performance
+        if (elements.dpr) elements.dpr.textContent = dpr + 'x';
+        if (elements.aspect) elements.aspect.textContent = aspectRatio + ':1';
+        if (elements.colorDepth) elements.colorDepth.textContent = screen.colorDepth + ' bits';
     }
-    
+
+    // Optimized resize handler with debouncing
+    function debouncedUpdate() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateScreenInfo, 16); // ~60fps
+    }
+
+    // Initialize immediately if elements exist, or wait for DOM
+    function init() {
+        cacheElements();
+        updateScreenInfo();
+
+        // Set up event listeners
+        window.addEventListener('resize', debouncedUpdate, { passive: true });
+
+        // Mark page as loaded for progressive enhancement
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            // Re-cache elements in case DOM changed
+            cacheElements();
+            updateScreenInfo();
+        }, { once: true });
+    }
+
     // Run immediately when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updateScreenInfo);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        updateScreenInfo();
+        init();
     }
-    
-    // Update on resize
-    window.addEventListener('resize', updateScreenInfo);
-    
-    // Mark page as loaded for progressive enhancement
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-    });
 })();
 </script>
 
