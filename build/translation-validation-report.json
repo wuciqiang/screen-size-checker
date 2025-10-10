@@ -1,11 +1,11 @@
 {
-  "validationDate": "2025-10-10T16:53:11.044Z",
+  "validationDate": "2025-10-10T17:31:18.900Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 547,
+    "totalKeys": 552,
     "missingTranslations": 107,
     "inconsistentKeys": 212
   },

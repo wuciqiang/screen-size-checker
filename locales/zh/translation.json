@@ -808,5 +808,11 @@
   "tool_intro_for_designers": "面向设计师",
   "tool_intro_for_designers_desc": "确保设计在不同屏幕尺寸上正常工作",
   "tool_intro_for_qa": "面向QA",
-  "tool_intro_for_qa_desc": "验证显示兼容性和像素密度"
+  "tool_intro_for_qa_desc": "验证显示兼容性和像素密度",
+
+  "noscript_title": "启用JavaScript以获得精确检测",
+  "noscript_description": "我们的屏幕尺寸检查器需要JavaScript才能准确显示您的设备信息。请在浏览器设置中启用JavaScript。",
+  "noscript_common_resolutions": "常见屏幕分辨率",
+  "noscript_how_to_enable": "如何启用JavaScript",
+  "noscript_footer_text": "启用JavaScript后，请刷新此页面以查看您的设备信息。"
 } 

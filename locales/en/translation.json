@@ -823,5 +823,11 @@
   "tool_intro_for_designers": "For Designers",
   "tool_intro_for_designers_desc": "Ensure designs work across different screen sizes",
   "tool_intro_for_qa": "For QA",
-  "tool_intro_for_qa_desc": "Verify display compatibility and pixel density"
+  "tool_intro_for_qa_desc": "Verify display compatibility and pixel density",
+
+  "noscript_title": "Enable JavaScript for Accurate Detection",
+  "noscript_description": "Our screen size checker requires JavaScript to display your device information accurately. Please enable JavaScript in your browser settings.",
+  "noscript_common_resolutions": "Common Screen Resolutions",
+  "noscript_how_to_enable": "How to Enable JavaScript",
+  "noscript_footer_text": "Once JavaScript is enabled, please refresh this page to see your device information."
 }
