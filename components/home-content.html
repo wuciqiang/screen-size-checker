@@ -167,60 +167,124 @@
 {{component:internal-links}}
 
 <!-- Part 5: FAQ Section -->
-<section class="faq-section">
+<section class="faq-section" aria-labelledby="faq-title">
     <div class="faq-container">
-        <h2 class="faq-title" data-i18n="faq_title">常见问题</h2>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question" data-i18n="faq_screen_resolution">
-                    什么是屏幕分辨率？
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq_screen_resolution_answer">
-                        屏幕分辨率是指显示器能够显示的像素总数，通常以宽度×高度的格式表示（如1920×1080）。
-                    </p>
-                </div>
+        <header class="faq-header">
+            <h2 id="faq-title" class="faq-title" data-i18n="faq_title">常见问题</h2>
+        </header>
+
+        <main class="faq-content">
+            <div class="faq-list" role="region" aria-label="Frequently Asked Questions">
+                <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question"
+                            id="faq-question-1"
+                            data-i18n="faq_screen_resolution"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-1"
+                            itemprop="name">
+                        什么是屏幕分辨率？
+                    </button>
+                    <div class="faq-answer"
+                         id="faq-answer-1"
+                         role="region"
+                         aria-labelledby="faq-question-1"
+                         hidden
+                         itemscope
+                         itemtype="https://schema.org/Answer">
+                        <p itemprop="text" data-i18n="faq_screen_resolution_answer">
+                            屏幕分辨率是指显示器能够显示的像素总数，通常以宽度×高度的格式表示（如1920×1080）。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question"
+                            id="faq-question-2"
+                            data-i18n="faq_viewport_size"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-2"
+                            itemprop="name">
+                        什么是视口大小？
+                    </button>
+                    <div class="faq-answer"
+                         id="faq-answer-2"
+                         role="region"
+                         aria-labelledby="faq-question-2"
+                         hidden
+                         itemscope
+                         itemtype="https://schema.org/Answer">
+                        <p itemprop="text" data-i18n="faq_viewport_size_answer">
+                            视口大小是指浏览器窗口中可以显示网页内容的区域大小，以CSS像素为单位。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question"
+                            id="faq-question-3"
+                            data-i18n="faq_device_pixel_ratio"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-3"
+                            itemprop="name">
+                        什么是设备像素比？
+                    </button>
+                    <div class="faq-answer"
+                         id="faq-answer-3"
+                         role="region"
+                         aria-labelledby="faq-question-3"
+                         hidden
+                         itemscope
+                         itemtype="https://schema.org/Answer">
+                        <p itemprop="text" data-i18n="faq_device_pixel_ratio_answer">
+                            设备像素比（DPR）是物理像素与CSS像素的比值，用于支持高分辨率（Retina）显示器。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question"
+                            id="faq-question-4"
+                            data-i18n="faq_web_development"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-4"
+                            itemprop="name">
+                        为什么这些信息对Web开发很重要？
+                    </button>
+                    <div class="faq-answer"
+                         id="faq-answer-4"
+                         role="region"
+                         aria-labelledby="faq-question-4"
+                         hidden
+                         itemscope
+                         itemtype="https://schema.org/Answer">
+                        <p itemprop="text" data-i18n="faq_web_development_answer">
+                            了解屏幕尺寸、分辨率和DPR有助于开发者创建在所有设备上都表现良好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-question"
+                            id="faq-question-5"
+                            data-i18n="faq_check_frequency"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-5"
+                            itemprop="name">
+                        我应该多久检查一次设备信息？
+                    </button>
+                    <div class="faq-answer"
+                         id="faq-answer-5"
+                         role="region"
+                         aria-labelledby="faq-question-5"
+                         hidden
+                         itemscope
+                         itemtype="https://schema.org/Answer">
+                        <p itemprop="text" data-i18n="faq_check_frequency_answer">
+                            在测试响应式设计、调试显示问题或确保网站在不同设备和浏览器上正常工作时，建议定期检查设备信息。
+                        </p>
+                    </div>
+                </article>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" data-i18n="faq_viewport_size">
-                    什么是视口大小？
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq_viewport_size_answer">
-                        视口大小是指浏览器窗口中可以显示网页内容的区域大小，以CSS像素为单位。
-                    </p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" data-i18n="faq_device_pixel_ratio">
-                    什么是设备像素比？
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq_device_pixel_ratio_answer">
-                        设备像素比（DPR）是物理像素与CSS像素的比值，用于支持高分辨率（Retina）显示器。
-                    </p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" data-i18n="faq_web_development">
-                    为什么这些信息对Web开发很重要？
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq_web_development_answer">
-                        了解屏幕尺寸、分辨率和DPR有助于开发者创建在所有设备上都表现良好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。
-                    </p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" data-i18n="faq_check_frequency">
-                    我应该多久检查一次设备信息？
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq_check_frequency_answer">
-                        在测试响应式设计、调试显示问题或确保网站在不同设备和浏览器上正常工作时，建议定期检查设备信息。
-                    </p>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
 </section> 

@@ -939,16 +939,57 @@ function setupFAQToggles() {
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.closest('.faq-item');
-            const isActive = faqItem.classList.contains('active');
+            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            const answer = faqItem.querySelector('.faq-answer');
 
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
+            // Close all FAQ items and update ARIA attributes and inline styles
+            document.querySelectorAll('.faq-question').forEach(q => {
+                const item = q.closest('.faq-item');
+                if (item) {
+                    item.classList.remove('active');
+                    q.setAttribute('aria-expanded', 'false');
+
+                    // Reset inline max-height style for all answers
+                    const ans = item.querySelector('.faq-answer');
+                    if (ans) {
+                        ans.style.maxHeight = '0px';
+                        ans.setAttribute('hidden', '');
+                    }
+                }
             });
 
-            // Toggle current item
-            if (!isActive) {
+            // Toggle current item if it wasn't expanded
+            if (!isExpanded) {
                 faqItem.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+
+                // Set max-height to show the answer
+                if (answer) {
+                    // Remove hidden attribute
+                    answer.removeAttribute('hidden');
+
+                    // Calculate the actual height needed
+                    answer.style.maxHeight = '0px';
+                    answer.style.overflow = 'hidden';
+
+                    // Temporarily make visible to measure height
+                    answer.style.maxHeight = 'none';
+                    answer.style.display = 'block';
+                    const height = answer.scrollHeight;
+
+                    // Apply the measured height with animation
+                    answer.style.maxHeight = '0px';
+                    answer.offsetHeight; // Force reflow
+                    answer.style.maxHeight = height + 'px';
+
+                    // Remove the inline style after animation completes to allow CSS to take over
+                    setTimeout(() => {
+                        answer.style.maxHeight = '200px'; // Match CSS value
+                    }, 300);
+                }
+
+                // Smooth scroll to the question for better UX
+                question.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         });
     });

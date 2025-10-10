@@ -15,7 +15,13 @@
       "Bash(npm run dev)",
       "Bash(python:*)",
       "Bash(timeout:*)",
-      "Bash(npx http-server:*)"
+      "Bash(npx http-server:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(start:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

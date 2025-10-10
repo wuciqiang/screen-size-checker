@@ -47,6 +47,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
-    "marked": "^4.3.0"
+    "marked": "^4.3.0",
+    "playwright": "^1.56.0"
   }
 }
