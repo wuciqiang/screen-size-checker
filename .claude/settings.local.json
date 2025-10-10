@@ -14,7 +14,8 @@
       "WebFetch(domain:gtmetrix.com)",
       "Bash(npm run dev)",
       "Bash(python:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(npx http-server:*)"
     ],
     "deny": [],
     "ask": []

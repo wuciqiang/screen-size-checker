@@ -814,5 +814,14 @@
   "responsive_tester_description": "Test website responsive performance across different screen sizes",
 
   "static_hero_title": "Screen Size Checker - Detect Your Display Resolution",
-  "noscript_hero_title": "Screen Size Checker - Enable JavaScript for Real-time Detection"
+  "noscript_hero_title": "Screen Size Checker - Enable JavaScript for Real-time Detection",
+
+  "tool_intro_title": "How to Check Your Screen Size",
+  "tool_intro_description": "Our screen size checker instantly displays your device's screen resolution, viewport size, and pixel density. This tool is essential for web developers, UI/UX designers, and QA professionals who need to test responsive designs across different devices.",
+  "tool_intro_for_developers": "For Developers",
+  "tool_intro_for_developers_desc": "Test responsive designs and debug viewport issues",
+  "tool_intro_for_designers": "For Designers",
+  "tool_intro_for_designers_desc": "Ensure designs work across different screen sizes",
+  "tool_intro_for_qa": "For QA",
+  "tool_intro_for_qa_desc": "Verify display compatibility and pixel density"
 }

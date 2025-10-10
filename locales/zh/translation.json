@@ -799,5 +799,14 @@
   "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现",
 
   "static_hero_title": "屏幕尺寸检查器 - 检测您的显示器分辨率",
-  "noscript_hero_title": "屏幕尺寸检查器 - 启用JavaScript以获得实时检测"
+  "noscript_hero_title": "屏幕尺寸检查器 - 启用JavaScript以获得实时检测",
+
+  "tool_intro_title": "如何检查您的屏幕尺寸",
+  "tool_intro_description": "我们的屏幕尺寸检查器能够即时显示您设备的屏幕分辨率、视口尺寸和像素密度。这个工具对于需要在不同设备上测试响应式设计的网页开发者、UI/UX设计师和QA专业人员来说是必不可少的。",
+  "tool_intro_for_developers": "面向开发者",
+  "tool_intro_for_developers_desc": "测试响应式设计并调试视口问题",
+  "tool_intro_for_designers": "面向设计师",
+  "tool_intro_for_designers_desc": "确保设计在不同屏幕尺寸上正常工作",
+  "tool_intro_for_qa": "面向QA",
+  "tool_intro_for_qa_desc": "验证显示兼容性和像素密度"
 } 
