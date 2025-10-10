@@ -13,7 +13,8 @@
       "WebFetch(domain:pagespeed.web.dev)",
       "WebFetch(domain:gtmetrix.com)",
       "Bash(npm run dev)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

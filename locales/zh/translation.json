@@ -796,5 +796,8 @@
   "android_page_description": "查看主流Android设备的屏幕尺寸、分辨率和视口信息",
   "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
   "standard_resolutions_page_description": "查看标准屏幕分辨率和宽高比参考表",
-  "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现"
+  "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现",
+
+  "static_hero_title": "屏幕尺寸检查器 - 检测您的显示器分辨率",
+  "noscript_hero_title": "屏幕尺寸检查器 - 启用JavaScript以获得实时检测"
 } 

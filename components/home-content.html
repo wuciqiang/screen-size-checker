@@ -3,10 +3,25 @@
     <div class="hero-container">
         <p class="hero-subtitle" data-i18n="hero_subtitle">你的浏览器视口大小</p>
         <h1 class="hero-title">
-            <span class="huge-number" id="viewport-display">
-                <span data-i18n="detecting">检测中...</span>
+            <!-- Static content for SEO and no-JS fallback -->
+            <span class="static-hero-content" style="display: none;">
+                <span data-i18n="static_hero_title">Screen Size Checker - Detect Your Display Resolution</span>
             </span>
-            <span class="hero-title-suffix" data-i18n="screen_size_suffix">屏幕尺寸</span>
+
+            <!-- Dynamic content for JavaScript-enabled browsers -->
+            <span class="dynamic-hero-content" id="dynamic-hero-content">
+                <span class="huge-number" id="viewport-display">
+                    <span data-i18n="detecting">检测中...</span>
+                </span>
+                <span class="hero-title-suffix" data-i18n="screen_size_suffix">屏幕尺寸</span>
+            </span>
+
+            <!-- NoScript fallback for users with JavaScript disabled -->
+            <noscript>
+                <span class="noscript-hero-content">
+                    <span data-i18n="noscript_hero_title">Screen Size Checker - Enable JavaScript for Real-time Detection</span>
+                </span>
+            </noscript>
         </h1>
         <p class="hero-secondary" id="screen-resolution-display">
             <span data-i18n="screen_resolution">屏幕分辨率</span>: <span data-i18n="detecting">检测中...</span>

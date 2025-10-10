@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H1 Layout Test</title>
+    <style>
+        .hero-title {
+            font-size: 6.5rem;
+            font-weight: 700;
+            color: #0066cc;
+            line-height: 1.2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dynamic-hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .huge-number {
+            font-size: 1em;
+            font-weight: 700;
+            color: #0066cc;
+            line-height: 1;
+        }
+
+        .hero-title-suffix {
+            font-size: 0.2em;
+            font-weight: 500;
+            color: #666666;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hero-title">
+        <span class="dynamic-hero-content">
+            <span class="huge-number">1899 × 1305</span>
+            <span class="hero-title-suffix">Screen Size</span>
+        </span>
+    </h1>
+
+    <p>如果看到上面的数字和文字是垂直排列的，说明修复成功！</p>
+    <p>If you see the number and text arranged vertically above, the fix is successful!</p>
+</body>
+</html>

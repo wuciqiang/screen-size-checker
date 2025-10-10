@@ -811,5 +811,8 @@
   "android_page_description": "View screen sizes, resolutions, and viewport information for popular Android devices",
   "compare_page_description": "Compare screen sizes and specifications of different devices",
   "standard_resolutions_page_description": "View standard screen resolutions and aspect ratio reference table",
-  "responsive_tester_description": "Test website responsive performance across different screen sizes"
+  "responsive_tester_description": "Test website responsive performance across different screen sizes",
+
+  "static_hero_title": "Screen Size Checker - Detect Your Display Resolution",
+  "noscript_hero_title": "Screen Size Checker - Enable JavaScript for Real-time Detection"
 }

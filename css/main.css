@@ -317,6 +317,56 @@ body {
     gap: var(--spacing-sm);
 }
 
+/* H1 Static Content Support for SEO */
+.static-hero-content {
+    display: none;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+.dynamic-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.noscript-hero-content {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    line-height: 1.3;
+    padding: var(--spacing-lg);
+    background: var(--background-secondary);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Static content display logic */
+.static-hero-content.visible,
+.noscript-hero-content.visible {
+    display: block;
+}
+
+.dynamic-hero-content.hidden {
+    display: none;
+}
+
+/* NoScript fallback styling */
+noscript .dynamic-hero-content {
+    display: none !important;
+}
+
+noscript .noscript-hero-content {
+    display: block !important;
+}
+
 .huge-number {
     font-size: 1em;
     font-weight: 700;
