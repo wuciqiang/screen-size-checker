@@ -131,7 +131,7 @@ function applyDeviceInfo(deviceInfo) {
     requestAnimationFrame(() => {
         updateScreenResolutionOptimized(deviceInfo);
         updateViewportSizeOptimized(deviceInfo);
-        setTextContent('dpr', deviceInfo.devicePixelRatio.toFixed(2));
+        setTextContent('dpr', Math.round(deviceInfo.devicePixelRatio));
         setTextContent('color-depth', `${deviceInfo.colorDepth}-bit`);
         setTextContent('os-info', deviceInfo.operatingSystem);
         setTextContent('browser-info', deviceInfo.browserInfo);
