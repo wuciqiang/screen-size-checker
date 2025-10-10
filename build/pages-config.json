@@ -10,8 +10,8 @@
         "page_description_key": "page_description",
         "page_keywords": "screen size, viewport size, screen resolution, browser detection, device pixel ratio, responsive design",
         "canonical_url": "https://screensizechecker.com/",
-        "og_title": "Screen Size Checker - Detect Screen Size and Browser Information",
-        "og_description": "Free tool to detect your screen resolution, browser viewport size, device pixel ratio and more.",
+        "og_title": "Screen Size Checker - Free Online Tool",
+        "og_description": "Check your screen size, resolution, and viewport instantly. Free tool for developers and designers.",
         "og_type": "website",
         "og_url": "https://screensizechecker.com/",
         "css_path": "css",
@@ -25,9 +25,9 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "What's My Screen Size? Check Resolution & DPI - Free Online Tool (2025)",
+          "name": "Screen Size Checker - Free Online Tool (2025)",
           "url": "https://screensizechecker.com/",
-          "description": "Instantly check your screen size, resolution, viewport, pixel density (DPR), and device specs. Free online tool for developers, designers & QA professionals. No installation required.",
+          "description": "Check your screen size, resolution, and viewport instantly. Free online tool for developers and designers. No download required.",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
           "inLanguage": "en",
@@ -607,7 +607,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-10T03:10:41.516Z",
+          "datePublished": "2025-10-10T04:02:12.376Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1817,7 +1817,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-10T03:10:41.767Z",
+          "datePublished": "2025-10-10T04:02:12.622Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
