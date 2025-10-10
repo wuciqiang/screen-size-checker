@@ -1,12 +1,12 @@
 {
-  "validationDate": "2025-09-25T11:17:39.454Z",
+  "validationDate": "2025-10-10T03:10:41.479Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 536,
-    "missingTranslations": 106,
+    "totalKeys": 537,
+    "missingTranslations": 107,
     "inconsistentKeys": 212
   },
   "missingKeys": {
@@ -104,6 +104,7 @@
       "{{parent_key}}",
       "{{current_key}}",
       "seo_description",
+      "screen_size_suffix",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
       "ipad_7th_gen",

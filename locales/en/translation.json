@@ -11,6 +11,7 @@
   "title": "Responsive Design Tester - Test Your Website on Any Screen Size",
   
   "hero_subtitle": "What Is My Screen Size?",
+    "screen_size_suffix": "Screen Size",
   "screen_resolution": "Screen Resolution",
   "detecting": "Detecting...",
   "device_info_title": "Device Information",

@@ -199,16 +199,16 @@ html, body {
         if (elements.resolution) {
             // Use textContent instead of innerHTML for better performance
             if (!elements.resolution.hasAttribute('data-initialized')) {
-                elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: ' + resolution;
+                elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: <span>' + resolution + '</span>';
                 elements.resolution.setAttribute('data-initialized', 'true');
             } else {
                 // Only update the value part, not the label
-                const valueSpan = elements.resolution.querySelector('span:nth-child(2)');
-                if (valueSpan) {
-                    valueSpan.textContent = resolution;
+                const valueSpans = elements.resolution.querySelectorAll('span');
+                if (valueSpans.length >= 2) {
+                    valueSpans[1].textContent = resolution;
                 } else {
                     // Fallback if structure changed
-                    elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: ' + resolution;
+                    elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: <span>' + resolution + '</span>';
                 }
             }
         }

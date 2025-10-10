@@ -328,7 +328,6 @@ body {
     font-size: 0.2em;
     font-weight: 500;
     color: var(--text-secondary);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-top: var(--spacing-xs);
 }

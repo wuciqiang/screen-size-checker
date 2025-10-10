@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Administrator/AppData/Roaming/npm/node_modules/@playwright/mcp/**)",
+      "Bash(findstr:*)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "Bash(npm run multilang-build)",
+      "Bash(npm run build)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
