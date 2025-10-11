@@ -22,7 +22,8 @@
       "Bash(npx playwright install:*)",
       "Bash(node:*)",
       "Bash(npm install:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []
