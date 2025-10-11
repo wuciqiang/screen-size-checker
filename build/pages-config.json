@@ -66,8 +66,18 @@
             "bestRating": "5",
             "worstRating": "1"
           },
-          "dateModified": "2025-10-10",
-          "datePublished": "2024-01-01"
+          "dateModified": "2025-10-11",
+          "datePublished": "2024-01-01",
+          "isAccessibleForFree": true,
+          "creativeWorkStatus": "Published",
+          "encodingFormat": "text/html",
+          "isFamilyFriendly": true,
+          "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "Screen Size Checker",
+            "operatingSystem": "Any",
+            "applicationCategory": "DeveloperApplication"
+          }
         }
       }
     },
@@ -607,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-10T17:31:18.953Z",
+          "datePublished": "2025-10-11T00:58:39.208Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1817,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-10T17:31:19.203Z",
+          "datePublished": "2025-10-11T00:58:39.449Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",

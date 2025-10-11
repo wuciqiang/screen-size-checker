@@ -1174,6 +1174,22 @@ class MultiLangBuilder extends ComponentBuilder {
     
     // 生成结构化数据
     generateStructuredData(pageData, lang) {
+        // 如果页面数据中已经包含结构化数据配置，优先使用
+        if (pageData.structured_data && typeof pageData.structured_data === 'object') {
+            // 更新动态字段
+            const configStructuredData = { ...pageData.structured_data };
+            configStructuredData.url = pageData.canonical_url || configStructuredData.url;
+            configStructuredData.name = pageData.page_title || configStructuredData.name;
+            configStructuredData.description = pageData.description || configStructuredData.description;
+            configStructuredData.inLanguage = lang;
+
+            // 更新日期为当前日期
+            configStructuredData.dateModified = new Date().toISOString().split('T')[0];
+
+            return JSON.stringify(configStructuredData, null, 2);
+        }
+
+        // 回退到基本结构化数据
         const baseStructuredData = {
             "@context": "https://schema.org",
             "@type": "WebApplication",
@@ -1197,13 +1213,14 @@ class MultiLangBuilder extends ComponentBuilder {
             "softwareVersion": "2.0.0",
             "featureList": [
                 "Screen Resolution Detection",
-                "Viewport Size Measurement", 
+                "Viewport Size Measurement",
                 "Device Pixel Ratio (DPR) Check",
                 "Operating System Detection",
                 "Browser Version Information",
                 "Touch Support Detection",
                 "User Agent String Display"
-            ]
+            ],
+            "dateModified": new Date().toISOString().split('T')[0]
         };
 
         // 如果是博客页面，添加博客特定的结构化数据
