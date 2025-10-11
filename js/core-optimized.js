@@ -831,6 +831,69 @@ function detectCurrentLanguage() {
 }
 
 /**
+ * 调整相对路径
+ */
+function adjustRelativePath(url, currentPath) {
+    // 如果URL已经是相对路径（不以/开头），直接返回
+    if (!url.startsWith('/')) {
+        return url;
+    }
+
+    // 解析当前路径
+    const pathParts = currentPath.split('/').filter(part => part);
+    const urlParts = url.split('/').filter(part => part);
+
+    // 检测当前路径的语言和深度
+    let currentLang = 'en';
+    let currentDepth = 0;
+    let isInLanguageDir = false;
+    let isInBlogDir = false;
+
+    // 分析当前路径结构
+    if (pathParts.length >= 1 && ['en', 'zh'].includes(pathParts[0])) {
+        currentLang = pathParts[0];
+        isInLanguageDir = true;
+        currentDepth = 1;
+
+        // 检查是否在博客目录下
+        if (pathParts.length >= 2 && pathParts[1] === 'blog') {
+            isInBlogDir = true;
+            currentDepth = 2;
+        }
+    }
+
+    // 生成正确的相对路径
+    if (isInLanguageDir && isInBlogDir) {
+        // 当前在博客目录下: /en/blog/xxx
+        if (urlParts[0] === 'blog') {
+            // 跳转到博客页面: blog/index.html -> ../blog/index.html
+            return '../' + urlParts.join('/');
+        } else {
+            // 跳转到工具页面: devices/xxx.html -> ../../devices/xxx.html
+            return '../../' + urlParts.join('/');
+        }
+    } else if (isInLanguageDir && !isInBlogDir) {
+        // 当前在语言目录下但不在博客目录: /en/xxx
+        if (urlParts[0] === 'blog') {
+            // 跳转到博客页面: blog/index.html -> ./blog/index.html
+            return urlParts.join('/');
+        } else {
+            // 跳转到工具页面: devices/xxx.html -> ./devices/xxx.html
+            return urlParts.join('/');
+        }
+    } else {
+        // 当前在根目录下: /xxx
+        if (urlParts[0] === 'blog') {
+            // 跳转到博客页面，需要添加语言前缀: blog/index.html -> en/blog/index.html
+            return currentLang + '/' + urlParts.join('/');
+        } else {
+            // 跳转到工具页面: devices/xxx.html -> devices/xxx.html
+            return urlParts.join('/');
+        }
+    }
+}
+
+/**
  * 生成内链数据
  */
 function generateInternalLinks() {
@@ -943,8 +1006,8 @@ function generateInternalLinks() {
                 priority: 1,
                 icon: "📝",
                 urls: {
-                    "en": "en/blog/index.html",
-                    "zh": "zh/blog/index.html"
+                    "en": "blog/index.html",
+                    "zh": "blog/index.html"
                 },
                 title: "Blog",
                 description: "Latest articles about screen sizes and responsive design"
@@ -993,7 +1056,10 @@ function generateInternalLinks() {
         }
 
         // 获取适合当前语言的URL
-        const url = page.urls[currentLang] || page.urls.en || Object.values(page.urls)[0];
+        let url = page.urls[currentLang] || page.urls.en || Object.values(page.urls)[0];
+
+        // 根据当前页面路径调整相对路径
+        url = adjustRelativePath(url, currentPath);
 
         allLinks.push({
             ...page,

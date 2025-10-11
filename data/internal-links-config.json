@@ -104,8 +104,8 @@
       "priority": 1,
       "icon": "📝",
       "urls": {
-        "en": "en/blog/index.html",
-        "zh": "zh/blog/index.html"
+        "en": "blog/index.html",
+        "zh": "blog/index.html"
       },
       "titleKey": "blog",
       "descriptionKey": "blog_page_description"

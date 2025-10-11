@@ -38,10 +38,10 @@ class MultiLangBuilder extends ComponentBuilder {
     // 获取嵌套的翻译值，支持如 "ppiCalculator.pageTitle" 这样的键
     getNestedTranslation(translations, key) {
         if (!key || !translations) return null;
-        
+
         const keys = key.split('.');
         let current = translations;
-        
+
         for (const k of keys) {
             if (current && typeof current === 'object' && current.hasOwnProperty(k)) {
                 current = current[k];
@@ -49,8 +49,37 @@ class MultiLangBuilder extends ComponentBuilder {
                 return null;
             }
         }
-        
+
         return typeof current === 'string' ? current : null;
+    }
+
+    // 统一的博客URL生成函数 - 一劳永逸的解决方案
+    generateBlogUrl(depth, lang, isRootPage = false) {
+        console.log(`🔗 Generating blog URL: depth=${depth}, lang=${lang}, isRootPage=${isRootPage}`);
+
+        if (isRootPage) {
+            // 根目录页面的博客URL逻辑
+            if (depth === 0) {
+                // 根目录主页：直接指向语言特定的博客
+                return `${lang}/blog/`;
+            } else {
+                // 根目录下的子页面（如 /devices/xxx.html）
+                // 需要先回到根目录，然后进入语言特定的博客
+                const backToRoot = '../'.repeat(depth);
+                return `${backToRoot}${lang}/blog/`;
+            }
+        } else {
+            // 语言版本页面的博客URL逻辑
+            if (depth === 0) {
+                // 语言根目录（如 /en/ 或 /zh/）
+                return 'blog/';
+            } else {
+                // 语言目录下的子页面（如 /en/devices/xxx.html）
+                // 需要先回到语言根目录，然后进入博客
+                const backToLangRoot = '../'.repeat(depth);
+                return `${backToLangRoot}blog/`;
+            }
+        }
     }
     
     // 处理翻译替换
@@ -294,15 +323,9 @@ class MultiLangBuilder extends ComponentBuilder {
                             : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
                     }
                     
-                    // 修复博客URL，确保指向当前语言的博客页面
+                    // 修复博客URL - 使用统一的博客URL生成函数
                     if (pageData.blog_url) {
-                        if (depth === 0) {
-                            // 在语言根目录下，指向当前目录的blog
-                            pageData.blog_url = 'blog/index.html';
-                        } else {
-                            // 在子目录下，回到语言根目录的blog
-                            pageData.blog_url = '../'.repeat(depth) + 'blog/index.html';
-                        }
+                        pageData.blog_url = this.generateBlogUrl(depth, lang, false);
                     }
                     
                     if (pageData.privacy_policy_url) {
@@ -1410,7 +1433,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
                 rootPageData.home_url = '../index.html';
-                rootPageData.blog_url = 'index.html';
+                rootPageData.blog_url = this.generateBlogUrl(0, 'en', true);
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 
                 // 更新canonical URL为根目录版本
@@ -1517,7 +1540,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
                 rootPageData.home_url = '../index.html';
-                rootPageData.blog_url = '../blog/index.html';
+                rootPageData.blog_url = this.generateBlogUrl(1, 'en', true);
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 rootPageData.device_links_base = '';
                 
@@ -1630,7 +1653,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.locales_path = 'locales';
         rootPageData.js_path = 'js';
         rootPageData.home_url = 'index.html';
-        rootPageData.blog_url = 'en/blog/';
+        rootPageData.blog_url = this.generateBlogUrl(0, 'en', true);
         rootPageData.privacy_policy_url = 'privacy-policy.html';
         rootPageData.device_links_base = 'devices/';
         

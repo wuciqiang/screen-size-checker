@@ -8,7 +8,8 @@
       "WebFetch(domain:127.0.0.1)",
       "WebFetch(domain:192.168.31.142)",
       "Bash(npm run)",
-      "Read(//g/**)"
+      "Read(//g/**)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []
