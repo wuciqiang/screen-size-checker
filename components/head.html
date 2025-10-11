@@ -46,22 +46,9 @@ window.addEventListener('load', function() {
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-<!-- Critical CSS - Load immediately -->
-<link rel="stylesheet" href="{{css_path}}/main.css">
-
-<!-- Mobile Performance CSS - Load with high priority for mobile optimization -->
-<link rel="preload" href="{{css_path}}/mobile-performance.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{css_path}}/mobile-performance.css"></noscript>
-
-<!-- Non-critical CSS - Load with lower priority -->
-<link rel="preload" href="{{css_path}}/language-selector.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{css_path}}/language-selector.css"></noscript>
-
-<link rel="preload" href="{{css_path}}/internal-links.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{css_path}}/internal-links.css"></noscript>
-
-<link rel="preload" href="{{css_path}}/optimized-events.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{css_path}}/optimized-events.css"></noscript>
+<!-- Core Optimized CSS - Phase 1.2 Performance Optimization -->
+<!-- Merged 5 CSS files (main.css, mobile-performance.css, language-selector.css, internal-links.css, optimized-events.css) -->
+<link rel="stylesheet" href="{{css_path}}/core-optimized.css">
 
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"></noscript>

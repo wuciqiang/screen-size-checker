@@ -1,29 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/Administrator/AppData/Roaming/npm/node_modules/@playwright/mcp/**)",
-      "Bash(findstr:*)",
-      "Bash(curl:*)",
-      "WebSearch",
-      "Bash(npm run multilang-build)",
-      "Bash(npm run build)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "WebFetch(domain:screensizechecker.com)",
-      "WebFetch(domain:pagespeed.web.dev)",
-      "WebFetch(domain:gtmetrix.com)",
-      "Bash(npm run dev)",
-      "Bash(python:*)",
-      "Bash(timeout:*)",
-      "Bash(npx http-server:*)",
-      "Bash(netstat:*)",
-      "Bash(taskkill:*)",
-      "Bash(start:*)",
-      "Bash(npx playwright install:*)",
-      "Bash(node:*)",
-      "Bash(npm install:*)",
-      "Bash(find:*)",
-      "Bash(dir:*)"
+      "Bash(for file in responsive-tester.html ppi-calculator.html iphone-viewport-sizes.html ipad-viewport-sizes.html compare.html aspect-ratio-calculator.html android-viewport-sizes.html)",
+      "Bash(do echo:*)",
+      "Bash(xargs:*)",
+      "Bash(for:*)",
+      "WebFetch(domain:127.0.0.1)",
+      "WebFetch(domain:192.168.31.142)",
+      "Bash(npm run)",
+      "Read(//g/**)"
     ],
     "deny": [],
     "ask": []
