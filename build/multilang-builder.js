@@ -1857,7 +1857,8 @@ ${languageCards}
             { path: '/devices/android-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/standard-resolutions', priority: '0.9', changefreq: 'monthly' },
-            { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' }
+            { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/ppi-calculator', priority: '0.8', changefreq: 'monthly' }
         ];
         
         // 定义博客页面结构
