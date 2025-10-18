@@ -2076,6 +2076,26 @@ ${languageCards}
     </url>`;
         });
         
+        // 添加根目录的Hub页面（英文主要版本）
+        // 从pages-config.json读取Hub页面
+        const configPath = path.join(__dirname, 'pages-config.json');
+        const pagesConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+        const hubPagesEn = pagesConfig.pages.filter(p => 
+            p.template === 'hub-page' && 
+            p.enabled_languages && 
+            p.enabled_languages.includes('en')
+        );
+        hubPagesEn.forEach(page => {
+            const hubPath = page.output.startsWith('hub/') ? `/${page.output}` : page.output;
+            sitemapContent += `
+    <url>
+        <loc>${baseUrl}${hubPath}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>`;
+        });
+        
         // 添加语言选择页面
         sitemapContent += `
     <url>
@@ -2126,6 +2146,23 @@ ${languageCards}
     </url>`;
             });
             
+            // 添加Hub页面
+            const hubPagesLang = pagesConfig.pages.filter(p => 
+                p.template === 'hub-page' && 
+                p.enabled_languages && 
+                p.enabled_languages.includes(lang)
+            );
+            hubPagesLang.forEach(page => {
+                const hubPath = page.output.startsWith('hub/') ? `/${page.output}` : page.output;
+                sitemapContent += `
+    <url>
+        <loc>${baseUrl}/${lang}${hubPath}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>`;
+            });
+            
             // 为中文添加特有的标签页面
             if (lang === 'zh') {
                 zhBlogPages.forEach(page => {
@@ -2155,17 +2192,20 @@ ${languageCards}
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
         
         // 计算总URL数量：
-        // 1个根目录 + 根目录的设备页面 + 根目录的博客页面 + 1个语言选择页面 + 1个隐私政策页面
+        // 1个根目录 + 根目录的设备页面 + 根目录的博客页面 + Hub页面 + 1个语言选择页面 + 1个隐私政策页面
         // + 语言版本页面 + 中文特有页面
-        const rootUrls = 1 + (pages.length - 1) + blogPages.length; // 根目录相关URL
+        const hubPagesCount = pagesConfig.pages.filter(p => p.template === 'hub-page').length;
+        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 根目录相关URL
         const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 语言版本URL
+        const hubUrls = hubPagesCount; // Hub页面（所有语言）
         const otherUrls = 2; // 语言选择页面 + 隐私政策页面
-        const totalUrls = rootUrls + languageUrls + zhBlogPages.length + otherUrls;
+        const totalUrls = rootUrls + languageUrls + hubUrls + zhBlogPages.length + otherUrls;
         
         console.log('✅ Multilingual sitemap generated with optimized structure');
         console.log(`   📄 Total URLs: ${totalUrls}`);
         console.log(`   🏠 Root domain URLs: ${rootUrls} (priority 1.0-0.9)`);
         console.log(`   🌍 Language versions: ${languageUrls} (adjusted priorities)`);
+        console.log(`   🎮 Gaming Hub pages: ${hubUrls} (4 languages)`);
         console.log(`   🇨🇳 Chinese-specific: ${zhBlogPages.length}`);
         console.log(`   📝 Other pages: ${otherUrls}`);
     }
