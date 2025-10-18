@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T20:48:57.450Z",
+          "datePublished": "2025-10-18T21:20:07.222Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T20:48:57.703Z",
+          "datePublished": "2025-10-18T21:20:07.475Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T20:48:57.742Z",
+          "datePublished": "2025-10-18T21:20:07.515Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T20:48:57.761Z",
+          "datePublished": "2025-10-18T21:20:07.535Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5438,7 +5438,12 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 14,
-        "hub_author": "Screen Size Checker Gaming Team"
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
       }
     },
     {
@@ -5482,7 +5487,12 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
-        "hub_author": "Screen Size Checker 游戏团队"
+        "hub_author": "Screen Size Checker 游戏团队",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
       }
     }
   ]

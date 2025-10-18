@@ -405,7 +405,13 @@ class HubBuilder {
                             hub_tags: page.tags,
                             hub_date: page.date,
                             hub_reading_time: page.readingTime,
-                            hub_author: page.author
+                            hub_author: page.author,
+                            // 导航状态标识
+                            is_home: false,
+                            is_blog: false,
+                            is_tools: false,
+                            is_devices: false,
+                            is_gaming: true
                         }
                     });
                 });

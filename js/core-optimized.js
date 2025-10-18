@@ -769,6 +769,15 @@ function setupAdvancedEventListeners() {
  * 设置导航激活状态
  */
 function setupNavigationActiveState() {
+    // 检查是否已经由服务器端设置了active状态
+    const hasServerSideActive = document.querySelector('.nav-link.active');
+    
+    // 如果服务器端已经设置了active状态，跳过客户端更新
+    if (hasServerSideActive) {
+        console.log('Navigation state already set by server, skipping client-side update');
+        return;
+    }
+    
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
 

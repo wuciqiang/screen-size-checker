@@ -310,17 +310,26 @@ class MultiLangBuilder extends ComponentBuilder {
                     pageData.is_home = pagePath === 'index.html' || pagePath === '';
                     pageData.is_blog = pagePath.includes('blog/') || pagePath.startsWith('blog');
                     
-                    // 区分 Tools 和 Devices
-                    const isToolPage = pagePath.includes('calculator') || 
-                        pagePath.includes('compare') || 
-                        pagePath.includes('tester') || 
-                        pagePath.includes('resolution');
-                    const isDevicePage = pagePath.includes('iphone') || 
-                        pagePath.includes('android') || 
-                        pagePath.includes('ipad');
-                    
-                    pageData.is_tools = isToolPage;
-                    pageData.is_devices = isDevicePage;
+                    // 如果页面配置中已经设置了导航状态，使用配置的值
+                    if (typeof page.config.is_gaming !== 'undefined') {
+                        pageData.is_gaming = page.config.is_gaming;
+                        pageData.is_tools = page.config.is_tools || false;
+                        pageData.is_devices = page.config.is_devices || false;
+                    } else {
+                        // 区分 Tools 和 Devices（排除hub页面）
+                        const isHubPage = pagePath.includes('hub/');
+                        const isToolPage = !isHubPage && (pagePath.includes('calculator') || 
+                            pagePath.includes('compare') || 
+                            pagePath.includes('tester') || 
+                            pagePath.includes('resolution'));
+                        const isDevicePage = pagePath.includes('iphone') || 
+                            pagePath.includes('android') || 
+                            pagePath.includes('ipad');
+                        
+                        pageData.is_tools = isToolPage;
+                        pageData.is_devices = isDevicePage;
+                        pageData.is_gaming = false;
+                    }
                     
                     // 从翻译文件中获取页面特定的翻译值
                     if (pageData.page_title_key) {
