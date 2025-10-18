@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:24:08.976Z",
+          "datePublished": "2025-10-18T22:33:20.827Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:24:09.220Z",
+          "datePublished": "2025-10-18T22:33:21.073Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:24:09.260Z",
+          "datePublished": "2025-10-18T22:33:21.114Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:24:09.278Z",
+          "datePublished": "2025-10-18T22:33:21.133Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5496,6 +5496,55 @@
       }
     },
     {
+      "name": "hub-gaming-monitor-size-guide-en",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-size-guide.html",
+      "page_content": "hub-gaming-monitor-size-guide-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Gaming Monitor Size Guide 2025: 24\" vs 27\" vs 32\" - Which Is Best?",
+        "page_description": "Complete guide to choosing the perfect gaming monitor size. Expert comparison of 24-inch, 27-inch, and 32-inch displays with viewing distance calculations, resolution recommendations, and ergonomic considerations.",
+        "page_keywords": "gaming monitor size, best monitor size for gaming, 24 vs 27 inch monitor gaming, 27 vs 32 inch gaming, optimal monitor size",
+        "canonical_url": "https://screensizechecker.com/hub/gaming-monitor-size-guide",
+        "og_title": "Gaming Monitor Size Guide 2025: 24\" vs 27\" vs 32\" - Which Is Best?",
+        "og_description": "Complete guide to choosing the perfect gaming monitor size. Expert comparison of 24-inch, 27-inch, and 32-inch displays with viewing distance calculations, resolution recommendations, and ergonomic considerations.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/gaming-monitor-size-guide",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-size-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-size-guide",
+        "current_name": "Gaming Monitor Size Guide 2025: 24\" vs 27\" vs 32\" - Which Is Best?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "monitor-size",
+          "gaming-monitor",
+          "24-inch",
+          "27-inch",
+          "32-inch",
+          "viewing-distance"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-1080p-vs-1440p-gaming-zh",
       "template": "hub-page",
       "output": "hub/1080p-vs-1440p-gaming.html",
@@ -5586,6 +5635,55 @@
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
         "hub_author": "Screen Size Checker 游戏团队",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-gaming-monitor-size-guide-zh",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-size-guide.html",
+      "page_content": "hub-gaming-monitor-size-guide-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "游戏显示器尺寸指南2025：24英寸 vs 27英寸 vs 32英寸 - 哪个最好？",
+        "page_description": "选择完美游戏显示器尺寸的完整指南。24英寸、27英寸和32英寸显示器的专家对比，包含观看距离计算、分辨率建议和人体工程学考虑。",
+        "page_keywords": "游戏显示器尺寸, 最佳游戏显示器尺寸, 24 vs 27英寸显示器游戏, 27 vs 32英寸游戏, 最佳显示器尺寸",
+        "canonical_url": "https://screensizechecker.com/zh/hub/gaming-monitor-size-guide",
+        "og_title": "游戏显示器尺寸指南2025：24英寸 vs 27英寸 vs 32英寸 - 哪个最好？",
+        "og_description": "选择完美游戏显示器尺寸的完整指南。24英寸、27英寸和32英寸显示器的专家对比，包含观看距离计算、分辨率建议和人体工程学考虑。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/gaming-monitor-size-guide",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-size-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-size-guide",
+        "current_name": "游戏显示器尺寸指南2025：24英寸 vs 27英寸 vs 32英寸 - 哪个最好？",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "显示器尺寸",
+          "游戏显示器",
+          "24英寸",
+          "27英寸",
+          "32英寸",
+          "观看距离"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 3,
+        "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
         "is_tools": false,
@@ -5692,6 +5790,55 @@
       }
     },
     {
+      "name": "hub-gaming-monitor-size-guide-de",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-size-guide.html",
+      "page_content": "hub-gaming-monitor-size-guide-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Gaming Monitor Größen-Leitfaden 2025: 24\" vs 27\" vs 32\" - Welcher ist am besten?",
+        "page_description": "Kompletter Leitfaden zur Wahl der perfekten Gaming-Monitor-Größe. Expertenvergleich von 24-, 27- und 32-Zoll-Displays mit Betrachtungsabstandsberechnungen, Auflösungsempfehlungen und ergonomischen Überlegungen.",
+        "page_keywords": "gaming monitor größe, beste monitor größe für gaming, 24 vs 27 zoll monitor gaming, 27 vs 32 zoll gaming, optimale monitor größe",
+        "canonical_url": "https://screensizechecker.com/de/hub/gaming-monitor-size-guide",
+        "og_title": "Gaming Monitor Größen-Leitfaden 2025: 24\" vs 27\" vs 32\" - Welcher ist am besten?",
+        "og_description": "Kompletter Leitfaden zur Wahl der perfekten Gaming-Monitor-Größe. Expertenvergleich von 24-, 27- und 32-Zoll-Displays mit Betrachtungsabstandsberechnungen, Auflösungsempfehlungen und ergonomischen Überlegungen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/gaming-monitor-size-guide",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-size-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-size-guide",
+        "current_name": "Gaming Monitor Größen-Leitfaden 2025: 24\" vs 27\" vs 32\" - Welcher ist am besten?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "monitor-größe",
+          "gaming-monitor",
+          "24-zoll",
+          "27-zoll",
+          "32-zoll",
+          "betrachtungsabstand"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-1080p-vs-1440p-gaming-es",
       "template": "hub-page",
       "output": "hub/1080p-vs-1440p-gaming.html",
@@ -5781,6 +5928,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-gaming-monitor-size-guide-es",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-size-guide.html",
+      "page_content": "hub-gaming-monitor-size-guide-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Guía de Tamaño de Monitor Gaming 2025: 24\" vs 27\" vs 32\" - ¿Cuál es mejor?",
+        "page_description": "Guía completa para elegir el tamaño perfecto de monitor gaming. Comparación experta de pantallas de 24, 27 y 32 pulgadas con cálculos de distancia de visualización, recomendaciones de resolución y consideraciones ergonómicas.",
+        "page_keywords": "tamaño monitor gaming, mejor tamaño monitor para gaming, 24 vs 27 pulgadas monitor gaming, 27 vs 32 pulgadas gaming, tamaño óptimo monitor",
+        "canonical_url": "https://screensizechecker.com/es/hub/gaming-monitor-size-guide",
+        "og_title": "Guía de Tamaño de Monitor Gaming 2025: 24\" vs 27\" vs 32\" - ¿Cuál es mejor?",
+        "og_description": "Guía completa para elegir el tamaño perfecto de monitor gaming. Comparación experta de pantallas de 24, 27 y 32 pulgadas con cálculos de distancia de visualización, recomendaciones de resolución y consideraciones ergonómicas.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/gaming-monitor-size-guide",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-size-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-size-guide",
+        "current_name": "Guía de Tamaño de Monitor Gaming 2025: 24\" vs 27\" vs 32\" - ¿Cuál es mejor?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "tamaño-monitor",
+          "monitor-gaming",
+          "24-pulgadas",
+          "27-pulgadas",
+          "32-pulgadas",
+          "distancia-visualización"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 14,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
