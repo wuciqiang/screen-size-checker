@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    {{component:head}}
+    
+    <!-- Hub页面性能优化 -->
+    <link rel="preconnect" href="https://quickchart.io" crossorigin>
+    <link rel="dns-prefetch" href="https://quickchart.io">
+    
+    <!-- Hub页面特定CSS -->
+    <link rel="stylesheet" href="{{css_path}}/hub.css">
+    <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
+</head>
+<body data-theme="light" class="hub-page-body">
+    <!-- 头部导航 -->
+    {{component:header-mega-menu}}
+    
+    <!-- 面包屑导航 -->
+    {{#if show_breadcrumb}}
+    {{component:breadcrumb}}
+    {{/if}}
+    
+    <main class="main-content hub-main">
+        <div class="hub-container">
+            <!-- Hub页面内容 -->
+            <div class="hub-content-wrapper">
+                {{page_content}}
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    {{component:footer-optimized}}
+    
+    <!-- 语言选择模态框 -->
+    {{component:language-modal}}
+    
+    <!-- 通知组件 -->
+    {{component:toast}}
+    
+    <!-- JavaScript -->
+    <script src="{{js_path}}/highlight.min.js"></script>
+    <script src="{{js_path}}/mobile-image-optimizer.js"></script>
+    <script src="{{js_path}}/code-block-manager.js"></script>
+    <script src="{{js_path}}/blog.js" type="module"></script>
+    <script src="{{js_path}}/blog-progress.js" type="module"></script>
+    <script src="{{js_path}}/app.js" type="module"></script>
+    <script src="{{js_path}}/core-optimized.js" defer></script>
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+        {{structured_data}}
+    </script>
+</body>
+</html>

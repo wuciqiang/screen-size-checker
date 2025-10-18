@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const ComponentBuilder = require('./component-builder');
 const BlogBuilder = require('./blog-builder');
+const HubBuilder = require('./hub-builder');
 const { TranslationValidator } = require('./translation-validator');
 const InternalLinksProcessor = require('./internal-links-processor');
 const CriticalCSSExtractor = require('./critical-css-extractor');
@@ -2608,6 +2609,12 @@ if (require.main === module) {
             const blogBuilder = new BlogBuilder();
             blogBuilder.build();
             console.log('✅ Blog system build completed successfully!');
+            
+            // Build Hub system
+            console.log('\n🎮 Building Gaming Hub system...');
+            const hubBuilder = new HubBuilder();
+            hubBuilder.build();
+            console.log('✅ Gaming Hub system build completed successfully!');
             
             // 重新加载组件，包括新生成的博客组件
             console.log('🔄 Reloading components after blog build...');
