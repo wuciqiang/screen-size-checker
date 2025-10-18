@@ -1,0 +1,93 @@
+<!-- Blog Post: Viewport-Grundlagen verstehen -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">Viewport-Grundlagen verstehen</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">October 15, 2023</span>
+            <span class="blog-post-author">Screen Size Checker Team</span>
+            <span class="blog-post-reading-time">3 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h2 id="viewport-grundlagen-verstehen">Viewport-Grundlagen verstehen</h2>
+<p>Der Viewport ist eines der grundlegendsten Konzepte im Webdesign und der Webentwicklung, wird aber oft missverstanden. Dieser Artikel erklärt, was der Viewport ist, wie er sich von der Bildschirmauflösung unterscheidet und warum er für die Erstellung responsiver Websites wichtig ist.</p>
+<h2 id="was-ist-ein-viewport">Was ist ein Viewport?</h2>
+<p>Der Viewport ist der sichtbare Bereich einer Webseite in deinem Browserfenster. Stell ihn dir als das &quot;Fenster&quot; vor, durch das du eine Website betrachtest. Die Größe dieses Fensters kann je nach Gerät variieren – von kleinen Smartphone-Bildschirmen bis zu großen Desktop-Monitoren.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+</code></pre>
+<p>Dieses Meta-Tag ist für responsives Webdesign unverzichtbar, da es dem Browser mitteilt, wie er die Dimensionen und Skalierung der Seite kontrollieren soll.</p>
+<h2 id="viewport-vs-bildschirmauflösung">Viewport vs. Bildschirmauflösung</h2>
+<p>Viele Entwickler verwechseln Viewport-Größe mit Bildschirmauflösung, aber es sind unterschiedliche Konzepte:</p>
+<table>
+<thead>
+<tr>
+<th>Konzept</th>
+<th>Definition</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Viewport-Größe</td>
+<td>Der sichtbare Bereich in CSS-Pixeln</td>
+<td>375 × 812 beim iPhone 13</td>
+</tr>
+<tr>
+<td>Bildschirmauflösung</td>
+<td>Physische Pixel auf dem Gerät</td>
+<td>1170 × 2532 beim iPhone 13</td>
+</tr>
+<tr>
+<td>Gerätepixelverhältnis (DPR)</td>
+<td>Physische Pixel ÷ CSS-Pixel</td>
+<td>3.0 beim iPhone 13</td>
+</tr>
+</tbody></table>
+<h2 id="warum-viewport-für-entwickler-wichtig-ist">Warum Viewport für Entwickler wichtig ist</h2>
+<p>Das Verständnis des Viewports ist aus mehreren Gründen entscheidend:</p>
+<ol>
+<li><strong>Responsive Design</strong>: Verschiedene Geräte haben unterschiedliche Viewport-Größen, die anpassbare Layouts erfordern.</li>
+<li><strong>Mobile Optimierung</strong>: Mobile Viewports erfordern besondere Berücksichtigung für Touch-Interaktionen und Lesbarkeit.</li>
+<li><strong>Performance</strong>: Die Kenntnis des Viewports hilft bei der Optimierung von Bildern und Assets für verschiedene Bildschirmgrößen.</li>
+<li><strong>Benutzererfahrung</strong>: Ein gut implementiertes responsives Design bietet eine konsistente Erfahrung über alle Geräte hinweg.</li>
+</ol>
+<h2 id="so-überprüfst-du-deine-viewport-größe">So überprüfst du deine Viewport-Größe</h2>
+<p>Du kannst deine aktuelle Viewport-Größe einfach mit unserem <a href="/de/index.html">Screen Size Checker</a> Tool überprüfen. Dies zeigt deine aktuellen Viewport-Dimensionen in CSS-Pixeln an, zusammen mit anderen nützlichen Informationen wie Gerätepixelverhältnis und Bildschirmauflösung.</p>
+<h2 id="häufige-viewport-größen">Häufige Viewport-Größen</h2>
+<p>Beim Design responsiver Websites solltest du diese gängigen Viewport-Breiten berücksichtigen:</p>
+<ul>
+<li><strong>Kleine Smartphones</strong>: 320px - 375px</li>
+<li><strong>Große Smartphones</strong>: 376px - 428px</li>
+<li><strong>Tablets</strong>: 768px - 1024px</li>
+<li><strong>Desktop</strong>: 1025px - 1440px</li>
+<li><strong>Große Desktops</strong>: 1441px+</li>
+</ul>
+<h2 id="fazit">Fazit</h2>
+<p>Das Verständnis des Viewport-Konzepts ist grundlegend für moderne Webentwicklung. Durch die ordnungsgemäße Implementierung von Responsive-Design-Techniken basierend auf der Viewport-Größe anstatt Geräteerkennung kannst du Websites erstellen, die auf allen Geräten großartig aussehen und gut funktionieren.</p>
+<p>Denke daran, dass sich die Viewport-Größe ändern kann, wenn Benutzer ihre Geräte drehen oder ihre Browserfenster ändern, daher sollten deine Designs flexibel genug sein, um diese Änderungen zu berücksichtigen.</p>
+<p>Für detailliertere Informationen über spezifische Geräte-Viewports siehe unsere Leitfäden zu <a href="/de/devices/iphone-viewport-sizes.html">iPhone Viewport-Größen</a> und <a href="/de/devices/android-viewport-sizes.html">Android Viewport-Größen</a>. </p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/viewport.html" class="tag-link">#viewport</a> <a href="tag/responsive-design.html" class="tag-link">#responsive-design</a> <a href="tag/web-development.html" class="tag-link">#web-development</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/de/blog/viewport-basics" data-title="Viewport-Grundlagen verstehen">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/de/blog/viewport-basics" data-title="Viewport-Grundlagen verstehen">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/de/blog/viewport-basics" data-title="Viewport-Grundlagen verstehen">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/de/blog/viewport-basics">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="viewport-basics" data-post-lang="de"></div>
+        </div>
+    </div>
+</article>

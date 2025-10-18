@@ -418,9 +418,8 @@ class MultiLangBuilder extends ComponentBuilder {
                             // 英文博客在根目录 /blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         } else {
-                            // 其他语言页面需要回到根目录访问博客
-                            // 例如：/de/index.html -> ../blog/, /de/devices/xxx.html -> ../../blog/
-                            pageData.blog_url = '../'.repeat(depth + 1) + 'blog/';
+                            // 其他语言博客在各自的语言目录下 /zh/blog/, /de/blog/, /es/blog/
+                            pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         }
                     }
                     
@@ -2258,14 +2257,40 @@ ${languageCards}
 /zh/devices/ppi-calculator.html           /zh/devices/ppi-calculator          301
 /zh/devices/aspect-ratio-calculator.html  /zh/devices/aspect-ratio-calculator 301
 
+# ===== .html 后缀重定向（德语版本）=====
+/de/devices/iphone-viewport-sizes.html    /de/devices/iphone-viewport-sizes   301
+/de/devices/ipad-viewport-sizes.html      /de/devices/ipad-viewport-sizes     301
+/de/devices/android-viewport-sizes.html   /de/devices/android-viewport-sizes  301
+/de/devices/compare.html                  /de/devices/compare                 301
+/de/devices/standard-resolutions.html     /de/devices/standard-resolutions    301
+/de/devices/responsive-tester.html        /de/devices/responsive-tester       301
+/de/devices/ppi-calculator.html           /de/devices/ppi-calculator          301
+/de/devices/aspect-ratio-calculator.html  /de/devices/aspect-ratio-calculator 301
+
+# ===== .html 后缀重定向（西班牙语版本）=====
+/es/devices/iphone-viewport-sizes.html    /es/devices/iphone-viewport-sizes   301
+/es/devices/ipad-viewport-sizes.html      /es/devices/ipad-viewport-sizes     301
+/es/devices/android-viewport-sizes.html   /es/devices/android-viewport-sizes  301
+/es/devices/compare.html                  /es/devices/compare                 301
+/es/devices/standard-resolutions.html     /es/devices/standard-resolutions    301
+/es/devices/responsive-tester.html        /es/devices/responsive-tester       301
+/es/devices/ppi-calculator.html           /es/devices/ppi-calculator          301
+/es/devices/aspect-ratio-calculator.html  /es/devices/aspect-ratio-calculator 301
+
 # ===== 博客 .html 后缀重定向 =====
 /blog/index.html                          /blog                               301
 /zh/blog/index.html                       /zh/blog                            301
+/de/blog/index.html                       /de/blog                            301
+/es/blog/index.html                       /es/blog                            301
 /blog/*.html                              /blog/:splat                        301
 /zh/blog/*.html                           /zh/blog/:splat                     301
+/de/blog/*.html                           /de/blog/:splat                     301
+/es/blog/*.html                           /es/blog/:splat                     301
 
 # ===== 语言版本 index.html 重定向 =====
 /zh/index.html                            /zh/                                301
+/de/index.html                            /de/                                301
+/es/index.html                            /es/                                301
 
 # ===== 其他页面重定向 =====
 /privacy-policy.html                      /privacy-policy                     301

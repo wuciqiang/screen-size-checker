@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T19:09:26.220Z",
+          "datePublished": "2025-10-18T19:34:56.831Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T19:09:26.561Z",
+          "datePublished": "2025-10-18T19:34:57.081Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2975,6 +2975,2426 @@
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",
         "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-index-de",
+      "template": "blog-index",
+      "output": "blog/index.html",
+      "page_content": "blog-index-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title_key": "blog_page_title",
+        "page_description_key": "blog_page_description",
+        "page_heading_key": "blog_page_heading",
+        "page_intro_key": "blog_page_intro",
+        "page_keywords": "blog, responsive design, viewport, screen resolution, web development",
+        "canonical_url": "https://screensizechecker.com/de/blog/",
+        "og_title": "Screen Size Checker Blog",
+        "og_description": "Explore our knowledge base on screen sizes, viewports, and responsive design",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../index.html",
+        "blog_url": "index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "blog",
+        "current_name": "Blog",
+        "parent_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "parent_key": "home",
+        "parent_name": "Home"
+      }
+    },
+    {
+      "name": "blog-post-average-laptop-screen-size-2025-de",
+      "template": "blog-post",
+      "output": "blog/average-laptop-screen-size-2025.html",
+      "page_content": "blog-post-average-laptop-screen-size-2025-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+        "page_description": "Vollständiger Leitfaden zu Laptop-Bildschirmgrößen, Auflösungen und Trends 2025",
+        "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
+        "canonical_url": "https://screensizechecker.com/de/blog/average-laptop-screen-size-2025",
+        "og_title": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+        "og_description": "Vollständiger Leitfaden zu Laptop-Bildschirmgrößen, Auflösungen und Trends 2025",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/average-laptop-screen-size-2025",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+        "current_name": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+          "description": "Vollständiger Leitfaden zu Laptop-Bildschirmgrößen, Auflösungen und Trends 2025",
+          "author": {
+            "@type": "Person",
+            "name": "Blues"
+          },
+          "datePublished": "2025-01-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-black_myth_guide-de",
+      "template": "blog-post",
+      "output": "blog/black_myth_guide.html",
+      "page_content": "blog-post-black_myth_guide-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+        "page_description": "Optimiere dein Spielerlebnis mit den perfekten Anzeigeeinstellungen",
+        "page_keywords": "black myth, gaming, hardware, monitors, 4k",
+        "canonical_url": "https://screensizechecker.com/de/blog/black_myth_guide",
+        "og_title": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+        "og_description": "Optimiere dein Spielerlebnis mit den perfekten Anzeigeeinstellungen",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/black_myth_guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+        "current_name": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+          "description": "Optimiere dein Spielerlebnis mit den perfekten Anzeigeeinstellungen",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-10-18T19:34:57.121Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-container-queries-guide-de",
+      "template": "blog-post",
+      "output": "blog/container-queries-guide.html",
+      "page_content": "blog-post-container-queries-guide-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Container Queries Leitfaden",
+        "page_description": "Lerne, wie man CSS Container Queries für flexiblere responsive Designs verwendet",
+        "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
+        "canonical_url": "https://screensizechecker.com/de/blog/container-queries-guide",
+        "og_title": "Container Queries Leitfaden",
+        "og_description": "Lerne, wie man CSS Container Queries für flexiblere responsive Designs verwendet",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/container-queries-guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Container Queries Leitfaden",
+        "current_name": "Container Queries Leitfaden",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Container Queries Leitfaden",
+          "description": "Lerne, wie man CSS Container Queries für flexiblere responsive Designs verwendet",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-09T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-device-pixel-ratio-de",
+      "template": "blog-post",
+      "output": "blog/device-pixel-ratio.html",
+      "page_content": "blog-post-device-pixel-ratio-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Gerätepixelverhältnis (DPR) erklärt",
+        "page_description": "Vollständiger Leitfaden zum Verständnis und zur Arbeit mit dem Gerätepixelverhältnis in der Webentwicklung",
+        "page_keywords": "dpr, pixel-density, retina-display, responsive-design",
+        "canonical_url": "https://screensizechecker.com/de/blog/device-pixel-ratio",
+        "og_title": "Gerätepixelverhältnis (DPR) erklärt",
+        "og_description": "Vollständiger Leitfaden zum Verständnis und zur Arbeit mit dem Gerätepixelverhältnis in der Webentwicklung",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/device-pixel-ratio",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Gerätepixelverhältnis (DPR) erklärt",
+        "current_name": "Gerätepixelverhältnis (DPR) erklärt",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Gerätepixelverhältnis (DPR) erklärt",
+          "description": "Vollständiger Leitfaden zum Verständnis und zur Arbeit mit dem Gerätepixelverhältnis in der Webentwicklung",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-media-queries-essentials-de",
+      "template": "blog-post",
+      "output": "blog/media-queries-essentials.html",
+      "page_content": "blog-post-media-queries-essentials-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "CSS Media Queries Grundlagen",
+        "page_description": "CSS Media Queries für responsives Webdesign meistern",
+        "page_keywords": "media-queries, responsive-design, css, breakpoints",
+        "canonical_url": "https://screensizechecker.com/de/blog/media-queries-essentials",
+        "og_title": "CSS Media Queries Grundlagen",
+        "og_description": "CSS Media Queries für responsives Webdesign meistern",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/media-queries-essentials",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "CSS Media Queries Grundlagen",
+        "current_name": "CSS Media Queries Grundlagen",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "CSS Media Queries Grundlagen",
+          "description": "CSS Media Queries für responsives Webdesign meistern",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-responsive-debugging-checklist-de",
+      "template": "blog-post",
+      "output": "blog/responsive-debugging-checklist.html",
+      "page_content": "blog-post-responsive-debugging-checklist-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Responsive Design Debugging Checkliste",
+        "page_description": "Vollständige Checkliste zum Debuggen von Responsive-Design-Problemen",
+        "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/de/blog/responsive-debugging-checklist",
+        "og_title": "Responsive Design Debugging Checkliste",
+        "og_description": "Vollständige Checkliste zum Debuggen von Responsive-Design-Problemen",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/responsive-debugging-checklist",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Responsive Design Debugging Checkliste",
+        "current_name": "Responsive Design Debugging Checkliste",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Responsive Design Debugging Checkliste",
+          "description": "Vollständige Checkliste zum Debuggen von Responsive-Design-Problemen",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-screen-dimensions-cheat-sheet-de",
+      "template": "blog-post",
+      "output": "blog/screen-dimensions-cheat-sheet.html",
+      "page_content": "blog-post-screen-dimensions-cheat-sheet-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Bildschirmabmessungen Spickzettel",
+        "page_description": "Schnellreferenz für gängige Bildschirmgrößen und Breakpoints",
+        "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/de/blog/screen-dimensions-cheat-sheet",
+        "og_title": "Bildschirmabmessungen Spickzettel",
+        "og_description": "Schnellreferenz für gängige Bildschirmgrößen und Breakpoints",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/screen-dimensions-cheat-sheet",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Bildschirmabmessungen Spickzettel",
+        "current_name": "Bildschirmabmessungen Spickzettel",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Bildschirmabmessungen Spickzettel",
+          "description": "Schnellreferenz für gängige Bildschirmgrößen und Breakpoints",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-viewport-basics-de",
+      "template": "blog-post",
+      "output": "blog/viewport-basics.html",
+      "page_content": "blog-post-viewport-basics-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Viewport-Grundlagen verstehen",
+        "page_description": "Lerne, was Viewport ist und warum es für responsives Webdesign entscheidend ist",
+        "page_keywords": "viewport, responsive-design, web-development",
+        "canonical_url": "https://screensizechecker.com/de/blog/viewport-basics",
+        "og_title": "Viewport-Grundlagen verstehen",
+        "og_description": "Lerne, was Viewport ist und warum es für responsives Webdesign entscheidend ist",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/viewport-basics",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Viewport-Grundlagen verstehen",
+        "current_name": "Viewport-Grundlagen verstehen",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Viewport-Grundlagen verstehen",
+          "description": "Lerne, was Viewport ist und warum es für responsives Webdesign entscheidend ist",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-category-technical-de",
+      "template": "blog-category",
+      "output": "blog/category/technical.html",
+      "page_content": "blog-category-technical-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Category: technical",
+        "page_description": "Browse all articles in the technical category",
+        "page_keywords": "blog, technical, category",
+        "canonical_url": "https://screensizechecker.com/de/blog/category/technical",
+        "og_title": "Category: technical",
+        "og_description": "Browse all articles in the technical category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/category/technical",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "technical",
+        "current_name": "technical",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-css-de",
+      "template": "blog-category",
+      "output": "blog/category/css.html",
+      "page_content": "blog-category-css-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Category: css",
+        "page_description": "Browse all articles in the css category",
+        "page_keywords": "blog, css, category",
+        "canonical_url": "https://screensizechecker.com/de/blog/category/css",
+        "og_title": "Category: css",
+        "og_description": "Browse all articles in the css category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/category/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-basics-de",
+      "template": "blog-category",
+      "output": "blog/category/basics.html",
+      "page_content": "blog-category-basics-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Category: basics",
+        "page_description": "Browse all articles in the basics category",
+        "page_keywords": "blog, basics, category",
+        "canonical_url": "https://screensizechecker.com/de/blog/category/basics",
+        "og_title": "Category: basics",
+        "og_description": "Browse all articles in the basics category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/category/basics",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "basics",
+        "current_name": "basics",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-laptop-de",
+      "template": "blog-tag",
+      "output": "blog/tag/laptop.html",
+      "page_content": "blog-tag-laptop-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: laptop",
+        "page_description": "Browse all articles tagged with laptop",
+        "page_keywords": "blog, laptop, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/laptop",
+        "og_title": "Tag: laptop",
+        "og_description": "Browse all articles tagged with laptop",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/laptop",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "laptop",
+        "current_name": "#laptop",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-screen-size-de",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-size.html",
+      "page_content": "blog-tag-screen-size-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: screen-size",
+        "page_description": "Browse all articles tagged with screen-size",
+        "page_keywords": "blog, screen-size, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/screen-size",
+        "og_title": "Tag: screen-size",
+        "og_description": "Browse all articles tagged with screen-size",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/screen-size",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-size",
+        "current_name": "#screen-size",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-web-development-de",
+      "template": "blog-tag",
+      "output": "blog/tag/web-development.html",
+      "page_content": "blog-tag-web-development-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: web-development",
+        "page_description": "Browse all articles tagged with web-development",
+        "page_keywords": "blog, web-development, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/web-development",
+        "og_title": "Tag: web-development",
+        "og_description": "Browse all articles tagged with web-development",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/web-development",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "web-development",
+        "current_name": "#web-development",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-responsive-design-de",
+      "template": "blog-tag",
+      "output": "blog/tag/responsive-design.html",
+      "page_content": "blog-tag-responsive-design-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: responsive-design",
+        "page_description": "Browse all articles tagged with responsive-design",
+        "page_keywords": "blog, responsive-design, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/responsive-design",
+        "og_title": "Tag: responsive-design",
+        "og_description": "Browse all articles tagged with responsive-design",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/responsive-design",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "responsive-design",
+        "current_name": "#responsive-design",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-display-technology-de",
+      "template": "blog-tag",
+      "output": "blog/tag/display-technology.html",
+      "page_content": "blog-tag-display-technology-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: display-technology",
+        "page_description": "Browse all articles tagged with display-technology",
+        "page_keywords": "blog, display-technology, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/display-technology",
+        "og_title": "Tag: display-technology",
+        "og_description": "Browse all articles tagged with display-technology",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/display-technology",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "display-technology",
+        "current_name": "#display-technology",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-black myth-de",
+      "template": "blog-tag",
+      "output": "blog/tag/black myth.html",
+      "page_content": "blog-tag-black myth-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: black myth",
+        "page_description": "Browse all articles tagged with black myth",
+        "page_keywords": "blog, black myth, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/black myth",
+        "og_title": "Tag: black myth",
+        "og_description": "Browse all articles tagged with black myth",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/black myth",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "black myth",
+        "current_name": "#black myth",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-gaming-de",
+      "template": "blog-tag",
+      "output": "blog/tag/gaming.html",
+      "page_content": "blog-tag-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: gaming",
+        "page_description": "Browse all articles tagged with gaming",
+        "page_keywords": "blog, gaming, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/gaming",
+        "og_title": "Tag: gaming",
+        "og_description": "Browse all articles tagged with gaming",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/gaming",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming",
+        "current_name": "#gaming",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-hardware-de",
+      "template": "blog-tag",
+      "output": "blog/tag/hardware.html",
+      "page_content": "blog-tag-hardware-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: hardware",
+        "page_description": "Browse all articles tagged with hardware",
+        "page_keywords": "blog, hardware, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/hardware",
+        "og_title": "Tag: hardware",
+        "og_description": "Browse all articles tagged with hardware",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/hardware",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hardware",
+        "current_name": "#hardware",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-monitors-de",
+      "template": "blog-tag",
+      "output": "blog/tag/monitors.html",
+      "page_content": "blog-tag-monitors-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: monitors",
+        "page_description": "Browse all articles tagged with monitors",
+        "page_keywords": "blog, monitors, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/monitors",
+        "og_title": "Tag: monitors",
+        "og_description": "Browse all articles tagged with monitors",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/monitors",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "monitors",
+        "current_name": "#monitors",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-4k-de",
+      "template": "blog-tag",
+      "output": "blog/tag/4k.html",
+      "page_content": "blog-tag-4k-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: 4k",
+        "page_description": "Browse all articles tagged with 4k",
+        "page_keywords": "blog, 4k, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/4k",
+        "og_title": "Tag: 4k",
+        "og_description": "Browse all articles tagged with 4k",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/4k",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "4k",
+        "current_name": "#4k",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-css-de",
+      "template": "blog-tag",
+      "output": "blog/tag/css.html",
+      "page_content": "blog-tag-css-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: css",
+        "page_description": "Browse all articles tagged with css",
+        "page_keywords": "blog, css, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/css",
+        "og_title": "Tag: css",
+        "og_description": "Browse all articles tagged with css",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "#css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-container-queries-de",
+      "template": "blog-tag",
+      "output": "blog/tag/container-queries.html",
+      "page_content": "blog-tag-container-queries-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: container-queries",
+        "page_description": "Browse all articles tagged with container-queries",
+        "page_keywords": "blog, container-queries, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/container-queries",
+        "og_title": "Tag: container-queries",
+        "og_description": "Browse all articles tagged with container-queries",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/container-queries",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "container-queries",
+        "current_name": "#container-queries",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-frontend-de",
+      "template": "blog-tag",
+      "output": "blog/tag/frontend.html",
+      "page_content": "blog-tag-frontend-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: frontend",
+        "page_description": "Browse all articles tagged with frontend",
+        "page_keywords": "blog, frontend, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/frontend",
+        "og_title": "Tag: frontend",
+        "og_description": "Browse all articles tagged with frontend",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/frontend",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "frontend",
+        "current_name": "#frontend",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-dpr-de",
+      "template": "blog-tag",
+      "output": "blog/tag/dpr.html",
+      "page_content": "blog-tag-dpr-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: dpr",
+        "page_description": "Browse all articles tagged with dpr",
+        "page_keywords": "blog, dpr, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/dpr",
+        "og_title": "Tag: dpr",
+        "og_description": "Browse all articles tagged with dpr",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/dpr",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "dpr",
+        "current_name": "#dpr",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-pixel-density-de",
+      "template": "blog-tag",
+      "output": "blog/tag/pixel-density.html",
+      "page_content": "blog-tag-pixel-density-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: pixel-density",
+        "page_description": "Browse all articles tagged with pixel-density",
+        "page_keywords": "blog, pixel-density, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/pixel-density",
+        "og_title": "Tag: pixel-density",
+        "og_description": "Browse all articles tagged with pixel-density",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/pixel-density",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "pixel-density",
+        "current_name": "#pixel-density",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-retina-display-de",
+      "template": "blog-tag",
+      "output": "blog/tag/retina-display.html",
+      "page_content": "blog-tag-retina-display-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: retina-display",
+        "page_description": "Browse all articles tagged with retina-display",
+        "page_keywords": "blog, retina-display, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/retina-display",
+        "og_title": "Tag: retina-display",
+        "og_description": "Browse all articles tagged with retina-display",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/retina-display",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "retina-display",
+        "current_name": "#retina-display",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-media-queries-de",
+      "template": "blog-tag",
+      "output": "blog/tag/media-queries.html",
+      "page_content": "blog-tag-media-queries-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: media-queries",
+        "page_description": "Browse all articles tagged with media-queries",
+        "page_keywords": "blog, media-queries, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/media-queries",
+        "og_title": "Tag: media-queries",
+        "og_description": "Browse all articles tagged with media-queries",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/media-queries",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "media-queries",
+        "current_name": "#media-queries",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-breakpoints-de",
+      "template": "blog-tag",
+      "output": "blog/tag/breakpoints.html",
+      "page_content": "blog-tag-breakpoints-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: breakpoints",
+        "page_description": "Browse all articles tagged with breakpoints",
+        "page_keywords": "blog, breakpoints, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/breakpoints",
+        "og_title": "Tag: breakpoints",
+        "og_description": "Browse all articles tagged with breakpoints",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/breakpoints",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "breakpoints",
+        "current_name": "#breakpoints",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-debugging-de",
+      "template": "blog-tag",
+      "output": "blog/tag/debugging.html",
+      "page_content": "blog-tag-debugging-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: debugging",
+        "page_description": "Browse all articles tagged with debugging",
+        "page_keywords": "blog, debugging, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/debugging",
+        "og_title": "Tag: debugging",
+        "og_description": "Browse all articles tagged with debugging",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/debugging",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "debugging",
+        "current_name": "#debugging",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-viewport-de",
+      "template": "blog-tag",
+      "output": "blog/tag/viewport.html",
+      "page_content": "blog-tag-viewport-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: viewport",
+        "page_description": "Browse all articles tagged with viewport",
+        "page_keywords": "blog, viewport, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/viewport",
+        "og_title": "Tag: viewport",
+        "og_description": "Browse all articles tagged with viewport",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/viewport",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "viewport",
+        "current_name": "#viewport",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-screen-dimensions-de",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-dimensions.html",
+      "page_content": "blog-tag-screen-dimensions-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: screen-dimensions",
+        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_keywords": "blog, screen-dimensions, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/screen-dimensions",
+        "og_title": "Tag: screen-dimensions",
+        "og_description": "Browse all articles tagged with screen-dimensions",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/screen-dimensions",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-dimensions",
+        "current_name": "#screen-dimensions",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-index-es",
+      "template": "blog-index",
+      "output": "blog/index.html",
+      "page_content": "blog-index-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title_key": "blog_page_title",
+        "page_description_key": "blog_page_description",
+        "page_heading_key": "blog_page_heading",
+        "page_intro_key": "blog_page_intro",
+        "page_keywords": "blog, responsive design, viewport, screen resolution, web development",
+        "canonical_url": "https://screensizechecker.com/es/blog/",
+        "og_title": "Screen Size Checker Blog",
+        "og_description": "Explore our knowledge base on screen sizes, viewports, and responsive design",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../index.html",
+        "blog_url": "index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "blog",
+        "current_name": "Blog",
+        "parent_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "parent_key": "home",
+        "parent_name": "Home"
+      }
+    },
+    {
+      "name": "blog-post-average-laptop-screen-size-2025-es",
+      "template": "blog-post",
+      "output": "blog/average-laptop-screen-size-2025.html",
+      "page_content": "blog-post-average-laptop-screen-size-2025-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tamaño Promedio de Pantalla de Laptop 2025",
+        "page_description": "Guía completa de tamaños de pantalla de laptop, resoluciones y tendencias en 2025",
+        "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
+        "canonical_url": "https://screensizechecker.com/es/blog/average-laptop-screen-size-2025",
+        "og_title": "Tamaño Promedio de Pantalla de Laptop 2025",
+        "og_description": "Guía completa de tamaños de pantalla de laptop, resoluciones y tendencias en 2025",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/average-laptop-screen-size-2025",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Tamaño Promedio de Pantalla de Laptop 2025",
+        "current_name": "Tamaño Promedio de Pantalla de Laptop 2025",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Tamaño Promedio de Pantalla de Laptop 2025",
+          "description": "Guía completa de tamaños de pantalla de laptop, resoluciones y tendencias en 2025",
+          "author": {
+            "@type": "Person",
+            "name": "Blues"
+          },
+          "datePublished": "2025-01-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-black_myth_guide-es",
+      "template": "blog-post",
+      "output": "blog/black_myth_guide.html",
+      "page_content": "blog-post-black_myth_guide-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+        "page_description": "Optimiza tu experiencia de juego con la configuración de pantalla perfecta",
+        "page_keywords": "black myth, gaming, hardware, monitors, 4k",
+        "canonical_url": "https://screensizechecker.com/es/blog/black_myth_guide",
+        "og_title": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+        "og_description": "Optimiza tu experiencia de juego con la configuración de pantalla perfecta",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/black_myth_guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+        "current_name": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+          "description": "Optimiza tu experiencia de juego con la configuración de pantalla perfecta",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-10-18T19:34:57.140Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-container-queries-guide-es",
+      "template": "blog-post",
+      "output": "blog/container-queries-guide.html",
+      "page_content": "blog-post-container-queries-guide-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Guía de Container Queries",
+        "page_description": "Aprende a usar CSS Container Queries para diseños responsive más flexibles",
+        "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
+        "canonical_url": "https://screensizechecker.com/es/blog/container-queries-guide",
+        "og_title": "Guía de Container Queries",
+        "og_description": "Aprende a usar CSS Container Queries para diseños responsive más flexibles",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/container-queries-guide",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Guía de Container Queries",
+        "current_name": "Guía de Container Queries",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Guía de Container Queries",
+          "description": "Aprende a usar CSS Container Queries para diseños responsive más flexibles",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-09T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-device-pixel-ratio-es",
+      "template": "blog-post",
+      "output": "blog/device-pixel-ratio.html",
+      "page_content": "blog-post-device-pixel-ratio-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+        "page_description": "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web",
+        "page_keywords": "dpr, pixel-density, retina-display, responsive-design",
+        "canonical_url": "https://screensizechecker.com/es/blog/device-pixel-ratio",
+        "og_title": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+        "og_description": "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/device-pixel-ratio",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+        "current_name": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+          "description": "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-media-queries-essentials-es",
+      "template": "blog-post",
+      "output": "blog/media-queries-essentials.html",
+      "page_content": "blog-post-media-queries-essentials-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Fundamentos de CSS Media Queries",
+        "page_description": "Domina las media queries de CSS para diseño web responsive",
+        "page_keywords": "media-queries, responsive-design, css, breakpoints",
+        "canonical_url": "https://screensizechecker.com/es/blog/media-queries-essentials",
+        "og_title": "Fundamentos de CSS Media Queries",
+        "og_description": "Domina las media queries de CSS para diseño web responsive",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/media-queries-essentials",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Fundamentos de CSS Media Queries",
+        "current_name": "Fundamentos de CSS Media Queries",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Fundamentos de CSS Media Queries",
+          "description": "Domina las media queries de CSS para diseño web responsive",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-25T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-responsive-debugging-checklist-es",
+      "template": "blog-post",
+      "output": "blog/responsive-debugging-checklist.html",
+      "page_content": "blog-post-responsive-debugging-checklist-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Lista de Verificación para Depurar Diseño Responsive",
+        "page_description": "Lista completa para depurar problemas de diseño responsive",
+        "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/es/blog/responsive-debugging-checklist",
+        "og_title": "Lista de Verificación para Depurar Diseño Responsive",
+        "og_description": "Lista completa para depurar problemas de diseño responsive",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/responsive-debugging-checklist",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Lista de Verificación para Depurar Diseño Responsive",
+        "current_name": "Lista de Verificación para Depurar Diseño Responsive",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Lista de Verificación para Depurar Diseño Responsive",
+          "description": "Lista completa para depurar problemas de diseño responsive",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-screen-dimensions-cheat-sheet-es",
+      "template": "blog-post",
+      "output": "blog/screen-dimensions-cheat-sheet.html",
+      "page_content": "blog-post-screen-dimensions-cheat-sheet-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Hoja de Referencia de Dimensiones de Pantalla",
+        "page_description": "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes",
+        "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
+        "canonical_url": "https://screensizechecker.com/es/blog/screen-dimensions-cheat-sheet",
+        "og_title": "Hoja de Referencia de Dimensiones de Pantalla",
+        "og_description": "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/screen-dimensions-cheat-sheet",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Hoja de Referencia de Dimensiones de Pantalla",
+        "current_name": "Hoja de Referencia de Dimensiones de Pantalla",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Hoja de Referencia de Dimensiones de Pantalla",
+          "description": "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2024-01-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-viewport-basics-es",
+      "template": "blog-post",
+      "output": "blog/viewport-basics.html",
+      "page_content": "blog-post-viewport-basics-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Entendiendo los Fundamentos del Viewport",
+        "page_description": "Aprende qué es el viewport y por qué es crucial para el diseño web responsive",
+        "page_keywords": "viewport, responsive-design, web-development",
+        "canonical_url": "https://screensizechecker.com/es/blog/viewport-basics",
+        "og_title": "Entendiendo los Fundamentos del Viewport",
+        "og_description": "Aprende qué es el viewport y por qué es crucial para el diseño web responsive",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/viewport-basics",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Entendiendo los Fundamentos del Viewport",
+        "current_name": "Entendiendo los Fundamentos del Viewport",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Entendiendo los Fundamentos del Viewport",
+          "description": "Aprende qué es el viewport y por qué es crucial para el diseño web responsive",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2023-10-15T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-category-technical-es",
+      "template": "blog-category",
+      "output": "blog/category/technical.html",
+      "page_content": "blog-category-technical-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Category: technical",
+        "page_description": "Browse all articles in the technical category",
+        "page_keywords": "blog, technical, category",
+        "canonical_url": "https://screensizechecker.com/es/blog/category/technical",
+        "og_title": "Category: technical",
+        "og_description": "Browse all articles in the technical category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/category/technical",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "technical",
+        "current_name": "technical",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-css-es",
+      "template": "blog-category",
+      "output": "blog/category/css.html",
+      "page_content": "blog-category-css-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Category: css",
+        "page_description": "Browse all articles in the css category",
+        "page_keywords": "blog, css, category",
+        "canonical_url": "https://screensizechecker.com/es/blog/category/css",
+        "og_title": "Category: css",
+        "og_description": "Browse all articles in the css category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/category/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-basics-es",
+      "template": "blog-category",
+      "output": "blog/category/basics.html",
+      "page_content": "blog-category-basics-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Category: basics",
+        "page_description": "Browse all articles in the basics category",
+        "page_keywords": "blog, basics, category",
+        "canonical_url": "https://screensizechecker.com/es/blog/category/basics",
+        "og_title": "Category: basics",
+        "og_description": "Browse all articles in the basics category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/category/basics",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "basics",
+        "current_name": "basics",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-laptop-es",
+      "template": "blog-tag",
+      "output": "blog/tag/laptop.html",
+      "page_content": "blog-tag-laptop-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: laptop",
+        "page_description": "Browse all articles tagged with laptop",
+        "page_keywords": "blog, laptop, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/laptop",
+        "og_title": "Tag: laptop",
+        "og_description": "Browse all articles tagged with laptop",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/laptop",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "laptop",
+        "current_name": "#laptop",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-screen-size-es",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-size.html",
+      "page_content": "blog-tag-screen-size-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: screen-size",
+        "page_description": "Browse all articles tagged with screen-size",
+        "page_keywords": "blog, screen-size, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/screen-size",
+        "og_title": "Tag: screen-size",
+        "og_description": "Browse all articles tagged with screen-size",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/screen-size",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-size",
+        "current_name": "#screen-size",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-web-development-es",
+      "template": "blog-tag",
+      "output": "blog/tag/web-development.html",
+      "page_content": "blog-tag-web-development-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: web-development",
+        "page_description": "Browse all articles tagged with web-development",
+        "page_keywords": "blog, web-development, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/web-development",
+        "og_title": "Tag: web-development",
+        "og_description": "Browse all articles tagged with web-development",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/web-development",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "web-development",
+        "current_name": "#web-development",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-responsive-design-es",
+      "template": "blog-tag",
+      "output": "blog/tag/responsive-design.html",
+      "page_content": "blog-tag-responsive-design-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: responsive-design",
+        "page_description": "Browse all articles tagged with responsive-design",
+        "page_keywords": "blog, responsive-design, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/responsive-design",
+        "og_title": "Tag: responsive-design",
+        "og_description": "Browse all articles tagged with responsive-design",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/responsive-design",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "responsive-design",
+        "current_name": "#responsive-design",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-display-technology-es",
+      "template": "blog-tag",
+      "output": "blog/tag/display-technology.html",
+      "page_content": "blog-tag-display-technology-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: display-technology",
+        "page_description": "Browse all articles tagged with display-technology",
+        "page_keywords": "blog, display-technology, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/display-technology",
+        "og_title": "Tag: display-technology",
+        "og_description": "Browse all articles tagged with display-technology",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/display-technology",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "display-technology",
+        "current_name": "#display-technology",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-black myth-es",
+      "template": "blog-tag",
+      "output": "blog/tag/black myth.html",
+      "page_content": "blog-tag-black myth-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: black myth",
+        "page_description": "Browse all articles tagged with black myth",
+        "page_keywords": "blog, black myth, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/black myth",
+        "og_title": "Tag: black myth",
+        "og_description": "Browse all articles tagged with black myth",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/black myth",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "black myth",
+        "current_name": "#black myth",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-gaming-es",
+      "template": "blog-tag",
+      "output": "blog/tag/gaming.html",
+      "page_content": "blog-tag-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: gaming",
+        "page_description": "Browse all articles tagged with gaming",
+        "page_keywords": "blog, gaming, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/gaming",
+        "og_title": "Tag: gaming",
+        "og_description": "Browse all articles tagged with gaming",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/gaming",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming",
+        "current_name": "#gaming",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-hardware-es",
+      "template": "blog-tag",
+      "output": "blog/tag/hardware.html",
+      "page_content": "blog-tag-hardware-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: hardware",
+        "page_description": "Browse all articles tagged with hardware",
+        "page_keywords": "blog, hardware, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/hardware",
+        "og_title": "Tag: hardware",
+        "og_description": "Browse all articles tagged with hardware",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/hardware",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hardware",
+        "current_name": "#hardware",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-monitors-es",
+      "template": "blog-tag",
+      "output": "blog/tag/monitors.html",
+      "page_content": "blog-tag-monitors-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: monitors",
+        "page_description": "Browse all articles tagged with monitors",
+        "page_keywords": "blog, monitors, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/monitors",
+        "og_title": "Tag: monitors",
+        "og_description": "Browse all articles tagged with monitors",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/monitors",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "monitors",
+        "current_name": "#monitors",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-4k-es",
+      "template": "blog-tag",
+      "output": "blog/tag/4k.html",
+      "page_content": "blog-tag-4k-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: 4k",
+        "page_description": "Browse all articles tagged with 4k",
+        "page_keywords": "blog, 4k, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/4k",
+        "og_title": "Tag: 4k",
+        "og_description": "Browse all articles tagged with 4k",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/4k",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "4k",
+        "current_name": "#4k",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-css-es",
+      "template": "blog-tag",
+      "output": "blog/tag/css.html",
+      "page_content": "blog-tag-css-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: css",
+        "page_description": "Browse all articles tagged with css",
+        "page_keywords": "blog, css, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/css",
+        "og_title": "Tag: css",
+        "og_description": "Browse all articles tagged with css",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/css",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "css",
+        "current_name": "#css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-container-queries-es",
+      "template": "blog-tag",
+      "output": "blog/tag/container-queries.html",
+      "page_content": "blog-tag-container-queries-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: container-queries",
+        "page_description": "Browse all articles tagged with container-queries",
+        "page_keywords": "blog, container-queries, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/container-queries",
+        "og_title": "Tag: container-queries",
+        "og_description": "Browse all articles tagged with container-queries",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/container-queries",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "container-queries",
+        "current_name": "#container-queries",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-frontend-es",
+      "template": "blog-tag",
+      "output": "blog/tag/frontend.html",
+      "page_content": "blog-tag-frontend-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: frontend",
+        "page_description": "Browse all articles tagged with frontend",
+        "page_keywords": "blog, frontend, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/frontend",
+        "og_title": "Tag: frontend",
+        "og_description": "Browse all articles tagged with frontend",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/frontend",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "frontend",
+        "current_name": "#frontend",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-dpr-es",
+      "template": "blog-tag",
+      "output": "blog/tag/dpr.html",
+      "page_content": "blog-tag-dpr-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: dpr",
+        "page_description": "Browse all articles tagged with dpr",
+        "page_keywords": "blog, dpr, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/dpr",
+        "og_title": "Tag: dpr",
+        "og_description": "Browse all articles tagged with dpr",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/dpr",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "dpr",
+        "current_name": "#dpr",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-pixel-density-es",
+      "template": "blog-tag",
+      "output": "blog/tag/pixel-density.html",
+      "page_content": "blog-tag-pixel-density-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: pixel-density",
+        "page_description": "Browse all articles tagged with pixel-density",
+        "page_keywords": "blog, pixel-density, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/pixel-density",
+        "og_title": "Tag: pixel-density",
+        "og_description": "Browse all articles tagged with pixel-density",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/pixel-density",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "pixel-density",
+        "current_name": "#pixel-density",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-retina-display-es",
+      "template": "blog-tag",
+      "output": "blog/tag/retina-display.html",
+      "page_content": "blog-tag-retina-display-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: retina-display",
+        "page_description": "Browse all articles tagged with retina-display",
+        "page_keywords": "blog, retina-display, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/retina-display",
+        "og_title": "Tag: retina-display",
+        "og_description": "Browse all articles tagged with retina-display",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/retina-display",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "retina-display",
+        "current_name": "#retina-display",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-media-queries-es",
+      "template": "blog-tag",
+      "output": "blog/tag/media-queries.html",
+      "page_content": "blog-tag-media-queries-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: media-queries",
+        "page_description": "Browse all articles tagged with media-queries",
+        "page_keywords": "blog, media-queries, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/media-queries",
+        "og_title": "Tag: media-queries",
+        "og_description": "Browse all articles tagged with media-queries",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/media-queries",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "media-queries",
+        "current_name": "#media-queries",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-breakpoints-es",
+      "template": "blog-tag",
+      "output": "blog/tag/breakpoints.html",
+      "page_content": "blog-tag-breakpoints-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: breakpoints",
+        "page_description": "Browse all articles tagged with breakpoints",
+        "page_keywords": "blog, breakpoints, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/breakpoints",
+        "og_title": "Tag: breakpoints",
+        "og_description": "Browse all articles tagged with breakpoints",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/breakpoints",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "breakpoints",
+        "current_name": "#breakpoints",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-debugging-es",
+      "template": "blog-tag",
+      "output": "blog/tag/debugging.html",
+      "page_content": "blog-tag-debugging-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: debugging",
+        "page_description": "Browse all articles tagged with debugging",
+        "page_keywords": "blog, debugging, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/debugging",
+        "og_title": "Tag: debugging",
+        "og_description": "Browse all articles tagged with debugging",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/debugging",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "debugging",
+        "current_name": "#debugging",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-viewport-es",
+      "template": "blog-tag",
+      "output": "blog/tag/viewport.html",
+      "page_content": "blog-tag-viewport-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: viewport",
+        "page_description": "Browse all articles tagged with viewport",
+        "page_keywords": "blog, viewport, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/viewport",
+        "og_title": "Tag: viewport",
+        "og_description": "Browse all articles tagged with viewport",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/viewport",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "viewport",
+        "current_name": "#viewport",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-screen-dimensions-es",
+      "template": "blog-tag",
+      "output": "blog/tag/screen-dimensions.html",
+      "page_content": "blog-tag-screen-dimensions-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: screen-dimensions",
+        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_keywords": "blog, screen-dimensions, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/screen-dimensions",
+        "og_title": "Tag: screen-dimensions",
+        "og_description": "Browse all articles tagged with screen-dimensions",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/screen-dimensions",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "screen-dimensions",
+        "current_name": "#screen-dimensions",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
       }
     }
   ]
