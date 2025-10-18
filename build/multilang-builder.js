@@ -2138,62 +2138,66 @@ ${languageCards}
         console.log('\n🔄 Generating optimized _redirects file...');
         
         const redirectsContent = `# Cloudflare Pages 重定向配置文件
-# 简化版本 - 避免重定向循环
+# URL 结构迁移：英文内容从 /en/* 迁移到根路径 /*
 
-# ===== 根目录重定向 =====
-# 根目录重定向已移除 - 根目录现在直接显示英文内容，无需重定向
-# / /en/ 302  # 已移除：根目录不再重定向
-# /index.html /en/ 301  # 已移除：根目录index.html不再重定向
+# ===== 重要：旧英文路径 → 新根路径 =====
+# 这些规则确保旧的 /en/* URL 正确重定向到新的根路径
 
-# ===== 根域名博客重定向 =====
-# 根域名下的博客访问重定向到 /en/blog/ 路径，避免重复内容问题
-/blog/* /en/blog/:splat 301
-/blog /en/blog/ 301
+# 英文主页重定向
+/en/                  /                   301
+/en/index.html        /                   301
 
-# ===== 旧URL重定向到新URL（带.html后缀的重定向到无后缀）=====
-/devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
-/devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
-/devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
-/devices/compare.html /en/devices/compare 301
-/devices/standard-resolutions.html /en/devices/standard-resolutions 301
-/devices/responsive-tester.html /en/devices/responsive-tester 301
+# 英文博客重定向（旧路径 → 新路径）
+/en/blog              /blog               301
+/en/blog/             /blog/              301
+/en/blog/*            /blog/:splat        301
 
-/en/devices/iphone-viewport-sizes.html /en/devices/iphone-viewport-sizes 301
-/en/devices/ipad-viewport-sizes.html /en/devices/ipad-viewport-sizes 301
-/en/devices/android-viewport-sizes.html /en/devices/android-viewport-sizes 301
-/en/devices/compare.html /en/devices/compare 301
-/en/devices/standard-resolutions.html /en/devices/standard-resolutions 301
-/en/devices/responsive-tester.html /en/devices/responsive-tester 301
+# 英文设备页面重定向（旧路径 → 新路径）
+/en/devices/*         /devices/:splat     301
 
-/zh/devices/iphone-viewport-sizes.html /zh/devices/iphone-viewport-sizes 301
-/zh/devices/ipad-viewport-sizes.html /zh/devices/ipad-viewport-sizes 301
-/zh/devices/android-viewport-sizes.html /zh/devices/android-viewport-sizes 301
-/zh/devices/compare.html /zh/devices/compare 301
-/zh/devices/standard-resolutions.html /zh/devices/standard-resolutions 301
-/zh/devices/responsive-tester.html /zh/devices/responsive-tester 301
+# 英文工具页面重定向（如果存在）
+/en/tools/*           /tools/:splat       301
 
-# ===== 博客页面重定向 =====
-/en/blog/index.html /en/blog 301
-/zh/blog/index.html /zh/blog 301
-/en/blog/device-pixel-ratio.html /en/blog/device-pixel-ratio 301
-/en/blog/media-queries-essentials.html /en/blog/media-queries-essentials 301
-/en/blog/viewport-basics.html /en/blog/viewport-basics 301
-/zh/blog/device-pixel-ratio.html /zh/blog/device-pixel-ratio 301
-/zh/blog/media-queries-essentials.html /zh/blog/media-queries-essentials 301
-/zh/blog/viewport-basics.html /zh/blog/viewport-basics 301
+# 通用规则：所有剩余的 /en/* 路径重定向到根路径
+/en/*                 /:splat             301
 
-# ===== 语言版本重定向 =====
-/en/index.html /en/ 301
-/zh/index.html /zh/ 301
+# ===== .html 后缀重定向（根路径英文版本）=====
+/devices/iphone-viewport-sizes.html       /devices/iphone-viewport-sizes      301
+/devices/ipad-viewport-sizes.html         /devices/ipad-viewport-sizes        301
+/devices/android-viewport-sizes.html      /devices/android-viewport-sizes     301
+/devices/compare.html                     /devices/compare                    301
+/devices/standard-resolutions.html        /devices/standard-resolutions       301
+/devices/responsive-tester.html           /devices/responsive-tester          301
+/devices/ppi-calculator.html              /devices/ppi-calculator             301
+/devices/aspect-ratio-calculator.html     /devices/aspect-ratio-calculator    301
+
+# ===== .html 后缀重定向（中文版本）=====
+/zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
+/zh/devices/ipad-viewport-sizes.html      /zh/devices/ipad-viewport-sizes     301
+/zh/devices/android-viewport-sizes.html   /zh/devices/android-viewport-sizes  301
+/zh/devices/compare.html                  /zh/devices/compare                 301
+/zh/devices/standard-resolutions.html     /zh/devices/standard-resolutions    301
+/zh/devices/responsive-tester.html        /zh/devices/responsive-tester       301
+/zh/devices/ppi-calculator.html           /zh/devices/ppi-calculator          301
+/zh/devices/aspect-ratio-calculator.html  /zh/devices/aspect-ratio-calculator 301
+
+# ===== 博客 .html 后缀重定向 =====
+/blog/index.html                          /blog                               301
+/zh/blog/index.html                       /zh/blog                            301
+/blog/*.html                              /blog/:splat                        301
+/zh/blog/*.html                           /zh/blog/:splat                     301
+
+# ===== 语言版本 index.html 重定向 =====
+/zh/index.html                            /zh/                                301
 
 # ===== 其他页面重定向 =====
-/privacy-policy.html /privacy-policy 301
-/terms-of-service.html /privacy-policy 301
-/terms-of-service /privacy-policy 301
+/privacy-policy.html                      /privacy-policy                     301
+/terms-of-service.html                    /privacy-policy                     301
+/terms-of-service                         /privacy-policy                     301
 
-# ===== 旧路径重定向 =====
-/devices/ /en/devices/compare 301
-/devices /en/devices/compare 301`;
+# ===== 便捷访问重定向 =====
+/devices/                                 /devices/iphone-viewport-sizes      301
+/devices                                  /devices/iphone-viewport-sizes      301`;
 
         fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent);
         console.log('✅ Generated simplified _redirects file');
