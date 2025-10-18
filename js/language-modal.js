@@ -270,7 +270,12 @@ class LanguageModal {
             }
             
             // Ensure trailing slash for directory-like paths (index pages)
-            if (!pagePath || (!pagePath.includes('.') && !pagePath.endsWith('/'))) {
+            // But NOT for hub pages or other specific page paths
+            const isHubPage = pagePath && pagePath.includes('hub/');
+            const isFilePath = pagePath && pagePath.includes('.');
+            const hasTrailingSlash = pagePath && pagePath.endsWith('/');
+            
+            if (!pagePath || (!isFilePath && !hasTrailingSlash && !isHubPage)) {
                 targetUrl += '/';
             }
             console.log(`🌍 Non-English target: using language prefix (${targetUrl})`);

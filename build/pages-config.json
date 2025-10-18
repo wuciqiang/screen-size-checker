@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T21:20:07.222Z",
+          "datePublished": "2025-10-18T21:48:20.853Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T21:20:07.475Z",
+          "datePublished": "2025-10-18T21:48:21.098Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T21:20:07.515Z",
+          "datePublished": "2025-10-18T21:48:21.136Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T21:20:07.535Z",
+          "datePublished": "2025-10-18T21:48:21.156Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5488,6 +5488,104 @@
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
         "hub_author": "Screen Size Checker 游戏团队",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-best-gaming-resolution-2025-de",
+      "template": "hub-page",
+      "output": "hub/best-gaming-resolution-2025.html",
+      "page_content": "hub-best-gaming-resolution-2025-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Beste Gaming-Auflösung 2025: Kompletter Leitfaden zu 1080p vs 1440p vs 4K",
+        "page_description": "Entdecke die beste Gaming-Auflösung für dein Setup in 2025. Expertenvergleich von 1080p, 1440p und 4K Gaming mit FPS-Benchmarks, Hardware-Anforderungen und Pro-Spieler-Empfehlungen.",
+        "page_keywords": "beste gaming-auflösung, gaming-auflösung 2025, 1080p vs 1440p gaming, 4k gaming, beste auflösung für gaming, gaming-monitor-auflösung",
+        "canonical_url": "https://screensizechecker.com/de/hub/best-gaming-resolution-2025",
+        "og_title": "Beste Gaming-Auflösung 2025: Kompletter Leitfaden zu 1080p vs 1440p vs 4K",
+        "og_description": "Entdecke die beste Gaming-Auflösung für dein Setup in 2025. Expertenvergleich von 1080p, 1440p und 4K Gaming mit FPS-Benchmarks, Hardware-Anforderungen und Pro-Spieler-Empfehlungen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/best-gaming-resolution-2025",
+        "og_image": "https://screensizechecker.com/images/best-gaming-resolution-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-gaming-resolution-2025",
+        "current_name": "Beste Gaming-Auflösung 2025: Kompletter Leitfaden zu 1080p vs 1440p vs 4K",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "gaming-auflösung",
+          "1080p",
+          "1440p",
+          "4k-gaming",
+          "fps",
+          "monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-best-gaming-resolution-2025-es",
+      "template": "hub-page",
+      "output": "hub/best-gaming-resolution-2025.html",
+      "page_content": "hub-best-gaming-resolution-2025-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Mejor Resolución Gaming 2025: Guía Completa de 1080p vs 1440p vs 4K",
+        "page_description": "Descubre la mejor resolución gaming para tu configuración en 2025. Comparación experta de gaming 1080p, 1440p y 4K con benchmarks FPS, requisitos de hardware y recomendaciones de jugadores profesionales.",
+        "page_keywords": "mejor resolución gaming, resolución gaming 2025, 1080p vs 1440p gaming, 4k gaming, mejor resolución para gaming, resolución monitor gaming",
+        "canonical_url": "https://screensizechecker.com/es/hub/best-gaming-resolution-2025",
+        "og_title": "Mejor Resolución Gaming 2025: Guía Completa de 1080p vs 1440p vs 4K",
+        "og_description": "Descubre la mejor resolución gaming para tu configuración en 2025. Comparación experta de gaming 1080p, 1440p y 4K con benchmarks FPS, requisitos de hardware y recomendaciones de jugadores profesionales.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/best-gaming-resolution-2025",
+        "og_image": "https://screensizechecker.com/images/best-gaming-resolution-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-gaming-resolution-2025",
+        "current_name": "Mejor Resolución Gaming 2025: Guía Completa de 1080p vs 1440p vs 4K",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "resolución-gaming",
+          "1080p",
+          "1440p",
+          "4k-gaming",
+          "fps",
+          "monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
         "is_tools": false,
