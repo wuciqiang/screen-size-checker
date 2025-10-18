@@ -476,10 +476,10 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 中文版本
                     pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
                     
-                    // 德语版本（未来）
+                    // 德语版本
                     pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
                     
-                    // 西语版本（未来）
+                    // 西语版本
                     pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
                     
                     // 添加结构化数据
@@ -1564,6 +1564,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_en_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
+                rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
+                rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
                 // 处理翻译
                 if (rootPageData.page_title_key) {
@@ -1674,6 +1676,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_en_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
+                rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
+                rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
                 // 处理翻译
                 if (rootPageData.page_title_key) {
@@ -1791,6 +1795,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.hreflang_root_url = 'https://screensizechecker.com/';
         rootPageData.hreflang_en_url = 'https://screensizechecker.com/';
         rootPageData.hreflang_zh_url = 'https://screensizechecker.com/zh/';
+        rootPageData.hreflang_de_url = 'https://screensizechecker.com/de/';
+        rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
         
         // 从翻译文件中获取页面特定的翻译值
         if (rootPageData.page_title_key) {
@@ -1981,7 +1987,7 @@ ${languageCards}
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
-        const enabledLanguages = ['en', 'zh']; // 只包含启用的语言
+        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 只包含启用的语言
         
         // 定义页面结构（无.html后缀，匹配Cloudflare Pages的URL格式）
         const pages = [
