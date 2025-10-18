@@ -268,6 +268,8 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 准备页面数据并调整路径
                     const pageData = {
                         lang: lang,
+                        lang_prefix: lang === this.defaultLanguage ? '' : `/${lang}`,
+                        lang_code: lang.toUpperCase(),
                         page_content: page.page_content,
                         ...page.config
                     };
@@ -1506,6 +1508,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 // 准备根目录博客页面数据
                 const rootPageData = {
                     lang: 'en',
+                    lang_prefix: '',
+                    lang_code: 'EN',
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -1613,6 +1617,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 // 准备根目录设备页面数据
                 const rootPageData = {
                     lang: 'en',
+                    lang_prefix: '',
+                    lang_code: 'EN',
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -1733,6 +1739,8 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         // 准备根目录页面数据
         const rootPageData = {
             lang: 'en',
+            lang_prefix: '',
+            lang_code: 'EN',
             page_content: indexPageConfig.page_content,
             ...indexPageConfig.config
         };

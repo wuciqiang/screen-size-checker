@@ -1,13 +1,13 @@
 {
-  "validationDate": "2025-10-18T16:23:57.912Z",
+  "validationDate": "2025-10-18T17:10:29.653Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 615,
-    "missingTranslations": 117,
-    "inconsistentKeys": 225
+    "totalKeys": 614,
+    "missingTranslations": 115,
+    "inconsistentKeys": 216
   },
   "missingKeys": {
     "en": [
@@ -53,7 +53,6 @@
       "devices_iphone",
       "devices_android",
       "devices_ipad",
-      "devices_standard_resolutions",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
       "ipad_7th_gen",
@@ -113,7 +112,6 @@
       "devices_iphone",
       "devices_android",
       "devices_ipad",
-      "devices_standard_resolutions",
       "screen_size_suffix",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
@@ -1122,51 +1120,6 @@
       "component": "head.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "seo_description"
-    },
-    {
-      "component": "header-mega-menu-production.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_iphone"
-    },
-    {
-      "component": "header-mega-menu-production.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_android"
-    },
-    {
-      "component": "header-mega-menu-production.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_ipad"
-    },
-    {
-      "component": "header-mega-menu-production.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_standard_resolutions"
-    },
-    {
-      "component": "header-mega-menu-v2.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_standard_resolutions"
-    },
-    {
-      "component": "header-mega-menu-v2.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_iphone"
-    },
-    {
-      "component": "header-mega-menu-v2.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_android"
-    },
-    {
-      "component": "header-mega-menu-v2.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_ipad"
-    },
-    {
-      "component": "header-mega-menu.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "devices_standard_resolutions"
     },
     {
       "component": "header-mega-menu.html",

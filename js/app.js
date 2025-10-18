@@ -621,11 +621,6 @@ function navigateToLanguage(newLang) {
             if (pagePath) {
                 newPath += `/${pagePath}`;
             }
-            
-            // Ensure trailing slash for directory-like paths
-            if (!pagePath || (!pagePath.includes('.') && !pagePath.endsWith('/'))) {
-                newPath += '/';
-            }
             console.log('🌍 Non-English: using language prefix');
         }
     }
