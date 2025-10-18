@@ -418,8 +418,9 @@ class MultiLangBuilder extends ComponentBuilder {
                             // 英文博客在根目录 /blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         } else {
-                            // 其他语言博客在 /zh/blog/ 等
-                            pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
+                            // 其他语言页面需要回到根目录访问博客
+                            // 例如：/de/index.html -> ../blog/, /de/devices/xxx.html -> ../../blog/
+                            pageData.blog_url = '../'.repeat(depth + 1) + 'blog/';
                         }
                     }
                     
