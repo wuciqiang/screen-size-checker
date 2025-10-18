@@ -1,4 +1,4 @@
----
+﻿---
 title: "Device Pixel Ratio Explained"
 description: "Learn about device pixel ratio (DPR) and how it affects web design and development"
 date: "2023-10-20"
@@ -129,4 +129,4 @@ Device Pixel Ratio significantly impacts how your website appears across differe
 
 Remember that optimizing for different DPRs isn't just about image quality—it's about finding the right balance between visual fidelity and performance for each user's device.
 
-For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](/en/blog/viewport-basics.html) and explore our device-specific guides like [iPhone Viewport Sizes](/en/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/en/devices/android-viewport-sizes.html). 
+For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](/blog/viewport-basics.html) and explore our device-specific guides like [iPhone Viewport Sizes](/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/devices/android-viewport-sizes.html). 

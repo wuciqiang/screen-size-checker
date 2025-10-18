@@ -1,4 +1,4 @@
----
+﻿---
 title: "Understanding Viewport Basics"
 description: "Learn what viewport is and why it's crucial for responsive web design"
 date: "2023-10-15"
@@ -61,4 +61,4 @@ Understanding the viewport concept is fundamental to modern web development. By 
 
 Remember that viewport size can change when users rotate their devices or resize their browser windows, so your designs should be flexible enough to accommodate these changes.
 
-For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](/en/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/en/devices/android-viewport-sizes.html) guides. 
+For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/devices/android-viewport-sizes.html) guides. 

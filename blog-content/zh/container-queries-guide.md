@@ -1,4 +1,4 @@
----
+﻿---
 title: "CSS 容器查询完全指南：告别媒体查询的痛点"
 description: "通过这份全面的指南掌握 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小进行自适应。包含实际示例、浏览器支持和迁移策略。"
 date: "2025-01-09"
@@ -546,3 +546,4 @@ if (supportsContainerQueries()) {
 ---
 
 *想在不同屏幕尺寸上测试你的容器查询吗？试试我们的[免费响应式设计测试器](https://screensizechecker.com/zh/devices/responsive-tester)，实时查看你的组件如何适应。想了解更多关于现代 CSS 和响应式设计的文章，请查看我们的[博客](https://screensizechecker.com/zh/blog/)。*
+

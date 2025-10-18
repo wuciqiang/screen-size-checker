@@ -1,4 +1,4 @@
-# Screen Size Checker - 博客系统
+﻿# Screen Size Checker - 博客系统
 
 这是Screen Size Checker项目的博客图片资源目录，同时包含完整的博客系统架构和使用指南。
 
@@ -112,7 +112,7 @@ featuredImage: "article-name.jpg"
 npm run build
 
 # 检查生成的页面
-# 英文: multilang-build/en/blog/
+# 英文: multilang-build/blog/
 # 中文: multilang-build/zh/blog/
 ```
 
@@ -148,7 +148,7 @@ npm run build
 
 2. **链接规范**
    - 内部链接必须包含 `.html` 后缀
-   - 使用绝对路径：`/en/blog/article-name.html`
+   - 使用绝对路径：`/blog/article-name.html`
    - 确保链接有效性
 
 3. **代码示例**

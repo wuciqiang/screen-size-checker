@@ -1,4 +1,4 @@
----
+﻿---
 title: "Media Queries Essentials for Responsive Design"
 description: "Master the fundamentals of CSS media queries for creating responsive websites that work on any device"
 date: "2023-10-25"
@@ -304,4 +304,4 @@ Media queries are an essential tool for creating modern, responsive websites. By
 
 Remember that responsive design is about more than just making elements fit on different screens—it's about creating a cohesive user experience regardless of how someone accesses your content.
 
-For more on related topics, check out our articles on [Viewport Basics](/en/blog/viewport-basics.html) and [Device Pixel Ratio](/en/blog/device-pixel-ratio.html). 
+For more on related topics, check out our articles on [Viewport Basics](/blog/viewport-basics.html) and [Device Pixel Ratio](/blog/device-pixel-ratio.html). 

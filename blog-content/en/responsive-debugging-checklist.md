@@ -1,4 +1,4 @@
----
+﻿---
 title: "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks"
 description: "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting."
 date: "2024-01-15"
@@ -35,7 +35,7 @@ With this mindset in place, let's dive into the systematic checklist that will s
 
 ### 1. Check Your Viewport Meta Tag
 
-This is the most fundamental check, yet it's often overlooked. The [viewport](https://screensizechecker.com/en/blog/viewport-basics.html) meta tag tells the browser how to control the page's dimensions and scaling on mobile devices.
+This is the most fundamental check, yet it's often overlooked. The [viewport](https://screensizechecker.com/blog/viewport-basics.html) meta tag tells the browser how to control the page's dimensions and scaling on mobile devices.
 
 **What to check:**
 - Ensure you have `<meta name="viewport" content="width=device-width, initial-scale=1.0">` in your HTML head
@@ -79,7 +79,7 @@ By default, CSS uses `content-box`, meaning padding and borders are added to the
 
 ### 3. Validate Your Media Queries
 
-[Media queries](https://screensizechecker.com/en/blog/media-queries-essentials.html) are the backbone of responsive design, but they're easy to get wrong.
+[Media queries](https://screensizechecker.com/blog/media-queries-essentials.html) are the backbone of responsive design, but they're easy to get wrong.
 
 **What to check:**
 - Verify syntax: missing commas, incorrect operators, typos
@@ -105,7 +105,7 @@ A single syntax error can break an entire media query block. Overlapping breakpo
 
 ### 4. Test on a Real Device (or Good Simulator)
 
-Browser resizing doesn't always replicate real device behavior. You need to test on actual devices or use a [good simulator](https://screensizechecker.com/en/devices/responsive-tester).
+Browser resizing doesn't always replicate real device behavior. You need to test on actual devices or use a [good simulator](https://screensizechecker.com/devices/responsive-tester).
 
 **What to check:**
 - Test on multiple real devices if possible
@@ -123,7 +123,7 @@ Desktop browsers don't perfectly simulate mobile behavior. Touch targets, scroll
 
 ### 5. The Device Pixel Ratio (DPR) Trap
 
-High-resolution displays can make your carefully planned layouts look blurry or incorrectly sized. Understanding [Device Pixel Ratio](https://screensizechecker.com/en/blog/device-pixel-ratio) is crucial.
+High-resolution displays can make your carefully planned layouts look blurry or incorrectly sized. Understanding [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio) is crucial.
 
 **What to check:**
 - Verify images look sharp on high-DPR displays
@@ -396,7 +396,7 @@ Different units behave differently when the viewport changes. Mixing them carele
 
 ### 13. Device-Specific Quirks
 
-Different devices and browsers have unique behaviors that can break your responsive design. Sometimes, the issue is specific to a certain model. It's always a good idea to check the exact specifications on our [iPhone Screen Sizes](https://screensizechecker.com/en/devices/iphone-viewport-sizes) or [Android Screen Sizes](https://screensizechecker.com/en/devices/android-viewport-sizes) pages.
+Different devices and browsers have unique behaviors that can break your responsive design. Sometimes, the issue is specific to a certain model. It's always a good idea to check the exact specifications on our [iPhone Screen Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes) or [Android Screen Sizes](https://screensizechecker.com/devices/android-viewport-sizes) pages.
 
 **What to check:**
 - Test on various devices, not just screen sizes
@@ -514,7 +514,7 @@ Having the right tools makes responsive debugging significantly faster and more 
 **Pro tip:** Use the device toolbar in responsive mode, but don't rely on it exclusively. Always test on real devices when possible.
 
 **Additional Tools:**
-- **Responsive Design Checker**: Use our [responsive tester tool](https://screensizechecker.com/en/devices/responsive-tester) to quickly preview your site across multiple device sizes
+- **Responsive Design Checker**: Use our [responsive tester tool](https://screensizechecker.com/devices/responsive-tester) to quickly preview your site across multiple device sizes
 - **Lighthouse**: Built into Chrome DevTools, it identifies performance issues that can affect responsive layouts
 - **Can I Use**: Check browser support for CSS features before implementing fixes
 
@@ -530,6 +530,6 @@ Remember the key principles:
 
 The most important takeaway is that responsive debugging is about having a repeatable process. Bookmark this checklist, and you'll never again waste hours randomly tweaking CSS properties hoping something will work.
 
-**Ready to put your site to the test?** Now that you have the checklist, why not see how your website performs across different devices? Use our [free Responsive Tester](https://screensizechecker.com/en/devices/responsive-tester) to instantly check how your site looks on phones, tablets, and desktops. It's the perfect complement to this debugging guide—helping you catch issues before your users do.
+**Ready to put your site to the test?** Now that you have the checklist, why not see how your website performs across different devices? Use our [free Responsive Tester](https://screensizechecker.com/devices/responsive-tester) to instantly check how your site looks on phones, tablets, and desktops. It's the perfect complement to this debugging guide—helping you catch issues before your users do.
 
 Your responsive design problems are solvable. With this checklist in hand, you're equipped to tackle any layout challenge that comes your way.

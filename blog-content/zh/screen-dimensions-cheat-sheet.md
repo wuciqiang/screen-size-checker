@@ -1,4 +1,4 @@
----
+﻿---
 title: "Web设计师与开发者屏幕尺寸速查表2025"
 description: "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。"
 date: "2024-01-15"
@@ -22,11 +22,11 @@ featuredImage: "screen-dimensions-cheat-sheet.jpg"
 
 ## 核心概念60秒速览
 
-**分辨率与视口：** 分辨率是屏幕的物理像素数量，而[视口](https://screensizechecker.com/en/blog/viewport-basics.html)是浏览器的可视区域。理解这个差异对响应式设计至关重要。
+**分辨率与视口：** 分辨率是屏幕的物理像素数量，而[视口](https://screensizechecker.com/blog/viewport-basics.html)是浏览器的可视区域。理解这个差异对响应式设计至关重要。
 
-**宽高比：** 屏幕宽度与高度之间的比例关系。使用我们的[宽高比计算器](https://screensizechecker.com/en/devices/aspect-ratio-calculator)来快速计算任何尺寸的比例。
+**宽高比：** 屏幕宽度与高度之间的比例关系。使用我们的[宽高比计算器](https://screensizechecker.com/devices/aspect-ratio-calculator)来快速计算任何尺寸的比例。
 
-**像素密度（PPI与DPR）：** PPI（每英寸像素）衡量屏幕清晰度，而DPR（设备像素比）影响网页内容的渲染方式。使用我们的[PPI计算器](https://screensizechecker.com/en/devices/ppi-calculator)并了解[DPR概念](https://screensizechecker.com/en/blog/device-pixel-ratio)。
+**像素密度（PPI与DPR）：** PPI（每英寸像素）衡量屏幕清晰度，而DPR（设备像素比）影响网页内容的渲染方式。使用我们的[PPI计算器](https://screensizechecker.com/devices/ppi-calculator)并了解[DPR概念](https://screensizechecker.com/blog/device-pixel-ratio)。
 
 ## 笔记本屏幕尺寸 - 2025年概况
 
@@ -43,7 +43,7 @@ featuredImage: "screen-dimensions-cheat-sheet.jpg"
 - **2560×1440（2K）：** 在高端14英寸和15.6英寸型号中增长
 - **3840×2160（4K）：** 高端领域，主要是15.6英寸和17.3英寸
 
-如需完整分析和详细图表以及市场份额数据，请查看我们的深度分析：[2025年平均笔记本屏幕尺寸](https://screensizechecker.com/en/blog/average-laptop-screen-size-2025)。
+如需完整分析和详细图表以及市场份额数据，请查看我们的深度分析：[2025年平均笔记本屏幕尺寸](https://screensizechecker.com/blog/average-laptop-screen-size-2025)。
 
 ## 关键移动设备和平板尺寸快速参考表
 
@@ -58,7 +58,7 @@ featuredImage: "screen-dimensions-cheat-sheet.jpg"
 | Samsung Galaxy S24 | 6.2" | 1080×2340 | 360×780 | 416 PPI |
 | Google Pixel 8 Pro | 6.7" | 1344×2992 | 448×998 | 489 PPI |
 
-需要其他型号的规格？查看我们完整的、可搜索的数据库：[完整iPhone列表](https://screensizechecker.com/en/devices/iphone-viewport-sizes)、[完整iPad列表](https://screensizechecker.com/en/devices/ipad-viewport-sizes)、[完整Android列表](https://screensizechecker.com/en/devices/android-viewport-sizes)。
+需要其他型号的规格？查看我们完整的、可搜索的数据库：[完整iPhone列表](https://screensizechecker.com/devices/iphone-viewport-sizes)、[完整iPad列表](https://screensizechecker.com/devices/ipad-viewport-sizes)、[完整Android列表](https://screensizechecker.com/devices/android-viewport-sizes)。
 
 ## 响应式设计断点速查表
 
@@ -99,16 +99,16 @@ featuredImage: "screen-dimensions-cheat-sheet.jpg"
 }
 ```
 
-要了解如何有效实施这些断点，请阅读我们的[媒体查询基础指南](https://screensizechecker.com/en/blog/media-queries-essentials.html)。
+要了解如何有效实施这些断点，请阅读我们的[媒体查询基础指南](https://screensizechecker.com/blog/media-queries-essentials.html)。
 
 ## 你的基本工具包（整合所有工具）
 
 将这些工具加入书签，让你的响应式设计工作更高效：
 
-- **[屏幕尺寸检查器](https://screensizechecker.com/en/)** - 即时检查你当前的屏幕尺寸
-- **[响应式测试器](https://screensizechecker.com/en/devices/responsive-tester)** - 在不同设备尺寸上测试你的网站
-- **[PPI计算器](https://screensizechecker.com/en/devices/ppi-calculator)** - 计算任何屏幕的像素密度
-- **[宽高比计算器](https://screensizechecker.com/en/devices/aspect-ratio-calculator)** - 计算屏幕比例和尺寸
+- **[屏幕尺寸检查器](https://screensizechecker.com/)** - 即时检查你当前的屏幕尺寸
+- **[响应式测试器](https://screensizechecker.com/devices/responsive-tester)** - 在不同设备尺寸上测试你的网站
+- **[PPI计算器](https://screensizechecker.com/devices/ppi-calculator)** - 计算任何屏幕的像素密度
+- **[宽高比计算器](https://screensizechecker.com/devices/aspect-ratio-calculator)** - 计算屏幕比例和尺寸
 
 这些工具结合本速查表，将让你在处理任何响应式设计挑战时都游刃有余。
 
@@ -118,4 +118,4 @@ featuredImage: "screen-dimensions-cheat-sheet.jpg"
 
 **请收藏这个页面**，当你需要关于屏幕尺寸、断点或设备规格的快速答案时随时回来查看。随着网络变得越来越多样化，这个资源将为你节省无数小时的研究时间，帮助你构建更好、更包容的网站。
 
-准备将这些知识付诸实践了吗？从我们的[免费响应式测试器](https://screensizechecker.com/en/devices/responsive-tester)开始，看看你的设计在各种设备上的表现如何。
+准备将这些知识付诸实践了吗？从我们的[免费响应式测试器](https://screensizechecker.com/devices/responsive-tester)开始，看看你的设计在各种设备上的表现如何。

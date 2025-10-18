@@ -1,0 +1,21 @@
+# 301 Redirects for URL structure migration
+# English content moved from /en/* to root /*
+
+# Blog redirects (English blog moved to root)
+/en/blog              /blog                  301
+/en/blog/*            /blog/:splat           301
+
+# Device pages redirects
+/en/devices/*         /devices/:splat        301
+
+# Tool pages redirects (if any exist)
+/en/tools/*           /tools/:splat          301
+
+# Hub pages redirects (if any exist)
+/en/hub/*             /hub/:splat            301
+
+# Resources redirects (if any exist)
+/en/resources/*       /resources/:splat      301
+
+# General catch-all for any remaining /en/* pages
+/en/*                 /:splat                301

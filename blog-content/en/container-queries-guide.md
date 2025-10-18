@@ -1,4 +1,4 @@
----
+﻿---
 title: "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points"
 description: "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies."
 date: "2025-01-09"
@@ -364,13 +364,13 @@ Looking ahead, style queries allow you to query custom properties:
 
 ## Testing Container Queries with Screen Size Tools
 
-To effectively test your container queries, you need the right tools. Our [Responsive Design Tester](https://screensizechecker.com/en/devices/responsive-tester) is perfect for this:
+To effectively test your container queries, you need the right tools. Our [Responsive Design Tester](https://screensizechecker.com/devices/responsive-tester) is perfect for this:
 
 1. **Test Different Container Sizes**: Use the drag-to-resize feature to see how your components respond at various container widths
 2. **Device Presets**: Check how containers behave within different device viewports
 3. **Real-time Updates**: Watch your container queries trigger as you resize
 
-For calculating optimal breakpoints based on content, our [Aspect Ratio Calculator](https://screensizechecker.com/en/devices/aspect-ratio-calculator) helps determine the best container dimensions for your layouts.
+For calculating optimal breakpoints based on content, our [Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator) helps determine the best container dimensions for your layouts.
 
 ## Performance Considerations
 
@@ -756,7 +756,7 @@ Here's a challenge to test your understanding:
 /* Add your container queries here */
 ```
 
-Test your solution using our [Responsive Design Tester](https://screensizechecker.com/en/devices/responsive-tester) to see how it performs at different container sizes!
+Test your solution using our [Responsive Design Tester](https://screensizechecker.com/devices/responsive-tester) to see how it performs at different container sizes!
 
 ## Conclusion: The Container Query Revolution
 
@@ -779,4 +779,5 @@ The era of truly responsive components has arrived. Container queries aren't jus
 
 ---
 
-*Want to test your container queries on different screen sizes? Try our [free Responsive Design Tester](https://screensizechecker.com/en/devices/responsive-tester) to see how your components adapt in real-time. For more articles on modern CSS and responsive design, check out our [blog](https://screensizechecker.com/en/blog/).*
+*Want to test your container queries on different screen sizes? Try our [free Responsive Design Tester](https://screensizechecker.com/devices/responsive-tester) to see how your components adapt in real-time. For more articles on modern CSS and responsive design, check out our [blog](https://screensizechecker.com/blog/).*
+

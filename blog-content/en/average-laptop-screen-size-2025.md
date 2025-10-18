@@ -1,4 +1,4 @@
----
+﻿---
 title: "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)"
 description: "Discover the current laptop screen size trends and how they impact web development. Learn about aspect ratios, pixel densities, and optimization strategies for modern laptop displays."
 date: "2025-01-25"
@@ -26,7 +26,7 @@ Here's the current distribution:
 - **15.6-17 inches**: 15% (gaming laptops, workstations)
 - **17+ inches**: 5% (desktop replacements, specialized workstations)
 
-Want to see how your own site stacks up? **[Test it now with our free Responsive Design Tester](https://screensizechecker.com/en/devices/responsive-tester)** to check how your website performs across all these laptop sizes.
+Want to see how your own site stacks up? **[Test it now with our free Responsive Design Tester](https://screensizechecker.com/devices/responsive-tester)** to check how your website performs across all these laptop sizes.
 
 But as developers, we need to dig deeper than just diagonal measurements.
 
@@ -184,7 +184,7 @@ body {
 3. **15.6" Gaming Laptop** (1920×1080, 16:9, 141 PPI)
 4. **16" MacBook Pro** (3456×2234, 16:10, 254 PPI)
 
-The easiest way to start is by using a dedicated tool. **[Our Responsive Design Tester](https://screensizechecker.com/en/devices/responsive-tester)** includes presets for all these common configurations, plus the ability to test custom dimensions and drag-resize functionality for real-time testing.
+The easiest way to start is by using a dedicated tool. **[Our Responsive Design Tester](https://screensizechecker.com/devices/responsive-tester)** includes presets for all these common configurations, plus the ability to test custom dimensions and drag-resize functionality for real-time testing.
 
 ### Browser DevTools Setup
 
@@ -308,7 +308,7 @@ The laptop display landscape will continue evolving, but by focusing on adaptive
 <div class="cta-box">
 <h3>Ready to Test Your Designs?</h3>
 <p>Stop guessing and start seeing. Use our free, powerful Responsive Design Tester to instantly check your website's layout on dozens of modern laptop and mobile screen sizes.</p>
-<a href="https://screensizechecker.com/en/devices/responsive-tester" class="cta-button">Test Your Website Now for Free</a>
+<a href="https://screensizechecker.com/devices/responsive-tester" class="cta-button">Test Your Website Now for Free</a>
 </div>
 
 ---

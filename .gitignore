@@ -4,6 +4,9 @@
 multilang-build/
 test-build/
 
+#参考文档
+SEMRUSH
+
 # 依赖
 node_modules/
 

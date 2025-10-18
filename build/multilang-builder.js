@@ -11,6 +11,7 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
+        this.enabledLanguages = ['en', 'zh']; // 当前启用的语言
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
         this.loadTranslations();
@@ -57,27 +58,26 @@ class MultiLangBuilder extends ComponentBuilder {
     generateBlogUrl(depth, lang, isRootPage = false) {
         console.log(`🔗 Generating blog URL: depth=${depth}, lang=${lang}, isRootPage=${isRootPage}`);
 
-        if (isRootPage) {
-            // 根目录页面的博客URL逻辑
-            if (depth === 0) {
-                // 根目录主页：直接指向语言特定的博客
-                return `${lang}/blog/`;
-            } else {
-                // 根目录下的子页面（如 /devices/xxx.html）
-                // 需要先回到根目录，然后进入语言特定的博客
-                const backToRoot = '../'.repeat(depth);
-                return `${backToRoot}${lang}/blog/`;
-            }
-        } else {
-            // 语言版本页面的博客URL逻辑
-            if (depth === 0) {
-                // 语言根目录（如 /en/ 或 /zh/）
+        // 英文（默认语言）在根路径，其他语言在语言子目录
+        const isDefaultLang = lang === this.defaultLanguage;
+
+        if (depth === 0) {
+            // 在根目录或语言根目录
+            if (isDefaultLang) {
                 return 'blog/';
             } else {
-                // 语言目录下的子页面（如 /en/devices/xxx.html）
-                // 需要先回到语言根目录，然后进入博客
-                const backToLangRoot = '../'.repeat(depth);
-                return `${backToLangRoot}blog/`;
+                return 'blog/';
+            }
+        } else {
+            // 在子目录中，需要回到根目录
+            const backToRoot = '../'.repeat(depth);
+            if (isDefaultLang) {
+                // 英文：回到根路径后进入 blog/
+                return `${backToRoot}blog/`;
+            } else {
+                // 其他语言：回到根路径后进入语言目录再进入 blog/
+                // 但实际上现在已经在语言子目录中了，所以只需要回到语言根
+                return `${backToRoot}blog/`;
             }
         }
     }
@@ -164,9 +164,28 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
+    // 获取输出路径（英文输出到根目录，其他语言输出到对应目录）
+    getOutputPath(pageOutput, lang) {
+        if (lang === this.defaultLanguage) {
+            // 英文输出到根目录
+            return pageOutput;
+        }
+        // 其他语言输出到语言子目录
+        return path.join(lang, pageOutput);
+    }
+    
+    // 获取URL路径（英文无前缀，其他语言有前缀）
+    getUrlPath(pagePath, lang) {
+        if (lang === this.defaultLanguage) {
+            return `/${pagePath.replace('.html', '')}`;
+        }
+        return `/${lang}/${pagePath.replace('.html', '')}`;
+    }
+    
     // 生成多语言页面
     buildMultiLangPages() {
         console.log('\n🌐 Building multilingual pages...');
+        console.log('📝 URL结构变更：英文输出到根目录，其他语言保持语言前缀');
         
         // 处理内链配置
         const internalLinksResult = this.internalLinksProcessor.process(this.translations);
@@ -174,8 +193,8 @@ class MultiLangBuilder extends ComponentBuilder {
             console.error('❌ Internal links processing failed, continuing with build...');
         }
         
-        // 只构建已启用的语言（英语和中文）
-        const enabledLanguages = ['en', 'zh'];
+        // 使用类属性中定义的启用语言
+        const enabledLanguages = this.enabledLanguages;
         
         const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
         let totalPages = 0;
@@ -205,8 +224,15 @@ class MultiLangBuilder extends ComponentBuilder {
         for (const lang of enabledLanguages) {
             console.log(`\n📝 Building pages for language: ${lang.toUpperCase()}`);
             
-            const langDir = path.join(outputDir, lang);
+            // 英文输出到根目录，其他语言输出到语言子目录
+            const langDir = lang === this.defaultLanguage ? outputDir : path.join(outputDir, lang);
             fs.mkdirSync(langDir, { recursive: true });
+            
+            if (lang === this.defaultLanguage) {
+                console.log(`   ℹ️  English pages will be built at root directory`);
+            } else {
+                console.log(`   ℹ️  ${lang.toUpperCase()} pages will be built at /${lang}/ directory`);
+            }
 
             // 加载该语言的翻译文件
             const translationPath = path.join('locales', lang, 'translation.json');
@@ -236,7 +262,8 @@ class MultiLangBuilder extends ComponentBuilder {
                 totalPages++;
                 
                 try {
-                    console.log(`  📄 Building ${lang}/${page.output}`);
+                    const outputPath = this.getOutputPath(page.output, lang);
+                    console.log(`  📄 Building ${outputPath}`);
                     
                     // 准备页面数据并调整路径
                     const pageData = {
@@ -287,33 +314,46 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.description = pageData.og_description || '';
                     }
                     
-                    // 调整静态资源路径为相对于语言目录的路径
+                    // 调整静态资源路径
                     const depth = page.output.split('/').length - 1;
+                    // 定义 prefix 用于后续路径计算
                     const prefix = depth > 0 ? '../'.repeat(depth) : '';
                     
-                    // 正确更新资源路径 - 根据深度重新计算
-                    if (depth === 0) {
-                        // 主页 (index.html) - 在语言目录下
-                        pageData.css_path = '../css';
-                        pageData.locales_path = '../locales';
-                        pageData.js_path = '../js';
+                    if (lang === this.defaultLanguage) {
+                        // 英文在根目录
+                        if (depth === 0) {
+                            // 根目录主页
+                            pageData.css_path = 'css';
+                            pageData.locales_path = 'locales';
+                            pageData.js_path = 'js';
+                        } else {
+                            // 子目录页面
+                            pageData.css_path = prefix + 'css';
+                            pageData.locales_path = prefix + 'locales';
+                            pageData.js_path = prefix + 'js';
+                        }
                     } else {
-                        // 子页面 - 根据实际深度计算路径
-                        const pathPrefix = '../'.repeat(depth + 1);
-                        pageData.css_path = pathPrefix + 'css';
-                        pageData.locales_path = pathPrefix + 'locales';  
-                        pageData.js_path = pathPrefix + 'js';
+                        // 其他语言在语言子目录
+                        if (depth === 0) {
+                            pageData.css_path = '../css';
+                            pageData.locales_path = '../locales';
+                            pageData.js_path = '../js';
+                        } else {
+                            const pathPrefix = '../'.repeat(depth + 1);
+                            pageData.css_path = pathPrefix + 'css';
+                            pageData.locales_path = pathPrefix + 'locales';
+                            pageData.js_path = pathPrefix + 'js';
+                        }
                     }
                     
-                    // 更新相对链接路径 - 修复语言保持问题
+                    // 更新相对链接路径
                     if (pageData.home_url) {
-                        // 计算回到当前语言根目录的路径
-                        if (depth === 0) {
-                            // 在语言根目录下，指向当前目录的index.html
-                            pageData.home_url = 'index.html';
+                        if (lang === this.defaultLanguage) {
+                            // 英文：回到根目录
+                            pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         } else {
-                            // 在子目录下，回到语言根目录
-                            pageData.home_url = '../'.repeat(depth) + 'index.html';
+                            // 其他语言：回到语言根目录
+                            pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         }
                     }
                     
@@ -323,9 +363,15 @@ class MultiLangBuilder extends ComponentBuilder {
                             : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
                     }
                     
-                    // 修复博客URL - 使用统一的博客URL生成函数
+                    // 修复博客URL
                     if (pageData.blog_url) {
-                        pageData.blog_url = this.generateBlogUrl(depth, lang, false);
+                        if (lang === this.defaultLanguage) {
+                            // 英文博客在根目录 /blog/
+                            pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
+                        } else {
+                            // 其他语言博客在 /zh/blog/ 等
+                            pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
+                        }
                     }
                     
                     if (pageData.privacy_policy_url) {
@@ -335,12 +381,18 @@ class MultiLangBuilder extends ComponentBuilder {
                     }
                     
                     // 更新语言相关的URL和路径
-                    // 检查URL是否已经包含语言路径，避免重复添加
-                    if (!pageData.canonical_url.includes(`/${lang}/`)) {
-                        pageData.canonical_url = pageData.canonical_url.replace(
-                            'https://screensizechecker.com/',
-                            `https://screensizechecker.com/${lang}/`
-                        );
+                    if (lang === this.defaultLanguage) {
+                        // 英文URL不需要语言前缀
+                        // 确保不包含 /en/ 前缀
+                        pageData.canonical_url = pageData.canonical_url.replace('/en/', '/');
+                    } else {
+                        // 其他语言需要语言前缀
+                        if (!pageData.canonical_url.includes(`/${lang}/`)) {
+                            pageData.canonical_url = pageData.canonical_url.replace(
+                                'https://screensizechecker.com/',
+                                `https://screensizechecker.com/${lang}/`
+                            );
+                        }
                     }
                     
                     // 移除.html后缀以匹配Cloudflare Pages的URL格式
@@ -353,22 +405,33 @@ class MultiLangBuilder extends ComponentBuilder {
                     
                     // 添加hreflang相关数据
                     pageData.base_url = 'https://screensizechecker.com';
-                    pageData.page_path = pageData.canonical_url.replace('https://screensizechecker.com/' + lang, '');
+                    
+                    // 计算页面路径（不包含语言前缀）
+                    if (lang === this.defaultLanguage) {
+                        pageData.page_path = pageData.canonical_url.replace('https://screensizechecker.com', '');
+                    } else {
+                        pageData.page_path = pageData.canonical_url.replace(`https://screensizechecker.com/${lang}`, '');
+                    }
                     if (!pageData.page_path) {
                         pageData.page_path = '/';
                     }
                     
                     // 为hreflang标签设置正确的URL
-                    // 根目录版本（英文主要版本）
+                    // x-default 和英文版本都指向根路径（无 /en/ 前缀）
                     pageData.hreflang_root_url = pageData.page_path === '/' ? 
                         'https://screensizechecker.com/' : 
                         `https://screensizechecker.com${pageData.page_path}`;
                     
-                    // 英文备用版本
-                    pageData.hreflang_en_url = `https://screensizechecker.com/en${pageData.page_path}`;
+                    pageData.hreflang_en_url = pageData.hreflang_root_url;
                     
                     // 中文版本
                     pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+                    
+                    // 德语版本（未来）
+                    pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
+                    
+                    // 西语版本（未来）
+                    pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
                     
                     // 添加结构化数据
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
@@ -402,21 +465,22 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 更新HTML lang属性
                     html = html.replace('<html lang="en">', `<html lang="${lang}">`);
                     
-                    // 修复静态资源路径 - 传递完整路径包含语言目录
-                    const fullOutputPath = path.join(lang, page.output);
+                    // 修复静态资源路径
+                    const fullOutputPath = lang === this.defaultLanguage ? page.output : path.join(lang, page.output);
                     html = this.fixStaticResourcePaths(html, fullOutputPath);
                     
                     // 写入文件
-                    const outputPath = path.join(langDir, page.output);
-                    const outputDirPath = path.dirname(outputPath);
+                    const finalOutputPath = path.join(langDir, page.output);
+                    const outputDirPath = path.dirname(finalOutputPath);
                     
                     if (!fs.existsSync(outputDirPath)) {
                         fs.mkdirSync(outputDirPath, { recursive: true });
                     }
                     
-                    fs.writeFileSync(outputPath, html);
+                    fs.writeFileSync(finalOutputPath, html);
                     
-                    console.log(`  ✅ Built: ${lang}/${page.output}`);
+                    const displayPath = lang === this.defaultLanguage ? page.output : `${lang}/${page.output}`;
+                    console.log(`  ✅ Built: ${displayPath}`);
                     successfulBuilds++;
                     
                     buildReport.pages[lang].push({
@@ -1447,7 +1511,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 const blogPath = page.output.replace('blog/', '/blog/');
                 rootPageData.page_path = blogPath.replace('.html', '');
                 rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
-                rootPageData.hreflang_en_url = `https://screensizechecker.com/en${rootPageData.page_path}`;
+                rootPageData.hreflang_en_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 
                 // 处理翻译
@@ -1555,7 +1619,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 const devicePath = page.output.replace('devices/', '/devices/');
                 rootPageData.page_path = devicePath.replace('.html', '');
                 rootPageData.hreflang_root_url = `https://screensizechecker.com${rootPageData.page_path}`;
-                rootPageData.hreflang_en_url = `https://screensizechecker.com/en${rootPageData.page_path}`;
+                rootPageData.hreflang_en_url = `https://screensizechecker.com${rootPageData.page_path}`;
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 
                 // 处理翻译
@@ -1661,7 +1725,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.base_url = 'https://screensizechecker.com';
         rootPageData.page_path = '/';
         rootPageData.hreflang_root_url = 'https://screensizechecker.com/';
-        rootPageData.hreflang_en_url = 'https://screensizechecker.com/en/';
+        rootPageData.hreflang_en_url = 'https://screensizechecker.com/';
         rootPageData.hreflang_zh_url = 'https://screensizechecker.com/zh/';
         
         // 从翻译文件中获取页面特定的翻译值
@@ -1935,54 +1999,44 @@ ${languageCards}
         <priority>0.8</priority>
     </url>`;
         
-        // 只为启用的语言生成URL
+        // 只为非英文的启用语言生成URL（英文已在根目录）
         enabledLanguages.forEach(lang => {
+            // 跳过英文，因为英文版本已经在根目录
+            if (lang === 'en') {
+                return;
+            }
+            
             // 添加基础页面
             pages.forEach(page => {
                 if (page.path === '') {
-                    // 语言首页 - 调整英文版本的优先级
-                    const priority = lang === 'en' ? '0.9' : page.priority; // 英文备用版本优先级稍低
+                    // 语言首页
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}/</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${priority}</priority>
+        <priority>${page.priority}</priority>
     </url>`;
                 } else {
-                    // 其他页面 - 根据语言调整优先级
-                    let adjustedPriority = page.priority;
-                    if (lang === 'en') {
-                        // 英文版本的子页面优先级稍低，因为根目录版本是主要的
-                        adjustedPriority = (parseFloat(page.priority) - 0.1).toFixed(1);
-                        if (adjustedPriority < 0.1) adjustedPriority = '0.1';
-                    }
-                    
+                    // 其他页面
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${adjustedPriority}</priority>
+        <priority>${page.priority}</priority>
     </url>`;
                 }
             });
             
-            // 添加博客页面 - 根据语言调整优先级
+            // 添加博客页面
             blogPages.forEach(page => {
-                let adjustedPriority = page.priority;
-                if (lang === 'en') {
-                    // 英文版本的博客页面优先级稍低，因为根目录版本是主要的
-                    adjustedPriority = (parseFloat(page.priority) - 0.1).toFixed(1);
-                    if (adjustedPriority < 0.1) adjustedPriority = '0.1';
-                }
-                
                 sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>${page.changefreq}</changefreq>
-        <priority>${adjustedPriority}</priority>
+        <priority>${page.priority}</priority>
     </url>`;
             });
             
@@ -2146,13 +2200,13 @@ ${languageCards}
     }
     
     // 生成优化的robots.txt文件
-    // 内容一致性检查：确保根目录和 /en/ 页面内容同步
+    // 内容一致性检查：确保英文版本（根目录）和中文版本（/zh/）正确生成
     validateContentConsistency(outputDir) {
-        console.log('\n🔍 Validating content consistency between root and /en/ versions...');
+        console.log('\n🔍 Validating content consistency between English (root) and Chinese (/zh/) versions...');
         
         const inconsistencies = [];
-        const rootDir = outputDir;
-        const enDir = path.join(outputDir, 'en');
+        const rootDir = outputDir; // 英文版本在根目录
+        const zhDir = path.join(outputDir, 'zh'); // 中文版本在 /zh/ 目录
         
         // 需要检查的页面列表
         const pagesToCheck = [
@@ -2171,23 +2225,23 @@ ${languageCards}
         let consistentPages = 0;
         
         pagesToCheck.forEach(pagePath => {
-            const rootPagePath = path.join(rootDir, pagePath);
-            const enPagePath = path.join(enDir, pagePath);
+            const rootPagePath = path.join(rootDir, pagePath); // 英文版本
+            const zhPagePath = path.join(zhDir, pagePath); // 中文版本
             
             // 检查文件是否存在
             if (!fs.existsSync(rootPagePath)) {
                 inconsistencies.push({
                     page: pagePath,
-                    issue: 'Root version missing',
+                    issue: 'English version (root) missing',
                     severity: 'error'
                 });
                 return;
             }
             
-            if (!fs.existsSync(enPagePath)) {
+            if (!fs.existsSync(zhPagePath)) {
                 inconsistencies.push({
                     page: pagePath,
-                    issue: '/en/ version missing',
+                    issue: 'Chinese version (/zh/) missing',
                     severity: 'error'
                 });
                 return;
@@ -2196,7 +2250,7 @@ ${languageCards}
             try {
                 // 读取文件内容
                 const rootContent = fs.readFileSync(rootPagePath, 'utf8');
-                const enContent = fs.readFileSync(enPagePath, 'utf8');
+                const zhContent = fs.readFileSync(zhPagePath, 'utf8');
                 
                 checkedPages++;
                 
@@ -2211,51 +2265,56 @@ ${languageCards}
                 
                 seoChecks.forEach(check => {
                     const rootMatch = rootContent.match(check.regex);
-                    const enMatch = enContent.match(check.regex);
+                    const zhMatch = zhContent.match(check.regex);
                     
-                    if (rootMatch && enMatch) {
+                    if (rootMatch && zhMatch) {
                         const rootValue = rootMatch[1].trim();
-                        const enValue = enMatch[1].trim();
+                        const zhValue = zhMatch[1].trim();
                         
-                        // 对于主页，根目录和/en/版本的内容应该相同
-                        if (pagePath === 'index.html' && rootValue !== enValue) {
-                            inconsistencies.push({
-                                page: pagePath,
-                                issue: `${check.name} differs: Root="${rootValue}" vs En="${enValue}"`,
-                                severity: 'warning'
-                            });
-                            pageConsistent = false;
-                        }
+                        // 英文和中文版本的内容应该是翻译关系，不应该相同
+                        // 这里只检查两者都存在即可，不比较内容
+                        // 如果需要，可以在这里添加更复杂的翻译验证逻辑
+                    } else if (!rootMatch) {
+                        inconsistencies.push({
+                            page: pagePath,
+                            issue: `${check.name} missing in English version`,
+                            severity: 'warning'
+                        });
+                        pageConsistent = false;
+                    } else if (!zhMatch) {
+                        inconsistencies.push({
+                            page: pagePath,
+                            issue: `${check.name} missing in Chinese version`,
+                            severity: 'warning'
+                        });
+                        pageConsistent = false;
                     }
                 });
                 
                 // 检查canonical URL的正确性
                 const rootCanonical = rootContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
-                const enCanonical = enContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
+                const zhCanonical = zhContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
                 
-                if (rootCanonical && enCanonical) {
+                if (rootCanonical && zhCanonical) {
                     const rootCanonicalUrl = rootCanonical[1];
-                    const enCanonicalUrl = enCanonical[1];
+                    const zhCanonicalUrl = zhCanonical[1];
                     
                     // 验证canonical URL的正确性
-                    const expectedRootCanonical = rootCanonicalUrl.replace('/en/', '/');
-                    const expectedEnCanonical = enCanonicalUrl;
-                    
-                    if (!rootCanonicalUrl.endsWith('/') && !rootCanonicalUrl.includes('/en/')) {
-                        // 根目录版本的canonical应该指向根域名
-                    } else if (rootCanonicalUrl.includes('/en/')) {
+                    // 英文版本（根目录）不应该包含 /en/
+                    if (rootCanonicalUrl.includes('/en/')) {
                         inconsistencies.push({
                             page: pagePath,
-                            issue: `Root version has incorrect canonical URL: ${rootCanonicalUrl}`,
+                            issue: `English version has incorrect canonical URL (contains /en/): ${rootCanonicalUrl}`,
                             severity: 'error'
                         });
                         pageConsistent = false;
                     }
                     
-                    if (!enCanonicalUrl.includes('/en/')) {
+                    // 中文版本应该包含 /zh/
+                    if (!zhCanonicalUrl.includes('/zh/')) {
                         inconsistencies.push({
                             page: pagePath,
-                            issue: `/en/ version has incorrect canonical URL: ${enCanonicalUrl}`,
+                            issue: `Chinese version has incorrect canonical URL (missing /zh/): ${zhCanonicalUrl}`,
                             severity: 'error'
                         });
                         pageConsistent = false;
