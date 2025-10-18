@@ -20,6 +20,9 @@
     
     {{component:language-modal}}
     
+    <!-- i18n Initialization - Must load after i18next CDN but before other scripts -->
+    <script type="module" src="{{js_path}}/i18n.js"></script>
+    
     <!-- Core Optimized JavaScript - Phase 1.1 Performance Optimization -->
     <!-- Merged core functionality modules, reduced HTTP requests, maintaining all business logic -->
     <script src="{{js_path}}/core-optimized.js" defer></script>

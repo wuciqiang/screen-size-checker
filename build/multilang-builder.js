@@ -11,9 +11,38 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
-        this.enabledLanguages = ['en', 'zh']; // 当前启用的语言
+        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 当前启用的语言：英文、中文、德语、西班牙语
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
+        
+        // 语言名称映射
+        this.languageNames = {
+            'en': 'English',
+            'zh': '中文',
+            'de': 'Deutsch',
+            'es': 'Español',
+            'fr': 'Français',
+            'it': 'Italiano',
+            'ja': '日本語',
+            'ko': '한국어',
+            'pt': 'Português',
+            'ru': 'Русский'
+        };
+        
+        // 语言代码大写映射（用于UI显示）
+        this.languageCodes = {
+            'en': 'EN',
+            'zh': 'ZH',
+            'de': 'DE',
+            'es': 'ES',
+            'fr': 'FR',
+            'it': 'IT',
+            'ja': 'JA',
+            'ko': 'KO',
+            'pt': 'PT',
+            'ru': 'RU'
+        };
+        
         this.loadTranslations();
     }
     

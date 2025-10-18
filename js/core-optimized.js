@@ -158,8 +158,16 @@ function applyDeviceInfo(deviceInfo) {
         updateElementText('color-depth', `${deviceInfo.colorDepth}-bit`);
         updateElementText('os-info', deviceInfo.operatingSystem);
         updateElementText('browser-info', deviceInfo.browserInfo);
-        updateElementText('cookies-enabled', deviceInfo.cookiesEnabled ? '是' : '否');
-        updateElementText('touch-support', deviceInfo.touchSupported ? '支持' : '不支持');
+        // 使用翻译键处理 cookies 和 touch support
+        const cookiesStatus = deviceInfo.cookiesEnabled ? 
+            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : '是') : 
+            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : '否');
+        updateElementText('cookies-enabled', cookiesStatus);
+        
+        const touchStatus = deviceInfo.touchSupported ? 
+            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : '支持') : 
+            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : '不支持');
+        updateElementText('touch-support', touchStatus);
         updateElementText('user-agent', deviceInfo.userAgent);
         updateElementText('aspect-ratio', deviceInfo.aspectRatio);
     });
@@ -219,7 +227,16 @@ function updateViewportSize(deviceInfo) {
 function updateElementText(id, text) {
     const element = document.getElementById(id);
     if (element) {
+        // 清除data-i18n属性防止被i18next覆盖
+        element.removeAttribute('data-i18n');
+        // 清除子元素的data-i18n
+        const children = element.querySelectorAll('[data-i18n]');
+        children.forEach(child => child.removeAttribute('data-i18n'));
+        // 设置文本内容
         element.textContent = text;
+        console.log(`Updated ${id}: ${text}`);
+    } else {
+        console.warn(`Element not found: ${id}`);
     }
 }
 
@@ -235,8 +252,9 @@ function setFallbackValues() {
     updateElementText('color-depth', '不可用');
     updateElementText('os-info', '不可用');
     updateElementText('browser-info', '不可用');
-    updateElementText('cookies-enabled', '不可用');
-    updateElementText('touch-support', '不可用');
+    const notAvailable = typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_available') : '不可用';
+    updateElementText('cookies-enabled', notAvailable);
+    updateElementText('touch-support', notAvailable);
     updateElementText('user-agent', '不可用');
 }
 
@@ -1303,6 +1321,29 @@ setTimeout(() => {
         initializeApp();
     }
 }, 100);
+
+// 监听i18next初始化完成事件，重新更新需要翻译的值
+document.addEventListener('i18nextInitialized', () => {
+    console.log('i18next initialized, updating translated values...');
+    
+    // 延迟执行，确保在 i18next 的 updateUIElements 之后
+    setTimeout(() => {
+        if (deviceInfoCache) {
+            // 重新更新cookies和touch support状态
+            const cookiesStatus = deviceInfoCache.cookiesEnabled ? 
+                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : '是') : 
+                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : '否');
+            updateElementText('cookies-enabled', cookiesStatus);
+            
+            const touchStatus = deviceInfoCache.touchSupported ? 
+                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : '支持') : 
+                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : '不支持');
+            updateElementText('touch-support', touchStatus);
+            
+            console.log('✅ Updated cookies and touch support after i18next');
+        }
+    }, 100);
+});
 
 // ====== 导出全局函数 ======
 

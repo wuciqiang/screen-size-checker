@@ -1282,3 +1282,28 @@ export function updateStructuredData() {
 window.addEventListener('languageChanged', () => {
     updateStructuredData();
 });
+
+// ====== Auto-initialization ======
+(async function autoInitializeI18n() {
+    try {
+        console.log('Starting i18next auto-initialization...');
+        
+        // Initialize i18next
+        await initializeI18next();
+        
+        console.log('\u2705 i18next initialized successfully');
+        
+        // Update UI with translations
+        updateUIElements();
+        
+        // Trigger initialized event for other scripts
+        document.dispatchEvent(new CustomEvent('i18nextInitialized', {
+            detail: { language: i18next.language }
+        }));
+        
+        console.log('\u2705 i18nextInitialized event dispatched');
+        
+    } catch (error) {
+        console.error('\u274c Failed to auto-initialize i18next:', error);
+    }
+})();
