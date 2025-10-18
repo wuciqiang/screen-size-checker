@@ -30,6 +30,8 @@ Before diving into comparisons, let's clarify what these resolutions mean for yo
 
 ## 1080p Gaming: The Competitive Edge
 
+> **Deep Dive**: Want a detailed comparison between 1080p and 1440p? Read our complete [1080p vs 1440p Gaming Guide](./1080p-vs-1440p-gaming) with hardware recommendations and cost analysis.
+
 ### Why 1080p Still Dominates Esports
 
 Full HD (1920×1080) remains the gold standard for competitive gaming in 2025, and for good reason:

@@ -103,7 +103,16 @@ class HubBuilder {
                     const id = `${slug}-${lang}`;
                     
                     // 解析Markdown内容
-                    const htmlContent = marked.parse(content);
+                    let htmlContent = marked.parse(content);
+                    
+                    // 替换 {{lang_prefix}} 变量为正确的路径
+                    // 对于英文，lang_prefix 是 ..（因为hub在根目录下的hub文件夹）
+                    // 对于其他语言，lang_prefix 是 ../..（因为在/zh/hub/下）
+                    const langPrefix = lang === 'en' ? '..' : '../..';
+                    // 替换原始的 {{lang_prefix}}
+                    htmlContent = htmlContent.replace(/\{\{lang_prefix\}\}/g, langPrefix);
+                    // 替换URL编码的版本 %7B%7Blang_prefix%7D%7D
+                    htmlContent = htmlContent.replace(/%7B%7Blang_prefix%7D%7D/g, langPrefix);
                     
                     // 计算阅读时间（每分钟200字）
                     const wordCount = content.split(/\s+/).length;
