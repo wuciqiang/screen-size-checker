@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:15:13.592Z",
+          "datePublished": "2025-10-18T22:24:08.976Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:15:13.922Z",
+          "datePublished": "2025-10-18T22:24:09.220Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:15:14.056Z",
+          "datePublished": "2025-10-18T22:24:09.260Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-18T22:15:14.149Z",
+          "datePublished": "2025-10-18T22:24:09.278Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5594,6 +5594,55 @@
       }
     },
     {
+      "name": "hub-1080p-vs-1440p-gaming-de",
+      "template": "hub-page",
+      "output": "hub/1080p-vs-1440p-gaming.html",
+      "page_content": "hub-1080p-vs-1440p-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "1080p vs 1440p Gaming: Welche Auflösung ist 2025 die richtige für dich?",
+        "page_description": "Vollständiger Vergleich von 1080p vs 1440p Gaming-Performance, Hardware-Anforderungen und Kostenanalyse. Expertenempfehlungen basierend auf 2025 GPU-Benchmarks und Pro-Spieler-Präferenzen.",
+        "page_keywords": "1080p vs 1440p gaming, 1080p vs 1440p fps, beste auflösung für gaming, 1440p lohnt sich, gaming auflösung vergleich",
+        "canonical_url": "https://screensizechecker.com/de/hub/1080p-vs-1440p-gaming",
+        "og_title": "1080p vs 1440p Gaming: Welche Auflösung ist 2025 die richtige für dich?",
+        "og_description": "Vollständiger Vergleich von 1080p vs 1440p Gaming-Performance, Hardware-Anforderungen und Kostenanalyse. Expertenempfehlungen basierend auf 2025 GPU-Benchmarks und Pro-Spieler-Präferenzen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/1080p-vs-1440p-gaming",
+        "og_image": "https://screensizechecker.com/images/1080p-vs-1440p-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1080p-vs-1440p-gaming",
+        "current_name": "1080p vs 1440p Gaming: Welche Auflösung ist 2025 die richtige für dich?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1080p",
+          "1440p",
+          "gaming-vergleich",
+          "auflösung",
+          "fps",
+          "gpu"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-best-gaming-resolution-2025-de",
       "template": "hub-page",
       "output": "hub/best-gaming-resolution-2025.html",
@@ -5634,6 +5683,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-1080p-vs-1440p-gaming-es",
+      "template": "hub-page",
+      "output": "hub/1080p-vs-1440p-gaming.html",
+      "page_content": "hub-1080p-vs-1440p-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "1080p vs 1440p Gaming: ¿Cuál es la resolución correcta para ti en 2025?",
+        "page_description": "Comparación completa del rendimiento gaming 1080p vs 1440p, requisitos de hardware y análisis de costos. Recomendaciones expertas basadas en benchmarks GPU 2025 y preferencias de jugadores profesionales.",
+        "page_keywords": "1080p vs 1440p gaming, 1080p vs 1440p fps, mejor resolución para gaming, vale la pena 1440p, comparación resolución gaming",
+        "canonical_url": "https://screensizechecker.com/es/hub/1080p-vs-1440p-gaming",
+        "og_title": "1080p vs 1440p Gaming: ¿Cuál es la resolución correcta para ti en 2025?",
+        "og_description": "Comparación completa del rendimiento gaming 1080p vs 1440p, requisitos de hardware y análisis de costos. Recomendaciones expertas basadas en benchmarks GPU 2025 y preferencias de jugadores profesionales.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/1080p-vs-1440p-gaming",
+        "og_image": "https://screensizechecker.com/images/1080p-vs-1440p-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1080p-vs-1440p-gaming",
+        "current_name": "1080p vs 1440p Gaming: ¿Cuál es la resolución correcta para ti en 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1080p",
+          "1440p",
+          "comparación-gaming",
+          "resolución",
+          "fps",
+          "gpu"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
