@@ -1,0 +1,221 @@
+<header class="header-v2">
+    <div class="header-container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <div class="logo-icon">📐</div>
+            <div class="logo-title">
+                <a href="{{home_url}}" data-i18n="site_title">Screen Size Checker</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav" id="main-nav">
+            <ul class="nav-menu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a href="{{home_url}}" class="nav-link" data-i18n="nav_home">Home</a>
+                </li>
+
+                <!-- Devices Mega Menu -->
+                <li class="nav-item has-megamenu">
+                    <a href="#" class="nav-link" data-i18n="nav_devices">Devices</a>
+                    <div class="mega-menu mega-menu-devices">
+                        <div class="mega-menu-content">
+                            <!-- Column 1: Mobile Devices -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">📱</span>
+                                    <span data-i18n="devices_mobile">Mobile Devices</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/devices/iphone-viewport-sizes" data-i18n="devices_iphone">iPhone Screens</a></li>
+                                    <li><a href="/devices/android-viewport-sizes" data-i18n="devices_android">Android Screens</a></li>
+                                    <li><a href="/devices/iphone-15-pro-max-screen">iPhone 15 Pro Max</a></li>
+                                    <li><a href="/devices/samsung-s24-screen">Samsung S24</a></li>
+                                </ul>
+                                <a href="/devices/iphone-viewport-sizes" class="view-all-link" data-i18n="view_all_mobile">View All Phones →</a>
+                            </div>
+
+                            <!-- Column 2: Tablets -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">💻</span>
+                                    <span data-i18n="devices_tablets">Tablets</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/devices/ipad-viewport-sizes" data-i18n="devices_ipad">iPad Screens</a></li>
+                                    <li><a href="/devices/ipad-pro-screen">iPad Pro</a></li>
+                                    <li><a href="/devices/ipad-air-screen">iPad Air</a></li>
+                                    <li><a href="/devices/ipad-mini-screen">iPad Mini</a></li>
+                                </ul>
+                                <a href="/devices/ipad-viewport-sizes" class="view-all-link" data-i18n="view_all_tablets">View All Tablets →</a>
+                            </div>
+
+                            <!-- Column 3: Monitors & Laptops -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">🖥️</span>
+                                    <span data-i18n="devices_monitors">Monitors & Laptops</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/blog/average-laptop-screen-size-2025" data-i18n="devices_laptop_guide">Laptop Screen Guide</a></li>
+                                    <li><a href="/devices/standard-resolutions" data-i18n="devices_standard_resolutions">Standard Resolutions</a></li>
+                                    <li><a href="/hub/24-inch-monitor-guide">24" Monitors</a></li>
+                                    <li><a href="/hub/27-inch-monitor-guide">27" Monitors</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 4: Popular Tools (Featured) -->
+                            <div class="mega-menu-column featured-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">🔥</span>
+                                    <span data-i18n="popular_tools">Popular Tools</span>
+                                </h4>
+                                <div class="featured-tools">
+                                    <a href="/devices/compare" class="featured-tool">
+                                        <div class="tool-icon">⚖️</div>
+                                        <div class="tool-info">
+                                            <div class="tool-name" data-i18n="tool_compare">Compare Screens</div>
+                                            <div class="tool-usage">1.2M uses</div>
+                                        </div>
+                                    </a>
+                                    <a href="/devices/ppi-calculator" class="featured-tool">
+                                        <div class="tool-icon">🔢</div>
+                                        <div class="tool-info">
+                                            <div class="tool-name" data-i18n="tool_ppi">PPI Calculator</div>
+                                            <div class="tool-usage">850K uses</div>
+                                        </div>
+                                    </a>
+                                    <a href="/devices/aspect-ratio-calculator" class="featured-tool">
+                                        <div class="tool-icon">📐</div>
+                                        <div class="tool-info">
+                                            <div class="tool-name" data-i18n="tool_aspect">Aspect Ratio</div>
+                                            <div class="tool-usage">620K uses</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Tools Mega Menu -->
+                <li class="nav-item has-megamenu">
+                    <a href="#" class="nav-link" data-i18n="nav_tools">Tools</a>
+                    <div class="mega-menu mega-menu-tools">
+                        <div class="mega-menu-content">
+                            <!-- Column 1: Calculators -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">🔢</span>
+                                    <span data-i18n="tools_calculators">Calculators</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/devices/ppi-calculator" data-i18n="tool_ppi">PPI Calculator</a></li>
+                                    <li><a href="/devices/aspect-ratio-calculator" data-i18n="tool_aspect">Aspect Ratio</a></li>
+                                    <li><a href="/tools/projection-calculator">Projector Calculator</a></li>
+                                    <li><a href="/tools/tv-size-calculator">TV Size Calculator</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 2: Testing Tools -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">🧪</span>
+                                    <span data-i18n="tools_testing">Testing Tools</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/devices/responsive-tester" data-i18n="tool_responsive">Responsive Tester</a></li>
+                                    <li><a href="/tools/fps-test">FPS Test</a></li>
+                                    <li><a href="/tools/input-lag-test">Input Lag Test</a></li>
+                                    <li><a href="/tools/refresh-rate-test">Refresh Rate Test</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 3: Comparison Tools -->
+                            <div class="mega-menu-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">⚖️</span>
+                                    <span data-i18n="tools_comparison">Comparison</span>
+                                </h4>
+                                <ul class="column-links">
+                                    <li><a href="/devices/compare" data-i18n="tool_compare">Compare Screens</a></li>
+                                    <li><a href="/tools/resolution-comparison">Resolution Compare</a></li>
+                                    <li><a href="/tools/monitor-comparison">Monitor Compare</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 4: Quick Access -->
+                            <div class="mega-menu-column featured-column">
+                                <h4 class="column-title">
+                                    <span class="column-icon">⚡</span>
+                                    <span data-i18n="quick_access">Quick Access</span>
+                                </h4>
+                                <div class="tool-badges">
+                                    <a href="/devices/compare" class="tool-badge">
+                                        <span class="badge-icon">⚖️</span>
+                                        <span class="badge-name">Compare</span>
+                                        <span class="badge-count">1.2M</span>
+                                    </a>
+                                    <a href="/" class="tool-badge">
+                                        <span class="badge-icon">📏</span>
+                                        <span class="badge-name">Checker</span>
+                                        <span class="badge-count">980K</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Gaming Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_gaming">Gaming</a>
+                    <div class="dropdown-menu">
+                        <h4 class="dropdown-title">
+                            <span class="dropdown-icon">🎮</span>
+                            <span data-i18n="gaming_guides">Gaming Guides</span>
+                        </h4>
+                        <ul class="dropdown-links">
+                            <li><a href="/hub/best-gaming-resolution">Best Gaming Resolution</a></li>
+                            <li><a href="/hub/gaming-monitor-size-guide">Monitor Size Guide</a></li>
+                            <li><a href="/hub/1080p-vs-1440p-gaming">1080p vs 1440p</a></li>
+                            <li><a href="/hub/1440p-vs-4k-gaming">1440p vs 4K</a></li>
+                            <li><a href="/hub/144hz-vs-240hz-gaming">144Hz vs 240Hz</a></li>
+                            <li><a href="/blog/black_myth_guide">Black Myth: Zhong Kui Guide</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Blog -->
+                <li class="nav-item">
+                    <a href="{{blog_url}}" class="nav-link" data-i18n="nav_blog">Blog</a>
+                </li>
+            </ul>
+
+            <!-- Header Controls -->
+            <div class="header-controls">
+                <!-- Language Switcher -->
+                <button class="language-button" id="language-modal-trigger" aria-label="Select language">
+                    <span class="language-icon">🌐</span>
+                    <span class="language-text" data-i18n="language_select_label">Language</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+</header>

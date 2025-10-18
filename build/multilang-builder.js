@@ -272,6 +272,24 @@ class MultiLangBuilder extends ComponentBuilder {
                         ...page.config
                     };
                     
+                    // 添加导航状态标识
+                    const pagePath = page.path || page.config.path || outputPath || '';
+                    
+                    pageData.is_home = pagePath === 'index.html' || pagePath === '';
+                    pageData.is_blog = pagePath.includes('blog/') || pagePath.startsWith('blog');
+                    
+                    // 区分 Tools 和 Devices
+                    const isToolPage = pagePath.includes('calculator') || 
+                        pagePath.includes('compare') || 
+                        pagePath.includes('tester') || 
+                        pagePath.includes('resolution');
+                    const isDevicePage = pagePath.includes('iphone') || 
+                        pagePath.includes('android') || 
+                        pagePath.includes('ipad');
+                    
+                    pageData.is_tools = isToolPage;
+                    pageData.is_devices = isDevicePage;
+                    
                     // 从翻译文件中获取页面特定的翻译值
                     if (pageData.page_title_key) {
                         // 支持嵌套的翻译键，如 "ppiCalculator.pageTitle"
@@ -1650,6 +1668,15 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 // 添加结构化数据
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
                 
+                // 添加导航状态标识
+                const pagePath = page.output || '';
+                rootPageData.is_home = pagePath === 'index.html' || pagePath === '';
+                rootPageData.is_blog = false;
+                const isToolPage = pagePath.includes('calculator') || pagePath.includes('compare') || pagePath.includes('tester') || pagePath.includes('resolution');
+                const isDevicePage = pagePath.includes('iphone') || pagePath.includes('android') || pagePath.includes('ipad');
+                rootPageData.is_tools = isToolPage;
+                rootPageData.is_devices = isDevicePage;
+                
                 // 为responsive-tester页面添加FAQ结构化数据
                 if (page.name === 'responsive-tester') {
                     rootPageData.faq_structured_data = this.generateFAQStructuredData('en');
@@ -1756,6 +1783,12 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         
         // 添加结构化数据
         rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
+        
+        // 添加导航状态标识
+        rootPageData.is_home = true;
+        rootPageData.is_blog = false;
+        rootPageData.is_tools = false;
+        rootPageData.is_devices = false;
         
         // 为responsive-tester页面添加FAQ结构化数据
         if (indexPageConfig.name === 'responsive-tester') {

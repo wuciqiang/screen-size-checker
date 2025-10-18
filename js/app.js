@@ -894,6 +894,13 @@ function setupNavigationHighlighting() {
         const navLinks = document.querySelectorAll('.nav-link');
         const currentPath = window.location.pathname;
 
+        // Skip if server-side active states are already set
+        const hasServerActive = document.querySelector('.nav-link.active');
+        if (hasServerActive) {
+            console.log('Server-side active state detected, skipping client-side navigation highlighting');
+            return;
+        }
+
         console.log('Setting up navigation highlighting for path:', currentPath);
 
         // First remove all active classes

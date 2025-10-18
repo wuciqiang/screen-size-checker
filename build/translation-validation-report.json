@@ -1,13 +1,13 @@
 {
-  "validationDate": "2025-10-18T13:39:34.260Z",
+  "validationDate": "2025-10-18T16:23:57.912Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 552,
-    "missingTranslations": 107,
-    "inconsistentKeys": 212
+    "totalKeys": 615,
+    "missingTranslations": 117,
+    "inconsistentKeys": 225
   },
   "missingKeys": {
     "en": [
@@ -48,7 +48,12 @@
       "tag_subtitle",
       "{{parent_key}}",
       "{{current_key}}",
+      "terms",
       "seo_description",
+      "devices_iphone",
+      "devices_android",
+      "devices_ipad",
+      "devices_standard_resolutions",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
       "ipad_7th_gen",
@@ -103,7 +108,12 @@
       "tag_subtitle",
       "{{parent_key}}",
       "{{current_key}}",
+      "terms",
       "seo_description",
+      "devices_iphone",
+      "devices_android",
+      "devices_ipad",
+      "devices_standard_resolutions",
       "screen_size_suffix",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
@@ -1104,9 +1114,74 @@
       "key": "{{current_key}}"
     },
     {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "terms"
+    },
+    {
       "component": "head.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "seo_description"
+    },
+    {
+      "component": "header-mega-menu-production.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_iphone"
+    },
+    {
+      "component": "header-mega-menu-production.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_android"
+    },
+    {
+      "component": "header-mega-menu-production.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_ipad"
+    },
+    {
+      "component": "header-mega-menu-production.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_standard_resolutions"
+    },
+    {
+      "component": "header-mega-menu-v2.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_standard_resolutions"
+    },
+    {
+      "component": "header-mega-menu-v2.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_iphone"
+    },
+    {
+      "component": "header-mega-menu-v2.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_android"
+    },
+    {
+      "component": "header-mega-menu-v2.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_ipad"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_standard_resolutions"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_iphone"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_android"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "devices_ipad"
     },
     {
       "component": "ipad-content.html",

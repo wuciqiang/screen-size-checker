@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 0.2 Demo - New Navigation & Internal Links</title>
+    
+    <!-- Base styles -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-color: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --bg-color: #ffffff;
+            --border-color: #e5e7eb;
+            --hover-bg: #f9fafb;
+            --card-bg: #ffffff;
+            --section-bg: #f9fafb;
+            --footer-bg: #1f2937;
+            --footer-text: #d1d5db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+        
+        .demo-content {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 24px;
+        }
+        
+        .demo-section {
+            margin-bottom: 80px;
+        }
+        
+        .demo-section h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+        
+        .demo-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .demo-alert {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px 0;
+        }
+        
+        .demo-alert h3 {
+            color: #92400e;
+            margin-bottom: 12px;
+        }
+        
+        .demo-alert ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .demo-alert li {
+            color: #92400e;
+            padding: 4px 0;
+        }
+        
+        .demo-alert li:before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <!-- Phase 0.2 CSS -->
+    <link rel="stylesheet" href="css/mega-menu.css">
+    <link rel="stylesheet" href="css/internal-links.css">
+    <link rel="stylesheet" href="css/footer-optimized.css">
+</head>
+<body>
+    <!-- Phase 0.2 Mega Menu Header -->
+    <header class="header-v2">
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <div class="logo-icon">📐</div>
+                <div class="logo-title">
+                    <a href="/">Screen Size Checker</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+
+                    <!-- Devices Mega Menu -->
+                    <li class="nav-item has-megamenu">
+                        <a href="#" class="nav-link">Devices</a>
+                        <div class="mega-menu mega-menu-devices">
+                            <div class="mega-menu-content">
+                                <!-- Column 1: Mobile Devices -->
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">📱</span>
+                                        <span>Mobile Devices</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/devices/iphone-viewport-sizes">iPhone Screens</a></li>
+                                        <li><a href="/devices/android-viewport-sizes">Android Screens</a></li>
+                                        <li><a href="/devices/iphone-15-pro-max-screen">iPhone 15 Pro Max</a></li>
+                                        <li><a href="/devices/samsung-s24-screen">Samsung S24</a></li>
+                                    </ul>
+                                    <a href="/devices/iphone-viewport-sizes" class="view-all-link">View All Phones →</a>
+                                </div>
+
+                                <!-- Column 2: Tablets -->
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">💻</span>
+                                        <span>Tablets</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/devices/ipad-viewport-sizes">iPad Screens</a></li>
+                                        <li><a href="/devices/android-tablets">Android Tablets</a></li>
+                                        <li><a href="/devices/ipad-pro-screen">iPad Pro 12.9"</a></li>
+                                        <li><a href="/devices/surface-pro">Surface Pro</a></li>
+                                    </ul>
+                                    <a href="/devices/ipad-viewport-sizes" class="view-all-link">View All Tablets →</a>
+                                </div>
+
+                                <!-- Column 3: Monitors & Laptops -->
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">🖥️</span>
+                                        <span>Monitors & Laptops</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/blog/average-laptop-screen-size-2025">Laptop Screen Guide</a></li>
+                                        <li><a href="/devices/standard-resolutions">Standard Resolutions</a></li>
+                                        <li><a href="/devices/4k-monitor">4K Monitors</a></li>
+                                        <li><a href="/devices/ultrawide-monitor">Ultrawide Monitors</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 4: Popular Tools -->
+                                <div class="mega-menu-column featured-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">⭐</span>
+                                        <span>Popular Tools</span>
+                                    </h4>
+                                    <div class="featured-tools">
+                                        <a href="/devices/compare" class="featured-tool">
+                                            <div class="tool-badge">⚖️</div>
+                                            <div class="tool-info">
+                                                <div class="tool-name">Compare Screens</div>
+                                                <div class="tool-stats">1.2M uses</div>
+                                            </div>
+                                        </a>
+                                        <a href="/devices/ppi-calculator" class="featured-tool">
+                                            <div class="tool-badge">🔢</div>
+                                            <div class="tool-info">
+                                                <div class="tool-name">PPI Calculator</div>
+                                                <div class="tool-stats">850K uses</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Tools Mega Menu -->
+                    <li class="nav-item has-megamenu">
+                        <a href="#" class="nav-link">Tools</a>
+                        <div class="mega-menu mega-menu-tools">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">🧮</span>
+                                        <span>Calculators</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/devices/ppi-calculator">PPI Calculator</a></li>
+                                        <li><a href="/devices/aspect-ratio-calculator">Aspect Ratio Calculator</a></li>
+                                        <li><a href="/devices/screen-size-calculator">Screen Size Calculator</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">🧪</span>
+                                        <span>Testing Tools</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/devices/responsive-tester">Responsive Tester</a></li>
+                                        <li><a href="/tools/fps-test">FPS Test</a></li>
+                                        <li><a href="/tools/refresh-rate-test">Refresh Rate Test</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-menu-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">📊</span>
+                                        <span>Comparison</span>
+                                    </h4>
+                                    <ul class="column-links">
+                                        <li><a href="/devices/compare">Compare Devices</a></li>
+                                        <li><a href="/devices/iphone-vs-android">iPhone vs Android</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-menu-column featured-column">
+                                    <h4 class="column-title">
+                                        <span class="column-icon">⚡</span>
+                                        <span>Quick Access</span>
+                                    </h4>
+                                    <div class="featured-tools">
+                                        <a href="/devices/responsive-tester" class="featured-tool">
+                                            <div class="tool-badge">📱</div>
+                                            <div class="tool-info">
+                                                <div class="tool-name">Responsive Tester</div>
+                                                <div class="tool-stats">NEW</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gaming Dropdown -->
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">Gaming</a>
+                        <div class="dropdown-menu">
+                            <h4 class="dropdown-title">
+                                <span class="dropdown-icon">🎮</span>
+                                <span>Gaming Guides</span>
+                            </h4>
+                            <ul class="dropdown-links">
+                                <li><a href="/hub/best-gaming-resolution">Best Gaming Resolution</a></li>
+                                <li><a href="/hub/gaming-monitor-size-guide">Gaming Monitor Guide</a></li>
+                                <li><a href="/hub/1080p-vs-1440p-gaming">1080p vs 1440p</a></li>
+                                <li><a href="/hub/1440p-vs-4k-gaming">1440p vs 4K</a></li>
+                                <li><a href="/blog/black_myth_guide">Black Myth Guide</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Guides Dropdown -->
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">Guides</a>
+                        <div class="dropdown-menu">
+                            <h4 class="dropdown-title">
+                                <span class="dropdown-icon">📚</span>
+                                <span>Learning Resources</span>
+                            </h4>
+                            <ul class="dropdown-links">
+                                <li><a href="/blog/viewport-basics">Viewport Basics</a></li>
+                                <li><a href="/blog/device-pixel-ratio">Device Pixel Ratio</a></li>
+                                <li><a href="/blog/media-queries-essentials">Media Queries</a></li>
+                                <li><a href="/blog/responsive-web-design">Responsive Design</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Blog Link -->
+                    <li class="nav-item">
+                        <a href="/blog/" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <div class="language-selector-wrapper">
+                        <button class="language-selector" id="language-selector" aria-label="Select language">
+                            <span class="flag-icon">🌐</span>
+                            <span class="current-language">EN</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Demo Content -->
+    <main class="demo-content">
+        <section class="demo-section">
+            <h2>🎉 Phase 0.2: Navigation & Internal Links Optimization</h2>
+            <p>This demo page showcases all the new components created for Phase 0.2, including the Mega Menu, 4 types of internal link modules, and the optimized Footer.</p>
+            
+            <div class="demo-alert">
+                <h3>✅ New Features Implemented:</h3>
+                <ul>
+                    <li>4-column Mega Menu with 40+ navigation links</li>
+                    <li>Mobile-responsive hamburger menu</li>
+                    <li>4 types of internal link modules</li>
+                    <li>Optimized 6-column footer</li>
+                    <li>Dark mode support</li>
+                    <li>Keyboard accessibility</li>
+                    <li>25-30 internal links per page (up from 5-8)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Internal Links Demo -->
+        <div class="demo-grid">
+            <div>
+                <!-- Module 2: Related Tools -->
+                <section class="related-tools-module">
+                    <h3 class="module-title">
+                        <span class="module-icon">🔧</span>
+                        <span>Related Tools</span>
+                    </h3>
+                    <div class="related-tools-list">
+                        <a href="/devices/iphone-viewport-sizes" class="related-tool">
+                            <div class="tool-badge">
+                                <span class="badge-icon">📱</span>
+                                <span class="badge-label">Mobile</span>
+                            </div>
+                            <div class="tool-content">
+                                <h4 class="tool-title">iPhone Screen Sizes</h4>
+                                <p class="tool-description">Complete guide to iPhone viewport dimensions and resolutions</p>
+                            </div>
+                            <div class="tool-arrow">→</div>
+                        </a>
+                        
+                        <a href="/devices/android-viewport-sizes" class="related-tool">
+                            <div class="tool-badge">
+                                <span class="badge-icon">🤖</span>
+                                <span class="badge-label">Mobile</span>
+                            </div>
+                            <div class="tool-content">
+                                <h4 class="tool-title">Android Screen Sizes</h4>
+                                <p class="tool-description">Android device screens and viewport reference</p>
+                            </div>
+                            <div class="tool-arrow">→</div>
+                        </a>
+                        
+                        <a href="/devices/ipad-viewport-sizes" class="related-tool">
+                            <div class="tool-badge">
+                                <span class="badge-icon">💻</span>
+                                <span class="badge-label">Tablet</span>
+                            </div>
+                            <div class="tool-content">
+                                <h4 class="tool-title">iPad Screen Sizes</h4>
+                                <p class="tool-description">iPad models with screen specifications</p>
+                            </div>
+                            <div class="tool-arrow">→</div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Module 4: Popular Guides -->
+                <section class="popular-guides-module">
+                    <h3 class="module-title">
+                        <span class="module-icon">📚</span>
+                        <span>Popular Guides</span>
+                    </h3>
+                    <div class="popular-guides-list">
+                        <a href="/blog/viewport-basics" class="guide-item">
+                            <div class="guide-meta">
+                                <span class="guide-category">Basics</span>
+                                <span class="guide-reading-time">5 min read</span>
+                            </div>
+                            <h4 class="guide-title">Understanding Viewport Basics</h4>
+                            <p class="guide-excerpt">Learn how viewport works and why it matters for responsive design</p>
+                            <div class="guide-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">👁️</span>
+                                    <span class="stat-value">15.2K views</span>
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <a href="/blog/device-pixel-ratio" class="guide-item">
+                            <div class="guide-meta">
+                                <span class="guide-category">Technical</span>
+                                <span class="guide-reading-time">8 min read</span>
+                            </div>
+                            <h4 class="guide-title">Device Pixel Ratio Explained</h4>
+                            <p class="guide-excerpt">Deep dive into DPR and how it affects your web design</p>
+                            <div class="guide-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">👁️</span>
+                                    <span class="stat-value">12.8K views</span>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                    <a href="/blog/" class="view-all-button">View All Guides →</a>
+                </section>
+            </div>
+
+            <aside>
+                <!-- Module 1: Quick Links -->
+                <aside class="quick-links-module">
+                    <h3 class="module-title">
+                        <span class="module-icon">⚡</span>
+                        <span>Quick Links</span>
+                    </h3>
+                    <div class="quick-links-grid">
+                        <a href="/devices/compare" class="quick-link-card">
+                            <div class="quick-link-icon">⚖️</div>
+                            <div class="quick-link-text">
+                                <div class="quick-link-title">Compare Screens</div>
+                                <div class="quick-link-desc">Side-by-side comparison</div>
+                            </div>
+                        </a>
+                        
+                        <a href="/devices/ppi-calculator" class="quick-link-card">
+                            <div class="quick-link-icon">🔢</div>
+                            <div class="quick-link-text">
+                                <div class="quick-link-title">PPI Calculator</div>
+                                <div class="quick-link-desc">Calculate pixel density</div>
+                            </div>
+                        </a>
+                        
+                        <a href="/devices/aspect-ratio-calculator" class="quick-link-card">
+                            <div class="quick-link-icon">📐</div>
+                            <div class="quick-link-text">
+                                <div class="quick-link-title">Aspect Ratio</div>
+                                <div class="quick-link-desc">Screen proportions</div>
+                            </div>
+                        </a>
+                        
+                        <a href="/devices/responsive-tester" class="quick-link-card">
+                            <div class="quick-link-icon">📱</div>
+                            <div class="quick-link-text">
+                                <div class="quick-link-title">Responsive Test</div>
+                                <div class="quick-link-desc">Test your design</div>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- Module 3: Device Recommendations -->
+                <aside class="device-recommendations-module">
+                    <h3 class="module-title">
+                        <span class="module-icon">📱</span>
+                        <span>Recommended Devices</span>
+                    </h3>
+                    <div class="device-recommendation-cards">
+                        <a href="/devices/iphone-viewport-sizes" class="device-card">
+                            <div class="device-image">
+                                <div class="device-placeholder">📱</div>
+                            </div>
+                            <div class="device-info">
+                                <h4 class="device-name">iPhone 15 Pro Max</h4>
+                                <div class="device-specs">
+                                    <span class="spec-item">6.7"</span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">2796×1290</span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">460 PPI</span>
+                                </div>
+                                <div class="device-tag">
+                                    <span class="tag-icon">🔥</span>
+                                    <span class="tag-text">Popular</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="/devices/android-viewport-sizes" class="device-card">
+                            <div class="device-image">
+                                <div class="device-placeholder">🤖</div>
+                            </div>
+                            <div class="device-info">
+                                <h4 class="device-name">Samsung S24 Ultra</h4>
+                                <div class="device-specs">
+                                    <span class="spec-item">6.8"</span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">3120×1440</span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">505 PPI</span>
+                                </div>
+                                <div class="device-tag">
+                                    <span class="tag-icon">⭐</span>
+                                    <span class="tag-text">Flagship</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Phase 0.2 Optimized Footer -->
+    <footer class="footer-v2">
+        <div class="footer-container">
+            <!-- Footer Main Content - 6 Column Layout -->
+            <div class="footer-main">
+                <!-- Column 1: About & Brand -->
+                <div class="footer-column brand-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">📐</div>
+                        <div class="footer-logo-text">Screen Size Checker</div>
+                    </div>
+                    <p class="footer-description">
+                        Free online tool to check your screen size, viewport dimensions, and device specifications. Perfect for web developers and designers.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Devices -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Devices</h4>
+                    <ul class="footer-links">
+                        <li><a href="/devices/iphone-viewport-sizes">iPhone Screens</a></li>
+                        <li><a href="/devices/android-viewport-sizes">Android Screens</a></li>
+                        <li><a href="/devices/ipad-viewport-sizes">iPad Screens</a></li>
+                        <li><a href="/devices/compare">Compare Devices</a></li>
+                        <li><a href="/devices/standard-resolutions">Standard Resolutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Tools -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="/devices/ppi-calculator">PPI Calculator</a></li>
+                        <li><a href="/devices/aspect-ratio-calculator">Aspect Ratio Calculator</a></li>
+                        <li><a href="/devices/responsive-tester">Responsive Tester</a></li>
+                        <li><a href="/tools/fps-test">FPS Test</a></li>
+                        <li><a href="/tools/refresh-rate-test">Refresh Rate Test</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Gaming -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Gaming</h4>
+                    <ul class="footer-links">
+                        <li><a href="/hub/best-gaming-resolution">Best Gaming Resolution</a></li>
+                        <li><a href="/hub/gaming-monitor-size-guide">Gaming Monitor Guide</a></li>
+                        <li><a href="/hub/1080p-vs-1440p-gaming">1080p vs 1440p</a></li>
+                        <li><a href="/hub/1440p-vs-4k-gaming">1440p vs 4K</a></li>
+                        <li><a href="/blog/black_myth_guide">Black Myth Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Resources -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/blog/viewport-basics">Viewport Basics</a></li>
+                        <li><a href="/blog/device-pixel-ratio">Device Pixel Ratio</a></li>
+                        <li><a href="/blog/media-queries-essentials">Media Queries Guide</a></li>
+                        <li><a href="/blog/average-laptop-screen-size-2025">Laptop Screen Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 6: Company -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom - Copyright & Links -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>
+                        &copy; <span id="current-year">2025</span> 
+                        <span>Screen Size Checker</span>. 
+                        <span>All rights reserved.</span>
+                    </p>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="/privacy-policy.html">Privacy</a>
+                    <span class="footer-divider">•</span>
+                    <a href="#">Terms</a>
+                    <span class="footer-divider">•</span>
+                    <a href="/sitemap.xml">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Phase 0.2 JavaScript -->
+    <script src="js/mega-menu.js"></script>
+    <script>
+        // Update current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

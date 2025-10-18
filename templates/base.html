@@ -4,7 +4,7 @@
     {{component:head}}
 </head>
 <body>
-    {{component:header}}
+    {{component:header-mega-menu}}
     
     {{#if show_breadcrumb}}
         {{component:breadcrumb}}
@@ -14,7 +14,7 @@
         {{component:page_content}}
     </main>
     
-    {{component:footer}}
+    {{component:footer-optimized}}
     
     {{component:toast}}
     
@@ -23,5 +23,8 @@
     <!-- Core Optimized JavaScript - Phase 1.1 Performance Optimization -->
     <!-- Merged core functionality modules, reduced HTTP requests, maintaining all business logic -->
     <script src="{{js_path}}/core-optimized.js" defer></script>
+    
+    <!-- Phase 0.2 JavaScript - Mega Menu Navigation -->
+    <script src="{{js_path}}/mega-menu.js" defer></script>
 </body>
 </html> 
