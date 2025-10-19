@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-19T08:05:56.678Z",
+          "datePublished": "2025-10-19T08:35:36.785Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-19T08:05:56.924Z",
+          "datePublished": "2025-10-19T08:35:37.043Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-19T08:05:56.964Z",
+          "datePublished": "2025-10-19T08:35:37.081Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-10-19T08:05:56.984Z",
+          "datePublished": "2025-10-19T08:35:37.100Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5447,6 +5447,55 @@
       }
     },
     {
+      "name": "hub-1440p-vs-4k-gaming-en",
+      "template": "hub-page",
+      "output": "hub/1440p-vs-4k-gaming.html",
+      "page_content": "hub-1440p-vs-4k-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "1440p vs 4K Gaming: Complete Performance & Cost Comparison 2025",
+        "page_description": "In-depth comparison of 1440p vs 4K gaming with real FPS benchmarks, GPU requirements, and cost analysis. Make the right choice for your gaming setup with expert recommendations.",
+        "page_keywords": "1440p vs 4k gaming, 1440p vs 4k fps, is 4k worth it for gaming, 1440p or 4k gaming, gaming resolution comparison",
+        "canonical_url": "https://screensizechecker.com/hub/1440p-vs-4k-gaming",
+        "og_title": "1440p vs 4K Gaming: Complete Performance & Cost Comparison 2025",
+        "og_description": "In-depth comparison of 1440p vs 4K gaming with real FPS benchmarks, GPU requirements, and cost analysis. Make the right choice for your gaming setup with expert recommendations.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/1440p-vs-4k-gaming",
+        "og_image": "https://screensizechecker.com/images/1440p-vs-4k-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1440p-vs-4k-gaming",
+        "current_name": "1440p vs 4K Gaming: Complete Performance & Cost Comparison 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1440p",
+          "4k-gaming",
+          "gaming-comparison",
+          "resolution",
+          "gpu-performance",
+          "monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 13,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-best-gaming-resolution-2025-en",
       "template": "hub-page",
       "output": "hub/best-gaming-resolution-2025.html",
@@ -5585,6 +5634,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 4,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-1440p-vs-4k-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/1440p-vs-4k-gaming.html",
+      "page_content": "hub-1440p-vs-4k-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "1440p vs 4K游戏对比：2025年性能与成本完整分析",
+        "page_description": "深度对比1440p与4K游戏性能，包含真实FPS基准测试、GPU需求和成本分析。根据专家建议为你的游戏装备做出正确选择。",
+        "page_keywords": "1440p vs 4k游戏, 1440p vs 4k帧率, 4k游戏值得吗, 1440p还是4k游戏, 游戏分辨率对比",
+        "canonical_url": "https://screensizechecker.com/zh/hub/1440p-vs-4k-gaming",
+        "og_title": "1440p vs 4K游戏对比：2025年性能与成本完整分析",
+        "og_description": "深度对比1440p与4K游戏性能，包含真实FPS基准测试、GPU需求和成本分析。根据专家建议为你的游戏装备做出正确选择。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/1440p-vs-4k-gaming",
+        "og_image": "https://screensizechecker.com/images/1440p-vs-4k-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1440p-vs-4k-gaming",
+        "current_name": "1440p vs 4K游戏对比：2025年性能与成本完整分析",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1440p",
+          "4k游戏",
+          "游戏对比",
+          "分辨率",
+          "GPU性能",
+          "显示器"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 6,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -5741,6 +5839,55 @@
       }
     },
     {
+      "name": "hub-1440p-vs-4k-gaming-de",
+      "template": "hub-page",
+      "output": "hub/1440p-vs-4k-gaming.html",
+      "page_content": "hub-1440p-vs-4k-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "1440p vs 4K Gaming: Kompletter Leistungs- & Kostenvergleich 2025",
+        "page_description": "Detaillierter Vergleich von 1440p vs 4K Gaming mit echten FPS-Benchmarks, GPU-Anforderungen und Kostenanalyse. Treffen Sie die richtige Wahl für Ihr Gaming-Setup mit Expertenempfehlungen.",
+        "page_keywords": "1440p vs 4k gaming, 1440p vs 4k fps, lohnt sich 4k gaming, 1440p oder 4k gaming, gaming auflösung vergleich",
+        "canonical_url": "https://screensizechecker.com/de/hub/1440p-vs-4k-gaming",
+        "og_title": "1440p vs 4K Gaming: Kompletter Leistungs- & Kostenvergleich 2025",
+        "og_description": "Detaillierter Vergleich von 1440p vs 4K Gaming mit echten FPS-Benchmarks, GPU-Anforderungen und Kostenanalyse. Treffen Sie die richtige Wahl für Ihr Gaming-Setup mit Expertenempfehlungen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/1440p-vs-4k-gaming",
+        "og_image": "https://screensizechecker.com/images/1440p-vs-4k-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1440p-vs-4k-gaming",
+        "current_name": "1440p vs 4K Gaming: Kompletter Leistungs- & Kostenvergleich 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1440p",
+          "4k-gaming",
+          "gaming-vergleich",
+          "auflösung",
+          "gpu-leistung",
+          "monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 11,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-best-gaming-resolution-2025-de",
       "template": "hub-page",
       "output": "hub/best-gaming-resolution-2025.html",
@@ -5879,6 +6026,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 8,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-1440p-vs-4k-gaming-es",
+      "template": "hub-page",
+      "output": "hub/1440p-vs-4k-gaming.html",
+      "page_content": "hub-1440p-vs-4k-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "1440p vs 4K Gaming: Comparación Completa de Rendimiento y Costo 2025",
+        "page_description": "Comparación exhaustiva de 1440p vs 4K gaming con benchmarks reales de FPS, requisitos de GPU y análisis de costos. Toma la decisión correcta para tu setup gaming con recomendaciones expertas.",
+        "page_keywords": "1440p vs 4k gaming, 1440p vs 4k fps, vale la pena 4k gaming, 1440p o 4k gaming, comparación resolución gaming",
+        "canonical_url": "https://screensizechecker.com/es/hub/1440p-vs-4k-gaming",
+        "og_title": "1440p vs 4K Gaming: Comparación Completa de Rendimiento y Costo 2025",
+        "og_description": "Comparación exhaustiva de 1440p vs 4K gaming con benchmarks reales de FPS, requisitos de GPU y análisis de costos. Toma la decisión correcta para tu setup gaming con recomendaciones expertas.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/1440p-vs-4k-gaming",
+        "og_image": "https://screensizechecker.com/images/1440p-vs-4k-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "1440p-vs-4k-gaming",
+        "current_name": "1440p vs 4K Gaming: Comparación Completa de Rendimiento y Costo 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "1440p",
+          "4k-gaming",
+          "comparación-gaming",
+          "resolución",
+          "rendimiento-gpu",
+          "monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 13,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
