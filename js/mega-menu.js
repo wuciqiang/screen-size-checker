@@ -14,32 +14,45 @@
         const nav = document.getElementById('main-nav');
         const overlay = document.getElementById('mobile-menu-overlay');
         
-        if (!toggle || !nav || !overlay) return;
+        if (!toggle || !nav) {
+            console.warn('Mobile menu elements not found:', { toggle: !!toggle, nav: !!nav, overlay: !!overlay });
+            return;
+        }
         
         // Toggle mobile menu
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function(e) {
+            console.log('Mobile menu toggle clicked');
+            e.preventDefault();
+            e.stopPropagation();
+            
             this.classList.toggle('active');
             nav.classList.toggle('active');
-            overlay.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
             
             // Prevent body scroll when menu is open
-            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-        });
+            // Use overflow hidden only, avoid position fixed which blocks nav scrolling
+            const isActive = nav.classList.contains('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
+            
+            console.log('Menu active:', isActive);
+        }, { passive: false });
         
         // Close menu when overlay is clicked
-        overlay.addEventListener('click', function() {
-            toggle.classList.remove('active');
-            nav.classList.remove('active');
-            this.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                toggle.classList.remove('active');
+                nav.classList.remove('active');
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
         
         // Close menu when window is resized to desktop
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 toggle.classList.remove('active');
                 nav.classList.remove('active');
-                overlay.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
@@ -49,9 +62,6 @@
     // Mobile Dropdown Expansion
     // ========================================
     function initMobileDropdowns() {
-        // Only apply on mobile
-        if (window.innerWidth > 768) return;
-        
         const navItems = document.querySelectorAll('.nav-item.has-megamenu, .nav-item.has-dropdown');
         
         navItems.forEach(item => {
@@ -59,10 +69,18 @@
             
             if (!link) return;
             
-            // Add click handler for mobile
-            link.addEventListener('click', function(e) {
+            // Remove old event listeners by cloning
+            const newLink = link.cloneNode(true);
+            link.parentNode.replaceChild(newLink, link);
+            
+            // Add click handler
+            newLink.addEventListener('click', function(e) {
+                // Only prevent default and toggle on mobile
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Mobile dropdown clicked:', item.className);
                     
                     // Toggle expanded class
                     item.classList.toggle('expanded');
@@ -77,10 +95,7 @@
             });
         });
         
-        // Re-initialize on resize
-        window.addEventListener('resize', function() {
-            initMobileDropdowns();
-        });
+        console.log('Mobile dropdowns initialized:', navItems.length);
     }
     
     // ========================================

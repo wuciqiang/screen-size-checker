@@ -4,6 +4,23 @@
     {{component:head}}
     <!-- 博客页面特定CSS -->
     <link rel="stylesheet" href="{{css_path}}/blog.css">
+    
+    <!-- Critical: Mobile menu scroll fix for blog pages -->
+    <style>
+        @media (max-width: 768px) {
+            #main-nav {
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                overscroll-behavior: contain !important;
+            }
+            
+            #main-nav.active {
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+            }
+        }
+    </style>
 </head>
 <body data-theme="light">
     <!-- 头部导航 -->
@@ -42,5 +59,8 @@
     
     <!-- 博客特定JavaScript -->
     <script src="{{js_path}}/app.js" type="module"></script>
+    
+    <!-- Phase 0.2 JavaScript - Mega Menu Navigation -->
+    <script src="{{js_path}}/mega-menu.js" defer></script>
 </body>
 </html> 

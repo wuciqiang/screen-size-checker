@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="{{css_path}}/mobile-unified.css">
     <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
     <link rel="stylesheet" href="{{css_path}}/blog-progress.css">
+    
+    <!-- Critical: Mobile menu scroll fix for blog pages -->
+    <style>
+        @media (max-width: 768px) {
+            #main-nav {
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                overscroll-behavior: contain !important;
+            }
+            
+            #main-nav.active {
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+            }
+        }
+    </style>
 </head>
 <body data-theme="light" class="blog-mobile-optimized">
     <!-- 头部导航 -->
@@ -68,6 +85,9 @@
     <!-- Core Optimized JavaScript - Phase 1.1 Performance Optimization -->
     <!-- Merged core functionality modules, reduced HTTP requests, maintaining all business logic -->
     <script src="{{js_path}}/core-optimized.js" defer></script>
+    
+    <!-- Phase 0.2 JavaScript - Mega Menu Navigation -->
+    <script src="{{js_path}}/mega-menu.js" defer></script>
     
     <!-- 结构化数据 -->
     <script type="application/ld+json">

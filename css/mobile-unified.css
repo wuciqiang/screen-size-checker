@@ -68,16 +68,7 @@
 
     /* ===== MOBILE NAVIGATION ===== */
 
-    .main-nav {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        min-width: 0;
-        overflow: hidden;
-        position: relative;
-    }
+    /* Main nav styles handled by mega-menu.css */
 
     .nav-menu {
         display: flex;
@@ -903,9 +894,7 @@
 /* ===== MOBILE ORIENTATION SUPPORT ===== */
 @media (max-width: 768px) and (orientation: landscape) {
 
-    .main-nav {
-        max-height: 50vh;
-    }
+    /* Main navigation landscape mode handled by mega-menu.css */
 
     .tool-container {
         padding: 0.75rem;
