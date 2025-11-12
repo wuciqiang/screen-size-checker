@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:10:37.573Z",
+          "datePublished": "2025-11-12T14:47:36.612Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:10:37.822Z",
+          "datePublished": "2025-11-12T14:47:36.861Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:10:37.862Z",
+          "datePublished": "2025-11-12T14:47:36.902Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:10:37.881Z",
+          "datePublished": "2025-11-12T14:47:36.919Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5496,6 +5496,54 @@
       }
     },
     {
+      "name": "hub-144hz-vs-240hz-gaming-en",
+      "template": "hub-page",
+      "output": "hub/144hz-vs-240hz-gaming.html",
+      "page_content": "hub-144hz-vs-240hz-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "144Hz vs 240Hz Gaming: Is 240Hz Worth It? Complete 2025 Analysis",
+        "page_description": "Detailed comparison of 144Hz vs 240Hz gaming monitors with scientific analysis, pro player data, and value assessment. Learn if upgrading to 240Hz is worth the investment.",
+        "page_keywords": "144hz vs 240hz, 240hz worth it, 144hz vs 240hz difference, refresh rate gaming, competitive gaming monitor",
+        "canonical_url": "https://screensizechecker.com/hub/144hz-vs-240hz-gaming",
+        "og_title": "144Hz vs 240Hz Gaming: Is 240Hz Worth It? Complete 2025 Analysis",
+        "og_description": "Detailed comparison of 144Hz vs 240Hz gaming monitors with scientific analysis, pro player data, and value assessment. Learn if upgrading to 240Hz is worth the investment.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/144hz-vs-240hz-gaming",
+        "og_image": "https://screensizechecker.com/images/144hz-vs-240hz-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "144hz-vs-240hz-gaming",
+        "current_name": "144Hz vs 240Hz Gaming: Is 240Hz Worth It? Complete 2025 Analysis",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "refresh-rate",
+          "144hz",
+          "240hz",
+          "competitive-gaming",
+          "monitor-upgrade"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 17,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-best-gaming-resolution-2025-en",
       "template": "hub-page",
       "output": "hub/best-gaming-resolution-2025.html",
@@ -5728,6 +5776,54 @@
           "分辨率",
           "GPU性能",
           "显示器"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 6,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-144hz-vs-240hz-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/144hz-vs-240hz-gaming.html",
+      "page_content": "hub-144hz-vs-240hz-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "144Hz vs 240Hz游戏对比：240Hz值得吗？2025完整分析",
+        "page_description": "144Hz与240Hz游戏显示器的详细对比，包含科学分析、职业选手数据和价值评估。了解升级到240Hz是否值得投资。",
+        "page_keywords": "144hz vs 240hz, 240hz值得吗, 144hz vs 240hz区别, 刷新率游戏, 竞技游戏显示器",
+        "canonical_url": "https://screensizechecker.com/zh/hub/144hz-vs-240hz-gaming",
+        "og_title": "144Hz vs 240Hz游戏对比：240Hz值得吗？2025完整分析",
+        "og_description": "144Hz与240Hz游戏显示器的详细对比，包含科学分析、职业选手数据和价值评估。了解升级到240Hz是否值得投资。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/144hz-vs-240hz-gaming",
+        "og_image": "https://screensizechecker.com/images/144hz-vs-240hz-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "144hz-vs-240hz-gaming",
+        "current_name": "144Hz vs 240Hz游戏对比：240Hz值得吗？2025完整分析",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "刷新率",
+          "144hz",
+          "240hz",
+          "竞技游戏",
+          "显示器升级"
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
@@ -5984,6 +6080,54 @@
       }
     },
     {
+      "name": "hub-144hz-vs-240hz-gaming-de",
+      "template": "hub-page",
+      "output": "hub/144hz-vs-240hz-gaming.html",
+      "page_content": "hub-144hz-vs-240hz-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "144Hz vs 240Hz Gaming: Lohnt sich 240Hz? Komplette 2025 Analyse",
+        "page_description": "Detaillierter Vergleich von 144Hz vs 240Hz Gaming-Monitoren mit wissenschaftlicher Analyse, Pro-Spieler-Daten und Wertbewertung. Erfahren Sie, ob das Upgrade auf 240Hz die Investition wert ist.",
+        "page_keywords": "144hz vs 240hz, 240hz lohnt sich, 144hz vs 240hz unterschied, bildwiederholrate gaming, competitive gaming monitor",
+        "canonical_url": "https://screensizechecker.com/de/hub/144hz-vs-240hz-gaming",
+        "og_title": "144Hz vs 240Hz Gaming: Lohnt sich 240Hz? Komplette 2025 Analyse",
+        "og_description": "Detaillierter Vergleich von 144Hz vs 240Hz Gaming-Monitoren mit wissenschaftlicher Analyse, Pro-Spieler-Daten und Wertbewertung. Erfahren Sie, ob das Upgrade auf 240Hz die Investition wert ist.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/144hz-vs-240hz-gaming",
+        "og_image": "https://screensizechecker.com/images/144hz-vs-240hz-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "144hz-vs-240hz-gaming",
+        "current_name": "144Hz vs 240Hz Gaming: Lohnt sich 240Hz? Komplette 2025 Analyse",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "bildwiederholrate",
+          "144hz",
+          "240hz",
+          "competitive-gaming",
+          "monitor-upgrade"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 10,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-best-gaming-resolution-2025-de",
       "template": "hub-page",
       "output": "hub/best-gaming-resolution-2025.html",
@@ -6219,6 +6363,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 13,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-144hz-vs-240hz-gaming-es",
+      "template": "hub-page",
+      "output": "hub/144hz-vs-240hz-gaming.html",
+      "page_content": "hub-144hz-vs-240hz-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "144Hz vs 240Hz Gaming: ¿Vale la Pena 240Hz? Análisis Completo 2025",
+        "page_description": "Comparación detallada de monitores gaming 144Hz vs 240Hz con análisis científico, datos de jugadores pro y evaluación de valor. Aprende si actualizar a 240Hz vale la inversión.",
+        "page_keywords": "144hz vs 240hz, 240hz vale la pena, diferencia 144hz vs 240hz, tasa refresco gaming, monitor gaming competitivo",
+        "canonical_url": "https://screensizechecker.com/es/hub/144hz-vs-240hz-gaming",
+        "og_title": "144Hz vs 240Hz Gaming: ¿Vale la Pena 240Hz? Análisis Completo 2025",
+        "og_description": "Comparación detallada de monitores gaming 144Hz vs 240Hz con análisis científico, datos de jugadores pro y evaluación de valor. Aprende si actualizar a 240Hz vale la inversión.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/144hz-vs-240hz-gaming",
+        "og_image": "https://screensizechecker.com/images/144hz-vs-240hz-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "144hz-vs-240hz-gaming",
+        "current_name": "144Hz vs 240Hz Gaming: ¿Vale la Pena 240Hz? Análisis Completo 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "tasa-refresco",
+          "144hz",
+          "240hz",
+          "gaming-competitivo",
+          "actualización-monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 11,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
