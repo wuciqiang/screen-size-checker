@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:47:36.612Z",
+          "datePublished": "2025-11-12T15:39:40.016Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:47:36.861Z",
+          "datePublished": "2025-11-12T15:39:40.273Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:47:36.902Z",
+          "datePublished": "2025-11-12T15:39:40.318Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T14:47:36.919Z",
+          "datePublished": "2025-11-12T15:39:40.338Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5690,6 +5690,54 @@
       }
     },
     {
+      "name": "hub-ultrawide-vs-dual-monitor-gaming-en",
+      "template": "hub-page",
+      "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
+      "page_content": "hub-ultrawide-vs-dual-monitor-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Ultrawide vs Dual Monitor Gaming: Which Setup is Better in 2025?",
+        "page_description": "Complete comparison of ultrawide monitors vs dual monitor setups for gaming and productivity. Includes game compatibility, performance analysis, and expert recommendations.",
+        "page_keywords": "ultrawide vs dual monitor gaming, 21:9 vs dual monitor, ultrawide gaming setup, dual monitor gaming, ultrawide or dual monitor",
+        "canonical_url": "https://screensizechecker.com/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_title": "Ultrawide vs Dual Monitor Gaming: Which Setup is Better in 2025?",
+        "og_description": "Complete comparison of ultrawide monitors vs dual monitor setups for gaming and productivity. Includes game compatibility, performance analysis, and expert recommendations.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/ultrawide-vs-dual-monitor-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ultrawide-vs-dual-monitor-gaming",
+        "current_name": "Ultrawide vs Dual Monitor Gaming: Which Setup is Better in 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "ultrawide",
+          "dual-monitor",
+          "gaming-setup",
+          "productivity",
+          "monitor-comparison"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 17,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-1080p-vs-1440p-gaming-zh",
       "template": "hub-page",
       "output": "hub/1080p-vs-1440p-gaming.html",
@@ -5973,6 +6021,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 3,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-ultrawide-vs-dual-monitor-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
+      "page_content": "hub-ultrawide-vs-dual-monitor-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "超宽屏 vs 双显示器游戏：2025年哪种设置更好？",
+        "page_description": "超宽屏显示器与双显示器设置在游戏和生产力方面的完整对比。包含游戏兼容性、性能分析和专家建议。",
+        "page_keywords": "超宽屏vs双显示器游戏, 21:9 vs 双显示器, 超宽屏游戏设置, 双显示器游戏, 超宽屏或双显示器",
+        "canonical_url": "https://screensizechecker.com/zh/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_title": "超宽屏 vs 双显示器游戏：2025年哪种设置更好？",
+        "og_description": "超宽屏显示器与双显示器设置在游戏和生产力方面的完整对比。包含游戏兼容性、性能分析和专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/ultrawide-vs-dual-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ultrawide-vs-dual-monitor-gaming",
+        "current_name": "超宽屏 vs 双显示器游戏：2025年哪种设置更好？",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "超宽屏",
+          "双显示器",
+          "游戏设置",
+          "生产力",
+          "显示器对比"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 6,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6274,6 +6370,54 @@
       }
     },
     {
+      "name": "hub-ultrawide-vs-dual-monitor-gaming-de",
+      "template": "hub-page",
+      "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
+      "page_content": "hub-ultrawide-vs-dual-monitor-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Ultrawide vs Dual Monitor Gaming: Welches Setup ist 2025 besser?",
+        "page_description": "Kompletter Vergleich von Ultrawide-Monitoren vs Dual-Monitor-Setups für Gaming und Produktivität. Enthält Spielkompatibilität, Leistungsanalyse und Expertenempfehlungen.",
+        "page_keywords": "ultrawide vs dual monitor gaming, 21:9 vs dual monitor, ultrawide gaming setup, dual monitor gaming, ultrawide oder dual monitor",
+        "canonical_url": "https://screensizechecker.com/de/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_title": "Ultrawide vs Dual Monitor Gaming: Welches Setup ist 2025 besser?",
+        "og_description": "Kompletter Vergleich von Ultrawide-Monitoren vs Dual-Monitor-Setups für Gaming und Produktivität. Enthält Spielkompatibilität, Leistungsanalyse und Expertenempfehlungen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/ultrawide-vs-dual-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ultrawide-vs-dual-monitor-gaming",
+        "current_name": "Ultrawide vs Dual Monitor Gaming: Welches Setup ist 2025 besser?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "ultrawide",
+          "dual-monitor",
+          "gaming-setup",
+          "produktivität",
+          "monitor-vergleich"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 9,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-1080p-vs-1440p-gaming-es",
       "template": "hub-page",
       "output": "hub/1080p-vs-1440p-gaming.html",
@@ -6557,6 +6701,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-ultrawide-vs-dual-monitor-gaming-es",
+      "template": "hub-page",
+      "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
+      "page_content": "hub-ultrawide-vs-dual-monitor-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Ultrawide vs Dual Monitor Gaming: ¿Cuál Setup es Mejor en 2025?",
+        "page_description": "Comparación completa de monitores ultrawide vs setups de monitor dual para gaming y productividad. Incluye compatibilidad de juegos, análisis de rendimiento y recomendaciones expertas.",
+        "page_keywords": "ultrawide vs dual monitor gaming, 21:9 vs dual monitor, ultrawide gaming setup, dual monitor gaming, ultrawide o dual monitor",
+        "canonical_url": "https://screensizechecker.com/es/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_title": "Ultrawide vs Dual Monitor Gaming: ¿Cuál Setup es Mejor en 2025?",
+        "og_description": "Comparación completa de monitores ultrawide vs setups de monitor dual para gaming y productividad. Incluye compatibilidad de juegos, análisis de rendimiento y recomendaciones expertas.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/ultrawide-vs-dual-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/ultrawide-vs-dual-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ultrawide-vs-dual-monitor-gaming",
+        "current_name": "Ultrawide vs Dual Monitor Gaming: ¿Cuál Setup es Mejor en 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "ultrawide",
+          "dual-monitor",
+          "gaming-setup",
+          "productividad",
+          "comparación-monitor"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 11,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
