@@ -1,13 +1,13 @@
 {
-  "validationDate": "2025-11-12T14:08:59.934Z",
+  "validationDate": "2025-11-12T14:10:37.528Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 627,
-    "missingTranslations": 125,
-    "inconsistentKeys": 387
+    "totalKeys": 629,
+    "missingTranslations": 129,
+    "inconsistentKeys": 389
   },
   "missingKeys": {
     "en": [
@@ -51,6 +51,7 @@
       "footer_gaming_resolution",
       "footer_gaming_1080p_1440p",
       "footer_gaming_1440p_4k",
+      "footer_gaming_fps",
       "footer_gaming_monitor",
       "terms",
       "seo_description",
@@ -58,6 +59,7 @@
       "devices_android",
       "devices_ipad",
       "gaming_1440p_vs_4k",
+      "gaming_monitor_fps",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
       "ipad_7th_gen",
@@ -115,6 +117,7 @@
       "footer_gaming_resolution",
       "footer_gaming_1080p_1440p",
       "footer_gaming_1440p_4k",
+      "footer_gaming_fps",
       "footer_gaming_monitor",
       "terms",
       "seo_description",
@@ -122,6 +125,7 @@
       "devices_android",
       "devices_ipad",
       "gaming_1440p_vs_4k",
+      "gaming_monitor_fps",
       "screen_size_suffix",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
@@ -1969,6 +1973,11 @@
     {
       "component": "footer-optimized.html",
       "issue": "翻译键在所有语言文件中都不存在",
+      "key": "footer_gaming_fps"
+    },
+    {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
       "key": "footer_gaming_monitor"
     },
     {
@@ -2000,6 +2009,11 @@
       "component": "header-mega-menu.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "gaming_1440p_vs_4k"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "gaming_monitor_fps"
     },
     {
       "component": "ipad-content.html",
