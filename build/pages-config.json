@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T13:44:45.621Z",
+          "datePublished": "2025-11-12T14:08:59.979Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T13:44:45.883Z",
+          "datePublished": "2025-11-12T14:09:00.228Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T13:44:45.924Z",
+          "datePublished": "2025-11-12T14:09:00.266Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T13:44:45.944Z",
+          "datePublished": "2025-11-12T14:09:00.284Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5545,6 +5545,54 @@
       }
     },
     {
+      "name": "hub-best-monitor-size-fps-en",
+      "template": "hub-page",
+      "output": "hub/best-monitor-size-fps.html",
+      "page_content": "hub-best-monitor-size-fps-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
+        "page_description": "Expert guide on choosing the perfect monitor size for FPS gaming. Compare 24\", 27\", and 32\" displays with pro player data, reaction time analysis, and ergonomic recommendations.",
+        "page_keywords": "best monitor size for fps, fps gaming monitor size, 24 vs 27 inch gaming, competitive gaming monitor, esports monitor size",
+        "canonical_url": "https://screensizechecker.com/hub/best-monitor-size-fps",
+        "og_title": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
+        "og_description": "Expert guide on choosing the perfect monitor size for FPS gaming. Compare 24\", 27\", and 32\" displays with pro player data, reaction time analysis, and ergonomic recommendations.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/best-monitor-size-fps",
+        "og_image": "https://screensizechecker.com/images/best-monitor-size-fps-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-monitor-size-fps",
+        "current_name": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "fps-gaming",
+          "monitor-size",
+          "competitive-gaming",
+          "esports",
+          "gaming-setup"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 15,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-en",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -5733,6 +5781,54 @@
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
         "hub_author": "Screen Size Checker 游戏团队",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-best-monitor-size-fps-zh",
+      "template": "hub-page",
+      "output": "hub/best-monitor-size-fps.html",
+      "page_content": "hub-best-monitor-size-fps-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "FPS游戏最佳显示器尺寸：24英寸 vs 27英寸 vs 32英寸指南 2025",
+        "page_description": "选择FPS游戏完美显示器尺寸的专家指南。对比24英寸、27英寸和32英寸显示器，包含职业选手数据、反应时间分析和人体工程学建议。",
+        "page_keywords": "fps最佳显示器尺寸, fps游戏显示器尺寸, 24英寸vs27英寸游戏, 竞技游戏显示器, 电竞显示器尺寸",
+        "canonical_url": "https://screensizechecker.com/zh/hub/best-monitor-size-fps",
+        "og_title": "FPS游戏最佳显示器尺寸：24英寸 vs 27英寸 vs 32英寸指南 2025",
+        "og_description": "选择FPS游戏完美显示器尺寸的专家指南。对比24英寸、27英寸和32英寸显示器，包含职业选手数据、反应时间分析和人体工程学建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/best-monitor-size-fps",
+        "og_image": "https://screensizechecker.com/images/best-monitor-size-fps-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-monitor-size-fps",
+        "current_name": "FPS游戏最佳显示器尺寸：24英寸 vs 27英寸 vs 32英寸指南 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "fps游戏",
+          "显示器尺寸",
+          "竞技游戏",
+          "电竞",
+          "游戏装备"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 6,
+        "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
         "is_tools": false,
@@ -5937,6 +6033,54 @@
       }
     },
     {
+      "name": "hub-best-monitor-size-fps-de",
+      "template": "hub-page",
+      "output": "hub/best-monitor-size-fps.html",
+      "page_content": "hub-best-monitor-size-fps-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Beste Monitor-Größe für FPS Gaming: 24 vs 27 vs 32 Zoll Guide 2025",
+        "page_description": "Expertenratgeber zur Wahl der perfekten Monitor-Größe für FPS-Gaming. Vergleichen Sie 24\", 27\" und 32\" Displays mit Pro-Spieler-Daten, Reaktionszeitanalyse und ergonomischen Empfehlungen.",
+        "page_keywords": "beste monitor größe fps, fps gaming monitor größe, 24 vs 27 zoll gaming, competitive gaming monitor, esports monitor größe",
+        "canonical_url": "https://screensizechecker.com/de/hub/best-monitor-size-fps",
+        "og_title": "Beste Monitor-Größe für FPS Gaming: 24 vs 27 vs 32 Zoll Guide 2025",
+        "og_description": "Expertenratgeber zur Wahl der perfekten Monitor-Größe für FPS-Gaming. Vergleichen Sie 24\", 27\" und 32\" Displays mit Pro-Spieler-Daten, Reaktionszeitanalyse und ergonomischen Empfehlungen.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/best-monitor-size-fps",
+        "og_image": "https://screensizechecker.com/images/best-monitor-size-fps-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-monitor-size-fps",
+        "current_name": "Beste Monitor-Größe für FPS Gaming: 24 vs 27 vs 32 Zoll Guide 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "fps-gaming",
+          "monitor-größe",
+          "competitive-gaming",
+          "esports",
+          "gaming-setup"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 11,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-de",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -6124,6 +6268,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-best-monitor-size-fps-es",
+      "template": "hub-page",
+      "output": "hub/best-monitor-size-fps.html",
+      "page_content": "hub-best-monitor-size-fps-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Mejor Tamaño de Monitor para FPS Gaming: Guía 24 vs 27 vs 32 Pulgadas 2025",
+        "page_description": "Guía experta para elegir el tamaño perfecto de monitor para FPS gaming. Compara displays de 24\", 27\" y 32\" con datos de jugadores pro, análisis de tiempo de reacción y recomendaciones ergonómicas.",
+        "page_keywords": "mejor tamaño monitor fps, tamaño monitor fps gaming, 24 vs 27 pulgadas gaming, monitor gaming competitivo, tamaño monitor esports",
+        "canonical_url": "https://screensizechecker.com/es/hub/best-monitor-size-fps",
+        "og_title": "Mejor Tamaño de Monitor para FPS Gaming: Guía 24 vs 27 vs 32 Pulgadas 2025",
+        "og_description": "Guía experta para elegir el tamaño perfecto de monitor para FPS gaming. Compara displays de 24\", 27\" y 32\" con datos de jugadores pro, análisis de tiempo de reacción y recomendaciones ergonómicas.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/best-monitor-size-fps",
+        "og_image": "https://screensizechecker.com/images/best-monitor-size-fps-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "best-monitor-size-fps",
+        "current_name": "Mejor Tamaño de Monitor para FPS Gaming: Guía 24 vs 27 vs 32 Pulgadas 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "fps-gaming",
+          "tamaño-monitor",
+          "gaming-competitivo",
+          "esports",
+          "setup-gaming"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 14,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
