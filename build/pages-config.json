@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T15:39:40.016Z",
+          "datePublished": "2025-11-12T16:02:44.228Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T15:39:40.273Z",
+          "datePublished": "2025-11-12T16:02:44.475Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T15:39:40.318Z",
+          "datePublished": "2025-11-12T16:02:44.513Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T15:39:40.338Z",
+          "datePublished": "2025-11-12T16:02:44.533Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5690,6 +5690,55 @@
       }
     },
     {
+      "name": "hub-ips-vs-tn-vs-va-gaming-en",
+      "template": "hub-page",
+      "output": "hub/ips-vs-tn-vs-va-gaming.html",
+      "page_content": "hub-ips-vs-tn-vs-va-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "IPS vs TN vs VA Gaming: Best Panel Type for Gaming 2025",
+        "page_description": "Complete comparison of IPS, TN, VA, and OLED gaming monitor panel types. Includes response time analysis, color accuracy testing, and expert recommendations for every gaming genre.",
+        "page_keywords": "ips vs tn vs va gaming, best panel type for gaming, ips gaming monitor, tn vs ips, gaming panel comparison",
+        "canonical_url": "https://screensizechecker.com/hub/ips-vs-tn-vs-va-gaming",
+        "og_title": "IPS vs TN vs VA Gaming: Best Panel Type for Gaming 2025",
+        "og_description": "Complete comparison of IPS, TN, VA, and OLED gaming monitor panel types. Includes response time analysis, color accuracy testing, and expert recommendations for every gaming genre.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/ips-vs-tn-vs-va-gaming",
+        "og_image": "https://screensizechecker.com/images/ips-vs-tn-vs-va-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ips-vs-tn-vs-va-gaming",
+        "current_name": "IPS vs TN vs VA Gaming: Best Panel Type for Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "panel-types",
+          "ips",
+          "tn",
+          "va",
+          "oled",
+          "gaming-monitors"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 21,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ultrawide-vs-dual-monitor-gaming-en",
       "template": "hub-page",
       "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
@@ -6021,6 +6070,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 3,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-ips-vs-tn-vs-va-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/ips-vs-tn-vs-va-gaming.html",
+      "page_content": "hub-ips-vs-tn-vs-va-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "IPS vs TN vs VA游戏对比：2025年最佳面板类型",
+        "page_description": "IPS、TN、VA和OLED游戏显示器面板类型的完整对比。包含响应时间分析、色彩准确度测试和针对每种游戏类型的专家建议。",
+        "page_keywords": "ips vs tn vs va游戏, 最佳游戏面板类型, ips游戏显示器, tn vs ips, 游戏面板对比",
+        "canonical_url": "https://screensizechecker.com/zh/hub/ips-vs-tn-vs-va-gaming",
+        "og_title": "IPS vs TN vs VA游戏对比：2025年最佳面板类型",
+        "og_description": "IPS、TN、VA和OLED游戏显示器面板类型的完整对比。包含响应时间分析、色彩准确度测试和针对每种游戏类型的专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/ips-vs-tn-vs-va-gaming",
+        "og_image": "https://screensizechecker.com/images/ips-vs-tn-vs-va-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ips-vs-tn-vs-va-gaming",
+        "current_name": "IPS vs TN vs VA游戏对比：2025年最佳面板类型",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "面板类型",
+          "ips",
+          "tn",
+          "va",
+          "oled",
+          "游戏显示器"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6370,6 +6468,55 @@
       }
     },
     {
+      "name": "hub-ips-vs-tn-vs-va-gaming-de",
+      "template": "hub-page",
+      "output": "hub/ips-vs-tn-vs-va-gaming.html",
+      "page_content": "hub-ips-vs-tn-vs-va-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "IPS vs TN vs VA Gaming: Beste Panel-Typ für Gaming 2025",
+        "page_description": "Kompletter Vergleich von IPS, TN, VA und OLED Gaming-Monitor-Panel-Typen. Enthält Reaktionszeit-Analyse, Farb-Genauigkeits-Tests und Expertenempfehlungen für jedes Gaming-Genre.",
+        "page_keywords": "ips vs tn vs va gaming, bester panel typ gaming, ips gaming monitor, tn vs ips, gaming panel vergleich",
+        "canonical_url": "https://screensizechecker.com/de/hub/ips-vs-tn-vs-va-gaming",
+        "og_title": "IPS vs TN vs VA Gaming: Beste Panel-Typ für Gaming 2025",
+        "og_description": "Kompletter Vergleich von IPS, TN, VA und OLED Gaming-Monitor-Panel-Typen. Enthält Reaktionszeit-Analyse, Farb-Genauigkeits-Tests und Expertenempfehlungen für jedes Gaming-Genre.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/ips-vs-tn-vs-va-gaming",
+        "og_image": "https://screensizechecker.com/images/ips-vs-tn-vs-va-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ips-vs-tn-vs-va-gaming",
+        "current_name": "IPS vs TN vs VA Gaming: Beste Panel-Typ für Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "panel-typen",
+          "ips",
+          "tn",
+          "va",
+          "oled",
+          "gaming-monitore"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ultrawide-vs-dual-monitor-gaming-de",
       "template": "hub-page",
       "output": "hub/ultrawide-vs-dual-monitor-gaming.html",
@@ -6701,6 +6848,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-ips-vs-tn-vs-va-gaming-es",
+      "template": "hub-page",
+      "output": "hub/ips-vs-tn-vs-va-gaming.html",
+      "page_content": "hub-ips-vs-tn-vs-va-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "IPS vs TN vs VA Gaming: Mejor Tipo de Panel para Gaming 2025",
+        "page_description": "Comparación completa de tipos de panel IPS, TN, VA y OLED para monitores gaming. Incluye análisis de tiempo de respuesta, pruebas de precisión de color y recomendaciones expertas para cada género gaming.",
+        "page_keywords": "ips vs tn vs va gaming, mejor tipo panel gaming, monitor ips gaming, tn vs ips, comparación panel gaming",
+        "canonical_url": "https://screensizechecker.com/es/hub/ips-vs-tn-vs-va-gaming",
+        "og_title": "IPS vs TN vs VA Gaming: Mejor Tipo de Panel para Gaming 2025",
+        "og_description": "Comparación completa de tipos de panel IPS, TN, VA y OLED para monitores gaming. Incluye análisis de tiempo de respuesta, pruebas de precisión de color y recomendaciones expertas para cada género gaming.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/ips-vs-tn-vs-va-gaming",
+        "og_image": "https://screensizechecker.com/images/ips-vs-tn-vs-va-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "ips-vs-tn-vs-va-gaming",
+        "current_name": "IPS vs TN vs VA Gaming: Mejor Tipo de Panel para Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "tipos-panel",
+          "ips",
+          "tn",
+          "va",
+          "oled",
+          "monitores-gaming"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 10,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
