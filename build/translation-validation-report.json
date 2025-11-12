@@ -1,13 +1,13 @@
 {
-  "validationDate": "2025-10-27T12:43:10.009Z",
+  "validationDate": "2025-11-12T13:44:45.546Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 621,
-    "missingTranslations": 115,
-    "inconsistentKeys": 382
+    "totalKeys": 627,
+    "missingTranslations": 125,
+    "inconsistentKeys": 387
   },
   "missingKeys": {
     "en": [
@@ -48,11 +48,16 @@
       "tag_subtitle",
       "{{parent_key}}",
       "{{current_key}}",
+      "footer_gaming_resolution",
+      "footer_gaming_1080p_1440p",
+      "footer_gaming_1440p_4k",
+      "footer_gaming_monitor",
       "terms",
       "seo_description",
       "devices_iphone",
       "devices_android",
       "devices_ipad",
+      "gaming_1440p_vs_4k",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
       "ipad_7th_gen",
@@ -107,11 +112,16 @@
       "tag_subtitle",
       "{{parent_key}}",
       "{{current_key}}",
+      "footer_gaming_resolution",
+      "footer_gaming_1080p_1440p",
+      "footer_gaming_1440p_4k",
+      "footer_gaming_monitor",
       "terms",
       "seo_description",
       "devices_iphone",
       "devices_android",
       "devices_ipad",
+      "gaming_1440p_vs_4k",
       "screen_size_suffix",
       "ipad_pro_12_2020",
       "ipad_pro_11_2020",
@@ -1944,6 +1954,26 @@
     {
       "component": "footer-optimized.html",
       "issue": "翻译键在所有语言文件中都不存在",
+      "key": "footer_gaming_resolution"
+    },
+    {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "footer_gaming_1080p_1440p"
+    },
+    {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "footer_gaming_1440p_4k"
+    },
+    {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "footer_gaming_monitor"
+    },
+    {
+      "component": "footer-optimized.html",
+      "issue": "翻译键在所有语言文件中都不存在",
       "key": "terms"
     },
     {
@@ -1965,6 +1995,11 @@
       "component": "header-mega-menu.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "devices_ipad"
+    },
+    {
+      "component": "header-mega-menu.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "gaming_1440p_vs_4k"
     },
     {
       "component": "ipad-content.html",
