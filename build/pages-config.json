@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T16:02:44.228Z",
+          "datePublished": "2025-11-13T14:32:46.295Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T16:02:44.475Z",
+          "datePublished": "2025-11-13T14:32:46.558Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T16:02:44.513Z",
+          "datePublished": "2025-11-13T14:32:46.601Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-12T16:02:44.533Z",
+          "datePublished": "2025-11-13T14:32:46.628Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5690,6 +5690,54 @@
       }
     },
     {
+      "name": "hub-gaming-monitor-vs-tv-en",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-vs-tv.html",
+      "page_content": "hub-gaming-monitor-vs-tv-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Gaming Monitor vs TV: Which Is Better for Gaming in 2025?",
+        "page_description": "Complete comparison of gaming monitors vs TVs for PC and console gaming. Covers input lag, response time, features, sizes, and expert recommendations for every gaming setup.",
+        "page_keywords": "gaming monitor vs tv, monitor or tv for gaming, best for console gaming, pc gaming display, gaming monitor vs oled tv",
+        "canonical_url": "https://screensizechecker.com/hub/gaming-monitor-vs-tv",
+        "og_title": "Gaming Monitor vs TV: Which Is Better for Gaming in 2025?",
+        "og_description": "Complete comparison of gaming monitors vs TVs for PC and console gaming. Covers input lag, response time, features, sizes, and expert recommendations for every gaming setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/gaming-monitor-vs-tv",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-vs-tv-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-vs-tv",
+        "current_name": "Gaming Monitor vs TV: Which Is Better for Gaming in 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "gaming-monitor",
+          "tv",
+          "console-gaming",
+          "pc-gaming",
+          "comparison"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 19,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ips-vs-tn-vs-va-gaming-en",
       "template": "hub-page",
       "output": "hub/ips-vs-tn-vs-va-gaming.html",
@@ -6070,6 +6118,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 3,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-gaming-monitor-vs-tv-zh",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-vs-tv.html",
+      "page_content": "hub-gaming-monitor-vs-tv-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "游戏显示器vs电视：2025年哪个更适合游戏？",
+        "page_description": "游戏显示器与电视针对PC和主机游戏的完整对比。涵盖输入延迟、响应时间、功能、尺寸和针对每种游戏设置的专家建议。",
+        "page_keywords": "游戏显示器vs电视, 游戏用显示器还是电视, 主机游戏最佳, pc游戏显示器, 游戏显示器vs oled电视",
+        "canonical_url": "https://screensizechecker.com/zh/hub/gaming-monitor-vs-tv",
+        "og_title": "游戏显示器vs电视：2025年哪个更适合游戏？",
+        "og_description": "游戏显示器与电视针对PC和主机游戏的完整对比。涵盖输入延迟、响应时间、功能、尺寸和针对每种游戏设置的专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/gaming-monitor-vs-tv",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-vs-tv-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-vs-tv",
+        "current_name": "游戏显示器vs电视：2025年哪个更适合游戏？",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "游戏显示器",
+          "电视",
+          "主机游戏",
+          "pc游戏",
+          "对比"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 5,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6468,6 +6564,54 @@
       }
     },
     {
+      "name": "hub-gaming-monitor-vs-tv-de",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-vs-tv.html",
+      "page_content": "hub-gaming-monitor-vs-tv-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Gaming Monitor vs TV: Was ist besser für Gaming 2025?",
+        "page_description": "Kompletter Vergleich von Gaming-Monitoren vs TVs für PC- und Konsolen-Gaming. Behandelt Input-Lag, Reaktionszeit, Features, Größen und Expertenempfehlungen für jedes Gaming-Setup.",
+        "page_keywords": "gaming monitor vs tv, monitor oder tv gaming, beste konsolen gaming, pc gaming display, gaming monitor vs oled tv",
+        "canonical_url": "https://screensizechecker.com/de/hub/gaming-monitor-vs-tv",
+        "og_title": "Gaming Monitor vs TV: Was ist besser für Gaming 2025?",
+        "og_description": "Kompletter Vergleich von Gaming-Monitoren vs TVs für PC- und Konsolen-Gaming. Behandelt Input-Lag, Reaktionszeit, Features, Größen und Expertenempfehlungen für jedes Gaming-Setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/gaming-monitor-vs-tv",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-vs-tv-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-vs-tv",
+        "current_name": "Gaming Monitor vs TV: Was ist besser für Gaming 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "gaming-monitor",
+          "tv",
+          "konsolen-gaming",
+          "pc-gaming",
+          "vergleich"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ips-vs-tn-vs-va-gaming-de",
       "template": "hub-page",
       "output": "hub/ips-vs-tn-vs-va-gaming.html",
@@ -6848,6 +6992,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-gaming-monitor-vs-tv-es",
+      "template": "hub-page",
+      "output": "hub/gaming-monitor-vs-tv.html",
+      "page_content": "hub-gaming-monitor-vs-tv-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Monitor Gaming vs TV: ¿Cuál es Mejor para Gaming en 2025?",
+        "page_description": "Comparación completa de monitores gaming vs TVs para gaming PC y consola. Cubre input lag, tiempo de respuesta, características, tamaños y recomendaciones expertas para cada setup gaming.",
+        "page_keywords": "monitor gaming vs tv, monitor o tv para gaming, mejor para gaming consola, display pc gaming, monitor gaming vs oled tv",
+        "canonical_url": "https://screensizechecker.com/es/hub/gaming-monitor-vs-tv",
+        "og_title": "Monitor Gaming vs TV: ¿Cuál es Mejor para Gaming en 2025?",
+        "og_description": "Comparación completa de monitores gaming vs TVs para gaming PC y consola. Cubre input lag, tiempo de respuesta, características, tamaños y recomendaciones expertas para cada setup gaming.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/gaming-monitor-vs-tv",
+        "og_image": "https://screensizechecker.com/images/gaming-monitor-vs-tv-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "gaming-monitor-vs-tv",
+        "current_name": "Monitor Gaming vs TV: ¿Cuál es Mejor para Gaming en 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "monitor-gaming",
+          "tv",
+          "gaming-consola",
+          "pc-gaming",
+          "comparacion"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 9,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
