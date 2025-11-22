@@ -7,7 +7,7 @@ author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["游戏显示器", "电视", "主机游戏", "pc游戏", "对比"]
 featuredImage: "gaming-monitor-vs-tv-hero.jpg"
-keywords: "游戏显示器vs电视, 游戏用显示器还是电视, 主机游戏最佳, pc游戏显示器, 游戏显示器vs oled电视"
+keywords: "玩游戏用显示器还是电视, PS5配显示器还是电视, 电视能当显示器用吗, OLED电视玩游戏怎么样, 游戏电视推荐, 显示器和电视的区别, 主机游戏用什么显示器, 电视打游戏延迟, 4K电视玩游戏"
 ---
 
 # 游戏显示器vs电视：2025年终极游戏显示器对比

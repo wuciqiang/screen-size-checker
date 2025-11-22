@@ -7,7 +7,7 @@ author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["g-sync", "freesync", "vrr", "游戏显示器", "nvidia", "amd"]
 featuredImage: "g-sync-vs-freesync-gaming-hero.jpg"
-keywords: "g sync vs freesync, 最佳vrr技术, nvidia g sync freesync, 游戏显示器同步技术, 自适应同步对比"
+keywords: "G-Sync和FreeSync区别, 显示器防撕裂技术, G-Sync值得买吗, FreeSync和G-Sync哪个好, 垂直同步技术对比, 显示器同步技术推荐, G-Sync显示器推荐, FreeSync显示器推荐, AMD显示器同步, NVIDIA显示器同步"
 ---
 
 # G-Sync vs FreeSync游戏：2025年终极VRR技术对比

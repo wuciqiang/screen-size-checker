@@ -7,7 +7,7 @@ author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["面板类型", "ips", "tn", "va", "oled", "游戏显示器"]
 featuredImage: "ips-vs-tn-vs-va-gaming-hero.jpg"
-keywords: "ips vs tn vs va游戏, 最佳游戏面板类型, ips游戏显示器, tn vs ips, 游戏面板对比"
+keywords: "显示器IPS和VA哪个好, TN屏和IPS屏区别, 游戏显示器买IPS还是VA, 电竞显示器面板选择, IPS显示器优缺点, VA显示器缺点, TN屏适合打游戏吗, OLED显示器烧屏问题, Fast IPS面板"
 ---
 
 # IPS vs TN vs VA游戏：2025年选择最佳面板类型

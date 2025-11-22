@@ -7,7 +7,7 @@ author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["曲面显示器", "平面显示器", "游戏显示器", "沉浸感", "竞技游戏"]
 featuredImage: "curved-vs-flat-monitor-gaming-hero.jpg"
-keywords: "曲面vs平面显示器游戏, 曲面游戏显示器优势, 平面vs曲面显示器, 竞技游戏最佳, 游戏显示器形状"
+keywords: "曲面显示器好还是平面好, 曲面显示器优缺点, 游戏显示器买曲面还是平面, 曲面屏伤眼睛吗, 曲面显示器适合玩游戏吗, 平面显示器和曲面显示器哪个好, 曲面显示器推荐, 竞技游戏用曲面还是平面"
 ---
 
 # 曲面vs平面显示器游戏：2025年终极形状对比

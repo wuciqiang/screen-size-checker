@@ -7,7 +7,7 @@ author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["hdr", "游戏显示器", "hdr10", "杜比视界", "高动态范围"]
 featuredImage: "hdr-gaming-monitor-guide-hero.jpg"
-keywords: "hdr游戏显示器, 最佳hdr游戏显示器, hdr10游戏, 杜比视界游戏, hdr显示器指南"
+keywords: "HDR显示器推荐, HDR显示器什么值得买, 游戏显示器HDR有用吗, HDR1000显示器推荐, 假HDR怎么辨别, HDR显示器测评, HDR400是真HDR吗, Mini-LED显示器推荐, OLED显示器烧屏, HDR显示器京东"
 ---
 
 # HDR游戏显示器指南：2025年完整HDR游戏体验
