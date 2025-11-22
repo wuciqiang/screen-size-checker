@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T10:56:45.601Z",
+          "datePublished": "2025-11-22T12:25:53.271Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -720,6 +720,108 @@
             "name": "Screen Size Checker Team"
           },
           "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-laptop-screen-en",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-laptop-screen.html",
+      "page_content": "blog-post-how-to-measure-laptop-screen-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+        "page_description": "Learn how to accurately measure your laptop screen size with multiple methods. Includes step-by-step instructions, measurement tips, and answers to common laptop sizing questions.",
+        "page_keywords": "laptop-measurement, screen-size, how-to, basics",
+        "canonical_url": "https://screensizechecker.com/en/blog/how-to-measure-laptop-screen",
+        "og_title": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+        "og_description": "Learn how to accurately measure your laptop screen size with multiple methods. Includes step-by-step instructions, measurement tips, and answers to common laptop sizing questions.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/how-to-measure-laptop-screen",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+        "current_name": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+          "description": "Learn how to accurately measure your laptop screen size with multiple methods. Includes step-by-step instructions, measurement tips, and answers to common laptop sizing questions.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-monitor-size-en",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-monitor-size.html",
+      "page_content": "blog-post-how-to-measure-monitor-size-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+        "page_description": "Learn how to measure your monitor size accurately with 4 simple methods. Includes step-by-step instructions, measurement tips, and answers to common questions about monitor sizing.",
+        "page_keywords": "monitor-measurement, screen-size, how-to, basics",
+        "canonical_url": "https://screensizechecker.com/en/blog/how-to-measure-monitor-size",
+        "og_title": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+        "og_description": "Learn how to measure your monitor size accurately with 4 simple methods. Includes step-by-step instructions, measurement tips, and answers to common questions about monitor sizing.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/en/blog/how-to-measure-monitor-size",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-en",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+        "current_name": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+        "parent_url": "../../en/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+          "description": "Learn how to measure your monitor size accurately with 4 simple methods. Includes step-by-step instructions, measurement tips, and answers to common questions about monitor sizing.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -993,6 +1095,38 @@
         "show_breadcrumb": true,
         "current_key": "css",
         "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-guides-en",
+      "template": "blog-category",
+      "output": "blog/category/guides.html",
+      "page_content": "blog-category-guides-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Category: guides",
+        "page_description": "Browse all articles in the guides category",
+        "page_keywords": "blog, guides, category",
+        "canonical_url": "https://screensizechecker.com/en/blog/category/guides",
+        "og_title": "Category: guides",
+        "og_description": "Browse all articles in the guides category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/category/guides",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "guides",
+        "current_name": "guides",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-en",
         "parent_key": "blog",
@@ -1544,6 +1678,134 @@
       }
     },
     {
+      "name": "blog-tag-laptop-measurement-en",
+      "template": "blog-tag",
+      "output": "blog/tag/laptop-measurement.html",
+      "page_content": "blog-tag-laptop-measurement-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: laptop-measurement",
+        "page_description": "Browse all articles tagged with laptop-measurement",
+        "page_keywords": "blog, laptop-measurement, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/laptop-measurement",
+        "og_title": "Tag: laptop-measurement",
+        "og_description": "Browse all articles tagged with laptop-measurement",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/laptop-measurement",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "laptop-measurement",
+        "current_name": "#laptop-measurement",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-how-to-en",
+      "template": "blog-tag",
+      "output": "blog/tag/how-to.html",
+      "page_content": "blog-tag-how-to-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: how-to",
+        "page_description": "Browse all articles tagged with how-to",
+        "page_keywords": "blog, how-to, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/how-to",
+        "og_title": "Tag: how-to",
+        "og_description": "Browse all articles tagged with how-to",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/how-to",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "how-to",
+        "current_name": "#how-to",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-basics-en",
+      "template": "blog-tag",
+      "output": "blog/tag/basics.html",
+      "page_content": "blog-tag-basics-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: basics",
+        "page_description": "Browse all articles tagged with basics",
+        "page_keywords": "blog, basics, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/basics",
+        "og_title": "Tag: basics",
+        "og_description": "Browse all articles tagged with basics",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/basics",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "basics",
+        "current_name": "#basics",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-monitor-measurement-en",
+      "template": "blog-tag",
+      "output": "blog/tag/monitor-measurement.html",
+      "page_content": "blog-tag-monitor-measurement-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Tag: monitor-measurement",
+        "page_description": "Browse all articles tagged with monitor-measurement",
+        "page_keywords": "blog, monitor-measurement, tag",
+        "canonical_url": "https://screensizechecker.com/en/blog/tag/monitor-measurement",
+        "og_title": "Tag: monitor-measurement",
+        "og_description": "Browse all articles tagged with monitor-measurement",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/en/blog/tag/monitor-measurement",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../en/index.html",
+        "blog_url": "../../../en/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "monitor-measurement",
+        "current_name": "#monitor-measurement",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-en",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-media-queries-en",
       "template": "blog-tag",
       "output": "blog/tag/media-queries.html",
@@ -1827,7 +2089,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T10:56:45.841Z",
+          "datePublished": "2025-11-22T12:25:53.527Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1930,6 +2192,108 @@
             "name": "Screen Size Checker团队"
           },
           "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-laptop-screen-zh",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-laptop-screen.html",
+      "page_content": "blog-post-how-to-measure-laptop-screen-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+        "page_description": "学习用多种方法准确测量笔记本电脑屏幕尺寸。包含详细步骤说明、测量技巧和常见笔记本尺寸问题解答。",
+        "page_keywords": "笔记本测量, 屏幕尺寸, 使用教程, 基础知识",
+        "canonical_url": "https://screensizechecker.com/zh/blog/how-to-measure-laptop-screen",
+        "og_title": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+        "og_description": "学习用多种方法准确测量笔记本电脑屏幕尺寸。包含详细步骤说明、测量技巧和常见笔记本尺寸问题解答。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/how-to-measure-laptop-screen",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+        "current_name": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+          "description": "学习用多种方法准确测量笔记本电脑屏幕尺寸。包含详细步骤说明、测量技巧和常见笔记本尺寸问题解答。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-monitor-size-zh",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-monitor-size.html",
+      "page_content": "blog-post-how-to-measure-monitor-size-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "如何测量显示器尺寸：4种简单方法（2025指南）",
+        "page_description": "学习用4种简单方法准确测量显示器尺寸。包含详细步骤说明、测量技巧和常见问题解答，帮助您正确测量电脑显示器大小。",
+        "page_keywords": "显示器测量, 屏幕尺寸, 使用教程, 基础知识",
+        "canonical_url": "https://screensizechecker.com/zh/blog/how-to-measure-monitor-size",
+        "og_title": "如何测量显示器尺寸：4种简单方法（2025指南）",
+        "og_description": "学习用4种简单方法准确测量显示器尺寸。包含详细步骤说明、测量技巧和常见问题解答，帮助您正确测量电脑显示器大小。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/blog/how-to-measure-monitor-size",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-zh",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "如何测量显示器尺寸：4种简单方法（2025指南）",
+        "current_name": "如何测量显示器尺寸：4种简单方法（2025指南）",
+        "parent_url": "../../zh/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "博客",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "如何测量显示器尺寸：4种简单方法（2025指南）",
+          "description": "学习用4种简单方法准确测量显示器尺寸。包含详细步骤说明、测量技巧和常见问题解答，帮助您正确测量电脑显示器大小。",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2203,6 +2567,38 @@
         "show_breadcrumb": true,
         "current_key": "css",
         "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-category-guides-zh",
+      "template": "blog-category",
+      "output": "blog/category/guides.html",
+      "page_content": "blog-category-guides-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "分类: guides",
+        "page_description": "浏览guides分类中的所有文章",
+        "page_keywords": "blog, guides, 分类",
+        "canonical_url": "https://screensizechecker.com/zh/blog/category/guides",
+        "og_title": "分类: guides",
+        "og_description": "浏览guides分类中的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/category/guides",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "guides",
+        "current_name": "guides",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-zh",
         "parent_key": "blog",
@@ -2754,6 +3150,134 @@
       }
     },
     {
+      "name": "blog-tag-笔记本测量-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/笔记本测量.html",
+      "page_content": "blog-tag-笔记本测量-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 笔记本测量",
+        "page_description": "浏览笔记本测量标签下的所有文章",
+        "page_keywords": "blog, 笔记本测量, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/笔记本测量",
+        "og_title": "标签: 笔记本测量",
+        "og_description": "浏览笔记本测量标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/笔记本测量",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "笔记本测量",
+        "current_name": "#笔记本测量",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-使用教程-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/使用教程.html",
+      "page_content": "blog-tag-使用教程-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 使用教程",
+        "page_description": "浏览使用教程标签下的所有文章",
+        "page_keywords": "blog, 使用教程, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/使用教程",
+        "og_title": "标签: 使用教程",
+        "og_description": "浏览使用教程标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/使用教程",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "使用教程",
+        "current_name": "#使用教程",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-基础知识-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/基础知识.html",
+      "page_content": "blog-tag-基础知识-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 基础知识",
+        "page_description": "浏览基础知识标签下的所有文章",
+        "page_keywords": "blog, 基础知识, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/基础知识",
+        "og_title": "标签: 基础知识",
+        "og_description": "浏览基础知识标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/基础知识",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "基础知识",
+        "current_name": "#基础知识",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
+      "name": "blog-tag-显示器测量-zh",
+      "template": "blog-tag",
+      "output": "blog/tag/显示器测量.html",
+      "page_content": "blog-tag-显示器测量-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "标签: 显示器测量",
+        "page_description": "浏览显示器测量标签下的所有文章",
+        "page_keywords": "blog, 显示器测量, 标签",
+        "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器测量",
+        "og_title": "标签: 显示器测量",
+        "og_description": "浏览显示器测量标签下的所有文章",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/zh/blog/tag/显示器测量",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../zh/index.html",
+        "blog_url": "../../../zh/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "显示器测量",
+        "current_name": "#显示器测量",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-zh",
+        "parent_key": "blog",
+        "parent_name": "博客"
+      }
+    },
+    {
       "name": "blog-tag-媒体查询-zh",
       "template": "blog-tag",
       "output": "blog/tag/媒体查询.html",
@@ -3101,7 +3625,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T10:56:45.881Z",
+          "datePublished": "2025-11-22T12:25:53.571Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3204,6 +3728,108 @@
             "name": "Screen Size Checker Team"
           },
           "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-laptop-screen-de",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-laptop-screen.html",
+      "page_content": "blog-post-how-to-measure-laptop-screen-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+        "page_description": "Lernen Sie, wie Sie die Bildschirmgröße Ihres Laptops mit mehreren Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Laptop-Größenmessung.",
+        "page_keywords": "laptop-messung, bildschirmgröße, anleitung, grundlagen",
+        "canonical_url": "https://screensizechecker.com/de/blog/how-to-measure-laptop-screen",
+        "og_title": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+        "og_description": "Lernen Sie, wie Sie die Bildschirmgröße Ihres Laptops mit mehreren Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Laptop-Größenmessung.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/how-to-measure-laptop-screen",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+        "current_name": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+          "description": "Lernen Sie, wie Sie die Bildschirmgröße Ihres Laptops mit mehreren Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Laptop-Größenmessung.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-monitor-size-de",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-monitor-size.html",
+      "page_content": "blog-post-how-to-measure-monitor-size-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+        "page_description": "Lernen Sie, wie Sie Ihre Monitor-Größe mit 4 einfachen Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Monitor-Größenmessung.",
+        "page_keywords": "monitor-messung, bildschirmgröße, anleitung, grundlagen",
+        "canonical_url": "https://screensizechecker.com/de/blog/how-to-measure-monitor-size",
+        "og_title": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+        "og_description": "Lernen Sie, wie Sie Ihre Monitor-Größe mit 4 einfachen Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Monitor-Größenmessung.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/blog/how-to-measure-monitor-size",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-de",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+        "current_name": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+        "parent_url": "../../de/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+          "description": "Lernen Sie, wie Sie Ihre Monitor-Größe mit 4 einfachen Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Monitor-Größenmessung.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3477,6 +4103,38 @@
         "show_breadcrumb": true,
         "current_key": "css",
         "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-guides-de",
+      "template": "blog-category",
+      "output": "blog/category/guides.html",
+      "page_content": "blog-category-guides-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Category: guides",
+        "page_description": "Browse all articles in the guides category",
+        "page_keywords": "blog, guides, category",
+        "canonical_url": "https://screensizechecker.com/de/blog/category/guides",
+        "og_title": "Category: guides",
+        "og_description": "Browse all articles in the guides category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/category/guides",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "guides",
+        "current_name": "guides",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-de",
         "parent_key": "blog",
@@ -4028,6 +4686,166 @@
       }
     },
     {
+      "name": "blog-tag-laptop-messung-de",
+      "template": "blog-tag",
+      "output": "blog/tag/laptop-messung.html",
+      "page_content": "blog-tag-laptop-messung-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: laptop-messung",
+        "page_description": "Browse all articles tagged with laptop-messung",
+        "page_keywords": "blog, laptop-messung, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/laptop-messung",
+        "og_title": "Tag: laptop-messung",
+        "og_description": "Browse all articles tagged with laptop-messung",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/laptop-messung",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "laptop-messung",
+        "current_name": "#laptop-messung",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-bildschirmgröße-de",
+      "template": "blog-tag",
+      "output": "blog/tag/bildschirmgröße.html",
+      "page_content": "blog-tag-bildschirmgröße-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: bildschirmgröße",
+        "page_description": "Browse all articles tagged with bildschirmgröße",
+        "page_keywords": "blog, bildschirmgröße, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/bildschirmgröße",
+        "og_title": "Tag: bildschirmgröße",
+        "og_description": "Browse all articles tagged with bildschirmgröße",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/bildschirmgröße",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "bildschirmgröße",
+        "current_name": "#bildschirmgröße",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-anleitung-de",
+      "template": "blog-tag",
+      "output": "blog/tag/anleitung.html",
+      "page_content": "blog-tag-anleitung-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: anleitung",
+        "page_description": "Browse all articles tagged with anleitung",
+        "page_keywords": "blog, anleitung, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/anleitung",
+        "og_title": "Tag: anleitung",
+        "og_description": "Browse all articles tagged with anleitung",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/anleitung",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "anleitung",
+        "current_name": "#anleitung",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-grundlagen-de",
+      "template": "blog-tag",
+      "output": "blog/tag/grundlagen.html",
+      "page_content": "blog-tag-grundlagen-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: grundlagen",
+        "page_description": "Browse all articles tagged with grundlagen",
+        "page_keywords": "blog, grundlagen, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/grundlagen",
+        "og_title": "Tag: grundlagen",
+        "og_description": "Browse all articles tagged with grundlagen",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/grundlagen",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "grundlagen",
+        "current_name": "#grundlagen",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-monitor-messung-de",
+      "template": "blog-tag",
+      "output": "blog/tag/monitor-messung.html",
+      "page_content": "blog-tag-monitor-messung-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Tag: monitor-messung",
+        "page_description": "Browse all articles tagged with monitor-messung",
+        "page_keywords": "blog, monitor-messung, tag",
+        "canonical_url": "https://screensizechecker.com/de/blog/tag/monitor-messung",
+        "og_title": "Tag: monitor-messung",
+        "og_description": "Browse all articles tagged with monitor-messung",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/de/blog/tag/monitor-messung",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../de/index.html",
+        "blog_url": "../../../de/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "monitor-messung",
+        "current_name": "#monitor-messung",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-de",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
       "name": "blog-tag-media-queries-de",
       "template": "blog-tag",
       "output": "blog/tag/media-queries.html",
@@ -4311,7 +5129,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T10:56:45.901Z",
+          "datePublished": "2025-11-22T12:25:53.594Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4414,6 +5232,108 @@
             "name": "Screen Size Checker Team"
           },
           "datePublished": "2023-10-20T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-laptop-screen-es",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-laptop-screen.html",
+      "page_content": "blog-post-how-to-measure-laptop-screen-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+        "page_description": "Aprende a medir con precisión el tamaño de pantalla de tu laptop usando múltiples métodos. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de laptops.",
+        "page_keywords": "medición-laptop, tamaño-pantalla, guía, básicos",
+        "canonical_url": "https://screensizechecker.com/es/blog/how-to-measure-laptop-screen",
+        "og_title": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+        "og_description": "Aprende a medir con precisión el tamaño de pantalla de tu laptop usando múltiples métodos. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de laptops.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/how-to-measure-laptop-screen",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+        "current_name": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+          "description": "Aprende a medir con precisión el tamaño de pantalla de tu laptop usando múltiples métodos. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de laptops.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "blog-post-how-to-measure-monitor-size-es",
+      "template": "blog-post",
+      "output": "blog/how-to-measure-monitor-size.html",
+      "page_content": "blog-post-how-to-measure-monitor-size-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+        "page_description": "Aprende a medir el tamaño de tu monitor con precisión usando 4 métodos simples. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de monitores.",
+        "page_keywords": "medición-monitor, tamaño-pantalla, guía, básicos",
+        "canonical_url": "https://screensizechecker.com/es/blog/how-to-measure-monitor-size",
+        "og_title": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+        "og_description": "Aprende a medir el tamaño de tu monitor con precisión usando 4 métodos simples. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de monitores.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/blog/how-to-measure-monitor-size",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../index.html",
+        "blog_sidebar": "blog-sidebar-es",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+        "current_name": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+        "parent_url": "../../es/blog/index.html",
+        "parent_key": "blog",
+        "parent_name": "Blog",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+          "description": "Aprende a medir el tamaño de tu monitor con precisión usando 4 métodos simples. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de monitores.",
+          "author": {
+            "@type": "Person",
+            "name": "Screen Size Checker Team"
+          },
+          "datePublished": "2025-01-19T00:00:00.000Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4687,6 +5607,38 @@
         "show_breadcrumb": true,
         "current_key": "css",
         "current_name": "css",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-category-guides-es",
+      "template": "blog-category",
+      "output": "blog/category/guides.html",
+      "page_content": "blog-category-guides-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Category: guides",
+        "page_description": "Browse all articles in the guides category",
+        "page_keywords": "blog, guides, category",
+        "canonical_url": "https://screensizechecker.com/es/blog/category/guides",
+        "og_title": "Category: guides",
+        "og_description": "Browse all articles in the guides category",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/category/guides",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "guides",
+        "current_name": "guides",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-es",
         "parent_key": "blog",
@@ -5231,6 +6183,166 @@
         "show_breadcrumb": true,
         "current_key": "retina-display",
         "current_name": "#retina-display",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-medición-laptop-es",
+      "template": "blog-tag",
+      "output": "blog/tag/medición-laptop.html",
+      "page_content": "blog-tag-medición-laptop-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: medición-laptop",
+        "page_description": "Browse all articles tagged with medición-laptop",
+        "page_keywords": "blog, medición-laptop, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/medición-laptop",
+        "og_title": "Tag: medición-laptop",
+        "og_description": "Browse all articles tagged with medición-laptop",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/medición-laptop",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "medición-laptop",
+        "current_name": "#medición-laptop",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-tamaño-pantalla-es",
+      "template": "blog-tag",
+      "output": "blog/tag/tamaño-pantalla.html",
+      "page_content": "blog-tag-tamaño-pantalla-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: tamaño-pantalla",
+        "page_description": "Browse all articles tagged with tamaño-pantalla",
+        "page_keywords": "blog, tamaño-pantalla, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/tamaño-pantalla",
+        "og_title": "Tag: tamaño-pantalla",
+        "og_description": "Browse all articles tagged with tamaño-pantalla",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/tamaño-pantalla",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "tamaño-pantalla",
+        "current_name": "#tamaño-pantalla",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-guía-es",
+      "template": "blog-tag",
+      "output": "blog/tag/guía.html",
+      "page_content": "blog-tag-guía-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: guía",
+        "page_description": "Browse all articles tagged with guía",
+        "page_keywords": "blog, guía, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/guía",
+        "og_title": "Tag: guía",
+        "og_description": "Browse all articles tagged with guía",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/guía",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "guía",
+        "current_name": "#guía",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-básicos-es",
+      "template": "blog-tag",
+      "output": "blog/tag/básicos.html",
+      "page_content": "blog-tag-básicos-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: básicos",
+        "page_description": "Browse all articles tagged with básicos",
+        "page_keywords": "blog, básicos, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/básicos",
+        "og_title": "Tag: básicos",
+        "og_description": "Browse all articles tagged with básicos",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/básicos",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "básicos",
+        "current_name": "#básicos",
+        "parent_url": "../../index.html",
+        "blog_sidebar": "blog-sidebar-sub-es",
+        "parent_key": "blog",
+        "parent_name": "Blog"
+      }
+    },
+    {
+      "name": "blog-tag-medición-monitor-es",
+      "template": "blog-tag",
+      "output": "blog/tag/medición-monitor.html",
+      "page_content": "blog-tag-medición-monitor-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Tag: medición-monitor",
+        "page_description": "Browse all articles tagged with medición-monitor",
+        "page_keywords": "blog, medición-monitor, tag",
+        "canonical_url": "https://screensizechecker.com/es/blog/tag/medición-monitor",
+        "og_title": "Tag: medición-monitor",
+        "og_description": "Browse all articles tagged with medición-monitor",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/es/blog/tag/medición-monitor",
+        "css_path": "../../../css",
+        "locales_path": "../../../locales",
+        "js_path": "../../../js",
+        "home_url": "../../../es/index.html",
+        "blog_url": "../../../es/blog/index.html",
+        "privacy_policy_url": "../../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "medición-monitor",
+        "current_name": "#medición-monitor",
         "parent_url": "../../index.html",
         "blog_sidebar": "blog-sidebar-sub-es",
         "parent_key": "blog",
