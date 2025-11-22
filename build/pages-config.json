@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-13T14:32:46.295Z",
+          "datePublished": "2025-11-22T01:17:09.508Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-13T14:32:46.558Z",
+          "datePublished": "2025-11-22T01:17:09.755Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-13T14:32:46.601Z",
+          "datePublished": "2025-11-22T01:17:09.802Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-13T14:32:46.628Z",
+          "datePublished": "2025-11-22T01:17:09.823Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5641,6 +5641,54 @@
       }
     },
     {
+      "name": "hub-curved-vs-flat-monitor-gaming-en",
+      "template": "hub-page",
+      "output": "hub/curved-vs-flat-monitor-gaming.html",
+      "page_content": "hub-curved-vs-flat-monitor-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Curved vs Flat Monitor Gaming: Which Is Better in 2025?",
+        "page_description": "Complete comparison of curved vs flat gaming monitors. Covers immersion, competitive gaming, eye strain, desk space, and expert recommendations for every gaming setup and budget.",
+        "page_keywords": "curved vs flat monitor gaming, curved gaming monitor benefits, flat vs curved monitor, best for competitive gaming, gaming monitor shape",
+        "canonical_url": "https://screensizechecker.com/hub/curved-vs-flat-monitor-gaming",
+        "og_title": "Curved vs Flat Monitor Gaming: Which Is Better in 2025?",
+        "og_description": "Complete comparison of curved vs flat gaming monitors. Covers immersion, competitive gaming, eye strain, desk space, and expert recommendations for every gaming setup and budget.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/curved-vs-flat-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/curved-vs-flat-monitor-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "curved-vs-flat-monitor-gaming",
+        "current_name": "Curved vs Flat Monitor Gaming: Which Is Better in 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "curved-monitor",
+          "flat-monitor",
+          "gaming-monitors",
+          "immersion",
+          "competitive-gaming"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 16,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-en",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -6069,6 +6117,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 6,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-curved-vs-flat-monitor-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/curved-vs-flat-monitor-gaming.html",
+      "page_content": "hub-curved-vs-flat-monitor-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "曲面vs平面显示器游戏：2025年哪个更好？",
+        "page_description": "曲面vs平面游戏显示器的完整对比。涵盖沉浸感、竞技游戏、眼部疲劳、桌面空间，以及针对每种游戏设置和预算的专家建议。",
+        "page_keywords": "曲面vs平面显示器游戏, 曲面游戏显示器优势, 平面vs曲面显示器, 竞技游戏最佳, 游戏显示器形状",
+        "canonical_url": "https://screensizechecker.com/zh/hub/curved-vs-flat-monitor-gaming",
+        "og_title": "曲面vs平面显示器游戏：2025年哪个更好？",
+        "og_description": "曲面vs平面游戏显示器的完整对比。涵盖沉浸感、竞技游戏、眼部疲劳、桌面空间，以及针对每种游戏设置和预算的专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/curved-vs-flat-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/curved-vs-flat-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "curved-vs-flat-monitor-gaming",
+        "current_name": "曲面vs平面显示器游戏：2025年哪个更好？",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "曲面显示器",
+          "平面显示器",
+          "游戏显示器",
+          "沉浸感",
+          "竞技游戏"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 4,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6515,6 +6611,54 @@
       }
     },
     {
+      "name": "hub-curved-vs-flat-monitor-gaming-de",
+      "template": "hub-page",
+      "output": "hub/curved-vs-flat-monitor-gaming.html",
+      "page_content": "hub-curved-vs-flat-monitor-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "Curved vs Flat Monitor Gaming: Was ist besser 2025?",
+        "page_description": "Kompletter Vergleich von curved vs flat Gaming-Monitoren. Behandelt Immersion, Competitive Gaming, Augenbelastung, Schreibtischplatz und Expertenempfehlungen für jedes Gaming-Setup und Budget.",
+        "page_keywords": "curved vs flat monitor gaming, curved gaming monitor vorteile, flat vs curved monitor, beste competitive gaming, gaming monitor form",
+        "canonical_url": "https://screensizechecker.com/de/hub/curved-vs-flat-monitor-gaming",
+        "og_title": "Curved vs Flat Monitor Gaming: Was ist besser 2025?",
+        "og_description": "Kompletter Vergleich von curved vs flat Gaming-Monitoren. Behandelt Immersion, Competitive Gaming, Augenbelastung, Schreibtischplatz und Expertenempfehlungen für jedes Gaming-Setup und Budget.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/curved-vs-flat-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/curved-vs-flat-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "curved-vs-flat-monitor-gaming",
+        "current_name": "Curved vs Flat Monitor Gaming: Was ist besser 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "curved-monitor",
+          "flat-monitor",
+          "gaming-monitore",
+          "immersion",
+          "competitive-gaming"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-de",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -6943,6 +7087,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 14,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-curved-vs-flat-monitor-gaming-es",
+      "template": "hub-page",
+      "output": "hub/curved-vs-flat-monitor-gaming.html",
+      "page_content": "hub-curved-vs-flat-monitor-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Monitor Curvo vs Plano Gaming: ¿Cuál es Mejor en 2025?",
+        "page_description": "Comparación completa de monitores gaming curvos vs planos. Cubre inmersión, gaming competitivo, fatiga ocular, espacio escritorio y recomendaciones expertas para cada setup gaming y presupuesto.",
+        "page_keywords": "monitor curvo vs plano gaming, beneficios monitor gaming curvo, plano vs curvo monitor, mejor gaming competitivo, forma monitor gaming",
+        "canonical_url": "https://screensizechecker.com/es/hub/curved-vs-flat-monitor-gaming",
+        "og_title": "Monitor Curvo vs Plano Gaming: ¿Cuál es Mejor en 2025?",
+        "og_description": "Comparación completa de monitores gaming curvos vs planos. Cubre inmersión, gaming competitivo, fatiga ocular, espacio escritorio y recomendaciones expertas para cada setup gaming y presupuesto.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/curved-vs-flat-monitor-gaming",
+        "og_image": "https://screensizechecker.com/images/curved-vs-flat-monitor-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "curved-vs-flat-monitor-gaming",
+        "current_name": "Monitor Curvo vs Plano Gaming: ¿Cuál es Mejor en 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "monitor-curvo",
+          "monitor-plano",
+          "monitores-gaming",
+          "inmersion",
+          "gaming-competitivo"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,

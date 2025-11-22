@@ -17,7 +17,7 @@ if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
-PORT = 8080
+PORT = 1868
 DIRECTORY = "multilang-build"
 
 class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
