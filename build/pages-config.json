@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T02:36:31.388Z",
+          "datePublished": "2025-11-22T08:04:38.226Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T02:36:31.639Z",
+          "datePublished": "2025-11-22T08:04:38.478Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T02:36:31.680Z",
+          "datePublished": "2025-11-22T08:04:38.520Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T02:36:31.699Z",
+          "datePublished": "2025-11-22T08:04:38.541Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5835,6 +5835,54 @@
       }
     },
     {
+      "name": "hub-hdr-gaming-monitor-guide-en",
+      "template": "hub-page",
+      "output": "hub/hdr-gaming-monitor-guide.html",
+      "page_content": "hub-hdr-gaming-monitor-guide-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "HDR Gaming Monitor Guide: Best HDR Monitors for Gaming 2025",
+        "page_description": "Complete guide to HDR gaming monitors. Covers HDR standards, real vs fake HDR, panel types, gaming performance, and expert recommendations for every budget and setup.",
+        "page_keywords": "hdr gaming monitor, best hdr monitor gaming, hdr10 gaming, dolby vision gaming, hdr monitor guide",
+        "canonical_url": "https://screensizechecker.com/hub/hdr-gaming-monitor-guide",
+        "og_title": "HDR Gaming Monitor Guide: Best HDR Monitors for Gaming 2025",
+        "og_description": "Complete guide to HDR gaming monitors. Covers HDR standards, real vs fake HDR, panel types, gaming performance, and expert recommendations for every budget and setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/hdr-gaming-monitor-guide",
+        "og_image": "https://screensizechecker.com/images/hdr-gaming-monitor-guide-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hdr-gaming-monitor-guide",
+        "current_name": "HDR Gaming Monitor Guide: Best HDR Monitors for Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "hdr",
+          "gaming-monitors",
+          "hdr10",
+          "dolby-vision",
+          "high-dynamic-range"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 15,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ips-vs-tn-vs-va-gaming-en",
       "template": "hub-page",
       "output": "hub/ips-vs-tn-vs-va-gaming.html",
@@ -6360,6 +6408,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 5,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-hdr-gaming-monitor-guide-zh",
+      "template": "hub-page",
+      "output": "hub/hdr-gaming-monitor-guide.html",
+      "page_content": "hub-hdr-gaming-monitor-guide-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "HDR游戏显示器指南：2025年最佳HDR游戏显示器",
+        "page_description": "HDR游戏显示器完整指南。涵盖HDR标准、真假HDR、面板类型、游戏性能，以及针对每种预算和设置的专家建议。",
+        "page_keywords": "hdr游戏显示器, 最佳hdr游戏显示器, hdr10游戏, 杜比视界游戏, hdr显示器指南",
+        "canonical_url": "https://screensizechecker.com/zh/hub/hdr-gaming-monitor-guide",
+        "og_title": "HDR游戏显示器指南：2025年最佳HDR游戏显示器",
+        "og_description": "HDR游戏显示器完整指南。涵盖HDR标准、真假HDR、面板类型、游戏性能，以及针对每种预算和设置的专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/hdr-gaming-monitor-guide",
+        "og_image": "https://screensizechecker.com/images/hdr-gaming-monitor-guide-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hdr-gaming-monitor-guide",
+        "current_name": "HDR游戏显示器指南：2025年最佳HDR游戏显示器",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "hdr",
+          "游戏显示器",
+          "hdr10",
+          "杜比视界",
+          "高动态范围"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 4,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6903,6 +6999,54 @@
       }
     },
     {
+      "name": "hub-hdr-gaming-monitor-guide-de",
+      "template": "hub-page",
+      "output": "hub/hdr-gaming-monitor-guide.html",
+      "page_content": "hub-hdr-gaming-monitor-guide-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "HDR Gaming Monitor Guide: Beste HDR Monitore für Gaming 2025",
+        "page_description": "Kompletter Leitfaden zu HDR Gaming-Monitoren. Behandelt HDR-Standards, echtes vs falsches HDR, Panel-Typen, Gaming-Performance und Expertenempfehlungen für jedes Budget und Setup.",
+        "page_keywords": "hdr gaming monitor, bester hdr monitor gaming, hdr10 gaming, dolby vision gaming, hdr monitor guide",
+        "canonical_url": "https://screensizechecker.com/de/hub/hdr-gaming-monitor-guide",
+        "og_title": "HDR Gaming Monitor Guide: Beste HDR Monitore für Gaming 2025",
+        "og_description": "Kompletter Leitfaden zu HDR Gaming-Monitoren. Behandelt HDR-Standards, echtes vs falsches HDR, Panel-Typen, Gaming-Performance und Expertenempfehlungen für jedes Budget und Setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/hdr-gaming-monitor-guide",
+        "og_image": "https://screensizechecker.com/images/hdr-gaming-monitor-guide-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hdr-gaming-monitor-guide",
+        "current_name": "HDR Gaming Monitor Guide: Beste HDR Monitore für Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "hdr",
+          "gaming-monitore",
+          "hdr10",
+          "dolby-vision",
+          "high-dynamic-range"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 7,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-ips-vs-tn-vs-va-gaming-de",
       "template": "hub-page",
       "output": "hub/ips-vs-tn-vs-va-gaming.html",
@@ -7428,6 +7572,54 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 9,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-hdr-gaming-monitor-guide-es",
+      "template": "hub-page",
+      "output": "hub/hdr-gaming-monitor-guide.html",
+      "page_content": "hub-hdr-gaming-monitor-guide-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "Guía Monitor HDR Gaming: Mejores Monitores HDR para Gaming 2025",
+        "page_description": "Guía completa de monitores HDR gaming. Cubre estándares HDR, HDR real vs falso, tipos panel, rendimiento gaming y recomendaciones expertas para cada presupuesto y setup.",
+        "page_keywords": "monitor hdr gaming, mejor monitor hdr gaming, hdr10 gaming, dolby vision gaming, guia monitor hdr",
+        "canonical_url": "https://screensizechecker.com/es/hub/hdr-gaming-monitor-guide",
+        "og_title": "Guía Monitor HDR Gaming: Mejores Monitores HDR para Gaming 2025",
+        "og_description": "Guía completa de monitores HDR gaming. Cubre estándares HDR, HDR real vs falso, tipos panel, rendimiento gaming y recomendaciones expertas para cada presupuesto y setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/hdr-gaming-monitor-guide",
+        "og_image": "https://screensizechecker.com/images/hdr-gaming-monitor-guide-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "hdr-gaming-monitor-guide",
+        "current_name": "Guía Monitor HDR Gaming: Mejores Monitores HDR para Gaming 2025",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "hdr",
+          "monitores-gaming",
+          "hdr10",
+          "dolby-vision",
+          "high-dynamic-range"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
