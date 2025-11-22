@@ -617,7 +617,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T01:17:09.508Z",
+          "datePublished": "2025-11-22T02:36:31.388Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -1827,7 +1827,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T01:17:09.755Z",
+          "datePublished": "2025-11-22T02:36:31.639Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -3101,7 +3101,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T01:17:09.802Z",
+          "datePublished": "2025-11-22T02:36:31.680Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4311,7 +4311,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-11-22T01:17:09.823Z",
+          "datePublished": "2025-11-22T02:36:31.699Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -5689,6 +5689,55 @@
       }
     },
     {
+      "name": "hub-g-sync-vs-freesync-gaming-en",
+      "template": "hub-page",
+      "output": "hub/g-sync-vs-freesync-gaming.html",
+      "page_content": "hub-g-sync-vs-freesync-gaming-en",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "G-Sync vs FreeSync Gaming: Which VRR Technology Is Better 2025?",
+        "page_description": "Complete comparison of NVIDIA G-Sync vs AMD FreeSync for gaming monitors. Covers performance, pricing, compatibility, and expert recommendations for every GPU and gaming setup.",
+        "page_keywords": "g sync vs freesync, best vrr technology, nvidia g sync freesync, gaming monitor sync technology, adaptive sync comparison",
+        "canonical_url": "https://screensizechecker.com/hub/g-sync-vs-freesync-gaming",
+        "og_title": "G-Sync vs FreeSync Gaming: Which VRR Technology Is Better 2025?",
+        "og_description": "Complete comparison of NVIDIA G-Sync vs AMD FreeSync for gaming monitors. Covers performance, pricing, compatibility, and expert recommendations for every GPU and gaming setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/hub/g-sync-vs-freesync-gaming",
+        "og_image": "https://screensizechecker.com/images/g-sync-vs-freesync-gaming-hero.jpg",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "blog_url": "../blog/index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "g-sync-vs-freesync-gaming",
+        "current_name": "G-Sync vs FreeSync Gaming: Which VRR Technology Is Better 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "g-sync",
+          "freesync",
+          "vrr",
+          "gaming-monitors",
+          "nvidia",
+          "amd"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 15,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-en",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -6165,6 +6214,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 4,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-g-sync-vs-freesync-gaming-zh",
+      "template": "hub-page",
+      "output": "hub/g-sync-vs-freesync-gaming.html",
+      "page_content": "hub-g-sync-vs-freesync-gaming-zh",
+      "enabled_languages": [
+        "zh"
+      ],
+      "config": {
+        "page_title": "G-Sync vs FreeSync游戏：2025年哪种VRR技术更好？",
+        "page_description": "NVIDIA G-Sync vs AMD FreeSync游戏显示器的完整对比。涵盖性能、定价、兼容性，以及针对每种GPU和游戏设置的专家建议。",
+        "page_keywords": "g sync vs freesync, 最佳vrr技术, nvidia g sync freesync, 游戏显示器同步技术, 自适应同步对比",
+        "canonical_url": "https://screensizechecker.com/zh/hub/g-sync-vs-freesync-gaming",
+        "og_title": "G-Sync vs FreeSync游戏：2025年哪种VRR技术更好？",
+        "og_description": "NVIDIA G-Sync vs AMD FreeSync游戏显示器的完整对比。涵盖性能、定价、兼容性，以及针对每种GPU和游戏设置的专家建议。",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/zh/hub/g-sync-vs-freesync-gaming",
+        "og_image": "https://screensizechecker.com/images/g-sync-vs-freesync-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "g-sync-vs-freesync-gaming",
+        "current_name": "G-Sync vs FreeSync游戏：2025年哪种VRR技术更好？",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "g-sync",
+          "freesync",
+          "vrr",
+          "游戏显示器",
+          "nvidia",
+          "amd"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 5,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -6659,6 +6757,55 @@
       }
     },
     {
+      "name": "hub-g-sync-vs-freesync-gaming-de",
+      "template": "hub-page",
+      "output": "hub/g-sync-vs-freesync-gaming.html",
+      "page_content": "hub-g-sync-vs-freesync-gaming-de",
+      "enabled_languages": [
+        "de"
+      ],
+      "config": {
+        "page_title": "G-Sync vs FreeSync Gaming: Welche VRR-Technologie ist besser 2025?",
+        "page_description": "Kompletter Vergleich von NVIDIA G-Sync vs AMD FreeSync für Gaming-Monitore. Behandelt Performance, Preis, Kompatibilität und Expertenempfehlungen für jede GPU und Gaming-Setup.",
+        "page_keywords": "g sync vs freesync, beste vrr technologie, nvidia g sync freesync, gaming monitor sync technologie, adaptive sync vergleich",
+        "canonical_url": "https://screensizechecker.com/de/hub/g-sync-vs-freesync-gaming",
+        "og_title": "G-Sync vs FreeSync Gaming: Welche VRR-Technologie ist besser 2025?",
+        "og_description": "Kompletter Vergleich von NVIDIA G-Sync vs AMD FreeSync für Gaming-Monitore. Behandelt Performance, Preis, Kompatibilität und Expertenempfehlungen für jede GPU und Gaming-Setup.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/de/hub/g-sync-vs-freesync-gaming",
+        "og_image": "https://screensizechecker.com/images/g-sync-vs-freesync-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "g-sync-vs-freesync-gaming",
+        "current_name": "G-Sync vs FreeSync Gaming: Welche VRR-Technologie ist besser 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "g-sync",
+          "freesync",
+          "vrr",
+          "gaming-monitore",
+          "nvidia",
+          "amd"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 8,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
       "name": "hub-gaming-monitor-size-guide-de",
       "template": "hub-page",
       "output": "hub/gaming-monitor-size-guide.html",
@@ -7135,6 +7282,55 @@
         ],
         "hub_date": "2025-01-19",
         "hub_reading_time": 8,
+        "hub_author": "Screen Size Checker Gaming Team",
+        "is_home": false,
+        "is_blog": false,
+        "is_tools": false,
+        "is_devices": false,
+        "is_gaming": true
+      }
+    },
+    {
+      "name": "hub-g-sync-vs-freesync-gaming-es",
+      "template": "hub-page",
+      "output": "hub/g-sync-vs-freesync-gaming.html",
+      "page_content": "hub-g-sync-vs-freesync-gaming-es",
+      "enabled_languages": [
+        "es"
+      ],
+      "config": {
+        "page_title": "G-Sync vs FreeSync Gaming: ¿Qué Tecnología VRR es Mejor 2025?",
+        "page_description": "Comparación completa de NVIDIA G-Sync vs AMD FreeSync para monitores gaming. Cubre rendimiento, precios, compatibilidad y recomendaciones expertas para cada GPU y setup gaming.",
+        "page_keywords": "g sync vs freesync, mejor tecnologia vrr, nvidia g sync freesync, tecnologia sync monitor gaming, comparacion adaptive sync",
+        "canonical_url": "https://screensizechecker.com/es/hub/g-sync-vs-freesync-gaming",
+        "og_title": "G-Sync vs FreeSync Gaming: ¿Qué Tecnología VRR es Mejor 2025?",
+        "og_description": "Comparación completa de NVIDIA G-Sync vs AMD FreeSync para monitores gaming. Cubre rendimiento, precios, compatibilidad y recomendaciones expertas para cada GPU y setup gaming.",
+        "og_type": "article",
+        "og_url": "https://screensizechecker.com/es/hub/g-sync-vs-freesync-gaming",
+        "og_image": "https://screensizechecker.com/images/g-sync-vs-freesync-gaming-hero.jpg",
+        "css_path": "../../css",
+        "locales_path": "../../locales",
+        "js_path": "../../js",
+        "home_url": "../../index.html",
+        "blog_url": "../../blog/index.html",
+        "privacy_policy_url": "../../privacy-policy.html",
+        "show_breadcrumb": true,
+        "current_key": "g-sync-vs-freesync-gaming",
+        "current_name": "G-Sync vs FreeSync Gaming: ¿Qué Tecnología VRR es Mejor 2025?",
+        "parent_url": "../index.html",
+        "parent_key": "hub",
+        "parent_name": "Hub",
+        "hub_category": "gaming",
+        "hub_tags": [
+          "g-sync",
+          "freesync",
+          "vrr",
+          "monitores-gaming",
+          "nvidia",
+          "amd"
+        ],
+        "hub_date": "2025-01-19",
+        "hub_reading_time": 10,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
