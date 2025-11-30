@@ -123,6 +123,18 @@
     transform: translateX(4px);
 }
 
+.footer-divider-item {
+    margin: 8px 0 !important;
+    opacity: 0.6;
+}
+
+.footer-divider-line {
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--footer-link, #9ca3af), transparent);
+    margin: 4px 0;
+}
+
 /* ========================================
    Footer Badges
    ======================================== */
