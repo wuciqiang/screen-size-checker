@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-11-27T13:22:29.485Z",
+  "validationDate": "2025-11-30T05:53:15.663Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 643,
     "missingTranslations": 157,
-    "inconsistentKeys": 469
+    "inconsistentKeys": 493
   },
   "missingKeys": {
     "en": [
@@ -819,6 +819,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-anzeigeeinstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-anzeigeeinstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-anzeigeeinstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-basics-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -830,6 +845,21 @@
     },
     {
       "component": "blog-tag-basics-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-bildschirmauflösung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-bildschirmauflösung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-bildschirmauflösung-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -950,6 +980,21 @@
     },
     {
       "component": "blog-tag-básicos-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-configuración-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-configuración-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-configuración-display-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1100,6 +1145,21 @@
     },
     {
       "component": "blog-tag-debugging-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-display-settings-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-display-settings-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-display-settings-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1659,6 +1719,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-resolución-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-resolución-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-resolución-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-responsive-design-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1805,6 +1880,21 @@
     },
     {
       "component": "blog-tag-screen-dimensions-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-screen-resolution-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-screen-resolution-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-screen-resolution-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -2094,6 +2184,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-屏幕分辨率-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-屏幕分辨率-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-屏幕分辨率-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-屏幕尺寸-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2165,6 +2270,21 @@
     },
     {
       "component": "blog-tag-显示技术-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-显示设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-显示设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-显示设置-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },

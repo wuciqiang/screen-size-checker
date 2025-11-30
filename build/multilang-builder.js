@@ -2017,9 +2017,21 @@ ${languageCards}
             { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/media-queries-essentials', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/viewport-basics', priority: '0.8', changefreq: 'monthly' },
+            // How-to Guide Series (High Priority)
+            { path: '/blog/how-to-measure-monitor-size', priority: '0.9', changefreq: 'monthly' },
+            { path: '/blog/how-to-measure-laptop-screen', priority: '0.9', changefreq: 'monthly' },
+            { path: '/blog/how-to-check-screen-resolution', priority: '0.8', changefreq: 'monthly' },
+            // Other Articles
+            { path: '/blog/average-laptop-screen-size-2025', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/black_myth_guide', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/container-queries-guide', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/responsive-debugging-checklist', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/screen-dimensions-cheat-sheet', priority: '0.8', changefreq: 'monthly' },
+            // Categories
             { path: '/blog/category/technical', priority: '0.7', changefreq: 'monthly' },
             { path: '/blog/category/css', priority: '0.7', changefreq: 'monthly' },
             { path: '/blog/category/basics', priority: '0.7', changefreq: 'monthly' },
+            { path: '/blog/category/guides', priority: '0.7', changefreq: 'monthly' },
             { path: '/blog/tag/dpr', priority: '0.6', changefreq: 'monthly' },
             { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
             { path: '/blog/tag/retina-display', priority: '0.6', changefreq: 'monthly' },
