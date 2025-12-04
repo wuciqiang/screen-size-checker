@@ -2438,9 +2438,9 @@ ${languageCards}
                 
                 // 检查关键SEO元素的一致性
                 const seoChecks = [
-                    { name: 'Title', regex: /<title[^>]*>(.*?)<\/title>/i },
+                    { name: 'Title', regex: /<title[^>]*>(.*?)<\/title>/is },
                     { name: 'Meta Description', regex: /<meta[^>]*name="description"[^>]*content="([^"]*)"[^>]*>/i },
-                    { name: 'H1 Tag', regex: /<h1[^>]*>(.*?)<\/h1>/i }
+                    { name: 'H1 Tag', regex: /<h1[^>]*>([\s\S]*?)<\/h1>/i }
                 ];
                 
                 let pageConsistent = true;
