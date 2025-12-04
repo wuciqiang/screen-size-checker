@@ -1,0 +1,669 @@
+<div class="lcd-tester-tool">
+    <!-- Hero Section -->
+    <section class="devices-hero">
+        <h1 class="devices-hero-title" data-i18n="lcdTester.title">LCD Screen Tester</h1>
+        <p class="devices-hero-subtitle" data-i18n="lcdTester.intro">Test your monitor for dead pixels, color accuracy, and display quality. Run comprehensive screen tests in fullscreen mode.</p>
+    </section>
+
+    <!-- Test Control Panel -->
+    <div class="tester-container">
+        <div class="test-panel">
+            <h2 class="panel-title" data-i18n="lcdTester.selectTest">Select a Test</h2>
+            
+            <!-- Test Categories -->
+            <div class="test-categories">
+                <!-- Dead Pixel Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.deadPixelTest">Dead Pixel Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.deadPixelDesc">Display solid colors to detect dead or stuck pixels on your screen.</p>
+                    <div class="color-buttons">
+                        <button class="test-btn color-btn" data-test="solid" data-color="#FF0000" title="Red">
+                            <span class="color-preview" style="background:#FF0000"></span>
+                            <span data-i18n="lcdTester.red">Red</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#00FF00" title="Green">
+                            <span class="color-preview" style="background:#00FF00"></span>
+                            <span data-i18n="lcdTester.green">Green</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#0000FF" title="Blue">
+                            <span class="color-preview" style="background:#0000FF"></span>
+                            <span data-i18n="lcdTester.blue">Blue</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#FFFFFF" title="White">
+                            <span class="color-preview" style="background:#FFFFFF; border:1px solid #ccc"></span>
+                            <span data-i18n="lcdTester.white">White</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#000000" title="Black">
+                            <span class="color-preview" style="background:#000000"></span>
+                            <span data-i18n="lcdTester.black">Black</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#00FFFF" title="Cyan">
+                            <span class="color-preview" style="background:#00FFFF"></span>
+                            <span data-i18n="lcdTester.cyan">Cyan</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#FF00FF" title="Magenta">
+                            <span class="color-preview" style="background:#FF00FF"></span>
+                            <span data-i18n="lcdTester.magenta">Magenta</span>
+                        </button>
+                        <button class="test-btn color-btn" data-test="solid" data-color="#FFFF00" title="Yellow">
+                            <span class="color-preview" style="background:#FFFF00"></span>
+                            <span data-i18n="lcdTester.yellow">Yellow</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gradient Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.gradientTest">Gradient Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.gradientDesc">Check color uniformity and banding issues with smooth gradients.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="gradient-h">
+                            <span class="btn-icon">↔</span>
+                            <span data-i18n="lcdTester.horizontalGradient">Horizontal Gradient</span>
+                        </button>
+                        <button class="test-btn" data-test="gradient-v">
+                            <span class="btn-icon">↕</span>
+                            <span data-i18n="lcdTester.verticalGradient">Vertical Gradient</span>
+                        </button>
+                        <button class="test-btn" data-test="gradient-rgb">
+                            <span class="btn-icon">🌈</span>
+                            <span data-i18n="lcdTester.rgbGradient">RGB Gradient</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gray Scale Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.grayScaleTest">Gray Scale Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.grayScaleDesc">Test grayscale rendering and contrast levels.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="grayscale-bars">
+                            <span class="btn-icon">▦</span>
+                            <span data-i18n="lcdTester.grayBars">Gray Bars</span>
+                        </button>
+                        <button class="test-btn" data-test="grayscale-gradient">
+                            <span class="btn-icon">◐</span>
+                            <span data-i18n="lcdTester.grayGradient">Gray Gradient</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pattern Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.patternTest">Pattern Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.patternDesc">Detect pixel alignment and sharpness issues.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="checkerboard">
+                            <span class="btn-icon">▚</span>
+                            <span data-i18n="lcdTester.checkerboard">Checkerboard</span>
+                        </button>
+                        <button class="test-btn" data-test="grid">
+                            <span class="btn-icon">▦</span>
+                            <span data-i18n="lcdTester.gridPattern">Grid Pattern</span>
+                        </button>
+                        <button class="test-btn" data-test="lines-h">
+                            <span class="btn-icon">≡</span>
+                            <span data-i18n="lcdTester.horizontalLines">Horizontal Lines</span>
+                        </button>
+                        <button class="test-btn" data-test="lines-v">
+                            <span class="btn-icon">|||</span>
+                            <span data-i18n="lcdTester.verticalLines">Vertical Lines</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Color Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.colorTest">Color Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.colorDesc">Evaluate color accuracy and display calibration.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="color-bars">
+                            <span class="btn-icon">▐</span>
+                            <span data-i18n="lcdTester.colorBars">Color Bars</span>
+                        </button>
+                        <button class="test-btn" data-test="smpte">
+                            <span class="btn-icon">📺</span>
+                            <span data-i18n="lcdTester.smptePattern">SMPTE Pattern</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Motion Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.motionTest">Motion Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.motionDesc">Check for ghosting and response time issues.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="motion-box">
+                            <span class="btn-icon">▶</span>
+                            <span data-i18n="lcdTester.movingBox">Moving Box</span>
+                        </button>
+                        <button class="test-btn" data-test="motion-text">
+                            <span class="btn-icon">T</span>
+                            <span data-i18n="lcdTester.scrollingText">Scrolling Text</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Text Clarity Test -->
+                <div class="test-category">
+                    <h3 class="category-title" data-i18n="lcdTester.textTest">Text Clarity Test</h3>
+                    <p class="category-desc" data-i18n="lcdTester.textDesc">Verify text rendering and font clarity.</p>
+                    <div class="test-buttons">
+                        <button class="test-btn" data-test="text-white">
+                            <span class="btn-icon">Aa</span>
+                            <span data-i18n="lcdTester.textOnWhite">Text on White</span>
+                        </button>
+                        <button class="test-btn" data-test="text-black">
+                            <span class="btn-icon">Aa</span>
+                            <span data-i18n="lcdTester.textOnBlack">Text on Black</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto Test Button -->
+            <div class="auto-test-section">
+                <button class="test-btn auto-test-btn" data-test="auto">
+                    <span class="btn-icon">▶</span>
+                    <span data-i18n="lcdTester.autoTest">Run All Tests (Auto)</span>
+                </button>
+                <p class="auto-test-hint" data-i18n="lcdTester.autoTestHint">Press ESC or click to exit. Press Space or Arrow keys to navigate.</p>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions-panel">
+            <h3 class="instructions-title" data-i18n="lcdTester.instructions">Instructions</h3>
+            <ul class="instructions-list">
+                <li data-i18n="lcdTester.instruction1">Click any test button to start fullscreen test</li>
+                <li data-i18n="lcdTester.instruction2">Press ESC or click anywhere to exit test</li>
+                <li data-i18n="lcdTester.instruction3">Use Arrow keys or Space to switch between colors/tests</li>
+                <li data-i18n="lcdTester.instruction4">Clean your screen before testing for accurate results</li>
+                <li data-i18n="lcdTester.instruction5">Test in a dimly lit room for best visibility</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Information Section -->
+    <div class="info-section">
+        <!-- What to Look For -->
+        <div class="info-card">
+            <h3 class="info-title" data-i18n="lcdTester.whatToLookFor">What to Look For</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4 data-i18n="lcdTester.deadPixels">Dead Pixels</h4>
+                    <p data-i18n="lcdTester.deadPixelsInfo">Small dots that don't change color. Visible as black spots on bright colors or bright spots on black.</p>
+                </div>
+                <div class="info-item">
+                    <h4 data-i18n="lcdTester.stuckPixels">Stuck Pixels</h4>
+                    <p data-i18n="lcdTester.stuckPixelsInfo">Pixels that stay one color. Usually visible as bright colored dots (red, green, or blue) that don't change.</p>
+                </div>
+                <div class="info-item">
+                    <h4 data-i18n="lcdTester.colorBanding">Color Banding</h4>
+                    <p data-i18n="lcdTester.colorBandingInfo">Visible steps or bands in gradients instead of smooth transitions. Indicates limited color depth.</p>
+                </div>
+                <div class="info-item">
+                    <h4 data-i18n="lcdTester.backlight">Backlight Bleed</h4>
+                    <p data-i18n="lcdTester.backlightInfo">Light leaking around edges or corners, especially visible on black screens in dark rooms.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen Types -->
+        <div class="info-card">
+            <h3 class="info-title" data-i18n="lcdTester.screenTypes">Screen Panel Types</h3>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="lcdTester.panelType">Panel Type</th>
+                        <th data-i18n="lcdTester.colorAccuracy">Color Accuracy</th>
+                        <th data-i18n="lcdTester.responseTime">Response Time</th>
+                        <th data-i18n="lcdTester.viewingAngles">Viewing Angles</th>
+                        <th data-i18n="lcdTester.bestFor">Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IPS</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.good">Good</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.ipsUse">Professional work, photo editing</td>
+                    </tr>
+                    <tr>
+                        <td>VA</td>
+                        <td data-i18n="lcdTester.veryGood">Very Good</td>
+                        <td data-i18n="lcdTester.average">Average</td>
+                        <td data-i18n="lcdTester.good">Good</td>
+                        <td data-i18n="lcdTester.vaUse">Movies, high contrast content</td>
+                    </tr>
+                    <tr>
+                        <td>TN</td>
+                        <td data-i18n="lcdTester.average">Average</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.poor">Poor</td>
+                        <td data-i18n="lcdTester.tnUse">Competitive gaming</td>
+                    </tr>
+                    <tr>
+                        <td>OLED</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.excellent">Excellent</td>
+                        <td data-i18n="lcdTester.oledUse">Premium displays, HDR content</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="info-card faq-section">
+            <h3 class="info-title" data-i18n="lcdTester.faqTitle">Frequently Asked Questions</h3>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4 class="faq-question" data-i18n="lcdTester.faq1q">Can dead pixels be fixed?</h4>
+                    <p class="faq-answer" data-i18n="lcdTester.faq1a">Dead pixels are usually permanent. However, stuck pixels can sometimes be fixed by running pixel-cycling software or gently massaging the affected area with a soft cloth.</p>
+                </div>
+                <div class="faq-item">
+                    <h4 class="faq-question" data-i18n="lcdTester.faq2q">How many dead pixels are acceptable?</h4>
+                    <p class="faq-answer" data-i18n="lcdTester.faq2a">Most manufacturers allow 1-5 dead pixels depending on screen class. Premium "zero dead pixel" warranties are available from some brands.</p>
+                </div>
+                <div class="faq-item">
+                    <h4 class="faq-question" data-i18n="lcdTester.faq3q">Why test in fullscreen mode?</h4>
+                    <p class="faq-answer" data-i18n="lcdTester.faq3a">Fullscreen mode ensures the test covers every pixel and removes UI elements that could hide defects. It also provides accurate color display without browser interference.</p>
+                </div>
+                <div class="faq-item">
+                    <h4 class="faq-question" data-i18n="lcdTester.faq4q">What causes backlight bleeding?</h4>
+                    <p class="faq-answer" data-i18n="lcdTester.faq4a">Backlight bleed is caused by uneven light distribution from the LED backlight, often due to manufacturing tolerances or pressure on the panel frame.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fullscreen Test Overlay -->
+<div id="test-overlay" class="test-overlay hidden">
+    <canvas id="test-canvas"></canvas>
+    <div id="test-info" class="test-info">
+        <span id="test-name"></span>
+        <span id="test-hint" data-i18n="lcdTester.pressEsc">Press ESC to exit</span>
+    </div>
+</div>
+
+<style>
+:root {
+    --tester-primary: #2563eb;
+    --tester-secondary: #64748b;
+    --tester-success: #22c55e;
+    --tester-bg: #f8fafc;
+    --tester-card-bg: #ffffff;
+    --tester-border: #e2e8f0;
+    --tester-text: #1e293b;
+    --tester-text-secondary: #64748b;
+    --tester-radius: 12px;
+    --tester-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --tester-bg: #0f172a;
+    --tester-card-bg: #1e293b;
+    --tester-border: #334155;
+    --tester-text: #f1f5f9;
+    --tester-text-secondary: #94a3b8;
+}
+
+.lcd-tester-tool {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.devices-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.devices-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-md);
+}
+
+.devices-hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--tester-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tester-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 900px) {
+    .tester-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.test-panel {
+    background: var(--tester-card-bg);
+    border-radius: var(--tester-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--tester-shadow);
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--tester-primary);
+}
+
+.test-categories {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.test-category {
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--tester-border);
+}
+
+.test-category:last-child {
+    border-bottom: none;
+}
+
+.category-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.category-desc {
+    font-size: 0.875rem;
+    color: var(--tester-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.color-buttons,
+.test-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.test-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--tester-border);
+    border-radius: 8px;
+    background: var(--tester-card-bg);
+    color: var(--tester-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.test-btn:hover {
+    border-color: var(--tester-primary);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.test-btn:active {
+    transform: scale(0.98);
+}
+
+.color-btn .color-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.btn-icon {
+    font-size: 1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.auto-test-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--tester-border);
+    text-align: center;
+}
+
+.auto-test-btn {
+    background: var(--tester-primary);
+    color: white;
+    border-color: var(--tester-primary);
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1rem;
+}
+
+.auto-test-btn:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.auto-test-hint {
+    font-size: 0.75rem;
+    color: var(--tester-text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+.instructions-panel {
+    background: var(--tester-card-bg);
+    border-radius: var(--tester-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--tester-shadow);
+    height: fit-content;
+}
+
+.instructions-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-md);
+}
+
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions-list li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--tester-text-secondary);
+    line-height: 1.5;
+}
+
+.instructions-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--tester-success);
+    font-weight: bold;
+}
+
+.info-section {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background: var(--tester-card-bg);
+    border-radius: var(--tester-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--tester-shadow);
+}
+
+.info-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--tester-primary);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.info-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-item p {
+    font-size: 0.875rem;
+    color: var(--tester-text-secondary);
+    line-height: 1.5;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.info-table th,
+.info-table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--tester-border);
+}
+
+.info-table th {
+    background: var(--tester-bg);
+    font-weight: 600;
+    color: var(--tester-text);
+}
+
+.info-table td {
+    color: var(--tester-text-secondary);
+}
+
+.faq-list {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.faq-item {
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--tester-border);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.faq-question {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tester-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.faq-answer {
+    font-size: 0.875rem;
+    color: var(--tester-text-secondary);
+    line-height: 1.6;
+}
+
+/* Test Overlay Styles */
+.test-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    cursor: pointer;
+}
+
+.test-overlay.hidden {
+    display: none;
+}
+
+#test-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.test-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.test-overlay:hover .test-info {
+    opacity: 1;
+}
+
+#test-name {
+    font-weight: 600;
+}
+
+#test-hint {
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .devices-hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .color-buttons,
+    .test-buttons {
+        justify-content: center;
+    }
+    
+    .test-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+    
+    .info-table {
+        font-size: 0.75rem;
+    }
+    
+    .info-table th,
+    .info-table td {
+        padding: var(--spacing-xs);
+    }
+}
+</style>
+
+<script src="../js/lcd-screen-tester.js" defer></script>

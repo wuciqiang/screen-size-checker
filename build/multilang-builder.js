@@ -2009,7 +2009,8 @@ ${languageCards}
             { path: '/devices/standard-resolutions', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/ppi-calculator', priority: '0.8', changefreq: 'monthly' },
-            { path: '/devices/projection-calculator', priority: '0.8', changefreq: 'monthly' }
+            { path: '/devices/projection-calculator', priority: '0.8', changefreq: 'monthly' },
+            { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
         ];
         
         // 定义博客页面结构
@@ -2312,6 +2313,7 @@ ${languageCards}
 /devices/ppi-calculator.html              /devices/ppi-calculator             301
 /devices/aspect-ratio-calculator.html     /devices/aspect-ratio-calculator    301
 /devices/projection-calculator.html       /devices/projection-calculator      301
+/devices/lcd-screen-tester.html           /devices/lcd-screen-tester          301
 
 # ===== .html 后缀重定向（中文版本）=====
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
@@ -2323,6 +2325,7 @@ ${languageCards}
 /zh/devices/ppi-calculator.html           /zh/devices/ppi-calculator          301
 /zh/devices/aspect-ratio-calculator.html  /zh/devices/aspect-ratio-calculator 301
 /zh/devices/projection-calculator.html    /zh/devices/projection-calculator   301
+/zh/devices/lcd-screen-tester.html        /zh/devices/lcd-screen-tester       301
 
 # ===== .html 后缀重定向（德语版本）=====
 /de/devices/iphone-viewport-sizes.html    /de/devices/iphone-viewport-sizes   301
@@ -2334,6 +2337,7 @@ ${languageCards}
 /de/devices/ppi-calculator.html           /de/devices/ppi-calculator          301
 /de/devices/aspect-ratio-calculator.html  /de/devices/aspect-ratio-calculator 301
 /de/devices/projection-calculator.html    /de/devices/projection-calculator   301
+/de/devices/lcd-screen-tester.html        /de/devices/lcd-screen-tester       301
 
 # ===== .html 后缀重定向（西班牙语版本）=====
 /es/devices/iphone-viewport-sizes.html    /es/devices/iphone-viewport-sizes   301
@@ -2345,6 +2349,7 @@ ${languageCards}
 /es/devices/ppi-calculator.html           /es/devices/ppi-calculator          301
 /es/devices/aspect-ratio-calculator.html  /es/devices/aspect-ratio-calculator 301
 /es/devices/projection-calculator.html    /es/devices/projection-calculator   301
+/es/devices/lcd-screen-tester.html        /es/devices/lcd-screen-tester       301
 
 # ===== 博客 .html 后缀重定向 =====
 /blog/index.html                          /blog                               301
@@ -2394,7 +2399,8 @@ ${languageCards}
             'devices/responsive-tester.html',
             'devices/ppi-calculator.html',
             'devices/aspect-ratio-calculator.html',
-            'devices/projection-calculator.html'
+            'devices/projection-calculator.html',
+            'devices/lcd-screen-tester.html'
         ];
         
         let checkedPages = 0;

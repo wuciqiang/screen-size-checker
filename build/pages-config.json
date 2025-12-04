@@ -553,6 +553,65 @@
       }
     },
     {
+      "name": "lcd-screen-tester",
+      "template": "device-page",
+      "output": "devices/lcd-screen-tester.html",
+      "page_content": "lcd-screen-tester-content",
+      "config": {
+        "page_title_key": "lcdTester.pageTitle",
+        "page_description_key": "lcdTester.pageDescription",
+        "page_heading_key": "lcdTester.pageHeading",
+        "page_intro_key": "lcdTester.pageIntro",
+        "page_keywords": "lcd screen tester, dead pixel test, monitor test, screen test, pixel test, display test, color accuracy test, backlight bleed test",
+        "canonical_url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
+        "og_title": "LCD Screen Tester - Test for Dead Pixels & Display Quality",
+        "og_description": "Free online LCD screen tester. Check your monitor for dead pixels, color accuracy, backlight bleeding, and display quality issues.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "lcd_screen_tester",
+        "current_name": "LCD Screen Tester",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "Devices",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "LCD Screen Tester",
+          "description": "Free online tool to test LCD screens for dead pixels, color accuracy, backlight bleeding, and display quality issues.",
+          "url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-01-19",
+          "dateModified": "2025-01-19"
+        },
+        "blog_url": "../blog/index.html"
+      }
+    },
+    {
       "name": "blog-index-en",
       "template": "blog-index",
       "output": "blog/index.html",
@@ -676,7 +735,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T14:28:48.513Z",
+          "datePublished": "2025-12-04T15:29:29.329Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2525,7 +2584,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T14:28:48.812Z",
+          "datePublished": "2025-12-04T15:29:29.634Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4438,7 +4497,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T14:28:48.840Z",
+          "datePublished": "2025-12-04T15:29:29.663Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -6351,7 +6410,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T14:28:48.862Z",
+          "datePublished": "2025-12-04T15:29:29.689Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
