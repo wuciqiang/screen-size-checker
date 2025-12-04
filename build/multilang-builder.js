@@ -2021,6 +2021,8 @@ ${languageCards}
             { path: '/blog/how-to-measure-monitor-size', priority: '0.9', changefreq: 'monthly' },
             { path: '/blog/how-to-measure-laptop-screen', priority: '0.9', changefreq: 'monthly' },
             { path: '/blog/how-to-check-screen-resolution', priority: '0.8', changefreq: 'monthly' },
+            { path: '/blog/monitor-buying-guide-2025', priority: '0.9', changefreq: 'monthly' },
+            { path: '/blog/gaming-monitor-setup-guide', priority: '0.9', changefreq: 'monthly' },
             // Other Articles
             { path: '/blog/average-laptop-screen-size-2025', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/black_myth_guide', priority: '0.8', changefreq: 'monthly' },

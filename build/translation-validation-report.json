@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-11-30T09:26:00.212Z",
+  "validationDate": "2025-12-04T13:45:17.901Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 644,
     "missingTranslations": 157,
-    "inconsistentKeys": 493
+    "inconsistentKeys": 559
   },
   "missingKeys": {
     "en": [
@@ -804,6 +804,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-ajustes-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-ajustes-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-ajustes-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-anleitung-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -969,6 +984,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-buying-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-buying-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-buying-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-básicos-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -995,6 +1025,21 @@
     },
     {
       "component": "blog-tag-configuración-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-configuración-gaming-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-configuración-gaming-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-configuración-gaming-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1149,6 +1194,36 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-display-optimierung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-display-optimierung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-display-optimierung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-display-optimization-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-display-optimization-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-display-optimization-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-display-settings-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1160,6 +1235,21 @@
     },
     {
       "component": "blog-tag-display-settings-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-display-technologie-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-display-technologie-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-display-technologie-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1359,6 +1449,36 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-gaming-setup-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-gaming-setup-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-gaming-setup-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-gaming-setup-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-gaming-setup-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-gaming-setup-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-grundlagen-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1374,6 +1494,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-guía-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-guía-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-guía-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-guía-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1385,6 +1520,21 @@
     },
     {
       "component": "blog-tag-guía-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-guía-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-guía-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-guía-monitor-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1445,6 +1595,21 @@
     },
     {
       "component": "blog-tag-how-to-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-kaufberatung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-kaufberatung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-kaufberatung-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1599,6 +1764,36 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-monitor-einstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-monitor-einstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-monitor-einstellungen-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-monitor-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-monitor-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-monitor-guide-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-monitor-measurement-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1625,6 +1820,36 @@
     },
     {
       "component": "blog-tag-monitor-messung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-monitor-ratgeber-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-monitor-ratgeber-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-monitor-ratgeber-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-monitor-settings-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-monitor-settings-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-monitor-settings-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1670,6 +1895,21 @@
     },
     {
       "component": "blog-tag-monitors-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-optimización-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-optimización-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-optimización-display-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1959,6 +2199,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-tecnología-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-tecnología-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-tecnología-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-viewport-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2229,6 +2484,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-显示优化-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-显示优化-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-显示优化-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-显示器-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2244,6 +2514,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-显示器指南-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-显示器指南-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-显示器指南-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-显示器测量-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2255,6 +2540,21 @@
     },
     {
       "component": "blog-tag-显示器测量-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-显示器设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-显示器设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-显示器设置-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -2300,6 +2600,21 @@
     },
     {
       "component": "blog-tag-游戏-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-游戏设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-游戏设置-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-游戏设置-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -2405,6 +2720,21 @@
     },
     {
       "component": "blog-tag-调试-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-选购指南-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-选购指南-zh.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-选购指南-zh.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
