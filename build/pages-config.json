@@ -494,6 +494,65 @@
       }
     },
     {
+      "name": "projection-calculator",
+      "template": "device-page",
+      "output": "devices/projection-calculator.html",
+      "page_content": "projection-calculator-content",
+      "config": {
+        "page_title_key": "projectionCalculator.pageTitle",
+        "page_description_key": "projectionCalculator.pageDescription",
+        "page_heading_key": "projectionCalculator.pageHeading",
+        "page_intro_key": "projectionCalculator.pageIntro",
+        "page_keywords": "projector distance calculator, throw ratio calculator, projection screen size, projector placement, screen size calculator, home theater setup, projector installation",
+        "canonical_url": "https://screensizechecker.com/devices/projection-calculator.html",
+        "og_title": "Projector Distance Calculator - Calculate Screen Size & Throw Distance",
+        "og_description": "Calculate the optimal projector distance and screen size for your room. Enter throw ratio and distance to get precise measurements for home theater or conference room setup.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/projection-calculator.html",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "projection_calculator",
+        "current_name": "Projector Calculator",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "Devices",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Projector Distance Calculator",
+          "description": "Calculate optimal projector distance and screen size based on throw ratio. Perfect for home theater planning and projector installation.",
+          "url": "https://screensizechecker.com/devices/projection-calculator.html",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Screen Size Checker"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Screen Size Checker",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://screensizechecker.com/favicon.png"
+            }
+          },
+          "datePublished": "2025-01-19",
+          "dateModified": "2025-01-19"
+        },
+        "blog_url": "../blog/index.html"
+      }
+    },
+    {
       "name": "blog-index-en",
       "template": "blog-index",
       "output": "blog/index.html",
@@ -617,7 +676,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T13:45:18.003Z",
+          "datePublished": "2025-12-04T14:28:48.513Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2466,7 +2525,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T13:45:18.305Z",
+          "datePublished": "2025-12-04T14:28:48.812Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4379,7 +4438,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T13:45:18.338Z",
+          "datePublished": "2025-12-04T14:28:48.840Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -6292,7 +6351,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-04T13:45:18.364Z",
+          "datePublished": "2025-12-04T14:28:48.862Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",

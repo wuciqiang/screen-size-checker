@@ -1,0 +1,804 @@
+<!-- Part 1: Hero Section -->
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title" data-i18n="projectionCalculator.title">Projector Distance Calculator</h1>
+        <p class="devices-hero-subtitle" data-i18n="projectionCalculator.intro">Calculate the optimal projector distance and screen size for your room. Enter your projector's throw ratio and desired screen size to get precise installation measurements.</p>
+    </div>
+</section>
+
+<!-- Part 2: Calculator Section -->
+<section class="section-container">
+    <div class="projection-calculator-tool">
+        <div class="calculator-container projection-layout">
+            <!-- Input Form -->
+            <div class="calculator-form">
+                <h2 class="calculator-section-title" data-i18n="projectionCalculator.inputTitle">Projector Settings</h2>
+                
+                <!-- Calculation Mode Toggle -->
+                <div class="mode-toggle">
+                    <button class="mode-btn active" id="mode-distance" data-mode="distance" data-i18n="projectionCalculator.modeDistance">Calculate Screen Size</button>
+                    <button class="mode-btn" id="mode-screen" data-mode="screen" data-i18n="projectionCalculator.modeScreen">Calculate Distance</button>
+                </div>
+
+                <!-- Throw Ratio Input -->
+                <div class="input-group">
+                    <label for="throw-ratio" class="input-label" data-i18n="projectionCalculator.throwRatio">Throw Ratio</label>
+                    <div class="input-with-preset">
+                        <input 
+                            type="number" 
+                            id="throw-ratio" 
+                            class="calculator-input" 
+                            placeholder="1.5" 
+                            min="0.1" 
+                            max="5"
+                            step="0.01"
+                            value="1.5"
+                        >
+                        <select id="throw-ratio-preset" class="preset-select">
+                            <option value="" data-i18n="projectionCalculator.customRatio">Custom</option>
+                            <option value="0.38">Ultra Short Throw (0.38)</option>
+                            <option value="0.5">Short Throw (0.5)</option>
+                            <option value="1.2">Standard Low (1.2)</option>
+                            <option value="1.5" selected>Standard (1.5)</option>
+                            <option value="2.0">Long Throw (2.0)</option>
+                            <option value="2.5">Long Throw (2.5)</option>
+                        </select>
+                    </div>
+                    <small class="input-help" data-i18n="projectionCalculator.throwRatioHelp">Throw ratio = Distance / Screen Width. Check your projector specs.</small>
+                    <div class="error-message" id="throw-ratio-error"></div>
+                </div>
+
+                <!-- Distance Input (Mode 1) -->
+                <div class="input-group" id="distance-input-group">
+                    <label for="projector-distance" class="input-label" data-i18n="projectionCalculator.distance">Projector Distance</label>
+                    <div class="input-with-unit">
+                        <input 
+                            type="number" 
+                            id="projector-distance" 
+                            class="calculator-input" 
+                            placeholder="3" 
+                            min="0.1" 
+                            max="30"
+                            step="0.1"
+                            value="3"
+                        >
+                        <select id="distance-unit" class="unit-select">
+                            <option value="m" data-i18n="projectionCalculator.meters">meters</option>
+                            <option value="ft" data-i18n="projectionCalculator.feet">feet</option>
+                        </select>
+                    </div>
+                    <small class="input-help" data-i18n="projectionCalculator.distanceHelp">Distance from projector lens to screen</small>
+                    <div class="error-message" id="distance-error"></div>
+                </div>
+
+                <!-- Screen Size Input (Mode 2) -->
+                <div class="input-group" id="screen-input-group" style="display: none;">
+                    <label for="screen-size" class="input-label" data-i18n="projectionCalculator.screenSize">Desired Screen Size</label>
+                    <div class="input-with-unit">
+                        <input 
+                            type="number" 
+                            id="screen-size" 
+                            class="calculator-input" 
+                            placeholder="100" 
+                            min="20" 
+                            max="300"
+                            step="1"
+                            value="100"
+                        >
+                        <span class="unit-label" data-i18n="projectionCalculator.inches">inches (diagonal)</span>
+                    </div>
+                    <small class="input-help" data-i18n="projectionCalculator.screenSizeHelp">Desired screen diagonal size in inches</small>
+                    <div class="error-message" id="screen-size-error"></div>
+                </div>
+
+                <!-- Aspect Ratio -->
+                <div class="input-group">
+                    <label for="projection-aspect-ratio" class="input-label" data-i18n="projectionCalculator.aspectRatio">Aspect Ratio</label>
+                    <select id="projection-aspect-ratio" class="calculator-input select-input">
+                        <option value="16:9" selected>16:9 (Widescreen)</option>
+                        <option value="16:10">16:10 (WUXGA)</option>
+                        <option value="4:3">4:3 (Standard)</option>
+                        <option value="21:9">21:9 (Ultrawide)</option>
+                        <option value="2.35:1">2.35:1 (Cinemascope)</option>
+                    </select>
+                    <small class="input-help" data-i18n="projectionCalculator.aspectRatioHelp">Most projectors use 16:9 for home theater</small>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div class="calculator-result">
+                <h2 class="calculator-section-title" data-i18n="projectionCalculator.resultTitle">Calculated Results</h2>
+                
+                <!-- Main Result -->
+                <div class="result-display projection-result">
+                    <div class="result-primary" id="result-primary">
+                        <span class="result-label" id="result-label" data-i18n="projectionCalculator.screenSizeResult">Screen Size</span>
+                        <div class="result-value-container">
+                            <span class="result-value" id="main-result">--</span>
+                            <span class="result-unit" id="result-unit" data-i18n="projectionCalculator.inchesUnit">inches</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Results -->
+                <div class="result-details projection-details" id="result-details">
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <span class="detail-icon">📐</span>
+                            <span class="detail-label" data-i18n="projectionCalculator.screenWidth">Screen Width</span>
+                            <span class="detail-value" id="screen-width">--</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-icon">📏</span>
+                            <span class="detail-label" data-i18n="projectionCalculator.screenHeight">Screen Height</span>
+                            <span class="detail-value" id="screen-height">--</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-icon">📺</span>
+                            <span class="detail-label" data-i18n="projectionCalculator.screenArea">Screen Area</span>
+                            <span class="detail-value" id="screen-area">--</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-icon">👀</span>
+                            <span class="detail-label" data-i18n="projectionCalculator.viewingDistance">Optimal Viewing</span>
+                            <span class="detail-value" id="viewing-distance">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Diagram -->
+                <div class="projection-diagram" id="projection-diagram">
+                    <svg viewBox="0 0 400 200" class="diagram-svg" id="diagram-svg">
+                        <!-- Room/Setup Visualization -->
+                        <defs>
+                            <linearGradient id="projectorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:0.05" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Projector -->
+                        <rect x="10" y="80" width="30" height="40" rx="3" fill="#374151" class="projector-icon"/>
+                        <circle cx="25" cy="100" r="8" fill="#60a5fa" class="projector-lens"/>
+                        
+                        <!-- Light Cone -->
+                        <polygon id="light-cone" points="40,90 40,110 360,40 360,160" fill="url(#projectorGrad)" class="light-cone"/>
+                        
+                        <!-- Screen -->
+                        <rect id="screen-rect" x="360" y="40" width="8" height="120" rx="2" fill="#1f2937" class="screen-icon"/>
+                        
+                        <!-- Distance Line -->
+                        <line x1="40" y1="170" x2="360" y2="170" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,5"/>
+                        <text x="200" y="190" text-anchor="middle" fill="#9ca3af" font-size="12" id="distance-label">3.0m</text>
+                        
+                        <!-- Screen Size Label -->
+                        <text x="380" y="100" text-anchor="start" fill="#9ca3af" font-size="11" id="screen-label">100"</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Part 3: Quick Reference Section -->
+<section class="section-container">
+    <h2 class="section-title" data-i18n="projectionCalculator.quickReference">Quick Reference: Common Setups</h2>
+    <div class="reference-grid">
+        <div class="reference-card">
+            <h3 data-i18n="projectionCalculator.homeTheater">Home Theater</h3>
+            <ul>
+                <li data-i18n="projectionCalculator.homeTheater1">Screen: 100-120 inches</li>
+                <li data-i18n="projectionCalculator.homeTheater2">Distance: 3-4 meters</li>
+                <li data-i18n="projectionCalculator.homeTheater3">Throw Ratio: 1.2-1.8</li>
+                <li data-i18n="projectionCalculator.homeTheater4">Aspect: 16:9</li>
+            </ul>
+        </div>
+        <div class="reference-card">
+            <h3 data-i18n="projectionCalculator.livingRoom">Living Room</h3>
+            <ul>
+                <li data-i18n="projectionCalculator.livingRoom1">Screen: 80-100 inches</li>
+                <li data-i18n="projectionCalculator.livingRoom2">Distance: 2.5-3.5 meters</li>
+                <li data-i18n="projectionCalculator.livingRoom3">Throw Ratio: 1.0-1.5</li>
+                <li data-i18n="projectionCalculator.livingRoom4">Consider ambient light</li>
+            </ul>
+        </div>
+        <div class="reference-card">
+            <h3 data-i18n="projectionCalculator.smallRoom">Small Room / Bedroom</h3>
+            <ul>
+                <li data-i18n="projectionCalculator.smallRoom1">Screen: 60-80 inches</li>
+                <li data-i18n="projectionCalculator.smallRoom2">Distance: 1.5-2.5 meters</li>
+                <li data-i18n="projectionCalculator.smallRoom3">Short throw recommended</li>
+                <li data-i18n="projectionCalculator.smallRoom4">Throw Ratio: 0.5-1.0</li>
+            </ul>
+        </div>
+        <div class="reference-card">
+            <h3 data-i18n="projectionCalculator.conference">Conference Room</h3>
+            <ul>
+                <li data-i18n="projectionCalculator.conference1">Screen: 100-150 inches</li>
+                <li data-i18n="projectionCalculator.conference2">Distance: 3-5 meters</li>
+                <li data-i18n="projectionCalculator.conference3">4:3 or 16:10 aspect</li>
+                <li data-i18n="projectionCalculator.conference4">High brightness needed</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Part 4: SEO Content Section -->
+<section class="content-section">
+    <div class="section-container">
+        <h2 data-i18n="projectionCalculator.whatIsThrowRatio">What is Throw Ratio?</h2>
+        <p data-i18n="projectionCalculator.throwRatioExplain">
+            Throw ratio is the relationship between the projector's distance from the screen and the width of the projected image. It's calculated as: Throw Ratio = Distance ÷ Screen Width. A lower throw ratio means the projector can create a larger image from a shorter distance (short-throw), while a higher ratio requires more distance for the same image size (long-throw).
+        </p>
+        
+        <h3 data-i18n="projectionCalculator.throwRatioTypes">Types of Projector Throw Ratios</h3>
+        <div class="table-responsive">
+            <table class="reference-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="projectionCalculator.tableType">Type</th>
+                        <th data-i18n="projectionCalculator.tableRatio">Throw Ratio</th>
+                        <th data-i18n="projectionCalculator.tableDistance">Distance for 100" Screen</th>
+                        <th data-i18n="projectionCalculator.tableBestFor">Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="projectionCalculator.ultraShort">Ultra Short Throw</td>
+                        <td>0.2 - 0.4</td>
+                        <td>0.4 - 0.9m (1.3 - 3 ft)</td>
+                        <td data-i18n="projectionCalculator.ultraShortUse">Small rooms, interactive displays</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="projectionCalculator.shortThrow">Short Throw</td>
+                        <td>0.4 - 1.0</td>
+                        <td>0.9 - 2.2m (3 - 7 ft)</td>
+                        <td data-i18n="projectionCalculator.shortThrowUse">Living rooms, bedrooms, gaming</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="projectionCalculator.standard">Standard Throw</td>
+                        <td>1.0 - 2.0</td>
+                        <td>2.2 - 4.4m (7 - 14 ft)</td>
+                        <td data-i18n="projectionCalculator.standardUse">Home theaters, conference rooms</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="projectionCalculator.longThrow">Long Throw</td>
+                        <td>2.0 - 3.0+</td>
+                        <td>4.4m+ (14+ ft)</td>
+                        <td data-i18n="projectionCalculator.longThrowUse">Large venues, auditoriums</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 data-i18n="projectionCalculator.howToCalculate">How to Calculate Projector Distance</h2>
+        <p data-i18n="projectionCalculator.calculateFormula">
+            The basic formula is: Distance = Throw Ratio × Screen Width. For a 16:9 aspect ratio screen, the width is approximately 87% of the diagonal size. For example, a 100-inch 16:9 screen has a width of about 87 inches (221 cm). With a 1.5 throw ratio, you'd need: 1.5 × 87" = 130.5" (3.3m) distance.
+        </p>
+
+        <h3 data-i18n="projectionCalculator.optimalViewing">Optimal Viewing Distance</h3>
+        <p data-i18n="projectionCalculator.viewingExplain">
+            For the best viewing experience, the optimal viewing distance is typically 1.5 to 2.5 times the screen diagonal. For a 100-inch screen, this means sitting 3.8 to 6.4 meters (12.5 to 21 feet) away. However, for home theater with 4K content, you can sit closer (1.0 to 1.5 times the diagonal) to appreciate the detail.
+        </p>
+
+        <h2 data-i18n="projectionCalculator.installationTips">Projector Installation Tips</h2>
+        <ul>
+            <li data-i18n="projectionCalculator.tip1">Check your projector's specific throw ratio in the manual or specifications</li>
+            <li data-i18n="projectionCalculator.tip2">Account for lens shift and zoom range when planning placement</li>
+            <li data-i18n="projectionCalculator.tip3">Ensure the projector is level and perpendicular to the screen</li>
+            <li data-i18n="projectionCalculator.tip4">Consider ceiling mount for permanent installation</li>
+            <li data-i18n="projectionCalculator.tip5">Leave space for ventilation and cable management</li>
+            <li data-i18n="projectionCalculator.tip6">Check for ambient light control options in your room</li>
+        </ul>
+
+        <h2 data-i18n="projectionCalculator.lumensGuide">Projector Brightness Guide</h2>
+        <p data-i18n="projectionCalculator.lumensIntro">
+            Screen size affects how bright your projector needs to be. Larger screens spread the light over more area, requiring more lumens for the same perceived brightness.
+        </p>
+        <div class="table-responsive">
+            <table class="reference-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="projectionCalculator.screenSizeHeader">Screen Size</th>
+                        <th data-i18n="projectionCalculator.darkRoom">Dark Room</th>
+                        <th data-i18n="projectionCalculator.dimRoom">Dim Room</th>
+                        <th data-i18n="projectionCalculator.brightRoom">Bright Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>60-80"</td>
+                        <td>1,500-2,000</td>
+                        <td>2,000-2,500</td>
+                        <td>3,000+</td>
+                    </tr>
+                    <tr>
+                        <td>80-100"</td>
+                        <td>2,000-2,500</td>
+                        <td>2,500-3,000</td>
+                        <td>3,500+</td>
+                    </tr>
+                    <tr>
+                        <td>100-120"</td>
+                        <td>2,500-3,000</td>
+                        <td>3,000-3,500</td>
+                        <td>4,000+</td>
+                    </tr>
+                    <tr>
+                        <td>120-150"</td>
+                        <td>3,000-3,500</td>
+                        <td>3,500-4,500</td>
+                        <td>5,000+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Part 5: FAQ Section -->
+<section class="faq-section">
+    <div class="section-container">
+        <h2 class="section-title" data-i18n="projectionCalculator.faqTitle">Frequently Asked Questions</h2>
+        
+        <div class="faq-container" id="faq-container">
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="projectionCalculator.faq1q">How do I find my projector's throw ratio?</summary>
+                <div class="faq-answer" data-i18n="projectionCalculator.faq1a">Check your projector's specifications sheet or manual. It's usually listed as a single number (e.g., 1.5) or a range (e.g., 1.2-1.9) for projectors with zoom lenses. You can also calculate it by dividing the projection distance by the screen width.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="projectionCalculator.faq2q">What size screen should I get for my room?</summary>
+                <div class="faq-answer" data-i18n="projectionCalculator.faq2a">The ideal screen size depends on your viewing distance and room size. A general rule is that the screen diagonal should be about 1/3 to 1/2 of your viewing distance. For a typical 3-meter viewing distance, a 100-120 inch screen works well for home theater.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="projectionCalculator.faq3q">Can I use a short throw projector for a large screen?</summary>
+                <div class="faq-answer" data-i18n="projectionCalculator.faq3a">Yes, but there are trade-offs. Short throw projectors can create large images from short distances, but may have more geometric distortion at larger sizes. For screens over 120 inches, standard throw projectors often provide better image quality.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="projectionCalculator.faq4q">What's the difference between throw ratio and throw distance?</summary>
+                <div class="faq-answer" data-i18n="projectionCalculator.faq4a">Throw distance is the actual physical distance between the projector and screen (measured in meters or feet). Throw ratio is a multiplier that relates this distance to screen width. Throw ratio is more useful for planning because it works regardless of screen size.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question" data-i18n="projectionCalculator.faq5q">How does aspect ratio affect screen size calculations?</summary>
+                <div class="faq-answer" data-i18n="projectionCalculator.faq5a">Different aspect ratios have different width-to-height proportions. A 16:9 screen is wider relative to its height than a 4:3 screen. For the same diagonal size, a 16:9 screen will be wider but shorter. Our calculator accounts for this in all calculations.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- Part 6: Related Resources -->
+{{component:internal-links}}
+
+<!-- Projection Calculator JavaScript -->
+<script type="module">
+import { initializeProjectionCalculator } from '/js/projection-calculator.js';
+initializeProjectionCalculator();
+</script>
+
+<!-- CSS Styles for Projection Calculator -->
+<style>
+.projection-calculator-tool {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.projection-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-2xl);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mode-toggle {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xs);
+    background: var(--background-secondary);
+    border-radius: var(--radius-md);
+}
+
+.mode-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.mode-btn:hover {
+    color: var(--text-primary);
+}
+
+.mode-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-light);
+}
+
+.input-with-preset,
+.input-with-unit {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.input-with-preset .calculator-input,
+.input-with-unit .calculator-input {
+    flex: 1;
+}
+
+.preset-select,
+.unit-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    min-width: 140px;
+}
+
+.unit-label {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+    background: var(--background-secondary);
+    border: 2px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.input-with-unit .calculator-input {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.select-input {
+    cursor: pointer;
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+}
+
+select.calculator-input {
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    cursor: pointer;
+    padding-right: var(--spacing-xl);
+}
+
+select.calculator-input option {
+    background: var(--background-primary);
+    color: var(--text-primary);
+    padding: var(--spacing-sm);
+}
+
+.projection-result {
+    background: linear-gradient(135deg, var(--primary-color-light), var(--background-secondary));
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.result-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.result-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.projection-details {
+    background: var(--background-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    background: var(--background-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+}
+
+.detail-card .detail-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.detail-card .detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-family-mono);
+}
+
+.projection-diagram {
+    background: var(--background-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+}
+
+.diagram-svg {
+    width: 100%;
+    height: auto;
+}
+
+.projector-icon {
+    fill: var(--text-primary);
+}
+
+.projector-lens {
+    fill: var(--primary-color);
+}
+
+.light-cone {
+    opacity: 0.6;
+}
+
+.screen-icon {
+    fill: var(--primary-color);
+}
+
+/* Reference Grid */
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.reference-card {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-fast);
+}
+
+.reference-card:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
+}
+
+.reference-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 var(--spacing-md) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color-light);
+}
+
+.reference-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reference-card li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.reference-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Reference Table */
+.reference-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--background-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: var(--spacing-lg) 0;
+}
+
+.reference-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.reference-table th,
+.reference-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reference-table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.reference-table td {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.reference-table tbody tr:hover {
+    background: var(--background-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .projection-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .mode-toggle {
+        flex-direction: column;
+    }
+    
+    .input-with-preset,
+    .input-with-unit {
+        flex-direction: column;
+    }
+    
+    .preset-select,
+    .unit-select {
+        width: 100%;
+    }
+    
+    .unit-label {
+        border: 2px solid var(--border-color);
+        border-radius: var(--radius-md);
+        justify-content: center;
+    }
+    
+    .input-with-unit .calculator-input {
+        border-radius: var(--radius-md);
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reference-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reuse styles from PPI Calculator */
+.calculator-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calculator-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.calculator-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+.input-help {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.projection-calculator-tool .error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    min-height: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.projection-calculator-tool .error-message:empty {
+    display: none;
+}
+
+.result-value-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-family-mono);
+    line-height: 1;
+}
+
+.result-unit {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+</style>
