@@ -151,7 +151,7 @@
     },
     "calculator": {
       "priority": 1,
-      "maxItems": 3,
+      "maxItems": 4,
       "name": "Calculators"
     },
     "device-info": {
@@ -161,7 +161,7 @@
     },
     "tools": {
       "priority": 3,
-      "maxItems": 3,
+      "maxItems": 4,
       "name": "Tools"
     },
     "reference": {
@@ -176,11 +176,11 @@
     }
   },
   "display": {
-    "maxTotal": 9,
+    "maxTotal": 12,
     "responsive": {
-      "mobile": 8,
-      "tablet": 8,
-      "desktop": 9
+      "mobile": 10,
+      "tablet": 11,
+      "desktop": 12
     }
   },
   "rules": {
