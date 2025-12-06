@@ -481,11 +481,8 @@ function navigateToLanguage(newLang) {
 
         if (newLang === 'en') {
             if (pagePath) {
-                if (pagePath.startsWith('blog/')) {
-                    newPath = `/en/${pagePath}`;
-                } else {
-                    newPath = `/${pagePath}`;
-                }
+                // 英文博客页面都在根目录下，不需要 /en/ 前缀
+                newPath = `/${pagePath}`;
             } else {
                 newPath = '/';
             }

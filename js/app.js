@@ -604,17 +604,13 @@ function navigateToLanguage(newLang) {
         // Build target URL based on SEO-optimized structure
         if (newLang === 'en') {
             // English: prefer root path without language prefix
-            // Special case: blog pages are only available under /en/blog/* in current build output
+            // All English pages including blog are at root level
             if (pagePath) {
-                if (pagePath.startsWith('blog/')) {
-                    newPath = `/en/${pagePath}`;
-                } else {
-                    newPath = `/${pagePath}`;
-                }
+                newPath = `/${pagePath}`;
             } else {
                 newPath = '/';
             }
-            console.log('🏠 English: using root path for SEO optimization (with blog special-case)');
+            console.log('🏠 English: using root path for SEO optimization');
         } else {
             // Other languages: use language prefix
             newPath = `/${newLang}`;

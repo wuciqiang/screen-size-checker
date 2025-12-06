@@ -230,13 +230,27 @@ class BlogBuilder {
                 console.log(`✅ Generated component: ${componentName}.html`);
             });
             
-            // 2. 生成博客首页组件
+            // 2. 生成博客首页组件和分页页面
+            const postsPerPage = 6;
+            const totalPages = Math.ceil(langPosts.length / postsPerPage);
+
+            // 首页（第1页）
             const indexComponentName = `blog-index-${lang}`;
-            const indexComponentContent = this.generateIndexComponent(langPosts, lang);
+            const indexComponentContent = this.generateIndexComponent(langPosts, lang, 1);
             const indexComponentPath = path.join(this.blogOutputPath, `${indexComponentName}.html`);
-            
+
             fs.writeFileSync(indexComponentPath, indexComponentContent, 'utf8');
             console.log(`✅ Generated blog index component: ${indexComponentName}.html`);
+
+            // 生成分页页面（第2页及以后）
+            for (let page = 2; page <= totalPages; page++) {
+                const pageComponentName = `blog-page-${page}-${lang}`;
+                const pageComponentContent = this.generateIndexComponent(langPosts, lang, page);
+                const pageComponentPath = path.join(this.blogOutputPath, `${pageComponentName}.html`);
+
+                fs.writeFileSync(pageComponentPath, pageComponentContent, 'utf8');
+                console.log(`✅ Generated blog page ${page} component: ${pageComponentName}.html`);
+            }
             
             // 3. 生成分类页面组件
             if (this.categories.has(lang)) {
@@ -328,7 +342,7 @@ class BlogBuilder {
     
     <footer class="blog-post-footer">
         <div class="blog-post-tags">
-            ${post.tags.map(tag => `<a href="tag/${tag}.html" class="tag-link">#${tag}</a>`).join(' ')}
+            ${post.tags.map(tag => `<a href="tag/${tag}" class="tag-link">#${tag}</a>`).join(' ')}
         </div>
         <div class="blog-post-share">
             <span>${post.lang === 'zh' ? '分享' : 'Share'}: </span>
@@ -352,7 +366,14 @@ class BlogBuilder {
     /**
      * 生成博客首页组件
      */
-    generateIndexComponent(posts, lang) {
+    generateIndexComponent(posts, lang, page = 1) {
+        // 分页配置
+        const postsPerPage = 6;
+        const totalPosts = posts.length;
+        const totalPages = Math.ceil(totalPosts / postsPerPage);
+        const startIndex = (page - 1) * postsPerPage;
+        const displayPosts = posts.slice(startIndex, startIndex + postsPerPage);
+
         // 语言相关文本
         const texts = lang === 'zh' ? {
             title: '博客',
@@ -360,23 +381,78 @@ class BlogBuilder {
             latest: '最新文章',
             readMore: '阅读全文',
             allCategories: '所有分类',
-            viewAll: '查看全部'
+            viewAll: '查看全部',
+            prev: '上一页',
+            next: '下一页',
+            pageInfo: `第 ${page} 页，共 ${totalPages} 页`
         } : {
             title: 'Blog',
             subtitle: 'Explore our knowledge base on screen sizes and responsive design',
             latest: 'Latest Articles',
             readMore: 'Read More',
             allCategories: 'All Categories',
-            viewAll: 'View All'
+            viewAll: 'View All',
+            prev: 'Previous',
+            next: 'Next',
+            pageInfo: `Page ${page} of ${totalPages}`
         };
-        
-        // 获取最新的5篇文章
-        const featuredPosts = posts.slice(0, 5);
-        
+
         // 获取所有分类
-        const categories = this.categories.has(lang) ? 
+        const categories = this.categories.has(lang) ?
             Array.from(this.categories.get(lang).keys()) : [];
-        
+
+        // 生成分页控件
+        let paginationHtml = '';
+        if (totalPages > 1) {
+            let prevLink = null;
+            let nextLink = null;
+
+            if (page === 1) {
+                // 首页
+                nextLink = `page/2`;
+            } else if (page === 2) {
+                prevLink = `../../`;
+                nextLink = page < totalPages ? `../${page + 1}` : null;
+            } else {
+                prevLink = `../${page - 1}`;
+                nextLink = page < totalPages ? `../${page + 1}` : null;
+            }
+
+            // 生成页码
+            let pageNumbers = '';
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                if (i === page) {
+                    pageNumbers += `<span class="pagination-btn active">${i}</span>`;
+                } else if (page === 1) {
+                    // 首页，链接到 page/2, page/3 等
+                    pageNumbers += `<a href="page/${i}" class="pagination-btn">${i}</a>`;
+                } else if (i === 1) {
+                    // 分页页面，链接回首页
+                    pageNumbers += `<a href="../../" class="pagination-btn">${i}</a>`;
+                } else {
+                    // 分页页面，链接到其他分页
+                    pageNumbers += `<a href="../${i}" class="pagination-btn">${i}</a>`;
+                }
+            }
+
+            paginationHtml = `
+        <div class="blog-pagination">
+            <span class="pagination-info">${texts.pageInfo}</span>
+            <div class="pagination-controls">
+                ${prevLink ? `<a href="${prevLink}" class="pagination-btn">${texts.prev}</a>` : `<span class="pagination-btn disabled">${texts.prev}</span>`}
+                ${pageNumbers}
+                ${nextLink ? `<a href="${nextLink}" class="pagination-btn">${texts.next}</a>` : `<span class="pagination-btn disabled">${texts.next}</span>`}
+            </div>
+        </div>`;
+        }
+
         return `<!-- Blog Index Page -->
 <section class="blog-hero">
     <div class="blog-hero-content">
@@ -388,39 +464,40 @@ class BlogBuilder {
 <section class="blog-featured">
     <div class="section-container">
         <h2 class="section-title" data-i18n="latest_articles">${texts.latest}</h2>
-        
+
         <div class="blog-grid">
-            ${featuredPosts.map((post, index) => `
-            <div class="blog-card ${index === 0 ? 'blog-card-featured' : ''}">
+            ${displayPosts.map((post, index) => `
+            <div class="blog-card ${index === 0 && page === 1 ? 'blog-card-featured' : ''}">
                 <!-- Card image temporarily disabled until images are created -->
                 <div class="blog-card-content">
                     <div class="blog-card-meta">
-                        <span class="blog-card-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
+                        <span class="blog-card-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
                         })}</span>
                         <span class="blog-card-reading-time">${post.readingTime} ${lang === 'zh' ? '分钟阅读' : 'min read'}</span>
                     </div>
                     <h3 class="blog-card-title">${post.title}</h3>
                     <p class="blog-card-excerpt">${post.description}</p>
-                    <a href="${post.slug}.html" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
+                    <a href="${page > 1 ? '../../' : ''}${post.slug}" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
                 </div>
             </div>
             `).join('')}
         </div>
+        ${paginationHtml}
     </div>
 </section>
 
 <section class="blog-categories">
     <div class="section-container">
         <h2 class="section-title" data-i18n="all_categories">${texts.allCategories}</h2>
-        
+
         <div class="categories-grid">
             ${categories.map(category => {
                 const categoryPosts = this.categories.get(lang).get(category).length;
                 return `
-                <a href="category/${category}.html" class="category-card">
+                <a href="${page > 1 ? '../../' : ''}category/${category}" class="category-card">
                     <h3 class="category-title">${category}</h3>
                     <p class="category-count">${categoryPosts} ${lang === 'zh' ? '篇文章' : 'articles'}</p>
                     <span class="category-link" data-i18n="view_all">${texts.viewAll} →</span>
@@ -454,7 +531,7 @@ class BlogBuilder {
     <div class="blog-hero-content">
         <h1 class="blog-hero-title" data-i18n="category_title">${texts.title}</h1>
         <p class="blog-hero-subtitle" data-i18n="category_subtitle">${texts.subtitle}</p>
-        <a href="../index.html" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
+        <a href="../" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
     </div>
 </section>
 
@@ -475,7 +552,7 @@ class BlogBuilder {
                     </div>
                     <h3 class="blog-card-title">${post.title}</h3>
                     <p class="blog-card-excerpt">${post.description}</p>
-                    <a href="../${post.slug}.html" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
+                    <a href="../${post.slug}" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
                 </div>
             </div>
             `).join('')}
@@ -506,7 +583,7 @@ class BlogBuilder {
     <div class="blog-hero-content">
         <h1 class="blog-hero-title" data-i18n="tag_title">${texts.title}</h1>
         <p class="blog-hero-subtitle" data-i18n="tag_subtitle">${texts.subtitle}</p>
-        <a href="../index.html" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
+        <a href="../" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
     </div>
 </section>
 
@@ -530,7 +607,7 @@ class BlogBuilder {
                     <div class="blog-card-tags">
                         ${post.tags.map(postTag => `<span class="tag ${postTag === tag ? 'tag-current' : ''}">#${postTag}</span>`).join(' ')}
                     </div>
-                    <a href="../${post.slug}.html" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
+                    <a href="../${post.slug}" class="blog-card-link" data-i18n="read_more">${texts.readMore}</a>
                 </div>
             </div>
             `).join('')}
@@ -589,7 +666,7 @@ class BlogBuilder {
         <ul class="sidebar-categories">
             ${categories.map(category => `
             <li>
-                <a href="${pathPrefix}category/${category.name}.html" class="sidebar-category-link">
+                <a href="${pathPrefix}category/${category.name}" class="sidebar-category-link">
                     ${category.name} <span class="category-count">(${category.count})</span>
                 </a>
             </li>
@@ -602,7 +679,7 @@ class BlogBuilder {
         <ul class="sidebar-posts">
             ${recentPosts.map(post => `
             <li>
-                <a href="${pathPrefix}${post.slug}.html" class="sidebar-post-link">
+                <a href="${pathPrefix}${post.slug}" class="sidebar-post-link">
                     <span class="post-title">${post.title}</span>
                     <span class="post-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', { 
                         year: 'numeric', 
@@ -619,7 +696,7 @@ class BlogBuilder {
         <h3 class="sidebar-title" data-i18n="tags">${texts.tags}</h3>
         <div class="sidebar-tags">
             ${Array.from(tags.entries()).map(([tag, count]) => `
-            <a href="${pathPrefix}tag/${tag}.html" class="tag-link">
+            <a href="${pathPrefix}tag/${tag}" class="tag-link">
                 #${tag} <span class="tag-count">(${count})</span>
             </a>
             `).join(' ')}
@@ -680,19 +757,58 @@ class BlogBuilder {
                             css_path: '../../css',
                             locales_path: '../../locales',
                             js_path: '../../js',
-                            home_url: `../index.html`,
-                            blog_url: `index.html`,
-                            privacy_policy_url: '../../privacy-policy.html',
+                            home_url: `../`,
+                            blog_url: `./`,
+                            privacy_policy_url: '../../privacy-policy',
                             show_breadcrumb: true,
                             current_key: 'blog',
                             current_name: lang === 'zh' ? '博客' : 'Blog',
-                            parent_url: `../index.html`,
+                            parent_url: `../`,
                             blog_sidebar: `blog-sidebar-${lang}`,
                             parent_key: 'home',
                             parent_name: lang === 'zh' ? '首页' : 'Home'
                         }
                     });
-                    
+
+                    // 分页页面配置
+                    const postsPerPage = 6;
+                    const langPosts = Array.from(this.blogPosts.entries())
+                        .filter(([key]) => key.startsWith(`${lang}:`))
+                        .map(([_, post]) => post);
+                    const totalPages = Math.ceil(langPosts.length / postsPerPage);
+
+                    for (let page = 2; page <= totalPages; page++) {
+                        config.pages.push({
+                            name: `blog-page-${page}-${lang}`,
+                            template: 'blog-index',
+                            output: `blog/page/${page}/index.html`,
+                            page_content: `blog-page-${page}-${lang}`,
+                            enabled_languages: [lang],
+                            config: {
+                                page_title_key: 'blog_page_title',
+                                page_description_key: 'blog_page_description',
+                                page_heading_key: 'blog_page_heading',
+                                page_intro_key: 'blog_page_intro',
+                                canonical_url: `https://screensizechecker.com/${lang}/blog/page/${page}/`,
+                                og_title_key: 'blog_og_title',
+                                og_description_key: 'blog_og_description',
+                                og_type: 'website',
+                                og_url: `https://screensizechecker.com/${lang}/blog/page/${page}/`,
+                                css_path: '../../../../css',
+                                locales_path: '../../../../locales',
+                                js_path: '../../../../js',
+                                home_url: `../../../../`,
+                                blog_url: `../../`,
+                                current_key: 'blog',
+                                current_name: lang === 'zh' ? '博客' : 'Blog',
+                                parent_url: `../../`,
+                                blog_sidebar: `blog-sidebar-${lang}`,
+                                parent_key: 'home',
+                                parent_name: lang === 'zh' ? '首页' : 'Home'
+                            }
+                        });
+                    }
+
                     // 遍历文章添加配置
                     Array.from(this.blogPosts.entries())
                         .filter(([key]) => key.startsWith(`${lang}:`))
@@ -716,14 +832,14 @@ class BlogBuilder {
                                     css_path: '../../css',
                                     locales_path: '../../locales',
                                     js_path: '../../js',
-                                    home_url: `../../index.html`,
-                                    blog_url: `../index.html`,
+                                    home_url: `../../`,
+                                    blog_url: `../`,
                                     blog_sidebar: `blog-sidebar-${lang}`,
-                                    privacy_policy_url: '../../privacy-policy.html',
+                                    privacy_policy_url: '../../privacy-policy',
                                     show_breadcrumb: true,
                                     current_key: post.title,
                                     current_name: post.title,
-                                    parent_url: `../../${lang}/blog/index.html`,
+                                    parent_url: `../../${lang}/blog/`,
                                     parent_key: 'blog',
                                     parent_name: lang === 'zh' ? '博客' : 'Blog',
                                     structured_data: {
@@ -774,13 +890,13 @@ class BlogBuilder {
                                     css_path: '../../../css',
                                     locales_path: '../../../locales',
                                     js_path: '../../../js',
-                                    home_url: `../../../${lang}/index.html`,
-                                    blog_url: `../../../${lang}/blog/index.html`,
-                                    privacy_policy_url: '../../../privacy-policy.html',
+                                    home_url: `../../../${lang}/`,
+                                    blog_url: `../../../${lang}/blog/`,
+                                    privacy_policy_url: '../../../privacy-policy',
                                     show_breadcrumb: true,
                                     current_key: category,
                                     current_name: category,
-                                    parent_url: `../../index.html`,
+                                    parent_url: `../../`,
                                     blog_sidebar: `blog-sidebar-sub-${lang}`,
                                     parent_key: 'blog',
                                     parent_name: lang === 'zh' ? '博客' : 'Blog'
@@ -814,13 +930,13 @@ class BlogBuilder {
                                     css_path: '../../../css',
                                     locales_path: '../../../locales',
                                     js_path: '../../../js',
-                                    home_url: `../../../${lang}/index.html`,
-                                    blog_url: `../../../${lang}/blog/index.html`,
-                                    privacy_policy_url: '../../../privacy-policy.html',
+                                    home_url: `../../../${lang}/`,
+                                    blog_url: `../../../${lang}/blog/`,
+                                    privacy_policy_url: '../../../privacy-policy',
                                     show_breadcrumb: true,
                                     current_key: tag,
                                     current_name: `#${tag}`,
-                                    parent_url: `../../index.html`,
+                                    parent_url: `../../`,
                                     blog_sidebar: `blog-sidebar-sub-${lang}`,
                                     parent_key: 'blog',
                                     parent_name: lang === 'zh' ? '博客' : 'Blog'

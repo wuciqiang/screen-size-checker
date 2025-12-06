@@ -1000,4 +1000,104 @@
 
 .hljs-title {
     color: #82aaff;
-} 
+}
+
+/* ====== 分页样式 ====== */
+.blog-pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination-info {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--card-background);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.pagination-btn:hover:not(.disabled):not(.active) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(var(--primary-rgb, 59, 130, 246), 0.1);
+    transform: translateY(-1px);
+}
+
+.pagination-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb, 59, 130, 246), 0.3);
+}
+
+.pagination-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 上一页/下一页按钮样式 */
+.pagination-btn:first-child,
+.pagination-btn:last-child {
+    padding: 0 var(--spacing-md);
+}
+
+/* 暗色主题分页样式 */
+[data-theme="dark"] .pagination-btn {
+    background: var(--card-background);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .pagination-btn:hover:not(.disabled):not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .pagination-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* 响应式分页 */
+@media (max-width: 480px) {
+    .pagination-btn {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+    }
+
+    .pagination-btn:first-child,
+    .pagination-btn:last-child {
+        padding: 0 var(--spacing-sm);
+    }
+}

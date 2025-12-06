@@ -9,7 +9,9 @@
       "WebFetch(domain:192.168.31.142)",
       "Bash(npm run)",
       "Read(//g/**)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "mcp__Playwright__browser_navigate",
+      "Bash(npm run build)"
     ],
     "deny": [],
     "ask": []
