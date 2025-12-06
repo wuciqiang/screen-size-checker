@@ -213,6 +213,11 @@ export class InternalLinksManager {
             relevantLinks = relevantLinks.filter(page => page.id !== this.currentPageId);
         }
 
+        // 首页排除blog链接（顶部导航已有blog入口）
+        if (this.currentPageId === 'index') {
+            relevantLinks = relevantLinks.filter(page => page.id !== 'blog');
+        }
+
         // 计算相关性分数并排序
         relevantLinks = relevantLinks.map(page => ({
             ...page,
