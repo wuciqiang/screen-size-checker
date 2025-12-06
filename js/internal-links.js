@@ -214,9 +214,12 @@ export class InternalLinksManager {
         }
 
         // 首页排除blog链接（顶部导航已有blog入口）
-        if (this.currentPageId === 'index') {
+        if (this.currentPageId === 'index' || this.currentPageId === 'index-root') {
+            console.log('🚫 Excluding blog from homepage, currentPageId:', this.currentPageId);
             relevantLinks = relevantLinks.filter(page => page.id !== 'blog');
         }
+        
+        console.log('📋 Relevant links after filtering:', relevantLinks.map(p => p.id));
 
         // 计算相关性分数并排序
         relevantLinks = relevantLinks.map(page => ({
@@ -569,6 +572,9 @@ export class InternalLinksManager {
     buildUrlPath(relativePath) {
         const currentPath = window.location.pathname;
         
+        // 移除.html后缀（支持clean URLs）
+        relativePath = relativePath.replace(/\.html$/, '');
+        
         // 如果相对路径已经是绝对路径，直接使用
         if (relativePath.startsWith('/')) {
             return relativePath;
@@ -613,7 +619,12 @@ export class InternalLinksManager {
             // 当前在语言子目录的根目录中 (如 /zh/)
             return relativePath;
         } else {
-            // 当前在网站根目录，需要添加语言前缀
+            // 当前在网站根目录
+            // 英文版不需要语言前缀（根目录就是英文版）
+            if (this.currentLanguage === 'en') {
+                return relativePath;
+            }
+            // 其他语言需要添加语言前缀
             return `${this.currentLanguage}/${relativePath}`;
         }
     }

@@ -712,7 +712,7 @@ function setupBasicEventListeners() {
 
     setupFAQToggles();
     setupNavigationActiveState();
-    setupInternalLinks();
+    // setupInternalLinks(); // 已迁移到 internal-links.js 模块
 
     console.log('✅ Basic event listeners setup completed');
 }
