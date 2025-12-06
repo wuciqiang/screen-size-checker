@@ -44,7 +44,9 @@
       "icon": "🔍",
       "urls": {
         "en": "devices/ppi-calculator.html",
-        "zh": "devices/ppi-calculator.html"
+        "zh": "devices/ppi-calculator.html",
+        "de": "devices/ppi-calculator.html",
+        "es": "devices/ppi-calculator.html"
       },
       "titleKey": "ppi_calculator",
       "descriptionKey": "ppiCalculator.pageDescription"
@@ -56,7 +58,9 @@
       "icon": "📐",
       "urls": {
         "en": "devices/aspect-ratio-calculator.html",
-        "zh": "devices/aspect-ratio-calculator.html"
+        "zh": "devices/aspect-ratio-calculator.html",
+        "de": "devices/aspect-ratio-calculator.html",
+        "es": "devices/aspect-ratio-calculator.html"
       },
       "titleKey": "aspect_ratio_calculator", 
       "descriptionKey": "aspectRatioCalculator.pageDescription"
@@ -96,6 +100,34 @@
       },
       "titleKey": "responsive_tester",
       "descriptionKey": "responsive_tester_description"
+    },
+    "projection-calculator": {
+      "id": "projection-calculator",
+      "category": "calculator",
+      "priority": 3,
+      "icon": "📽️",
+      "urls": {
+        "en": "devices/projection-calculator.html",
+        "zh": "devices/projection-calculator.html",
+        "de": "devices/projection-calculator.html",
+        "es": "devices/projection-calculator.html"
+      },
+      "titleKey": "projection_calculator",
+      "descriptionKey": "projectionCalculator.pageDescription"
+    },
+    "lcd-screen-tester": {
+      "id": "lcd-screen-tester",
+      "category": "tools",
+      "priority": 3,
+      "icon": "🖥️",
+      "urls": {
+        "en": "devices/lcd-screen-tester.html",
+        "zh": "devices/lcd-screen-tester.html",
+        "de": "devices/lcd-screen-tester.html",
+        "es": "devices/lcd-screen-tester.html"
+      },
+      "titleKey": "lcd_screen_tester",
+      "descriptionKey": "lcdTester.pageDescription"
     },
 
     "blog": {
