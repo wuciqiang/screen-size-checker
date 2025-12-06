@@ -79,6 +79,103 @@ class BlogBuilder {
     }
     
     /**
+     * Sanitize tag/slug for URL-safe format
+     * Converts spaces to hyphens, removes special chars, lowercases
+     */
+    sanitizeSlug(text) {
+        return text
+            .toLowerCase()
+            .replace(/\s+/g, '-')           // spaces to hyphens
+            .replace(/[^\w\u4e00-\u9fff-]/g, '') // keep alphanumeric, Chinese chars, hyphens
+            .replace(/-+/g, '-')            // collapse multiple hyphens
+            .replace(/^-|-$/g, '');         // trim leading/trailing hyphens
+    }
+
+    /**
+     * Cross-language tag mapping for hreflang
+     * Maps equivalent tags across languages to enable correct hreflang links
+     */
+    getTagMapping() {
+        return {
+            // Format: canonical_key: { en: 'slug', zh: 'slug', de: 'slug', es: 'slug' }
+            'black-myth': {
+                en: 'black-myth',
+                zh: '黑神话',
+                de: 'black-myth',
+                es: 'black-myth'
+            },
+            'gaming': {
+                en: 'gaming',
+                zh: '游戏',
+                de: 'gaming',
+                es: 'gaming'
+            },
+            'hardware': {
+                en: 'hardware',
+                zh: '硬件',
+                de: 'hardware',
+                es: 'hardware'
+            },
+            'monitors': {
+                en: 'monitors',
+                zh: '显示器',
+                de: 'monitors',
+                es: 'monitors'
+            },
+            '4k': {
+                en: '4k',
+                zh: '4k',
+                de: '4k',
+                es: '4k'
+            }
+        };
+    }
+
+    /**
+     * Get hreflang URLs for a tag across all languages
+     * @param {string} tag - The tag in any language
+     * @param {string} currentLang - Current language code
+     * @returns {Object} hreflang URLs for en, zh, de, es
+     */
+    getTagHreflangUrls(tag, currentLang) {
+        const tagMapping = this.getTagMapping();
+        const baseUrl = 'https://screensizechecker.com';
+        const tagSlug = this.sanitizeSlug(tag);
+
+        // Find the canonical key for this tag
+        let canonicalKey = null;
+        for (const [key, mapping] of Object.entries(tagMapping)) {
+            const normalizedMapping = {};
+            for (const [lang, val] of Object.entries(mapping)) {
+                normalizedMapping[lang] = this.sanitizeSlug(val);
+            }
+            if (normalizedMapping[currentLang] === tagSlug || Object.values(normalizedMapping).includes(tagSlug)) {
+                canonicalKey = key;
+                break;
+            }
+        }
+
+        // If no mapping found, use the same slug for all languages
+        if (!canonicalKey) {
+            return {
+                en: `${baseUrl}/blog/tag/${tagSlug}`,
+                zh: `${baseUrl}/zh/blog/tag/${tagSlug}`,
+                de: `${baseUrl}/de/blog/tag/${tagSlug}`,
+                es: `${baseUrl}/es/blog/tag/${tagSlug}`
+            };
+        }
+
+        // Build hreflang URLs using the mapping
+        const mapping = tagMapping[canonicalKey];
+        return {
+            en: `${baseUrl}/blog/tag/${this.sanitizeSlug(mapping.en)}`,
+            zh: `${baseUrl}/zh/blog/tag/${this.sanitizeSlug(mapping.zh)}`,
+            de: `${baseUrl}/de/blog/tag/${this.sanitizeSlug(mapping.de)}`,
+            es: `${baseUrl}/es/blog/tag/${this.sanitizeSlug(mapping.es)}`
+        };
+    }
+
+    /**
      * 确保必要的目录存在
      */
     ensureDirectories() {
@@ -280,9 +377,10 @@ class BlogBuilder {
                     const tagPosts = postKeys
                         .map(key => this.blogPosts.get(key))
                         .sort((a, b) => b.date - a.date); // 按日期倒序排序
-                    
-                    const tagComponentName = `blog-tag-${tag}-${lang}`;
-                    const tagComponentContent = this.generateTagComponent(tagPosts, tag, lang);
+
+                    const tagSlug = this.sanitizeSlug(tag);
+                    const tagComponentName = `blog-tag-${tagSlug}-${lang}`;
+                    const tagComponentContent = this.generateTagComponent(tagPosts, tag, tagSlug, lang);
                     const tagComponentPath = path.join(this.blogOutputPath, `${tagComponentName}.html`);
                     
                     fs.writeFileSync(tagComponentPath, tagComponentContent, 'utf8');
@@ -342,7 +440,7 @@ class BlogBuilder {
     
     <footer class="blog-post-footer">
         <div class="blog-post-tags">
-            ${post.tags.map(tag => `<a href="tag/${tag}" class="tag-link">#${tag}</a>`).join(' ')}
+            ${post.tags.map(tag => `<a href="tag/${this.sanitizeSlug(tag)}" class="tag-link">#${tag}</a>`).join(' ')}
         </div>
         <div class="blog-post-share">
             <span>${post.lang === 'zh' ? '分享' : 'Share'}: </span>
@@ -563,8 +661,12 @@ class BlogBuilder {
     
     /**
      * 生成标签页面组件
+     * @param {Array} posts - 文章列表
+     * @param {string} tag - 原始标签名（用于显示）
+     * @param {string} tagSlug - URL友好的标签slug
+     * @param {string} lang - 语言代码
      */
-    generateTagComponent(posts, tag, lang) {
+    generateTagComponent(posts, tag, tagSlug, lang) {
         // 语言相关文本
         const texts = lang === 'zh' ? {
             title: `标签：${tag}`,
@@ -696,7 +798,7 @@ class BlogBuilder {
         <h3 class="sidebar-title" data-i18n="tags">${texts.tags}</h3>
         <div class="sidebar-tags">
             ${Array.from(tags.entries()).map(([tag, count]) => `
-            <a href="${pathPrefix}tag/${tag}" class="tag-link">
+            <a href="${pathPrefix}tag/${this.sanitizeSlug(tag)}" class="tag-link">
                 #${tag} <span class="tag-count">(${count})</span>
             </a>
             `).join(' ')}
@@ -908,25 +1010,31 @@ class BlogBuilder {
                     // 遍历标签添加配置
                     if (this.tags.has(lang)) {
                         Array.from(this.tags.get(lang).keys()).forEach(tag => {
+                            const tagSlug = this.sanitizeSlug(tag);
+                            const hreflangUrls = this.getTagHreflangUrls(tagSlug, lang);
                             config.pages.push({
-                                name: `blog-tag-${tag}-${lang}`,
+                                name: `blog-tag-${tagSlug}-${lang}`,
                                 template: 'blog-tag',
-                                output: `blog/tag/${tag}.html`,
-                                page_content: `blog-tag-${tag}-${lang}`,
+                                output: `blog/tag/${tagSlug}.html`,
+                                page_content: `blog-tag-${tagSlug}-${lang}`,
                                 enabled_languages: [lang],
                                 config: {
                                     page_title: lang === 'zh' ? `标签: ${tag}` : `Tag: ${tag}`,
-                                    page_description: lang === 'zh' ? 
-                                        `浏览${tag}标签下的所有文章` : 
+                                    page_description: lang === 'zh' ?
+                                        `浏览${tag}标签下的所有文章` :
                                         `Browse all articles tagged with ${tag}`,
                                     page_keywords: `blog, ${tag}, ${lang === 'zh' ? '标签' : 'tag'}`,
-                                    canonical_url: `https://screensizechecker.com/${lang}/blog/tag/${tag}`,
+                                    canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/tag/${tagSlug}`,
+                                    hreflang_en_url: hreflangUrls.en,
+                                    hreflang_zh_url: hreflangUrls.zh,
+                                    hreflang_de_url: hreflangUrls.de,
+                                    hreflang_es_url: hreflangUrls.es,
                                     og_title: lang === 'zh' ? `标签: ${tag}` : `Tag: ${tag}`,
-                                    og_description: lang === 'zh' ? 
-                                        `浏览${tag}标签下的所有文章` : 
+                                    og_description: lang === 'zh' ?
+                                        `浏览${tag}标签下的所有文章` :
                                         `Browse all articles tagged with ${tag}`,
                                     og_type: 'website',
-                                    og_url: `https://screensizechecker.com/${lang}/blog/tag/${tag}`,
+                                    og_url: `https://screensizechecker.com/${lang}/blog/tag/${tagSlug}`,
                                     css_path: '../../../css',
                                     locales_path: '../../../locales',
                                     js_path: '../../../js',

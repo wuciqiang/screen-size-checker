@@ -476,21 +476,25 @@ class MultiLangBuilder extends ComponentBuilder {
                     }
                     
                     // 为hreflang标签设置正确的URL
-                    // x-default 和英文版本都指向根路径（无 /en/ 前缀）
-                    pageData.hreflang_root_url = pageData.page_path === '/' ? 
-                        'https://screensizechecker.com/' : 
-                        `https://screensizechecker.com${pageData.page_path}`;
-                    
-                    pageData.hreflang_en_url = pageData.hreflang_root_url;
-                    
-                    // 中文版本
-                    pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
-                    
-                    // 德语版本
-                    pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
-                    
-                    // 西语版本
-                    pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+                    // 如果页面配置中已有hreflang URL（如博客标签页的跨语言映射），则保留
+                    // 否则基于page_path计算
+                    if (!pageData.hreflang_en_url) {
+                        // x-default 和英文版本都指向根路径（无 /en/ 前缀）
+                        pageData.hreflang_root_url = pageData.page_path === '/' ?
+                            'https://screensizechecker.com/' :
+                            `https://screensizechecker.com${pageData.page_path}`;
+
+                        pageData.hreflang_en_url = pageData.hreflang_root_url;
+
+                        // 中文版本
+                        pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+
+                        // 德语版本
+                        pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
+
+                        // 西语版本
+                        pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+                    }
                     
                     // 添加结构化数据
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
@@ -2560,18 +2564,31 @@ ${languageCards}
     
     generateRobotsFile(outputDir) {
         console.log('\n🤖 Generating optimized robots.txt file...');
-        
+
+        // Dynamically generate Allow/Disallow based on enabledLanguages
+        const enabledLangs = this.enabledLanguages; // ['en', 'zh', 'de', 'es']
+        const disabledLangs = this.supportedLanguages.filter(l => !enabledLangs.includes(l));
+
+        // Generate Allow rules for enabled languages
+        const allowLangRules = enabledLangs.map(l => `Allow: /${l}/`).join('\n');
+        const allowBlogRules = enabledLangs.map(l => `Allow: /${l}/blog/`).join('\n');
+        const allowDeviceRules = enabledLangs.map(l => `Allow: /${l}/devices/`).join('\n');
+        const allowHubRules = enabledLangs.map(l => `Allow: /${l}/hub/`).join('\n');
+
+        // Generate Disallow rules for disabled languages
+        const disallowLangRules = disabledLangs.map(l => `Disallow: /${l}/`).join('\n');
+
         const robotsContent = `# robots.txt for screensizechecker.com
 # Last updated: ${new Date().toISOString().split('T')[0]}
 # Optimized for SEO redirect architecture
+# Enabled languages: ${enabledLangs.join(', ')}
 
 # Allow all crawlers to access main content
 User-agent: *
 Allow: /
 
-# Explicitly allow language versions
-Allow: /en/
-Allow: /zh/
+# Explicitly allow enabled language versions
+${allowLangRules}
 
 # Allow static resources
 Allow: /css/
@@ -2584,25 +2601,20 @@ Allow: /select-language
 
 # Allow blog content for all enabled languages
 Allow: /blog/
-Allow: /en/blog/
-Allow: /zh/blog/
+${allowBlogRules}
 
 # Allow device pages for all enabled languages
 Allow: /devices/
-Allow: /en/devices/
-Allow: /zh/devices/
+${allowDeviceRules}
 
-# 禁止抓取未启用的语言版本
-Disallow: /de/
-Disallow: /es/
-Disallow: /fr/
-Disallow: /it/
-Disallow: /ja/
-Disallow: /ko/
-Disallow: /pt/
-Disallow: /ru/
+# Allow hub pages for all enabled languages
+Allow: /hub/
+${allowHubRules}
 
-# 禁止抓取构建目录和临时文件
+# Disallow disabled language versions
+${disallowLangRules}
+
+# Disallow build directories and temp files
 Disallow: /build/
 Disallow: /multilang-build/
 Disallow: /node_modules/
@@ -2611,28 +2623,30 @@ Disallow: /.vscode/
 Disallow: /.cursor/
 Disallow: /.kiro/
 
-# 禁止抓取临时和测试文件
+# Disallow temp and test files
 Disallow: /*test*
 Disallow: /*debug*
 Disallow: /*.json$
 Disallow: /*.md$
 
-# 网站地图
+# Sitemap
 Sitemap: https://screensizechecker.com/sitemap.xml
 
-# 针对不同爬虫的特殊规则
+# Crawler-specific rules
 User-agent: Googlebot
 Crawl-delay: 1
 
 User-agent: Bingbot
 Crawl-delay: 2
 
-# 其他爬虫的通用延迟
+# Default crawl delay
 User-agent: *
 Crawl-delay: 5`;
 
         fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
         console.log('✅ Generated optimized robots.txt file');
+        console.log(`   Enabled languages: ${enabledLangs.join(', ')}`);
+        console.log(`   Disabled languages: ${disabledLangs.join(', ')}`);
     }
 }
 
