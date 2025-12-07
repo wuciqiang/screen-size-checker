@@ -1,5 +1,5 @@
 {
-  "validationDate": "2025-12-06T09:36:42.509Z",
+  "validationDate": "2025-12-07T04:31:14.522Z",
   "languages": [
     "en",
     "zh"
@@ -7,7 +7,7 @@
   "summary": {
     "totalKeys": 822,
     "missingTranslations": 157,
-    "inconsistentKeys": 599
+    "inconsistentKeys": 650
   },
   "missingKeys": {
     "en": [
@@ -1064,6 +1064,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-bildschirmauflsung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-bildschirmauflsung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-bildschirmauflsung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-bildschirmauflösung-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1075,6 +1090,21 @@
     },
     {
       "component": "blog-tag-bildschirmauflösung-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-bildschirmgre-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-bildschirmgre-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-bildschirmgre-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1139,6 +1169,51 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-black-myth-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-black-myth-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-black-myth-de.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-black-myth-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-black-myth-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-black-myth-en.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-black-myth-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-black-myth-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-black-myth-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-breakpoints-de.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1184,6 +1259,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-bsicos-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-bsicos-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-bsicos-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-buying-guide-en.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1210,6 +1300,36 @@
     },
     {
       "component": "blog-tag-básicos-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-configuracin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-configuracin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-configuracin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-configuracin-gaming-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-configuracin-gaming-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-configuracin-gaming-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -1694,6 +1814,51 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-gua-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-gua-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-gua-compra-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-gua-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-gua-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-gua-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-gua-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-gua-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-gua-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-guía-compra-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -1934,6 +2099,36 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-medicin-laptop-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-medicin-laptop-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-medicin-laptop-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-medicin-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-medicin-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-medicin-monitor-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-medición-laptop-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2099,6 +2294,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-optimizacin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-optimizacin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-optimizacin-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-optimización-display-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2155,6 +2365,21 @@
     },
     {
       "component": "blog-tag-pixel-density-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-resolucin-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-resolucin-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-resolucin-pantalla-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
@@ -2384,6 +2609,21 @@
       "key": "back_to_all"
     },
     {
+      "component": "blog-tag-tamao-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-tamao-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-tamao-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
       "component": "blog-tag-tamaño-pantalla-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "tag_title"
@@ -2395,6 +2635,21 @@
     },
     {
       "component": "blog-tag-tamaño-pantalla-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "back_to_all"
+    },
+    {
+      "component": "blog-tag-tecnologa-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_title"
+    },
+    {
+      "component": "blog-tag-tecnologa-display-es.html",
+      "issue": "翻译键在所有语言文件中都不存在",
+      "key": "tag_subtitle"
+    },
+    {
+      "component": "blog-tag-tecnologa-display-es.html",
       "issue": "翻译键在所有语言文件中都不存在",
       "key": "back_to_all"
     },
