@@ -461,6 +461,20 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 更新Open Graph数据以使用翻译后的内容
                     pageData.og_title = pageData.page_title || pageData.og_title;
                     pageData.og_description = pageData.description || pageData.og_description;
+
+                    // 设置og:image - 使用页面特定图片或默认分享图
+                    if (!pageData.og_image) {
+                        pageData.og_image = 'https://screensizechecker.com/images/og-default.png';
+                    }
+
+                    // 设置og:locale
+                    const localeMap = {
+                        'en': 'en_US',
+                        'zh': 'zh_CN',
+                        'de': 'de_DE',
+                        'es': 'es_ES'
+                    };
+                    pageData.og_locale = localeMap[lang] || 'en_US';
                     
                     // 添加hreflang相关数据
                     pageData.base_url = 'https://screensizechecker.com';
@@ -1719,10 +1733,14 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 } else {
                     rootPageData.description = rootPageData.og_description || '';
                 }
-                
+
+                // 设置og:image和og:locale
+                rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
+                rootPageData.og_locale = 'en_US';
+
                 // 添加结构化数据
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
-                
+
                 // 添加导航状态标识
                 const pagePath = page.output || '';
                 rootPageData.is_home = pagePath === 'index.html' || pagePath === '';
@@ -1840,9 +1858,13 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             rootPageData.description = rootPageData.og_description || '';
         }
         
+        // 设置og:image和og:locale
+        rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
+        rootPageData.og_locale = 'en_US';
+
         // 添加结构化数据
         rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
-        
+
         // 添加导航状态标识
         rootPageData.is_home = true;
         rootPageData.is_blog = false;
