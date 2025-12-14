@@ -394,7 +394,7 @@ npm run batch-build
 
 4. **图片引用**
    - 将图片放在 `blog-content/images/` 目录
-   - 使用相对路径：`![Alt 文本](../images/image-name.png)`
+   - 使用相对路径（示例）：`<img src="../images/your-image.png" alt="Alt 文本">`
    - 提供有意义的替代文本以提高可访问性
 
 ### 常见错误及解决方案

@@ -32,7 +32,7 @@
           "operatingSystem": "Any",
           "inLanguage": "en",
           "browserRequirements": "Requires JavaScript. Requires HTML5.",
-          "softwareVersion": "2.0.0",
+          "softwareVersion": "2.3.0",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -797,7 +797,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-08T14:22:48.588Z",
+          "datePublished": "2025-12-14T06:30:05.042Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2836,7 +2836,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-08T14:22:48.899Z",
+          "datePublished": "2025-12-14T06:30:05.335Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4947,7 +4947,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-08T14:22:48.927Z",
+          "datePublished": "2025-12-14T06:30:05.361Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -7058,7 +7058,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-08T14:22:48.950Z",
+          "datePublished": "2025-12-14T06:30:05.384Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",

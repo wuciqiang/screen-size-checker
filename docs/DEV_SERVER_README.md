@@ -218,6 +218,7 @@ npm run build
 - [PHASE_0.2_FIXES.md](./PHASE_0.2_FIXES.md) - 问题修复详情
 - [PHASE_0.2_INTEGRATION_REPORT.md](./PHASE_0.2_INTEGRATION_REPORT.md) - 集成报告
 - [BUILD_SYSTEM.md](./BUILD_SYSTEM.md) - 构建系统文档
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - 部署指南（Cloudflare Pages）
 
 ---
 

@@ -113,7 +113,7 @@ node test/simple-validation.js
 ## 部署要点（Cloudflare Pages）
 - 发布目录：`multilang-build/`（整个目录上传/作为 Pages 构建输出）。
 - 根域名即英文主入口（保持 `/en/`、`/zh/` 可访问）。
-- 参考 `DEPLOYMENT.md` 获取 HTTPS、MIME、压缩与缓存的具体建议，以及性能监控验证步骤。
+- 参考 `docs/DEPLOYMENT.md` 获取 HTTPS、MIME、压缩与缓存的具体建议，以及性能监控验证步骤。
 
 ---
 

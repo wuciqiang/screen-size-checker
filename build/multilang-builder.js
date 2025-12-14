@@ -1376,7 +1376,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 "url": "https://screensizechecker.com"
             },
             "browserRequirements": "Requires JavaScript. Requires HTML5.",
-            "softwareVersion": "2.0.0",
+            "softwareVersion": "2.3.0",
             "featureList": [
                 "Screen Resolution Detection",
                 "Viewport Size Measurement",

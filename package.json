@@ -1,6 +1,6 @@
 {
   "name": "screen-size-checker",
-  "version": "2.0.0",
+  "version": "2.3.0",
   "description": "Screen Size Checker - A modern multilingual tool to detect screen resolution, viewport size, and compare device dimensions. Built with component-based architecture.",
   "main": "multilang-build/index.html",
   "scripts": {

@@ -1,7 +1,7 @@
 # Screen Size Checker 维护与开发 SOP
 
 > **文档目的**：为项目的日常维护、功能开发和语言扩展提供标准化操作指南。  
-> **更新日期**：2025-10-18  
+> **更新日期**：2025-12-14  
 > **适用人员**：开发人员、内容编辑、维护人员
 
 ---
@@ -439,7 +439,7 @@ console.log('Hello World');
 blog-content/images/your-image.png
 
 # 2. 在 Markdown 中引用
-![图片描述](../images/your-image.png)
+<img src="../images/your-image.png" alt="图片描述">
 
 # 3. 构建后图片会被复制到
 multilang-build/images/your-image.png
