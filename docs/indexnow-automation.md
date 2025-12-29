@@ -22,8 +22,11 @@ Submitting 310 URLs to IndexNow...
 ### 方案架构
 
 ```
-Git Push → GitHub Actions → Build → Cloudflare Deploy → IndexNow Submit
-                                                              ↓
+Git Push → GitHub Actions → Build → Cloudflare Deploy → Verify → IndexNow Submit
+                                                           ↓
+                                                  验证文件可访问性
+                                                  (最多重试10次)
+                                                           ↓
                                                     只提交变更的页面
 ```
 
@@ -36,9 +39,17 @@ Git Push → GitHub Actions → Build → Cloudflare Deploy → IndexNow Submit
 - ✅ 自动检测代码推送
 - ✅ 构建项目
 - ✅ 等待 Cloudflare 部署完成
+- ✅ **验证文件可访问性** (新增)
 - ✅ 检测变更的页面
 - ✅ 增量提交 IndexNow
 - ✅ 上传提交日志
+
+**验证机制** (Codex 建议):
+- 循环检查验证文件 (最多10次)
+- 验证 HTTP 200 状态码
+- 验证文件内容正确性
+- 每次重试间隔 30 秒
+- 确保部署完全完成后再提交
 
 **触发条件**:
 - Push to main 分支

@@ -717,7 +717,12 @@ export function setTextContent(elementId, text) {
     const element = document.getElementById(elementId);
     if (element) {
         console.log('Setting text content for:', elementId, 'to:', text);
-        
+
+        // 移除 data-i18n 属性以防止翻译系统覆盖动态内容
+        if (element.hasAttribute('data-i18n')) {
+            element.removeAttribute('data-i18n');
+        }
+
         if (element.tagName === 'TEXTAREA') {
             element.value = text;
         } else {

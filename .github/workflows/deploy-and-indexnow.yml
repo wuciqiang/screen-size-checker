@@ -32,8 +32,37 @@ jobs:
 
       - name: Wait for Cloudflare deployment
         run: |
-          echo "Waiting 60 seconds for Cloudflare Pages to deploy..."
+          echo "Waiting for Cloudflare Pages to deploy..."
           sleep 60
+
+      - name: Verify deployment and key file
+        run: |
+          echo "Verifying deployment..."
+          MAX_RETRIES=10
+          RETRY_COUNT=0
+          KEY_URL="https://screensizechecker.com/965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead.txt"
+
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            echo "Attempt $((RETRY_COUNT + 1))/$MAX_RETRIES: Checking $KEY_URL"
+
+            HTTP_CODE=$(curl -s -o /tmp/response.txt -w "%{http_code}" "$KEY_URL")
+            CONTENT=$(cat /tmp/response.txt)
+
+            if [ "$HTTP_CODE" = "200" ] && [ "$CONTENT" = "965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead" ]; then
+              echo "✓ Verification file is accessible and correct"
+              exit 0
+            else
+              echo "✗ Verification failed: HTTP $HTTP_CODE, Content: ${CONTENT:0:50}..."
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "Waiting 30 seconds before retry..."
+                sleep 30
+              fi
+            fi
+          done
+
+          echo "❌ Failed to verify deployment after $MAX_RETRIES attempts"
+          exit 1
 
       - name: Detect changed pages
         id: changes

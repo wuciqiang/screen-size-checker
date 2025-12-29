@@ -1,0 +1,9 @@
+{
+  "event": "pre_compact",
+  "timestamp": "2025-12-29T09:19:10.357104Z",
+  "session_id": "db206356-da47-44b0-b405-beb636fb2350",
+  "usage_percent": 0.0,
+  "context_tokens": 0,
+  "transcript_path": "C:\\Users\\admin\\.claude\\projects\\F--LayaAir-GitHub-screen-size-checker\\db206356-da47-44b0-b405-beb636fb2350.jsonl",
+  "cwd": "F:\\LayaAir-GitHub\\screen-size-checker"
+}

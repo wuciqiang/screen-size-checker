@@ -232,8 +232,12 @@ function updateElementText(id, text) {
         // 清除子元素的data-i18n
         const children = element.querySelectorAll('[data-i18n]');
         children.forEach(child => child.removeAttribute('data-i18n'));
-        // 设置文本内容
-        element.textContent = text;
+        // 设置文本内容 - 对 textarea 和 input 使用 value 属性
+        if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
+            element.value = String(text);
+        } else {
+            element.textContent = text;
+        }
         console.log(`Updated ${id}: ${text}`);
     } else {
         console.warn(`Element not found: ${id}`);
