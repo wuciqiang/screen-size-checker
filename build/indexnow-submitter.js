@@ -10,11 +10,19 @@ class IndexNowSubmitter {
       'api.indexnow.org',
       'www.bing.com'
     ];
+    this.logFile = path.join(__dirname, '../indexnow-submission.log');
+  }
+
+  log(message) {
+    const timestamp = new Date().toISOString();
+    const logMessage = `[${timestamp}] ${message}\n`;
+    console.log(message);
+    fs.appendFileSync(this.logFile, logMessage);
   }
 
   async submitUrls(urls) {
     if (!Array.isArray(urls) || urls.length === 0) {
-      console.log('No URLs to submit');
+      this.log('No URLs to submit');
       return;
     }
 
@@ -29,14 +37,15 @@ class IndexNowSubmitter {
       urlList: urlList
     });
 
-    console.log(`Submitting ${urlList.length} URLs to IndexNow...`);
+    this.log(`Submitting ${urlList.length} URLs to IndexNow...`);
+    this.log('Sample URLs: ' + urlList.slice(0, 3).join(', '));
 
     for (const endpoint of this.endpoints) {
       try {
         await this.submitToEndpoint(endpoint, payload);
-        console.log(`✓ Successfully submitted to ${endpoint}`);
+        this.log(`✓ Successfully submitted to ${endpoint}`);
       } catch (error) {
-        console.error(`✗ Failed to submit to ${endpoint}:`, error.message);
+        this.log(`✗ Failed to submit to ${endpoint}: ${error.message}`);
       }
     }
   }
@@ -49,17 +58,26 @@ class IndexNowSubmitter {
         path: '/indexnow',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
           'Content-Length': Buffer.byteLength(payload)
         }
       };
 
+      console.log(`Connecting to ${endpoint}...`);
+
       const req = https.request(options, (res) => {
-        if (res.statusCode === 200 || res.statusCode === 202) {
-          resolve();
-        } else {
-          reject(new Error(`HTTP ${res.statusCode}`));
-        }
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+          console.log(`Response from ${endpoint}: ${res.statusCode}`);
+          if (data) console.log('Response body:', data);
+
+          if (res.statusCode === 200 || res.statusCode === 202) {
+            resolve();
+          } else {
+            reject(new Error(`HTTP ${res.statusCode}: ${data || res.statusMessage}`));
+          }
+        });
       });
 
       req.on('error', reject);

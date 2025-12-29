@@ -1,0 +1,85 @@
+name: Deploy and Submit IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 获取前2个commit用于diff
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      # Cloudflare Pages 会自动部署 multilang-build 目录
+      # 这里只需要等待部署完成
+
+      - name: Wait for Cloudflare deployment
+        run: |
+          echo "Waiting 60 seconds for Cloudflare Pages to deploy..."
+          sleep 60
+
+      - name: Detect changed pages
+        id: changes
+        run: |
+          # 获取变更的HTML文件
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.html$' || true)
+
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No HTML files changed, submitting all pages"
+            echo "submit_all=true" >> $GITHUB_OUTPUT
+          else
+            echo "Changed files detected:"
+            echo "$CHANGED_FILES"
+            echo "submit_all=false" >> $GITHUB_OUTPUT
+
+            # 转换为URL列表
+            URLS=""
+            for file in $CHANGED_FILES; do
+              # 移除 multilang-build/ 前缀和 .html 后缀
+              URL=$(echo "$file" | sed 's|multilang-build/||' | sed 's|\.html$||' | sed 's|/index$||')
+              if [ -z "$URL" ]; then
+                URLS="$URLS https://screensizechecker.com/"
+              else
+                URLS="$URLS https://screensizechecker.com/$URL"
+              fi
+            done
+            echo "urls=$URLS" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Submit to IndexNow (All pages)
+        if: steps.changes.outputs.submit_all == 'true'
+        run: |
+          echo "Submitting all pages to IndexNow..."
+          node build/indexnow-submitter.js
+
+      - name: Submit to IndexNow (Changed pages only)
+        if: steps.changes.outputs.submit_all == 'false'
+        run: |
+          echo "Submitting changed pages to IndexNow..."
+          node build/indexnow-submitter.js ${{ steps.changes.outputs.urls }}
+
+      - name: Upload submission log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-submission-log
+          path: |
+            *.log
+          retention-days: 30
