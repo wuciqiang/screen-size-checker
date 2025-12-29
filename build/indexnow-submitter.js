@@ -8,7 +8,7 @@ class IndexNowSubmitter {
     this.host = 'screensizechecker.com';
     this.endpoints = [
       'api.indexnow.org',
-      'www.bing.com/indexnow'
+      'www.bing.com'
     ];
   }
 

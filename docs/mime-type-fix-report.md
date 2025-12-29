@@ -23,8 +23,13 @@ but the server responded with a MIME type of "text/plain"
 
 ### 多模型交叉验证结果
 
+**Codex 分析**:
+> ES Module MIME type 错误的核心是:浏览器对 `<script type="module">` 加载模块时要求响应头 `Content-Type` 必须是 JS 的 MIME,如 `application/javascript` / `text/javascript`。如果服务器对 `.js` 返回了 `text/plain`,浏览器会直接拒绝执行。Windows + Python 静态服务器的 MIME 映射有问题。
+
 **Gemini 分析**:
 > Windows 注册表中 `.js` 文件的 `Content Type` 可能默认设置为 `text/plain`,而不是标准的 `application/javascript`。Python 的 `mimetypes` 模块(被 `http.server` 使用)会从 Windows 注册表读取文件扩展名的 MIME 类型。
+
+**交叉验证结论**: ✅ 两个模型分析结果一致,确认问题根源
 
 **技术细节**:
 1. **Python SimpleHTTPRequestHandler** 依赖系统 MIME 类型注册表

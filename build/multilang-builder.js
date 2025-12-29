@@ -715,7 +715,7 @@ class MultiLangBuilder extends ComponentBuilder {
         // 需要直接复制的资源（不包括robots.txt和_redirects，这些将动态生成）
         const resourcesToCopy = [
             'css',
-            'js', 
+            'js',
             'locales',
             'data',
             'favicon.ico',
@@ -723,7 +723,8 @@ class MultiLangBuilder extends ComponentBuilder {
             'ads.txt',
             'structured-data.json',
             'privacy-policy.html',
-            'googlec786a02f43170c4d.html'
+            'googlec786a02f43170c4d.html',
+            '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead.txt'
         ];
         
         // 博客图片资源（单独处理，因为需要复制到特定位置）
