@@ -621,6 +621,7 @@
       ],
       "config": {
         "page_title_key": "blog_page_title",
+        "page_title": "Screen Size Checker Blog - Screen Size & Responsive Design Guides",
         "page_description_key": "blog_page_description",
         "page_heading_key": "blog_page_heading",
         "page_intro_key": "blog_page_intro",
@@ -716,7 +717,7 @@
         "en"
       ],
       "config": {
-        "page_title": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide)",
+        "page_title": "What Is the Average Laptop Screen Size in 2025? (A Developer's Guide) | Screen Size Checker Blog",
         "page_description": "Discover the current laptop screen size trends and how they impact web development. Learn about aspect ratios, pixel densities, and optimization strategies for modern laptop displays.",
         "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
         "canonical_url": "https://screensizechecker.com/en/blog/average-laptop-screen-size-2025",
@@ -767,7 +768,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?",
+        "page_title": "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience? | Screen Size Checker Blog",
         "page_description": "Is your monitor ready for Black Myth: Zhong Kui? Our guide breaks down the PC specs and display technology you need for the ultimate 4K gaming experience.",
         "page_keywords": "black myth, gaming, hardware, monitors, 4k",
         "canonical_url": "https://screensizechecker.com/en/blog/black_myth_guide",
@@ -797,7 +798,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-14T06:30:05.042Z",
+          "datePublished": "2025-12-29T08:09:26.088Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -818,7 +819,7 @@
         "en"
       ],
       "config": {
-        "page_title": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points",
+        "page_title": "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points | Screen Size Checker Blog",
         "page_description": "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies.",
         "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
         "canonical_url": "https://screensizechecker.com/en/blog/container-queries-guide",
@@ -869,7 +870,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Device Pixel Ratio Explained",
+        "page_title": "Device Pixel Ratio Explained | Screen Size Checker Blog",
         "page_description": "Learn about device pixel ratio (DPR) and how it affects web design and development",
         "page_keywords": "dpr, pixel-density, retina-display, responsive-design",
         "canonical_url": "https://screensizechecker.com/en/blog/device-pixel-ratio",
@@ -920,7 +921,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Gaming Monitor Setup Guide 2025: Optimize Your Display for Best Performance",
+        "page_title": "Gaming Monitor Setup Guide 2025: Optimize Your Display for Best Performance | Screen Size Checker Blog",
         "page_description": "Complete guide to setting up your gaming monitor. Learn optimal settings for refresh rate, resolution, color calibration, G-Sync/FreeSync, and get the best gaming experience.",
         "page_keywords": "gaming-setup, monitor-settings, display-optimization, how-to",
         "canonical_url": "https://screensizechecker.com/en/blog/gaming-monitor-setup-guide",
@@ -971,7 +972,7 @@
         "en"
       ],
       "config": {
-        "page_title": "How to Check Screen Resolution: Complete Guide (2025)",
+        "page_title": "How to Check Screen Resolution: Complete Guide (2025) | Screen Size Checker Blog",
         "page_description": "Learn how to check your screen resolution on Windows, Mac, Linux, and mobile devices. Includes easy methods, resolution explanations, and tips for optimal display settings.",
         "page_keywords": "screen-resolution, display-settings, how-to, basics",
         "canonical_url": "https://screensizechecker.com/en/blog/how-to-check-screen-resolution",
@@ -1022,7 +1023,7 @@
         "en"
       ],
       "config": {
-        "page_title": "How to Measure Laptop Screen Size: Complete Guide (2025)",
+        "page_title": "How to Measure Laptop Screen Size: Complete Guide (2025) | Screen Size Checker Blog",
         "page_description": "Learn how to accurately measure your laptop screen size with multiple methods. Includes step-by-step instructions, measurement tips, and answers to common laptop sizing questions.",
         "page_keywords": "laptop-measurement, screen-size, how-to, basics",
         "canonical_url": "https://screensizechecker.com/en/blog/how-to-measure-laptop-screen",
@@ -1073,7 +1074,7 @@
         "en"
       ],
       "config": {
-        "page_title": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide)",
+        "page_title": "How to Measure Monitor Size: 4 Easy Methods (2025 Guide) | Screen Size Checker Blog",
         "page_description": "Learn how to measure your monitor size accurately with 4 simple methods. Includes step-by-step instructions, measurement tips, and answers to common questions about monitor sizing.",
         "page_keywords": "monitor-measurement, screen-size, how-to, basics",
         "canonical_url": "https://screensizechecker.com/en/blog/how-to-measure-monitor-size",
@@ -1124,7 +1125,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Media Queries Essentials for Responsive Design",
+        "page_title": "Media Queries Essentials for Responsive Design | Screen Size Checker Blog",
         "page_description": "Master the fundamentals of CSS media queries for creating responsive websites that work on any device",
         "page_keywords": "media-queries, responsive-design, css, breakpoints",
         "canonical_url": "https://screensizechecker.com/en/blog/media-queries-essentials",
@@ -1175,7 +1176,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Monitor Buying Guide 2025: How to Choose the Perfect Display",
+        "page_title": "Monitor Buying Guide 2025: How to Choose the Perfect Display | Screen Size Checker Blog",
         "page_description": "Complete guide to buying a monitor in 2025. Learn about panel types, resolutions, refresh rates, and find the best monitor for gaming, work, or content creation.",
         "page_keywords": "monitor-guide, buying-guide, display-technology, how-to",
         "canonical_url": "https://screensizechecker.com/en/blog/monitor-buying-guide-2025",
@@ -1226,7 +1227,7 @@
         "en"
       ],
       "config": {
-        "page_title": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks",
+        "page_title": "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks | Screen Size Checker Blog",
         "page_description": "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting.",
         "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/en/blog/responsive-debugging-checklist",
@@ -1277,7 +1278,7 @@
         "en"
       ],
       "config": {
-        "page_title": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025",
+        "page_title": "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025 | Screen Size Checker Blog",
         "page_description": "Stop guessing screen sizes. Your bookmarkable cheat sheet for all screen dimensions, resolutions, and key concepts for web design in 2025.",
         "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/en/blog/screen-dimensions-cheat-sheet",
@@ -1328,7 +1329,7 @@
         "en"
       ],
       "config": {
-        "page_title": "Understanding Viewport Basics",
+        "page_title": "Understanding Viewport Basics | Screen Size Checker Blog",
         "page_description": "Learn what viewport is and why it's crucial for responsive web design",
         "page_keywords": "viewport, responsive-design, web-development",
         "canonical_url": "https://screensizechecker.com/en/blog/viewport-basics",
@@ -1379,8 +1380,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Category: technical",
-        "page_description": "Browse all articles in the technical category",
+        "page_title": "technical Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the technical category with detailed guides and practical tutorials",
         "page_keywords": "blog, technical, category",
         "canonical_url": "https://screensizechecker.com/en/blog/category/technical",
         "og_title": "Category: technical",
@@ -1411,8 +1412,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Category: css",
-        "page_description": "Browse all articles in the css category",
+        "page_title": "css Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the css category with detailed guides and practical tutorials",
         "page_keywords": "blog, css, category",
         "canonical_url": "https://screensizechecker.com/en/blog/category/css",
         "og_title": "Category: css",
@@ -1443,8 +1444,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Category: guides",
-        "page_description": "Browse all articles in the guides category",
+        "page_title": "guides Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the guides category with detailed guides and practical tutorials",
         "page_keywords": "blog, guides, category",
         "canonical_url": "https://screensizechecker.com/en/blog/category/guides",
         "og_title": "Category: guides",
@@ -1475,8 +1476,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Category: basics",
-        "page_description": "Browse all articles in the basics category",
+        "page_title": "basics Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the basics category with detailed guides and practical tutorials",
         "page_keywords": "blog, basics, category",
         "canonical_url": "https://screensizechecker.com/en/blog/category/basics",
         "og_title": "Category: basics",
@@ -1507,8 +1508,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: laptop",
-        "page_description": "Browse all articles tagged with laptop",
+        "page_title": "laptop - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with laptop, explore related techniques and best practices",
         "page_keywords": "blog, laptop, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/laptop",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/laptop",
@@ -1543,8 +1544,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: screen-size",
-        "page_description": "Browse all articles tagged with screen-size",
+        "page_title": "screen-size - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-size, explore related techniques and best practices",
         "page_keywords": "blog, screen-size, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/screen-size",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-size",
@@ -1579,8 +1580,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: web-development",
-        "page_description": "Browse all articles tagged with web-development",
+        "page_title": "web-development - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with web-development, explore related techniques and best practices",
         "page_keywords": "blog, web-development, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/web-development",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/web-development",
@@ -1615,8 +1616,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: responsive-design",
-        "page_description": "Browse all articles tagged with responsive-design",
+        "page_title": "responsive-design - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with responsive-design, explore related techniques and best practices",
         "page_keywords": "blog, responsive-design, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/responsive-design",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/responsive-design",
@@ -1651,8 +1652,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: display-technology",
-        "page_description": "Browse all articles tagged with display-technology",
+        "page_title": "display-technology - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-technology, explore related techniques and best practices",
         "page_keywords": "blog, display-technology, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/display-technology",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-technology",
@@ -1687,8 +1688,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: black myth",
-        "page_description": "Browse all articles tagged with black myth",
+        "page_title": "black myth - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with black myth, explore related techniques and best practices",
         "page_keywords": "blog, black myth, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/black-myth",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/black-myth",
@@ -1723,8 +1724,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: gaming",
-        "page_description": "Browse all articles tagged with gaming",
+        "page_title": "gaming - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with gaming, explore related techniques and best practices",
         "page_keywords": "blog, gaming, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/gaming",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming",
@@ -1759,8 +1760,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: hardware",
-        "page_description": "Browse all articles tagged with hardware",
+        "page_title": "hardware - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with hardware, explore related techniques and best practices",
         "page_keywords": "blog, hardware, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/hardware",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/hardware",
@@ -1795,8 +1796,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: monitors",
-        "page_description": "Browse all articles tagged with monitors",
+        "page_title": "monitors - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitors, explore related techniques and best practices",
         "page_keywords": "blog, monitors, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/monitors",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitors",
@@ -1831,8 +1832,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: 4k",
-        "page_description": "Browse all articles tagged with 4k",
+        "page_title": "4k - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with 4k, explore related techniques and best practices",
         "page_keywords": "blog, 4k, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/4k",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/4k",
@@ -1867,8 +1868,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: css",
-        "page_description": "Browse all articles tagged with css",
+        "page_title": "css - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with css, explore related techniques and best practices",
         "page_keywords": "blog, css, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/css",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/css",
@@ -1903,8 +1904,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: container-queries",
-        "page_description": "Browse all articles tagged with container-queries",
+        "page_title": "container-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with container-queries, explore related techniques and best practices",
         "page_keywords": "blog, container-queries, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/container-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/container-queries",
@@ -1939,8 +1940,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: frontend",
-        "page_description": "Browse all articles tagged with frontend",
+        "page_title": "frontend - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with frontend, explore related techniques and best practices",
         "page_keywords": "blog, frontend, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/frontend",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/frontend",
@@ -1975,8 +1976,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: dpr",
-        "page_description": "Browse all articles tagged with dpr",
+        "page_title": "dpr - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with dpr, explore related techniques and best practices",
         "page_keywords": "blog, dpr, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/dpr",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/dpr",
@@ -2011,8 +2012,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: pixel-density",
-        "page_description": "Browse all articles tagged with pixel-density",
+        "page_title": "pixel-density - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with pixel-density, explore related techniques and best practices",
         "page_keywords": "blog, pixel-density, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/pixel-density",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/pixel-density",
@@ -2047,8 +2048,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: retina-display",
-        "page_description": "Browse all articles tagged with retina-display",
+        "page_title": "retina-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with retina-display, explore related techniques and best practices",
         "page_keywords": "blog, retina-display, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/retina-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/retina-display",
@@ -2083,8 +2084,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: gaming-setup",
-        "page_description": "Browse all articles tagged with gaming-setup",
+        "page_title": "gaming-setup - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with gaming-setup, explore related techniques and best practices",
         "page_keywords": "blog, gaming-setup, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/gaming-setup",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming-setup",
@@ -2119,8 +2120,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: monitor-settings",
-        "page_description": "Browse all articles tagged with monitor-settings",
+        "page_title": "monitor-settings - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-settings, explore related techniques and best practices",
         "page_keywords": "blog, monitor-settings, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/monitor-settings",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-settings",
@@ -2155,8 +2156,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: display-optimization",
-        "page_description": "Browse all articles tagged with display-optimization",
+        "page_title": "display-optimization - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-optimization, explore related techniques and best practices",
         "page_keywords": "blog, display-optimization, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/display-optimization",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-optimization",
@@ -2191,8 +2192,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: how-to",
-        "page_description": "Browse all articles tagged with how-to",
+        "page_title": "how-to - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with how-to, explore related techniques and best practices",
         "page_keywords": "blog, how-to, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/how-to",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/how-to",
@@ -2227,8 +2228,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: screen-resolution",
-        "page_description": "Browse all articles tagged with screen-resolution",
+        "page_title": "screen-resolution - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-resolution, explore related techniques and best practices",
         "page_keywords": "blog, screen-resolution, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/screen-resolution",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-resolution",
@@ -2263,8 +2264,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: display-settings",
-        "page_description": "Browse all articles tagged with display-settings",
+        "page_title": "display-settings - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-settings, explore related techniques and best practices",
         "page_keywords": "blog, display-settings, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/display-settings",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-settings",
@@ -2299,8 +2300,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: basics",
-        "page_description": "Browse all articles tagged with basics",
+        "page_title": "basics - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with basics, explore related techniques and best practices",
         "page_keywords": "blog, basics, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/basics",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/basics",
@@ -2335,8 +2336,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: laptop-measurement",
-        "page_description": "Browse all articles tagged with laptop-measurement",
+        "page_title": "laptop-measurement - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with laptop-measurement, explore related techniques and best practices",
         "page_keywords": "blog, laptop-measurement, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/laptop-measurement",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/laptop-measurement",
@@ -2371,8 +2372,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: monitor-measurement",
-        "page_description": "Browse all articles tagged with monitor-measurement",
+        "page_title": "monitor-measurement - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-measurement, explore related techniques and best practices",
         "page_keywords": "blog, monitor-measurement, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/monitor-measurement",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-measurement",
@@ -2407,8 +2408,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: media-queries",
-        "page_description": "Browse all articles tagged with media-queries",
+        "page_title": "media-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with media-queries, explore related techniques and best practices",
         "page_keywords": "blog, media-queries, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/media-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/media-queries",
@@ -2443,8 +2444,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: breakpoints",
-        "page_description": "Browse all articles tagged with breakpoints",
+        "page_title": "breakpoints - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with breakpoints, explore related techniques and best practices",
         "page_keywords": "blog, breakpoints, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/breakpoints",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/breakpoints",
@@ -2479,8 +2480,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: monitor-guide",
-        "page_description": "Browse all articles tagged with monitor-guide",
+        "page_title": "monitor-guide - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-guide, explore related techniques and best practices",
         "page_keywords": "blog, monitor-guide, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/monitor-guide",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-guide",
@@ -2515,8 +2516,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: buying-guide",
-        "page_description": "Browse all articles tagged with buying-guide",
+        "page_title": "buying-guide - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with buying-guide, explore related techniques and best practices",
         "page_keywords": "blog, buying-guide, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/buying-guide",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/buying-guide",
@@ -2551,8 +2552,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: debugging",
-        "page_description": "Browse all articles tagged with debugging",
+        "page_title": "debugging - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with debugging, explore related techniques and best practices",
         "page_keywords": "blog, debugging, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/debugging",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/debugging",
@@ -2587,8 +2588,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: viewport",
-        "page_description": "Browse all articles tagged with viewport",
+        "page_title": "viewport - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with viewport, explore related techniques and best practices",
         "page_keywords": "blog, viewport, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/viewport",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/viewport",
@@ -2623,8 +2624,8 @@
         "en"
       ],
       "config": {
-        "page_title": "Tag: screen-dimensions",
-        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_title": "screen-dimensions - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-dimensions, explore related techniques and best practices",
         "page_keywords": "blog, screen-dimensions, tag",
         "canonical_url": "https://screensizechecker.com/blog/tag/screen-dimensions",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-dimensions",
@@ -2660,6 +2661,7 @@
       ],
       "config": {
         "page_title_key": "blog_page_title",
+        "page_title": "Screen Size Checker 博客 - 屏幕尺寸与响应式设计指南",
         "page_description_key": "blog_page_description",
         "page_heading_key": "blog_page_heading",
         "page_intro_key": "blog_page_intro",
@@ -2755,7 +2757,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）",
+        "page_title": "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南） | Screen Size Checker Blog",
         "page_description": "了解当前笔记本屏幕尺寸趋势及其对网页开发的影响。学习屏幕比例、像素密度和现代笔记本显示器的优化策略。",
         "page_keywords": "笔记本, 屏幕尺寸, 网页开发, 响应式设计, 显示技术",
         "canonical_url": "https://screensizechecker.com/zh/blog/average-laptop-screen-size-2025",
@@ -2806,7 +2808,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？",
+        "page_title": "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？ | Screen Size Checker Blog",
         "page_description": "你的显示器准备好迎接《黑神话：钟馗》了吗？我们的指南为你详解所需的PC配置和显示技术，助你获得终极4K游戏体验。",
         "page_keywords": "黑神话, 游戏, 硬件, 显示器, 4k",
         "canonical_url": "https://screensizechecker.com/zh/blog/black_myth_guide",
@@ -2836,7 +2838,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-14T06:30:05.335Z",
+          "datePublished": "2025-12-29T08:09:26.449Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2857,7 +2859,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "CSS 容器查询完全指南：告别媒体查询的痛点",
+        "page_title": "CSS 容器查询完全指南：告别媒体查询的痛点 | Screen Size Checker Blog",
         "page_description": "通过这份全面的指南掌握 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小进行自适应。包含实际示例、浏览器支持和迁移策略。",
         "page_keywords": "css, 响应式设计, 容器查询, 网页开发, 前端",
         "canonical_url": "https://screensizechecker.com/zh/blog/container-queries-guide",
@@ -2908,7 +2910,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "设备像素比详解",
+        "page_title": "设备像素比详解 | Screen Size Checker Blog",
         "page_description": "了解设备像素比(DPR)及其对网页设计和开发的影响",
         "page_keywords": "dpr, 像素密度, 视网膜显示, 响应式设计",
         "canonical_url": "https://screensizechecker.com/zh/blog/device-pixel-ratio",
@@ -2959,7 +2961,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "游戏显示器设置指南2025：优化您的显示器获得最佳性能",
+        "page_title": "游戏显示器设置指南2025：优化您的显示器获得最佳性能 | Screen Size Checker Blog",
         "page_description": "游戏显示器设置完全指南。学习刷新率、分辨率、色彩校准、G-Sync/FreeSync的最佳设置，获得最佳游戏体验。",
         "page_keywords": "游戏设置, 显示器设置, 显示优化, 使用教程",
         "canonical_url": "https://screensizechecker.com/zh/blog/gaming-monitor-setup-guide",
@@ -3010,7 +3012,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "如何查看屏幕分辨率：完整指南（2025）",
+        "page_title": "如何查看屏幕分辨率：完整指南（2025） | Screen Size Checker Blog",
         "page_description": "学习如何在Windows、Mac、Linux和移动设备上查看屏幕分辨率。包含简单方法、分辨率说明和最佳显示设置优化技巧。",
         "page_keywords": "屏幕分辨率, 显示设置, 使用教程, 基础知识",
         "canonical_url": "https://screensizechecker.com/zh/blog/how-to-check-screen-resolution",
@@ -3061,7 +3063,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "如何测量笔记本屏幕尺寸：完整指南（2025）",
+        "page_title": "如何测量笔记本屏幕尺寸：完整指南（2025） | Screen Size Checker Blog",
         "page_description": "学习用多种方法准确测量笔记本电脑屏幕尺寸。包含详细步骤说明、测量技巧和常见笔记本尺寸问题解答。",
         "page_keywords": "笔记本测量, 屏幕尺寸, 使用教程, 基础知识",
         "canonical_url": "https://screensizechecker.com/zh/blog/how-to-measure-laptop-screen",
@@ -3112,7 +3114,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "如何测量显示器尺寸：4种简单方法（2025指南）",
+        "page_title": "如何测量显示器尺寸：4种简单方法（2025指南） | Screen Size Checker Blog",
         "page_description": "学习用4种简单方法准确测量显示器尺寸。包含详细步骤说明、测量技巧和常见问题解答，帮助您正确测量电脑显示器大小。",
         "page_keywords": "显示器测量, 屏幕尺寸, 使用教程, 基础知识",
         "canonical_url": "https://screensizechecker.com/zh/blog/how-to-measure-monitor-size",
@@ -3163,7 +3165,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "响应式设计中的媒体查询基础",
+        "page_title": "响应式设计中的媒体查询基础 | Screen Size Checker Blog",
         "page_description": "掌握CSS媒体查询的基础知识，创建适用于任何设备的响应式网站",
         "page_keywords": "媒体查询, 响应式设计, css, 断点",
         "canonical_url": "https://screensizechecker.com/zh/blog/media-queries-essentials",
@@ -3214,7 +3216,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "2025显示器选购指南：如何选择完美的显示器",
+        "page_title": "2025显示器选购指南：如何选择完美的显示器 | Screen Size Checker Blog",
         "page_description": "2025年显示器购买完全指南。了解面板类型、分辨率、刷新率，为游戏、办公或内容创作找到最适合的显示器。",
         "page_keywords": "显示器指南, 选购指南, 显示技术, 使用教程",
         "canonical_url": "https://screensizechecker.com/zh/blog/monitor-buying-guide-2025",
@@ -3265,7 +3267,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "终极响应式设计调试清单：布局出错时需要检查的15个要点",
+        "page_title": "终极响应式设计调试清单：布局出错时需要检查的15个要点 | Screen Size Checker Blog",
         "page_description": "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。",
         "page_keywords": "响应式设计, 调试, css, 媒体查询, 视口, 网页开发",
         "canonical_url": "https://screensizechecker.com/zh/blog/responsive-debugging-checklist",
@@ -3316,7 +3318,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "Web设计师与开发者屏幕尺寸速查表2025",
+        "page_title": "Web设计师与开发者屏幕尺寸速查表2025 | Screen Size Checker Blog",
         "page_description": "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。",
         "page_keywords": "屏幕尺寸, 响应式设计, 断点, 视口, 网页开发",
         "canonical_url": "https://screensizechecker.com/zh/blog/screen-dimensions-cheat-sheet",
@@ -3367,7 +3369,7 @@
         "zh"
       ],
       "config": {
-        "page_title": "视口（Viewport）基础知识详解",
+        "page_title": "视口（Viewport）基础知识详解 | Screen Size Checker Blog",
         "page_description": "深入了解什么是视口及其对响应式网页设计的重要性",
         "page_keywords": "viewport, responsive-design, web-development",
         "canonical_url": "https://screensizechecker.com/zh/blog/viewport-basics",
@@ -3418,8 +3420,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "分类: technical",
-        "page_description": "浏览technical分类中的所有文章",
+        "page_title": "technical 文章 - 技术指南与教程 | Screen Size Checker",
+        "page_description": "浏览technical分类中的所有文章，包含详细的技术指南和实用教程",
         "page_keywords": "blog, technical, 分类",
         "canonical_url": "https://screensizechecker.com/zh/blog/category/technical",
         "og_title": "分类: technical",
@@ -3450,8 +3452,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "分类: css",
-        "page_description": "浏览css分类中的所有文章",
+        "page_title": "css 文章 - 技术指南与教程 | Screen Size Checker",
+        "page_description": "浏览css分类中的所有文章，包含详细的技术指南和实用教程",
         "page_keywords": "blog, css, 分类",
         "canonical_url": "https://screensizechecker.com/zh/blog/category/css",
         "og_title": "分类: css",
@@ -3482,8 +3484,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "分类: guides",
-        "page_description": "浏览guides分类中的所有文章",
+        "page_title": "guides 文章 - 技术指南与教程 | Screen Size Checker",
+        "page_description": "浏览guides分类中的所有文章，包含详细的技术指南和实用教程",
         "page_keywords": "blog, guides, 分类",
         "canonical_url": "https://screensizechecker.com/zh/blog/category/guides",
         "og_title": "分类: guides",
@@ -3514,8 +3516,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "分类: basics",
-        "page_description": "浏览basics分类中的所有文章",
+        "page_title": "basics 文章 - 技术指南与教程 | Screen Size Checker",
+        "page_description": "浏览basics分类中的所有文章，包含详细的技术指南和实用教程",
         "page_keywords": "blog, basics, 分类",
         "canonical_url": "https://screensizechecker.com/zh/blog/category/basics",
         "og_title": "分类: basics",
@@ -3546,8 +3548,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 笔记本",
-        "page_description": "浏览笔记本标签下的所有文章",
+        "page_title": "笔记本 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览笔记本标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 笔记本, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/笔记本",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/笔记本",
@@ -3582,8 +3584,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 屏幕尺寸",
-        "page_description": "浏览屏幕尺寸标签下的所有文章",
+        "page_title": "屏幕尺寸 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览屏幕尺寸标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 屏幕尺寸, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/屏幕尺寸",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/屏幕尺寸",
@@ -3618,8 +3620,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 网页开发",
-        "page_description": "浏览网页开发标签下的所有文章",
+        "page_title": "网页开发 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览网页开发标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 网页开发, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/网页开发",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/网页开发",
@@ -3654,8 +3656,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 响应式设计",
-        "page_description": "浏览响应式设计标签下的所有文章",
+        "page_title": "响应式设计 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览响应式设计标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 响应式设计, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/响应式设计",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/响应式设计",
@@ -3690,8 +3692,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示技术",
-        "page_description": "浏览显示技术标签下的所有文章",
+        "page_title": "显示技术 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示技术标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示技术, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示技术",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示技术",
@@ -3726,8 +3728,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 黑神话",
-        "page_description": "浏览黑神话标签下的所有文章",
+        "page_title": "黑神话 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览黑神话标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 黑神话, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/黑神话",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/black-myth",
@@ -3762,8 +3764,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 游戏",
-        "page_description": "浏览游戏标签下的所有文章",
+        "page_title": "游戏 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览游戏标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 游戏, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/游戏",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming",
@@ -3798,8 +3800,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 硬件",
-        "page_description": "浏览硬件标签下的所有文章",
+        "page_title": "硬件 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览硬件标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 硬件, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/硬件",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/hardware",
@@ -3834,8 +3836,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示器",
-        "page_description": "浏览显示器标签下的所有文章",
+        "page_title": "显示器 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示器标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示器, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitors",
@@ -3870,8 +3872,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 4k",
-        "page_description": "浏览4k标签下的所有文章",
+        "page_title": "4k - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览4k标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 4k, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/4k",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/4k",
@@ -3906,8 +3908,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: css",
-        "page_description": "浏览css标签下的所有文章",
+        "page_title": "css - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览css标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, css, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/css",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/css",
@@ -3942,8 +3944,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 容器查询",
-        "page_description": "浏览容器查询标签下的所有文章",
+        "page_title": "容器查询 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览容器查询标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 容器查询, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/容器查询",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/容器查询",
@@ -3978,8 +3980,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 前端",
-        "page_description": "浏览前端标签下的所有文章",
+        "page_title": "前端 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览前端标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 前端, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/前端",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/前端",
@@ -4014,8 +4016,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: dpr",
-        "page_description": "浏览dpr标签下的所有文章",
+        "page_title": "dpr - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览dpr标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, dpr, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/dpr",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/dpr",
@@ -4050,8 +4052,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 像素密度",
-        "page_description": "浏览像素密度标签下的所有文章",
+        "page_title": "像素密度 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览像素密度标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 像素密度, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/像素密度",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/像素密度",
@@ -4086,8 +4088,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 视网膜显示",
-        "page_description": "浏览视网膜显示标签下的所有文章",
+        "page_title": "视网膜显示 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览视网膜显示标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 视网膜显示, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/视网膜显示",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/视网膜显示",
@@ -4122,8 +4124,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 游戏设置",
-        "page_description": "浏览游戏设置标签下的所有文章",
+        "page_title": "游戏设置 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览游戏设置标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 游戏设置, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/游戏设置",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/游戏设置",
@@ -4158,8 +4160,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示器设置",
-        "page_description": "浏览显示器设置标签下的所有文章",
+        "page_title": "显示器设置 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示器设置标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示器设置, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器设置",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示器设置",
@@ -4194,8 +4196,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示优化",
-        "page_description": "浏览显示优化标签下的所有文章",
+        "page_title": "显示优化 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示优化标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示优化, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示优化",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示优化",
@@ -4230,8 +4232,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 使用教程",
-        "page_description": "浏览使用教程标签下的所有文章",
+        "page_title": "使用教程 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览使用教程标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 使用教程, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/使用教程",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/使用教程",
@@ -4266,8 +4268,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 屏幕分辨率",
-        "page_description": "浏览屏幕分辨率标签下的所有文章",
+        "page_title": "屏幕分辨率 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览屏幕分辨率标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 屏幕分辨率, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/屏幕分辨率",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/屏幕分辨率",
@@ -4302,8 +4304,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示设置",
-        "page_description": "浏览显示设置标签下的所有文章",
+        "page_title": "显示设置 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示设置标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示设置, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示设置",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示设置",
@@ -4338,8 +4340,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 基础知识",
-        "page_description": "浏览基础知识标签下的所有文章",
+        "page_title": "基础知识 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览基础知识标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 基础知识, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/基础知识",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/基础知识",
@@ -4374,8 +4376,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 笔记本测量",
-        "page_description": "浏览笔记本测量标签下的所有文章",
+        "page_title": "笔记本测量 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览笔记本测量标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 笔记本测量, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/笔记本测量",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/笔记本测量",
@@ -4410,8 +4412,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示器测量",
-        "page_description": "浏览显示器测量标签下的所有文章",
+        "page_title": "显示器测量 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示器测量标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示器测量, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器测量",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示器测量",
@@ -4446,8 +4448,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 媒体查询",
-        "page_description": "浏览媒体查询标签下的所有文章",
+        "page_title": "媒体查询 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览媒体查询标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 媒体查询, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/媒体查询",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/媒体查询",
@@ -4482,8 +4484,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 断点",
-        "page_description": "浏览断点标签下的所有文章",
+        "page_title": "断点 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览断点标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 断点, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/断点",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/断点",
@@ -4518,8 +4520,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 显示器指南",
-        "page_description": "浏览显示器指南标签下的所有文章",
+        "page_title": "显示器指南 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览显示器指南标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 显示器指南, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/显示器指南",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/显示器指南",
@@ -4554,8 +4556,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 选购指南",
-        "page_description": "浏览选购指南标签下的所有文章",
+        "page_title": "选购指南 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览选购指南标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 选购指南, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/选购指南",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/选购指南",
@@ -4590,8 +4592,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 调试",
-        "page_description": "浏览调试标签下的所有文章",
+        "page_title": "调试 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览调试标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 调试, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/调试",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/调试",
@@ -4626,8 +4628,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: 视口",
-        "page_description": "浏览视口标签下的所有文章",
+        "page_title": "视口 - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览视口标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, 视口, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/视口",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/视口",
@@ -4662,8 +4664,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: viewport",
-        "page_description": "浏览viewport标签下的所有文章",
+        "page_title": "viewport - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览viewport标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, viewport, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/viewport",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/viewport",
@@ -4698,8 +4700,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: responsive-design",
-        "page_description": "浏览responsive-design标签下的所有文章",
+        "page_title": "responsive-design - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览responsive-design标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, responsive-design, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/responsive-design",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/responsive-design",
@@ -4734,8 +4736,8 @@
         "zh"
       ],
       "config": {
-        "page_title": "标签: web-development",
-        "page_description": "浏览web-development标签下的所有文章",
+        "page_title": "web-development - 相关文章与指南 | Screen Size Checker",
+        "page_description": "浏览web-development标签下的所有文章，探索相关技术和最佳实践",
         "page_keywords": "blog, web-development, 标签",
         "canonical_url": "https://screensizechecker.com/zh/blog/tag/web-development",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/web-development",
@@ -4771,6 +4773,7 @@
       ],
       "config": {
         "page_title_key": "blog_page_title",
+        "page_title": "Screen Size Checker Blog - Screen Size & Responsive Design Guides",
         "page_description_key": "blog_page_description",
         "page_heading_key": "blog_page_heading",
         "page_intro_key": "blog_page_intro",
@@ -4866,7 +4869,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Durchschnittliche Laptop-Bildschirmgröße 2025",
+        "page_title": "Durchschnittliche Laptop-Bildschirmgröße 2025 | Screen Size Checker Blog",
         "page_description": "Vollständiger Leitfaden zu Laptop-Bildschirmgrößen, Auflösungen und Trends 2025",
         "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
         "canonical_url": "https://screensizechecker.com/de/blog/average-laptop-screen-size-2025",
@@ -4917,7 +4920,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden",
+        "page_title": "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden | Screen Size Checker Blog",
         "page_description": "Optimiere dein Spielerlebnis mit den perfekten Anzeigeeinstellungen",
         "page_keywords": "black myth, gaming, hardware, monitors, 4k",
         "canonical_url": "https://screensizechecker.com/de/blog/black_myth_guide",
@@ -4947,7 +4950,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-14T06:30:05.361Z",
+          "datePublished": "2025-12-29T08:09:26.485Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4968,7 +4971,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Container Queries Leitfaden",
+        "page_title": "Container Queries Leitfaden | Screen Size Checker Blog",
         "page_description": "Lerne, wie man CSS Container Queries für flexiblere responsive Designs verwendet",
         "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
         "canonical_url": "https://screensizechecker.com/de/blog/container-queries-guide",
@@ -5019,7 +5022,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Gerätepixelverhältnis (DPR) erklärt",
+        "page_title": "Gerätepixelverhältnis (DPR) erklärt | Screen Size Checker Blog",
         "page_description": "Vollständiger Leitfaden zum Verständnis und zur Arbeit mit dem Gerätepixelverhältnis in der Webentwicklung",
         "page_keywords": "dpr, pixel-density, retina-display, responsive-design",
         "canonical_url": "https://screensizechecker.com/de/blog/device-pixel-ratio",
@@ -5070,7 +5073,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Gaming Monitor Setup Guide 2025: Display für beste Leistung optimieren",
+        "page_title": "Gaming Monitor Setup Guide 2025: Display für beste Leistung optimieren | Screen Size Checker Blog",
         "page_description": "Komplette Anleitung zur Einrichtung Ihres Gaming-Monitors. Lernen Sie optimale Einstellungen für Bildwiederholrate, Auflösung, Farbkalibrierung, G-Sync/FreeSync.",
         "page_keywords": "gaming-setup, monitor-einstellungen, display-optimierung, anleitung",
         "canonical_url": "https://screensizechecker.com/de/blog/gaming-monitor-setup-guide",
@@ -5121,7 +5124,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Bildschirmauflösung prüfen: Komplette Anleitung (2025)",
+        "page_title": "Bildschirmauflösung prüfen: Komplette Anleitung (2025) | Screen Size Checker Blog",
         "page_description": "Lernen Sie, wie Sie die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Enthält einfache Methoden, Auflösungs-Erklärungen und Tipps für optimale Anzeigeeinstellungen.",
         "page_keywords": "bildschirmauflösung, anzeigeeinstellungen, anleitung, grundlagen",
         "canonical_url": "https://screensizechecker.com/de/blog/how-to-check-screen-resolution",
@@ -5172,7 +5175,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025)",
+        "page_title": "Laptop Bildschirmgröße messen: Komplette Anleitung (2025) | Screen Size Checker Blog",
         "page_description": "Lernen Sie, wie Sie die Bildschirmgröße Ihres Laptops mit mehreren Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Laptop-Größenmessung.",
         "page_keywords": "laptop-messung, bildschirmgröße, anleitung, grundlagen",
         "canonical_url": "https://screensizechecker.com/de/blog/how-to-measure-laptop-screen",
@@ -5223,7 +5226,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)",
+        "page_title": "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung) | Screen Size Checker Blog",
         "page_description": "Lernen Sie, wie Sie Ihre Monitor-Größe mit 4 einfachen Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Monitor-Größenmessung.",
         "page_keywords": "monitor-messung, bildschirmgröße, anleitung, grundlagen",
         "canonical_url": "https://screensizechecker.com/de/blog/how-to-measure-monitor-size",
@@ -5274,7 +5277,7 @@
         "de"
       ],
       "config": {
-        "page_title": "CSS Media Queries Grundlagen",
+        "page_title": "CSS Media Queries Grundlagen | Screen Size Checker Blog",
         "page_description": "CSS Media Queries für responsives Webdesign meistern",
         "page_keywords": "media-queries, responsive-design, css, breakpoints",
         "canonical_url": "https://screensizechecker.com/de/blog/media-queries-essentials",
@@ -5325,7 +5328,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Monitor Kaufberatung 2025: So wählen Sie das perfekte Display",
+        "page_title": "Monitor Kaufberatung 2025: So wählen Sie das perfekte Display | Screen Size Checker Blog",
         "page_description": "Komplette Anleitung zum Monitorkauf 2025. Erfahren Sie alles über Panel-Typen, Auflösungen, Bildwiederholraten und finden Sie den besten Monitor für Gaming, Arbeit oder Content-Erstellung.",
         "page_keywords": "monitor-ratgeber, kaufberatung, display-technologie, anleitung",
         "canonical_url": "https://screensizechecker.com/de/blog/monitor-buying-guide-2025",
@@ -5376,7 +5379,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Responsive Design Debugging Checkliste",
+        "page_title": "Responsive Design Debugging Checkliste | Screen Size Checker Blog",
         "page_description": "Vollständige Checkliste zum Debuggen von Responsive-Design-Problemen",
         "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/de/blog/responsive-debugging-checklist",
@@ -5427,7 +5430,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Bildschirmabmessungen Spickzettel",
+        "page_title": "Bildschirmabmessungen Spickzettel | Screen Size Checker Blog",
         "page_description": "Schnellreferenz für gängige Bildschirmgrößen und Breakpoints",
         "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/de/blog/screen-dimensions-cheat-sheet",
@@ -5478,7 +5481,7 @@
         "de"
       ],
       "config": {
-        "page_title": "Viewport-Grundlagen verstehen",
+        "page_title": "Viewport-Grundlagen verstehen | Screen Size Checker Blog",
         "page_description": "Lerne, was Viewport ist und warum es für responsives Webdesign entscheidend ist",
         "page_keywords": "viewport, responsive-design, web-development",
         "canonical_url": "https://screensizechecker.com/de/blog/viewport-basics",
@@ -5529,8 +5532,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Category: technical",
-        "page_description": "Browse all articles in the technical category",
+        "page_title": "technical Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the technical category with detailed guides and practical tutorials",
         "page_keywords": "blog, technical, category",
         "canonical_url": "https://screensizechecker.com/de/blog/category/technical",
         "og_title": "Category: technical",
@@ -5561,8 +5564,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Category: css",
-        "page_description": "Browse all articles in the css category",
+        "page_title": "css Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the css category with detailed guides and practical tutorials",
         "page_keywords": "blog, css, category",
         "canonical_url": "https://screensizechecker.com/de/blog/category/css",
         "og_title": "Category: css",
@@ -5593,8 +5596,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Category: guides",
-        "page_description": "Browse all articles in the guides category",
+        "page_title": "guides Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the guides category with detailed guides and practical tutorials",
         "page_keywords": "blog, guides, category",
         "canonical_url": "https://screensizechecker.com/de/blog/category/guides",
         "og_title": "Category: guides",
@@ -5625,8 +5628,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Category: basics",
-        "page_description": "Browse all articles in the basics category",
+        "page_title": "basics Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the basics category with detailed guides and practical tutorials",
         "page_keywords": "blog, basics, category",
         "canonical_url": "https://screensizechecker.com/de/blog/category/basics",
         "og_title": "Category: basics",
@@ -5657,8 +5660,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: laptop",
-        "page_description": "Browse all articles tagged with laptop",
+        "page_title": "laptop - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with laptop, explore related techniques and best practices",
         "page_keywords": "blog, laptop, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/laptop",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/laptop",
@@ -5693,8 +5696,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: screen-size",
-        "page_description": "Browse all articles tagged with screen-size",
+        "page_title": "screen-size - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-size, explore related techniques and best practices",
         "page_keywords": "blog, screen-size, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/screen-size",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-size",
@@ -5729,8 +5732,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: web-development",
-        "page_description": "Browse all articles tagged with web-development",
+        "page_title": "web-development - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with web-development, explore related techniques and best practices",
         "page_keywords": "blog, web-development, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/web-development",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/web-development",
@@ -5765,8 +5768,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: responsive-design",
-        "page_description": "Browse all articles tagged with responsive-design",
+        "page_title": "responsive-design - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with responsive-design, explore related techniques and best practices",
         "page_keywords": "blog, responsive-design, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/responsive-design",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/responsive-design",
@@ -5801,8 +5804,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: display-technology",
-        "page_description": "Browse all articles tagged with display-technology",
+        "page_title": "display-technology - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-technology, explore related techniques and best practices",
         "page_keywords": "blog, display-technology, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/display-technology",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-technology",
@@ -5837,8 +5840,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: black myth",
-        "page_description": "Browse all articles tagged with black myth",
+        "page_title": "black myth - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with black myth, explore related techniques and best practices",
         "page_keywords": "blog, black myth, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/black-myth",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/black-myth",
@@ -5873,8 +5876,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: gaming",
-        "page_description": "Browse all articles tagged with gaming",
+        "page_title": "gaming - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with gaming, explore related techniques and best practices",
         "page_keywords": "blog, gaming, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/gaming",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming",
@@ -5909,8 +5912,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: hardware",
-        "page_description": "Browse all articles tagged with hardware",
+        "page_title": "hardware - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with hardware, explore related techniques and best practices",
         "page_keywords": "blog, hardware, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/hardware",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/hardware",
@@ -5945,8 +5948,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: monitors",
-        "page_description": "Browse all articles tagged with monitors",
+        "page_title": "monitors - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitors, explore related techniques and best practices",
         "page_keywords": "blog, monitors, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/monitors",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitors",
@@ -5981,8 +5984,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: 4k",
-        "page_description": "Browse all articles tagged with 4k",
+        "page_title": "4k - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with 4k, explore related techniques and best practices",
         "page_keywords": "blog, 4k, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/4k",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/4k",
@@ -6017,8 +6020,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: css",
-        "page_description": "Browse all articles tagged with css",
+        "page_title": "css - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with css, explore related techniques and best practices",
         "page_keywords": "blog, css, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/css",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/css",
@@ -6053,8 +6056,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: container-queries",
-        "page_description": "Browse all articles tagged with container-queries",
+        "page_title": "container-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with container-queries, explore related techniques and best practices",
         "page_keywords": "blog, container-queries, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/container-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/container-queries",
@@ -6089,8 +6092,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: frontend",
-        "page_description": "Browse all articles tagged with frontend",
+        "page_title": "frontend - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with frontend, explore related techniques and best practices",
         "page_keywords": "blog, frontend, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/frontend",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/frontend",
@@ -6125,8 +6128,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: dpr",
-        "page_description": "Browse all articles tagged with dpr",
+        "page_title": "dpr - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with dpr, explore related techniques and best practices",
         "page_keywords": "blog, dpr, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/dpr",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/dpr",
@@ -6161,8 +6164,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: pixel-density",
-        "page_description": "Browse all articles tagged with pixel-density",
+        "page_title": "pixel-density - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with pixel-density, explore related techniques and best practices",
         "page_keywords": "blog, pixel-density, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/pixel-density",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/pixel-density",
@@ -6197,8 +6200,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: retina-display",
-        "page_description": "Browse all articles tagged with retina-display",
+        "page_title": "retina-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with retina-display, explore related techniques and best practices",
         "page_keywords": "blog, retina-display, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/retina-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/retina-display",
@@ -6233,8 +6236,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: gaming-setup",
-        "page_description": "Browse all articles tagged with gaming-setup",
+        "page_title": "gaming-setup - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with gaming-setup, explore related techniques and best practices",
         "page_keywords": "blog, gaming-setup, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/gaming-setup",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming-setup",
@@ -6269,8 +6272,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: monitor-einstellungen",
-        "page_description": "Browse all articles tagged with monitor-einstellungen",
+        "page_title": "monitor-einstellungen - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-einstellungen, explore related techniques and best practices",
         "page_keywords": "blog, monitor-einstellungen, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/monitor-einstellungen",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-einstellungen",
@@ -6305,8 +6308,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: display-optimierung",
-        "page_description": "Browse all articles tagged with display-optimierung",
+        "page_title": "display-optimierung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-optimierung, explore related techniques and best practices",
         "page_keywords": "blog, display-optimierung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/display-optimierung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-optimierung",
@@ -6341,8 +6344,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: anleitung",
-        "page_description": "Browse all articles tagged with anleitung",
+        "page_title": "anleitung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with anleitung, explore related techniques and best practices",
         "page_keywords": "blog, anleitung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/anleitung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/anleitung",
@@ -6377,8 +6380,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: bildschirmauflösung",
-        "page_description": "Browse all articles tagged with bildschirmauflösung",
+        "page_title": "bildschirmauflösung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with bildschirmauflösung, explore related techniques and best practices",
         "page_keywords": "blog, bildschirmauflösung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/bildschirmauflsung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/bildschirmauflsung",
@@ -6413,8 +6416,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: anzeigeeinstellungen",
-        "page_description": "Browse all articles tagged with anzeigeeinstellungen",
+        "page_title": "anzeigeeinstellungen - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with anzeigeeinstellungen, explore related techniques and best practices",
         "page_keywords": "blog, anzeigeeinstellungen, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/anzeigeeinstellungen",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/anzeigeeinstellungen",
@@ -6449,8 +6452,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: grundlagen",
-        "page_description": "Browse all articles tagged with grundlagen",
+        "page_title": "grundlagen - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with grundlagen, explore related techniques and best practices",
         "page_keywords": "blog, grundlagen, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/grundlagen",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/grundlagen",
@@ -6485,8 +6488,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: laptop-messung",
-        "page_description": "Browse all articles tagged with laptop-messung",
+        "page_title": "laptop-messung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with laptop-messung, explore related techniques and best practices",
         "page_keywords": "blog, laptop-messung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/laptop-messung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/laptop-messung",
@@ -6521,8 +6524,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: bildschirmgröße",
-        "page_description": "Browse all articles tagged with bildschirmgröße",
+        "page_title": "bildschirmgröße - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with bildschirmgröße, explore related techniques and best practices",
         "page_keywords": "blog, bildschirmgröße, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/bildschirmgre",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/bildschirmgre",
@@ -6557,8 +6560,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: monitor-messung",
-        "page_description": "Browse all articles tagged with monitor-messung",
+        "page_title": "monitor-messung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-messung, explore related techniques and best practices",
         "page_keywords": "blog, monitor-messung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/monitor-messung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-messung",
@@ -6593,8 +6596,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: media-queries",
-        "page_description": "Browse all articles tagged with media-queries",
+        "page_title": "media-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with media-queries, explore related techniques and best practices",
         "page_keywords": "blog, media-queries, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/media-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/media-queries",
@@ -6629,8 +6632,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: breakpoints",
-        "page_description": "Browse all articles tagged with breakpoints",
+        "page_title": "breakpoints - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with breakpoints, explore related techniques and best practices",
         "page_keywords": "blog, breakpoints, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/breakpoints",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/breakpoints",
@@ -6665,8 +6668,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: monitor-ratgeber",
-        "page_description": "Browse all articles tagged with monitor-ratgeber",
+        "page_title": "monitor-ratgeber - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitor-ratgeber, explore related techniques and best practices",
         "page_keywords": "blog, monitor-ratgeber, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/monitor-ratgeber",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitor-ratgeber",
@@ -6701,8 +6704,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: kaufberatung",
-        "page_description": "Browse all articles tagged with kaufberatung",
+        "page_title": "kaufberatung - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with kaufberatung, explore related techniques and best practices",
         "page_keywords": "blog, kaufberatung, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/kaufberatung",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/kaufberatung",
@@ -6737,8 +6740,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: display-technologie",
-        "page_description": "Browse all articles tagged with display-technologie",
+        "page_title": "display-technologie - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-technologie, explore related techniques and best practices",
         "page_keywords": "blog, display-technologie, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/display-technologie",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-technologie",
@@ -6773,8 +6776,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: debugging",
-        "page_description": "Browse all articles tagged with debugging",
+        "page_title": "debugging - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with debugging, explore related techniques and best practices",
         "page_keywords": "blog, debugging, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/debugging",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/debugging",
@@ -6809,8 +6812,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: viewport",
-        "page_description": "Browse all articles tagged with viewport",
+        "page_title": "viewport - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with viewport, explore related techniques and best practices",
         "page_keywords": "blog, viewport, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/viewport",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/viewport",
@@ -6845,8 +6848,8 @@
         "de"
       ],
       "config": {
-        "page_title": "Tag: screen-dimensions",
-        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_title": "screen-dimensions - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-dimensions, explore related techniques and best practices",
         "page_keywords": "blog, screen-dimensions, tag",
         "canonical_url": "https://screensizechecker.com/de/blog/tag/screen-dimensions",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-dimensions",
@@ -6882,6 +6885,7 @@
       ],
       "config": {
         "page_title_key": "blog_page_title",
+        "page_title": "Screen Size Checker Blog - Screen Size & Responsive Design Guides",
         "page_description_key": "blog_page_description",
         "page_heading_key": "blog_page_heading",
         "page_intro_key": "blog_page_intro",
@@ -6977,7 +6981,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Tamaño Promedio de Pantalla de Laptop 2025",
+        "page_title": "Tamaño Promedio de Pantalla de Laptop 2025 | Screen Size Checker Blog",
         "page_description": "Guía completa de tamaños de pantalla de laptop, resoluciones y tendencias en 2025",
         "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
         "canonical_url": "https://screensizechecker.com/es/blog/average-laptop-screen-size-2025",
@@ -7028,7 +7032,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla",
+        "page_title": "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla | Screen Size Checker Blog",
         "page_description": "Optimiza tu experiencia de juego con la configuración de pantalla perfecta",
         "page_keywords": "black myth, gaming, hardware, monitors, 4k",
         "canonical_url": "https://screensizechecker.com/es/blog/black_myth_guide",
@@ -7058,7 +7062,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2025-12-14T06:30:05.384Z",
+          "datePublished": "2025-12-29T08:09:26.517Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -7079,7 +7083,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Guía de Container Queries",
+        "page_title": "Guía de Container Queries | Screen Size Checker Blog",
         "page_description": "Aprende a usar CSS Container Queries para diseños responsive más flexibles",
         "page_keywords": "css, responsive-design, container-queries, web-development, frontend",
         "canonical_url": "https://screensizechecker.com/es/blog/container-queries-guide",
@@ -7130,7 +7134,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Relación de Píxeles del Dispositivo (DPR) Explicada",
+        "page_title": "Relación de Píxeles del Dispositivo (DPR) Explicada | Screen Size Checker Blog",
         "page_description": "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web",
         "page_keywords": "dpr, pixel-density, retina-display, responsive-design",
         "canonical_url": "https://screensizechecker.com/es/blog/device-pixel-ratio",
@@ -7181,7 +7185,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Guía de Configuración de Monitor Gaming 2025: Optimiza tu Pantalla",
+        "page_title": "Guía de Configuración de Monitor Gaming 2025: Optimiza tu Pantalla | Screen Size Checker Blog",
         "page_description": "Guía completa para configurar tu monitor gaming. Aprende ajustes óptimos para tasa de refresco, resolución, calibración de color, G-Sync/FreeSync.",
         "page_keywords": "configuración-gaming, ajustes-monitor, optimización-display, guía",
         "canonical_url": "https://screensizechecker.com/es/blog/gaming-monitor-setup-guide",
@@ -7232,7 +7236,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Cómo Verificar la Resolución de Pantalla: Guía Completa (2025)",
+        "page_title": "Cómo Verificar la Resolución de Pantalla: Guía Completa (2025) | Screen Size Checker Blog",
         "page_description": "Aprende cómo verificar la resolución de pantalla en Windows, Mac, Linux y dispositivos móviles. Incluye métodos sencillos, explicaciones de resolución y consejos para configuraciones óptimas de pantalla.",
         "page_keywords": "resolución-pantalla, configuración-display, guía, básicos",
         "canonical_url": "https://screensizechecker.com/es/blog/how-to-check-screen-resolution",
@@ -7283,7 +7287,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)",
+        "page_title": "Cómo Medir la Pantalla del Laptop: Guía Completa (2025) | Screen Size Checker Blog",
         "page_description": "Aprende a medir con precisión el tamaño de pantalla de tu laptop usando múltiples métodos. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de laptops.",
         "page_keywords": "medición-laptop, tamaño-pantalla, guía, básicos",
         "canonical_url": "https://screensizechecker.com/es/blog/how-to-measure-laptop-screen",
@@ -7334,7 +7338,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025)",
+        "page_title": "Cómo Medir el Tamaño del Monitor: 4 Métodos Fáciles (Guía 2025) | Screen Size Checker Blog",
         "page_description": "Aprende a medir el tamaño de tu monitor con precisión usando 4 métodos simples. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de monitores.",
         "page_keywords": "medición-monitor, tamaño-pantalla, guía, básicos",
         "canonical_url": "https://screensizechecker.com/es/blog/how-to-measure-monitor-size",
@@ -7385,7 +7389,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Fundamentos de CSS Media Queries",
+        "page_title": "Fundamentos de CSS Media Queries | Screen Size Checker Blog",
         "page_description": "Domina las media queries de CSS para diseño web responsive",
         "page_keywords": "media-queries, responsive-design, css, breakpoints",
         "canonical_url": "https://screensizechecker.com/es/blog/media-queries-essentials",
@@ -7436,7 +7440,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Guía de Compra de Monitores 2025: Cómo Elegir la Pantalla Perfecta",
+        "page_title": "Guía de Compra de Monitores 2025: Cómo Elegir la Pantalla Perfecta | Screen Size Checker Blog",
         "page_description": "Guía completa para comprar un monitor en 2025. Aprende sobre tipos de panel, resoluciones, tasas de refresco y encuentra el mejor monitor para gaming, trabajo o creación de contenido.",
         "page_keywords": "guía-monitor, guía-compra, tecnología-display, guía",
         "canonical_url": "https://screensizechecker.com/es/blog/monitor-buying-guide-2025",
@@ -7487,7 +7491,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Lista de Verificación para Depurar Diseño Responsive",
+        "page_title": "Lista de Verificación para Depurar Diseño Responsive | Screen Size Checker Blog",
         "page_description": "Lista completa para depurar problemas de diseño responsive",
         "page_keywords": "responsive-design, debugging, css, media-queries, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/es/blog/responsive-debugging-checklist",
@@ -7538,7 +7542,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Hoja de Referencia de Dimensiones de Pantalla",
+        "page_title": "Hoja de Referencia de Dimensiones de Pantalla | Screen Size Checker Blog",
         "page_description": "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes",
         "page_keywords": "screen-dimensions, responsive-design, breakpoints, viewport, web-development",
         "canonical_url": "https://screensizechecker.com/es/blog/screen-dimensions-cheat-sheet",
@@ -7589,7 +7593,7 @@
         "es"
       ],
       "config": {
-        "page_title": "Entendiendo los Fundamentos del Viewport",
+        "page_title": "Entendiendo los Fundamentos del Viewport | Screen Size Checker Blog",
         "page_description": "Aprende qué es el viewport y por qué es crucial para el diseño web responsive",
         "page_keywords": "viewport, responsive-design, web-development",
         "canonical_url": "https://screensizechecker.com/es/blog/viewport-basics",
@@ -7640,8 +7644,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Category: technical",
-        "page_description": "Browse all articles in the technical category",
+        "page_title": "technical Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the technical category with detailed guides and practical tutorials",
         "page_keywords": "blog, technical, category",
         "canonical_url": "https://screensizechecker.com/es/blog/category/technical",
         "og_title": "Category: technical",
@@ -7672,8 +7676,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Category: css",
-        "page_description": "Browse all articles in the css category",
+        "page_title": "css Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the css category with detailed guides and practical tutorials",
         "page_keywords": "blog, css, category",
         "canonical_url": "https://screensizechecker.com/es/blog/category/css",
         "og_title": "Category: css",
@@ -7704,8 +7708,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Category: guides",
-        "page_description": "Browse all articles in the guides category",
+        "page_title": "guides Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the guides category with detailed guides and practical tutorials",
         "page_keywords": "blog, guides, category",
         "canonical_url": "https://screensizechecker.com/es/blog/category/guides",
         "og_title": "Category: guides",
@@ -7736,8 +7740,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Category: basics",
-        "page_description": "Browse all articles in the basics category",
+        "page_title": "basics Articles - Guides & Tutorials | Screen Size Checker",
+        "page_description": "Browse all articles in the basics category with detailed guides and practical tutorials",
         "page_keywords": "blog, basics, category",
         "canonical_url": "https://screensizechecker.com/es/blog/category/basics",
         "og_title": "Category: basics",
@@ -7768,8 +7772,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: laptop",
-        "page_description": "Browse all articles tagged with laptop",
+        "page_title": "laptop - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with laptop, explore related techniques and best practices",
         "page_keywords": "blog, laptop, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/laptop",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/laptop",
@@ -7804,8 +7808,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: screen-size",
-        "page_description": "Browse all articles tagged with screen-size",
+        "page_title": "screen-size - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-size, explore related techniques and best practices",
         "page_keywords": "blog, screen-size, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/screen-size",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-size",
@@ -7840,8 +7844,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: web-development",
-        "page_description": "Browse all articles tagged with web-development",
+        "page_title": "web-development - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with web-development, explore related techniques and best practices",
         "page_keywords": "blog, web-development, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/web-development",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/web-development",
@@ -7876,8 +7880,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: responsive-design",
-        "page_description": "Browse all articles tagged with responsive-design",
+        "page_title": "responsive-design - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with responsive-design, explore related techniques and best practices",
         "page_keywords": "blog, responsive-design, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/responsive-design",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/responsive-design",
@@ -7912,8 +7916,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: display-technology",
-        "page_description": "Browse all articles tagged with display-technology",
+        "page_title": "display-technology - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with display-technology, explore related techniques and best practices",
         "page_keywords": "blog, display-technology, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/display-technology",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/display-technology",
@@ -7948,8 +7952,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: black myth",
-        "page_description": "Browse all articles tagged with black myth",
+        "page_title": "black myth - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with black myth, explore related techniques and best practices",
         "page_keywords": "blog, black myth, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/black-myth",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/black-myth",
@@ -7984,8 +7988,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: gaming",
-        "page_description": "Browse all articles tagged with gaming",
+        "page_title": "gaming - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with gaming, explore related techniques and best practices",
         "page_keywords": "blog, gaming, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/gaming",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gaming",
@@ -8020,8 +8024,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: hardware",
-        "page_description": "Browse all articles tagged with hardware",
+        "page_title": "hardware - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with hardware, explore related techniques and best practices",
         "page_keywords": "blog, hardware, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/hardware",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/hardware",
@@ -8056,8 +8060,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: monitors",
-        "page_description": "Browse all articles tagged with monitors",
+        "page_title": "monitors - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with monitors, explore related techniques and best practices",
         "page_keywords": "blog, monitors, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/monitors",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/monitors",
@@ -8092,8 +8096,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: 4k",
-        "page_description": "Browse all articles tagged with 4k",
+        "page_title": "4k - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with 4k, explore related techniques and best practices",
         "page_keywords": "blog, 4k, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/4k",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/4k",
@@ -8128,8 +8132,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: css",
-        "page_description": "Browse all articles tagged with css",
+        "page_title": "css - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with css, explore related techniques and best practices",
         "page_keywords": "blog, css, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/css",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/css",
@@ -8164,8 +8168,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: container-queries",
-        "page_description": "Browse all articles tagged with container-queries",
+        "page_title": "container-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with container-queries, explore related techniques and best practices",
         "page_keywords": "blog, container-queries, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/container-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/container-queries",
@@ -8200,8 +8204,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: frontend",
-        "page_description": "Browse all articles tagged with frontend",
+        "page_title": "frontend - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with frontend, explore related techniques and best practices",
         "page_keywords": "blog, frontend, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/frontend",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/frontend",
@@ -8236,8 +8240,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: dpr",
-        "page_description": "Browse all articles tagged with dpr",
+        "page_title": "dpr - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with dpr, explore related techniques and best practices",
         "page_keywords": "blog, dpr, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/dpr",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/dpr",
@@ -8272,8 +8276,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: pixel-density",
-        "page_description": "Browse all articles tagged with pixel-density",
+        "page_title": "pixel-density - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with pixel-density, explore related techniques and best practices",
         "page_keywords": "blog, pixel-density, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/pixel-density",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/pixel-density",
@@ -8308,8 +8312,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: retina-display",
-        "page_description": "Browse all articles tagged with retina-display",
+        "page_title": "retina-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with retina-display, explore related techniques and best practices",
         "page_keywords": "blog, retina-display, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/retina-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/retina-display",
@@ -8344,8 +8348,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: configuración-gaming",
-        "page_description": "Browse all articles tagged with configuración-gaming",
+        "page_title": "configuración-gaming - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with configuración-gaming, explore related techniques and best practices",
         "page_keywords": "blog, configuración-gaming, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/configuracin-gaming",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/configuracin-gaming",
@@ -8380,8 +8384,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: ajustes-monitor",
-        "page_description": "Browse all articles tagged with ajustes-monitor",
+        "page_title": "ajustes-monitor - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with ajustes-monitor, explore related techniques and best practices",
         "page_keywords": "blog, ajustes-monitor, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/ajustes-monitor",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/ajustes-monitor",
@@ -8416,8 +8420,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: optimización-display",
-        "page_description": "Browse all articles tagged with optimización-display",
+        "page_title": "optimización-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with optimización-display, explore related techniques and best practices",
         "page_keywords": "blog, optimización-display, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/optimizacin-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/optimizacin-display",
@@ -8452,8 +8456,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: guía",
-        "page_description": "Browse all articles tagged with guía",
+        "page_title": "guía - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with guía, explore related techniques and best practices",
         "page_keywords": "blog, guía, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/gua",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gua",
@@ -8488,8 +8492,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: resolución-pantalla",
-        "page_description": "Browse all articles tagged with resolución-pantalla",
+        "page_title": "resolución-pantalla - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with resolución-pantalla, explore related techniques and best practices",
         "page_keywords": "blog, resolución-pantalla, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/resolucin-pantalla",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/resolucin-pantalla",
@@ -8524,8 +8528,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: configuración-display",
-        "page_description": "Browse all articles tagged with configuración-display",
+        "page_title": "configuración-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with configuración-display, explore related techniques and best practices",
         "page_keywords": "blog, configuración-display, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/configuracin-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/configuracin-display",
@@ -8560,8 +8564,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: básicos",
-        "page_description": "Browse all articles tagged with básicos",
+        "page_title": "básicos - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with básicos, explore related techniques and best practices",
         "page_keywords": "blog, básicos, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/bsicos",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/bsicos",
@@ -8596,8 +8600,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: medición-laptop",
-        "page_description": "Browse all articles tagged with medición-laptop",
+        "page_title": "medición-laptop - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with medición-laptop, explore related techniques and best practices",
         "page_keywords": "blog, medición-laptop, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/medicin-laptop",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/medicin-laptop",
@@ -8632,8 +8636,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: tamaño-pantalla",
-        "page_description": "Browse all articles tagged with tamaño-pantalla",
+        "page_title": "tamaño-pantalla - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with tamaño-pantalla, explore related techniques and best practices",
         "page_keywords": "blog, tamaño-pantalla, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/tamao-pantalla",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/tamao-pantalla",
@@ -8668,8 +8672,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: medición-monitor",
-        "page_description": "Browse all articles tagged with medición-monitor",
+        "page_title": "medición-monitor - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with medición-monitor, explore related techniques and best practices",
         "page_keywords": "blog, medición-monitor, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/medicin-monitor",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/medicin-monitor",
@@ -8704,8 +8708,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: media-queries",
-        "page_description": "Browse all articles tagged with media-queries",
+        "page_title": "media-queries - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with media-queries, explore related techniques and best practices",
         "page_keywords": "blog, media-queries, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/media-queries",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/media-queries",
@@ -8740,8 +8744,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: breakpoints",
-        "page_description": "Browse all articles tagged with breakpoints",
+        "page_title": "breakpoints - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with breakpoints, explore related techniques and best practices",
         "page_keywords": "blog, breakpoints, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/breakpoints",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/breakpoints",
@@ -8776,8 +8780,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: guía-monitor",
-        "page_description": "Browse all articles tagged with guía-monitor",
+        "page_title": "guía-monitor - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with guía-monitor, explore related techniques and best practices",
         "page_keywords": "blog, guía-monitor, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/gua-monitor",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gua-monitor",
@@ -8812,8 +8816,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: guía-compra",
-        "page_description": "Browse all articles tagged with guía-compra",
+        "page_title": "guía-compra - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with guía-compra, explore related techniques and best practices",
         "page_keywords": "blog, guía-compra, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/gua-compra",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/gua-compra",
@@ -8848,8 +8852,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: tecnología-display",
-        "page_description": "Browse all articles tagged with tecnología-display",
+        "page_title": "tecnología-display - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with tecnología-display, explore related techniques and best practices",
         "page_keywords": "blog, tecnología-display, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/tecnologa-display",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/tecnologa-display",
@@ -8884,8 +8888,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: debugging",
-        "page_description": "Browse all articles tagged with debugging",
+        "page_title": "debugging - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with debugging, explore related techniques and best practices",
         "page_keywords": "blog, debugging, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/debugging",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/debugging",
@@ -8920,8 +8924,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: viewport",
-        "page_description": "Browse all articles tagged with viewport",
+        "page_title": "viewport - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with viewport, explore related techniques and best practices",
         "page_keywords": "blog, viewport, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/viewport",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/viewport",
@@ -8956,8 +8960,8 @@
         "es"
       ],
       "config": {
-        "page_title": "Tag: screen-dimensions",
-        "page_description": "Browse all articles tagged with screen-dimensions",
+        "page_title": "screen-dimensions - Related Articles & Guides | Screen Size Checker",
+        "page_description": "Browse all articles tagged with screen-dimensions, explore related techniques and best practices",
         "page_keywords": "blog, screen-dimensions, tag",
         "canonical_url": "https://screensizechecker.com/es/blog/tag/screen-dimensions",
         "hreflang_en_url": "https://screensizechecker.com/blog/tag/screen-dimensions",

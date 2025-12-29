@@ -1,0 +1,346 @@
+{
+  "project": {
+    "name": "screen-size-checker",
+    "version": "2.3.0",
+    "description": "Screen Size Checker - A modern multilingual tool to detect screen resolution, viewport size, and compare device dimensions",
+    "homepage": "https://screensizechecker.com",
+    "repository": "https://github.com/your-username/screen-size-checker"
+  },
+  "scan": {
+    "timestamp": "2025-12-29T14:41:32.000Z",
+    "version": "1.0.0",
+    "strategy": "module-priority-scan",
+    "truncated": false
+  },
+  "modules": [
+    {
+      "path": "build/",
+      "name": "构建系统",
+      "language": "JavaScript",
+      "entry": "multilang-builder.js",
+      "interfaces": [
+        "MultiLangBuilder.buildAllPages()",
+        "BlogBuilder.generateBlogComponents()",
+        "HubBuilder.processHubContent()"
+      ],
+      "dependencies": [
+        "fs",
+        "path",
+        "marked",
+        "gray-matter",
+        "highlight.js"
+      ],
+      "tests": false,
+      "config": [
+        "pages-config.json"
+      ],
+      "keyFiles": [
+        "multilang-builder.js",
+        "blog-builder.js",
+        "hub-builder.js",
+        "component-builder.js",
+        "translation-validator.js",
+        "internal-links-processor.js"
+      ],
+      "coverage": {
+        "scanned": 8,
+        "total": 8,
+        "percentage": 100
+      }
+    },
+    {
+      "path": "js/",
+      "name": "前端模块",
+      "language": "JavaScript (ES6+)",
+      "entry": "app.js",
+      "interfaces": [
+        "initializeApp()",
+        "initI18n()",
+        "detectDevice()",
+        "PPICalculator.calculatePPI()"
+      ],
+      "dependencies": [
+        "i18next (CDN)"
+      ],
+      "tests": false,
+      "config": [],
+      "keyFiles": [
+        "app.js",
+        "i18n.js",
+        "device-detector.js",
+        "ppi-calculator.js",
+        "aspect-ratio-calculator.js",
+        "screen-comparison-fixed.js",
+        "device-comparison.js",
+        "simulator.js",
+        "clipboard.js",
+        "language-modal.js",
+        "internal-links.js",
+        "blog.js",
+        "blog-progress.js"
+      ],
+      "coverage": {
+        "scanned": 29,
+        "total": 29,
+        "percentage": 100
+      }
+    },
+    {
+      "path": "css/",
+      "name": "样式模块",
+      "language": "CSS3",
+      "entry": "main.css",
+      "interfaces": [
+        "CSS变量系统",
+        "响应式断点",
+        "组件样式类"
+      ],
+      "dependencies": [],
+      "tests": false,
+      "config": [],
+      "keyFiles": [
+        "base.css",
+        "main.css",
+        "core-optimized.css",
+        "blog.css",
+        "mega-menu.css",
+        "mobile-performance.css"
+      ],
+      "coverage": {
+        "scanned": 25,
+        "total": 25,
+        "percentage": 100
+      }
+    },
+    {
+      "path": "components/",
+      "name": "组件模块",
+      "language": "HTML",
+      "entry": "(多个组件文件)",
+      "interfaces": [
+        "可复用HTML组件",
+        "支持i18n翻译",
+        "模板变量替换"
+      ],
+      "dependencies": [],
+      "tests": false,
+      "config": [],
+      "keyFiles": [
+        "head.html",
+        "header-mega-menu.html",
+        "footer-optimized.html",
+        "home-content.html",
+        "blog-index-*.html",
+        "blog-post-*.html"
+      ],
+      "coverage": {
+        "scanned": 170,
+        "total": 170,
+        "percentage": 100,
+        "note": "170+个组件，包含博客和Hub组件"
+      }
+    },
+    {
+      "path": "templates/",
+      "name": "模板模块",
+      "language": "HTML",
+      "entry": "base.html",
+      "interfaces": [
+        "页面模板",
+        "组件插槽",
+        "变量替换"
+      ],
+      "dependencies": [],
+      "tests": false,
+      "config": [],
+      "keyFiles": [
+        "base.html",
+        "blog-post.html",
+        "blog-index.html",
+        "blog-category.html",
+        "blog-tag.html",
+        "device-page.html",
+        "hub-page.html"
+      ],
+      "coverage": {
+        "scanned": 7,
+        "total": 7,
+        "percentage": 100
+      }
+    },
+    {
+      "path": "locales/",
+      "name": "翻译模块",
+      "language": "JSON",
+      "entry": "en/translation.json",
+      "interfaces": [
+        "翻译键值对",
+        "嵌套翻译结构",
+        "i18next集成"
+      ],
+      "dependencies": [],
+      "tests": true,
+      "config": [],
+      "keyFiles": [
+        "en/translation.json",
+        "zh/translation.json",
+        "de/translation.json",
+        "es/translation.json"
+      ],
+      "coverage": {
+        "scanned": 10,
+        "total": 10,
+        "percentage": 100,
+        "details": {
+          "enabled": 4,
+          "prepared": 6,
+          "totalKeys": {
+            "en": 724,
+            "zh": 723,
+            "de": 709,
+            "es": 709,
+            "others": 83
+          }
+        }
+      }
+    },
+    {
+      "path": "blog-content/",
+      "name": "博客内容模块",
+      "language": "Markdown",
+      "entry": "(多个.md文件)",
+      "interfaces": [
+        "Markdown文章",
+        "Front Matter元数据",
+        "多语言内容"
+      ],
+      "dependencies": [],
+      "tests": false,
+      "config": [],
+      "keyFiles": [
+        "en/*.md",
+        "zh/*.md",
+        "de/*.md",
+        "es/*.md"
+      ],
+      "coverage": {
+        "scanned": 52,
+        "total": 52,
+        "percentage": 100,
+        "note": "13篇文章 × 4语言 = 52个Markdown文件"
+      }
+    },
+    {
+      "path": "data/",
+      "name": "配置数据模块",
+      "language": "JSON",
+      "entry": "internal-links-config.json",
+      "interfaces": [
+        "内链配置",
+        "页面元数据"
+      ],
+      "dependencies": [],
+      "tests": false,
+      "config": [
+        "internal-links-config.json"
+      ],
+      "keyFiles": [
+        "internal-links-config.json"
+      ],
+      "coverage": {
+        "scanned": 1,
+        "total": 1,
+        "percentage": 100
+      }
+    }
+  ],
+  "statistics": {
+    "totalFiles": 352,
+    "scannedFiles": 352,
+    "coveragePercentage": 100,
+    "languages": {
+      "JavaScript": 37,
+      "CSS": 25,
+      "HTML": 177,
+      "JSON": 61,
+      "Markdown": 52
+    },
+    "codeLines": {
+      "estimated": 15000,
+      "note": "基于关键文件的估算"
+    }
+  },
+  "ignored": {
+    "patterns": [
+      "node_modules/**",
+      ".git/**",
+      ".github/**",
+      "multilang-build/**",
+      "test-build/**",
+      ".cursor/**",
+      "SEMRUSH/**",
+      ".vscode/**",
+      ".idea/**",
+      "*.log",
+      "*.tmp",
+      "*.temp"
+    ],
+    "topDirectories": [
+      {
+        "path": "node_modules/",
+        "reason": "依赖目录（.gitignore）"
+      },
+      {
+        "path": ".git/",
+        "reason": "Git版本控制（默认忽略）"
+      },
+      {
+        "path": "multilang-build/",
+        "reason": "构建产物（.gitignore）"
+      },
+      {
+        "path": "test-build/",
+        "reason": "测试构建产物（.gitignore）"
+      }
+    ]
+  },
+  "gaps": {
+    "missingTests": [
+      "build/ - 构建系统单元测试",
+      "js/ - 前端模块单元测试",
+      "js/ - 集成测试（Playwright）"
+    ],
+    "missingDocs": [],
+    "missingInterfaces": [],
+    "missingDataModels": []
+  },
+  "recommendations": {
+    "nextSteps": [
+      "为构建系统添加单元测试（build/multilang-builder.js）",
+      "为前端模块添加单元测试（js/app.js, js/i18n.js等）",
+      "补全预备语言的翻译（法语、意大利语、日语等）",
+      "添加端到端测试（使用Playwright）",
+      "实施代码质量检查（ESLint, Stylelint）"
+    ],
+    "priority": {
+      "high": [
+        "构建系统单元测试",
+        "前端核心模块测试"
+      ],
+      "medium": [
+        "预备语言翻译补全",
+        "端到端测试"
+      ],
+      "low": [
+        "代码质量工具配置",
+        "性能优化进一步提升"
+      ]
+    }
+  },
+  "metadata": {
+    "generatedBy": "AI Context Initialization Script",
+    "generatedAt": "2025-12-29T14:41:32.000Z",
+    "version": "1.0.0",
+    "format": "claude-index-v1"
+  }
+}

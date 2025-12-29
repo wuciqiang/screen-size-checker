@@ -22,7 +22,14 @@ DIRECTORY = "multilang-build"
 
 class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
     """HTTP handler that supports clean URLs by automatically appending .html"""
-    
+
+    # Fix MIME types for ES modules
+    extensions_map = {
+        **http.server.SimpleHTTPRequestHandler.extensions_map,
+        '.js': 'application/javascript',
+        '.mjs': 'application/javascript',
+    }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
     

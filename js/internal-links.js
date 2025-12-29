@@ -31,8 +31,19 @@ export class InternalLinksManager {
      */
     getConfigPath() {
         const currentPath = window.location.pathname;
-        
-        // 根据当前页面位置计算配置文件的相对路径
+        const hostname = window.location.hostname;
+
+        // 检测是否在dev-server环境
+        const isDevServer = hostname === 'localhost' || hostname === '127.0.0.1' || hostname.includes('192.168');
+
+        console.log(`🔍 Path detection: ${currentPath}, hostname: ${hostname}, isDevServer: ${isDevServer}`);
+
+        // Dev server 环境：尝试绝对路径
+        if (isDevServer) {
+            return '/data/internal-links-config.json';
+        }
+
+        // 生产环境：根据当前页面位置计算相对路径
         if (currentPath.includes('/blog/')) {
             // 在博客页面中，需要返回上级目录
             return '../data/internal-links-config.json';
@@ -48,7 +59,7 @@ export class InternalLinksManager {
             // 在根目录或其他位置
             return 'data/internal-links-config.json';
         }
-        
+
         // 默认路径
         return 'data/internal-links-config.json';
     }

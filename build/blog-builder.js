@@ -239,7 +239,10 @@ class BlogBuilder {
                     const slug = id; // 使用文件名作为URL slug
                     
                     // 解析Markdown内容
-                    const htmlContent = marked.parse(content);
+                    let htmlContent = marked.parse(content);
+
+                    // 将Markdown中的H1标签转换为H2，避免多个H1
+                    htmlContent = htmlContent.replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>');
                     
                     // 提取阅读时间（假设每分钟200字）
                     const wordCount = content.split(/\s+/).length;
@@ -554,7 +557,7 @@ class BlogBuilder {
         return `<!-- Blog Index Page -->
 <section class="blog-hero">
     <div class="blog-hero-content">
-        <h1 class="blog-hero-title" data-i18n="blog_title">${texts.title}</h1>
+        <div class="blog-hero-title" data-i18n="blog_title">${texts.title}</div>
         <p class="blog-hero-subtitle" data-i18n="blog_subtitle">${texts.subtitle}</p>
     </div>
 </section>
@@ -627,7 +630,7 @@ class BlogBuilder {
         return `<!-- Blog Category Page: ${category} -->
 <section class="blog-hero blog-hero-small">
     <div class="blog-hero-content">
-        <h1 class="blog-hero-title" data-i18n="category_title">${texts.title}</h1>
+        <div class="blog-hero-title" data-i18n="category_title">${texts.title}</div>
         <p class="blog-hero-subtitle" data-i18n="category_subtitle">${texts.subtitle}</p>
         <a href="../" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
     </div>
@@ -683,7 +686,7 @@ class BlogBuilder {
         return `<!-- Blog Tag Page: ${tag} -->
 <section class="blog-hero blog-hero-small">
     <div class="blog-hero-content">
-        <h1 class="blog-hero-title" data-i18n="tag_title">${texts.title}</h1>
+        <div class="blog-hero-title" data-i18n="tag_title">${texts.title}</div>
         <p class="blog-hero-subtitle" data-i18n="tag_subtitle">${texts.subtitle}</p>
         <a href="../" class="blog-back-link" data-i18n="back_to_all">${texts.backToAll}</a>
     </div>
@@ -845,6 +848,9 @@ class BlogBuilder {
                         enabled_languages: [lang],
                         config: {
                             page_title_key: 'blog_page_title',
+                            page_title: lang === 'zh' ?
+                                'Screen Size Checker 博客 - 屏幕尺寸与响应式设计指南' :
+                                'Screen Size Checker Blog - Screen Size & Responsive Design Guides',
                             page_description_key: 'blog_page_description',
                             page_heading_key: 'blog_page_heading',
                             page_intro_key: 'blog_page_intro',
@@ -923,7 +929,7 @@ class BlogBuilder {
                                 page_content: `blog-post-${post.id}-${lang}`,
                                 enabled_languages: [lang],
                                 config: {
-                                    page_title: post.title,
+                                    page_title: `${post.title} | Screen Size Checker Blog`,
                                     page_description: post.description,
                                     page_keywords: post.tags.join(', '),
                                     canonical_url: `https://screensizechecker.com/${lang}/blog/${post.slug}`,
@@ -977,10 +983,12 @@ class BlogBuilder {
                                 page_content: `blog-category-${category}-${lang}`,
                                 enabled_languages: [lang],
                                 config: {
-                                    page_title: lang === 'zh' ? `分类: ${category}` : `Category: ${category}`,
-                                    page_description: lang === 'zh' ? 
-                                        `浏览${category}分类中的所有文章` : 
-                                        `Browse all articles in the ${category} category`,
+                                    page_title: lang === 'zh' ?
+                                        `${category} 文章 - 技术指南与教程 | Screen Size Checker` :
+                                        `${category} Articles - Guides & Tutorials | Screen Size Checker`,
+                                    page_description: lang === 'zh' ?
+                                        `浏览${category}分类中的所有文章，包含详细的技术指南和实用教程` :
+                                        `Browse all articles in the ${category} category with detailed guides and practical tutorials`,
                                     page_keywords: `blog, ${category}, ${lang === 'zh' ? '分类' : 'category'}`,
                                     canonical_url: `https://screensizechecker.com/${lang}/blog/category/${category}`,
                                     og_title: lang === 'zh' ? `分类: ${category}` : `Category: ${category}`,
@@ -1019,10 +1027,12 @@ class BlogBuilder {
                                 page_content: `blog-tag-${tagSlug}-${lang}`,
                                 enabled_languages: [lang],
                                 config: {
-                                    page_title: lang === 'zh' ? `标签: ${tag}` : `Tag: ${tag}`,
+                                    page_title: lang === 'zh' ?
+                                        `${tag} - 相关文章与指南 | Screen Size Checker` :
+                                        `${tag} - Related Articles & Guides | Screen Size Checker`,
                                     page_description: lang === 'zh' ?
-                                        `浏览${tag}标签下的所有文章` :
-                                        `Browse all articles tagged with ${tag}`,
+                                        `浏览${tag}标签下的所有文章，探索相关技术和最佳实践` :
+                                        `Browse all articles tagged with ${tag}, explore related techniques and best practices`,
                                     page_keywords: `blog, ${tag}, ${lang === 'zh' ? '标签' : 'tag'}`,
                                     canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/tag/${tagSlug}`,
                                     hreflang_en_url: hreflangUrls.en,
