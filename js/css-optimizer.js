@@ -29,8 +29,7 @@ class CSSOptimizer {
             
             // 关键CSS文件
             criticalFiles: [
-                'css/main.css',
-                'css/base.css'
+                'css/core-optimized.css'  // 统一使用 core-optimized.css 作为基础样式
             ],
             
             // 非关键CSS文件（只包含确实存在的文件）

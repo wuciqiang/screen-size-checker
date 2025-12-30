@@ -277,7 +277,7 @@ body {
     gap: 8px;
 }
 
-.tool-badge {
+.mega-menu .tool-badge {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -290,7 +290,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.tool-badge:hover {
+.mega-menu .tool-badge:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

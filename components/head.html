@@ -58,6 +58,11 @@ window.addEventListener('load', function() {
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
+<!-- Google Fonts - Typography System (T004) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <!-- Core Optimized CSS - Phase 1.2 Performance Optimization -->
 <!-- Merged 5 CSS files (main.css, mobile-performance.css, language-selector.css, internal-links.css, optimized-events.css) -->
 <link rel="stylesheet" href="{{css_path}}/core-optimized.css">
@@ -358,8 +363,23 @@ html, body {
 <!-- Plausible Analytics - Defer loading -->
 <!-- <script defer data-domain="screensizechecker.com" src="https://plausible.io/js/script.outbound-links.js"></script> -->
 
-<!-- umami 数据追踪代码 -->
-<script defer src="https://umami-blue-zeta.vercel.app/script.js" data-website-id="d99ed0d3-7e87-4f53-8d5d-a0f61c746380"></script>
+<!-- umami 数据追踪代码 - Async loading to prevent blocking -->
+<script>
+// Defer Umami Analytics loading to prevent blocking page load
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://umami-blue-zeta.vercel.app/script.js';
+        script.setAttribute('data-website-id', 'd99ed0d3-7e87-4f53-8d5d-a0f61c746380');
+        // Add error handler to prevent timeout issues
+        script.onerror = function() {
+            console.warn('Umami Analytics failed to load - continuing without analytics');
+        };
+        document.head.appendChild(script);
+    }, 1500); // Delay 1.5 seconds after page load
+});
+</script>
 
 <!-- Google Ads - Defer loading -->
 <script>
