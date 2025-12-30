@@ -1,0 +1,19 @@
+{
+  "feature_name": "website-beautification",
+  "created_at": "2025-12-30T02:05:00Z",
+  "user_request": "使用front-design skill 再设计一下我们项目网站页面，美化页面，你之前已经进行过一次优化，但是只有字体实现了优化效果，你说的各种动效，渐变都没有看到效果。这次你要仔细核对。要求不能改变网站目录结构，改变网站功能，可以优化网页布局，按照你的审美进行优化。",
+  "constraints": {
+    "no_directory_change": true,
+    "no_functionality_change": true,
+    "allow_layout_optimization": true,
+    "allow_visual_enhancements": true
+  },
+  "preferences": {
+    "documentation": true,
+    "testing": true
+  },
+  "previous_optimization": {
+    "completed": "font-optimization",
+    "missing": ["animations", "gradients", "transitions"]
+  }
+}
