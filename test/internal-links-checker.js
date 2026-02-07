@@ -186,36 +186,81 @@ class InternalLinksChecker {
     resolveLinkPath(url, sourceFile) {
         // 移除锚点
         const cleanUrl = url.split('#')[0];
-        
+
         // 移除查询参数
-        const pathOnly = cleanUrl.split('?')[0];
-        
+        let pathOnly = cleanUrl.split('?')[0];
+
         if (pathOnly === '' || pathOnly === '/') {
             return path.join(this.buildDir, 'index.html');
         }
-        
+
+        // 兼容 /en/* 旧路径（会通过 _redirects 重定向到根路径）
+        if (pathOnly === '/en' || pathOnly === '/en/') {
+            pathOnly = '/';
+        } else if (pathOnly.startsWith('/en/')) {
+            pathOnly = '/' + pathOnly.substring(4);
+        }
+
+        let resolvedPath;
+
         // 处理绝对路径
         if (pathOnly.startsWith('/')) {
-            return path.join(this.buildDir, pathOnly.substring(1));
+            resolvedPath = path.join(this.buildDir, pathOnly.substring(1));
+        } else {
+            // 处理相对路径
+            const sourceDir = path.dirname(sourceFile);
+            resolvedPath = path.resolve(sourceDir, pathOnly);
         }
-        
-        // 处理相对路径
-        const sourceDir = path.dirname(sourceFile);
-        const resolvedPath = path.resolve(sourceDir, pathOnly);
-        
+
         // 如果路径指向目录，尝试添加index.html
         if (fs.existsSync(resolvedPath) && fs.statSync(resolvedPath).isDirectory()) {
             return path.join(resolvedPath, 'index.html');
         }
-        
-        // 如果没有扩展名，尝试添加.html
+
+        // clean URL 支持：优先尝试 .html，其次尝试目录 index.html
         if (!path.extname(pathOnly)) {
             const htmlPath = resolvedPath + '.html';
             if (fs.existsSync(htmlPath)) {
                 return htmlPath;
             }
+
+            const indexPath = path.join(resolvedPath, 'index.html');
+            if (fs.existsSync(indexPath)) {
+                return indexPath;
+            }
         }
-        
+
+        // 兼容相对路径中的旧 /en/ 前缀（如 ../../en/blog/）
+        const legacyRelativeEnPath = pathOnly.replace(/(^|\/)en\//, '$1');
+        if (legacyRelativeEnPath !== pathOnly) {
+            // 兼容构建目录下博客页面的 web 路径解析（避免把 ../../blog 解析到项目根目录）
+            if (legacyRelativeEnPath.startsWith('../../blog/')) {
+                const webResolvedPath = path.join(this.buildDir, legacyRelativeEnPath.substring('../../'.length));
+                if (fs.existsSync(webResolvedPath) && fs.statSync(webResolvedPath).isDirectory()) {
+                    return path.join(webResolvedPath, 'index.html');
+                }
+            }
+
+            const sourceDir = path.dirname(sourceFile);
+            const legacyResolvedPath = path.resolve(sourceDir, legacyRelativeEnPath);
+
+            if (fs.existsSync(legacyResolvedPath) && fs.statSync(legacyResolvedPath).isDirectory()) {
+                return path.join(legacyResolvedPath, 'index.html');
+            }
+
+            if (!path.extname(legacyRelativeEnPath)) {
+                const legacyHtmlPath = legacyResolvedPath + '.html';
+                if (fs.existsSync(legacyHtmlPath)) {
+                    return legacyHtmlPath;
+                }
+
+                const legacyIndexPath = path.join(legacyResolvedPath, 'index.html');
+                if (fs.existsSync(legacyIndexPath)) {
+                    return legacyIndexPath;
+                }
+            }
+        }
+
         return resolvedPath;
     }
 

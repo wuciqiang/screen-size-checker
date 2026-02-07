@@ -74,7 +74,10 @@ class TranslationValidator {
         if (runtimeMatches) {
             runtimeMatches.forEach(match => {
                 const key = match.match(/data-i18n=["']([^"']+)["']/)[1];
-                keys.push(key);
+                // 跳过模板变量（如 data-i18n="{{parent_key}}"），避免误报
+                if (!key.includes('{{') && !key.includes('}}')) {
+                    keys.push(key);
+                }
             });
         }
 
@@ -83,7 +86,9 @@ class TranslationValidator {
         if (placeholderMatches) {
             placeholderMatches.forEach(match => {
                 const key = match.match(/data-i18n-placeholder=["']([^"']+)["']/)[1];
-                keys.push(key);
+                if (!key.includes('{{') && !key.includes('}}')) {
+                    keys.push(key);
+                }
             });
         }
 

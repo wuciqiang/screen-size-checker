@@ -124,7 +124,7 @@ export async function initializeI18next() {
             .init({
                 lng: defaultLng,
                 fallbackLng: 'en',
-                supportedLngs: ['en', 'zh'],
+                supportedLngs: ['en', 'zh', 'de', 'es'],
                 backend: {
                     loadPath: getLocalesPath(),
                     allowMultiLoading: true,
@@ -183,7 +183,7 @@ function detectUserLanguage() {
         
         // 2. 从HTML标签检测语言
         const htmlLang = document.documentElement.lang;
-        if (htmlLang && ['en', 'zh'].includes(htmlLang)) {
+        if (htmlLang && ['en', 'zh', 'de', 'es'].includes(htmlLang)) {
             console.log('Language detected from HTML lang attribute:', htmlLang);
             return htmlLang;
         }
@@ -204,7 +204,7 @@ function detectBrowserLanguage() {
     try {
         const browserLang = navigator.language || navigator.userLanguage;
         const langCode = browserLang.split('-')[0].toLowerCase();
-        const detected = ['en', 'zh'].includes(langCode) ? langCode : 'en';
+        const detected = ['en', 'zh', 'de', 'es'].includes(langCode) ? langCode : 'en';
         console.log('Language detected from browser:', detected);
         return detected;
     } catch (error) {
@@ -289,7 +289,7 @@ export function formatDate(date, options = {}) {
  * Preload other supported languages
  */
 function preloadOtherLanguages() {
-    const supportedLngs = ['en', 'zh'];
+    const supportedLngs = ['en', 'zh', 'de', 'es'];
     const currentLng = i18next.language;
     
     supportedLngs.forEach(lng => {
@@ -919,7 +919,9 @@ export function setupLanguageSelector() {
 function getLanguageName(code) {
     const languages = {
         en: 'English',
-        zh: '中文'
+        zh: '中文',
+        de: 'Deutsch',
+        es: 'Español'
     };
     return languages[code] || code;
 }
@@ -928,7 +930,7 @@ function getLanguageName(code) {
  * 预加载翻译资源（优化版本）
  * @param {Array} languages - 要预加载的语言列表
  */
-export async function preloadTranslations(languages = ['en', 'zh']) {
+export async function preloadTranslations(languages = ['en', 'zh', 'de', 'es']) {
     const currentLng = i18next.language;
     const preloadPromises = [];
     

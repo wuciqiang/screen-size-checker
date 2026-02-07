@@ -100,7 +100,7 @@ class SEOTagsValidator {
      */
     validateBasicSEOTags(content, pageResult) {
         // 验证Title标签
-        const titleMatch = content.match(/<title>([^<]+)<\/title>/);
+        const titleMatch = content.match(/<title[^>]*>([^<]+)<\/title>/i);
         if (titleMatch) {
             const title = titleMatch[1].trim();
             if (title.length > 0 && title.length <= 60) {
@@ -115,7 +115,7 @@ class SEOTagsValidator {
         }
 
         // 验证Meta Description
-        const descMatch = content.match(/<meta name="description" content="([^"]+)"/);
+        const descMatch = content.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"/i);
         if (descMatch) {
             const description = descMatch[1].trim();
             if (description.length >= 120 && description.length <= 160) {
@@ -133,7 +133,7 @@ class SEOTagsValidator {
         const langMatch = content.match(/<html[^>]+lang="([^"]+)"/);
         if (langMatch) {
             const lang = langMatch[1];
-            if (lang === 'en' || lang === 'zh' || lang === 'zh-CN') {
+            if (lang === 'en' || lang === 'zh' || lang === 'zh-CN' || lang === 'de' || lang === 'es') {
                 this.addResult(pageResult, 'HTML Lang Attribute', 'passed', `Language: ${lang}`);
             } else {
                 this.addResult(pageResult, 'HTML Lang Attribute', 'warning', `Unexpected language: ${lang}`);

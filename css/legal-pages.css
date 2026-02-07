@@ -1,0 +1,139 @@
+/* Shared legal page styling aligned with site design tokens. */
+.legal-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+.legal-header {
+    margin-top: 0;
+}
+
+.legal-hero {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.12), rgba(74, 158, 255, 0.08));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.legal-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.legal-hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--text-primary);
+}
+
+.legal-subtitle {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.legal-card {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+}
+
+.legal-toc {
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: var(--background-secondary);
+}
+
+.legal-toc-title {
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.legal-toc ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.legal-toc a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.legal-toc a:hover {
+    text-decoration: underline;
+}
+
+.legal-section {
+    scroll-margin-top: 90px;
+    margin-bottom: 2rem;
+}
+
+.legal-section:last-child {
+    margin-bottom: 0;
+}
+
+.legal-section h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.legal-section p,
+.legal-section li {
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+.legal-section ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.3rem;
+}
+
+.legal-meta {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.legal-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: var(--primary-color);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.legal-cta:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .legal-shell {
+        padding: 1rem 0.8rem 3rem;
+    }
+
+    .legal-hero,
+    .legal-card {
+        padding: 1.25rem;
+    }
+}

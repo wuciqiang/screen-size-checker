@@ -1,34 +1,14 @@
 {
-  "validationDate": "2025-12-30T03:05:11.772Z",
+  "validationDate": "2026-02-07T05:55:24.607Z",
   "languages": [
     "en",
     "zh"
   ],
   "summary": {
-    "totalKeys": 822,
-    "missingTranslations": 4,
-    "inconsistentKeys": 2
+    "totalKeys": 820,
+    "missingTranslations": 0,
+    "inconsistentKeys": 0
   },
-  "missingKeys": {
-    "en": [
-      "{{parent_key}}",
-      "{{current_key}}"
-    ],
-    "zh": [
-      "{{parent_key}}",
-      "{{current_key}}"
-    ]
-  },
-  "inconsistentKeys": [
-    {
-      "component": "breadcrumb.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "{{parent_key}}"
-    },
-    {
-      "component": "breadcrumb.html",
-      "issue": "翻译键在所有语言文件中都不存在",
-      "key": "{{current_key}}"
-    }
-  ]
+  "missingKeys": {},
+  "inconsistentKeys": []
 }

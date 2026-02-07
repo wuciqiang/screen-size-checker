@@ -1,4 +1,4 @@
-// internal-links.js - 统一内链管理系统
+﻿// internal-links.js - 统一内链管理系统
 
 /**
  * 内链管理器类
@@ -167,9 +167,13 @@ export class InternalLinksManager {
             this.currentLanguage = 'zh';
         } else if (path.includes('/en/')) {
             this.currentLanguage = 'en';
+        } else if (path.includes('/de/')) {
+            this.currentLanguage = 'de';
+        } else if (path.includes('/es/')) {
+            this.currentLanguage = 'es';
         } else {
             // 默认语言检测
-            this.currentLanguage = document.documentElement.lang || 'zh';
+            this.currentLanguage = document.documentElement.lang || 'en';
         }
         
         console.log('🌍 Detected language:', this.currentLanguage);
@@ -592,9 +596,9 @@ export class InternalLinksManager {
         }
         
         // 如果相对路径已经包含语言前缀，需要根据当前位置调整
-        if (relativePath.startsWith(`${this.currentLanguage}/`) || relativePath.startsWith(`en/`) || relativePath.startsWith(`zh/`)) {
+        if (relativePath.startsWith(`${this.currentLanguage}/`) || relativePath.startsWith(`en/`) || relativePath.startsWith(`zh/`) || relativePath.startsWith(`de/`) || relativePath.startsWith(`es/`)) {
             // 移除语言前缀，因为我们会根据当前位置重新构建
-            relativePath = relativePath.replace(/^(en|zh)\//, '');
+            relativePath = relativePath.replace(/^(en|zh|de|es)\//, '');
         }
         
         // 判断目标路径的类型
@@ -722,7 +726,9 @@ export class InternalLinksManager {
             }
         };
 
-        const langTexts = defaultTexts[this.currentLanguage] || defaultTexts.zh;
+        defaultTexts.de = defaultTexts.en;
+        defaultTexts.es = defaultTexts.en;
+        const langTexts = defaultTexts[this.currentLanguage] || defaultTexts.en;
         return langTexts[key] || key;
     }
 
@@ -873,3 +879,4 @@ if (typeof window !== 'undefined') {
         }
     }, 100);
 }
+

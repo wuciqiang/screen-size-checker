@@ -657,6 +657,7 @@ class MultiLangBuilder extends ComponentBuilder {
             { source: 'robots.txt', dest: 'robots.txt' },
             { source: 'ads.txt', dest: 'ads.txt' },
             { source: 'privacy-policy.html', dest: 'privacy-policy.html' },
+            { source: 'terms-of-service.html', dest: 'terms-of-service.html' },
             { source: 'structured-data.json', dest: 'structured-data.json' },
             { source: 'googlec786a02f43170c4d.html', dest: 'googlec786a02f43170c4d.html' },
             { source: '_redirects', dest: '_redirects' }
@@ -723,6 +724,7 @@ class MultiLangBuilder extends ComponentBuilder {
             'ads.txt',
             'structured-data.json',
             'privacy-policy.html',
+            'terms-of-service.html',
             'googlec786a02f43170c4d.html',
             '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead.txt'
         ];
@@ -2397,8 +2399,8 @@ ${languageCards}
 
 # ===== 其他页面重定向 =====
 /privacy-policy.html                      /privacy-policy                     301
-/terms-of-service.html                    /privacy-policy                     301
-/terms-of-service                         /privacy-policy                     301
+/terms-of-service.html                    /terms-of-service                  301
+
 
 # ===== 便捷访问重定向 =====
 /devices/                                 /devices/iphone-viewport-sizes      301
