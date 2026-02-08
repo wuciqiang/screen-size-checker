@@ -9,7 +9,8 @@
     
     <!-- Hub页面特定CSS -->
     <link rel="stylesheet" href="{{css_path}}/hub.css">
-    <link rel="stylesheet" href="{{css_path}}/highlight.min.css">
+    <link rel="preload" href="{{css_path}}/highlight.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{css_path}}/highlight.min.css"></noscript>
 </head>
 <body data-theme="light" class="hub-page-body">
     <!-- 头部导航 -->
@@ -39,9 +40,9 @@
     {{component:toast}}
     
     <!-- JavaScript -->
-    <script src="{{js_path}}/highlight.min.js"></script>
-    <script src="{{js_path}}/mobile-image-optimizer.js"></script>
-    <script src="{{js_path}}/code-block-manager.js"></script>
+    <script src="{{js_path}}/highlight.min.js" defer></script>
+    <script src="{{js_path}}/mobile-image-optimizer.js" defer></script>
+    <script src="{{js_path}}/code-block-manager.js" defer></script>
     <script src="{{js_path}}/blog.js" type="module"></script>
     <script src="{{js_path}}/blog-progress.js" type="module"></script>
     <script src="{{js_path}}/app.js" type="module"></script>
