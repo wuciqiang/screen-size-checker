@@ -1,5 +1,64 @@
 // clipboard.js - Clipboard functionality for copying device information
 
+
+const COPY_FALLBACK_TEXT = {
+    copied_success: { en: 'Copied!', zh: 'Copied!', de: 'Kopiert!', es: 'Copiado!' },
+    copy_failed: { en: 'Copy failed', zh: 'Copy failed', de: 'Kopieren fehlgeschlagen', es: 'Error al copiar' },
+    all_info_copied: { en: 'All information copied!', zh: 'All information copied!', de: 'Alle Informationen kopiert!', es: 'Toda la informacion copiada!' },
+    copy_all_failed: { en: 'Copy failed', zh: 'Copy failed', de: 'Kopieren fehlgeschlagen', es: 'Error al copiar' },
+    screen_resolution: { en: 'Screen Resolution', zh: 'Screen Resolution', de: 'Bildschirmaufloesung', es: 'Resolucion de Pantalla' },
+    viewport_size: { en: 'Viewport Size', zh: 'Viewport Size', de: 'Viewport-Groesse', es: 'Tamano del Viewport' },
+    aspect_ratio: { en: 'Aspect Ratio', zh: 'Aspect Ratio', de: 'Seitenverhaeltnis', es: 'Relacion de Aspecto' },
+    device_pixel_ratio: { en: 'Device Pixel Ratio (DPR)', zh: 'Device Pixel Ratio (DPR)', de: 'Device Pixel Ratio (DPR)', es: 'Relacion de Pixeles del Dispositivo (DPR)' },
+    color_depth: { en: 'Color Depth', zh: 'Color Depth', de: 'Farbtiefe', es: 'Profundidad de Color' },
+    operating_system: { en: 'Operating System', zh: 'Operating System', de: 'Betriebssystem', es: 'Sistema Operativo' },
+    browser: { en: 'Browser', zh: 'Browser', de: 'Browser', es: 'Navegador' },
+    cookies_enabled: { en: 'Cookies Enabled', zh: 'Cookies Enabled', de: 'Cookies aktiviert', es: 'Cookies Habilitadas' },
+    touch_support: { en: 'Touch Support', zh: 'Touch Support', de: 'Touch-Unterstuetzung', es: 'Soporte Tactil' },
+    user_agent: { en: 'User Agent', zh: 'User Agent', de: 'User Agent', es: 'User Agent' }
+};
+
+function normalizeLangCode(rawLang) {
+    return (rawLang || 'en').toLowerCase().split('-')[0];
+}
+
+function getCurrentLangForCopy() {
+    const htmlLang = document.documentElement ? document.documentElement.lang : '';
+    const storedLang = (() => {
+        try {
+            return localStorage.getItem('i18nextLng') || localStorage.getItem('lang') || '';
+        } catch (_) {
+            return '';
+        }
+    })();
+    const i18nLang = (typeof i18next !== 'undefined' && (i18next.resolvedLanguage || i18next.language))
+        ? (i18next.resolvedLanguage || i18next.language)
+        : '';
+
+    return normalizeLangCode(storedLang || htmlLang || i18nLang || 'en');
+}
+
+function getCopyText(key) {
+    const lang = getCurrentLangForCopy();
+
+    if (typeof i18next !== 'undefined' && typeof i18next.t === 'function') {
+        let translated = '';
+
+        if (typeof i18next.getFixedT === 'function') {
+            translated = i18next.getFixedT(lang)(key);
+        } else {
+            translated = i18next.t(key, { lng: lang });
+        }
+
+        if (translated && translated !== key) {
+            return translated;
+        }
+    }
+
+    const fallback = COPY_FALLBACK_TEXT[key] || COPY_FALLBACK_TEXT.copy_failed;
+    return fallback[lang] || fallback.en;
+}
+
 /**
  * Handle copy button clicks using event delegation
  * @param {Event} event - Click event
@@ -54,21 +113,16 @@ async function copyToClipboard(targetId, copyBtn) {
             await fallbackCopyToClipboard(textToCopy);
         }
         
-        // Show success feedback
-        showCopySuccess(copyBtn);
-        
         // Show toast notification
-        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
+        const message = getCopyText('copied_success');
         showToastNotification(message);
         
         console.log('Text copied to clipboard:', textToCopy);
         
     } catch (error) {
         console.error('Failed to copy text:', error);
-        showCopyError(copyBtn);
-        
         // Show error toast
-        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
+        const message = getCopyText('copy_failed');
         showToastNotification(message, 3000);
     }
 }
@@ -129,17 +183,8 @@ function fallbackCopyToClipboard(text) {
  * @param {HTMLElement} copyBtn - The copy button element
  */
 function showCopySuccess(copyBtn) {
-    const originalText = copyBtn.textContent;
-    const successText = '✓';
-    
-    copyBtn.textContent = successText;
-    copyBtn.classList.add('copied');
-    
-    // Reset after 1.5 seconds
-    setTimeout(() => {
-        copyBtn.textContent = originalText;
-        copyBtn.classList.remove('copied');
-    }, 1500);
+    // Keep button visuals unchanged; toast provides feedback.
+    void copyBtn;
 }
 
 /**
@@ -147,19 +192,8 @@ function showCopySuccess(copyBtn) {
  * @param {HTMLElement} copyBtn - The copy button element
  */
 function showCopyError(copyBtn) {
-    const originalText = copyBtn.textContent;
-    const errorText = '✗';
-    
-    copyBtn.textContent = errorText;
-    copyBtn.style.backgroundColor = '#dc3545';
-    copyBtn.style.color = 'white';
-    
-    // Reset after 2 seconds
-    setTimeout(() => {
-        copyBtn.textContent = originalText;
-        copyBtn.style.backgroundColor = '';
-        copyBtn.style.color = '';
-    }, 2000);
+    // Keep button visuals unchanged; toast provides feedback.
+    void copyBtn;
 }
 
 /**
@@ -171,16 +205,16 @@ export async function copyAllInfo() {
         
         // Collect all information
         const dataElements = [
-            { label: 'Screen Resolution', id: 'screen-resolution-display' },
-            { label: 'Viewport Size', id: 'viewport-display' },
-            { label: 'Aspect Ratio', id: 'aspect-ratio' },
-            { label: 'Device Pixel Ratio', id: 'dpr' },
-            { label: 'Color Depth', id: 'color-depth' },
-            { label: 'Operating System', id: 'os-info' },
-            { label: 'Browser', id: 'browser-info' },
-            { label: 'Cookies Enabled', id: 'cookies-enabled' },
-            { label: 'Touch Support', id: 'touch-support' },
-            { label: 'User Agent', id: 'user-agent' }
+            { labelKey: 'screen_resolution', id: 'screen-resolution-display' },
+            { labelKey: 'viewport_size', id: 'viewport-display' },
+            { labelKey: 'aspect_ratio', id: 'aspect-ratio' },
+            { labelKey: 'device_pixel_ratio', id: 'dpr' },
+            { labelKey: 'color_depth', id: 'color-depth' },
+            { labelKey: 'operating_system', id: 'os-info' },
+            { labelKey: 'browser', id: 'browser-info' },
+            { labelKey: 'cookies_enabled', id: 'cookies-enabled' },
+            { labelKey: 'touch_support', id: 'touch-support' },
+            { labelKey: 'user_agent', id: 'user-agent' }
         ];
         
         for (const item of dataElements) {
@@ -198,7 +232,7 @@ export async function copyAllInfo() {
                 }
                 
                 if (value && value.trim() !== '') {
-                    infoData.push(`${item.label}: ${value.trim()}`);
+                    infoData.push(`${getCopyText(item.labelKey)}: ${value.trim()}`);
                 }
             }
         }
@@ -218,7 +252,7 @@ export async function copyAllInfo() {
         }
         
         // Show success message
-        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('all_info_copied') : '所有信息已复制!';
+        const message = getCopyText('all_info_copied');
         showToastNotification(message);
         
         console.log('All device information copied to clipboard');
@@ -227,7 +261,7 @@ export async function copyAllInfo() {
     } catch (error) {
         console.error('Failed to copy all information:', error);
         
-        const message = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_all_failed') : '复制失败';
+        const message = getCopyText('copy_all_failed');
         showToastNotification(message, 3000);
         
         return false;

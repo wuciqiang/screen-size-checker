@@ -253,6 +253,75 @@ button[type="submit"]:active,
     border-color: var(--neutral-600);
 }
 
+
+/* Home device info copy button refinement */
+.info-dashboard .info-row:not(.info-row-full) {
+    padding-right: 2.15rem;
+}
+
+.info-dashboard .info-row-full .info-label {
+    padding-right: 2.15rem;
+}
+
+.info-dashboard .info-row .info-value {
+    margin-right: 0;
+}
+
+.info-dashboard .copy-btn {
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 1.5rem;
+    padding: 0;
+    border-radius: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    opacity: 1;
+    box-shadow: none;
+    font-size: 0.72rem;
+    line-height: 1;
+}
+
+
+.info-dashboard .copy-btn:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: #ffffff;
+}
+
+
+.info-dashboard .copy-btn.copied {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+}
+
+
+.info-dashboard .info-row-full .copy-btn {
+    top: 0;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .info-dashboard .copy-btn {
+        width: 1.4rem;
+        height: 1.4rem;
+        min-width: 1.4rem;
+        right: 0;
+    }
+
+    .info-dashboard .info-row:not(.info-row-full),
+    .info-dashboard .info-row-full .info-label {
+        padding-right: 2rem;
+    }
+}
+
 /* ============================================
    表单系统 - 清晰反馈
    ============================================ */

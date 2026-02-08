@@ -1,6 +1,6 @@
 // app.js - Main application entry point (Performance Optimized with Module Loading)
 
-console.log('🚀 Starting app.js module load...');
+console.log('馃殌 Starting app.js module load...');
 
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
@@ -11,12 +11,11 @@ import CSSOptimizer from './css-optimizer.js';
 import { initializeMobileOptimization } from './mobile-performance-optimizer.js';
 // FontLoadingOptimizer will be imported dynamically to avoid blocking
 
-// 暂时移除资源加载优化器的导入以避免阻塞
-let resourceLoadingOptimizer = null;
+// 鏆傛椂绉婚櫎璧勬簮鍔犺浇浼樺寲鍣ㄧ殑瀵煎叆浠ラ伩鍏嶉樆濉?let resourceLoadingOptimizer = null;
 let performanceErrorHandler = null;
 let optimizedEventManager = null;
 
-console.log('✅ Critical modules imported successfully');
+console.log('鉁?Critical modules imported successfully');
 
 // Module references (will be loaded by ModuleLoadingOptimizer)
 let i18nModule = null;
@@ -39,32 +38,29 @@ async function initializeApp() {
     try {
         console.log('Starting optimized application initialization...');
 
-        // PHASE 0: 跳过错误处理器初始化以避免阻塞
-        // await initializeErrorHandler();
+        // PHASE 0: 璺宠繃閿欒澶勭悊鍣ㄥ垵濮嬪寲浠ラ伩鍏嶉樆濉?        // await initializeErrorHandler();
 
-        // PHASE 1: 跳过资源加载优化器以避免阻塞
+        // PHASE 1: 璺宠繃璧勬簮鍔犺浇浼樺寲鍣ㄤ互閬垮厤闃诲
         // await resourceLoadingOptimizer.initialize();
 
         // PHASE 2: Critical immediate initialization
         updateInitialDisplayValues();
         initializeTheme();
 
-        // PHASE 2.0: 初始化移动端性能优化系统（关键性能优化）
-        try {
+        // PHASE 2.0: 鍒濆鍖栫Щ鍔ㄧ鎬ц兘浼樺寲绯荤粺锛堝叧閿€ц兘浼樺寲锛?        try {
             const mobileOptimizer = initializeMobileOptimization({
                 enableDeviceDetection: true,
                 enableNetworkAdaptation: true,
                 enableLowEndOptimization: true,
                 debugMode: false
             });
-            console.log('✅ Mobile performance optimizer initialized successfully');
+            console.log('鉁?Mobile performance optimizer initialized successfully');
         } catch (error) {
-            console.warn('⚠️ Mobile performance optimizer failed to initialize:', error);
-            // 移动端优化器初始化失败不应该阻止应用启动
+            console.warn('鈿狅笍 Mobile performance optimizer failed to initialize:', error);
+            // 绉诲姩绔紭鍖栧櫒鍒濆鍖栧け璐ヤ笉搴旇闃绘搴旂敤鍚姩
         }
 
-        // PHASE 2.1: 初始化字体加载优化器（关键性能优化）
-        try {
+        // PHASE 2.1: 鍒濆鍖栧瓧浣撳姞杞戒紭鍖栧櫒锛堝叧閿€ц兘浼樺寲锛?        try {
             const FontLoadingOptimizerModule = await import('./font-loading-optimizer.js');
             const FontLoadingOptimizer = FontLoadingOptimizerModule.default;
 
@@ -75,27 +71,24 @@ async function initializeApp() {
                 fontDisplay: 'swap'
             });
 
-            console.log('✅ Font loading optimizer initialized successfully');
+            console.log('鉁?Font loading optimizer initialized successfully');
         } catch (error) {
-            console.warn('⚠️ Font loading optimizer failed to initialize:', error);
-            // 字体优化器初始化失败不应该阻止应用启动
-        }
+            console.warn('鈿狅笍 Font loading optimizer failed to initialize:', error);
+            // 瀛椾綋浼樺寲鍣ㄥ垵濮嬪寲澶辫触涓嶅簲璇ラ樆姝㈠簲鐢ㄥ惎鍔?        }
 
-        // PHASE 2.2: 立即设置基础事件监听器，确保主题切换功能可用
+        // PHASE 2.2: 绔嬪嵆璁剧疆鍩虹浜嬩欢鐩戝惉鍣紝纭繚涓婚鍒囨崲鍔熻兘鍙敤
         setupBasicEventListeners();
 
-        // PHASE 2.2: CSS Optimizer 重新启用，但配置为不影响主题切换
+        // PHASE 2.2: CSS Optimizer 閲嶆柊鍚敤锛屼絾閰嶇疆涓轰笉褰卞搷涓婚鍒囨崲
         const cssOptimizer = new CSSOptimizer({
             enableMinification: true,
             enableCaching: true,
             deferLoadDelay: 100,
-            enableCSSCompression: false, // 禁用CSS压缩以避免影响主题
-            enableCSSCaching: false,     // 禁用CSS缓存以避免影响主题
-            enableFallbackHandling: true,
-            protectThemeCSS: true        // 新增：保护主题相关CSS
+            enableCSSCompression: false, // 绂佺敤CSS鍘嬬缉浠ラ伩鍏嶅奖鍝嶄富棰?            enableCSSCaching: false,     // 绂佺敤CSS缂撳瓨浠ラ伩鍏嶅奖鍝嶄富棰?            enableFallbackHandling: true,
+            protectThemeCSS: true        // 鏂板锛氫繚鎶や富棰樼浉鍏矯SS
         });
 
-        // 延迟导航高亮设置，确保DOM完全加载
+        // 寤惰繜瀵艰埅楂樹寒璁剧疆锛岀‘淇滵OM瀹屽叏鍔犺浇
         setTimeout(() => {
             setupNavigationHighlighting();
         }, 100);
@@ -113,26 +106,25 @@ async function initializeApp() {
         }, 50); // Small delay to allow critical content to render
 
         isInitialized = true;
-        console.log('✅ Critical application initialization completed!');
+        console.log('鉁?Critical application initialization completed!');
 
     } catch (error) {
-        console.error('❌ Failed to initialize application:', error);
+        console.error('鉂?Failed to initialize application:', error);
 
-        // 如果有错误处理器，记录错误
-        if (performanceErrorHandler) {
+        // 濡傛灉鏈夐敊璇鐞嗗櫒锛岃褰曢敊璇?        if (performanceErrorHandler) {
             performanceErrorHandler.logError('Application initialization failed', error);
         }
 
-        // 显示降级的错误消息和基础功能
+        // 鏄剧ず闄嶇骇鐨勯敊璇秷鎭拰鍩虹鍔熻兘
         showErrorMessage();
         updateInitialDisplayValues();
 
-        // 尝试启用基础功能
+        // 灏濊瘯鍚敤鍩虹鍔熻兘
         try {
             initializeTheme();
             setupBasicEventListeners();
         } catch (fallbackError) {
-            console.error('❌ Even fallback initialization failed:', fallbackError);
+            console.error('鉂?Even fallback initialization failed:', fallbackError);
         }
     }
 }
@@ -142,13 +134,12 @@ async function initializeApp() {
  */
 async function initializeErrorHandler() {
     try {
-        console.log('🔧 Initializing error handler...');
+        console.log('馃敡 Initializing error handler...');
 
-        // 动态导入错误处理器
+        // 鍔ㄦ€佸鍏ラ敊璇鐞嗗櫒
         const { default: PerformanceErrorHandler } = await import('./performance-error-handler.js');
 
-        // 创建错误处理器实例
-        performanceErrorHandler = new PerformanceErrorHandler({
+        // 鍒涘缓閿欒澶勭悊鍣ㄥ疄渚?        performanceErrorHandler = new PerformanceErrorHandler({
             enableLogging: true,
             reportErrors: true,
             maxRetries: 3,
@@ -156,13 +147,11 @@ async function initializeErrorHandler() {
             enableFallback: true
         });
 
-        console.log('✅ Error handler initialized successfully');
+        console.log('鉁?Error handler initialized successfully');
 
     } catch (error) {
-        console.error('❌ Failed to initialize error handler:', error);
-        // 错误处理器初始化失败不应该阻止应用启动
-        // 应用将在没有错误处理器的情况下继续运行
-    }
+        console.error('鉂?Failed to initialize error handler:', error);
+        // 閿欒澶勭悊鍣ㄥ垵濮嬪寲澶辫触涓嶅簲璇ラ樆姝㈠簲鐢ㄥ惎鍔?        // 搴旂敤灏嗗湪娌℃湁閿欒澶勭悊鍣ㄧ殑鎯呭喌涓嬬户缁繍琛?    }
 }
 
 /**
@@ -172,22 +161,21 @@ async function initializeNonCriticalModules() {
     try {
         console.log('Loading non-critical modules with ModuleLoadingOptimizer...');
 
-        // 使用模块加载优化器智能加载页面所需模块
+        // 浣跨敤妯″潡鍔犺浇浼樺寲鍣ㄦ櫤鑳藉姞杞介〉闈㈡墍闇€妯″潡
         await moduleLoadingOptimizer.loadPageModules();
 
-        // 获取已加载的关键模块
+        // 鑾峰彇宸插姞杞界殑鍏抽敭妯″潡
         i18nModule = moduleLoadingOptimizer.moduleRegistry.get('i18n');
         deviceDetectorModule = moduleLoadingOptimizer.moduleRegistry.get('device-detector');
 
-        // 初始化已加载的i18n模块（优化版本）
+        // 鍒濆鍖栧凡鍔犺浇鐨刬18n妯″潡锛堜紭鍖栫増鏈級
         if (i18nModule) {
             const i18nStartTime = performance.now();
             await i18nModule.initializeI18next();
             i18nModule.setupLanguageSelector();
             i18nModule.updateUIElements();
 
-            // 预加载其他语言的翻译资源
-            if (i18nModule.preloadTranslations) {
+            // 棰勫姞杞藉叾浠栬瑷€鐨勭炕璇戣祫婧?            if (i18nModule.preloadTranslations) {
                 i18nModule.preloadTranslations(['en', 'zh']).catch(error => {
                     console.warn('Translation preloading failed:', error);
                 });
@@ -197,28 +185,28 @@ async function initializeNonCriticalModules() {
             const i18nLoadTime = performance.now() - i18nStartTime;
             performanceMonitor.recordCustomMetric('translationLoadTime', i18nLoadTime);
 
-            // 记录国际化性能指标
+            // 璁板綍鍥介檯鍖栨€ц兘鎸囨爣
             if (i18nModule.getI18nPerformanceMetrics) {
                 const i18nMetrics = i18nModule.getI18nPerformanceMetrics();
-                console.log('📊 I18n performance metrics:', i18nMetrics);
+                console.log('馃搳 I18n performance metrics:', i18nMetrics);
             }
         }
 
-        // 初始化已加载的设备检测器模块（优化版本）
+        // 鍒濆鍖栧凡鍔犺浇鐨勮澶囨娴嬪櫒妯″潡锛堜紭鍖栫増鏈級
         if (deviceDetectorModule) {
             const deviceDetectorStartTime = performance.now();
             await deviceDetectorModule.updateDisplay();
 
-            // 设置优化的视口尺寸更新监听器
+            // 璁剧疆浼樺寲鐨勮鍙ｅ昂瀵告洿鏂扮洃鍚櫒
             window.addEventListener('resize', deviceDetectorModule.updateViewportSize);
 
             // Record device detection time
             const deviceDetectionTime = performance.now() - deviceDetectorStartTime;
             performanceMonitor.recordCustomMetric('deviceDetectionTime', deviceDetectionTime);
 
-            // 记录设备检测性能指标
+            // 璁板綍璁惧妫€娴嬫€ц兘鎸囨爣
             const deviceMetrics = deviceDetectorModule.getPerformanceMetrics();
-            console.log('📊 Device detection performance:', deviceMetrics);
+            console.log('馃搳 Device detection performance:', deviceMetrics);
         }
 
         // Setup advanced event listeners
@@ -227,35 +215,32 @@ async function initializeNonCriticalModules() {
         // Load page-specific modules (now handled by ModuleLoadingOptimizer)
         loadPageSpecificModulesOptimized();
 
-        console.log('✅ Non-critical modules loaded successfully with optimization!');
+        console.log('鉁?Non-critical modules loaded successfully with optimization!');
 
-        // 记录模块加载统计
+        // 璁板綍妯″潡鍔犺浇缁熻
         const stats = moduleLoadingOptimizer.getLoadingStats();
-        console.log('📊 Module loading stats:', stats);
+        console.log('馃搳 Module loading stats:', stats);
 
     } catch (error) {
-        console.error('❌ Error loading non-critical modules:', error);
+        console.error('鉂?Error loading non-critical modules:', error);
 
-        // 如果有错误处理器，记录错误
-        if (performanceErrorHandler) {
+        // 濡傛灉鏈夐敊璇鐞嗗櫒锛岃褰曢敊璇?        if (performanceErrorHandler) {
             performanceErrorHandler.logError('Non-critical modules loading failed', error);
         }
 
-        // 尝试启用基础功能作为降级
+        // 灏濊瘯鍚敤鍩虹鍔熻兘浣滀负闄嶇骇
         try {
-            // 如果i18n加载失败，至少确保基础显示值是正确的
-            if (!i18nModule) {
+            // 濡傛灉i18n鍔犺浇澶辫触锛岃嚦灏戠‘淇濆熀纭€鏄剧ず鍊兼槸姝ｇ‘鐨?            if (!i18nModule) {
                 console.log('i18n failed to load, using fallback display values');
                 updateInitialDisplayValues();
             }
 
-            // 如果设备检测器加载失败，至少确保视口尺寸更新
-            if (!deviceDetectorModule) {
+            // 濡傛灉璁惧妫€娴嬪櫒鍔犺浇澶辫触锛岃嚦灏戠‘淇濊鍙ｅ昂瀵告洿鏂?            if (!deviceDetectorModule) {
                 console.log('Device detector failed to load, using basic viewport updates');
                 window.addEventListener('resize', debounce(updateViewportDisplay, 100));
             }
         } catch (fallbackError) {
-            console.error('❌ Even fallback for non-critical modules failed:', fallbackError);
+            console.error('鉂?Even fallback for non-critical modules failed:', fallbackError);
         }
     }
 }
@@ -267,7 +252,7 @@ function loadPageSpecificModulesOptimized() {
     const currentPath = window.location.pathname;
     console.log('Loading page-specific modules for path:', currentPath);
 
-    // 使用模块加载优化器按需加载特定功能模块
+    // 浣跨敤妯″潡鍔犺浇浼樺寲鍣ㄦ寜闇€鍔犺浇鐗瑰畾鍔熻兘妯″潡
     if (currentPath.includes('ppi-calculator')) {
         moduleLoadingOptimizer.loadOnDemand('ppi-calculator').then(module => {
             if (module && module.initializePPICalculator) {
@@ -299,7 +284,7 @@ function loadPageSpecificModulesOptimized() {
             }
         }).catch(error => {
             console.error('Failed to load simulator module:', error);
-            // 降级处理：尝试直接调用全局函数
+            // 闄嶇骇澶勭悊锛氬皾璇曠洿鎺ヨ皟鐢ㄥ叏灞€鍑芥暟
             if (typeof window.initializeSimulator === 'function') {
                 window.initializeSimulator();
             }
@@ -315,12 +300,10 @@ function loadPageSpecificModulesOptimized() {
         });
     }
 
-    // Blog pages - 使用优化器加载博客相关模块
-    if (currentPath.includes('/blog/')) {
+    // Blog pages - 浣跨敤浼樺寲鍣ㄥ姞杞藉崥瀹㈢浉鍏虫ā鍧?    if (currentPath.includes('/blog/')) {
         console.log('Blog page detected, loading blog modules with optimizer');
 
-        // Blog模块已经在页面类型配置中处理，这里只需要确保特定功能加载
-        moduleLoadingOptimizer.loadOnDemand('blog-progress').then(module => {
+        // Blog妯″潡宸茬粡鍦ㄩ〉闈㈢被鍨嬮厤缃腑澶勭悊锛岃繖閲屽彧闇€瑕佺‘淇濈壒瀹氬姛鑳藉姞杞?        moduleLoadingOptimizer.loadOnDemand('blog-progress').then(module => {
             if (module && module.initializeBlogProgress) {
                 module.initializeBlogProgress();
             }
@@ -329,16 +312,14 @@ function loadPageSpecificModulesOptimized() {
         });
     }
 
-    // Internal Links (load for all pages but with low priority) - 使用优化器加载
-    setTimeout(() => {
+    // Internal Links (load for all pages but with low priority) - 浣跨敤浼樺寲鍣ㄥ姞杞?    setTimeout(() => {
         moduleLoadingOptimizer.loadOnDemand('internal-links').then(module => {
             if (module && module.initializeInternalLinks) {
                 module.initializeInternalLinks();
             }
         }).catch(error => {
             console.error('Failed to load internal links:', error);
-            // 降级处理：直接导入
-            import('./internal-links.js').then(module => {
+            // 闄嶇骇澶勭悊锛氱洿鎺ュ鍏?            import('./internal-links.js').then(module => {
                 module.initializeInternalLinks();
             }).catch(fallbackError => {
                 console.error('Fallback internal links loading also failed:', fallbackError);
@@ -353,8 +334,7 @@ function loadPageSpecificModulesOptimized() {
 function loadPageSpecificModules() {
     const currentPath = window.location.pathname;
 
-    // 直接加载页面特定模块，不依赖资源优化器
-    if (currentPath.includes('ppi-calculator')) {
+    // 鐩存帴鍔犺浇椤甸潰鐗瑰畾妯″潡锛屼笉渚濊禆璧勬簮浼樺寲鍣?    if (currentPath.includes('ppi-calculator')) {
         import('./ppi-calculator.js').then(module => {
             module.initializePPICalculator();
         }).catch(console.error);
@@ -374,9 +354,8 @@ function loadPageSpecificModules() {
         }
     }
 
-    // Blog pages - 直接加载，不依赖优化器
-    if (currentPath.includes('/blog/')) {
-        // Blog功能会在需要时自动加载
+    // Blog pages - 鐩存帴鍔犺浇锛屼笉渚濊禆浼樺寲鍣?    if (currentPath.includes('/blog/')) {
+        // Blog鍔熻兘浼氬湪闇€瑕佹椂鑷姩鍔犺浇
         console.log('Blog page detected, modules will load as needed');
     }
 
@@ -386,78 +365,69 @@ function loadPageSpecificModules() {
             module.initializeInternalLinks();
         }).catch(error => {
             console.error('Failed to load internal links:', error);
-            // 内链加载失败不应该影响其他功能
-        });
+            // 鍐呴摼鍔犺浇澶辫触涓嶅簲璇ュ奖鍝嶅叾浠栧姛鑳?        });
     }, 1000);
 }
 
 /**
- * 更新初始显示值，不依赖于i18next或其他系统
- */
+ * 鏇存柊鍒濆鏄剧ず鍊硷紝涓嶄緷璧栦簬i18next鎴栧叾浠栫郴缁? */
 function updateInitialDisplayValues() {
     try {
-        console.log('直接更新初始显示值...');
+        console.log('鐩存帴鏇存柊鍒濆鏄剧ず鍊?..');
 
-        // 直接更新视口尺寸，不使用任何依赖
+        // 鐩存帴鏇存柊瑙嗗彛灏哄锛屼笉浣跨敤浠讳綍渚濊禆
         const viewportDisplay = document.getElementById('viewport-display');
         if (viewportDisplay) {
             const width = window.innerWidth;
             const height = window.innerHeight;
 
-            // 移除可能导致被翻译系统覆盖的属性
-            viewportDisplay.removeAttribute('data-i18n');
+            // 绉婚櫎鍙兘瀵艰嚧琚炕璇戠郴缁熻鐩栫殑灞炴€?            viewportDisplay.removeAttribute('data-i18n');
 
-            // 清除旧内容，包括可能存在的detecting span
+            // 娓呴櫎鏃у唴瀹癸紝鍖呮嫭鍙兘瀛樺湪鐨刣etecting span
             const detectingSpan = viewportDisplay.querySelector('span[data-i18n="detecting"]');
             if (detectingSpan) {
-                // 如果是span元素包含detecting，则替换整个内容
+                // 濡傛灉鏄痵pan鍏冪礌鍖呭惈detecting锛屽垯鏇挎崲鏁翠釜鍐呭
                 viewportDisplay.innerHTML = '';
             }
 
-            // 设置新内容
-            viewportDisplay.textContent = `${width} × ${height}`;
-            console.log(`视口尺寸已更新: ${width} × ${height}`);
+            // 璁剧疆鏂板唴瀹?            viewportDisplay.textContent = `${width} × ${height}`;
+            console.log(`瑙嗗彛灏哄宸叉洿鏂? ${width} × ${height}`);
         } else {
-            console.warn('视口尺寸元素未找到');
+            console.warn('瑙嗗彛灏哄鍏冪礌鏈壘鍒?);
         }
 
-        // 直接更新屏幕分辨率，不使用任何依赖
-        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
+        // 鐩存帴鏇存柊灞忓箷鍒嗚鲸鐜囷紝涓嶄娇鐢ㄤ换浣曚緷璧?        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
         if (screenResolutionDisplay) {
             const screenWidth = window.screen.width;
             const screenHeight = window.screen.height;
 
-            // 检查是否存在旧的结构
-            const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
+            // 妫€鏌ユ槸鍚﹀瓨鍦ㄦ棫鐨勭粨鏋?            const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
             if (detectingSpan) {
-                // 如果找到"detecting..."的span，先移除它
-                detectingSpan.parentNode.removeChild(detectingSpan);
+                // 濡傛灉鎵惧埌"detecting..."鐨剆pan锛屽厛绉婚櫎瀹?                detectingSpan.parentNode.removeChild(detectingSpan);
             }
 
-            // 查找或创建label和value的span元素
+            // 鏌ユ壘鎴栧垱寤簂abel鍜寁alue鐨剆pan鍏冪礌
             let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
             let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
 
             if (!labelSpan) {
-                // 如果没有label span，找第一个子元素，或者创建一个新的
-                labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
+                // 濡傛灉娌℃湁label span锛屾壘绗竴涓瓙鍏冪礌锛屾垨鑰呭垱寤轰竴涓柊鐨?                labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
                 labelSpan.setAttribute('data-i18n', 'screen_resolution');
 
-                // 设置默认文本
-                labelSpan.textContent = '屏幕分辨率';
+                // 璁剧疆榛樿鏂囨湰
+                labelSpan.textContent = '灞忓箷鍒嗚鲸鐜?;
 
-                // 如果不在DOM中，添加它
-                if (!labelSpan.parentNode) {
+                // 濡傛灉涓嶅湪DOM涓紝娣诲姞瀹?                if (!labelSpan.parentNode) {
                     screenResolutionDisplay.appendChild(labelSpan);
                 }
             }
 
-            // 确保我们有冒号分隔符
+            // 纭繚鎴戜滑鏈夊啋鍙峰垎闅旂
             let colonNode = null;
             for (let i = 0; i < screenResolutionDisplay.childNodes.length; i++) {
                 const node = screenResolutionDisplay.childNodes[i];
                 if (node.nodeType === Node.TEXT_NODE &&
-                    (node.textContent.includes(':') || node.textContent.includes('：'))) {
+                    (node.textContent.includes(':') || node.textContent.includes('锛?))) {
                     colonNode = node;
                     break;
                 }
@@ -468,21 +438,20 @@ function updateInitialDisplayValues() {
                 screenResolutionDisplay.appendChild(colonNode);
             }
 
-            // 创建或更新value span
+            // 鍒涘缓鎴栨洿鏂皏alue span
             if (!valueSpan) {
                 valueSpan = document.createElement('span');
                 screenResolutionDisplay.appendChild(valueSpan);
             }
 
-            // 更新值
-            valueSpan.removeAttribute('data-i18n');
+            // 鏇存柊鍊?            valueSpan.removeAttribute('data-i18n');
             valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
-            console.log(`屏幕分辨率已更新: ${screenWidth} × ${screenHeight}`);
+            console.log(`灞忓箷鍒嗚鲸鐜囧凡鏇存柊: ${screenWidth} × ${screenHeight}`);
         } else {
-            console.warn('屏幕分辨率元素未找到');
+            console.warn('灞忓箷鍒嗚鲸鐜囧厓绱犳湭鎵惧埌');
         }
     } catch (error) {
-        console.error('更新初始显示值时出错:', error);
+        console.error('鏇存柊鍒濆鏄剧ず鍊兼椂鍑洪敊:', error);
     }
 }
 
@@ -490,21 +459,21 @@ function updateInitialDisplayValues() {
  * Setup basic event listeners (critical, non-blocking)
  */
 function setupBasicEventListeners() {
-    console.log('🎧 Setting up basic event listeners...');
+    console.log('馃帶 Setting up basic event listeners...');
 
-    // Theme toggle - 确保立即可用
+    // Theme toggle - 纭繚绔嬪嵆鍙敤
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-        console.log('✅ Found theme toggle button, binding click event');
+        console.log('鉁?Found theme toggle button, binding click event');
         themeToggle.addEventListener('click', toggleTheme);
 
-        // 验证事件绑定
+        // 楠岃瘉浜嬩欢缁戝畾
         setTimeout(() => {
             const hasListener = themeToggle.onclick || themeToggle.addEventListener;
-            console.log('🔍 Theme toggle event binding verified:', !!hasListener);
+            console.log('馃攳 Theme toggle event binding verified:', !!hasListener);
         }, 100);
     } else {
-        console.warn('⚠️ Theme toggle button not found during basic event setup');
+        console.warn('鈿狅笍 Theme toggle button not found during basic event setup');
     }
 
     // Language selector basic setup (before i18n loads)
@@ -516,7 +485,7 @@ function setupBasicEventListeners() {
     // FAQ toggle functionality
     setupFAQToggles();
 
-    console.log('✅ Basic event listeners setup completed');
+    console.log('鉁?Basic event listeners setup completed');
 }
 
 /**
@@ -528,7 +497,7 @@ function navigateToLanguage(newLang) {
     const currentSearch = window.location.search;
     const currentHash = window.location.hash;
 
-    console.log('🌐 Navigating to language:', newLang, 'from path:', currentPath);
+    console.log('馃寪 Navigating to language:', newLang, 'from path:', currentPath);
 
     // Save language preference
     localStorage.setItem('i18nextLng', newLang);
@@ -557,7 +526,7 @@ function navigateToLanguage(newLang) {
                 } else {
                     newPath = `${basePath}/multilang-build${pathAfterLang}`;
                 }
-                console.log('🏠 English: using root path for SEO optimization (with blog special-case in multilang-build)');
+                console.log('馃彔 English: using root path for SEO optimization (with blog special-case in multilang-build)');
             } else {
                 newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
             }
@@ -610,22 +579,22 @@ function navigateToLanguage(newLang) {
             } else {
                 newPath = '/';
             }
-            console.log('🏠 English: using root path for SEO optimization');
+            console.log('馃彔 English: using root path for SEO optimization');
         } else {
             // Other languages: use language prefix
             newPath = `/${newLang}`;
             if (pagePath) {
                 newPath += `/${pagePath}`;
             }
-            console.log('🌍 Non-English: using language prefix');
+            console.log('馃實 Non-English: using language prefix');
         }
     }
 
     // Construct the full URL
     const newUrl = newPath + currentSearch + currentHash;
 
-    console.log('🎯 Navigating to:', newUrl);
-    console.log('📊 Language switch mapping:', currentPath, '->', newUrl);
+    console.log('馃幆 Navigating to:', newUrl);
+    console.log('馃搳 Language switch mapping:', currentPath, '->', newUrl);
 
     // Navigate to the new URL
     window.location.href = newUrl;
@@ -775,9 +744,9 @@ function setupBasicLanguageSelector() {
  * Note: Basic event delegation is now handled by OptimizedEventManager
  */
 function setupAdvancedEventListeners() {
-    console.log('🎧 Setting up advanced event listeners (optimized event manager handles basic delegation)...');
+    console.log('馃帶 Setting up advanced event listeners (optimized event manager handles basic delegation)...');
 
-    // 个人复制按钮事件委托 - 使用模块加载优化器
+    // Individual copy button delegation.
     document.addEventListener('click', async (event) => {
         if (event.target.classList.contains('copy-btn') && event.target.getAttribute('data-clipboard-target')) {
             event.preventDefault();
@@ -795,53 +764,28 @@ function setupAdvancedEventListeners() {
         }
     });
 
-    // 一键复制全部按钮事件 - 使用模块加载优化器
+    // Copy-all button handler.
     const copyAllBtn = document.getElementById('copy-all-info');
     if (copyAllBtn) {
         copyAllBtn.addEventListener('click', async () => {
-            copyAllBtn.disabled = true;
-            const originalText = copyAllBtn.textContent;
             try {
                 if (!clipboardModule) {
-                    // 优先从模块注册表获取，如果没有则按需加载
+                    // 浼樺厛浠庢ā鍧楁敞鍐岃〃鑾峰彇锛屽鏋滄病鏈夊垯鎸夐渶鍔犺浇
                     clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') ||
                         await moduleLoadingOptimizer.loadOnDemand('clipboard');
                 }
 
-                let result = false;
                 if (clipboardModule && clipboardModule.copyAllInfo) {
-                    result = await clipboardModule.copyAllInfo();
+                    await clipboardModule.copyAllInfo();
                 } else {
                     console.warn('Clipboard module not available for copyAllInfo');
-                    // 可以在这里添加降级的复制全部信息逻辑
-                }
-
-                if (result) {
-                    copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copied_success') : '已复制!';
-                    copyAllBtn.classList.add('copied');
-                    setTimeout(() => {
-                        copyAllBtn.textContent = originalText;
-                        copyAllBtn.classList.remove('copied');
-                        copyAllBtn.disabled = false;
-                    }, 1500);
-                } else {
-                    copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
-                    copyAllBtn.classList.add('error');
-                    setTimeout(() => {
-                        copyAllBtn.textContent = originalText;
-                        copyAllBtn.classList.remove('error');
-                        copyAllBtn.disabled = false;
-                    }, 2000);
+                    const message = (typeof i18next !== 'undefined' && i18next.t && i18next.t('copy_all_failed') !== 'copy_all_failed') ? i18next.t('copy_all_failed') : 'Copy failed';
+                    if (window.showToast) window.showToast(message, 3000);
                 }
             } catch (e) {
                 console.error('Copy all info failed:', e);
-                copyAllBtn.textContent = (typeof i18next !== 'undefined' && i18next.t) ? i18next.t('copy_failed') : '复制失败';
-                copyAllBtn.classList.add('error');
-                setTimeout(() => {
-                    copyAllBtn.textContent = originalText;
-                    copyAllBtn.classList.remove('error');
-                    copyAllBtn.disabled = false;
-                }, 2000);
+                const message = (typeof i18next !== 'undefined' && i18next.t && i18next.t('copy_all_failed') !== 'copy_all_failed') ? i18next.t('copy_all_failed') : 'Copy failed';
+                if (window.showToast) window.showToast(message, 3000);
             }
         });
     }
@@ -868,13 +812,12 @@ function setupAdvancedEventListeners() {
         });
     }
 
-    // 监听优化事件管理器的自定义事件
-    window.addEventListener('optimizedResize', (event) => {
-        console.log('📐 Optimized resize event received:', event.detail);
-        // 这里可以添加其他需要响应窗口大小变化的逻辑
+    // 鐩戝惉浼樺寲浜嬩欢绠＄悊鍣ㄧ殑鑷畾涔変簨浠?    window.addEventListener('optimizedResize', (event) => {
+        console.log('馃搻 Optimized resize event received:', event.detail);
+        // 杩欓噷鍙互娣诲姞鍏朵粬闇€瑕佸搷搴旂獥鍙ｅぇ灏忓彉鍖栫殑閫昏緫
     });
 
-    console.log('✅ Advanced event listeners setup completed');
+    console.log('鉁?Advanced event listeners setup completed');
 }
 
 /**
@@ -905,7 +848,7 @@ function setupNavigationHighlighting() {
                 const linkDataI18n = link.getAttribute('data-i18n');
 
                 // Check if this is the blog link by text content or data-i18n attribute
-                if (linkDataI18n === 'nav_blog' || linkText.includes('博客') || linkText.includes('Blog')) {
+                if (linkDataI18n === 'nav_blog' || linkText.includes('鍗氬') || linkText.includes('Blog')) {
                     link.classList.add('active');
                     console.log('Added active class to blog link');
                 }
@@ -917,7 +860,7 @@ function setupNavigationHighlighting() {
                 const linkText = link.textContent.trim();
 
                 // Check if this is the home link by data-i18n attribute or text content
-                if (linkDataI18n === 'nav_home' || linkText.includes('首页') || linkText.includes('Home')) {
+                if (linkDataI18n === 'nav_home' || linkText.includes('棣栭〉') || linkText.includes('Home')) {
                     link.classList.add('active');
                     console.log('Added active class to home link');
                 }
@@ -1004,8 +947,7 @@ function updateViewportDisplay() {
         const width = window.innerWidth;
         const height = window.innerHeight;
 
-        // 直接更新视口尺寸显示，移除翻译属性
-        viewportDisplay.removeAttribute('data-i18n');
+        // 鐩存帴鏇存柊瑙嗗彛灏哄鏄剧ず锛岀Щ闄ょ炕璇戝睘鎬?        viewportDisplay.removeAttribute('data-i18n');
         viewportDisplay.textContent = `${width} × ${height}`;
     }
 
@@ -1013,17 +955,15 @@ function updateViewportDisplay() {
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
 
-        // 获取现有的标签和值的span
+        // 鑾峰彇鐜版湁鐨勬爣绛惧拰鍊肩殑span
         let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
         let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
 
-        // 如果找到了值span，只更新其内容
-        if (valueSpan) {
+        // 濡傛灉鎵惧埌浜嗗€約pan锛屽彧鏇存柊鍏跺唴瀹?        if (valueSpan) {
             valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
         }
 
-        // 如果找到了标签span并且i18next可用，更新翻译
-        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
+        // 濡傛灉鎵惧埌浜嗘爣绛緎pan骞朵笖i18next鍙敤锛屾洿鏂扮炕璇?        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
             labelSpan.textContent = i18next.t('screen_resolution');
         }
     }
@@ -1046,19 +986,19 @@ function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    console.log('🎨 Toggling theme:', currentTheme, '->', newTheme);
+    console.log('馃帹 Toggling theme:', currentTheme, '->', newTheme);
 
-    // 确保主题切换立即生效
+    // 纭繚涓婚鍒囨崲绔嬪嵆鐢熸晥
     applyTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
 
-    // 验证主题是否成功应用
+    // 楠岃瘉涓婚鏄惁鎴愬姛搴旂敤
     setTimeout(() => {
         const appliedTheme = document.documentElement.getAttribute('data-theme');
-        console.log('✅ Theme applied successfully:', appliedTheme);
+        console.log('鉁?Theme applied successfully:', appliedTheme);
 
-        // 触发自定义事件通知主题变化
+        // 瑙﹀彂鑷畾涔変簨浠堕€氱煡涓婚鍙樺寲
         window.dispatchEvent(new CustomEvent('themeChanged', {
             detail: { oldTheme: currentTheme, newTheme: appliedTheme }
         }));
@@ -1069,17 +1009,15 @@ function toggleTheme() {
  * Apply theme to document
  */
 function applyTheme(theme) {
-    console.log('🎨 Applying theme:', theme);
+    console.log('馃帹 Applying theme:', theme);
 
-    // 立即应用主题属性
-    document.documentElement.setAttribute('data-theme', theme);
+    // 绔嬪嵆搴旂敤涓婚灞炴€?    document.documentElement.setAttribute('data-theme', theme);
 
-    // 强制重新计算CSS变量，但不影响显示
-    const computedStyle = getComputedStyle(document.documentElement);
+    // 寮哄埗閲嶆柊璁＄畻CSS鍙橀噺锛屼絾涓嶅奖鍝嶆樉绀?    const computedStyle = getComputedStyle(document.documentElement);
     const bgColor = computedStyle.getPropertyValue('--background-primary');
 
-    console.log('✅ Theme attribute set to:', document.documentElement.getAttribute('data-theme'));
-    console.log('🎨 CSS variable --background-primary:', bgColor.trim());
+    console.log('鉁?Theme attribute set to:', document.documentElement.getAttribute('data-theme'));
+    console.log('馃帹 CSS variable --background-primary:', bgColor.trim());
 }
 
 /**
@@ -1088,7 +1026,7 @@ function applyTheme(theme) {
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('.theme-icon');
     if (themeIcon) {
-        themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        themeIcon.textContent = theme === 'light' ? '馃寵' : '鈽€锔?;
     }
 }
 
@@ -1101,9 +1039,9 @@ function showErrorMessage() {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.innerHTML = `
-            <h2>检测失败</h2>
-            <p>无法检测设备信息，请刷新页面重试。</p>
-            <button onclick="window.location.reload()">重试</button>
+            <h2>妫€娴嬪け璐?/h2>
+            <p>鏃犳硶妫€娴嬭澶囦俊鎭紝璇峰埛鏂伴〉闈㈤噸璇曘€?/p>
+            <button onclick="window.location.reload()">閲嶈瘯</button>
         `;
         mainContent.insertBefore(errorDiv, mainContent.firstChild);
     }
@@ -1145,11 +1083,11 @@ setTimeout(() => {
 // Export for manual initialization if needed
 export { initializeApp, toggleTheme, applyTheme, updateThemeIcon, initializeTheme };
 
-// 确保关键函数在全局作用域中可用（用于调试和兼容性）
+// 纭繚鍏抽敭鍑芥暟鍦ㄥ叏灞€浣滅敤鍩熶腑鍙敤锛堢敤浜庤皟璇曞拰鍏煎鎬э級
 if (typeof window !== 'undefined') {
     window.toggleTheme = toggleTheme;
     window.applyTheme = applyTheme;
     window.initializeTheme = initializeTheme;
     window.updateThemeIcon = updateThemeIcon;
-    console.log('🌍 Theme functions exposed to global scope for compatibility');
+    console.log('馃實 Theme functions exposed to global scope for compatibility');
 } 

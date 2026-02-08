@@ -1,9 +1,8 @@
-// core-optimized.js - Phase 1.1 JavaScript优化
-// 整合核心功能模块，减少HTTP请求，保持所有业务逻辑完整性
+// core-optimized.js - Phase 1.1 JavaScript浼樺寲
+// 鏁村悎鏍稿績鍔熻兘妯″潡锛屽噺灏慔TTP璇锋眰锛屼繚鎸佹墍鏈変笟鍔￠€昏緫瀹屾暣鎬?
+console.log('馃殌 Starting core-optimized.js...');
 
-console.log('🚀 Starting core-optimized.js...');
-
-// ====== 核心工具函数 ======
+// ====== 鏍稿績宸ュ叿鍑芥暟 ======
 
 /**
  * Debounce function to limit function calls
@@ -55,14 +54,14 @@ function calculateAspectRatio(width, height) {
     return `${aspectWidth}:${aspectHeight}`;
 }
 
-// ====== 设备检测核心功能 ======
+// ====== 璁惧妫€娴嬫牳蹇冨姛鑳?======
 
 let deviceInfoCache = null;
 let cacheTimestamp = 0;
 const CACHE_DURATION = 30000;
 
 /**
- * 收集设备信息（优化版本）
+ * 鏀堕泦璁惧淇℃伅锛堜紭鍖栫増鏈級
  */
 function collectDeviceInfo() {
     const info = {
@@ -85,8 +84,7 @@ function collectDeviceInfo() {
 }
 
 /**
- * 检测操作系统
- */
+ * 妫€娴嬫搷浣滅郴缁? */
 function detectOperatingSystem() {
     const userAgent = navigator.userAgent;
 
@@ -109,7 +107,7 @@ function detectOperatingSystem() {
 }
 
 /**
- * 检测浏览器信息
+ * 妫€娴嬫祻瑙堝櫒淇℃伅
  */
 function detectBrowser() {
     const userAgent = navigator.userAgent;
@@ -132,7 +130,7 @@ function detectBrowser() {
 }
 
 /**
- * 更新设备显示信息
+ * 鏇存柊璁惧鏄剧ず淇℃伅
  */
 function updateDisplay() {
     try {
@@ -148,7 +146,7 @@ function updateDisplay() {
 }
 
 /**
- * 应用设备信息到UI
+ * 搴旂敤璁惧淇℃伅鍒癠I
  */
 function applyDeviceInfo(deviceInfo) {
     requestAnimationFrame(() => {
@@ -158,15 +156,15 @@ function applyDeviceInfo(deviceInfo) {
         updateElementText('color-depth', `${deviceInfo.colorDepth}-bit`);
         updateElementText('os-info', deviceInfo.operatingSystem);
         updateElementText('browser-info', deviceInfo.browserInfo);
-        // 使用翻译键处理 cookies 和 touch support
-        const cookiesStatus = deviceInfo.cookiesEnabled ? 
-            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : '是') : 
-            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : '否');
+        // Use localized labels for cookie/touch statuses.
+        const cookiesStatus = deviceInfo.cookiesEnabled
+            ? (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : 'Yes')
+            : (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : 'No');
         updateElementText('cookies-enabled', cookiesStatus);
-        
-        const touchStatus = deviceInfo.touchSupported ? 
-            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : '支持') : 
-            (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : '不支持');
+
+        const touchStatus = deviceInfo.touchSupported
+            ? (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : 'Supported')
+            : (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : 'Not supported');
         updateElementText('touch-support', touchStatus);
         updateElementText('user-agent', deviceInfo.userAgent);
         updateElementText('aspect-ratio', deviceInfo.aspectRatio);
@@ -174,8 +172,7 @@ function applyDeviceInfo(deviceInfo) {
 }
 
 /**
- * 更新屏幕分辨率显示
- */
+ * 鏇存柊灞忓箷鍒嗚鲸鐜囨樉绀? */
 function updateScreenResolution(deviceInfo) {
     const resolution = `${deviceInfo.screenWidth} × ${deviceInfo.screenHeight}`;
     const screenResolutionDisplay = document.getElementById('screen-resolution-display');
@@ -192,7 +189,7 @@ function updateScreenResolution(deviceInfo) {
         if (!labelSpan) {
             labelSpan = document.createElement('span');
             labelSpan.setAttribute('data-i18n', 'screen_resolution');
-            labelSpan.textContent = '屏幕分辨率';
+            labelSpan.textContent = 'Screen Resolution';
             screenResolutionDisplay.innerHTML = '';
             screenResolutionDisplay.appendChild(labelSpan);
             screenResolutionDisplay.appendChild(document.createTextNode(': '));
@@ -209,7 +206,7 @@ function updateScreenResolution(deviceInfo) {
 }
 
 /**
- * 更新视口尺寸显示
+ * 鏇存柊瑙嗗彛灏哄鏄剧ず
  */
 function updateViewportSize(deviceInfo) {
     const viewport = `${deviceInfo.viewportWidth} × ${deviceInfo.viewportHeight}`;
@@ -222,17 +219,17 @@ function updateViewportSize(deviceInfo) {
 }
 
 /**
- * 安全更新元素文本内容
+ * 瀹夊叏鏇存柊鍏冪礌鏂囨湰鍐呭
  */
 function updateElementText(id, text) {
     const element = document.getElementById(id);
     if (element) {
-        // 清除data-i18n属性防止被i18next覆盖
+        // 娓呴櫎data-i18n灞炴€ч槻姝㈣i18next瑕嗙洊
         element.removeAttribute('data-i18n');
-        // 清除子元素的data-i18n
+        // 娓呴櫎瀛愬厓绱犵殑data-i18n
         const children = element.querySelectorAll('[data-i18n]');
         children.forEach(child => child.removeAttribute('data-i18n'));
-        // 设置文本内容 - 对 textarea 和 input 使用 value 属性
+        // Set text/value based on element type.
         if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
             element.value = String(text);
         } else {
@@ -245,28 +242,26 @@ function updateElementText(id, text) {
 }
 
 /**
- * 设置降级值
- */
+ * 璁剧疆闄嶇骇鍊? */
 function setFallbackValues() {
     console.log('Setting fallback values...');
 
-    updateElementText('viewport-display', '检测失败');
-    updateElementText('aspect-ratio', '不可用');
-    updateElementText('dpr', '不可用');
-    updateElementText('color-depth', '不可用');
-    updateElementText('os-info', '不可用');
-    updateElementText('browser-info', '不可用');
-    const notAvailable = typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_available') : '不可用';
+    updateElementText('viewport-display', 'Detection failed');
+    updateElementText('aspect-ratio', 'Not available');
+    updateElementText('dpr', 'Not available');
+    updateElementText('color-depth', 'Not available');
+    updateElementText('os-info', 'Not available');
+    updateElementText('browser-info', 'Not available');
+    const notAvailable = typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_available') : 'Not available';
     updateElementText('cookies-enabled', notAvailable);
     updateElementText('touch-support', notAvailable);
-    updateElementText('user-agent', '不可用');
+    updateElementText('user-agent', 'Not available');
 }
 
-// ====== 主题系统核心功能 ======
+// ====== 涓婚绯荤粺鏍稿績鍔熻兘 ======
 
 /**
- * 初始化主题系统
- */
+ * 鍒濆鍖栦富棰樼郴缁? */
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
@@ -274,7 +269,7 @@ function initializeTheme() {
 }
 
 /**
- * 切换主题
+ * 鍒囨崲涓婚
  */
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -293,26 +288,26 @@ function toggleTheme() {
 }
 
 /**
- * 应用主题
+ * 搴旂敤涓婚
  */
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
 }
 
 /**
- * 更新主题图标
+ * 鏇存柊涓婚鍥炬爣
  */
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('.theme-icon');
     if (themeIcon) {
-        themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        themeIcon.textContent = theme === 'light' ? '\uD83C\uDF19' : '\u2600\uFE0F';
     }
 }
 
-// ====== 复制功能核心 ======
+// ====== 澶嶅埗鍔熻兘鏍稿績 ======
 
 /**
- * 复制文本到剪贴板
+ * 澶嶅埗鏂囨湰鍒板壀璐存澘
  */
 async function copyToClipboard(text) {
     try {
@@ -340,8 +335,67 @@ async function copyToClipboard(text) {
     }
 }
 
+
+const COPY_TEXT_FALLBACKS = {
+    copied_success: { en: 'Copied!', zh: 'Copied!', de: 'Kopiert!', es: 'Copiado!' },
+    copy_failed: { en: 'Copy failed', zh: 'Copy failed', de: 'Kopieren fehlgeschlagen', es: 'Error al copiar' },
+    all_info_copied: { en: 'All information copied!', zh: 'All information copied!', de: 'Alle Informationen kopiert!', es: 'Toda la informacion copiada!' },
+    copy_all_failed: { en: 'Copy failed', zh: 'Copy failed', de: 'Kopieren fehlgeschlagen', es: 'Error al copiar' },
+    screen_resolution: { en: 'Screen Resolution', zh: 'Screen Resolution', de: 'Bildschirmaufloesung', es: 'Resolucion de Pantalla' },
+    viewport_size: { en: 'Viewport Size', zh: 'Viewport Size', de: 'Viewport-Groesse', es: 'Tamano del Viewport' },
+    aspect_ratio: { en: 'Aspect Ratio', zh: 'Aspect Ratio', de: 'Seitenverhaeltnis', es: 'Relacion de Aspecto' },
+    device_pixel_ratio: { en: 'Device Pixel Ratio (DPR)', zh: 'Device Pixel Ratio (DPR)', de: 'Device Pixel Ratio (DPR)', es: 'Relacion de Pixeles del Dispositivo (DPR)' },
+    color_depth: { en: 'Color Depth', zh: 'Color Depth', de: 'Farbtiefe', es: 'Profundidad de Color' },
+    operating_system: { en: 'Operating System', zh: 'Operating System', de: 'Betriebssystem', es: 'Sistema Operativo' },
+    browser: { en: 'Browser', zh: 'Browser', de: 'Browser', es: 'Navegador' },
+    cookies_enabled: { en: 'Cookies Enabled', zh: 'Cookies Enabled', de: 'Cookies aktiviert', es: 'Cookies Habilitadas' },
+    touch_support: { en: 'Touch Support', zh: 'Touch Support', de: 'Touch-Unterstuetzung', es: 'Soporte Tactil' },
+    user_agent: { en: 'User Agent', zh: 'User Agent', de: 'User Agent', es: 'User Agent' }
+};
+
+function normalizeCopyLang(rawLang) {
+    return (rawLang || 'en').toLowerCase().split('-')[0];
+}
+
+function getCurrentCopyLang() {
+    const htmlLang = document.documentElement ? document.documentElement.lang : '';
+    const storedLang = (() => {
+        try {
+            return localStorage.getItem('i18nextLng') || localStorage.getItem('lang') || '';
+        } catch (_) {
+            return '';
+        }
+    })();
+    const i18nLang = (typeof i18next !== 'undefined' && (i18next.resolvedLanguage || i18next.language))
+        ? (i18next.resolvedLanguage || i18next.language)
+        : '';
+
+    return normalizeCopyLang(storedLang || htmlLang || i18nLang || 'en');
+}
+
+function getCopyText(key) {
+    const lang = getCurrentCopyLang();
+
+    if (typeof i18next !== 'undefined' && typeof i18next.t === 'function') {
+        let translated = '';
+
+        if (typeof i18next.getFixedT === 'function') {
+            translated = i18next.getFixedT(lang)(key);
+        } else {
+            translated = i18next.t(key, { lng: lang });
+        }
+
+        if (translated && translated !== key) {
+            return translated;
+        }
+    }
+
+    const fallback = COPY_TEXT_FALLBACKS[key] || COPY_TEXT_FALLBACKS.copy_failed;
+    return fallback[lang] || fallback.en;
+}
+
 /**
- * 处理复制按钮点击事件
+ * 澶勭悊澶嶅埗鎸夐挳鐐瑰嚮浜嬩欢
  */
 async function handleCopyClick(event) {
     const button = event.target;
@@ -349,82 +403,87 @@ async function handleCopyClick(event) {
     const targetElement = document.getElementById(targetId);
 
     if (!targetElement) {
-        console.error(`Target element with id '${targetId}' not found`);
+        console.error("Target element with id '" + targetId + "' not found");
         return;
     }
-
-    const originalText = button.textContent;
-    button.disabled = true;
 
     try {
         const textToCopy = targetElement.textContent || targetElement.innerText;
         const success = await copyToClipboard(textToCopy);
-
-        if (success) {
-            button.textContent = '已复制!';
-            button.classList.add('copied');
-        } else {
-            button.textContent = '复制失败';
-            button.classList.add('error');
-        }
+        const message = success ? getCopyText('copied_success') : getCopyText('copy_failed');
+        showToast(message, success ? 1800 : 3000);
     } catch (error) {
         console.error('Copy failed:', error);
-        button.textContent = '复制失败';
-        button.classList.add('error');
+        showToast(getCopyText('copy_failed'), 3000);
     }
-
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-        button.classList.remove('copied', 'error');
-    }, 1500);
 }
 
 /**
- * 复制所有信息
- */
+ * 澶嶅埗鎵€鏈変俊鎭? */
 async function copyAllInfo() {
     try {
         const info = [];
 
-        const viewportDisplay = document.getElementById('viewport-display');
-        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
-        const aspectRatioElement = document.getElementById('aspect-ratio');
-        const dprElement = document.getElementById('dpr');
-        const colorDepthElement = document.getElementById('color-depth');
-        const osInfoElement = document.getElementById('os-info');
-        const browserInfoElement = document.getElementById('browser-info');
-        const cookiesElement = document.getElementById('cookies-enabled');
-        const touchElement = document.getElementById('touch-support');
+        const dataElements = [
+            { labelKey: 'viewport_size', id: 'viewport-display' },
+            { labelKey: 'screen_resolution', id: 'screen-resolution-display' },
+            { labelKey: 'aspect_ratio', id: 'aspect-ratio' },
+            { labelKey: 'device_pixel_ratio', id: 'dpr' },
+            { labelKey: 'color_depth', id: 'color-depth' },
+            { labelKey: 'operating_system', id: 'os-info' },
+            { labelKey: 'browser', id: 'browser-info' },
+            { labelKey: 'cookies_enabled', id: 'cookies-enabled' },
+            { labelKey: 'touch_support', id: 'touch-support' },
+            { labelKey: 'user_agent', id: 'user-agent' }
+        ];
 
-        if (viewportDisplay) info.push(`视口尺寸: ${viewportDisplay.textContent}`);
-        if (screenResolutionDisplay) info.push(`屏幕分辨率: ${screenResolutionDisplay.textContent}`);
-        if (aspectRatioElement) info.push(`宽高比: ${aspectRatioElement.textContent}`);
-        if (dprElement) info.push(`设备像素比: ${dprElement.textContent}`);
-        if (colorDepthElement) info.push(`色深: ${colorDepthElement.textContent}`);
-        if (osInfoElement) info.push(`操作系统: ${osInfoElement.textContent}`);
-        if (browserInfoElement) info.push(`浏览器: ${browserInfoElement.textContent}`);
-        if (cookiesElement) info.push(`Cookies: ${cookiesElement.textContent}`);
-        if (touchElement) info.push(`触控支持: ${touchElement.textContent}`);
+        for (const item of dataElements) {
+            const element = document.getElementById(item.id);
+            if (!element) continue;
+
+            let value = '';
+            if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
+                value = element.value;
+            } else if (item.id === 'screen-resolution-display') {
+                const span = element.querySelector('span:last-child');
+                value = span ? span.textContent : element.textContent;
+            } else {
+                value = element.textContent || element.innerText;
+            }
+
+            const cleaned = (value || '').trim();
+            if (cleaned) {
+                info.push(`${getCopyText(item.labelKey)}: ${cleaned}`);
+            }
+        }
+
+        if (info.length === 0) {
+            console.warn('No information to copy');
+            showToast(getCopyText('copy_all_failed'), 3000);
+            return false;
+        }
 
         const textToCopy = info.join('\n');
         const success = await copyToClipboard(textToCopy);
 
         if (success) {
-            showToast('所有信息已复制到剪贴板');
+            showToast(getCopyText('all_info_copied'));
+        } else {
+            showToast(getCopyText('copy_all_failed'), 3000);
         }
 
         return success;
     } catch (error) {
         console.error('Failed to copy all info:', error);
+        showToast(getCopyText('copy_all_failed'), 3000);
         return false;
     }
 }
 
-// ====== 语言功能核心 ======
+// ====== 璇█鍔熻兘鏍稿績 ======
 
 /**
- * 导航到指定语言
+ * 瀵艰埅鍒版寚瀹氳瑷€
  */
 function navigateToLanguage(newLang) {
     const currentPath = window.location.pathname;
@@ -485,7 +544,7 @@ function navigateToLanguage(newLang) {
 
         if (newLang === 'en') {
             if (pagePath) {
-                // 英文博客页面都在根目录下，不需要 /en/ 前缀
+                // 鑻辨枃鍗氬椤甸潰閮藉湪鏍圭洰褰曚笅锛屼笉闇€瑕?/en/ 鍓嶇紑
                 newPath = `/${pagePath}`;
             } else {
                 newPath = '/';
@@ -506,10 +565,10 @@ function navigateToLanguage(newLang) {
     window.location.href = newUrl;
 }
 
-// ====== FAQ功能核心 ======
+// ====== FAQ鍔熻兘鏍稿績 ======
 
 /**
- * 设置FAQ切换功能
+ * 璁剧疆FAQ鍒囨崲鍔熻兘
  */
 function setupFAQToggles() {
     const faqQuestions = document.querySelectorAll('.faq-question');
@@ -520,7 +579,7 @@ function setupFAQToggles() {
             const isExpanded = question.getAttribute('aria-expanded') === 'true';
             const answer = faqItem.querySelector('.faq-answer');
 
-            // 关闭所有FAQ项目
+            // 鍏抽棴鎵€鏈塅AQ椤圭洰
             document.querySelectorAll('.faq-question').forEach(q => {
                 const item = q.closest('.faq-item');
                 if (item) {
@@ -535,7 +594,7 @@ function setupFAQToggles() {
                 }
             });
 
-            // 切换当前项目
+            // 鍒囨崲褰撳墠椤圭洰
             if (!isExpanded) {
                 faqItem.classList.add('active');
                 question.setAttribute('aria-expanded', 'true');
@@ -564,10 +623,10 @@ function setupFAQToggles() {
     });
 }
 
-// ====== Toast通知功能 ======
+// ====== Toast閫氱煡鍔熻兘 ======
 
 /**
- * 显示Toast通知
+ * 鏄剧ずToast閫氱煡
  */
 function showToast(message, duration = 2000) {
     const toast = document.getElementById('toast');
@@ -583,35 +642,34 @@ function showToast(message, duration = 2000) {
     }
 }
 
-// ====== 主初始化函数 ======
+// ====== 涓诲垵濮嬪寲鍑芥暟 ======
 
 let isInitialized = false;
 
 /**
- * 初始化应用
- */
+ * 鍒濆鍖栧簲鐢? */
 function initializeApp() {
     if (isInitialized) return;
 
     try {
         console.log('Starting optimized application initialization...');
 
-        // 立即执行的关键初始化
+        // 绔嬪嵆鎵ц鐨勫叧閿垵濮嬪寲
         updateInitialDisplayValues();
         initializeTheme();
         setupBasicEventListeners();
 
-        // 延迟非关键功能
+        // Defer non-critical tasks.
         setTimeout(() => {
             updateDisplay();
             setupAdvancedEventListeners();
         }, 50);
 
         isInitialized = true;
-        console.log('✅ Critical application initialization completed!');
+        console.log('鉁?Critical application initialization completed!');
 
     } catch (error) {
-        console.error('❌ Failed to initialize application:', error);
+        console.error('鉂?Failed to initialize application:', error);
         showErrorMessage();
         updateInitialDisplayValues();
 
@@ -619,14 +677,13 @@ function initializeApp() {
             initializeTheme();
             setupBasicEventListeners();
         } catch (fallbackError) {
-            console.error('❌ Even fallback initialization failed:', fallbackError);
+            console.error('鉂?Even fallback initialization failed:', fallbackError);
         }
     }
 }
 
 /**
- * 更新初始显示值
- */
+ * 鏇存柊鍒濆鏄剧ず鍊? */
 function updateInitialDisplayValues() {
     try {
         const viewportDisplay = document.getElementById('viewport-display');
@@ -660,7 +717,7 @@ function updateInitialDisplayValues() {
             if (!labelSpan) {
                 labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
                 labelSpan.setAttribute('data-i18n', 'screen_resolution');
-                labelSpan.textContent = '屏幕分辨率';
+                labelSpan.textContent = 'Screen Resolution';
 
                 if (!labelSpan.parentNode) {
                     screenResolutionDisplay.appendChild(labelSpan);
@@ -691,19 +748,18 @@ function updateInitialDisplayValues() {
             valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
         }
     } catch (error) {
-        console.error('更新初始显示值时出错:', error);
+        console.error('鏇存柊鍒濆鏄剧ず鍊兼椂鍑洪敊:', error);
     }
 }
 
 /**
- * 设置基础事件监听器
- */
+ * 璁剧疆鍩虹浜嬩欢鐩戝惉鍣? */
 function setupBasicEventListeners() {
-    console.log('🎧 Setting up basic event listeners...');
+    console.log('馃帶 Setting up basic event listeners...');
 
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-        console.log('✅ Found theme toggle button, binding click event');
+        console.log('鉁?Found theme toggle button, binding click event');
         themeToggle.addEventListener('click', toggleTheme);
     }
 
@@ -713,18 +769,17 @@ function setupBasicEventListeners() {
 
     setupFAQToggles();
     setupNavigationActiveState();
-    // setupInternalLinks(); // 已迁移到 internal-links.js 模块
+    // setupInternalLinks(); // 宸茶縼绉诲埌 internal-links.js 妯″潡
 
-    console.log('✅ Basic event listeners setup completed');
+    console.log('鉁?Basic event listeners setup completed');
 }
 
 /**
- * 设置高级事件监听器
- */
+ * 璁剧疆楂樼骇浜嬩欢鐩戝惉鍣? */
 function setupAdvancedEventListeners() {
-    console.log('🎧 Setting up advanced event listeners...');
+    console.log('馃帶 Setting up advanced event listeners...');
 
-    // 复制按钮事件
+    // 澶嶅埗鎸夐挳浜嬩欢
     document.addEventListener('click', async (event) => {
         if (event.target.classList.contains('copy-btn') && event.target.getAttribute('data-clipboard-target')) {
             event.preventDefault();
@@ -732,48 +787,34 @@ function setupAdvancedEventListeners() {
         }
     });
 
-    // 一键复制全部按钮
+    // Copy all info button
     const copyAllBtn = document.getElementById('copy-all-info');
     if (copyAllBtn) {
         copyAllBtn.addEventListener('click', async () => {
-            copyAllBtn.disabled = true;
-            const originalText = copyAllBtn.textContent;
-
             try {
                 const result = await copyAllInfo();
-
-                if (result) {
-                    copyAllBtn.textContent = '已复制!';
-                    copyAllBtn.classList.add('copied');
-                } else {
-                    copyAllBtn.textContent = '复制失败';
-                    copyAllBtn.classList.add('error');
+                if (!result) {
+                    const message = getCopyText('copy_all_failed');
+                    showToast(message, 3000);
                 }
             } catch (e) {
                 console.error('Copy all info failed:', e);
-                copyAllBtn.textContent = '复制失败';
-                copyAllBtn.classList.add('error');
+                const message = getCopyText('copy_all_failed');
+                showToast(message, 3000);
             }
-
-            setTimeout(() => {
-                copyAllBtn.textContent = originalText;
-                copyAllBtn.classList.remove('copied', 'error');
-                copyAllBtn.disabled = false;
-            }, 1500);
         });
     }
 
-    console.log('✅ Advanced event listeners setup completed');
+    console.log('鉁?Advanced event listeners setup completed');
 }
 
 /**
- * 设置导航激活状态
- */
+ * 璁剧疆瀵艰埅婵€娲荤姸鎬? */
 function setupNavigationActiveState() {
-    // 检查是否已经由服务器端设置了active状态
+    // Skip client-side update when active nav already exists.
     const hasServerSideActive = document.querySelector('.nav-link.active');
     
-    // 如果服务器端已经设置了active状态，跳过客户端更新
+    // If server already marked active nav, skip client update.
     if (hasServerSideActive) {
         console.log('Navigation state already set by server, skipping client-side update');
         return;
@@ -799,7 +840,7 @@ function setupNavigationActiveState() {
 }
 
 /**
- * 设置内链功能
+ * 璁剧疆鍐呴摼鍔熻兘
  */
 function setupInternalLinks() {
     const container = document.getElementById('internal-links-container');
@@ -829,12 +870,12 @@ function setupInternalLinks() {
 }
 
 /**
- * 检测当前语言
+ * 妫€娴嬪綋鍓嶈瑷€
  */
 function detectCurrentLanguage() {
     const path = window.location.pathname;
 
-    // 从路径中检测语言
+    // 浠庤矾寰勪腑妫€娴嬭瑷€
     if (path.includes('/zh/') || path.endsWith('/zh')) {
         return 'zh';
     }
@@ -842,101 +883,100 @@ function detectCurrentLanguage() {
         return 'en';
     }
 
-    // 从localStorage检测
+    // Detect from local storage.
     const storedLang = localStorage.getItem('i18nextLng') || localStorage.getItem('lang');
     if (storedLang && ['en', 'zh'].includes(storedLang)) {
         return storedLang;
     }
 
-    // 从HTML lang属性检测
+    // Detect from html lang.
     const htmlLang = document.documentElement.getAttribute('lang');
     if (htmlLang && ['en', 'zh'].includes(htmlLang)) {
         return htmlLang;
     }
 
-    // 默认返回英文
+    // 榛樿杩斿洖鑻辨枃
     return 'en';
 }
 
 /**
- * 调整相对路径
+ * 璋冩暣鐩稿璺緞
  */
 function adjustRelativePath(url, currentPath) {
-    // 如果URL已经是相对路径（不以/开头），直接返回
+    // If already relative, return as-is.
     if (!url.startsWith('/')) {
         return url;
     }
 
-    // 解析当前路径
+    // 瑙ｆ瀽褰撳墠璺緞
     const pathParts = currentPath.split('/').filter(part => part);
     const urlParts = url.split('/').filter(part => part);
 
-    // 检测当前路径的语言和深度
+    // Detect current path language and depth.
     let currentLang = 'en';
     let currentDepth = 0;
     let isInLanguageDir = false;
     let isInBlogDir = false;
 
-    // 分析当前路径结构
+    // 鍒嗘瀽褰撳墠璺緞缁撴瀯
     if (pathParts.length >= 1 && ['en', 'zh'].includes(pathParts[0])) {
         currentLang = pathParts[0];
         isInLanguageDir = true;
         currentDepth = 1;
 
-        // 检查是否在博客目录下
+        // Check whether current page is inside /blog/.
         if (pathParts.length >= 2 && pathParts[1] === 'blog') {
             isInBlogDir = true;
             currentDepth = 2;
         }
     }
 
-    // 生成正确的相对路径
+    // Build relative path for current directory depth.
     if (isInLanguageDir && isInBlogDir) {
-        // 当前在博客目录下: /en/blog/xxx
+        // 褰撳墠鍦ㄥ崥瀹㈢洰褰曚笅: /en/blog/xxx
         if (urlParts[0] === 'blog') {
-            // 跳转到博客页面: blog/index.html -> ../blog/index.html
+            // 璺宠浆鍒板崥瀹㈤〉闈? blog/index.html -> ../blog/index.html
             return '../' + urlParts.join('/');
         } else {
-            // 跳转到工具页面: devices/xxx.html -> ../../devices/xxx.html
+            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> ../../devices/xxx.html
             return '../../' + urlParts.join('/');
         }
     } else if (isInLanguageDir && !isInBlogDir) {
-        // 当前在语言目录下但不在博客目录: /en/xxx
+        // 褰撳墠鍦ㄨ瑷€鐩綍涓嬩絾涓嶅湪鍗氬鐩綍: /en/xxx
         if (urlParts[0] === 'blog') {
-            // 跳转到博客页面: blog/index.html -> ./blog/index.html
+            // 璺宠浆鍒板崥瀹㈤〉闈? blog/index.html -> ./blog/index.html
             return urlParts.join('/');
         } else {
-            // 跳转到工具页面: devices/xxx.html -> ./devices/xxx.html
+            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> ./devices/xxx.html
             return urlParts.join('/');
         }
     } else {
-        // 当前在根目录下: /xxx
+        // 褰撳墠鍦ㄦ牴鐩綍涓? /xxx
         if (urlParts[0] === 'blog') {
-            // 跳转到博客页面，需要添加语言前缀: blog/index.html -> en/blog/index.html
+            // 璺宠浆鍒板崥瀹㈤〉闈紝闇€瑕佹坊鍔犺瑷€鍓嶇紑: blog/index.html -> en/blog/index.html
             return currentLang + '/' + urlParts.join('/');
         } else {
-            // 跳转到工具页面: devices/xxx.html -> devices/xxx.html
+            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> devices/xxx.html
             return urlParts.join('/');
         }
     }
 }
 
 /**
- * 生成内链数据
+ * 鐢熸垚鍐呴摼鏁版嵁
  */
 function generateInternalLinks() {
     const currentPath = window.location.pathname;
     const currentPageId = getCurrentPageId(currentPath);
     const allLinks = [];
 
-    // 内链配置数据 - 基于internal-links-config.json
+    // 鍐呴摼閰嶇疆鏁版嵁 - 鍩轰簬internal-links-config.json
     const INTERNAL_LINKS_CONFIG = {
         pages: {
             "iphone-viewport-sizes": {
                 id: "iphone-viewport-sizes",
                 category: "device-info",
-                priority: 1,
-                icon: "📱",
+                priority: 1,                icon: "tablet",
                 urls: {
                     "en": "devices/iphone-viewport-sizes.html",
                     "zh": "devices/iphone-viewport-sizes.html"
@@ -948,7 +988,7 @@ function generateInternalLinks() {
                 id: "ipad-viewport-sizes",
                 category: "device-info",
                 priority: 2,
-                icon: "🖥️",
+                icon: "tablet",
                 urls: {
                     "en": "devices/ipad-viewport-sizes.html",
                     "zh": "devices/ipad-viewport-sizes.html"
@@ -960,7 +1000,7 @@ function generateInternalLinks() {
                 id: "android-viewport-sizes",
                 category: "device-info",
                 priority: 3,
-                icon: "🤖",
+                icon: "馃",
                 urls: {
                     "en": "devices/android-viewport-sizes.html",
                     "zh": "devices/android-viewport-sizes.html"
@@ -972,7 +1012,7 @@ function generateInternalLinks() {
                 id: "ppi-calculator",
                 category: "calculator",
                 priority: 1,
-                icon: "🔍",
+                icon: "馃攳",
                 urls: {
                     "en": "devices/ppi-calculator.html",
                     "zh": "devices/ppi-calculator.html"
@@ -984,7 +1024,7 @@ function generateInternalLinks() {
                 id: "aspect-ratio-calculator",
                 category: "calculator",
                 priority: 2,
-                icon: "📐",
+                icon: "馃搻",
                 urls: {
                     "en": "devices/aspect-ratio-calculator.html",
                     "zh": "devices/aspect-ratio-calculator.html"
@@ -996,7 +1036,7 @@ function generateInternalLinks() {
                 id: "compare",
                 category: "tools",
                 priority: 1,
-                icon: "🆚",
+                icon: "馃啔",
                 urls: {
                     "en": "devices/compare.html",
                     "zh": "devices/compare.html"
@@ -1008,7 +1048,7 @@ function generateInternalLinks() {
                 id: "standard-resolutions",
                 category: "reference",
                 priority: 1,
-                icon: "📊",
+                icon: "馃搳",
                 urls: {
                     "en": "devices/standard-resolutions.html",
                     "zh": "devices/standard-resolutions.html"
@@ -1020,7 +1060,7 @@ function generateInternalLinks() {
                 id: "responsive-tester",
                 category: "tools",
                 priority: 2,
-                icon: "📱",
+                icon: "馃摫",
                 urls: {
                     "en": "devices/responsive-tester.html",
                     "zh": "devices/responsive-tester.html"
@@ -1032,7 +1072,7 @@ function generateInternalLinks() {
                 id: "blog",
                 category: "content",
                 priority: 1,
-                icon: "📝",
+                icon: "馃摑",
                 urls: {
                     "en": "blog/index.html",
                     "zh": "blog/index.html"
@@ -1073,20 +1113,20 @@ function generateInternalLinks() {
         }
     };
 
-    // 检测当前语言
+    // 妫€娴嬪綋鍓嶈瑷€
     const currentLang = detectCurrentLanguage();
 
-    // 收集所有页面的链接
+    // 鏀堕泦鎵€鏈夐〉闈㈢殑閾炬帴
     for (const [pageKey, page] of Object.entries(INTERNAL_LINKS_CONFIG.pages)) {
-        // 跳过当前页面
+        // 璺宠繃褰撳墠椤甸潰
         if (page.id === currentPageId) {
             continue;
         }
 
-        // 获取适合当前语言的URL
+        // 鑾峰彇閫傚悎褰撳墠璇█鐨刄RL
         let url = page.urls[currentLang] || page.urls.en || Object.values(page.urls)[0];
 
-        // 根据当前页面路径调整相对路径
+        // 鏍规嵁褰撳墠椤甸潰璺緞璋冩暣鐩稿璺緞
         url = adjustRelativePath(url, currentPath);
 
         allLinks.push({
@@ -1096,14 +1136,14 @@ function generateInternalLinks() {
         });
     }
 
-    // 按优先级排序并限制数量
+    // Sort by priority and cap the result count.
     allLinks.sort((a, b) => (a.priority || 999) - (b.priority || 999));
 
     return allLinks.slice(0, INTERNAL_LINKS_CONFIG.display.maxTotal);
 }
 
 /**
- * 获取当前页面ID
+ * 鑾峰彇褰撳墠椤甸潰ID
  */
 function getCurrentPageId(path) {
     const pathParts = path.split('/').filter(part => part);
@@ -1123,8 +1163,7 @@ function getCurrentPageId(path) {
 }
 
 /**
- * 渲染内链到页面
- */
+ * 娓叉煋鍐呴摼鍒伴〉闈? */
 function renderInternalLinks(container, links) {
     if (!links || links.length === 0) {
         container.innerHTML = '<div class="no-links">No related resources available</div>';
@@ -1144,7 +1183,7 @@ function renderInternalLinks(container, links) {
 }
 
 /**
- * 创建内链卡片元素
+ * 鍒涘缓鍐呴摼鍗＄墖鍏冪礌
  */
 function createInternalLinkCard(link) {
     const template = document.getElementById('internal-link-template');
@@ -1176,14 +1215,14 @@ function createInternalLinkCard(link) {
 }
 
 /**
- * 创建默认链接卡片
+ * 鍒涘缓榛樿閾炬帴鍗＄墖
  */
 function createDefaultLinkCard() {
     const fragment = document.createDocumentFragment();
     const link = document.createElement('a');
     link.className = 'internal-link-card';
     link.innerHTML = `
-        <span class="link-icon" aria-hidden="true">📱</span>
+        <span class="link-icon" aria-hidden="true">馃摫</span>
         <div class="link-content">
             <span class="link-title"></span>
             <span class="link-description"></span>
@@ -1194,23 +1233,22 @@ function createDefaultLinkCard() {
 }
 
 /**
- * 获取链接图标
+ * 鑾峰彇閾炬帴鍥炬爣
  */
 function getLinkIcon(category) {
     const icons = {
-        'device-info': '📱',
-        'calculator': '🧮',
-        'tools': '🔧',
-        'reference': '📚',
-        'content': '📝'
+        'device-info': '馃摫',
+        'calculator': '馃М',
+        'tools': '馃敡',
+        'reference': '馃摎',
+        'content': '馃摑'
     };
 
-    return icons[category] || '🔗';
+    return icons[category] || '馃敆';
 }
 
 /**
- * 设置基础语言选择器
- */
+ * 璁剧疆鍩虹璇█閫夋嫨鍣? */
 function setupBasicLanguageSelector() {
     const languageModalTrigger = document.getElementById('language-modal-trigger');
     const languageModal = document.getElementById('language-modal');
@@ -1276,7 +1314,7 @@ function setupBasicLanguageSelector() {
 }
 
 /**
- * 更新视口显示
+ * 鏇存柊瑙嗗彛鏄剧ず
  */
 function updateViewportDisplay() {
     const viewportDisplay = document.getElementById('viewport-display');
@@ -1301,7 +1339,7 @@ function updateViewportDisplay() {
 }
 
 /**
- * 显示错误消息
+ * 鏄剧ず閿欒娑堟伅
  */
 function showErrorMessage() {
     const mainContent = document.querySelector('.main-content');
@@ -1309,15 +1347,15 @@ function showErrorMessage() {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.innerHTML = `
-            <h2>检测失败</h2>
-            <p>无法检测设备信息，请刷新页面重试。</p>
-            <button onclick="window.location.reload()">重试</button>
+            <h2>妫€娴嬪け璐?/h2>
+            <p>鏃犳硶妫€娴嬭澶囦俊鎭紝璇峰埛鏂伴〉闈㈤噸璇曘€?/p>
+            <button onclick="window.location.reload()">閲嶈瘯</button>
         `;
         mainContent.insertBefore(errorDiv, mainContent.firstChild);
     }
 }
 
-// ====== 自动初始化 ======
+// ====== 鑷姩鍒濆鍖?======
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
@@ -1332,30 +1370,29 @@ setTimeout(() => {
     }
 }, 100);
 
-// 监听i18next初始化完成事件，重新更新需要翻译的值
+// Refresh translated values after i18next initialization.
 document.addEventListener('i18nextInitialized', () => {
     console.log('i18next initialized, updating translated values...');
     
-    // 延迟执行，确保在 i18next 的 updateUIElements 之后
+    // 寤惰繜鎵ц锛岀‘淇濆湪 i18next 鐨?updateUIElements 涔嬪悗
     setTimeout(() => {
         if (deviceInfoCache) {
-            // 重新更新cookies和touch support状态
-            const cookiesStatus = deviceInfoCache.cookiesEnabled ? 
-                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : '是') : 
-                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : '否');
+            const cookiesStatus = deviceInfoCache.cookiesEnabled
+                ? (typeof i18next !== 'undefined' && i18next.t ? i18next.t('yes') : 'Yes')
+                : (typeof i18next !== 'undefined' && i18next.t ? i18next.t('no') : 'No');
             updateElementText('cookies-enabled', cookiesStatus);
-            
-            const touchStatus = deviceInfoCache.touchSupported ? 
-                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : '支持') : 
-                (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : '不支持');
+
+            const touchStatus = deviceInfoCache.touchSupported
+                ? (typeof i18next !== 'undefined' && i18next.t ? i18next.t('supported') : 'Supported')
+                : (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : 'Not supported');
             updateElementText('touch-support', touchStatus);
             
-            console.log('✅ Updated cookies and touch support after i18next');
+            console.log('鉁?Updated cookies and touch support after i18next');
         }
     }, 100);
 });
 
-// ====== 导出全局函数 ======
+// ====== 瀵煎嚭鍏ㄥ眬鍑芥暟 ======
 
 if (typeof window !== 'undefined') {
     window.toggleTheme = toggleTheme;
@@ -1371,9 +1408,9 @@ if (typeof window !== 'undefined') {
     window.calculateAspectRatio = calculateAspectRatio;
     window.debounce = debounce;
 
-    console.log('🌍 Core functions exposed to global scope for compatibility');
+    console.log('馃實 Core functions exposed to global scope for compatibility');
 }
 
 // Functions are already exposed to global scope for compatibility
 
-console.log('✅ core-optimized.js loaded successfully');
+console.log('鉁?core-optimized.js loaded successfully');
