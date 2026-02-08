@@ -1,25 +1,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Analytics - Defer loading -->
+<!-- Google Analytics - load async so short sessions are still tracked -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0YSSZGWMX"></script>
 <script>
-// Defer Google Analytics loading
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-X0YSSZGWMX';
-        document.head.appendChild(script);
-        
-        script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-X0YSSZGWMX');
-        };
-    }, 1000); // Delay 1 second after page load
-});
-
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0YSSZGWMX');
 </script>
 
 <!-- SEO Meta Tags -->
@@ -57,11 +46,18 @@ window.addEventListener('load', function() {
 <!-- Font Loading Optimization (downgrade to dns-prefetch to reduce early connections) -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
 
 <!-- Google Fonts - Typography System (T004) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google Ads - async without post-load delay for better fill on short visits -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868" crossorigin="anonymous"></script>
 
 <!-- Core Optimized CSS - Phase 1.2 Performance Optimization -->
 <!-- Merged 5 CSS files (main.css, mobile-performance.css, language-selector.css, internal-links.css, optimized-events.css) -->
@@ -381,20 +377,6 @@ window.addEventListener('load', function() {
         };
         document.head.appendChild(script);
     }, 1500); // Delay 1.5 seconds after page load
-});
-</script>
-
-<!-- Google Ads - Defer loading -->
-<script>
-// Defer Google Ads loading
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868';
-        script.crossOrigin = 'anonymous';
-        document.head.appendChild(script);
-    }, 2000); // Delay 2 seconds after page load
 });
 </script>
 
