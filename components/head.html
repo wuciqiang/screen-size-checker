@@ -1,4 +1,4 @@
-﻿<meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Analytics - load async so short sessions are still tracked -->
@@ -266,19 +266,19 @@ html, body {
 (function() {
     'use strict';
     
-    console.log('馃洝锔?Initializing fallback theme system...');
+    console.log('[THEME] Initializing fallback theme system...');
     
     // Initialize theme from localStorage or default to light
     function initializeTheme() {
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
-        console.log('馃帹 Fallback theme initialized:', savedTheme);
+        console.log('[THEME] Fallback theme initialized:', savedTheme);
     }
     
     // Apply theme to document
     function applyTheme(theme) {
-        console.log('馃帹 Fallback applying theme:', theme);
+        console.log('[THEME] Fallback applying theme:', theme);
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         updateThemeIcon(theme);
@@ -288,14 +288,14 @@ html, body {
             detail: { newTheme: theme }
         }));
         
-        console.log('鉁?Fallback theme applied successfully:', theme);
+        console.log('[THEME] Fallback theme applied successfully:', theme);
     }
     
     // Update theme icon
     function updateThemeIcon(theme) {
         const themeIcon = document.querySelector('.theme-icon');
         if (themeIcon) {
-            themeIcon.textContent = theme === 'light' ? '馃寵' : '鈽€锔?;
+            themeIcon.textContent = theme === 'light' ? 'L' : 'D';
         }
     }
     
@@ -303,7 +303,7 @@ html, body {
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        console.log('馃帹 Fallback toggling theme:', currentTheme, '->', newTheme);
+        console.log('[THEME] Fallback toggling theme:', currentTheme, '->', newTheme);
         applyTheme(newTheme);
     }
     
@@ -312,7 +312,7 @@ html, body {
     window.fallbackApplyTheme = applyTheme;
     window.fallbackInitializeTheme = initializeTheme;
     
-    console.log('鉁?Functions exposed to global scope');
+    console.log('[THEME] Functions exposed to global scope');
     console.log('fallbackToggleTheme type:', typeof window.fallbackToggleTheme);
     
     // Initialize theme immediately
@@ -322,21 +322,21 @@ html, body {
     function setupThemeToggle() {
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
-            console.log('鉁?Found theme toggle button, setting up fallback handler');
+            console.log('[THEME] Found theme toggle button, setting up fallback handler');
             
             // Add our fallback click handler with high priority
             themeToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('馃幆 Fallback theme toggle clicked');
+                console.log('[THEME] Fallback theme toggle clicked');
                 
                 // Always use fallback for reliability
                 toggleTheme();
             }, true); // Use capture phase for higher priority
             
-            console.log('鉁?Fallback theme toggle setup completed');
+            console.log('[THEME] Fallback theme toggle setup completed');
         } else {
-            console.warn('鈿狅笍 Theme toggle button not found, will retry...');
+            console.warn('[THEME] Theme toggle button not found, will retry...');
             setTimeout(setupThemeToggle, 100);
         }
     }
@@ -348,7 +348,7 @@ html, body {
         setupThemeToggle();
     }
     
-    console.log('馃洝锔?Fallback theme system initialized successfully');
+    console.log('[THEME] Fallback theme system initialized successfully');
 })();
 </script>
 
@@ -388,6 +388,7 @@ window.addEventListener('load', function() {
 
 <!-- FAQ Structured Data (for responsive-tester page) -->
 {{faq_structured_data}} 
+
 
 
 

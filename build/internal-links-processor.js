@@ -20,13 +20,13 @@ class InternalLinksProcessor {
             if (fs.existsSync(this.configPath)) {
                 const configContent = fs.readFileSync(this.configPath, 'utf8');
                 this.config = JSON.parse(configContent);
-                console.log('✅ Internal links config loaded');
+                console.log(' Internal links config loaded');
             } else {
-                console.warn('⚠️  Internal links config not found:', this.configPath);
+                console.warn('  Internal links config not found:', this.configPath);
                 this.config = null;
             }
         } catch (error) {
-            console.error('❌ Error loading internal links config:', error.message);
+            console.error(' Error loading internal links config:', error.message);
             this.config = null;
         }
     }
@@ -173,7 +173,7 @@ class InternalLinksProcessor {
      */
     processPageLinks(html, pageId, language = 'zh') {
         if (!this.config) {
-            console.warn('⚠️  Internal links config not available, skipping link processing');
+            console.warn('  Internal links config not available, skipping link processing');
             return html;
         }
 
@@ -203,7 +203,7 @@ window.CURRENT_LANGUAGE = '${language}';
             html = html.replace('<body>', `<body>\n${configScript}`);
         }
 
-        console.log(`✅ Processed internal links for page: ${pageId} (${language})`);
+        console.log(` Processed internal links for page: ${pageId} (${language})`);
         return html;
     }
 
@@ -256,18 +256,18 @@ window.CURRENT_LANGUAGE = '${language}';
      * 运行完整的内链处理流程
      */
     process(translations) {
-        console.log('\n🔗 Processing internal links...');
+        console.log('\n Processing internal links...');
 
         // 验证配置
         const configValidation = this.validateConfig();
         if (!configValidation.valid) {
-            console.error('❌ Internal links config validation failed:');
+            console.error(' Internal links config validation failed:');
             configValidation.errors.forEach(error => console.error(`   - ${error}`));
             return { success: false, errors: configValidation.errors };
         }
 
         if (configValidation.warnings.length > 0) {
-            console.warn('⚠️  Internal links config warnings:');
+            console.warn('  Internal links config warnings:');
             configValidation.warnings.forEach(warning => console.warn(`   - ${warning}`));
         }
 
@@ -275,7 +275,7 @@ window.CURRENT_LANGUAGE = '${language}';
         if (translations) {
             const translationValidation = this.validateTranslationKeys(translations);
             if (!translationValidation.valid) {
-                console.warn('⚠️  Internal links translation validation warnings:');
+                console.warn('  Internal links translation validation warnings:');
                 translationValidation.missingKeys.forEach(key => console.warn(`   - ${key}`));
             }
         }
@@ -285,10 +285,10 @@ window.CURRENT_LANGUAGE = '${language}';
         if (report) {
             const reportPath = path.join(this.rootPath, 'build', 'internal-links-report.json');
             fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-            console.log(`📊 Internal links report saved to: ${reportPath}`);
+            console.log(` Internal links report saved to: ${reportPath}`);
         }
 
-        console.log('✅ Internal links processing completed');
+        console.log(' Internal links processing completed');
         return { success: true, report };
     }
 }

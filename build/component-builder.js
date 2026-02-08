@@ -189,7 +189,7 @@ class ComponentBuilder {
     
     // 测试构建 - 生成测试页面但不替换现有文件
     testBuild() {
-        console.log('\n🔧 Starting test build...');
+        console.log('\n Starting test build...');
         
         // 测试主页构建
         const indexData = {
@@ -253,19 +253,19 @@ class ComponentBuilder {
             
             // 写入测试文件
             fs.writeFileSync(path.join(testDir, 'index.html'), html);
-            console.log('✅ Test build completed successfully!');
-            console.log('📁 Test file created: test-build/index.html');
+            console.log(' Test build completed successfully!');
+            console.log(' Test file created: test-build/index.html');
             
             return true;
         } catch (error) {
-            console.error('❌ Test build failed:', error.message);
+            console.error(' Test build failed:', error.message);
             return false;
         }
     }
     
     // 验证组件完整性
     validateComponents() {
-        console.log('\n🔍 Validating components...');
+        console.log('\n Validating components...');
         
         const requiredComponents = ['head', 'header', 'footer', 'toast'];
         const missingComponents = [];
@@ -277,17 +277,17 @@ class ComponentBuilder {
         });
         
         if (missingComponents.length > 0) {
-            console.error(`❌ Missing components: ${missingComponents.join(', ')}`);
+            console.error(` Missing components: ${missingComponents.join(', ')}`);
             return false;
         }
         
-        console.log(`✅ All components validated (${this.components.size} total)`);
+        console.log(` All components validated (${this.components.size} total)`);
         return true;
     }
     
     // 批量构建所有页面
     buildAllPages() {
-        console.log('\n🏗️ Starting batch build...');
+        console.log('\n Starting batch build...');
         
         try {
             // 读取页面配置
@@ -312,7 +312,7 @@ class ComponentBuilder {
             // 构建每个页面
             for (const page of config.pages) {
                 try {
-                    console.log(`\n📄 Building page: ${page.name}`);
+                    console.log(`\n Building page: ${page.name}`);
                     
                     // 合并页面数据
                     const pageData = {
@@ -328,22 +328,22 @@ class ComponentBuilder {
                     const outputPath = path.join(testDir, page.output);
                     fs.writeFileSync(outputPath, html);
                     
-                    console.log(`✅ Successfully built: ${page.output}`);
+                    console.log(` Successfully built: ${page.output}`);
                     successCount++;
                     
                 } catch (error) {
-                    console.error(`❌ Failed to build ${page.name}:`, error.message);
+                    console.error(` Failed to build ${page.name}:`, error.message);
                 }
             }
             
-            console.log(`\n📊 Batch build completed:`);
-            console.log(`✅ Successful: ${successCount}/${totalCount} pages`);
-            console.log(`📁 Output directory: test-build/`);
+            console.log(`\n Batch build completed:`);
+            console.log(` Successful: ${successCount}/${totalCount} pages`);
+            console.log(` Output directory: test-build/`);
             
             return successCount === totalCount;
             
         } catch (error) {
-            console.error('❌ Batch build failed:', error.message);
+            console.error(' Batch build failed:', error.message);
             return false;
         }
     }

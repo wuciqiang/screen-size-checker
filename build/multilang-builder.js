@@ -12,25 +12,25 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
-        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 当前启用的语言：英文、中文、德语、西班牙语
+        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 褰撳墠鍚敤鐨勮瑷€锛氳嫳鏂囥€佷腑鏂囥€佸痉璇€佽タ鐝墮璇?
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
         
-        // 语言名称映射
+        // 璇█鍚嶇О鏄犲皠
         this.languageNames = {
             'en': 'English',
-            'zh': '中文',
+            'zh': 'Chinese',
             'de': 'Deutsch',
-            'es': 'Español',
-            'fr': 'Français',
+            'es': 'Espanol',
+            'fr': 'Francais',
             'it': 'Italiano',
-            'ja': '日本語',
-            'ko': '한국어',
-            'pt': 'Português',
-            'ru': 'Русский'
+            'ja': 'Japanese',
+            'ko': 'Korean',
+            'pt': 'Portugues',
+            'ru': 'Russian'
         };
         
-        // 语言代码大写映射（用于UI显示）
+        // 璇█浠ｇ爜澶у啓鏄犲皠锛堢敤浜嶶I鏄剧ず锛?
         this.languageCodes = {
             'en': 'EN',
             'zh': 'ZH',
@@ -48,7 +48,7 @@ class MultiLangBuilder extends ComponentBuilder {
     }
     
     loadTranslations() {
-        console.log('\n🌍 Loading translations...');
+        console.log('\n Loading translations...');
         
         this.supportedLanguages.forEach(lang => {
             try {
@@ -56,17 +56,17 @@ class MultiLangBuilder extends ComponentBuilder {
                 if (fs.existsSync(translationPath)) {
                     const translations = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
                     this.translations.set(lang, translations);
-                    console.log(`✅ Loaded ${lang} translations (${Object.keys(translations).length} keys)`);
+                    console.log(`[OK] Loaded ${lang} translations (${Object.keys(translations).length} keys)`);
                 } else {
-                    console.warn(`⚠️  Translation file not found: ${translationPath}`);
+                    console.warn(`  Translation file not found: ${translationPath}`);
                 }
             } catch (error) {
-                console.error(`❌ Error loading ${lang} translations:`, error.message);
+                console.error(`[ERROR] Error loading ${lang} translations:`, error.message);
             }
         });
     }
     
-    // 获取嵌套的翻译值，支持如 "ppiCalculator.pageTitle" 这样的键
+    // 鑾峰彇宓屽鐨勭炕璇戝€硷紝鏀寔濡?"ppiCalculator.pageTitle" 杩欐牱鐨勯敭
     getNestedTranslation(translations, key) {
         if (!key || !translations) return null;
 
@@ -84,63 +84,63 @@ class MultiLangBuilder extends ComponentBuilder {
         return typeof current === 'string' ? current : null;
     }
 
-    // 统一的博客URL生成函数 - 一劳永逸的解决方案
+    // 缁熶竴鐨勫崥瀹RL鐢熸垚鍑芥暟 - 涓€鍔虫案閫哥殑瑙ｅ喅鏂规
     generateBlogUrl(depth, lang, isRootPage = false) {
-        console.log(`🔗 Generating blog URL: depth=${depth}, lang=${lang}, isRootPage=${isRootPage}`);
+        console.log(` Generating blog URL: depth=${depth}, lang=${lang}, isRootPage=${isRootPage}`);
 
-        // 英文（默认语言）在根路径，其他语言在语言子目录
+        // 鑻辨枃锛堥粯璁よ瑷€锛夊湪鏍硅矾寰勶紝鍏朵粬璇█鍦ㄨ瑷€瀛愮洰褰?
         const isDefaultLang = lang === this.defaultLanguage;
 
         if (depth === 0) {
-            // 在根目录或语言根目录
+            // 鍦ㄦ牴鐩綍鎴栬瑷€鏍圭洰褰?
             if (isDefaultLang) {
                 return 'blog/';
             } else {
                 return 'blog/';
             }
         } else {
-            // 在子目录中，需要回到根目录
+            // 鍦ㄥ瓙鐩綍涓紝闇€瑕佸洖鍒版牴鐩綍
             const backToRoot = '../'.repeat(depth);
             if (isDefaultLang) {
-                // 英文：回到根路径后进入 blog/
+                // 鑻辨枃锛氬洖鍒版牴璺緞鍚庤繘鍏?blog/
                 return `${backToRoot}blog/`;
             } else {
-                // 其他语言：回到根路径后进入语言目录再进入 blog/
-                // 但实际上现在已经在语言子目录中了，所以只需要回到语言根
+                // 鍏朵粬璇█锛氬洖鍒版牴璺緞鍚庤繘鍏ヨ瑷€鐩綍鍐嶈繘鍏?blog/
+                // 浣嗗疄闄呬笂鐜板湪宸茬粡鍦ㄨ瑷€瀛愮洰褰曚腑浜嗭紝鎵€浠ュ彧闇€瑕佸洖鍒拌瑷€鏍?
                 return `${backToRoot}blog/`;
             }
         }
     }
     
-    // 处理翻译替换
+    // 澶勭悊缈昏瘧鏇挎崲
     translateContent(content, translations) {
         if (!translations) return content;
         
-        // 修复meta description标签的HTML结构错误
+        // 淇meta description鏍囩鐨凥TML缁撴瀯閿欒
         let result = content;
         
-        // 查找并修复破坏的meta description标签
+        // 鏌ユ壘骞朵慨澶嶇牬鍧忕殑meta description鏍囩
         result = result.replace(/<meta\s+name="description"[^>]*content="([^"]*)"[^>]*>([^<]*?)<meta\s+name="keywords"/g, (match, contentValue, extraText) => {
-            console.log('🔧 Fixing broken meta description tag');
+            console.log(' Fixing broken meta description tag');
             if (extraText.trim()) {
-                console.log('📝 Removing extra text:', extraText.trim());
+                console.log(' Removing extra text:', extraText.trim());
             }
-            return `<meta name="description" data-i18n="description" content="${contentValue}">
+            return `<meta name="description" content="${contentValue}">
 <meta name="keywords"`;
         });
         
-        // 替换 data-i18n 属性对应的文本内容（处理标签内容）
+        // 鏇挎崲 data-i18n 灞炴€у搴旂殑鏂囨湰鍐呭锛堝鐞嗘爣绛惧唴瀹癸級
         result = result.replace(/data-i18n="([^"]+)"[^>]*>([^<]*)</g, (match, key, originalText) => {
-            // 特殊处理：如果是title标签，完全跳过翻译处理，保持页面特定的标题
+            // 鐗规畩澶勭悊锛氬鏋滄槸title鏍囩锛屽畬鍏ㄨ烦杩囩炕璇戝鐞嗭紝淇濇寔椤甸潰鐗瑰畾鐨勬爣棰?
             if (key === 'title') {
-                // 检查是否是title标签
+                // 妫€鏌ユ槸鍚︽槸title鏍囩
                 const beforeMatch = result.substring(0, result.indexOf(match));
                 const lastTitleIndex = beforeMatch.lastIndexOf('<title');
                 const lastCloseTitleIndex = beforeMatch.lastIndexOf('</title>');
                 
-                // 如果最近的<title标签在最近的</title>标签之后，说明这是title标签内容
+                // 濡傛灉鏈€杩戠殑<title鏍囩鍦ㄦ渶杩戠殑</title>鏍囩涔嬪悗锛岃鏄庤繖鏄痶itle鏍囩鍐呭
                 if (lastTitleIndex > lastCloseTitleIndex) {
-                    console.log(`  🚫 Skipping title translation for: "${originalText}"`);
+                    console.log(`   Skipping title translation for: "${originalText}"`);
                     return match;
                 }
             }
@@ -152,7 +152,7 @@ class MultiLangBuilder extends ComponentBuilder {
             return match;
         });
         
-        // 替换模板变量如 {{t:key}}
+        // 鏇挎崲妯℃澘鍙橀噺濡?{{t:key}}
         result = result.replace(/\{\{t:(\w+)\}\}/g, (match, key) => {
             return this.getNestedTranslation(translations, key) || match;
         });
@@ -160,9 +160,9 @@ class MultiLangBuilder extends ComponentBuilder {
         return result;
     }
     
-    // 运行翻译验证
+    // 杩愯缈昏瘧楠岃瘉
     async runTranslationValidation() {
-        console.log('\n🔍 Validating translations...');
+        console.log('\n Validating translations...');
         
         try {
             const validator = new TranslationValidator();
@@ -174,37 +174,37 @@ class MultiLangBuilder extends ComponentBuilder {
             });
             
             if (!result.success) {
-                console.error('❌ Translation validation failed:', result.error);
+                console.error('[ERROR] Translation validation failed:', result.error);
                 return { success: false, error: result.error };
             }
             
             if (result.hasErrors) {
-                console.warn('⚠️  Translation validation found issues, but continuing build...');
+                console.warn('  Translation validation found issues, but continuing build...');
                 console.warn(`   Missing translations: ${result.report.summary.missingTranslations}`);
                 console.warn(`   Inconsistent keys: ${result.report.summary.inconsistentKeys}`);
             } else {
-                console.log('✅ Translation validation passed');
+                console.log('[OK] Translation validation passed');
             }
             
             return result;
             
         } catch (error) {
-            console.error('❌ Translation validation error:', error);
+            console.error('[ERROR] Translation validation error:', error);
             return { success: false, error: error.message };
         }
     }
 
-    // 获取输出路径（英文输出到根目录，其他语言输出到对应目录）
+    // 鑾峰彇杈撳嚭璺緞锛堣嫳鏂囪緭鍑哄埌鏍圭洰褰曪紝鍏朵粬璇█杈撳嚭鍒板搴旂洰褰曪級
     getOutputPath(pageOutput, lang) {
         if (lang === this.defaultLanguage) {
-            // 英文输出到根目录
+            // 鑻辨枃杈撳嚭鍒版牴鐩綍
             return pageOutput;
         }
-        // 其他语言输出到语言子目录
+        // 鍏朵粬璇█杈撳嚭鍒拌瑷€瀛愮洰褰?
         return path.join(lang, pageOutput);
     }
     
-    // 获取URL路径（英文无前缀，其他语言有前缀）
+    // 鑾峰彇URL璺緞锛堣嫳鏂囨棤鍓嶇紑锛屽叾浠栬瑷€鏈夊墠缂€锛?
     getUrlPath(pagePath, lang) {
         if (lang === this.defaultLanguage) {
             return `/${pagePath.replace('.html', '')}`;
@@ -212,18 +212,18 @@ class MultiLangBuilder extends ComponentBuilder {
         return `/${lang}/${pagePath.replace('.html', '')}`;
     }
     
-    // 生成多语言页面
+    // 鐢熸垚澶氳瑷€椤甸潰
     buildMultiLangPages() {
-        console.log('\n🌐 Building multilingual pages...');
-        console.log('📝 URL结构变更：英文输出到根目录，其他语言保持语言前缀');
+        console.log('\n Building multilingual pages...');
+        console.log(' URL');
         
-        // 处理内链配置
+        // 澶勭悊鍐呴摼閰嶇疆
         const internalLinksResult = this.internalLinksProcessor.process(this.translations);
         if (!internalLinksResult.success) {
-            console.error('❌ Internal links processing failed, continuing with build...');
+            console.error('[ERROR] Internal links processing failed, continuing with build...');
         }
         
-        // 使用类属性中定义的启用语言
+        // 浣跨敤绫诲睘鎬т腑瀹氫箟鐨勫惎鐢ㄨ瑷€
         const enabledLanguages = this.enabledLanguages;
         
         const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
@@ -237,65 +237,65 @@ class MultiLangBuilder extends ComponentBuilder {
             summary: {}
         };
 
-        // 确保构建目录存在 - 完全清除并重新创建
+        // 纭繚鏋勫缓鐩綍瀛樺湪 - 瀹屽叏娓呴櫎骞堕噸鏂板垱寤?
         const outputDir = 'multilang-build';
         if (fs.existsSync(outputDir)) {
-            // 删除整个目录 - 使用递归删除
+            // 鍒犻櫎鏁翠釜鐩綍 - 浣跨敤閫掑綊鍒犻櫎
             try {
                 fs.rmSync(outputDir, { recursive: true, force: true });
-                console.log('✅ Cleared existing build directory');
+                console.log('[OK] Cleared existing build directory');
             } catch (error) {
-                console.warn('⚠️  Warning: Could not remove existing directory:', error.message);
+                console.warn('  Warning: Could not remove existing directory:', error.message);
             }
         }
         fs.mkdirSync(outputDir, { recursive: true });
 
-        // 为每种启用的语言构建页面
+        // 涓烘瘡绉嶅惎鐢ㄧ殑璇█鏋勫缓椤甸潰
         for (const lang of enabledLanguages) {
-            console.log(`\n📝 Building pages for language: ${lang.toUpperCase()}`);
+            console.log(`\n Building pages for language: ${lang.toUpperCase()}`);
             
-            // 英文输出到根目录，其他语言输出到语言子目录
+            // 鑻辨枃杈撳嚭鍒版牴鐩綍锛屽叾浠栬瑷€杈撳嚭鍒拌瑷€瀛愮洰褰?
             const langDir = lang === this.defaultLanguage ? outputDir : path.join(outputDir, lang);
             fs.mkdirSync(langDir, { recursive: true });
             
             if (lang === this.defaultLanguage) {
-                console.log(`   ℹ️  English pages will be built at root directory`);
+                console.log(`     English pages will be built at root directory`);
             } else {
-                console.log(`   ℹ️  ${lang.toUpperCase()} pages will be built at /${lang}/ directory`);
+                console.log(`     ${lang.toUpperCase()} pages will be built at /${lang}/ directory`);
             }
 
-            // 加载该语言的翻译文件
+            // 鍔犺浇璇ヨ瑷€鐨勭炕璇戞枃浠?
             const translationPath = path.join('locales', lang, 'translation.json');
             let translations = {};
             
             try {
                 translations = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
-                console.log(`  ✅ Loaded translations for ${lang}`);
+                console.log(`[OK] Loaded translations for ${lang}`);
             } catch (error) {
-                console.warn(`  ⚠️  Warning: Could not load translations for ${lang}:`, error.message);
-                continue; // 跳过没有翻译文件的语言
+                console.warn(`    Warning: Could not load translations for ${lang}:`, error.message);
+                continue; // 璺宠繃娌℃湁缈昏瘧鏂囦欢鐨勮瑷€
             }
 
             buildReport.pages[lang] = [];
             
-            // 为该语言创建必要的子目录
+            // 涓鸿璇█鍒涘缓蹇呰鐨勫瓙鐩綍
             const deviceDir = path.join(langDir, 'devices');
             fs.mkdirSync(deviceDir, { recursive: true });
             
-            // 构建该语言的所有页面
+            // 鏋勫缓璇ヨ瑷€鐨勬墍鏈夐〉闈?
             for (const page of config.pages) {
-                // 检查页面是否限制了特定语言
+                // 妫€鏌ラ〉闈㈡槸鍚﹂檺鍒朵簡鐗瑰畾璇█
                 if (page.enabled_languages && !page.enabled_languages.includes(lang)) {
-                    continue; // 跳过不适用于当前语言的页面
+                    continue; // 璺宠繃涓嶉€傜敤浜庡綋鍓嶈瑷€鐨勯〉闈?
                 }
                 
                 totalPages++;
                 
                 try {
                     const outputPath = this.getOutputPath(page.output, lang);
-                    console.log(`  📄 Building ${outputPath}`);
+                    console.log(`   Building ${outputPath}`);
                     
-                    // 准备页面数据并调整路径
+                    // 鍑嗗椤甸潰鏁版嵁骞惰皟鏁磋矾寰?
                     const pageData = {
                         lang: lang,
                         lang_prefix: lang === this.defaultLanguage ? '' : `/${lang}`,
@@ -304,19 +304,19 @@ class MultiLangBuilder extends ComponentBuilder {
                         ...page.config
                     };
                     
-                    // 添加导航状态标识
+                    // 娣诲姞瀵艰埅鐘舵€佹爣璇?
                     const pagePath = page.path || page.config.path || outputPath || '';
                     
                     pageData.is_home = pagePath === 'index.html' || pagePath === '';
                     pageData.is_blog = pagePath.includes('blog/') || pagePath.startsWith('blog');
                     
-                    // 如果页面配置中已经设置了导航状态，使用配置的值
+                    // 濡傛灉椤甸潰閰嶇疆涓凡缁忚缃簡瀵艰埅鐘舵€侊紝浣跨敤閰嶇疆鐨勫€?
                     if (typeof page.config.is_gaming !== 'undefined') {
                         pageData.is_gaming = page.config.is_gaming;
                         pageData.is_tools = page.config.is_tools || false;
                         pageData.is_devices = page.config.is_devices || false;
                     } else {
-                        // 区分 Tools 和 Devices（排除hub页面）
+                        // 鍖哄垎 Tools 鍜?Devices锛堟帓闄ub椤甸潰锛?
                         const isHubPage = pagePath.includes('hub/');
                         const isToolPage = !isHubPage && (pagePath.includes('calculator') || 
                             pagePath.includes('compare') || 
@@ -331,21 +331,21 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.is_gaming = false;
                     }
                     
-                    // 从翻译文件中获取页面特定的翻译值
+                    // 浠庣炕璇戞枃浠朵腑鑾峰彇椤甸潰鐗瑰畾鐨勭炕璇戝€?
                     if (pageData.page_title_key) {
-                        // 支持嵌套的翻译键，如 "ppiCalculator.pageTitle"
+                        // 鏀寔宓屽鐨勭炕璇戦敭锛屽 "ppiCalculator.pageTitle"
                         const translationValue = this.getNestedTranslation(translations, pageData.page_title_key);
                         if (translationValue) {
                             pageData.page_title = translationValue;
                         } else {
-                            // 如果没有找到翻译，使用默认的og_title
+                            // 濡傛灉娌℃湁鎵惧埌缈昏瘧锛屼娇鐢ㄩ粯璁ょ殑og_title
                             pageData.page_title = pageData.og_title || 'Screen Size Checker';
                         }
                     } else {
                         pageData.page_title = pageData.og_title || 'Screen Size Checker';
                     }
                     
-                    // 确保title变量也被设置（用于head.html组件）
+                    // 纭繚title鍙橀噺涔熻璁剧疆锛堢敤浜巋ead.html缁勪欢锛?
                     pageData.title = pageData.page_title;
                     if (pageData.page_heading_key) {
                         const headingValue = this.getNestedTranslation(translations, pageData.page_heading_key);
@@ -359,7 +359,7 @@ class MultiLangBuilder extends ComponentBuilder {
                             pageData.page_intro = introValue;
                         }
                     }
-                    // 修正description注入逻辑，支持嵌套翻译键
+                    // 淇description娉ㄥ叆閫昏緫锛屾敮鎸佸祵濂楃炕璇戦敭
                     if (translations['description']) {
                         pageData.description = translations['description'];
                     } else if (pageData.page_description_key) {
@@ -373,26 +373,26 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.description = pageData.og_description || '';
                     }
                     
-                    // 调整静态资源路径
+                    // 璋冩暣闈欐€佽祫婧愯矾寰?
                     const depth = page.output.split('/').length - 1;
-                    // 定义 prefix 用于后续路径计算
+                    // 瀹氫箟 prefix 鐢ㄤ簬鍚庣画璺緞璁＄畻
                     const prefix = depth > 0 ? '../'.repeat(depth) : '';
                     
                     if (lang === this.defaultLanguage) {
-                        // 英文在根目录
+                        // 鑻辨枃鍦ㄦ牴鐩綍
                         if (depth === 0) {
-                            // 根目录主页
+                            // 鏍圭洰褰曚富椤?
                             pageData.css_path = 'css';
                             pageData.locales_path = 'locales';
                             pageData.js_path = 'js';
                         } else {
-                            // 子目录页面
+                            // 瀛愮洰褰曢〉闈?
                             pageData.css_path = prefix + 'css';
                             pageData.locales_path = prefix + 'locales';
                             pageData.js_path = prefix + 'js';
                         }
                     } else {
-                        // 其他语言在语言子目录
+                        // 鍏朵粬璇█鍦ㄨ瑷€瀛愮洰褰?
                         if (depth === 0) {
                             pageData.css_path = '../css';
                             pageData.locales_path = '../locales';
@@ -405,13 +405,13 @@ class MultiLangBuilder extends ComponentBuilder {
                         }
                     }
                     
-                    // 更新相对链接路径
+                    // 鏇存柊鐩稿閾炬帴璺緞
                     if (pageData.home_url) {
                         if (lang === this.defaultLanguage) {
-                            // 英文：回到根目录
+                            // 鑻辨枃锛氬洖鍒版牴鐩綍
                             pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         } else {
-                            // 其他语言：回到语言根目录
+                            // 鍏朵粬璇█锛氬洖鍒拌瑷€鏍圭洰褰?
                             pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         }
                     }
@@ -422,13 +422,13 @@ class MultiLangBuilder extends ComponentBuilder {
                             : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
                     }
                     
-                    // 修复博客URL
+                    // 淇鍗氬URL
                     if (pageData.blog_url) {
                         if (lang === this.defaultLanguage) {
-                            // 英文博客在根目录 /blog/
+                            // 鑻辨枃鍗氬鍦ㄦ牴鐩綍 /blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         } else {
-                            // 其他语言博客在各自的语言目录下 /zh/blog/, /de/blog/, /es/blog/
+                            // 鍏朵粬璇█鍗氬鍦ㄥ悇鑷殑璇█鐩綍涓?/zh/blog/, /de/blog/, /es/blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         }
                     }
@@ -439,13 +439,13 @@ class MultiLangBuilder extends ComponentBuilder {
                             : prefix + pageData.privacy_policy_url;
                     }
                     
-                    // 更新语言相关的URL和路径
+                    // 鏇存柊璇█鐩稿叧鐨刄RL鍜岃矾寰?
                     if (lang === this.defaultLanguage) {
-                        // 英文URL不需要语言前缀
-                        // 确保不包含 /en/ 前缀
+                        // 鑻辨枃URL涓嶉渶瑕佽瑷€鍓嶇紑
+                        // 纭繚涓嶅寘鍚?/en/ 鍓嶇紑
                         pageData.canonical_url = pageData.canonical_url.replace('/en/', '/');
                     } else {
-                        // 其他语言需要语言前缀
+                        // 鍏朵粬璇█闇€瑕佽瑷€鍓嶇紑
                         if (!pageData.canonical_url.includes(`/${lang}/`)) {
                             pageData.canonical_url = pageData.canonical_url.replace(
                                 'https://screensizechecker.com/',
@@ -454,20 +454,20 @@ class MultiLangBuilder extends ComponentBuilder {
                         }
                     }
                     
-                    // 移除.html后缀以匹配Cloudflare Pages的URL格式
+                    // 绉婚櫎.html鍚庣紑浠ュ尮閰岰loudflare Pages鐨刄RL鏍煎紡
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                     pageData.og_url = pageData.canonical_url;
                     
-                    // 更新Open Graph数据以使用翻译后的内容
+                    // 鏇存柊Open Graph鏁版嵁浠ヤ娇鐢ㄧ炕璇戝悗鐨勫唴瀹?
                     pageData.og_title = pageData.page_title || pageData.og_title;
                     pageData.og_description = pageData.description || pageData.og_description;
 
-                    // 设置og:image - 使用页面特定图片或默认分享图
+                    // 璁剧疆og:image - 浣跨敤椤甸潰鐗瑰畾鍥剧墖鎴栭粯璁ゅ垎浜浘
                     if (!pageData.og_image) {
                         pageData.og_image = 'https://screensizechecker.com/images/og-default.png';
                     }
 
-                    // 设置og:locale
+                    // 璁剧疆og:locale
                     const localeMap = {
                         'en': 'en_US',
                         'zh': 'zh_CN',
@@ -476,10 +476,10 @@ class MultiLangBuilder extends ComponentBuilder {
                     };
                     pageData.og_locale = localeMap[lang] || 'en_US';
                     
-                    // 添加hreflang相关数据
+                    // 娣诲姞hreflang鐩稿叧鏁版嵁
                     pageData.base_url = 'https://screensizechecker.com';
                     
-                    // 计算页面路径（不包含语言前缀）
+                    // 璁＄畻椤甸潰璺緞锛堜笉鍖呭惈璇█鍓嶇紑锛?
                     if (lang === this.defaultLanguage) {
                         pageData.page_path = pageData.canonical_url.replace('https://screensizechecker.com', '');
                     } else {
@@ -489,64 +489,60 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.page_path = '/';
                     }
                     
-                    // 为hreflang标签设置正确的URL
-                    // 如果页面配置中已有hreflang URL（如博客标签页的跨语言映射），则保留
-                    // 否则基于page_path计算
+                    // 涓篽reflang鏍囩璁剧疆姝ｇ‘鐨刄RL
+                    // 濡傛灉椤甸潰閰嶇疆涓凡鏈塰reflang URL锛堝鍗氬鏍囩椤电殑璺ㄨ瑷€鏄犲皠锛夛紝鍒欎繚鐣?
+                    // 鍚﹀垯鍩轰簬page_path璁＄畻
                     if (!pageData.hreflang_en_url) {
-                        // x-default 和英文版本都指向根路径（无 /en/ 前缀）
+                        // x-default 鍜岃嫳鏂囩増鏈兘鎸囧悜鏍硅矾寰勶紙鏃?/en/ 鍓嶇紑锛?
                         pageData.hreflang_root_url = pageData.page_path === '/' ?
                             'https://screensizechecker.com/' :
                             `https://screensizechecker.com${pageData.page_path}`;
 
                         pageData.hreflang_en_url = pageData.hreflang_root_url;
 
-                        // 中文版本
+                        // 涓枃鐗堟湰
                         pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
 
-                        // 德语版本
+                        // 寰疯鐗堟湰
                         pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
 
-                        // 西语版本
+                        // 瑗胯鐗堟湰
                         pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
                     }
                     
-                    // 添加结构化数据
+                    // 娣诲姞缁撴瀯鍖栨暟鎹?
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
                     
-                    // 为responsive-tester页面添加FAQ结构化数据
-                    if (page.name === 'responsive-tester') {
-                        pageData.faq_structured_data = this.generateFAQStructuredData(lang);
-                    } else {
-                        pageData.faq_structured_data = '';
-                    }
+                    // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+                    pageData.faq_structured_data = this.generateFAQStructuredDataForPage(page.name, lang);
                     
-                    // 构建HTML
+                    // 鏋勫缓HTML
                     let html = this.buildPage(page.template, pageData);
                     
-                    // 应用翻译
+                    // 搴旂敤缈昏瘧
                     html = this.translateContent(html, translations);
                     
-                    // 处理内链
+                    // 澶勭悊鍐呴摼
                     html = this.internalLinksProcessor.processPageLinks(html, page.name, lang);
                     
-                    // 修复HTML结构错误 - 移除meta标签后的重复文字
+                    // 淇HTML缁撴瀯閿欒 - 绉婚櫎meta鏍囩鍚庣殑閲嶅鏂囧瓧
                     html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {
                         if (extraText && extraText.trim()) {
-                            console.log('📝 Fixed meta description duplicate text');
-                            return `<meta name="description" data-i18n="description" content="${contentValue}">
+                            console.log(' Fixed meta description duplicate text');
+                            return `<meta name="description" content="${contentValue}">
 <meta name="keywords"`;
                         }
                         return match;
                     });
                     
-                    // 更新HTML lang属性
+                    // 鏇存柊HTML lang灞炴€?
                     html = html.replace('<html lang="en">', `<html lang="${lang}">`);
                     
-                    // 修复静态资源路径
+                    // 淇闈欐€佽祫婧愯矾寰?
                     const fullOutputPath = lang === this.defaultLanguage ? page.output : path.join(lang, page.output);
                     html = this.fixStaticResourcePaths(html, fullOutputPath);
                     
-                    // 写入文件
+                    // 鍐欏叆鏂囦欢
                     const finalOutputPath = path.join(langDir, page.output);
                     const outputDirPath = path.dirname(finalOutputPath);
                     
@@ -557,7 +553,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     fs.writeFileSync(finalOutputPath, html);
                     
                     const displayPath = lang === this.defaultLanguage ? page.output : `${lang}/${page.output}`;
-                    console.log(`  ✅ Built: ${displayPath}`);
+                    console.log(`[OK] Built: ${displayPath}`);
                     successfulBuilds++;
                     
                     buildReport.pages[lang].push({
@@ -568,7 +564,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     });
                     
                 } catch (error) {
-                    console.error(`  ❌ Failed to build ${lang}/${page.output}:`, error.message);
+                    console.error(`[ERROR] Failed to build ${lang}/${page.output}:`, error.message);
                     
                     buildReport.pages[lang].push({
                         name: page.name,
@@ -580,7 +576,7 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         }
 
-        // 更新 supportedLanguages 只包含启用的语言
+        // 鏇存柊 supportedLanguages 鍙寘鍚惎鐢ㄧ殑璇█
         this.supportedLanguages = enabledLanguages;
 
         buildReport.summary = {
@@ -590,40 +586,40 @@ class MultiLangBuilder extends ComponentBuilder {
             enabledOnly: true
         };
 
-        console.log(`\n📊 Build Summary:`);
+        console.log(`\n Build Summary:`);
         console.log(`   Languages: ${enabledLanguages.length} (enabled only)`);
-        console.log(`   📄 Total pages: ${totalPages}`);
-        console.log(`   ✅ Successful: ${successfulBuilds}/${totalPages}`);
-        console.log(`   ❌ Failed: ${totalPages - successfulBuilds}/${totalPages}`);
+        console.log(`    Total pages: ${totalPages}`);
+        console.log(`[OK] Successful: ${successfulBuilds}/${totalPages}`);
+        console.log(`[OK] Failed: ${totalPages - successfulBuilds}/${totalPages}`);
 
-        // 保存构建报告
+        // 淇濆瓨鏋勫缓鎶ュ憡
         fs.writeFileSync(
             path.join(outputDir, 'build-report.json'),
             JSON.stringify(buildReport, null, 2)
         );
 
-        // 复制静态资源（只复制需要的文件）
+        // 澶嶅埗闈欐€佽祫婧愶紙鍙鍒堕渶瑕佺殑鏂囦欢锛?
         this.copyRequiredStaticResources(outputDir);
         
-        // 集成性能监控系统
+        // 闆嗘垚鎬ц兘鐩戞帶绯荤粺
         this.integratePerformanceMonitoring(outputDir);
         
-        // 生成语言选择索引页面
+        // 鐢熸垚璇█閫夋嫨绱㈠紩椤甸潰
         this.generateLanguageIndex(outputDir);
         
-        // 生成多语言网站地图（只包含启用的语言）
+        // 鐢熸垚澶氳瑷€缃戠珯鍦板浘锛堝彧鍖呭惈鍚敤鐨勮瑷€锛?
         this.generateMultiLanguageSitemap(outputDir);
         
-        // 执行内容一致性检查
+        // 鎵ц鍐呭涓€鑷存€ф鏌?
         this.validateContentConsistency(outputDir);
         
-        // 提取并内联关键CSS (临时禁用以修复HTML结构问题)
+        // 鎻愬彇骞跺唴鑱斿叧閿瓹SS (涓存椂绂佺敤浠ヤ慨澶岺TML缁撴瀯闂)
         // this.extractAndInlineCriticalCSS(outputDir);
 
         return buildReport;
     }
     
-    // 递归删除目录（兼容性方法）
+    // 閫掑綊鍒犻櫎鐩綍锛堝吋瀹规€ф柟娉曪級
     removeDirectoryRecursive(dirPath) {
         if (fs.existsSync(dirPath)) {
             const files = fs.readdirSync(dirPath);
@@ -643,9 +639,9 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 复制静态资源文件
+    // 澶嶅埗闈欐€佽祫婧愭枃浠?
     copyStaticResources(outputDir) {
-        console.log('\n📦 Copying static resources...');
+        console.log('\n Copying static resources...');
         
         const resourcesToCopy = [
             { source: 'css', dest: 'css' },
@@ -670,26 +666,26 @@ class MultiLangBuilder extends ComponentBuilder {
             if (fs.existsSync(sourcePath)) {
                 try {
                     if (fs.statSync(sourcePath).isDirectory()) {
-                        // 复制目录
+                        // 澶嶅埗鐩綍
                         this.copyDirectory(sourcePath, destPath);
-                        console.log(`  ✅ Copied directory: ${source}`);
+                        console.log(`[OK] Copied directory: ${source}`);
                     } else {
-                        // 复制文件
+                        // 澶嶅埗鏂囦欢
                         fs.copyFileSync(sourcePath, destPath);
-                        console.log(`  ✅ Copied file: ${source}`);
+                        console.log(`[OK] Copied file: ${source}`);
                     }
                 } catch (error) {
-                    console.warn(`  ⚠️  Failed to copy ${source}:`, error.message);
+                    console.warn(`    Failed to copy ${source}:`, error.message);
                 }
             } else {
-                console.warn(`  ⚠️  Resource not found: ${source}`);
+                console.warn(`    Resource not found: ${source}`);
             }
         });
         
-        console.log('📦 Static resources copied successfully!');
+        console.log(' Static resources copied successfully!');
     }
     
-    // 递归复制目录
+    // 閫掑綊澶嶅埗鐩綍
     copyDirectory(source, dest) {
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
@@ -709,11 +705,11 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
 
-    // 复制必要的静态资源（避免复制未启用的语言目录）
+    // 澶嶅埗蹇呰鐨勯潤鎬佽祫婧愶紙閬垮厤澶嶅埗鏈惎鐢ㄧ殑璇█鐩綍锛?
     copyRequiredStaticResources(outputDir) {
-        console.log('\n📦 Copying required static resources...');
+        console.log('\n Copying required static resources...');
         
-        // 需要直接复制的资源（不包括robots.txt和_redirects，这些将动态生成）
+        // 闇€瑕佺洿鎺ュ鍒剁殑璧勬簮锛堜笉鍖呮嫭robots.txt鍜宊redirects锛岃繖浜涘皢鍔ㄦ€佺敓鎴愶級
         const resourcesToCopy = [
             'css',
             'js',
@@ -729,19 +725,19 @@ class MultiLangBuilder extends ComponentBuilder {
             '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead.txt'
         ];
         
-        // 博客图片资源（单独处理，因为需要复制到特定位置）
+        // 鍗氬鍥剧墖璧勬簮锛堝崟鐙鐞嗭紝鍥犱负闇€瑕佸鍒跺埌鐗瑰畾浣嶇疆锛?
         const blogImagesSource = path.join(this.rootPath, 'blog-content', 'images');
         const blogImagesTarget = path.join(outputDir, 'images');
         
         if (fs.existsSync(blogImagesSource)) {
             try {
                 this.copyDirectoryRecursive(blogImagesSource, blogImagesTarget);
-                console.log('  ✅ Copied blog images directory: blog-content/images -> images');
+                console.log('[OK] Copied blog images directory: blog-content/images -> images');
             } catch (error) {
-                console.warn('  ⚠️  Warning: Could not copy blog images:', error.message);
+                console.warn('    Warning: Could not copy blog images:', error.message);
             }
         } else {
-            console.warn('  ⚠️  Warning: blog-content/images not found, skipping');
+            console.warn('    Warning: blog-content/images not found, skipping');
         }
 
         for (const resource of resourcesToCopy) {
@@ -752,25 +748,25 @@ class MultiLangBuilder extends ComponentBuilder {
                 try {
                     if (fs.statSync(sourcePath).isDirectory()) {
                         this.copyDirectoryRecursive(sourcePath, targetPath);
-                        console.log(`  ✅ Copied directory: ${resource}`);
+                        console.log(`[OK] Copied directory: ${resource}`);
                     } else {
                         fs.copyFileSync(sourcePath, targetPath);
-                        console.log(`  ✅ Copied file: ${resource}`);
+                        console.log(`[OK] Copied file: ${resource}`);
                     }
                 } catch (error) {
-                    console.warn(`  ⚠️  Warning: Could not copy ${resource}:`, error.message);
+                    console.warn(`    Warning: Could not copy ${resource}:`, error.message);
                 }
             } else {
-                console.warn(`  ⚠️  Warning: ${resource} not found, skipping`);
+                console.warn(`    Warning: ${resource} not found, skipping`);
             }
         }
         
-        // 生成优化的_redirects和robots.txt文件
+        // 鐢熸垚浼樺寲鐨刜redirects鍜宺obots.txt鏂囦欢
         this.generateRedirectsFile(outputDir);
         this.generateRobotsFile(outputDir);
     }
 
-    // 递归复制目录
+    // 閫掑綊澶嶅埗鐩綍
     copyDirectoryRecursive(source, dest) {
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
@@ -790,40 +786,40 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
 
-    // 集成性能监控系统
+    // 闆嗘垚鎬ц兘鐩戞帶绯荤粺
     integratePerformanceMonitoring(outputDir) {
-        console.log('\n📊 Integrating Performance Monitoring System...');
+        console.log('\n Integrating Performance Monitoring System...');
         
         try {
-            // 1. 验证性能监控文件是否存在
+            // 1. 楠岃瘉鎬ц兘鐩戞帶鏂囦欢鏄惁瀛樺湪
             const performanceMonitorPath = path.join(outputDir, 'js', 'performance-monitor.js');
             const appJsPath = path.join(outputDir, 'js', 'app.js');
             
             if (!fs.existsSync(performanceMonitorPath)) {
-                console.warn('  ⚠️  Warning: performance-monitor.js not found, skipping integration');
+                console.warn('    Warning: performance-monitor.js not found, skipping integration');
                 return;
             }
             
             if (!fs.existsSync(appJsPath)) {
-                console.warn('  ⚠️  Warning: app.js not found, skipping integration');
+                console.warn('    Warning: app.js not found, skipping integration');
                 return;
             }
             
-            // 2. 验证 app.js 是否包含性能监控导入
+            // 2. 楠岃瘉 app.js 鏄惁鍖呭惈鎬ц兘鐩戞帶瀵煎叆
             const appJsContent = fs.readFileSync(appJsPath, 'utf8');
             if (!appJsContent.includes("import { performanceMonitor } from './performance-monitor.js'")) {
-                console.warn('  ⚠️  Warning: app.js does not import performance monitor');
+                console.warn('    Warning: app.js does not import performance monitor');
             } else {
-                console.log('  ✅ app.js includes performance monitor import');
+                console.log('[OK] app.js includes performance monitor import');
             }
             
-            // 3. 创建性能监控测试页面
+            // 3. 鍒涘缓鎬ц兘鐩戞帶娴嬭瘯椤甸潰
             this.createPerformanceTestPage(outputDir);
             
-            // 4. 生成性能监控部署报告
+            // 4. 鐢熸垚鎬ц兘鐩戞帶閮ㄧ讲鎶ュ憡
             this.generatePerformanceDeploymentReport(outputDir);
             
-            // 5. 验证关键文件
+            // 5. 楠岃瘉鍏抽敭鏂囦欢
             const requiredFiles = [
                 'js/performance-monitor.js',
                 'js/app.js',
@@ -835,25 +831,25 @@ class MultiLangBuilder extends ComponentBuilder {
                 const filePath = path.join(outputDir, file);
                 if (fs.existsSync(filePath)) {
                     const stats = fs.statSync(filePath);
-                    console.log(`  ✅ ${file} (${this.formatFileSize(stats.size)})`);
+                    console.log(`[OK] ${file} (${this.formatFileSize(stats.size)})`);
                 } else {
-                    console.warn(`  ❌ Missing required file: ${file}`);
+                    console.warn(`[WARN] Missing required file: ${file}`);
                     allFilesExist = false;
                 }
             }
             
             if (allFilesExist) {
-                console.log('  ✅ Performance monitoring system integration completed successfully');
+                console.log('[OK] Performance monitoring system integration completed successfully');
             } else {
-                console.warn('  ⚠️  Performance monitoring system integration completed with warnings');
+                console.warn('    Performance monitoring system integration completed with warnings');
             }
             
         } catch (error) {
-            console.error('  ❌ Error integrating performance monitoring system:', error.message);
+            console.error('[ERROR] Error integrating performance monitoring system:', error.message);
         }
     }
 
-    // 创建性能监控测试页面
+    // 鍒涘缓鎬ц兘鐩戞帶娴嬭瘯椤甸潰
     createPerformanceTestPage(outputDir) {
         const testPagePath = path.join(outputDir, 'performance-test-production.html');
         
@@ -862,7 +858,7 @@ class MultiLangBuilder extends ComponentBuilder {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生产环境性能监控测试</title>
+    <title>鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
@@ -952,36 +948,36 @@ class MultiLangBuilder extends ComponentBuilder {
 </head>
 <body>
     <div class="container">
-        <h1>🚀 生产环境性能监控测试</h1>
-        <p>此页面用于验证性能监控系统在生产环境中是否正常工作。</p>
+        <h1>馃殌 鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯</h1>
+        <p>姝ら〉闈㈢敤浜庨獙璇佹€ц兘鐩戞帶绯荤粺鍦ㄧ敓浜х幆澧冧腑鏄惁姝ｅ父宸ヤ綔銆?/p>
         
         <div class="status-card">
             <h3>
                 <span id="system-status" class="status-indicator error"></span>
-                系统状态检查
+                绯荤粺鐘舵€佹鏌?
             </h3>
-            <div id="status-message">正在检查系统状态...</div>
-            <button onclick="checkSystemStatus()">🔄 重新检查</button>
+            <div id="status-message">姝ｅ湪妫€鏌ョ郴缁熺姸鎬?..</div>
+            <button onclick="checkSystemStatus()">馃攧 閲嶆柊妫€鏌?/button>
         </div>
         
         <div class="status-card">
-            <h3>📊 Core Web Vitals 监控</h3>
-            <div id="cwv-status">正在收集性能数据...</div>
-            <div class="metrics-display" id="cwv-display">等待数据...</div>
-            <button onclick="refreshMetrics()">📈 刷新指标</button>
-            <button onclick="exportData()">📤 导出数据</button>
+            <h3>馃搳 Core Web Vitals 鐩戞帶</h3>
+            <div id="cwv-status">姝ｅ湪鏀堕泦鎬ц兘鏁版嵁...</div>
+            <div class="metrics-display" id="cwv-display">绛夊緟鏁版嵁...</div>
+            <button onclick="refreshMetrics()">馃搱 鍒锋柊鎸囨爣</button>
+            <button onclick="exportData()">馃摛 瀵煎嚭鏁版嵁</button>
         </div>
         
         <div class="status-card">
-            <h3>🧪 功能测试</h3>
-            <p>运行以下测试来验证监控系统的各项功能：</p>
+            <h3>馃И 鍔熻兘娴嬭瘯</h3>
+            <p>杩愯浠ヤ笅娴嬭瘯鏉ラ獙璇佺洃鎺х郴缁熺殑鍚勯」鍔熻兘锛?/p>
             
-            <button onclick="testLongTask()">⏱️ 测试长任务监控</button>
-            <button onclick="testLayoutShift()">📐 测试布局偏移监控</button>
-            <button onclick="testResourceLoading()">📦 测试资源监控</button>
+            <button onclick="testLongTask()">鈴憋笍 娴嬭瘯闀夸换鍔＄洃鎺?/button>
+            <button onclick="testLayoutShift()">馃搻 娴嬭瘯甯冨眬鍋忕Щ鐩戞帶</button>
+            <button onclick="testResourceLoading()">馃摝 娴嬭瘯璧勬簮鐩戞帶</button>
             
             <div id="test-results" class="metrics-display" style="min-height: 150px;">
-                测试结果将显示在这里...
+                娴嬭瘯缁撴灉灏嗘樉绀哄湪杩欓噷...
             </div>
         </div>
     </div>
@@ -990,22 +986,22 @@ class MultiLangBuilder extends ComponentBuilder {
         let testLog = [];
         let performanceMonitor = null;
         
-        // 尝试导入性能监控模块
+        // 灏濊瘯瀵煎叆鎬ц兘鐩戞帶妯″潡
         async function initializeMonitoring() {
             try {
                 const module = await import('./js/performance-monitor.js');
                 performanceMonitor = module.performanceMonitor;
                 
                 if (performanceMonitor) {
-                    addTestLog('✅ 性能监控模块加载成功');
-                    updateSystemStatus('good', '性能监控系统运行正常');
+                    addTestLog('鉁?鎬ц兘鐩戞帶妯″潡鍔犺浇鎴愬姛');
+                    updateSystemStatus('good', '鎬ц兘鐩戞帶绯荤粺杩愯姝ｅ父');
                     return true;
                 } else {
-                    throw new Error('性能监控实例未找到');
+                    throw new Error('鎬ц兘鐩戞帶瀹炰緥鏈壘鍒?);
                 }
             } catch (error) {
-                addTestLog(\`❌ 性能监控模块加载失败: \${error.message}\`);
-                updateSystemStatus('error', \`系统加载失败: \${error.message}\`);
+                addTestLog(\`鉂?鎬ц兘鐩戞帶妯″潡鍔犺浇澶辫触: \${error.message}\`);
+                updateSystemStatus('error', \`绯荤粺鍔犺浇澶辫触: \${error.message}\`);
                 return false;
             }
         }
@@ -1036,20 +1032,20 @@ class MultiLangBuilder extends ComponentBuilder {
             statusMessage.innerHTML = message;
         }
         
-        // 全局函数
+        // 鍏ㄥ眬鍑芥暟
         window.checkSystemStatus = async function() {
-            addTestLog('🔍 开始系统状态检查...');
+            addTestLog('馃攳 寮€濮嬬郴缁熺姸鎬佹鏌?..');
             
             const checks = [
                 {
-                    name: 'HTTPS 环境',
+                    name: 'HTTPS 鐜',
                     test: () => location.protocol === 'https:' || location.hostname === 'localhost',
-                    message: 'HTTPS 环境检查'
+                    message: 'HTTPS 鐜妫€鏌?
                 },
                 {
-                    name: 'PerformanceObserver 支持',
+                    name: 'PerformanceObserver 鏀寔',
                     test: () => 'PerformanceObserver' in window,
-                    message: 'PerformanceObserver API 支持'
+                    message: 'PerformanceObserver API 鏀寔'
                 }
             ];
             
@@ -1059,13 +1055,13 @@ class MultiLangBuilder extends ComponentBuilder {
                 try {
                     const result = check.test();
                     if (result) {
-                        addTestLog(\`✅ \${check.message}: 通过\`);
+                        addTestLog(\`鉁?\${check.message}: 閫氳繃\`);
                     } else {
-                        addTestLog(\`❌ \${check.message}: 失败\`);
+                        addTestLog(\`鉂?\${check.message}: 澶辫触\`);
                         allPassed = false;
                     }
                 } catch (error) {
-                    addTestLog(\`❌ \${check.message}: 错误 - \${error.message}\`);
+                    addTestLog(\`鉂?\${check.message}: 閿欒 - \${error.message}\`);
                     allPassed = false;
                 }
             }
@@ -1073,15 +1069,14 @@ class MultiLangBuilder extends ComponentBuilder {
             const monitoringOk = await initializeMonitoring();
             
             if (allPassed && monitoringOk) {
-                updateSystemStatus('good', '✅ 所有系统检查通过，性能监控正常运行');
+                updateSystemStatus('good', '鉁?鎵€鏈夌郴缁熸鏌ラ€氳繃锛屾€ц兘鐩戞帶姝ｅ父杩愯');
             } else {
-                updateSystemStatus('error', '❌ 系统检查发现问题，请查看测试日志');
-            }
+                updateSystemStatus('error', '鉂?绯荤粺妫€鏌ュ彂鐜伴棶棰橈紝璇锋煡鐪嬫祴璇曟棩蹇?);
         };
         
         window.refreshMetrics = function() {
             if (!performanceMonitor) {
-                addTestLog('❌ 性能监控系统未初始化');
+                addTestLog('鉂?鎬ц兘鐩戞帶绯荤粺鏈垵濮嬪寲');
                 return;
             }
             
@@ -1089,65 +1084,64 @@ class MultiLangBuilder extends ComponentBuilder {
                 const metrics = performanceMonitor.getMetrics();
                 const cwv = metrics.coreWebVitals;
                 
-                let display = '📊 Core Web Vitals 当前数据:\\n\\n';
+                let display = '馃搳 Core Web Vitals 褰撳墠鏁版嵁:\\n\\n';
                 
                 if (cwv.LCP.value !== null) {
                     const rating = cwv.LCP.rating;
-                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
                     display += \`\${icon} LCP: \${cwv.LCP.value.toFixed(0)}ms (\${rating})\\n\`;
                 } else {
-                    display += '⏳ LCP: 正在测量...\\n';
+                    display += '鈴?LCP: 姝ｅ湪娴嬮噺...\\n';
                 }
                 
                 if (cwv.FID.value !== null) {
                     const rating = cwv.FID.rating;
-                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
                     display += \`\${icon} FID: \${cwv.FID.value.toFixed(0)}ms (\${rating})\\n\`;
                 } else {
-                    display += '⏳ FID: 等待用户交互...\\n';
+                    display += '鈴?FID: 绛夊緟鐢ㄦ埛浜や簰...\\n';
                 }
                 
                 if (cwv.CLS.value !== null) {
                     const rating = cwv.CLS.rating;
-                    const icon = rating === 'good' ? '✅' : rating === 'needs-improvement' ? '⚠️' : '❌';
+                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
                     display += \`\${icon} CLS: \${cwv.CLS.value.toFixed(3)} (\${rating})\\n\`;
                 } else {
-                    display += '⏳ CLS: 正在监控...\\n';
+                    display += '鈴?CLS: 姝ｅ湪鐩戞帶...\\n';
                 }
                 
-                display += \`\\n📈 综合性能评分: \${metrics.performanceScore}/100\\n\`;
-                display += \`📊 长任务数量: \${metrics.longTasksCount}\\n\`;
-                display += \`📦 资源监控数量: \${metrics.resourceTimingsCount}\`;
+                display += \`\\n馃搱 缁煎悎鎬ц兘璇勫垎: \${metrics.performanceScore}/100\\n\`;
+                display += \`馃搳 闀夸换鍔℃暟閲? \${metrics.longTasksCount}\\n\`;
+                display += \`馃摝 璧勬簮鐩戞帶鏁伴噺: \${metrics.resourceTimingsCount}\`;
                 
                 document.getElementById('cwv-display').textContent = display;
                 document.getElementById('cwv-status').innerHTML = 
-                    \`<div class="alert alert-success">✅ 性能数据收集正常，评分: \${metrics.performanceScore}/100</div>\`;
+                    \`<div class="alert alert-success">鉁?鎬ц兘鏁版嵁鏀堕泦姝ｅ父锛岃瘎鍒? \${metrics.performanceScore}/100</div>\`;
                 
-                addTestLog('📊 性能指标已刷新');
+                addTestLog('馃搳 鎬ц兘鎸囨爣宸插埛鏂?);
                 
             } catch (error) {
-                addTestLog(\`❌ 刷新指标失败: \${error.message}\`);
-            }
+                addTestLog(\`鉂?鍒锋柊鎸囨爣澶辫触: \${error.message}\`);
         };
         
         window.testLongTask = function() {
-            addTestLog('⏱️ 开始长任务测试...');
+            addTestLog('鈴憋笍 寮€濮嬮暱浠诲姟娴嬭瘯...');
             
             const start = performance.now();
             while (performance.now() - start < 100) {
-                // 阻塞主线程
+                // 闃诲涓荤嚎绋?
             }
             
             setTimeout(() => {
                 if (performanceMonitor) {
                     const metrics = performanceMonitor.getMetrics();
-                    addTestLog(\`✅ 长任务测试完成，检测到 \${metrics.longTasksCount} 个长任务\`);
+                    addTestLog(\`鉁?闀夸换鍔℃祴璇曞畬鎴愶紝妫€娴嬪埌 \${metrics.longTasksCount} 涓暱浠诲姟\`);
                 }
             }, 500);
         };
         
         window.testLayoutShift = function() {
-            addTestLog('📐 开始布局偏移测试...');
+            addTestLog('馃搻 寮€濮嬪竷灞€鍋忕Щ娴嬭瘯...');
             
             const testDiv = document.createElement('div');
             testDiv.style.cssText = \`
@@ -1157,7 +1151,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 padding: 20px;
                 border-radius: 5px;
             \`;
-            testDiv.textContent = '这是测试布局偏移的动态内容';
+            testDiv.textContent = '杩欐槸娴嬭瘯甯冨眬鍋忕Щ鐨勫姩鎬佸唴瀹?;
             
             document.body.appendChild(testDiv);
             
@@ -1165,31 +1159,31 @@ class MultiLangBuilder extends ComponentBuilder {
                 testDiv.remove();
                 if (performanceMonitor) {
                     const cls = performanceMonitor.getMetric('CLS');
-                    addTestLog(\`✅ 布局偏移测试完成，当前 CLS: \${cls !== null ? cls.toFixed(3) : '未测量'}\`);
+                    addTestLog(\`鉁?甯冨眬鍋忕Щ娴嬭瘯瀹屾垚锛屽綋鍓?CLS: \${cls !== null ? cls.toFixed(3) : '鏈祴閲?}\`);
                 }
             }, 2000);
         };
         
         window.testResourceLoading = function() {
-            addTestLog('📦 开始资源加载测试...');
+            addTestLog('馃摝 寮€濮嬭祫婧愬姞杞芥祴璇?..');
             
             const img = new Image();
             img.onload = () => {
-                addTestLog('✅ 测试图片加载完成');
+                addTestLog('鉁?娴嬭瘯鍥剧墖鍔犺浇瀹屾垚');
                 if (performanceMonitor) {
                     const metrics = performanceMonitor.getMetrics();
-                    addTestLog(\`📊 当前监控资源数量: \${metrics.resourceTimingsCount}\`);
+                    addTestLog(\`馃搳 褰撳墠鐩戞帶璧勬簮鏁伴噺: \${metrics.resourceTimingsCount}\`);
                 }
             };
             img.onerror = () => {
-                addTestLog('❌ 测试图片加载失败');
+                addTestLog('鉂?娴嬭瘯鍥剧墖鍔犺浇澶辫触');
             };
             img.src = \`data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwN2NiYSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVzdDwvdGV4dD48L3N2Zz4=\`;
         };
         
         window.exportData = function() {
             if (!performanceMonitor) {
-                addTestLog('❌ 性能监控系统未初始化，无法导出数据');
+                addTestLog('鉂?鎬ц兘鐩戞帶绯荤粺鏈垵濮嬪寲锛屾棤娉曞鍑烘暟鎹?);
                 return;
             }
             
@@ -1203,17 +1197,16 @@ class MultiLangBuilder extends ComponentBuilder {
                     testLog: testLog
                 };
                 
-                console.log('📤 性能监控数据导出:', exportData);
-                addTestLog('📤 性能数据已导出到控制台');
+                console.log('[DATA] Export data:', exportData);
+                addTestLog('馃摛 鎬ц兘鏁版嵁宸插鍑哄埌鎺у埗鍙?);
                 
             } catch (error) {
-                addTestLog(\`❌ 数据导出失败: \${error.message}\`);
-            }
+                addTestLog(\`鉂?鏁版嵁瀵煎嚭澶辫触: \${error.message}\`);
         };
         
-        // 初始化
+        // 鍒濆鍖?
         setTimeout(async () => {
-            addTestLog('🚀 生产环境性能监控测试页面已加载');
+            addTestLog('馃殌 鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯椤甸潰宸插姞杞?);
             await checkSystemStatus();
             
             setTimeout(() => {
@@ -1227,16 +1220,16 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         }, 10000);
         
-        console.log('🎯 生产环境性能监控测试页面已准备就绪');
+        console.log('Performance monitor test page loaded');
     </script>
 </body>
 </html>`;
         
         fs.writeFileSync(testPagePath, testPageContent);
-        console.log('  ✅ Created performance test page: performance-test-production.html');
+        console.log('[OK] Created performance test page: performance-test-production.html');
     }
 
-    // 生成性能监控部署报告
+    // 鐢熸垚鎬ц兘鐩戞帶閮ㄧ讲鎶ュ憡
     generatePerformanceDeploymentReport(outputDir) {
         const report = {
             timestamp: new Date().toISOString(),
@@ -1269,26 +1262,26 @@ class MultiLangBuilder extends ComponentBuilder {
                 }
             },
             deploymentInstructions: {
-                step1: '确保服务器支持 HTTPS (性能监控 API 需要安全上下文)',
-                step2: '配置正确的 MIME 类型 (.js → application/javascript)',
-                step3: '启用 Gzip/Brotli 压缩以减少传输大小',
-                step4: '部署后访问 /performance-test-production.html 验证功能',
-                step5: '在浏览器控制台运行 performanceMonitor.getMetrics() 检查数据'
+                step1: 'Ensure your server supports HTTPS for performance APIs',
+                step2: 'Set correct MIME types for JavaScript assets',
+                step3: 'Enable Gzip or Brotli compression to reduce transfer size',
+                step4: 'After deployment, open /performance-test-production.html to verify',
+                step5: 'Run performanceMonitor.getMetrics() in the browser console'
             },
             expectedBehavior: {
-                autoStart: '性能监控系统会在页面加载时自动启动',
-                dataCollection: '系统会自动收集 Core Web Vitals 和其他性能指标',
-                reporting: '每30秒生成一次性能报告',
-                storage: '数据存储在浏览器 sessionStorage 中供调试使用'
+                autoStart: 'The monitoring script starts automatically on page load',
+                dataCollection: 'Core Web Vitals and related metrics are collected automatically',
+                reporting: 'A performance report is generated every 10 seconds',
+                storage: 'Debug data is cached in sessionStorage'
             }
         };
         
         const reportPath = path.join(outputDir, 'performance-monitor-deployment-report.json');
         fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-        console.log('  ✅ Generated deployment report: performance-monitor-deployment-report.json');
+        console.log('[OK] Generated deployment report: performance-monitor-deployment-report.json');
     }
 
-    // 获取文件大小
+    // 鑾峰彇鏂囦欢澶у皬
     getFileSize(filePath) {
         try {
             const stats = fs.statSync(filePath);
@@ -1298,7 +1291,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 格式化文件大小
+    // 鏍煎紡鍖栨枃浠跺ぇ灏?
     formatFileSize(bytes) {
         if (bytes === 0) return '0 B';
         const k = 1024;
@@ -1307,9 +1300,9 @@ class MultiLangBuilder extends ComponentBuilder {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
     }
     
-    // 提取并内联关键CSS
+    // 鎻愬彇骞跺唴鑱斿叧閿瓹SS
     extractAndInlineCriticalCSS(outputDir) {
-        console.log('\n🎨 Extracting and inlining critical CSS...');
+        console.log('\n Extracting and inlining critical CSS...');
         
         try {
             const extractor = new CriticalCSSExtractor({
@@ -1322,43 +1315,43 @@ class MultiLangBuilder extends ComponentBuilder {
                 inlineThreshold: 50 * 1024 // 50KB
             });
             
-            // 运行关键CSS提取流程
+            // 杩愯鍏抽敭CSS鎻愬彇娴佺▼
             const result = extractor.run();
             
             if (result.success) {
-                console.log('✅ Critical CSS extraction completed successfully');
+                console.log('[OK] Critical CSS extraction completed successfully');
                 console.log(`   - Critical rules extracted: ${result.stats.criticalRules}`);
                 console.log(`   - Extracted size: ${this.formatFileSize(result.stats.extractedSize)}`);
                 console.log(`   - HTML files processed: ${result.processedFiles.length}`);
             } else {
-                console.warn('⚠️ Critical CSS extraction failed:', result.error);
+                console.warn(' Critical CSS extraction failed:', result.error);
             }
             
             return result;
         } catch (error) {
-            console.error('❌ Error during critical CSS extraction:', error.message);
+            console.error('[ERROR] Error during critical CSS extraction:', error.message);
             return { success: false, error: error.message };
         }
     }
     
-    // 生成结构化数据
+    // 鐢熸垚缁撴瀯鍖栨暟鎹?
     generateStructuredData(pageData, lang) {
-        // 如果页面数据中已经包含结构化数据配置，优先使用
+        // 濡傛灉椤甸潰鏁版嵁涓凡缁忓寘鍚粨鏋勫寲鏁版嵁閰嶇疆锛屼紭鍏堜娇鐢?
         if (pageData.structured_data && typeof pageData.structured_data === 'object') {
-            // 更新动态字段
+            // 鏇存柊鍔ㄦ€佸瓧娈?
             const configStructuredData = { ...pageData.structured_data };
             configStructuredData.url = pageData.canonical_url || configStructuredData.url;
             configStructuredData.name = pageData.page_title || configStructuredData.name;
             configStructuredData.description = pageData.description || configStructuredData.description;
             configStructuredData.inLanguage = lang;
 
-            // 更新日期为当前日期
+            // 鏇存柊鏃ユ湡涓哄綋鍓嶆棩鏈?
             configStructuredData.dateModified = new Date().toISOString().split('T')[0];
 
-            return JSON.stringify(configStructuredData, null, 2);
+            return this.buildStructuredDataPayload(configStructuredData, pageData, lang);
         }
 
-        // 回退到基本结构化数据
+        // 鍥為€€鍒板熀鏈粨鏋勫寲鏁版嵁
         const baseStructuredData = {
             "@context": "https://schema.org",
             "@type": "WebApplication",
@@ -1392,9 +1385,9 @@ class MultiLangBuilder extends ComponentBuilder {
             "dateModified": new Date().toISOString().split('T')[0]
         };
 
-        // 如果是博客页面，添加博客特定的结构化数据
+        // 濡傛灉鏄崥瀹㈤〉闈紝娣诲姞鍗氬鐗瑰畾鐨勭粨鏋勫寲鏁版嵁
         if (pageData.canonical_url.includes('/blog/') && !pageData.canonical_url.includes('/blog/category/') && !pageData.canonical_url.includes('/blog/tag/')) {
-            // 这是一个具体的博客文章
+            // 杩欐槸涓€涓叿浣撶殑鍗氬鏂囩珷
             const blogStructuredData = {
                 "@context": "https://schema.org",
                 "@type": "BlogPosting",
@@ -1423,10 +1416,10 @@ class MultiLangBuilder extends ComponentBuilder {
                 },
                 "inLanguage": lang
             };
-            return JSON.stringify(blogStructuredData, null, 2);
+            return this.buildStructuredDataPayload(blogStructuredData, pageData, lang);
         }
 
-        // 如果是博客索引页面
+        // 濡傛灉鏄崥瀹㈢储寮曢〉闈?
         if (pageData.canonical_url.includes('/blog') && !pageData.canonical_url.includes('/blog/')) {
             const blogIndexStructuredData = {
                 "@context": "https://schema.org",
@@ -1446,76 +1439,218 @@ class MultiLangBuilder extends ComponentBuilder {
                 },
                 "inLanguage": lang
             };
-            return JSON.stringify(blogIndexStructuredData, null, 2);
+            return this.buildStructuredDataPayload(blogIndexStructuredData, pageData, lang);
         }
 
-        return JSON.stringify(baseStructuredData, null, 2);
+        return this.buildStructuredDataPayload(baseStructuredData, pageData, lang);
     }
 
-    // 生成FAQ结构化数据
-    generateFAQStructuredData(lang) {
+    // 涓轰富缁撴瀯鍖栨暟鎹檮鍔燘readcrumb锛屾彁鍗囨悳绱㈢粨鏋滃彲璇绘€?
+    buildStructuredDataPayload(mainStructuredData, pageData, lang) {
+        const breadcrumbStructuredData = this.generateBreadcrumbStructuredData(pageData, lang);
+        if (!breadcrumbStructuredData) {
+            return JSON.stringify(mainStructuredData, null, 2);
+        }
+
+        const normalizedMain = { ...mainStructuredData };
+        delete normalizedMain['@context'];
+
+        return JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [normalizedMain, breadcrumbStructuredData]
+        }, null, 2);
+    }
+
+    // 鐢熸垚闈㈠寘灞戠粨鏋勫寲鏁版嵁
+    generateBreadcrumbStructuredData(pageData, lang) {
+        if (!pageData || !pageData.canonical_url) {
+            return null;
+        }
+
+        let parsed;
+        try {
+            parsed = new URL(pageData.canonical_url);
+        } catch (error) {
+            return null;
+        }
+
+        const rawSegments = parsed.pathname.split('/').filter(Boolean);
+        if (rawSegments.length === 0) {
+            return null;
+        }
+
+        const supportedLangs = ['en', 'zh', 'de', 'es'];
+        const hasLangPrefix = supportedLangs.includes(rawSegments[0]);
+        const langPrefix = hasLangPrefix ? `/${rawSegments[0]}` : '';
+        const segments = hasLangPrefix ? rawSegments.slice(1) : rawSegments;
+
+        if (segments.length === 0) {
+            return null;
+        }
+
+        const topLevelLabels = {
+            devices: 'Tools',
+            blog: 'Blog',
+            hub: 'Gaming Hub'
+        };
+
+        const homeUrl = langPrefix ? `${parsed.origin}${langPrefix}` : `${parsed.origin}/`;
+        const items = [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@id": homeUrl,
+                    "name": 'Home'
+                }
+            }
+        ];
+
+        let accumulatedPath = '';
+        let position = 2;
+
+        segments.forEach((segment, index) => {
+            accumulatedPath += `/${segment}`;
+            const isLast = index === segments.length - 1;
+            const label = isLast
+                ? (pageData.page_title || this.humanizeSegment(segment))
+                : ((index === 0 && topLevelLabels[segment])
+                    ? topLevelLabels[segment]
+                    : this.humanizeSegment(segment));
+
+            const url = isLast
+                ? pageData.canonical_url
+                : `${parsed.origin}${langPrefix}${accumulatedPath}`;
+
+            items.push({
+                "@type": "ListItem",
+                "position": position,
+                "item": {
+                    "@id": url,
+                    "name": label
+                }
+            });
+            position += 1;
+        });
+
+        if (items.length < 2) {
+            return null;
+        }
+
+        return {
+            "@type": "BreadcrumbList",
+            "itemListElement": items
+        };
+    }
+
+    // URL鐗囨杞彲璇绘爣棰?
+    humanizeSegment(segment) {
+        return String(segment || '')
+            .replace(/[-_]/g, ' ')
+            .replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    }
+
+    // 鎸夐〉闈㈢敓鎴怓AQ缁撴瀯鍖栨暟鎹?
+    generateFAQStructuredDataForPage(pageName, lang) {
+        const qaMap = {
+            'responsive-tester': [
+                ['faq_q1', 'faq_a1'],
+                ['faq_q2', 'faq_a2'],
+                ['faq_q3', 'faq_a3']
+            ],
+            'compare': [
+                ['faq_measure_question', 'faq_measure_answer'],
+                ['faq_difference_question', 'faq_difference_answer'],
+                ['faq_area_question', 'faq_area_answer'],
+                ['faq_different_question', 'faq_different_answer'],
+                ['faq_aspect_question', 'faq_aspect_answer']
+            ],
+            'projection-calculator': [
+                ['projectionCalculator.faq1q', 'projectionCalculator.faq1a'],
+                ['projectionCalculator.faq2q', 'projectionCalculator.faq2a'],
+                ['projectionCalculator.faq3q', 'projectionCalculator.faq3a'],
+                ['projectionCalculator.faq4q', 'projectionCalculator.faq4a'],
+                ['projectionCalculator.faq5q', 'projectionCalculator.faq5a']
+            ],
+            'lcd-screen-tester': [
+                ['lcdTester.faq1q', 'lcdTester.faq1a'],
+                ['lcdTester.faq2q', 'lcdTester.faq2a'],
+                ['lcdTester.faq3q', 'lcdTester.faq3a'],
+                ['lcdTester.faq4q', 'lcdTester.faq4a']
+            ]
+        };
+
+        const pairs = qaMap[pageName];
+        if (!pairs) {
+            return '';
+        }
+
+        return this.generateFAQStructuredDataFromPairs(lang, pairs);
+    }
+
+    // 鏍规嵁闂瓟閿鐢熸垚FAQ JSON-LD
+    generateFAQStructuredDataFromPairs(lang, qaKeyPairs) {
         const translations = this.translations.get(lang);
-        if (!translations) return '';
+        if (!translations || !Array.isArray(qaKeyPairs) || qaKeyPairs.length === 0) {
+            return '';
+        }
+
+        const mainEntity = qaKeyPairs
+            .map(([qKey, aKey]) => {
+                const question = this.getNestedTranslation(translations, qKey) || translations[qKey];
+                const answer = this.getNestedTranslation(translations, aKey) || translations[aKey];
+
+                if (!question || !answer) {
+                    return null;
+                }
+
+                return {
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": answer
+                    }
+                };
+            })
+            .filter(Boolean);
+
+        if (mainEntity.length < 2) {
+            return '';
+        }
 
         const faqStructuredData = {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": translations.faq_q1 || "Why can't some websites load in the tester?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": translations.faq_a1 || "Many websites set X-Frame-Options or Content-Security-Policy headers for security reasons, which prevent them from being loaded in iframes. This is a security measure to prevent clickjacking and other attacks. For these websites, you may need to use browser developer tools or other methods for testing."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": translations.faq_q2 || "How does the website in the tester differ from real devices?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": translations.faq_a2 || "This tester primarily simulates different screen sizes but cannot fully replicate all features of real devices, such as touch interactions, device pixel ratios, or specific browser behaviors. For final testing, it's recommended to verify your designs on actual devices."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": translations.faq_q3 || "How can I test specific media query breakpoints?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": translations.faq_a3 || "Use the custom size feature to input your media query breakpoint values. For example, if you have a breakpoint at 768px width, you can input 767px and 768px to test layouts on both sides of the breakpoint."
-                    }
-                }
-            ]
+            "mainEntity": mainEntity
         };
 
-        return `<script type="application/ld+json">
-${JSON.stringify(faqStructuredData, null, 2)}
-</script>`;
+        return '<script type="application/ld+json">\n' + JSON.stringify(faqStructuredData, null, 2) + '\n</script>';
     }
 
-    // 修复静态资源路径
+    // 淇闈欐€佽祫婧愯矾寰?
     fixStaticResourcePaths(html, outputPath) {
-        // 计算相对路径深度 - 标准化路径分隔符为正斜杠
+        // 璁＄畻鐩稿璺緞娣卞害 - 鏍囧噯鍖栬矾寰勫垎闅旂涓烘鏂滄潬
         const normalizedPath = outputPath.replace(/\\/g, '/');
         const depth = normalizedPath.split('/').length - 1;
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
         
-        // 注意：我们已经在构建过程中设置了正确的路径变量，
-        // 这里只修复那些可能遗漏的硬编码路径
+        // 娉ㄦ剰锛氭垜浠凡缁忓湪鏋勫缓杩囩▼涓缃簡姝ｇ‘鐨勮矾寰勫彉閲忥紝
+        // 杩欓噷鍙慨澶嶉偅浜涘彲鑳介仐婕忕殑纭紪鐮佽矾寰?
         
-        // 修复任何遗留的硬编码CSS路径
+        // 淇浠讳綍閬楃暀鐨勭‖缂栫爜CSS璺緞
         html = html.replace(
             /href="css\/main\.css"/g,
             `href="${prefix}css/main.css"`
         );
         
-        // 修复任何遗留的硬编码JavaScript路径  
+        // 淇浠讳綍閬楃暀鐨勭‖缂栫爜JavaScript璺緞  
         html = html.replace(
             /src="js\/app\.js"/g,
             `src="${prefix}js/app.js"`
         );
         
-        // 修复任何遗留的翻译文件路径
+        // 淇浠讳綍閬楃暀鐨勭炕璇戞枃浠惰矾寰?
         html = html.replace(
             /href="locales\/en\/translation\.json"/g,
             `href="${prefix}locales/en/translation.json"`
@@ -1525,15 +1660,15 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             `href="${prefix}locales/zh/translation.json"`
         );
         
-        // 修复博客内容中的图片路径（重要：修复图片显示问题）
-        // 将 ../images/ 修正为正确的相对路径
+        // 淇鍗氬鍐呭涓殑鍥剧墖璺緞锛堥噸瑕侊細淇鍥剧墖鏄剧ず闂锛?
+        // 灏?../images/ 淇涓烘纭殑鐩稿璺緞
         html = html.replace(
             /src="\.\.\/(images\/[^"]+)"/g,
             `src="${prefix}$1"`
         );
         
-        // 修复博客文章中的图片路径（直接 images/ 到正确的相对路径）
-        // 博客文章通常在 zh/blog/ 目录下，需要 ../../images/
+        // 淇鍗氬鏂囩珷涓殑鍥剧墖璺緞锛堢洿鎺?images/ 鍒版纭殑鐩稿璺緞锛?
+        // 鍗氬鏂囩珷閫氬父鍦?zh/blog/ 鐩綍涓嬶紝闇€瑕?../../images/
         html = html.replace(
             /src="(images\/[^"]+)"/g,
             `src="${prefix}$1"`
@@ -1542,32 +1677,32 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         return html;
     }
     
-    // 生成根目录博客内容（英文版本）
+    // 鐢熸垚鏍圭洰褰曞崥瀹㈠唴瀹癸紙鑻辨枃鐗堟湰锛?
     generateRootBlogContent(outputDir, config, englishTranslations) {
-        console.log('📝 Generating root directory blog content...');
+        console.log(' Generating root directory blog content...');
         
-        // 创建根目录博客目录
+        // 鍒涘缓鏍圭洰褰曞崥瀹㈢洰褰?
         const rootBlogDir = path.join(outputDir, 'blog');
         fs.mkdirSync(rootBlogDir, { recursive: true });
         
-        // 创建博客子目录
+        // 鍒涘缓鍗氬瀛愮洰褰?
         const blogSubDirs = ['category', 'tag'];
         blogSubDirs.forEach(subDir => {
             fs.mkdirSync(path.join(rootBlogDir, subDir), { recursive: true });
         });
         
-        // 获取所有博客相关页面
+        // 鑾峰彇鎵€鏈夊崥瀹㈢浉鍏抽〉闈?
         const blogPages = config.pages.filter(page => 
             page.output.startsWith('blog/') && 
             (!page.enabled_languages || page.enabled_languages.includes('en'))
         );
         
-        console.log(`  📄 Found ${blogPages.length} blog pages to generate at root level`);
+        console.log(`   Found ${blogPages.length} blog pages to generate at root level`);
         
-        // 为每个博客页面生成根目录版本
+        // 涓烘瘡涓崥瀹㈤〉闈㈢敓鎴愭牴鐩綍鐗堟湰
         for (const page of blogPages) {
             try {
-                // 准备根目录博客页面数据
+                // 鍑嗗鏍圭洰褰曞崥瀹㈤〉闈㈡暟鎹?
                 const rootPageData = {
                     lang: 'en',
                     lang_prefix: '',
@@ -1576,7 +1711,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                     ...page.config
                 };
                 
-                // 调整根目录博客页面的路径
+                // 璋冩暣鏍圭洰褰曞崥瀹㈤〉闈㈢殑璺緞
                 rootPageData.css_path = '../css';
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
@@ -1584,13 +1719,13 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.blog_url = this.generateBlogUrl(0, 'en', true);
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 
-                // 更新canonical URL为根目录版本
+                // 鏇存柊canonical URL涓烘牴鐩綍鐗堟湰
                 if (rootPageData.canonical_url) {
                     rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/blog/', '/blog/');
                     rootPageData.og_url = rootPageData.canonical_url;
                 }
                 
-                // 设置hreflang数据
+                // 璁剧疆hreflang鏁版嵁
                 rootPageData.base_url = 'https://screensizechecker.com';
                 const blogPath = page.output.replace('blog/', '/blog/');
                 rootPageData.page_path = blogPath.replace('.html', '');
@@ -1600,7 +1735,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
-                // 处理翻译
+                // 澶勭悊缈昏瘧
                 if (rootPageData.page_title_key) {
                     const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
                     if (translationValue) {
@@ -1625,22 +1760,22 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                     rootPageData.description = rootPageData.og_description || '';
                 }
                 
-                // 添加结构化数据
+                // 娣诲姞缁撴瀯鍖栨暟鎹?
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
                 
-                // 构建HTML
+                // 鏋勫缓HTML
                 let html = this.buildPage(page.template, rootPageData);
                 
-                // 应用英文翻译
+                // 搴旂敤鑻辨枃缈昏瘧
                 html = this.translateContent(html, englishTranslations);
                 
-                // 处理内链
+                // 澶勭悊鍐呴摼
                 html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
                 
-                // 修复静态资源路径
+                // 淇闈欐€佽祫婧愯矾寰?
                 html = this.fixStaticResourcePaths(html, page.output);
                 
-                // 写入文件
+                // 鍐欏叆鏂囦欢
                 const outputPath = path.join(outputDir, page.output);
                 const outputDirPath = path.dirname(outputPath);
                 
@@ -1649,36 +1784,36 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 }
                 
                 fs.writeFileSync(outputPath, html);
-                console.log(`  ✅ Generated root blog page: ${page.output}`);
+                console.log(`[OK] Generated root blog page: ${page.output}`);
                 
             } catch (error) {
-                console.error(`  ❌ Failed to generate root blog page ${page.output}:`, error.message);
+                console.error(`[ERROR] Failed to generate root blog page ${page.output}:`, error.message);
             }
         }
         
-        console.log('✅ Root directory blog content generated');
+        console.log('[OK] Root directory blog content generated');
     }
     
-    // 生成根目录设备页面（英文版本）
+    // 鐢熸垚鏍圭洰褰曡澶囬〉闈紙鑻辨枃鐗堟湰锛?
     generateRootDevicePages(outputDir, config, englishTranslations) {
-        console.log('🔧 Generating root directory device pages...');
+        console.log(' Generating root directory device pages...');
         
-        // 创建根目录设备目录
+        // 鍒涘缓鏍圭洰褰曡澶囩洰褰?
         const rootDevicesDir = path.join(outputDir, 'devices');
         fs.mkdirSync(rootDevicesDir, { recursive: true });
         
-        // 获取所有设备页面
+        // 鑾峰彇鎵€鏈夎澶囬〉闈?
         const devicePages = config.pages.filter(page => 
             page.output.startsWith('devices/') && 
             (!page.enabled_languages || page.enabled_languages.includes('en'))
         );
         
-        console.log(`  🔧 Found ${devicePages.length} device pages to generate at root level`);
+        console.log(`   Found ${devicePages.length} device pages to generate at root level`);
         
-        // 为每个设备页面生成根目录版本
+        // 涓烘瘡涓澶囬〉闈㈢敓鎴愭牴鐩綍鐗堟湰
         for (const page of devicePages) {
             try {
-                // 准备根目录设备页面数据
+                // 鍑嗗鏍圭洰褰曡澶囬〉闈㈡暟鎹?
                 const rootPageData = {
                     lang: 'en',
                     lang_prefix: '',
@@ -1687,7 +1822,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                     ...page.config
                 };
                 
-                // 调整根目录设备页面的路径
+                // 璋冩暣鏍圭洰褰曡澶囬〉闈㈢殑璺緞
                 rootPageData.css_path = '../css';
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
@@ -1696,13 +1831,13 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 rootPageData.device_links_base = '';
                 
-                // 更新canonical URL为根目录版本
+                // 鏇存柊canonical URL涓烘牴鐩綍鐗堟湰
                 if (rootPageData.canonical_url) {
                     rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/devices/', '/devices/').replace('.html', '');
                     rootPageData.og_url = rootPageData.canonical_url;
                 }
                 
-                // 设置hreflang数据
+                // 璁剧疆hreflang鏁版嵁
                 rootPageData.base_url = 'https://screensizechecker.com';
                 const devicePath = page.output.replace('devices/', '/devices/');
                 rootPageData.page_path = devicePath.replace('.html', '');
@@ -1712,7 +1847,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
-                // 处理翻译
+                // 澶勭悊缈昏瘧
                 if (rootPageData.page_title_key) {
                     const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
                     if (translationValue) {
@@ -1737,14 +1872,14 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                     rootPageData.description = rootPageData.og_description || '';
                 }
 
-                // 设置og:image和og:locale
+                // 璁剧疆og:image鍜宱g:locale
                 rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
                 rootPageData.og_locale = 'en_US';
 
-                // 添加结构化数据
+                // 娣诲姞缁撴瀯鍖栨暟鎹?
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
 
-                // 添加导航状态标识
+                // 娣诲姞瀵艰埅鐘舵€佹爣璇?
                 const pagePath = page.output || '';
                 rootPageData.is_home = pagePath === 'index.html' || pagePath === '';
                 rootPageData.is_blog = false;
@@ -1753,52 +1888,48 @@ ${JSON.stringify(faqStructuredData, null, 2)}
                 rootPageData.is_tools = isToolPage;
                 rootPageData.is_devices = isDevicePage;
                 
-                // 为responsive-tester页面添加FAQ结构化数据
-                if (page.name === 'responsive-tester') {
-                    rootPageData.faq_structured_data = this.generateFAQStructuredData('en');
-                } else {
-                    rootPageData.faq_structured_data = '';
-                }
+                // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+                rootPageData.faq_structured_data = this.generateFAQStructuredDataForPage(page.name, 'en');
                 
-                // 构建HTML
+                // 鏋勫缓HTML
                 let html = this.buildPage(page.template, rootPageData);
                 
-                // 应用英文翻译
+                // 搴旂敤鑻辨枃缈昏瘧
                 html = this.translateContent(html, englishTranslations);
                 
-                // 处理内链
+                // 澶勭悊鍐呴摼
                 html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
                 
-                // 修复静态资源路径
+                // 淇闈欐€佽祫婧愯矾寰?
                 html = this.fixStaticResourcePaths(html, page.output);
                 
-                // 写入文件
+                // 鍐欏叆鏂囦欢
                 const outputPath = path.join(outputDir, page.output);
                 fs.writeFileSync(outputPath, html);
-                console.log(`  ✅ Generated root device page: ${page.output}`);
+                console.log(`[OK] Generated root device page: ${page.output}`);
                 
             } catch (error) {
-                console.error(`  ❌ Failed to generate root device page ${page.output}:`, error.message);
+                console.error(`[ERROR] Failed to generate root device page ${page.output}:`, error.message);
             }
         }
         
-        console.log('✅ Root directory device pages generated');
+        console.log('[OK] Root directory device pages generated');
     }
 
-    // 生成语言选择索引页面
+    // 鐢熸垚璇█閫夋嫨绱㈠紩椤甸潰
     generateLanguageIndex(outputDir) {
-        console.log('\n📋 Generating root English page and language selection...');
+        console.log('\n Generating root English page and language selection...');
         
-        // 定义已启用的语言（只有英文和中文）
+        // 瀹氫箟宸插惎鐢ㄧ殑璇█锛堝彧鏈夎嫳鏂囧拰涓枃锛?
         const enabledLanguages = ['en', 'zh'];
         
-        // 1. 生成根目录英文主页内容（不再重定向）
-        console.log('🏠 Generating root directory English homepage...');
+        // 1. 鐢熸垚鏍圭洰褰曡嫳鏂囦富椤靛唴瀹癸紙涓嶅啀閲嶅畾鍚戯級
+        console.log(' Generating root directory English homepage...');
         
-        // 获取英文翻译
+        // 鑾峰彇鑻辨枃缈昏瘧
         const englishTranslations = this.translations.get('en') || {};
         
-        // 配置根目录页面数据，基于pages-config.json中的index页面配置
+        // 閰嶇疆鏍圭洰褰曢〉闈㈡暟鎹紝鍩轰簬pages-config.json涓殑index椤甸潰閰嶇疆
         const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
         const indexPageConfig = config.pages.find(page => page.name === 'index');
         
@@ -1806,7 +1937,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             throw new Error('Index page configuration not found in pages-config.json');
         }
         
-        // 准备根目录页面数据
+        // 鍑嗗鏍圭洰褰曢〉闈㈡暟鎹?
         const rootPageData = {
             lang: 'en',
             lang_prefix: '',
@@ -1815,7 +1946,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             ...indexPageConfig.config
         };
         
-        // 设置根目录特定的路径和URL
+        // 璁剧疆鏍圭洰褰曠壒瀹氱殑璺緞鍜孶RL
         rootPageData.canonical_url = 'https://screensizechecker.com/';
         rootPageData.og_url = 'https://screensizechecker.com/';
         rootPageData.css_path = 'css';
@@ -1826,7 +1957,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.privacy_policy_url = 'privacy-policy.html';
         rootPageData.device_links_base = 'devices/';
         
-        // 设置根目录页面的hreflang数据
+        // 璁剧疆鏍圭洰褰曢〉闈㈢殑hreflang鏁版嵁
         rootPageData.base_url = 'https://screensizechecker.com';
         rootPageData.page_path = '/';
         rootPageData.hreflang_root_url = 'https://screensizechecker.com/';
@@ -1835,7 +1966,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         rootPageData.hreflang_de_url = 'https://screensizechecker.com/de/';
         rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
         
-        // 从翻译文件中获取页面特定的翻译值
+        // 浠庣炕璇戞枃浠朵腑鑾峰彇椤甸潰鐗瑰畾鐨勭炕璇戝€?
         if (rootPageData.page_title_key) {
             const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
             if (translationValue) {
@@ -1847,7 +1978,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             rootPageData.page_title = rootPageData.og_title || 'Screen Size Checker';
         }
         
-        // 确保title变量也被设置
+        // 纭繚title鍙橀噺涔熻璁剧疆
         rootPageData.title = rootPageData.page_title;
         
         if (rootPageData.page_description_key) {
@@ -1861,67 +1992,63 @@ ${JSON.stringify(faqStructuredData, null, 2)}
             rootPageData.description = rootPageData.og_description || '';
         }
         
-        // 设置og:image和og:locale
+        // 璁剧疆og:image鍜宱g:locale
         rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
         rootPageData.og_locale = 'en_US';
 
-        // 添加结构化数据
+        // 娣诲姞缁撴瀯鍖栨暟鎹?
         rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
 
-        // 添加导航状态标识
+        // 娣诲姞瀵艰埅鐘舵€佹爣璇?
         rootPageData.is_home = true;
         rootPageData.is_blog = false;
         rootPageData.is_tools = false;
         rootPageData.is_devices = false;
         
-        // 为responsive-tester页面添加FAQ结构化数据
-        if (indexPageConfig.name === 'responsive-tester') {
-            rootPageData.faq_structured_data = this.generateFAQStructuredData('en');
-        } else {
-            rootPageData.faq_structured_data = '';
-        }
+        // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+        rootPageData.faq_structured_data = this.generateFAQStructuredDataForPage(indexPageConfig.name, 'en');
         
-        // 构建根目录HTML页面
+        // 鏋勫缓鏍圭洰褰旽TML椤甸潰
         let rootHtml = this.buildPage(indexPageConfig.template, rootPageData);
         
-        // 应用英文翻译
+        // 搴旂敤鑻辨枃缈昏瘧
         rootHtml = this.translateContent(rootHtml, englishTranslations);
         
-        // 处理内链（根目录页面使用特殊的页面ID）
+        // 澶勭悊鍐呴摼锛堟牴鐩綍椤甸潰浣跨敤鐗规畩鐨勯〉闈D锛?
         rootHtml = this.internalLinksProcessor.processPageLinks(rootHtml, 'index-root', 'en');
         
-        // 更新HTML lang属性
+        // 鏇存柊HTML lang灞炴€?
         rootHtml = rootHtml.replace('<html lang="en">', '<html lang="en">');
         
-        // 修复静态资源路径（根目录不需要额外的路径前缀）
+        // 淇闈欐€佽祫婧愯矾寰勶紙鏍圭洰褰曚笉闇€瑕侀澶栫殑璺緞鍓嶇紑锛?
         rootHtml = this.fixStaticResourcePaths(rootHtml, 'index.html');
         
-        // 写入根目录index.html
+        // 鍐欏叆鏍圭洰褰昳ndex.html
         fs.writeFileSync(path.join(outputDir, 'index.html'), rootHtml);
-        console.log('✅ Root English homepage created (no redirect)');
+        console.log('[OK] Root English homepage created (no redirect)');
         
-        // 1.5. 跳过根目录博客内容生成，博客链接将指向 /en/blog/
-        console.log('📝 Skipping root directory blog content generation - blog links will point to /en/blog/');
+        // 1.5. 璺宠繃鏍圭洰褰曞崥瀹㈠唴瀹圭敓鎴愶紝鍗氬閾炬帴灏嗘寚鍚?/en/blog/
+        console.log(' Skipping root directory blog content generation - blog links will point to /en/blog/');
         
-        // 1.6. 生成根目录设备页面（英文版本）
+        // 1.6. 鐢熸垚鏍圭洰褰曡澶囬〉闈紙鑻辨枃鐗堟湰锛?
         this.generateRootDevicePages(outputDir, config, englishTranslations);
         
-        // 2. 生成语言选择页面到 select-language.html
-        // 语言配置
+        // 2. 鐢熸垚璇█閫夋嫨椤甸潰鍒?select-language.html
+        // 璇█閰嶇疆
         const languageConfigs = [
-            { code: 'en', name: 'English', flag: '🇺🇸' },
-            { code: 'zh', name: '中文', flag: '🇨🇳' },
-            { code: 'fr', name: 'Français', flag: '🇫🇷' },
-            { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-            { code: 'es', name: 'Español', flag: '🇪🇸' },
-            { code: 'ja', name: '日本語', flag: '🇯🇵' },
-            { code: 'ko', name: '한국어', flag: '🇰🇷' },
-            { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-            { code: 'pt', name: 'Português', flag: '🇵🇹' },
-            { code: 'it', name: 'Italiano', flag: '🇮🇹' }
+            { code: 'en', name: 'English', flag: 'EN' },
+            { code: 'zh', name: 'Chinese', flag: 'ZH' },
+            { code: 'fr', name: 'Francais', flag: 'FR' },
+            { code: 'de', name: 'Deutsch', flag: 'DE' },
+            { code: 'es', name: 'Espanol', flag: 'ES' },
+            { code: 'ja', name: 'Japanese', flag: 'JA' },
+            { code: 'ko', name: 'Korean', flag: 'KO' },
+            { code: 'ru', name: 'Russian', flag: 'RU' },
+            { code: 'pt', name: 'Portugues', flag: 'PT' },
+            { code: 'it', name: 'Italiano', flag: 'IT' }
         ];
         
-        // 生成语言卡片HTML
+        // 鐢熸垚璇█鍗＄墖HTML
         const languageCards = languageConfigs.map(lang => {
             const isEnabled = enabledLanguages.includes(lang.code);
             
@@ -1965,7 +2092,7 @@ ${JSON.stringify(faqStructuredData, null, 2)}
         }
         .language-card.disabled .flag { opacity: 0.5; }
         .language-card.disabled::after {
-            content: "即将推出";
+            content: "鍗冲皢鎺ㄥ嚭";
             position: absolute;
             top: 50%;
             left: 50%;
@@ -1986,51 +2113,51 @@ ${JSON.stringify(faqStructuredData, null, 2)}
     </style>
 </head>
 <body>
-    <h1>🌍 Screen Size Checker</h1>
-    <p class="subtitle">Choose your language / 选择您的语言</p>
+    <h1>馃實 Screen Size Checker</h1>
+    <p class="subtitle">Choose your language / 閫夋嫨鎮ㄧ殑璇█</p>
     
     <div class="language-grid">
 ${languageCards}
     </div>
     
-    <p class="note">💡 其他语言版本正在翻译中，敬请期待！<br>Other language versions are being translated, stay tuned!</p>
+    <p class="note">馃挕 鍏朵粬璇█鐗堟湰姝ｅ湪缈昏瘧涓紝鏁鏈熷緟锛?br>Other language versions are being translated, stay tuned!</p>
     
     <script>
-        // 自动语言检测和重定向（仅限已启用的语言）
+        // 鑷姩璇█妫€娴嬪拰閲嶅畾鍚戯紙浠呴檺宸插惎鐢ㄧ殑璇█锛?
         function detectAndRedirect() {
             const userLang = navigator.language || navigator.userLanguage;
             const langCode = userLang.split('-')[0];
-            const availableLangs = ${JSON.stringify(enabledLanguages)}; // 仅已启用的语言
+            const availableLangs = ${JSON.stringify(enabledLanguages)}; // 浠呭凡鍚敤鐨勮瑷€
             
             if (availableLangs.includes(langCode)) {
                 const targetUrl = langCode + '/index.html';
                 console.log('Auto-redirecting to:', targetUrl);
-                // window.location.href = targetUrl; // 取消注释以启用自动重定向
+                // window.location.href = targetUrl; // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄩ噸瀹氬悜
             } else {
-                // 如果用户语言不在可用列表中，默认跳转到英文
+                // 濡傛灉鐢ㄦ埛璇█涓嶅湪鍙敤鍒楄〃涓紝榛樿璺宠浆鍒拌嫳鏂?
                 console.log('Language not available, defaulting to English');
-                // window.location.href = 'en/index.html'; // 取消注释以启用自动重定向
+                // window.location.href = 'en/index.html'; // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄩ噸瀹氬悜
             }
         }
         
-        // detectAndRedirect(); // 取消注释以启用自动语言检测
+        // detectAndRedirect(); // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄨ瑷€妫€娴?
     </script>
 </body>
 </html>`;
         
         fs.writeFileSync(path.join(outputDir, 'select-language.html'), languageSelectionHtml);
-        console.log('✅ Language selection page created at select-language.html');
+        console.log('[OK] Language selection page created at select-language.html');
     }
 
-    // 生成多语言网站地图（只包含启用的语言）
+    // 鐢熸垚澶氳瑷€缃戠珯鍦板浘锛堝彧鍖呭惈鍚敤鐨勮瑷€锛?
     generateMultiLanguageSitemap(outputDir) {
-        console.log('\n🗺️ Generating multilingual sitemap (enabled languages only)...');
+        console.log('\n[OK] Generating multilingual sitemap (enabled languages only)...');
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
-        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 只包含启用的语言
+        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 鍙寘鍚惎鐢ㄧ殑璇█
         
-        // 定义页面结构（无.html后缀，匹配Cloudflare Pages的URL格式）
+        // 瀹氫箟椤甸潰缁撴瀯锛堟棤.html鍚庣紑锛屽尮閰岰loudflare Pages鐨刄RL鏍煎紡锛?
         const pages = [
             { path: '', priority: '1.0', changefreq: 'weekly' },
             { path: '/devices/iphone-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
@@ -2044,7 +2171,7 @@ ${languageCards}
             { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
         ];
         
-        // 定义博客页面结构
+        // 瀹氫箟鍗氬椤甸潰缁撴瀯
         const blogPages = [
             { path: '/blog', priority: '0.9', changefreq: 'weekly' },
             { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
@@ -2078,19 +2205,19 @@ ${languageCards}
             { path: '/blog/tag/web-development', priority: '0.6', changefreq: 'monthly' }
         ];
         
-        // 中文特有的标签页面
+        // 涓枃鐗规湁鐨勬爣绛鹃〉闈?
         const zhBlogPages = [
-            { path: '/blog/tag/像素密度', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/响应式设计', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/媒体查询', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/断点', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/视网膜显示', priority: '0.6', changefreq: 'monthly' }
+            { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/responsive-design', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/media-queries', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/breakpoints', priority: '0.6', changefreq: 'monthly' },
+            { path: '/blog/tag/retina-display', priority: '0.6', changefreq: 'monthly' }
         ];
         
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
         
-        // 添加根路径（英文版本的主要入口）
+        // 娣诲姞鏍硅矾寰勶紙鑻辨枃鐗堟湰鐨勪富瑕佸叆鍙ｏ級
         sitemapContent += `
     <url>
         <loc>${baseUrl}/</loc>
@@ -2099,7 +2226,7 @@ ${languageCards}
         <priority>1.0</priority>
     </url>`;
         
-        // 添加根目录的设备页面（英文主要版本）
+        // 娣诲姞鏍圭洰褰曠殑璁惧椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
         pages.forEach(page => {
             if (page.path !== '') {
                 sitemapContent += `
@@ -2112,7 +2239,7 @@ ${languageCards}
             }
         });
         
-        // 添加根目录的博客页面（英文主要版本）
+        // 娣诲姞鏍圭洰褰曠殑鍗氬椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
         blogPages.forEach(page => {
             sitemapContent += `
     <url>
@@ -2123,8 +2250,8 @@ ${languageCards}
     </url>`;
         });
         
-        // 添加根目录的Hub页面（英文主要版本）
-        // 从pages-config.json读取Hub页面
+        // 娣诲姞鏍圭洰褰曠殑Hub椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
+        // 浠巔ages-config.json璇诲彇Hub椤甸潰
         const configPath = path.join(__dirname, 'pages-config.json');
         const pagesConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         const hubPagesEn = pagesConfig.pages.filter(p => 
@@ -2143,7 +2270,7 @@ ${languageCards}
     </url>`;
         });
         
-        // 添加语言选择页面
+        // 娣诲姞璇█閫夋嫨椤甸潰
         sitemapContent += `
     <url>
         <loc>${baseUrl}/select-language</loc>
@@ -2152,17 +2279,17 @@ ${languageCards}
         <priority>0.8</priority>
     </url>`;
         
-        // 只为非英文的启用语言生成URL（英文已在根目录）
+        // 鍙负闈炶嫳鏂囩殑鍚敤璇█鐢熸垚URL锛堣嫳鏂囧凡鍦ㄦ牴鐩綍锛?
         enabledLanguages.forEach(lang => {
-            // 跳过英文，因为英文版本已经在根目录
+            // 璺宠繃鑻辨枃锛屽洜涓鸿嫳鏂囩増鏈凡缁忓湪鏍圭洰褰?
             if (lang === 'en') {
                 return;
             }
             
-            // 添加基础页面
+            // 娣诲姞鍩虹椤甸潰
             pages.forEach(page => {
                 if (page.path === '') {
-                    // 语言首页
+                    // 璇█棣栭〉
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}/</loc>
@@ -2171,7 +2298,7 @@ ${languageCards}
         <priority>${page.priority}</priority>
     </url>`;
                 } else {
-                    // 其他页面
+                    // 鍏朵粬椤甸潰
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
@@ -2182,7 +2309,7 @@ ${languageCards}
                 }
             });
             
-            // 添加博客页面
+            // 娣诲姞鍗氬椤甸潰
             blogPages.forEach(page => {
                 sitemapContent += `
     <url>
@@ -2193,7 +2320,7 @@ ${languageCards}
     </url>`;
             });
             
-            // 添加Hub页面
+            // 娣诲姞Hub椤甸潰
             const hubPagesLang = pagesConfig.pages.filter(p => 
                 p.template === 'hub-page' && 
                 p.enabled_languages && 
@@ -2210,7 +2337,7 @@ ${languageCards}
     </url>`;
             });
             
-            // 为中文添加特有的标签页面
+            // 涓轰腑鏂囨坊鍔犵壒鏈夌殑鏍囩椤甸潰
             if (lang === 'zh') {
                 zhBlogPages.forEach(page => {
                     sitemapContent += `
@@ -2224,7 +2351,7 @@ ${languageCards}
             }
         });
         
-        // 添加隐私政策页面
+        // 娣诲姞闅愮鏀跨瓥椤甸潰
         sitemapContent += `
     <url>
         <loc>${baseUrl}/privacy-policy</loc>
@@ -2238,26 +2365,26 @@ ${languageCards}
         
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
         
-        // 计算总URL数量：
-        // 1个根目录 + 根目录的设备页面 + 根目录的博客页面 + Hub页面 + 1个语言选择页面 + 1个隐私政策页面
-        // + 语言版本页面 + 中文特有页面
+        // 璁＄畻鎬籙RL鏁伴噺锛?
+        // 1涓牴鐩綍 + 鏍圭洰褰曠殑璁惧椤甸潰 + 鏍圭洰褰曠殑鍗氬椤甸潰 + Hub椤甸潰 + 1涓瑷€閫夋嫨椤甸潰 + 1涓殣绉佹斂绛栭〉闈?
+        // + 璇█鐗堟湰椤甸潰 + 涓枃鐗规湁椤甸潰
         const hubPagesCount = pagesConfig.pages.filter(p => p.template === 'hub-page').length;
-        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 根目录相关URL
-        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 语言版本URL
-        const hubUrls = hubPagesCount; // Hub页面（所有语言）
-        const otherUrls = 2; // 语言选择页面 + 隐私政策页面
+        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 鏍圭洰褰曠浉鍏砋RL
+        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 璇█鐗堟湰URL
+        const hubUrls = hubPagesCount; // Hub椤甸潰锛堟墍鏈夎瑷€锛?
+        const otherUrls = 2; // 璇█閫夋嫨椤甸潰 + 闅愮鏀跨瓥椤甸潰
         const totalUrls = rootUrls + languageUrls + hubUrls + zhBlogPages.length + otherUrls;
         
-        console.log('✅ Multilingual sitemap generated with optimized structure');
-        console.log(`   📄 Total URLs: ${totalUrls}`);
-        console.log(`   🏠 Root domain URLs: ${rootUrls} (priority 1.0-0.9)`);
-        console.log(`   🌍 Language versions: ${languageUrls} (adjusted priorities)`);
-        console.log(`   🎮 Gaming Hub pages: ${hubUrls} (4 languages)`);
-        console.log(`   🇨🇳 Chinese-specific: ${zhBlogPages.length}`);
-        console.log(`   📝 Other pages: ${otherUrls}`);
+        console.log('[OK] Multilingual sitemap generated with optimized structure');
+        console.log(`    Total URLs: ${totalUrls}`);
+        console.log(`    Root domain URLs: ${rootUrls} (priority 1.0-0.9)`);
+        console.log(`    Language versions: ${languageUrls} (adjusted priorities)`);
+        console.log(`    Gaming Hub pages: ${hubUrls} (4 languages)`);
+        console.log(`    Chinese-specific: ${zhBlogPages.length}`);
+        console.log(`    Other pages: ${otherUrls}`);
     }
     
-    // 生成构建报告
+    // 鐢熸垚鏋勫缓鎶ュ憡
     generateBuildReport(outputDir, successPages, totalPages) {
         const report = {
             buildTime: new Date().toISOString(),
@@ -2269,7 +2396,7 @@ ${languageCards}
             languageStructure: {}
         };
         
-        // 收集每种语言的页面信息
+        // 鏀堕泦姣忕璇█鐨勯〉闈俊鎭?
         this.supportedLanguages.forEach(lang => {
             const langDir = path.join(outputDir, lang);
             if (fs.existsSync(langDir)) {
@@ -2286,10 +2413,10 @@ ${languageCards}
             JSON.stringify(report, null, 2)
         );
         
-        console.log('📋 Build report saved: multilang-build/build-report.json');
+        console.log(' Build report saved: multilang-build/build-report.json');
     }
     
-    // 递归获取目录下所有文件
+    // 閫掑綊鑾峰彇鐩綍涓嬫墍鏈夋枃浠?
     getAllFiles(dirPath) {
         const files = [];
         const items = fs.readdirSync(dirPath);
@@ -2306,35 +2433,35 @@ ${languageCards}
         return files;
     }
     
-    // 生成优化的_redirects文件
+    // 鐢熸垚浼樺寲鐨刜redirects鏂囦欢
     generateRedirectsFile(outputDir) {
-        console.log('\n🔄 Generating optimized _redirects file...');
+        console.log('\n Generating optimized _redirects file...');
         
-        const redirectsContent = `# Cloudflare Pages 重定向配置文件
-# URL 结构迁移：英文内容从 /en/* 迁移到根路径 /*
+        const redirectsContent = `# Cloudflare Pages 閲嶅畾鍚戦厤缃枃浠?
+# URL 缁撴瀯杩佺Щ锛氳嫳鏂囧唴瀹逛粠 /en/* 杩佺Щ鍒版牴璺緞 /*
 
-# ===== 重要：旧英文路径 → 新根路径 =====
-# 这些规则确保旧的 /en/* URL 正确重定向到新的根路径
+# ===== 閲嶈锛氭棫鑻辨枃璺緞 鈫?鏂版牴璺緞 =====
+# 杩欎簺瑙勫垯纭繚鏃х殑 /en/* URL 姝ｇ‘閲嶅畾鍚戝埌鏂扮殑鏍硅矾寰?
 
-# 英文主页重定向
+# 鑻辨枃涓婚〉閲嶅畾鍚?
 /en/                  /                   301
 /en/index.html        /                   301
 
-# 英文博客重定向（旧路径 → 新路径）
+# 鑻辨枃鍗氬閲嶅畾鍚戯紙鏃ц矾寰?鈫?鏂拌矾寰勶級
 /en/blog              /blog               301
 /en/blog/             /blog/              301
 /en/blog/*            /blog/:splat        301
 
-# 英文设备页面重定向（旧路径 → 新路径）
+# 鑻辨枃璁惧椤甸潰閲嶅畾鍚戯紙鏃ц矾寰?鈫?鏂拌矾寰勶級
 /en/devices/*         /devices/:splat     301
 
-# 英文工具页面重定向（如果存在）
+# 鑻辨枃宸ュ叿椤甸潰閲嶅畾鍚戯紙濡傛灉瀛樺湪锛?
 /en/tools/*           /tools/:splat       301
 
-# 通用规则：所有剩余的 /en/* 路径重定向到根路径
+# 閫氱敤瑙勫垯锛氭墍鏈夊墿浣欑殑 /en/* 璺緞閲嶅畾鍚戝埌鏍硅矾寰?
 /en/*                 /:splat             301
 
-# ===== .html 后缀重定向（根路径英文版本）=====
+# ===== .html 鍚庣紑閲嶅畾鍚戯紙鏍硅矾寰勮嫳鏂囩増鏈級=====
 /devices/iphone-viewport-sizes.html       /devices/iphone-viewport-sizes      301
 /devices/ipad-viewport-sizes.html         /devices/ipad-viewport-sizes        301
 /devices/android-viewport-sizes.html      /devices/android-viewport-sizes     301
@@ -2346,7 +2473,7 @@ ${languageCards}
 /devices/projection-calculator.html       /devices/projection-calculator      301
 /devices/lcd-screen-tester.html           /devices/lcd-screen-tester          301
 
-# ===== .html 后缀重定向（中文版本）=====
+# ===== .html 鍚庣紑閲嶅畾鍚戯紙涓枃鐗堟湰锛?====
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
 /zh/devices/ipad-viewport-sizes.html      /zh/devices/ipad-viewport-sizes     301
 /zh/devices/android-viewport-sizes.html   /zh/devices/android-viewport-sizes  301
@@ -2358,7 +2485,7 @@ ${languageCards}
 /zh/devices/projection-calculator.html    /zh/devices/projection-calculator   301
 /zh/devices/lcd-screen-tester.html        /zh/devices/lcd-screen-tester       301
 
-# ===== .html 后缀重定向（德语版本）=====
+# ===== .html 鍚庣紑閲嶅畾鍚戯紙寰疯鐗堟湰锛?====
 /de/devices/iphone-viewport-sizes.html    /de/devices/iphone-viewport-sizes   301
 /de/devices/ipad-viewport-sizes.html      /de/devices/ipad-viewport-sizes     301
 /de/devices/android-viewport-sizes.html   /de/devices/android-viewport-sizes  301
@@ -2370,7 +2497,7 @@ ${languageCards}
 /de/devices/projection-calculator.html    /de/devices/projection-calculator   301
 /de/devices/lcd-screen-tester.html        /de/devices/lcd-screen-tester       301
 
-# ===== .html 后缀重定向（西班牙语版本）=====
+# ===== .html 鍚庣紑閲嶅畾鍚戯紙瑗跨彮鐗欒鐗堟湰锛?====
 /es/devices/iphone-viewport-sizes.html    /es/devices/iphone-viewport-sizes   301
 /es/devices/ipad-viewport-sizes.html      /es/devices/ipad-viewport-sizes     301
 /es/devices/android-viewport-sizes.html   /es/devices/android-viewport-sizes  301
@@ -2382,7 +2509,7 @@ ${languageCards}
 /es/devices/projection-calculator.html    /es/devices/projection-calculator   301
 /es/devices/lcd-screen-tester.html        /es/devices/lcd-screen-tester       301
 
-# ===== 博客 .html 后缀重定向 =====
+# ===== 鍗氬 .html 鍚庣紑閲嶅畾鍚?=====
 /blog/index.html                          /blog                               301
 /zh/blog/index.html                       /zh/blog                            301
 /de/blog/index.html                       /de/blog                            301
@@ -2392,34 +2519,34 @@ ${languageCards}
 /de/blog/*.html                           /de/blog/:splat                     301
 /es/blog/*.html                           /es/blog/:splat                     301
 
-# ===== 语言版本 index.html 重定向 =====
+# ===== 璇█鐗堟湰 index.html 閲嶅畾鍚?=====
 /zh/index.html                            /zh/                                301
 /de/index.html                            /de/                                301
 /es/index.html                            /es/                                301
 
-# ===== 其他页面重定向 =====
+# ===== 鍏朵粬椤甸潰閲嶅畾鍚?=====
 /privacy-policy.html                      /privacy-policy                     301
 /terms-of-service.html                    /terms-of-service                  301
 
 
-# ===== 便捷访问重定向 =====
+# ===== 渚挎嵎璁块棶閲嶅畾鍚?=====
 /devices/                                 /devices/iphone-viewport-sizes      301
 /devices                                  /devices/iphone-viewport-sizes      301`;
 
         fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent);
-        console.log('✅ Generated simplified _redirects file');
+        console.log('[OK] Generated simplified _redirects file');
     }
     
-    // 生成优化的robots.txt文件
-    // 内容一致性检查：确保英文版本（根目录）和中文版本（/zh/）正确生成
+    // 鐢熸垚浼樺寲鐨剅obots.txt鏂囦欢
+    // 鍐呭涓€鑷存€ф鏌ワ細纭繚鑻辨枃鐗堟湰锛堟牴鐩綍锛夊拰涓枃鐗堟湰锛?zh/锛夋纭敓鎴?
     validateContentConsistency(outputDir) {
-        console.log('\n🔍 Validating content consistency between English (root) and Chinese (/zh/) versions...');
+        console.log('\n Validating content consistency between English (root) and Chinese (/zh/) versions...');
         
         const inconsistencies = [];
-        const rootDir = outputDir; // 英文版本在根目录
-        const zhDir = path.join(outputDir, 'zh'); // 中文版本在 /zh/ 目录
+        const rootDir = outputDir; // 鑻辨枃鐗堟湰鍦ㄦ牴鐩綍
+        const zhDir = path.join(outputDir, 'zh'); // 涓枃鐗堟湰鍦?/zh/ 鐩綍
         
-        // 需要检查的页面列表
+        // 闇€瑕佹鏌ョ殑椤甸潰鍒楄〃
         const pagesToCheck = [
             'index.html',
             'devices/iphone-viewport-sizes.html',
@@ -2438,10 +2565,10 @@ ${languageCards}
         let consistentPages = 0;
         
         pagesToCheck.forEach(pagePath => {
-            const rootPagePath = path.join(rootDir, pagePath); // 英文版本
-            const zhPagePath = path.join(zhDir, pagePath); // 中文版本
+            const rootPagePath = path.join(rootDir, pagePath); // 鑻辨枃鐗堟湰
+            const zhPagePath = path.join(zhDir, pagePath); // 涓枃鐗堟湰
             
-            // 检查文件是否存在
+            // 妫€鏌ユ枃浠舵槸鍚﹀瓨鍦?
             if (!fs.existsSync(rootPagePath)) {
                 inconsistencies.push({
                     page: pagePath,
@@ -2461,13 +2588,13 @@ ${languageCards}
             }
             
             try {
-                // 读取文件内容
+                // 璇诲彇鏂囦欢鍐呭
                 const rootContent = fs.readFileSync(rootPagePath, 'utf8');
                 const zhContent = fs.readFileSync(zhPagePath, 'utf8');
                 
                 checkedPages++;
                 
-                // 检查关键SEO元素的一致性
+                // 妫€鏌ュ叧閿甋EO鍏冪礌鐨勪竴鑷存€?
                 const seoChecks = [
                     { name: 'Title', regex: /<title[^>]*>(.*?)<\/title>/is },
                     { name: 'Meta Description', regex: /<meta[^>]*name="description"[^>]*content="([^"]*)"[^>]*>/i },
@@ -2484,9 +2611,9 @@ ${languageCards}
                         const rootValue = rootMatch[1].trim();
                         const zhValue = zhMatch[1].trim();
                         
-                        // 英文和中文版本的内容应该是翻译关系，不应该相同
-                        // 这里只检查两者都存在即可，不比较内容
-                        // 如果需要，可以在这里添加更复杂的翻译验证逻辑
+                        // 鑻辨枃鍜屼腑鏂囩増鏈殑鍐呭搴旇鏄炕璇戝叧绯伙紝涓嶅簲璇ョ浉鍚?
+                        // 杩欓噷鍙鏌ヤ袱鑰呴兘瀛樺湪鍗冲彲锛屼笉姣旇緝鍐呭
+                        // 濡傛灉闇€瑕侊紝鍙互鍦ㄨ繖閲屾坊鍔犳洿澶嶆潅鐨勭炕璇戦獙璇侀€昏緫
                     } else if (!rootMatch) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2504,7 +2631,7 @@ ${languageCards}
                     }
                 });
                 
-                // 检查canonical URL的正确性
+                // 妫€鏌anonical URL鐨勬纭€?
                 const rootCanonical = rootContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
                 const zhCanonical = zhContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
                 
@@ -2512,8 +2639,8 @@ ${languageCards}
                     const rootCanonicalUrl = rootCanonical[1];
                     const zhCanonicalUrl = zhCanonical[1];
                     
-                    // 验证canonical URL的正确性
-                    // 英文版本（根目录）不应该包含 /en/
+                    // 楠岃瘉canonical URL鐨勬纭€?
+                    // 鑻辨枃鐗堟湰锛堟牴鐩綍锛変笉搴旇鍖呭惈 /en/
                     if (rootCanonicalUrl.includes('/en/')) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2523,7 +2650,7 @@ ${languageCards}
                         pageConsistent = false;
                     }
                     
-                    // 中文版本应该包含 /zh/
+                    // 涓枃鐗堟湰搴旇鍖呭惈 /zh/
                     if (!zhCanonicalUrl.includes('/zh/')) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2547,7 +2674,7 @@ ${languageCards}
             }
         });
         
-        // 生成验证报告
+        // 鐢熸垚楠岃瘉鎶ュ憡
         const validationReport = {
             timestamp: new Date().toISOString(),
             summary: {
@@ -2559,36 +2686,36 @@ ${languageCards}
             issues: inconsistencies
         };
         
-        // 保存验证报告
+        // 淇濆瓨楠岃瘉鎶ュ憡
         fs.writeFileSync(
             path.join(outputDir, 'content-consistency-report.json'),
             JSON.stringify(validationReport, null, 2)
         );
         
-        // 输出结果
-        console.log(`📊 Content consistency validation completed:`);
-        console.log(`   📄 Pages checked: ${checkedPages}/${pagesToCheck.length}`);
-        console.log(`   ✅ Consistent pages: ${consistentPages}`);
-        console.log(`   ⚠️  Issues found: ${inconsistencies.length}`);
+        // 杈撳嚭缁撴灉
+        console.log(` Content consistency validation completed:`);
+        console.log(`    Pages checked: ${checkedPages}/${pagesToCheck.length}`);
+        console.log(`[OK] Consistent pages: ${consistentPages}`);
+        console.log(`     Issues found: ${inconsistencies.length}`);
         
         if (inconsistencies.length > 0) {
-            console.log('\n⚠️  Content consistency issues:');
+            console.log('\n  Content consistency issues:');
             inconsistencies.slice(0, 5).forEach(issue => {
-                const icon = issue.severity === 'error' ? '❌' : '⚠️';
+                const icon = issue.severity === 'error' ? 'X' : '!';
                 console.log(`   ${icon} ${issue.page}: ${issue.issue}`);
             });
             
             if (inconsistencies.length > 5) {
                 console.log(`   ... and ${inconsistencies.length - 5} more issues`);
             }
-            console.log(`   📋 Full report saved to: content-consistency-report.json`);
+            console.log(`    Full report saved to: content-consistency-report.json`);
         }
         
         return validationReport;
     }
     
     generateRobotsFile(outputDir) {
-        console.log('\n🤖 Generating optimized robots.txt file...');
+        console.log('\n Generating optimized robots.txt file...');
 
         // Dynamically generate Allow/Disallow based on enabledLanguages
         const enabledLangs = this.enabledLanguages; // ['en', 'zh', 'de', 'es']
@@ -2669,7 +2796,7 @@ User-agent: *
 Crawl-delay: 5`;
 
         fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
-        console.log('✅ Generated optimized robots.txt file');
+        console.log('[OK] Generated optimized robots.txt file');
         console.log(`   Enabled languages: ${enabledLangs.join(', ')}`);
         console.log(`   Disabled languages: ${disabledLangs.join(', ')}`);
     }
@@ -2702,53 +2829,58 @@ function processTemplate(templatePath, config, lang) {
     // ... existing code ...
 }
 
-// 如果直接运行此脚本，执行多语言构建
+// 濡傛灉鐩存帴杩愯姝よ剼鏈紝鎵ц澶氳瑷€鏋勫缓
 if (require.main === module) {
     (async () => {
         const builder = new MultiLangBuilder();
         
-        console.log('🚀 Starting integrated build process...');
+        console.log(' Starting integrated build process...');
         
-        // Step 0: 运行翻译验证
-        console.log('\n🔍 Step 0: Validating translations...');
+        // Step 0: 杩愯缈昏瘧楠岃瘉
+        console.log('\n Step 0: Validating translations...');
         const validationResult = await builder.runTranslationValidation();
         
         if (!validationResult.success) {
-            console.error('❌ Build failed due to translation validation errors');
+            console.error('[ERROR] Build failed due to translation validation errors');
             process.exit(1);
         }
         
-        // 首先运行博客构建器
-        console.log('\n📝 Step 1: Building blog system...');
+        // 棣栧厛杩愯鍗氬鏋勫缓鍣?
+        console.log('\n Step 1: Building blog system...');
         
         try {
             const blogBuilder = new BlogBuilder();
             blogBuilder.build();
-            console.log('✅ Blog system build completed successfully!');
+            console.log('[OK] Blog system build completed successfully!');
             
             // Build Hub system
-            console.log('\n🎮 Building Gaming Hub system...');
+            console.log('\n Building Gaming Hub system...');
             const hubBuilder = new HubBuilder();
             hubBuilder.build();
-            console.log('✅ Gaming Hub system build completed successfully!');
+            console.log('[OK] Gaming Hub system build completed successfully!');
             
-            // 重新加载组件，包括新生成的博客组件
-            console.log('🔄 Reloading components after blog build...');
+            // 閲嶆柊鍔犺浇缁勪欢锛屽寘鎷柊鐢熸垚鐨勫崥瀹㈢粍浠?
+            console.log(' Reloading components after blog build...');
             builder.loadComponents();
-            console.log('✅ Components reloaded successfully!');
+            console.log('[OK] Components reloaded successfully!');
         } catch (error) {
-            console.error('❌ Blog build failed:', error.message);
-            console.log('⚠️  Continuing with main build process...');
+            console.error('[ERROR] Blog build failed:', error.message);
+            console.log('  Continuing with main build process...');
         }
         
-        console.log('\n🌐 Step 2: Building multilingual pages...');
+        console.log('\n Step 2: Building multilingual pages...');
         if (builder.validateComponents()) {
             builder.buildMultiLangPages();
         }
     })().catch(error => {
-        console.error('❌ Build process failed:', error);
+        console.error('[ERROR] Build process failed:', error);
         process.exit(1);
     });
 }
 
 module.exports = MultiLangBuilder; 
+
+
+
+
+

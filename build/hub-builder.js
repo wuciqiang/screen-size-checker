@@ -45,7 +45,7 @@ class HubBuilder {
         // 确保hub-content目录存在
         if (!fs.existsSync(this.hubContentPath)) {
             fs.mkdirSync(this.hubContentPath, { recursive: true });
-            console.log('✅ Created hub-content directory');
+            console.log(' Created hub-content directory');
         }
     }
     
@@ -53,7 +53,7 @@ class HubBuilder {
      * 从hub-content目录加载所有内容
      */
     loadHubPages() {
-        console.log('\n🎮 Loading Hub pages...');
+        console.log('\n Loading Hub pages...');
         
         // 重置集合
         this.hubPages.clear();
@@ -61,7 +61,7 @@ class HubBuilder {
         
         // 如果目录不存在，返回
         if (!fs.existsSync(this.hubContentPath)) {
-            console.warn('⚠️ hub-content directory not found.');
+            console.warn(' hub-content directory not found.');
             return;
         }
         
@@ -69,7 +69,7 @@ class HubBuilder {
         const allFiles = fs.readdirSync(this.hubContentPath)
             .filter(file => file.endsWith('.md'));
         
-        console.log(`📑 Found ${allFiles.length} Hub content files.`);
+        console.log(` Found ${allFiles.length} Hub content files.`);
         
         // 按语言分组处理
         this.languages.forEach(lang => {
@@ -83,7 +83,7 @@ class HubBuilder {
                 return false;
             });
             
-            console.log(`  📄 Processing ${langFiles.length} files for ${lang}`);
+            console.log(`   Processing ${langFiles.length} files for ${lang}`);
             
             langFiles.forEach(file => {
                 const filePath = path.join(this.hubContentPath, file);
@@ -94,7 +94,7 @@ class HubBuilder {
                     
                     // 检查必要的元数据
                     if (!data.title || !data.slug) {
-                        console.warn(`⚠️ Hub page ${file} missing required metadata (title or slug).`);
+                        console.warn(` Hub page ${file} missing required metadata (title or slug).`);
                         return;
                     }
                     
@@ -147,22 +147,22 @@ class HubBuilder {
                     }
                     this.categories.get(category).push(hubPage);
                     
-                    console.log(`  ✅ Loaded: ${slug} (${lang})`);
+                    console.log(`   Loaded: ${slug} (${lang})`);
                     
                 } catch (error) {
-                    console.error(`  ❌ Error processing ${file}:`, error.message);
+                    console.error(`   Error processing ${file}:`, error.message);
                 }
             });
         });
         
-        console.log(`\n✅ Total Hub pages loaded: ${this.hubPages.size}`);
+        console.log(`\n Total Hub pages loaded: ${this.hubPages.size}`);
     }
     
     /**
      * 生成Hub页面组件（类似博客文章组件）
      */
     generateHubComponents() {
-        console.log('\n🏗️  Generating Hub page components...');
+        console.log('\n  Generating Hub page components...');
         
         let generated = 0;
         
@@ -181,11 +181,11 @@ class HubBuilder {
                 generated++;
                 
             } catch (error) {
-                console.error(`  ❌ Error generating component for ${page.id}:`, error.message);
+                console.error(`   Error generating component for ${page.id}:`, error.message);
             }
         });
         
-        console.log(`✅ Generated ${generated} Hub page components`);
+        console.log(` Generated ${generated} Hub page components`);
     }
     
     /**
@@ -358,7 +358,7 @@ class HubBuilder {
      * 更新pages-config.json以包含Hub页面配置
      */
     updatePagesConfig() {
-        console.log('\n📋 Updating pages configuration with Hub pages...');
+        console.log('\n Updating pages configuration with Hub pages...');
         
         try {
             const configPath = path.join(__dirname, 'pages-config.json');
@@ -428,11 +428,11 @@ class HubBuilder {
             
             // 保存更新后的配置
             fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
-            console.log('✅ Pages configuration updated with Hub pages successfully!');
+            console.log(' Pages configuration updated with Hub pages successfully!');
             
             return true;
         } catch (error) {
-            console.error('❌ Error updating pages configuration:', error.message);
+            console.error(' Error updating pages configuration:', error.message);
             return false;
         }
     }
@@ -441,7 +441,7 @@ class HubBuilder {
      * 构建整个Hub系统
      */
     build() {
-        console.log('\n🎮 Starting Hub Builder...\n');
+        console.log('\n Starting Hub Builder...\n');
         
         try {
             // 1. 加载Hub页面
@@ -453,7 +453,7 @@ class HubBuilder {
             // 3. 更新pages配置
             this.updatePagesConfig();
             
-            console.log('\n✅ Hub system build completed successfully!\n');
+            console.log('\n Hub system build completed successfully!\n');
             
             return {
                 success: true,
@@ -461,7 +461,7 @@ class HubBuilder {
             };
             
         } catch (error) {
-            console.error('\n❌ Hub build failed:', error);
+            console.error('\n Hub build failed:', error);
             return {
                 success: false,
                 error: error.message

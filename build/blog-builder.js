@@ -197,7 +197,7 @@ class BlogBuilder {
      * 从博客内容目录加载所有Markdown文件
      */
     loadBlogPosts() {
-        console.log('\n🔍 Loading blog posts...');
+        console.log('\n Loading blog posts...');
         
         // 重置集合
         this.blogPosts.clear();
@@ -210,7 +210,7 @@ class BlogBuilder {
             
             // 如果目录不存在，跳过
             if (!fs.existsSync(langPath)) {
-                console.warn(`⚠️ Blog content directory for language ${lang} not found.`);
+                console.warn(` Blog content directory for language ${lang} not found.`);
                 return;
             }
             
@@ -218,7 +218,7 @@ class BlogBuilder {
             const files = fs.readdirSync(langPath)
                 .filter(file => file.endsWith('.md'));
             
-            console.log(`📑 Found ${files.length} blog posts in ${lang} language.`);
+            console.log(` Found ${files.length} blog posts in ${lang} language.`);
             
             // 处理每个文件
             files.forEach(file => {
@@ -230,7 +230,7 @@ class BlogBuilder {
                     
                     // 检查必要的元数据
                     if (!data.title) {
-                        console.warn(`⚠️ Blog post ${file} missing title metadata.`);
+                        console.warn(` Blog post ${file} missing title metadata.`);
                         return;
                     }
                     
@@ -293,26 +293,26 @@ class BlogBuilder {
                         langTags.get(tag).push(postKey);
                     });
                     
-                    console.log(`✅ Loaded: ${lang}/${file} (${post.title})`);
+                    console.log(` Loaded: ${lang}/${file} (${post.title})`);
                     
                 } catch (error) {
-                    console.error(`❌ Error processing ${file}:`, error.message);
+                    console.error(` Error processing ${file}:`, error.message);
                 }
             });
         });
         
-        console.log(`📊 Total blog posts loaded: ${this.blogPosts.size}`);
+        console.log(` Total blog posts loaded: ${this.blogPosts.size}`);
     }
     
     /**
      * 生成博客文章组件
      */
     generateBlogComponents() {
-        console.log('\n🔨 Generating blog components...');
+        console.log('\n Generating blog components...');
         
         // 遍历每种语言的文章
         this.languages.forEach(lang => {
-            console.log(`\n📝 Generating components for ${lang}...`);
+            console.log(`\n Generating components for ${lang}...`);
             
             // 筛选该语言的文章
             const langPosts = Array.from(this.blogPosts.entries())
@@ -327,7 +327,7 @@ class BlogBuilder {
                 const componentPath = path.join(this.blogOutputPath, `${componentName}.html`);
                 
                 fs.writeFileSync(componentPath, componentContent, 'utf8');
-                console.log(`✅ Generated component: ${componentName}.html`);
+                console.log(` Generated component: ${componentName}.html`);
             });
             
             // 2. 生成博客首页组件和分页页面
@@ -340,7 +340,7 @@ class BlogBuilder {
             const indexComponentPath = path.join(this.blogOutputPath, `${indexComponentName}.html`);
 
             fs.writeFileSync(indexComponentPath, indexComponentContent, 'utf8');
-            console.log(`✅ Generated blog index component: ${indexComponentName}.html`);
+            console.log(` Generated blog index component: ${indexComponentName}.html`);
 
             // 生成分页页面（第2页及以后）
             for (let page = 2; page <= totalPages; page++) {
@@ -349,7 +349,7 @@ class BlogBuilder {
                 const pageComponentPath = path.join(this.blogOutputPath, `${pageComponentName}.html`);
 
                 fs.writeFileSync(pageComponentPath, pageComponentContent, 'utf8');
-                console.log(`✅ Generated blog page ${page} component: ${pageComponentName}.html`);
+                console.log(` Generated blog page ${page} component: ${pageComponentName}.html`);
             }
             
             // 3. 生成分类页面组件
@@ -367,7 +367,7 @@ class BlogBuilder {
                     const categoryComponentPath = path.join(this.blogOutputPath, `${categoryComponentName}.html`);
                     
                     fs.writeFileSync(categoryComponentPath, categoryComponentContent, 'utf8');
-                    console.log(`✅ Generated category component: ${categoryComponentName}.html`);
+                    console.log(` Generated category component: ${categoryComponentName}.html`);
                 });
             }
             
@@ -387,7 +387,7 @@ class BlogBuilder {
                     const tagComponentPath = path.join(this.blogOutputPath, `${tagComponentName}.html`);
                     
                     fs.writeFileSync(tagComponentPath, tagComponentContent, 'utf8');
-                    console.log(`✅ Generated tag component: ${tagComponentName}.html`);
+                    console.log(` Generated tag component: ${tagComponentName}.html`);
                 });
             }
         });
@@ -400,7 +400,7 @@ class BlogBuilder {
             const sidebarComponentPath = path.join(this.blogOutputPath, `${sidebarComponentName}.html`);
             
             fs.writeFileSync(sidebarComponentPath, sidebarComponentContent, 'utf8');
-            console.log(`✅ Generated sidebar component: ${sidebarComponentName}.html`);
+            console.log(` Generated sidebar component: ${sidebarComponentName}.html`);
             
             // 为子页面（标签页面、分类页面）生成侧边栏（需要 ../）
             const sidebarSubComponentName = `blog-sidebar-sub-${lang}`;
@@ -408,10 +408,10 @@ class BlogBuilder {
             const sidebarSubComponentPath = path.join(this.blogOutputPath, `${sidebarSubComponentName}.html`);
             
             fs.writeFileSync(sidebarSubComponentPath, sidebarSubComponentContent, 'utf8');
-            console.log(`✅ Generated sub-page sidebar component: ${sidebarSubComponentName}.html`);
+            console.log(` Generated sub-page sidebar component: ${sidebarSubComponentName}.html`);
         });
         
-        console.log('\n✅ All blog components generated successfully!');
+        console.log('\n All blog components generated successfully!');
     }
     
     /**
@@ -447,10 +447,10 @@ class BlogBuilder {
         </div>
         <div class="blog-post-share">
             <span>${post.lang === 'zh' ? '分享' : 'Share'}: </span>
-            <button class="share-btn share-twitter" data-url="/${post.lang}/blog/${post.slug}" data-title="${post.title}">Twitter</button>
-            <button class="share-btn share-facebook" data-url="/${post.lang}/blog/${post.slug}" data-title="${post.title}">Facebook</button>
-            <button class="share-btn share-linkedin" data-url="/${post.lang}/blog/${post.slug}" data-title="${post.title}">LinkedIn</button>
-            <button class="share-btn share-copy" data-url="/${post.lang}/blog/${post.slug}">${post.lang === 'zh' ? '复制链接' : 'Copy Link'}</button>
+            <button class="share-btn share-twitter" data-url="/${post.lang === 'en' ? '' : post.lang + '/'}blog/${post.slug}" data-title="${post.title}">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/${post.lang === 'en' ? '' : post.lang + '/'}blog/${post.slug}" data-title="${post.title}">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/${post.lang === 'en' ? '' : post.lang + '/'}blog/${post.slug}" data-title="${post.title}">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/${post.lang === 'en' ? '' : post.lang + '/'}blog/${post.slug}">${post.lang === 'zh' ? '复制链接' : 'Copy Link'}</button>
         </div>
     </footer>
     
@@ -814,13 +814,13 @@ class BlogBuilder {
      * 更新页面配置，添加博客页面
      */
     updatePagesConfig() {
-        console.log('\n📝 Updating pages configuration...');
+        console.log('\n Updating pages configuration...');
         
         const configPath = path.join(this.rootPath, 'build', 'pages-config.json');
         
         // 检查配置文件是否存在
         if (!fs.existsSync(configPath)) {
-            console.error('❌ Pages configuration file not found.');
+            console.error(' Pages configuration file not found.');
             return false;
         }
         
@@ -833,7 +833,7 @@ class BlogBuilder {
                 page.output.includes('/blog/') || page.name.includes('blog'));
                 
             if (blogPages.length > 0) {
-                console.log('ℹ️ Blog pages already exist in configuration. Updating with latest blog content...');
+                console.log(' Blog pages already exist in configuration. Updating with latest blog content...');
                 // Remove existing blog pages to regenerate them
                 config.pages = config.pages.filter(page => !page.name.includes('blog-'));
             }
@@ -855,13 +855,13 @@ class BlogBuilder {
                             page_heading_key: 'blog_page_heading',
                             page_intro_key: 'blog_page_intro',
                             page_keywords: 'blog, responsive design, viewport, screen resolution, web development',
-                            canonical_url: `https://screensizechecker.com/${lang}/blog/`,
+                            canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
                             og_title: lang === 'zh' ? '屏幕尺寸检查器博客' : 'Screen Size Checker Blog',
                             og_description: lang === 'zh' ? 
                                 '探索屏幕尺寸、视口和响应式设计的知识库' : 
                                 'Explore our knowledge base on screen sizes, viewports, and responsive design',
                             og_type: 'website',
-                            og_url: `https://screensizechecker.com/${lang}/blog/`,
+                            og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
                             css_path: '../../css',
                             locales_path: '../../locales',
                             js_path: '../../js',
@@ -898,11 +898,11 @@ class BlogBuilder {
                                 page_heading_key: 'blog_page_heading',
                                 page_intro_key: 'blog_page_intro',
                                 page_keywords: 'blog, responsive design, viewport, screen resolution, web development',
-                                canonical_url: `https://screensizechecker.com/${lang}/blog/page/${page}/`,
+                                canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/page/${page}/`,
                                 og_title_key: 'blog_og_title',
                                 og_description_key: 'blog_og_description',
                                 og_type: 'website',
-                                og_url: `https://screensizechecker.com/${lang}/blog/page/${page}/`,
+                                og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/page/${page}/`,
                                 css_path: '../../../../css',
                                 locales_path: '../../../../locales',
                                 js_path: '../../../../js',
@@ -934,11 +934,11 @@ class BlogBuilder {
                                     page_title: `${post.title} | Screen Size Checker Blog`,
                                     page_description: post.description,
                                     page_keywords: post.tags.join(', '),
-                                    canonical_url: `https://screensizechecker.com/${lang}/blog/${post.slug}`,
+                                    canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/${post.slug}`,
                                     og_title: post.title,
                                     og_description: post.description,
                                     og_type: 'article',
-                                    og_url: `https://screensizechecker.com/${lang}/blog/${post.slug}`,
+                                    og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/${post.slug}`,
                                     css_path: '../../css',
                                     locales_path: '../../locales',
                                     js_path: '../../js',
@@ -949,7 +949,7 @@ class BlogBuilder {
                                     show_breadcrumb: true,
                                     current_key: post.title,
                                     current_name: post.title,
-                                    parent_url: `../../${lang}/blog/`,
+                                    parent_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
                                     parent_key: 'blog',
                                     parent_name: lang === 'zh' ? '博客' : 'Blog',
                                     structured_data: {
@@ -992,18 +992,18 @@ class BlogBuilder {
                                         `浏览${category}分类中的所有文章，包含详细的技术指南和实用教程` :
                                         `Browse all articles in the ${category} category with detailed guides and practical tutorials`,
                                     page_keywords: `blog, ${category}, ${lang === 'zh' ? '分类' : 'category'}`,
-                                    canonical_url: `https://screensizechecker.com/${lang}/blog/category/${category}`,
+                                    canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/category/${category}`,
                                     og_title: lang === 'zh' ? `分类: ${category}` : `Category: ${category}`,
                                     og_description: lang === 'zh' ? 
                                         `浏览${category}分类中的所有文章` : 
                                         `Browse all articles in the ${category} category`,
                                     og_type: 'website',
-                                    og_url: `https://screensizechecker.com/${lang}/blog/category/${category}`,
+                                    og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/category/${category}`,
                                     css_path: '../../../css',
                                     locales_path: '../../../locales',
                                     js_path: '../../../js',
-                                    home_url: `../../../${lang}/`,
-                                    blog_url: `../../../${lang}/blog/`,
+                                    home_url: `../../../${lang === 'en' ? '' : lang + '/'}`,
+                                    blog_url: `../../../${lang === 'en' ? '' : lang + '/'}blog/`,
                                     privacy_policy_url: '../../../privacy-policy',
                                     show_breadcrumb: true,
                                     current_key: category,
@@ -1046,12 +1046,12 @@ class BlogBuilder {
                                         `浏览${tag}标签下的所有文章` :
                                         `Browse all articles tagged with ${tag}`,
                                     og_type: 'website',
-                                    og_url: `https://screensizechecker.com/${lang}/blog/tag/${tagSlug}`,
+                                    og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/tag/${tagSlug}`,
                                     css_path: '../../../css',
                                     locales_path: '../../../locales',
                                     js_path: '../../../js',
-                                    home_url: `../../../${lang}/`,
-                                    blog_url: `../../../${lang}/blog/`,
+                                    home_url: `../../../${lang === 'en' ? '' : lang + '/'}`,
+                                    blog_url: `../../../${lang === 'en' ? '' : lang + '/'}blog/`,
                                     privacy_policy_url: '../../../privacy-policy',
                                     show_breadcrumb: true,
                                     current_key: tag,
@@ -1068,11 +1068,11 @@ class BlogBuilder {
                 
                 // 保存更新后的配置
                 fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
-                console.log('✅ Pages configuration updated successfully!');
+                console.log(' Pages configuration updated successfully!');
             
             return true;
         } catch (error) {
-            console.error('❌ Error updating pages configuration:', error.message);
+            console.error(' Error updating pages configuration:', error.message);
             return false;
         }
     }
@@ -1081,7 +1081,7 @@ class BlogBuilder {
      * 运行完整的博客构建过程
      */
     build() {
-        console.log('\n🚀 Starting blog system build...');
+        console.log('\n Starting blog system build...');
         
         // 加载博客文章
         this.loadBlogPosts();
@@ -1092,7 +1092,7 @@ class BlogBuilder {
         // 更新页面配置
         this.updatePagesConfig();
         
-        console.log('\n✨ Blog system build completed!');
+        console.log('\n Blog system build completed!');
         
         return {
             posts: this.blogPosts.size,

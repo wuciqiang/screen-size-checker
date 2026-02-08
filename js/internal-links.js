@@ -225,10 +225,10 @@ export class InternalLinksManager {
                     priority: 1,
                     icon: '🆚',
                     urls: {
-                        en: 'devices/compare.html',
-                        zh: 'devices/compare.html',
-                        de: 'devices/compare.html',
-                        es: 'devices/compare.html'
+                        en: 'devices/compare',
+                        zh: 'devices/compare',
+                        de: 'devices/compare',
+                        es: 'devices/compare'
                     },
                     titleKey: 'compare_tool',
                     descriptionKey: 'compare_page_description'
@@ -239,10 +239,10 @@ export class InternalLinksManager {
                     priority: 1,
                     icon: '📊',
                     urls: {
-                        en: 'devices/standard-resolutions.html',
-                        zh: 'devices/standard-resolutions.html',
-                        de: 'devices/standard-resolutions.html',
-                        es: 'devices/standard-resolutions.html'
+                        en: 'devices/standard-resolutions',
+                        zh: 'devices/standard-resolutions',
+                        de: 'devices/standard-resolutions',
+                        es: 'devices/standard-resolutions'
                     },
                     titleKey: 'standard_resolutions',
                     descriptionKey: 'standard_resolutions_page_description'
@@ -253,10 +253,10 @@ export class InternalLinksManager {
                     priority: 2,
                     icon: '📱',
                     urls: {
-                        en: 'devices/responsive-tester.html',
-                        zh: 'devices/responsive-tester.html',
-                        de: 'devices/responsive-tester.html',
-                        es: 'devices/responsive-tester.html'
+                        en: 'devices/responsive-tester',
+                        zh: 'devices/responsive-tester',
+                        de: 'devices/responsive-tester',
+                        es: 'devices/responsive-tester'
                     },
                     titleKey: 'responsive_tester',
                     descriptionKey: 'responsive_tester_description'
@@ -267,10 +267,10 @@ export class InternalLinksManager {
                     priority: 1,
                     icon: '🔍',
                     urls: {
-                        en: 'devices/ppi-calculator.html',
-                        zh: 'devices/ppi-calculator.html',
-                        de: 'devices/ppi-calculator.html',
-                        es: 'devices/ppi-calculator.html'
+                        en: 'devices/ppi-calculator',
+                        zh: 'devices/ppi-calculator',
+                        de: 'devices/ppi-calculator',
+                        es: 'devices/ppi-calculator'
                     },
                     titleKey: 'ppi_calculator',
                     descriptionKey: 'ppiCalculator.pageDescription'
@@ -278,13 +278,13 @@ export class InternalLinksManager {
                 'aspect-ratio-calculator': {
                     id: 'aspect-ratio-calculator',
                     category: 'calculator',
-                    priority: 2,
+                    priority: 1,
                     icon: '📐',
                     urls: {
-                        en: 'devices/aspect-ratio-calculator.html',
-                        zh: 'devices/aspect-ratio-calculator.html',
-                        de: 'devices/aspect-ratio-calculator.html',
-                        es: 'devices/aspect-ratio-calculator.html'
+                        en: 'devices/aspect-ratio-calculator',
+                        zh: 'devices/aspect-ratio-calculator',
+                        de: 'devices/aspect-ratio-calculator',
+                        es: 'devices/aspect-ratio-calculator'
                     },
                     titleKey: 'aspect_ratio_calculator',
                     descriptionKey: 'aspectRatioCalculator.pageDescription'
@@ -292,13 +292,13 @@ export class InternalLinksManager {
                 'projection-calculator': {
                     id: 'projection-calculator',
                     category: 'calculator',
-                    priority: 3,
+                    priority: 2,
                     icon: '📽️',
                     urls: {
-                        en: 'devices/projection-calculator.html',
-                        zh: 'devices/projection-calculator.html',
-                        de: 'devices/projection-calculator.html',
-                        es: 'devices/projection-calculator.html'
+                        en: 'devices/projection-calculator',
+                        zh: 'devices/projection-calculator',
+                        de: 'devices/projection-calculator',
+                        es: 'devices/projection-calculator'
                     },
                     titleKey: 'projection_calculator',
                     descriptionKey: 'projectionCalculator.pageDescription'
@@ -309,10 +309,10 @@ export class InternalLinksManager {
                     priority: 3,
                     icon: '🖥️',
                     urls: {
-                        en: 'devices/lcd-screen-tester.html',
-                        zh: 'devices/lcd-screen-tester.html',
-                        de: 'devices/lcd-screen-tester.html',
-                        es: 'devices/lcd-screen-tester.html'
+                        en: 'devices/lcd-screen-tester',
+                        zh: 'devices/lcd-screen-tester',
+                        de: 'devices/lcd-screen-tester',
+                        es: 'devices/lcd-screen-tester'
                     },
                     titleKey: 'lcd_screen_tester',
                     descriptionKey: 'lcdTester.pageDescription'
@@ -323,10 +323,10 @@ export class InternalLinksManager {
                     priority: 1,
                     icon: '📱',
                     urls: {
-                        en: 'devices/iphone-viewport-sizes.html',
-                        zh: 'devices/iphone-viewport-sizes.html',
-                        de: 'devices/iphone-viewport-sizes.html',
-                        es: 'devices/iphone-viewport-sizes.html'
+                        en: 'devices/iphone-viewport-sizes',
+                        zh: 'devices/iphone-viewport-sizes',
+                        de: 'devices/iphone-viewport-sizes',
+                        es: 'devices/iphone-viewport-sizes'
                     },
                     titleKey: 'iphone_sizes',
                     descriptionKey: 'iphone_page_description'
@@ -337,10 +337,10 @@ export class InternalLinksManager {
                     priority: 2,
                     icon: '🖥️',
                     urls: {
-                        en: 'devices/ipad-viewport-sizes.html',
-                        zh: 'devices/ipad-viewport-sizes.html',
-                        de: 'devices/ipad-viewport-sizes.html',
-                        es: 'devices/ipad-viewport-sizes.html'
+                        en: 'devices/ipad-viewport-sizes',
+                        zh: 'devices/ipad-viewport-sizes',
+                        de: 'devices/ipad-viewport-sizes',
+                        es: 'devices/ipad-viewport-sizes'
                     },
                     titleKey: 'ipad_sizes',
                     descriptionKey: 'ipad_page_description'
@@ -351,10 +351,10 @@ export class InternalLinksManager {
                     priority: 3,
                     icon: '🤖',
                     urls: {
-                        en: 'devices/android-viewport-sizes.html',
-                        zh: 'devices/android-viewport-sizes.html',
-                        de: 'devices/android-viewport-sizes.html',
-                        es: 'devices/android-viewport-sizes.html'
+                        en: 'devices/android-viewport-sizes',
+                        zh: 'devices/android-viewport-sizes',
+                        de: 'devices/android-viewport-sizes',
+                        es: 'devices/android-viewport-sizes'
                     },
                     titleKey: 'android_sizes',
                     descriptionKey: 'android_page_description'
