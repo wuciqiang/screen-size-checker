@@ -72,18 +72,18 @@
   "devices": "设备",
   "back_to_home": "返回主页",
   
-  "iphone_page_title": "iPhone 视口尺寸：所有iPhone机型完整指南 | Screen Size Checker",
-  "iphone_page_description": "iPhone视口尺寸和屏幕分辨率的综合指南。查找所有iPhone机型的精确尺寸，包括iPhone 16、15、14、13等。对网页开发者和设计师来说是必不可少的。",
+  "iphone_page_title": "iPhone 视口尺寸（2026）：iPhone 17、16e、16、15 全机型指南 | Screen Size Checker",
+  "iphone_page_description": "更新后的 iPhone 屏幕尺寸、分辨率与视口数据，包含 iPhone 17 系列与 iPhone 16e。",
   "iphone_page_heading": "iPhone 视口尺寸完整指南",
   "iphone_page_intro": "这份综合指南提供了所有iPhone机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
   
-  "ipad_page_title": "iPad 视口尺寸：所有iPad机型完整指南 | Screen Size Checker",
-  "ipad_page_description": "iPad视口尺寸和屏幕分辨率的综合指南。查找所有iPad机型的精确尺寸，包括iPad Pro、iPad Air、iPad mini等。对网页开发者和设计师来说是必不可少的。",
+  "ipad_page_title": "iPad 视口尺寸（2026）：iPad Pro、Air、mini 与 iPad 全机型指南 | Screen Size Checker",
+  "ipad_page_description": "更新后的 iPad 屏幕尺寸、分辨率与视口数据，包含 iPad Pro M4、iPad Air M3、iPad mini A17 Pro 与 iPad A16。",
   "ipad_page_heading": "iPad 视口尺寸完整指南",
   "ipad_page_intro": "这份综合指南提供了所有iPad机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
   
-  "android_page_title": "Android 视口尺寸：热门Android设备完整指南 | Screen Size Checker",
-  "android_page_description": "热门Android设备的视口尺寸和屏幕分辨率综合指南。查找Samsung Galaxy、Google Pixel、OnePlus等的精确尺寸。对网页开发者和设计师来说是必不可少的。",
+  "android_page_title": "Android 视口尺寸（2026）：Pixel 10、Galaxy S25 等主流机型 | Screen Size Checker",
+  "android_page_description": "更新后的 Android 屏幕尺寸、分辨率与视口数据，覆盖 Pixel、Galaxy 与折叠屏机型。",
   "android_page_heading": "Android 视口尺寸完整指南",
   "android_page_intro": "这份综合指南提供了热门Android设备的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
   
@@ -1062,9 +1062,9 @@
   "aspect_ratio_calculator": "长宽比计算器",
   "loading": "加载中...",
   
-  "iphone_page_description": "查看所有iPhone机型的屏幕尺寸、分辨率和视口信息",
-  "ipad_page_description": "查看所有iPad机型的屏幕尺寸、分辨率和视口信息", 
-  "android_page_description": "查看主流Android设备的屏幕尺寸、分辨率和视口信息",
+  "iphone_page_description": "更新后的 iPhone 屏幕尺寸、分辨率与视口数据，包含 iPhone 17 系列与 iPhone 16e。",
+  "ipad_page_description": "更新后的 iPad 屏幕尺寸、分辨率与视口数据，包含 iPad Pro M4、iPad Air M3、iPad mini A17 Pro 与 iPad A16。", 
+  "android_page_description": "更新后的 Android 屏幕尺寸、分辨率与视口数据，覆盖 Pixel、Galaxy 与折叠屏机型。",
   "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
   "standard_resolutions_page_description": "查看标准屏幕分辨率和宽高比参考表",
   "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现",
@@ -1184,5 +1184,11 @@
   "footer_about": "关于我们",
   "footer_contact": "联系我们",
   "footer_privacy": "隐私政策",
-  "footer_terms": "服务条款"
-} 
+  "footer_terms": "服务条款",
+  "device_data_status_title": "数据状态：",
+  "device_data_status_updated": "最近更新：2026-02-08（UTC）",
+  "device_data_status_sources_label": "数据来源：",
+  "device_data_status_sources_value": "Apple、Google、Samsung 官方规格页面",
+  "device_data_status_method_label": "计算口径：",
+  "device_data_status_method_value": "iPhone 和 iPad 主要按分辨率除以 DPR 计算。Android 的 CSS 视口和 DPR 会受显示缩放、浏览器 UI 与系统设置影响。"
+}

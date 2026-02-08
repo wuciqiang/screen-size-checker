@@ -2147,6 +2147,40 @@ html {
     line-height: 1.6;
 }
 
+
+.device-data-status-section {
+    padding: var(--spacing-lg) 0 0;
+}
+
+.device-data-status-box {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-lg);
+}
+
+.device-data-status-box p {
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.device-data-status-box p:last-child {
+    margin-bottom: 0;
+}
+
+.device-data-status-box strong {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .device-data-status-box {
+    background: #2f3541;
+    border-color: #4b5563;
+}
+
 .device-table-section {
     padding: var(--spacing-2xl) 0;
     opacity: 0;

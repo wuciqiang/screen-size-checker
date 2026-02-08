@@ -91,10 +91,10 @@
         "page_description_key": "iphone_page_description",
         "page_heading_key": "iphone_page_heading",
         "page_intro_key": "iphone_page_intro",
-        "page_keywords": "iphone viewport sizes, iphone screen resolution, iphone dimensions, iphone 16 viewport, iphone 15 viewport, web development, responsive design",
+        "page_keywords": "iphone viewport sizes, iphone 17 viewport, iphone 17 pro max resolution, iphone 16e viewport, iphone screen dimensions, responsive design",
         "canonical_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
-        "og_title": "iPhone Viewport Sizes: Complete Guide for All iPhone Models",
-        "og_description": "Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models.",
+        "og_title": "iPhone Viewport Sizes (2026): iPhone 17, 16e, 16, 15 and More",
+        "og_description": "Updated iPhone viewport sizes and screen resolutions, including iPhone 17 series and iPhone 16e. CSS viewport, DPR, and pixel resolution in one table.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
         "css_path": "../css",
@@ -112,8 +112,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPhone Viewport Sizes: Complete Guide for All iPhone Models",
-          "description": "Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models.",
+          "headline": "iPhone Viewport Sizes (2026): iPhone 17, 16e, 16, 15 and More",
+          "description": "Updated iPhone viewport sizes and screen resolutions, including iPhone 17 series and iPhone 16e. CSS viewport, DPR, and pixel resolution in one table.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -127,7 +127,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2025-04-22"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -142,10 +142,10 @@
         "page_description_key": "ipad_page_description",
         "page_heading_key": "ipad_page_heading",
         "page_intro_key": "ipad_page_intro",
-        "page_keywords": "ipad viewport sizes, ipad screen resolution, ipad dimensions, ipad pro viewport, ipad air viewport, web development, responsive design",
+        "page_keywords": "ipad viewport sizes, ipad pro 13 m4 viewport, ipad air m3 viewport, ipad mini a17 pro resolution, ipad screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
-        "og_title": "iPad Viewport Sizes: Complete Guide for All iPad Models",
-        "og_description": "Comprehensive guide to iPad viewport sizes and screen resolutions. Find exact dimensions for all iPad models.",
+        "og_title": "iPad Viewport Sizes (2026): iPad Pro, Air, mini and iPad",
+        "og_description": "Updated iPad viewport sizes and resolutions, including iPad Pro M4, iPad Air M3, iPad mini A17 Pro, and iPad A16.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
         "css_path": "../css",
@@ -163,8 +163,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPad Viewport Sizes: Complete Guide for All iPad Models",
-          "description": "Comprehensive guide to iPad viewport sizes and screen resolutions. Find exact dimensions for all iPad models.",
+          "headline": "iPad Viewport Sizes (2026): iPad Pro, Air, mini and iPad",
+          "description": "Updated iPad viewport sizes and resolutions, including iPad Pro M4, iPad Air M3, iPad mini A17 Pro, and iPad A16.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -178,7 +178,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2025-04-22"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -193,10 +193,10 @@
         "page_description_key": "android_page_description",
         "page_heading_key": "android_page_heading",
         "page_intro_key": "android_page_intro",
-        "page_keywords": "android viewport sizes, android screen resolution, android dimensions, samsung galaxy viewport, google pixel viewport, web development, responsive design",
+        "page_keywords": "android viewport sizes, pixel 10 viewport, galaxy s25 resolution, android screen dimensions, css viewport dpr",
         "canonical_url": "https://screensizechecker.com/devices/android-viewport-sizes",
-        "og_title": "Android Viewport Sizes: Complete Guide for Popular Android Devices",
-        "og_description": "Comprehensive guide to Android viewport sizes and screen resolutions for popular Android devices.",
+        "og_title": "Android Viewport Sizes (2026): Pixel 10, Galaxy S25 and More",
+        "og_description": "Updated Android viewport sizes and resolutions for recent Pixel and Galaxy devices, with CSS viewport, DPR, and pixel resolution references.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/android-viewport-sizes",
         "css_path": "../css",
@@ -214,8 +214,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Android Viewport Sizes: Complete Guide for Popular Android Devices",
-          "description": "Comprehensive guide to Android viewport sizes and screen resolutions for popular Android devices.",
+          "headline": "Android Viewport Sizes (2026): Pixel 10, Galaxy S25 and More",
+          "description": "Updated Android viewport sizes and resolutions for recent Pixel and Galaxy devices, with CSS viewport, DPR, and pixel resolution references.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -229,7 +229,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2025-04-22"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -804,7 +804,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T12:43:49.946Z",
+          "datePublished": "2026-02-08T13:15:57.525Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2848,7 +2848,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T12:43:50.243Z",
+          "datePublished": "2026-02-08T13:15:57.820Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4964,7 +4964,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T12:43:50.269Z",
+          "datePublished": "2026-02-08T13:15:57.848Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -7080,7 +7080,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T12:43:50.291Z",
+          "datePublished": "2026-02-08T13:15:57.872Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
