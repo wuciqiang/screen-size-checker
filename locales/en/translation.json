@@ -9,18 +9,15 @@
   "page_title": "Screen Size Checker - Free Online Tool (2025)",
   "page_description": "Check your screen size, resolution, and viewport instantly. Free online tool for developers and designers. No download required.",
   "title": "Responsive Design Tester - Test Your Website on Any Screen Size",
-  
   "hero_subtitle": "What Is My Screen Size?",
-    "screen_size_suffix": "Screen Size",
+  "screen_size_suffix": "Screen Size",
   "screen_resolution": "Screen Resolution",
   "detecting": "Detecting...",
   "device_info_title": "Device Information",
   "copy_all_info": "Copy All Info",
-  
   "display_properties": "Display Properties",
   "system_browser": "System & Browser",
   "advanced_info": "Advanced Information",
-  
   "aspect_ratio": "Aspect Ratio",
   "device_pixel_ratio": "Device Pixel Ratio (DPR)",
   "color_depth": "Color Depth",
@@ -29,7 +26,6 @@
   "cookies_enabled": "Cookies Enabled",
   "touch_support": "Touch Support",
   "user_agent": "User Agent",
-  
   "quick_links": "Quick Links",
   "iphone_sizes": "iPhone Sizes",
   "ipad_sizes": "iPad Sizes",
@@ -38,7 +34,6 @@
   "standard_resolutions": "Standard Resolutions",
   "responsive_tester": "Responsive Tester",
   "try_responsive_tester": "Try Responsive Tester",
-  
   "faq_title": "Frequently Asked Questions",
   "faq_screen_resolution": "What is screen resolution?",
   "faq_screen_resolution_answer": "Screen resolution refers to the total number of pixels that can be displayed on a screen, typically expressed as width × height (e.g., 1920×1080).",
@@ -50,28 +45,23 @@
   "faq_web_development_answer": "Understanding screen sizes, resolutions, and DPR helps developers create responsive websites that look great on all devices. It's essential for optimizing user experience across different screens.",
   "faq_check_frequency": "How often should I check my device information?",
   "faq_check_frequency_answer": "It's good practice to check device information when testing responsive designs, debugging display issues, or ensuring your website works correctly across different devices and browsers.",
-  
   "privacy_policy": "Privacy Policy",
   "about_us": "About Us",
   "contact_us": "Contact Us",
   "related_tools": "Construction Calculators",
   "all_rights_reserved": "All rights reserved",
-  
   "copied_success": "Copied!",
   "copy_failed": "Copy failed",
   "all_info_copied": "All information copied!",
   "copy_all_failed": "Copy failed",
-  
   "yes": "Yes",
   "no": "No",
   "supported": "Supported",
   "not_supported": "Not supported",
   "not_available": "Not available",
-  
   "error_title": "Detection Failed",
   "error_message": "Unable to detect device information. Please refresh the page and try again.",
   "error_retry": "Retry",
-  
   "test_title": "Functionality Test Page",
   "nav_home": "Home",
   "nav_blog": "Blog",
@@ -98,12 +88,10 @@
   "devices_iphone": "iPhone Devices",
   "devices_android": "Android Devices",
   "devices_ipad": "iPad Devices",
-
   "toc_title": "Table of Contents",
   "related_articles": "Related Articles",
   "reading_time": "min read",
   "read_more": "Read More",
-  
   "language_test": "Language Switching Test",
   "theme_test": "Theme Switching Test",
   "console_test": "Console Test",
@@ -113,48 +101,39 @@
   "theme_description": "Click the button above to switch between light and dark themes.",
   "current_theme": "Current Theme",
   "console_description": "Open the browser console to view debug information.",
-
   "home": "Home",
   "devices": "Devices",
   "back_to_home": "Back to Home",
-  
   "iphone_page_title": "iPhone Viewport Sizes: Complete Guide for All iPhone Models | Screen Size Checker",
-  "iphone_page_description": "Comprehensive guide to iPhone viewport sizes and screen resolutions. Find exact dimensions for all iPhone models including iPhone 16, 15, 14, 13, and more. Essential for web developers and designers.",
+  "iphone_page_description": "View screen sizes, resolutions, and viewport information for all iPhone models",
   "iphone_page_heading": "iPhone Viewport Sizes: Complete Guide",
   "iphone_page_intro": "This comprehensive guide provides detailed viewport sizes and screen resolutions for all iPhone models. Essential information for web developers and designers working on responsive websites and applications.",
-  
   "ipad_page_title": "iPad Viewport Sizes: Complete Guide for All iPad Models | Screen Size Checker",
-  "ipad_page_description": "Comprehensive guide to iPad viewport sizes and screen resolutions. Find exact dimensions for all iPad models including iPad Pro, iPad Air, iPad mini, and more. Essential for web developers and designers.",
+  "ipad_page_description": "View screen sizes, resolutions, and viewport information for all iPad models",
   "ipad_page_heading": "iPad Viewport Sizes: Complete Guide",
   "ipad_page_intro": "This comprehensive guide provides detailed viewport sizes and screen resolutions for all iPad models. Essential information for web developers and designers working on responsive websites and applications.",
-  
   "android_page_title": "Android Viewport Sizes: Complete Guide for Popular Android Devices | Screen Size Checker",
-  "android_page_description": "Comprehensive guide to Android viewport sizes and screen resolutions for popular Android devices. Find exact dimensions for Samsung Galaxy, Google Pixel, OnePlus, and more. Essential for web developers and designers.",
+  "android_page_description": "View screen sizes, resolutions, and viewport information for popular Android devices",
   "android_page_heading": "Android Viewport Sizes: Complete Guide",
   "android_page_intro": "This comprehensive guide provides detailed viewport sizes and screen resolutions for popular Android devices. Essential information for web developers and designers working on responsive websites and applications.",
-  
-  "compare_page_title": "Visual Screen Size Comparison Tool | Compare Monitors, Laptops & Phones",
-  "compare_page_description": "Instantly visualize and compare screen sizes, aspect ratios, and dimensions of any two monitors, laptops, or phones side-by-side. The perfect free tool for developers and designers.",
+  "compare_page_title": "Screen Size Comparison Tool (2026) | Compare Monitor, TV, Laptop & Phone",
+  "compare_page_description": "Compare two screen sizes side by side with exact width, height, area, and aspect ratio. Ideal for monitor upgrades, TV buying, and responsive UI planning.",
   "compare_page_heading": "Screen Size Comparison Tool",
-  "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your display choices will compare in real-world dimensions.",
+  "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how display choices compare in real-world dimensions.",
   "screen_comparison": "Screen Comparison",
-  
-  "responsive_tester_title": "Responsive Design Tester - Test Your Website on Any Screen Size",
-  "responsive_tester_description": "A free responsive design tester to check your website's layout on various screen resolutions, including mobile, tablet, and desktop. Perfect for developers and designers.",
-  "responsive_tester_page_title": "Free Responsive Design Tester",
+  "responsive_tester_title": "Responsive Design Tester (Free) | Test Website on Mobile, Tablet & Desktop",
+  "responsive_tester_description": "Preview and test your website at common viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
+  "responsive_tester_page_title": "Free Responsive Design Tester for Real Device Viewports",
   "responsive_tester_intro": "Use this powerful tool to test how your website responds to different screen sizes and devices. Select preset device dimensions or enter custom sizes to see how your site adapts to different screens.",
-  
   "simulator_title": "Responsive Design Tester",
   "simulator_description": "Test how your website looks and behaves on different screen sizes and devices. Select preset device dimensions or enter custom sizes.",
-  
   "website_url_label": "Website URL:",
   "website_url_placeholder": "https://example.com",
   "load_website": "Load Website",
   "url_note": "Note: Some websites may not display due to security restrictions.",
-  
   "device_presets": "Device Presets",
   "iphone_se": "iPhone SE (375×667)",
-  "iphone_12": "iPhone 12/13/14 (390×844)",
+  "iphone_12": "iPhone 12",
   "iphone_promax": "iPhone Pro Max (428×926)",
   "android_medium": "Android Medium (360×800)",
   "ipad": "iPad (768×1024)",
@@ -163,27 +142,22 @@
   "laptop": "Laptop (1366×768)",
   "desktop_medium": "Desktop Medium (1440×900)",
   "desktop_large": "Desktop Large (1920×1080)",
-  
   "custom_size": "Custom Size",
-  "width": "Width:",
-  "height": "Height:",
+  "width": "Width",
+  "height": "Height",
   "apply_size": "Apply Size",
   "rotate_device": "Rotate Device",
-  
   "device_frame": "Device Frame",
   "frame_none": "No Frame",
   "frame_phone": "Phone",
   "frame_tablet": "Tablet",
   "frame_laptop": "Laptop",
-  
   "current_size": "Current Size:",
   "invalid_custom_size_alert": "Please enter valid positive numbers for width and height.",
   "website_load_error": "Failed to load website. It may be blocked by security policies.",
-  
   "responsive_design_tips": "Responsive Design Tips",
   "why_responsive_design": "Why Responsive Design Matters",
   "why_responsive_design_text": "With the increasing use of mobile devices, responsive design has become essential for modern web development. Google's mobile-first indexing prioritizes mobile-friendly websites in search results, making responsive design crucial for SEO success. Responsive websites automatically adjust their layout to fit different screen sizes, from smartphones to tablets to desktop monitors, providing optimal user experience across all devices. This approach significantly improves conversion rates by ensuring users can easily navigate and interact with your content regardless of their device. As mobile traffic continues to grow and represents over 50% of global web traffic, implementing responsive design is no longer optional—it's necessary to reach and engage the expanding mobile user base effectively.",
-  
   "common_breakpoints": "Common Breakpoints",
   "testing_tips": "Testing Tips",
   "testing_tip_1": "Test with real content instead of placeholders to ensure layouts handle various content lengths",
@@ -194,29 +168,23 @@
   "testing_tip_6": "Test loading performance on simulated slow networks (like 3G) to ensure optimal mobile experience",
   "testing_tip_7": "Verify font readability by ensuring text size and line height remain legible on the smallest mobile screens",
   "testing_tip_8": "Validate interactive elements by confirming buttons and links have adequate spacing to prevent accidental taps on touch devices",
-  
   "iframe_welcome_title": "Welcome to Responsive Tester!",
   "iframe_welcome_subtitle": "Enter a URL above to start testing your website's responsiveness.",
   "iframe_welcome_feature1": "Test multiple screen sizes",
-  "iframe_welcome_feature2": "Preview on different devices", 
+  "iframe_welcome_feature2": "Preview on different devices",
   "iframe_welcome_feature3": "Check responsive layouts",
-  
   "faq_q1": "Why can't some websites load in the tester?",
   "faq_a1": "Many websites set X-Frame-Options or Content-Security-Policy headers for security reasons, which prevent them from being loaded in iframes. This is a security measure to prevent clickjacking and other attacks. For these websites, you may need to use browser developer tools or other methods for testing.",
-  
   "faq_q2": "How does the website in the tester differ from real devices?",
   "faq_a2": "This tester primarily simulates different screen sizes but cannot fully replicate all features of real devices, such as touch interactions, device pixel ratios, or specific browser behaviors. For final testing, it's recommended to verify your designs on actual devices.",
-  
   "faq_q3": "How can I test specific media query breakpoints?",
   "faq_a3": "Use the custom size feature to input your media query breakpoint values. For example, if you have a breakpoint at 768px width, you can input 767px and 768px to test layouts on both sides of the breakpoint.",
-  
   "device_table_heading": "Viewport Sizes Table",
   "device_table_model": "Model",
   "device_table_viewport": "Viewport Size",
   "device_table_resolution": "Screen Resolution",
   "device_table_dpr": "DPR",
   "device_table_year": "Release Year",
-  
   "understanding_viewport_heading": "Understanding Viewport Sizes",
   "viewport_basics": "Viewport Basics",
   "viewport_size_point1": "Viewport Size:",
@@ -228,50 +196,42 @@
   "orientation": "Orientation:",
   "orientation_desc": "iPad supports both portrait and landscape modes",
   "android_orientation_desc": "Android devices support both portrait and landscape modes",
-  
   "design_considerations": "Design Considerations",
-  "best_practices_point1": "Use responsive design techniques",
-  "best_practices_point2": "Test on multiple iPhone models",
-  "best_practices_point3": "Consider the notch and home indicator areas",
-  "best_practices_point4": "Optimize for different orientations",
-  "best_practices_point5": "Use appropriate media queries",
-  
+  "best_practices_point1": "Consider different screen sizes and densities",
+  "best_practices_point2": "Consider various aspect ratios",
+  "best_practices_point3": "Optimize for different orientations",
+  "best_practices_point4": "Test on multiple devices",
+  "best_practices_point5": "Consider foldable and dual-screen devices",
   "ipad_design_point1": "Design for both portrait and landscape orientations",
   "ipad_design_point2": "Consider the iPad's larger screen real estate",
   "ipad_design_point3": "Optimize for touch interactions",
   "ipad_design_point4": "Use appropriate media queries for different iPad models",
   "ipad_design_point5": "Consider foldable devices",
-  
   "android_design_point1": "Design for various screen sizes and densities",
   "android_design_point2": "Consider different aspect ratios",
   "android_design_point3": "Optimize for touch interactions",
   "android_design_point4": "Use appropriate media queries",
   "android_design_point5": "Consider foldable devices",
-  
   "technical_implementation": "Technical Implementation",
   "technical_point1": "Implement proper viewport meta tags",
   "technical_point2": "Use CSS media queries effectively",
   "technical_point3": "Consider safe area insets",
   "technical_point4": "Optimize for different DPR values",
-  
   "ipad_technical_point1": "Implement proper viewport meta tags",
   "ipad_technical_point2": "Use CSS media queries effectively",
   "ipad_technical_point3": "Consider safe area insets",
   "ipad_technical_point4": "Optimize for different DPR values",
   "ipad_technical_point5": "Handle orientation changes properly",
-  
   "android_technical_point1": "Implement proper viewport meta tags",
   "android_technical_point2": "Use CSS media queries effectively",
   "android_technical_point3": "Consider safe area insets",
   "android_technical_point4": "Optimize for different DPR values",
   "android_technical_point5": "Handle orientation changes properly",
-  
   "related_resources_heading": "Related Resources",
   "related_resources_iphone": "iPhone Viewport Sizes Guide",
   "related_resources_ipad": "iPad Viewport Sizes Guide",
   "related_resources_android": "Android Viewport Sizes Guide",
   "related_resources_compare": "Device Size Comparison Tool",
-  
   "iphone_16_pro_max": "iPhone 16 Pro Max",
   "iphone_16_pro": "iPhone 16 Pro",
   "iphone_16_plus": "iPhone 16 Plus",
@@ -289,9 +249,7 @@
   "iphone_13_mini": "iPhone 13 mini",
   "iphone_12_pro_max": "iPhone 12 Pro Max",
   "iphone_12_pro": "iPhone 12 Pro",
-  "iphone_12": "iPhone 12",
   "iphone_12_mini": "iPhone 12 mini",
-  
   "ipad_pro_12_2024": "iPad Pro 12.9\" (2024)",
   "ipad_pro_11_2024": "iPad Pro 11\" (2024)",
   "ipad_air_2024": "iPad Air (2024)",
@@ -320,7 +278,6 @@
   "ipad_pro_12_2015": "iPad Pro 12.9\" (2015)",
   "ipad_mini_4": "iPad Mini 4",
   "ipad_air_2": "iPad Air 2",
-
   "samsung_galaxy_s24_ultra": "Samsung Galaxy S24 Ultra",
   "samsung_galaxy_s24_plus": "Samsung Galaxy S24+",
   "samsung_galaxy_s24": "Samsung Galaxy S24",
@@ -360,10 +317,8 @@
   "samsung_galaxy_s10_plus": "Samsung Galaxy S10+",
   "samsung_galaxy_s10": "Samsung Galaxy S10",
   "samsung_galaxy_s10e": "Samsung Galaxy S10e",
-
   "ipad_viewport_size_explanation": "When designing for iPad devices, it's important to consider several factors:",
   "android_viewport_size_explanation": "When designing for Android devices, it's important to consider several factors:",
-  
   "display_1": "Display 1",
   "display_2": "Display 2",
   "size": "Size",
@@ -375,7 +330,6 @@
   "specification": "Specification",
   "comparison": "Comparison",
   "difference": "Difference",
-  
   "how_to_use": "How to Use the Screen Size Comparison Tool",
   "step_1": "Step 1",
   "step_1_desc": "Select two display aspect ratios from the dropdown menus",
@@ -387,14 +341,10 @@
   "step_4_desc": "Use the unit toggle to switch between inches and centimeters",
   "step_5": "Step 5",
   "step_5_desc": "Share your comparison results with others",
-  
-  "width": "Width",
-  "height": "Height",
   "diagonal": "Diagonal",
   "width_diff": "Width Difference",
   "height_diff": "Height Difference",
   "area_diff": "Area Difference",
-  
   "compare_description": "This calculator uses precise mathematical formulas to accurately compute diagonal size, width, height, and area based on industry-standard aspect ratios. All measurements are instantly visualized to scale for true side-by-side comparison.",
   "compare_credits": "Developed by the ScreenSizeChecker team with contributions from display technology experts. Last updated: June 2024.",
   "16_9_wide": "16:9 Wide",
@@ -403,19 +353,16 @@
   "comparison_results": "Comparison Results",
   "actual_aspect_ratio": "Actual Aspect Ratio",
   "diagonal_diff": "Diagonal",
-  
   "share_comparison": "Share Comparison Results",
   "copy_link": "📋 Copy Link",
-  "share_facebook": "📘 Share to Facebook",
-  "share_twitter": "🐦 Share to Twitter",
-  "share_linkedin": "💼 Share to LinkedIn",
-  "share_pinterest": "📌 Share to Pinterest",
-  
+  "share_facebook": "Facebook",
+  "share_twitter": "Twitter",
+  "share_linkedin": "LinkedIn",
+  "share_pinterest": "Pinterest",
   "compare_title": "Screen Size Comparison Tool: Compare Display Dimensions & Resolutions | ScreenSizeChecker",
   "compare_breadcrumb": "Screen Comparison",
   "compare_heading": "Screen Size Comparison Tool",
   "compare_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how your display choices will compare in real-world dimensions.",
-  
   "aspect_label": "Aspect",
   "aspect_16x9": "16 x 9 Widescreen",
   "aspect_16x10": "16 x 10 Widescreen",
@@ -428,13 +375,11 @@
   "aspect_5x4": "5 x 4 Monitor",
   "aspect_1x1": "1 x 1 Square",
   "aspect_custom": "Other",
-  
   "size_label": "Size",
   "unit_inches": "Inches",
   "unit_cm": "Centimetres",
   "unit_toggle_inches": "Inches",
   "unit_toggle_cm": "Use cm",
-  
   "stats_header": "Stats",
   "stats_width": "Width",
   "stats_height": "Height",
@@ -442,20 +387,13 @@
   "stats_as_4x3": "As a 4:3 Display",
   "stats_as_16x9": "As a 16:9 Display",
   "stats_as_235x1": "As a 2.35:1 Display",
-  
   "comparison_header": "In Comparison",
   "comparison_actual_ratio": "Actual Aspect Ratios",
   "comparison_as_4x3": "As a 4:3 Display",
   "comparison_as_16x9": "As a 16:9 Display",
   "comparison_as_235x1": "As a 2.35:1 Display",
-  
   "share_heading": "Share Comparison Results",
   "share_copy_link": "Copy Link",
-  "share_facebook": "Facebook",
-  "share_twitter": "Twitter",
-  "share_linkedin": "LinkedIn",
-  "share_pinterest": "Pinterest",
-  
   "understanding_comparison_heading": "Understanding Device Comparison",
   "comparison_basics": "Comparison Basics",
   "comparison_explanation": "When comparing device sizes, it's important to understand several key factors:",
@@ -467,23 +405,14 @@
   "comparison_point3_desc": "The ratio between physical pixels and CSS pixels",
   "comparison_point4": "Aspect Ratio:",
   "comparison_point4_desc": "The proportional relationship between width and height",
-  
   "best_practices_heading": "Best Practices for Display Selection",
-  "best_practices_point1": "Consider different screen sizes and densities",
-  "best_practices_point2": "Consider various aspect ratios",
-  "best_practices_point3": "Optimize for different orientations",
-  "best_practices_point4": "Test on multiple devices",
-  "best_practices_point5": "Consider foldable and dual-screen devices",
-  
   "technical_point5": "Handle orientation changes properly",
-  
   "compare_how_to_use": "How to Use the Screen Size Comparison Tool",
   "compare_step1": "Select two display aspect ratios from the dropdown menus",
   "compare_step2": "Enter the diagonal screen sizes for both displays",
   "compare_step3": "Click \"Compare\" to see detailed dimensions and differences",
   "compare_step4": "Use the unit toggle to switch between inches and centimeters",
   "compare_step5": "Share your comparison results with others using the share buttons",
-  
   "faq_heading": "Frequently Asked Questions About Screen Size Comparison",
   "faq_measure_question": "How is screen size measured?",
   "faq_measure_answer": "Screen size is typically measured diagonally from one corner to the opposite corner, expressed in inches or centimeters. For example, a 50\" TV means the diagonal measurement is 50 inches.",
@@ -495,15 +424,8 @@
   "faq_different_answer": "Screens with different aspect ratios will have different widths and heights even with the same diagonal measurement. For example, a 27\" 16:9 monitor is wider but shorter than a 27\" 4:3 monitor.",
   "faq_aspect_question": "What is aspect ratio and why does it matter?",
   "faq_aspect_answer": "Aspect ratio is the proportional relationship between a screen's width and height (width:height). Common ratios include 16:9 (widescreen), 4:3 (traditional), and 21:9 (ultrawide). It matters because it affects how content is displayed and the overall viewing experience.",
-  
   "area": "Area",
   "viewport_size_explanation": "When designing for devices, it's important to understand the difference between viewport sizes and screen resolutions:",
-  
-  "compare_page_title": "Visual Screen Size Comparison Tool | Compare Monitors, Laptops & Phones",
-  "compare_page_description": "Instantly visualize and compare screen sizes, aspect ratios, and dimensions of any two monitors, laptops, or phones side-by-side. The perfect free tool for developers and designers.",
-  "compare_page_heading": "Screen Size Comparison Tool",
-  "compare_page_intro": "Compare screen sizes and resolutions across different devices side by side. This interactive tool helps you visualize how display choices compare in real-world dimensions.",
-  
   "size_type": "Size Type",
   "size_value": "Size Value",
   "pixels": "Pixels",
@@ -511,23 +433,19 @@
   "metric": "Metric",
   "imperial": "Imperial",
   "summary": "Summary",
-
-  "standard_resolutions_page_title": "Standard Screen Resolutions List (2025 Updated) | Mobile, Desktop & 4K",
-  "standard_resolutions_page_description": "Your ultimate, up-to-date cheat sheet for the most common screen resolutions in 2025. Covers all standard sizes for responsive design, from mobile and tablets to desktop and 4K monitors.",
+  "standard_resolutions_page_title": "Standard Screen Resolutions (2026) - 720p, 1080p, 1440p, 4K, 8K Chart",
+  "standard_resolutions_page_description": "Reference chart for common screen resolutions and aspect ratios, including pixel dimensions for mobile, laptop, desktop, ultrawide, 4K, and 8K displays.",
   "standard_resolutions_page_heading": "Standard Screen Resolutions: Complete Guide",
   "standard_resolutions_page_intro": "This comprehensive guide provides detailed information about standard screen resolutions, aspect ratios, and recommended image sizes for social media. Essential information for web developers, designers, and content creators.",
-  
   "standard_table_heading": "Standard Resolutions Table",
   "monitor_resolutions_heading": "Monitor & Display Resolutions",
   "aspect_ratios_heading": "Common Aspect Ratios",
   "video_resolutions_heading": "Video Resolution Standards",
   "social_media_sizes_heading": "Social Media Image Sizes",
-  
   "resolution_name": "Standard Name",
   "resolution_size": "Resolution",
   "total_pixels": "Total Pixels",
   "common_usage": "Common Usage",
-  
   "hd": "HD (720p)",
   "full_hd": "Full HD (1080p)",
   "wuxga": "WUXGA",
@@ -537,7 +455,6 @@
   "dci_4k": "DCI 4K",
   "5k": "5K",
   "8k": "8K UHD",
-  
   "hd_usage": "Entry-level monitors, older TVs",
   "full_hd_usage": "Standard monitors, mainstream TVs",
   "wuxga_usage": "16:10 widescreen displays, professional laptops",
@@ -547,11 +464,8 @@
   "dci_4k_usage": "Cinema projection standard, professional film production",
   "5k_usage": "High-end professional displays, iMac etc.",
   "8k_usage": "Cutting-edge TVs, professional film production",
-  
-  "aspect_ratio": "Aspect Ratio",
   "common_resolutions": "Common Resolutions",
   "typical_devices": "Typical Devices",
-  
   "16_9_devices": "Modern TVs, most monitors, laptops",
   "16_10_devices": "Apple MacBooks, some professional laptops",
   "21_9_devices": "Ultrawide monitors, cinema screens",
@@ -559,11 +473,8 @@
   "3_2_devices": "Surface devices, some Chromebooks",
   "1_1_devices": "Instagram square photos, some professional displays",
   "32_9_devices": "Super ultrawide curved monitors, dual monitor replacements",
-  
   "video_standard": "Video Standard",
-  "resolution": "Resolution",
   "common_platforms": "Common Platforms",
-  
   "360p_platforms": "Low bandwidth YouTube, older mobile videos",
   "480p_platforms": "Standard definition DVD, older video content",
   "720p_platforms": "HD videos, YouTube, streaming",
@@ -571,15 +482,12 @@
   "1440p_platforms": "Premium YouTube videos, game streaming",
   "4k_platforms": "Netflix 4K, YouTube 4K, UHD Blu-ray",
   "8k_platforms": "Experimental videos, high-end YouTube content",
-  
   "facebook_sizes": "Facebook Image Sizes",
   "instagram_sizes": "Instagram Image Sizes",
   "twitter_sizes": "Twitter Image Sizes",
   "youtube_sizes": "YouTube Image Sizes",
-  
   "image_type": "Image Type",
   "recommended_size": "Recommended Size (pixels)",
-  
   "profile_picture": "Profile Picture",
   "cover_photo": "Cover Photo",
   "shared_image": "Shared Image",
@@ -594,26 +502,20 @@
   "channel_profile": "Channel Profile",
   "channel_cover": "Channel Cover",
   "video_thumbnail": "Video Thumbnail",
-  
   "understanding_resolutions_heading": "Understanding Resolutions & Sizes",
   "resolution_basics": "Resolution Basics",
-  
   "what_is_resolution": "What is Resolution?",
   "resolution_explanation": "Resolution refers to the number of horizontal and vertical pixels on a display. Higher resolution means more detail but requires more processing power and bandwidth.",
-  
   "what_is_aspect_ratio": "What is Aspect Ratio?",
   "aspect_ratio_explanation": "Aspect ratio is the proportional relationship between width and height, expressed as x:y (e.g., 16:9). It determines the shape of the display area, affecting viewing experience and content layout.",
-  
   "resolution_vs_size": "Resolution vs. Physical Size",
   "resolution_vs_size_explanation": "Resolution is the pixel count, while physical size is the actual dimensions of the screen (usually measured in inches or centimeters). Screens with the same resolution can have different physical sizes, affecting pixel density (PPI/DPI).",
-  
   "design_considerations_heading": "Design Considerations",
   "design_point1": "Design for multiple resolutions and devices, not just one fixed size",
   "design_point2": "Utilize responsive design to ensure content displays properly across different screen sizes",
   "design_point3": "Prepare 2x or 3x image assets for high-resolution displays like Retina screens",
   "design_point4": "Test your designs across various common resolutions",
   "design_point5": "Always use the latest recommended sizes when creating images for social media platforms",
-  
   "technical_implementation_heading": "Technical Implementation",
   "tech_point1": "Use CSS media queries to adjust layouts for different screen sizes",
   "tech_point2": "Implement proper viewport meta tags to ensure correct scaling on mobile devices",
@@ -628,76 +530,62 @@
   "breakpoints_desktop_range": "1025px - 1440px",
   "breakpoints_large": "Large Screen:",
   "breakpoints_large_range": "1441px and above",
-
   "ppiCalculator": {
     "title": "PPI Calculator",
     "optimizedTitle": "Pixel Density (PPI) Calculator",
     "intro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
-    "pageTitle": "PPI Calculator - Easily Calculate Your Screen's Pixel Density | Screen Size Checker",
-    "pageDescription": "Accurately calculate the PPI (Pixels Per Inch) of any screen. Simply enter the resolution and diagonal size to find the pixel density of your monitor, phone, or TV.",
+    "pageTitle": "PPI Calculator (Pixels Per Inch) | Monitor, Phone, TV Pixel Density",
+    "pageDescription": "Calculate pixel density (PPI) from screen resolution and diagonal size. Compare display sharpness for monitors, laptops, phones, and TVs.",
     "pageHeading": "PPI Calculator",
     "pageIntro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
-    
     "inputTitle": "Enter Screen Parameters",
     "horizontalPixels": "Horizontal Pixels",
     "horizontalPixelsPlaceholder": "1920",
     "horizontalPixelsHelp": "Number of pixels across the screen width",
-    "verticalPixels": "Vertical Pixels", 
+    "verticalPixels": "Vertical Pixels",
     "verticalPixelsPlaceholder": "1080",
     "verticalPixelsHelp": "Number of pixels across the screen height",
     "diagonalInches": "Diagonal Size (inches)",
     "diagonalInchesPlaceholder": "15.6",
     "diagonalInchesHelp": "Diagonal length of the screen in inches",
-    
     "resultTitle": "Calculation Result",
     "ppiUnit": "PPI",
     "resultDescription": "Pixels Per Inch",
     "pixelDiagonal": "Pixel Diagonal:",
     "pixelsUnit": "pixels",
     "screenDensity": "Screen Density:",
-    
     "lowDensity": "Low Density",
-    "mediumDensity": "Medium Density", 
+    "mediumDensity": "Medium Density",
     "highDensity": "High Density",
     "veryHighDensity": "Very High Density",
-    
     "errorInvalidNumber": "Please enter a valid number",
     "errorNegativeValue": "Value must be greater than 0",
     "errorOutOfRange": "Value must be between {{min}} and {{max}}",
     "errorCalculation": "An error occurred during calculation",
-    
     "whatIsPPI": "What is PPI (Pixel Density)?",
     "ppiDefinition": "PPI (Pixels Per Inch) is a unit that measures the pixel density of display devices. It represents how many pixel points are contained within one inch of length. The higher the PPI value, the finer the display effect, and the clearer and sharper images and text appear.",
-    
     "howPPICalculated": "How is PPI Calculated?",
     "ppiFormula": "The PPI calculation formula is: PPI = √(horizontal pixels² + vertical pixels²) / diagonal inches. First calculate the pixel diagonal length of the screen, then divide by the physical diagonal length to get the number of pixels per inch.",
-    
     "whyPPIImportant": "Why is PPI Important?",
     "ppiImportance": "PPI has a direct impact on display quality. High PPI displays can present clearer text, finer image details, and reduce pixel graininess. For designers and developers, understanding the PPI of target devices helps optimize image resources and ensure optimal display effects on screens of different densities.",
-    
     "ppiApplications": "PPI Application Scenarios",
     "webDesign": "Web Design: Prepare appropriate image resources for devices with different PPI",
     "appDevelopment": "App Development: Ensure UI elements display correctly on various screens",
     "printDesign": "Print Design: Understand the difference between screen display and print output",
     "deviceSelection": "Device Selection: Compare display quality of different monitors",
-    
     "howToUse": "How to Use Our PPI Calculator?",
     "step1": "Enter the horizontal pixel count of the screen (e.g., 1920)",
     "step2": "Enter the vertical pixel count of the screen (e.g., 1080)",
     "step3": "Enter the diagonal size of the screen (e.g., 15.6 inches)",
     "step4": "The system will automatically calculate and display the PPI value",
-    
     "exampleCalculation": "For example: A 15.6-inch 1920×1080 display has a PPI value of approximately 141.21, meaning each inch contains about 141 pixel points.",
-    
     "ppiVsDpi": "PPI vs DPI: What's the Difference?",
     "ppiVsDpiExplanation": "PPI and DPI are often confused, but they have different application scenarios. PPI (Pixels Per Inch) is mainly used to describe the pixel density of digital display devices, while DPI (Dots Per Inch) is mainly used to describe the resolution of printing devices. In the context of web design and screen display, we typically use PPI to measure display quality.",
-    
     "commonPPIValues": "Common PPI Value Reference",
     "lowPPI": "Low Density (72-120 PPI): Traditional monitors, large TVs",
     "mediumPPI": "Medium Density (120-200 PPI): Standard laptops, desktop monitors",
     "highPPI": "High Density (200-300 PPI): High-resolution laptops, tablets",
     "veryHighPPI": "Very High Density (300+ PPI): Smartphones, Retina displays",
-    
     "faq": {
       "title": "Frequently Asked Questions (FAQ)",
       "goodPPI": {
@@ -717,7 +605,6 @@
         "answer": "The human eye can typically distinguish up to about 300 PPI at normal viewing distances. Beyond this point, improvements become less noticeable unless viewing very close to the screen."
       }
     },
-    
     "referenceTable": {
       "title": "Typical PPI Values for Common Devices",
       "device": "Device",
@@ -732,37 +619,33 @@
         "ipadpro": "iPad Pro 12.9\""
       }
     },
-    
     "context": {
       "standard": "Standard resolution display.",
       "retina": "High-resolution 'Retina' display, great for sharp text and images.",
       "professional": "Very high-resolution display, excellent for professional creative work."
     }
   },
-
   "aspectRatioCalculator": {
     "title": "Aspect Ratio Calculator",
     "intro": "Calculate new dimensions while maintaining a specific aspect ratio. Enter original dimensions and get proportionally scaled new dimensions.",
-    "pageTitle": "Aspect Ratio Calculator - Calculate Proportional Dimensions | Screen Size Checker",
-    "pageDescription": "Free aspect ratio calculator to maintain proportions when resizing images, videos, or layouts. Calculate new dimensions while preserving the original aspect ratio.",
+    "pageTitle": "Aspect Ratio Calculator | Resize Width & Height Without Distortion",
+    "pageDescription": "Calculate missing width or height while preserving aspect ratio. Useful for image resize, video production, CSS layouts, and responsive design.",
     "pageHeading": "Aspect Ratio Calculator",
     "pageIntro": "Calculate new dimensions while maintaining a specific aspect ratio. Enter original dimensions and get proportionally scaled new dimensions.",
-    
     "originalRatio": "Original Ratio",
     "newDimensions": "New Dimensions",
     "width1": "Width 1",
     "width1Placeholder": "1920",
     "width1Help": "Original width value",
-    "height1": "Height 1", 
+    "height1": "Height 1",
     "height1Placeholder": "1080",
     "height1Help": "Original height value",
     "width2": "Width 2",
     "width2Placeholder": "3840",
     "width2Help": "Enter new width, height will be calculated automatically",
     "height2": "Height 2",
-    "height2Placeholder": "2160", 
+    "height2Placeholder": "2160",
     "height2Help": "Enter new height, width will be calculated automatically",
-    
     "currentRatio": "Current Ratio:",
     "scaleFactor": "Scale Factor:",
     "aspectRatio": "Aspect Ratio:",
@@ -770,73 +653,55 @@
     "previewLabel": "Ratio Preview",
     "originalSize": "Original Size:",
     "newSize": "New Size:",
-    
     "errors": {
       "invalidNumber": "Please enter a valid number",
       "negativeValue": "Value must be greater than 0",
       "outOfRange": "Value must be between {min} and {max}",
       "calculationError": "An error occurred during calculation"
     },
-    
     "whatIsAspectRatio": "What is Aspect Ratio?",
     "aspectRatioDefinition": "Aspect ratio is the proportional relationship between the width and height of an image, screen, or any rectangular area. It's usually expressed as a ratio of two numbers, such as 16:9 or 4:3. Aspect ratio determines the shape and visual proportions of content, making it an important concept in design and media production.",
-    
     "howToCalculate": "How to Calculate Aspect Ratio?",
     "calculationFormula": "Calculating aspect ratio is simple: divide both width and height by their greatest common divisor to get the simplest ratio. For example, a 1920×1080 resolution has a GCD of 120, so the aspect ratio is 16:9. When you need to maintain the same ratio while resizing, use the formula: New Height = (Original Height ÷ Original Width) × New Width.",
-    
     "commonAspectRatios": "Common Aspect Ratios",
-    
     "widescreen169": "16:9 Widescreen Ratio",
     "widescreen169Description": "16:9 is the most common modern aspect ratio, widely used in HD TVs, computer monitors, YouTube videos, and most modern devices. This ratio provides a wide field of view, perfect for watching movies and gaming.",
-    
-    "traditional43": "4:3 Traditional Ratio", 
+    "traditional43": "4:3 Traditional Ratio",
     "traditional43Description": "4:3 is the traditional TV and computer monitor ratio, widely used in early CRT monitors and old TVs. While less common now, it's still important in certain professional applications and legacy content.",
-    
     "square11": "1:1 Square Ratio",
     "square11Description": "1:1 square ratio is very popular on social media, especially Instagram posts. This ratio displays well on mobile devices and is commonly used for avatars, icons, and certain artwork.",
-    
     "ultrawide219": "21:9 Ultrawide Ratio",
     "ultrawide219Description": "21:9 ultrawide ratio is mainly used in film production and high-end monitors. This ratio provides a wider field of view, particularly suitable for movie watching, gaming, and multitasking.",
-    
     "whyAspectRatioMatters": "Why Does Aspect Ratio Matter?",
-    
     "responsiveDesign": "Responsive Web Design",
     "responsiveDesignDescription": "In responsive web design, understanding different device aspect ratios is crucial. Designers need to ensure content displays correctly across various screen ratios, from narrow mobile screens to wide desktop displays.",
-    
     "videoProduction": "Video Production",
     "videoProductionDescription": "In video production, choosing the correct aspect ratio determines the visual effect and compatibility of the final work. Different platforms have different recommended ratios: YouTube recommends 16:9, Instagram Stories uses 9:16, while movies typically use 21:9.",
-    
     "imageEditing": "Image Editing and Photography",
     "imageEditingDescription": "In image editing, maintaining the correct aspect ratio prevents image distortion. When resizing images for different purposes, understanding how to calculate proportional dimensions is very important.",
-    
     "howToUse": "How to Use the Aspect Ratio Calculator?",
     "step1": "Enter the original width and height values",
     "step2": "Enter a new width or height in the new dimensions area",
     "step3": "The other dimension will be automatically calculated to maintain the same ratio",
     "step4": "View the visual preview to understand the ratio effect",
-    
     "exampleCalculation": "For example: If the original dimensions are 1920×1080 (16:9), when you enter a new width of 3840, the calculator will automatically calculate the new height as 2160, maintaining the same 16:9 ratio.",
-    
     "practicalApplications": "Practical Applications",
     "webDesign": "Web Design: Create responsive layouts for different devices",
     "videoEditing": "Video Editing: Resize videos to fit different platforms",
     "imageResize": "Image Resizing: Scale images proportionally to avoid distortion",
     "printDesign": "Print Design: Ensure designs maintain proportions at different sizes",
     "socialMedia": "Social Media: Create content sized for various platforms",
-    
     "useThisRatio": "Use This Ratio",
     "photography32": "3:2 Photography Ratio",
     "photography32Description": "3:2 is a commonly used ratio in traditional photography and is also the standard ratio for 35mm film. This ratio is also common in digital cameras and tablets, providing good compositional balance.",
     "classic54": "5:4 Classic Ratio",
     "classic54Description": "5:4 ratio is commonly used in early computer monitors and some professional displays. This ratio is between 4:3 and 16:10, and has certain applications in document processing and graphic design.",
-    
     "tooltip169": "Widescreen display standard ratio",
     "tooltip43": "Traditional display ratio",
     "tooltip11": "Social media square ratio",
     "tooltip219": "Cinema ultrawide ratio",
     "tooltip32": "Traditional photography standard ratio",
     "tooltip54": "Classic display ratio",
-    
     "faq": {
       "title": "Frequently Asked Questions (FAQ)",
       "whatIsRatio": {
@@ -857,20 +722,17 @@
       }
     }
   },
-
   "projectionCalculator": {
     "title": "Projector Distance Calculator",
     "intro": "Calculate the optimal projector distance and screen size for your room. Enter your projector's throw ratio and desired screen size to get precise installation measurements.",
-    "pageTitle": "Projector Distance Calculator - Calculate Screen Size & Throw Distance | Screen Size Checker",
-    "pageDescription": "Calculate the optimal projector distance and screen size for your room. Enter throw ratio and distance to get precise measurements for home theater or conference room setup.",
+    "pageTitle": "Projector Distance Calculator | Throw Ratio, Screen Size & Viewing Distance",
+    "pageDescription": "Plan projector placement with throw ratio, room distance, and target screen size. Useful for home theater, office, and classroom setups.",
     "pageHeading": "Projector Distance Calculator",
     "pageIntro": "Calculate the optimal projector distance and screen size for your room.",
-    
     "inputTitle": "Projector Settings",
     "resultTitle": "Calculated Results",
     "modeDistance": "Calculate Screen Size",
     "modeScreen": "Calculate Distance",
-    
     "throwRatio": "Throw Ratio",
     "throwRatioHelp": "Throw ratio = Distance / Screen Width. Check your projector specs.",
     "customRatio": "Custom",
@@ -880,21 +742,18 @@
     "screenSizeHelp": "Desired screen diagonal size in inches",
     "aspectRatio": "Aspect Ratio",
     "aspectRatioHelp": "Most projectors use 16:9 for home theater",
-    
     "meters": "meters",
     "feet": "feet",
     "inches": "inches (diagonal)",
     "inchesUnit": "inches",
     "metersUnit": "meters",
     "feetUnit": "feet",
-    
     "screenSizeResult": "Screen Size",
     "distanceResult": "Distance Required",
     "screenWidth": "Screen Width",
     "screenHeight": "Screen Height",
     "screenArea": "Screen Area",
     "viewingDistance": "Optimal Viewing",
-    
     "quickReference": "Quick Reference: Common Setups",
     "homeTheater": "Home Theater",
     "homeTheater1": "Screen: 100-120 inches",
@@ -916,7 +775,6 @@
     "conference2": "Distance: 3-5 meters",
     "conference3": "4:3 or 16:10 aspect",
     "conference4": "High brightness needed",
-    
     "whatIsThrowRatio": "What is Throw Ratio?",
     "throwRatioExplain": "Throw ratio is the relationship between the projector's distance from the screen and the width of the projected image. It's calculated as: Throw Ratio = Distance ÷ Screen Width.",
     "throwRatioTypes": "Types of Projector Throw Ratios",
@@ -932,12 +790,10 @@
     "standardUse": "Home theaters, conference rooms",
     "longThrow": "Long Throw",
     "longThrowUse": "Large venues, auditoriums",
-    
     "howToCalculate": "How to Calculate Projector Distance",
     "calculateFormula": "The basic formula is: Distance = Throw Ratio × Screen Width. For a 16:9 aspect ratio screen, the width is approximately 87% of the diagonal size.",
     "optimalViewing": "Optimal Viewing Distance",
     "viewingExplain": "For the best viewing experience, the optimal viewing distance is typically 1.5 to 2.5 times the screen diagonal.",
-    
     "installationTips": "Projector Installation Tips",
     "tip1": "Check your projector's specific throw ratio in the manual or specifications",
     "tip2": "Account for lens shift and zoom range when planning placement",
@@ -945,14 +801,12 @@
     "tip4": "Consider ceiling mount for permanent installation",
     "tip5": "Leave space for ventilation and cable management",
     "tip6": "Check for ambient light control options in your room",
-    
     "lumensGuide": "Projector Brightness Guide",
     "lumensIntro": "Screen size affects how bright your projector needs to be. Larger screens spread the light over more area, requiring more lumens.",
     "screenSizeHeader": "Screen Size",
     "darkRoom": "Dark Room",
     "dimRoom": "Dim Room",
     "brightRoom": "Bright Room",
-    
     "faqTitle": "Frequently Asked Questions",
     "faq1q": "How do I find my projector's throw ratio?",
     "faq1a": "Check your projector's specifications sheet or manual. It's usually listed as a single number (e.g., 1.5) or a range (e.g., 1.2-1.9) for projectors with zoom lenses.",
@@ -965,15 +819,13 @@
     "faq5q": "How does aspect ratio affect screen size calculations?",
     "faq5a": "Different aspect ratios have different width-to-height proportions. A 16:9 screen is wider relative to its height than a 4:3 screen."
   },
-
   "lcdTester": {
     "title": "LCD Screen Tester",
     "intro": "Test your monitor for dead pixels, color accuracy, and display quality. Run comprehensive screen tests in fullscreen mode.",
-    "pageTitle": "LCD Screen Tester - Test for Dead Pixels & Display Quality | Screen Size Checker",
-    "pageDescription": "Free online LCD screen tester. Check your monitor for dead pixels, color accuracy, backlight bleeding, and display quality issues.",
+    "pageTitle": "LCD Screen Tester | Dead Pixel, Color, Uniformity & Ghosting Test",
+    "pageDescription": "Run fullscreen monitor tests to detect dead pixels, stuck pixels, backlight bleed, color banding, and motion ghosting.",
     "pageHeading": "LCD Screen Tester",
     "pageIntro": "Test your monitor for dead pixels, color accuracy, and display quality.",
-    
     "selectTest": "Select a Test",
     "deadPixelTest": "Dead Pixel Test",
     "deadPixelDesc": "Display solid colors to detect dead or stuck pixels on your screen.",
@@ -989,7 +841,6 @@
     "motionDesc": "Check for ghosting and response time issues.",
     "textTest": "Text Clarity Test",
     "textDesc": "Verify text rendering and font clarity.",
-    
     "red": "Red",
     "green": "Green",
     "blue": "Blue",
@@ -998,7 +849,6 @@
     "cyan": "Cyan",
     "magenta": "Magenta",
     "yellow": "Yellow",
-    
     "horizontalGradient": "Horizontal Gradient",
     "verticalGradient": "Vertical Gradient",
     "rgbGradient": "RGB Gradient",
@@ -1014,18 +864,15 @@
     "scrollingText": "Scrolling Text",
     "textOnWhite": "Text on White",
     "textOnBlack": "Text on Black",
-    
     "autoTest": "Run All Tests (Auto)",
     "autoTestHint": "Press ESC or click to exit. Press Space or Arrow keys to navigate.",
     "pressEsc": "Press ESC to exit",
-    
     "instructions": "Instructions",
     "instruction1": "Click any test button to start fullscreen test",
     "instruction2": "Press ESC or click anywhere to exit test",
     "instruction3": "Use Arrow keys or Space to switch between colors/tests",
     "instruction4": "Clean your screen before testing for accurate results",
     "instruction5": "Test in a dimly lit room for best visibility",
-    
     "whatToLookFor": "What to Look For",
     "deadPixels": "Dead Pixels",
     "deadPixelsInfo": "Small dots that don't change color. Visible as black spots on bright colors or bright spots on black.",
@@ -1035,7 +882,6 @@
     "colorBandingInfo": "Visible steps or bands in gradients instead of smooth transitions. Indicates limited color depth.",
     "backlight": "Backlight Bleed",
     "backlightInfo": "Light leaking around edges or corners, especially visible on black screens in dark rooms.",
-    
     "screenTypes": "Screen Panel Types",
     "panelType": "Panel Type",
     "colorAccuracy": "Color Accuracy",
@@ -1051,7 +897,6 @@
     "vaUse": "Movies, high contrast content",
     "tnUse": "Competitive gaming",
     "oledUse": "Premium displays, HDR content",
-    
     "faqTitle": "Frequently Asked Questions",
     "faq1q": "Can dead pixels be fixed?",
     "faq1a": "Dead pixels are usually permanent. However, stuck pixels can sometimes be fixed by running pixel-cycling software or gently massaging the affected area with a soft cloth.",
@@ -1062,12 +907,10 @@
     "faq4q": "What causes backlight bleeding?",
     "faq4a": "Backlight bleed is caused by uneven light distribution from the LED backlight, often due to manufacturing tolerances or pressure on the panel frame."
   },
-
   "lcd_screen_tester": "LCD Screen Tester",
   "lcd_screen_tester_desc": "Test for dead pixels",
   "tool_lcd_tester": "LCD Screen Tester",
   "footer_lcd_tester": "LCD Screen Tester",
-
   "projection_calculator": "Projector Calculator",
   "projection_calculator_desc": "Calculate throw distance",
   "tool_projection": "Projector Calculator",
@@ -1075,17 +918,8 @@
   "ppi_calculator": "PPI Calculator",
   "aspect_ratio_calculator": "Aspect Ratio Calculator",
   "loading": "Loading...",
-  
-  "iphone_page_description": "View screen sizes, resolutions, and viewport information for all iPhone models",
-  "ipad_page_description": "View screen sizes, resolutions, and viewport information for all iPad models",
-  "android_page_description": "View screen sizes, resolutions, and viewport information for popular Android devices",
-  "compare_page_description": "Compare screen sizes and specifications of different devices",
-  "standard_resolutions_page_description": "View standard screen resolutions and aspect ratio reference table",
-  "responsive_tester_description": "Test website responsive performance across different screen sizes",
-
   "static_hero_title": "Screen Size Checker - Detect Your Display Resolution",
   "noscript_hero_title": "Screen Size Checker - Enable JavaScript for Real-time Detection",
-
   "tool_intro_title": "How to Check Your Screen Size",
   "tool_intro_description": "Our screen size checker instantly displays your device's screen resolution, viewport size, and pixel density. This tool is essential for web developers, UI/UX designers, and QA professionals who need to test responsive designs across different devices.",
   "tool_intro_for_developers": "For Developers",
@@ -1094,19 +928,15 @@
   "tool_intro_for_designers_desc": "Ensure designs work across different screen sizes",
   "tool_intro_for_qa": "For QA",
   "tool_intro_for_qa_desc": "Verify display compatibility and pixel density",
-
   "noscript_title": "Enable JavaScript for Accurate Detection",
   "noscript_description": "Our screen size checker requires JavaScript to display your device information accurately. Please enable JavaScript in your browser settings.",
   "noscript_common_resolutions": "Common Screen Resolutions",
   "noscript_how_to_enable": "How to Enable JavaScript",
   "noscript_footer_text": "Once JavaScript is enabled, please refresh this page to see your device information.",
-  
-  "nav_home": "Home",
   "nav_devices": "Devices",
   "nav_tools": "Tools",
   "nav_gaming": "Gaming",
   "nav_guides": "Guides",
-  "nav_blog": "Blog",
   "gaming_guides": "Gaming Guides",
   "gaming_comparisons": "Comparisons",
   "gaming_featured": "Featured",
@@ -1123,21 +953,18 @@
   "tool_aspect": "Aspect Ratio",
   "tool_responsive": "Responsive Tester",
   "tools_calculators": "Calculators",
-  "tools_testing": "Testing Tools",
-  "tools_comparison": "Comparison",
   "tools_testing": "Testing & Comparison",
+  "tools_comparison": "Comparison",
   "tools_reference": "Reference",
   "devices_phones": "Smartphones",
   "quick_access": "Quick Access",
   "most_used": "Most Used",
   "essential": "Essential",
-  "gaming_guides": "Gaming Guides",
   "view_all_mobile": "View All Phones →",
   "view_all_tablets": "View All Tablets →",
   "quick_links_title": "Quick Links",
   "compare_screens": "Compare Screens",
   "compare_screens_desc": "Side-by-side comparison",
-  "ppi_calculator": "PPI Calculator",
   "ppi_calculator_desc": "Calculate pixel density",
   "aspect_ratio_desc": "Screen proportions",
   "responsive_tester_desc": "Test your design",
@@ -1183,7 +1010,6 @@
   "gaming_curved_flat": "Curved vs Flat Monitors",
   "gaming_sync_tech": "G-Sync vs FreeSync",
   "gaming_monitor_fps": "FPS and Monitor Guide",
-
   "footer_resources": "Resources",
   "footer_company": "Company",
   "footer_iphone": "iPhone Screens",

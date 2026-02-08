@@ -244,10 +244,10 @@
         "page_description_key": "compare_page_description",
         "page_heading_key": "compare_page_heading",
         "page_intro_key": "compare_page_intro",
-        "page_keywords": "screen size comparison, display comparison, screen compare tool, monitor comparison, device screen compare, viewport comparison",
+        "page_keywords": "screen size comparison, monitor size comparison, tv size comparison, display size calculator, laptop screen comparison, phone screen comparison, aspect ratio comparison",
         "canonical_url": "https://screensizechecker.com/devices/compare.html",
-        "og_title": "Screen Size Comparison Tool - Compare Display Dimensions",
-        "og_description": "Interactive tool to compare screen sizes and resolutions across different devices. Perfect for responsive design planning.",
+        "og_title": "Screen Size Comparison Tool (2026) | Compare Monitor, TV, Laptop & Phone",
+        "og_description": "Compare two screen sizes side by side with exact width, height, area, and aspect ratio. Ideal for monitor upgrades, TV buying, and responsive UI planning.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/compare.html",
         "css_path": "../css",
@@ -266,7 +266,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Screen Size Comparison Tool",
-          "description": "Interactive tool to compare screen sizes and resolutions across different devices.",
+          "description": "Compare two screen sizes side by side with exact width, height, area, and aspect ratio.",
           "url": "https://screensizechecker.com/devices/compare.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -274,7 +274,8 @@
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-          }
+          },
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -289,10 +290,10 @@
         "page_description_key": "standard_resolutions_page_description",
         "page_heading_key": "standard_resolutions_page_heading",
         "page_intro_key": "standard_resolutions_page_intro",
-        "page_keywords": "standard screen resolutions, common monitor resolutions, social media image sizes, display resolution standards, aspect ratio comparison, video resolution guide",
+        "page_keywords": "standard screen resolutions, 1080p resolution, 1440p resolution, 4k resolution, 8k resolution, aspect ratio chart, display resolution standards",
         "canonical_url": "https://screensizechecker.com/devices/standard-resolutions.html",
-        "og_title": "Standard Screen Resolutions: Complete Guide & Size Charts",
-        "og_description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+        "og_title": "Standard Screen Resolutions (2026) - 720p, 1080p, 1440p, 4K, 8K Chart",
+        "og_description": "Reference chart for common screen resolutions and aspect ratios, including pixel dimensions for mobile, laptop, desktop, ultrawide, 4K, and 8K displays.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/standard-resolutions.html",
         "css_path": "../css",
@@ -310,8 +311,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Standard Screen Resolutions: Complete Guide & Size Charts",
-          "description": "Comprehensive guide to standard screen resolutions, aspect ratios, and social media image sizes. Find exact dimensions for monitors, video standards, and popular social platforms.",
+          "headline": "Standard Screen Resolutions (2026): 720p, 1080p, 1440p, 4K, 8K Chart",
+          "description": "Reference chart for common screen resolutions and aspect ratios, including pixel dimensions for mobile, laptop, desktop, ultrawide, 4K, and 8K displays.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -325,7 +326,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2025-04-22"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -340,10 +341,10 @@
         "page_description_key": "responsive_tester_description",
         "page_heading_key": "responsive_tester_page_title",
         "page_intro_key": "responsive_tester_intro",
-        "page_keywords": "responsive design tester, responsive testing tool, screen size simulator, website testing tool, mobile view simulator, responsive design checker",
+        "page_keywords": "responsive design tester, mobile-friendly test, viewport tester, responsive checker, website testing tool, breakpoint tester, screen size simulator",
         "canonical_url": "https://screensizechecker.com/devices/responsive-tester.html",
-        "og_title": "Responsive Design Tester - Test Your Website on Any Screen Size",
-        "og_description": "A free responsive design tester to check your website's layout on various screen resolutions, including mobile, tablet, and desktop. Perfect for developers and designers.",
+        "og_title": "Responsive Design Tester (Free) | Test Website on Mobile, Tablet & Desktop",
+        "og_description": "Preview and test your website at common viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/responsive-tester.html",
         "css_path": "../css",
@@ -362,7 +363,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Responsive Design Tester",
-          "description": "Interactive tool to test how your website looks and behaves on different screen sizes and devices.",
+          "description": "Preview and test websites at common viewport sizes to validate breakpoints and mobile responsiveness.",
           "url": "https://screensizechecker.com/devices/responsive-tester.html",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
@@ -370,7 +371,8 @@
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-          }
+          },
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -385,10 +387,10 @@
         "page_description_key": "ppiCalculator.pageDescription",
         "page_heading_key": "ppiCalculator.pageHeading",
         "page_intro_key": "ppiCalculator.pageIntro",
-        "page_keywords": "ppi calculator, pixels per inch, pixel density, screen resolution, display calculator, dpi calculator, monitor ppi, screen ppi, web development, responsive design",
+        "page_keywords": "ppi calculator, pixels per inch, pixel density calculator, monitor ppi calculator, phone ppi calculator, retina display ppi, screen resolution calculator",
         "canonical_url": "https://screensizechecker.com/devices/ppi-calculator.html",
-        "og_title": "PPI Calculator - Easily Calculate Your Screen's Pixel Density | Screen Size Checker",
-        "og_description": "Accurately calculate the PPI (Pixels Per Inch) of any screen. Simply enter the resolution and diagonal size to find the pixel density of your monitor, phone, or TV.",
+        "og_title": "PPI Calculator (Pixels Per Inch) | Monitor, Phone, TV Pixel Density",
+        "og_description": "Calculate pixel density (PPI) from screen resolution and diagonal size. Compare display sharpness for monitors, laptops, phones, and TVs.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/ppi-calculator.html",
         "css_path": "../css",
@@ -407,7 +409,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "PPI Calculator",
-          "description": "Calculate pixels per inch (PPI) for any display device. Enter screen resolution and diagonal size to get accurate pixel density measurements.",
+          "description": "Calculate pixel density (PPI) from screen resolution and diagonal size to compare display sharpness.",
           "url": "https://screensizechecker.com/devices/ppi-calculator.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -429,7 +431,7 @@
             }
           },
           "datePublished": "2025-01-26",
-          "dateModified": "2025-01-26"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -444,10 +446,10 @@
         "page_description_key": "aspectRatioCalculator.pageDescription",
         "page_heading_key": "aspectRatioCalculator.pageHeading",
         "page_intro_key": "aspectRatioCalculator.pageIntro",
-        "page_keywords": "aspect ratio calculator, proportional dimensions, image resize, video aspect ratio, responsive design, layout calculator, ratio calculator, dimension calculator, web development, design tools",
+        "page_keywords": "aspect ratio calculator, image aspect ratio calculator, resize dimensions calculator, width height ratio calculator, video aspect ratio, proportional dimensions",
         "canonical_url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
-        "og_title": "Aspect Ratio Calculator - Calculate Proportional Dimensions | Screen Size Checker",
-        "og_description": "Free aspect ratio calculator to maintain proportions when resizing images, videos, or layouts. Calculate new dimensions while preserving the original aspect ratio.",
+        "og_title": "Aspect Ratio Calculator | Resize Width & Height Without Distortion",
+        "og_description": "Calculate missing width or height while preserving aspect ratio. Useful for image resize, video production, CSS layouts, and responsive design.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
         "css_path": "../css",
@@ -466,7 +468,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Aspect Ratio Calculator",
-          "description": "Calculate new dimensions while maintaining aspect ratio. Perfect for resizing images, videos, and layouts proportionally.",
+          "description": "Calculate missing width or height while preserving aspect ratio for images, videos, and layouts.",
           "url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -488,7 +490,7 @@
             }
           },
           "datePublished": "2025-01-27",
-          "dateModified": "2025-01-27"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -503,10 +505,10 @@
         "page_description_key": "projectionCalculator.pageDescription",
         "page_heading_key": "projectionCalculator.pageHeading",
         "page_intro_key": "projectionCalculator.pageIntro",
-        "page_keywords": "projector distance calculator, throw ratio calculator, projection screen size, projector placement, screen size calculator, home theater setup, projector installation",
+        "page_keywords": "projector distance calculator, throw ratio calculator, projector screen size calculator, projection distance, home theater projector setup",
         "canonical_url": "https://screensizechecker.com/devices/projection-calculator.html",
-        "og_title": "Projector Distance Calculator - Calculate Screen Size & Throw Distance",
-        "og_description": "Calculate the optimal projector distance and screen size for your room. Enter throw ratio and distance to get precise measurements for home theater or conference room setup.",
+        "og_title": "Projector Distance Calculator | Throw Ratio, Screen Size & Viewing Distance",
+        "og_description": "Plan projector placement with throw ratio, room distance, and target screen size. Useful for home theater, office, and classroom setups.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/projection-calculator.html",
         "css_path": "../css",
@@ -525,7 +527,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Projector Distance Calculator",
-          "description": "Calculate optimal projector distance and screen size based on throw ratio. Perfect for home theater planning and projector installation.",
+          "description": "Plan projector placement with throw ratio, room distance, and target screen size.",
           "url": "https://screensizechecker.com/devices/projection-calculator.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -547,7 +549,7 @@
             }
           },
           "datePublished": "2025-01-19",
-          "dateModified": "2025-01-19"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -562,10 +564,10 @@
         "page_description_key": "lcdTester.pageDescription",
         "page_heading_key": "lcdTester.pageHeading",
         "page_intro_key": "lcdTester.pageIntro",
-        "page_keywords": "lcd screen tester, dead pixel test, monitor test, screen test, pixel test, display test, color accuracy test, backlight bleed test",
+        "page_keywords": "lcd screen tester, dead pixel test, monitor test patterns, ghosting test, backlight bleed test, color uniformity test",
         "canonical_url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
-        "og_title": "LCD Screen Tester - Test for Dead Pixels & Display Quality",
-        "og_description": "Free online LCD screen tester. Check your monitor for dead pixels, color accuracy, backlight bleeding, and display quality issues.",
+        "og_title": "LCD Screen Tester | Dead Pixel, Color, Uniformity & Ghosting Test",
+        "og_description": "Run fullscreen monitor tests to detect dead pixels, stuck pixels, backlight bleed, color banding, and motion ghosting.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
         "css_path": "../css",
@@ -584,7 +586,7 @@
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "LCD Screen Tester",
-          "description": "Free online tool to test LCD screens for dead pixels, color accuracy, backlight bleeding, and display quality issues.",
+          "description": "Run fullscreen monitor tests to detect dead pixels, backlight bleed, color banding, and motion ghosting.",
           "url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -606,7 +608,7 @@
             }
           },
           "datePublished": "2025-01-19",
-          "dateModified": "2025-01-19"
+          "dateModified": "2026-02-08"
         },
         "blog_url": "../blog/index.html"
       }
@@ -802,7 +804,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T08:36:04.980Z",
+          "datePublished": "2026-02-08T09:40:48.864Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -2846,7 +2848,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T08:36:05.291Z",
+          "datePublished": "2026-02-08T09:40:49.202Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -4962,7 +4964,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T08:36:05.324Z",
+          "datePublished": "2026-02-08T09:40:49.233Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",
@@ -7078,7 +7080,7 @@
             "@type": "Person",
             "name": "Screen Size Checker Team"
           },
-          "datePublished": "2026-02-08T08:36:05.345Z",
+          "datePublished": "2026-02-08T09:40:49.261Z",
           "publisher": {
             "@type": "Organization",
             "name": "Screen Size Checker",

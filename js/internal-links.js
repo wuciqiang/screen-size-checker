@@ -206,10 +206,180 @@ export class InternalLinksManager {
             
         } catch (error) {
             console.error('Failed to load internal links config:', error);
-            throw error;
+            this.config = this.getFallbackConfig();
+            console.warn('⚠️ Using fallback internal links config to keep related links visible');
         } finally {
             this.isLoading = false;
         }
+    }
+
+    /**
+     * 当配置加载失败时，使用内置的最小可用配置
+     */
+    getFallbackConfig() {
+        return {
+            pages: {
+                'compare': {
+                    id: 'compare',
+                    category: 'tools',
+                    priority: 1,
+                    icon: '🆚',
+                    urls: {
+                        en: 'devices/compare.html',
+                        zh: 'devices/compare.html',
+                        de: 'devices/compare.html',
+                        es: 'devices/compare.html'
+                    },
+                    titleKey: 'compare_tool',
+                    descriptionKey: 'compare_page_description'
+                },
+                'standard-resolutions': {
+                    id: 'standard-resolutions',
+                    category: 'reference',
+                    priority: 1,
+                    icon: '📊',
+                    urls: {
+                        en: 'devices/standard-resolutions.html',
+                        zh: 'devices/standard-resolutions.html',
+                        de: 'devices/standard-resolutions.html',
+                        es: 'devices/standard-resolutions.html'
+                    },
+                    titleKey: 'standard_resolutions',
+                    descriptionKey: 'standard_resolutions_page_description'
+                },
+                'responsive-tester': {
+                    id: 'responsive-tester',
+                    category: 'tools',
+                    priority: 2,
+                    icon: '📱',
+                    urls: {
+                        en: 'devices/responsive-tester.html',
+                        zh: 'devices/responsive-tester.html',
+                        de: 'devices/responsive-tester.html',
+                        es: 'devices/responsive-tester.html'
+                    },
+                    titleKey: 'responsive_tester',
+                    descriptionKey: 'responsive_tester_description'
+                },
+                'ppi-calculator': {
+                    id: 'ppi-calculator',
+                    category: 'calculator',
+                    priority: 1,
+                    icon: '🔍',
+                    urls: {
+                        en: 'devices/ppi-calculator.html',
+                        zh: 'devices/ppi-calculator.html',
+                        de: 'devices/ppi-calculator.html',
+                        es: 'devices/ppi-calculator.html'
+                    },
+                    titleKey: 'ppi_calculator',
+                    descriptionKey: 'ppiCalculator.pageDescription'
+                },
+                'aspect-ratio-calculator': {
+                    id: 'aspect-ratio-calculator',
+                    category: 'calculator',
+                    priority: 2,
+                    icon: '📐',
+                    urls: {
+                        en: 'devices/aspect-ratio-calculator.html',
+                        zh: 'devices/aspect-ratio-calculator.html',
+                        de: 'devices/aspect-ratio-calculator.html',
+                        es: 'devices/aspect-ratio-calculator.html'
+                    },
+                    titleKey: 'aspect_ratio_calculator',
+                    descriptionKey: 'aspectRatioCalculator.pageDescription'
+                },
+                'projection-calculator': {
+                    id: 'projection-calculator',
+                    category: 'calculator',
+                    priority: 3,
+                    icon: '📽️',
+                    urls: {
+                        en: 'devices/projection-calculator.html',
+                        zh: 'devices/projection-calculator.html',
+                        de: 'devices/projection-calculator.html',
+                        es: 'devices/projection-calculator.html'
+                    },
+                    titleKey: 'projection_calculator',
+                    descriptionKey: 'projectionCalculator.pageDescription'
+                },
+                'lcd-screen-tester': {
+                    id: 'lcd-screen-tester',
+                    category: 'tools',
+                    priority: 3,
+                    icon: '🖥️',
+                    urls: {
+                        en: 'devices/lcd-screen-tester.html',
+                        zh: 'devices/lcd-screen-tester.html',
+                        de: 'devices/lcd-screen-tester.html',
+                        es: 'devices/lcd-screen-tester.html'
+                    },
+                    titleKey: 'lcd_screen_tester',
+                    descriptionKey: 'lcdTester.pageDescription'
+                },
+                'iphone-viewport-sizes': {
+                    id: 'iphone-viewport-sizes',
+                    category: 'device-info',
+                    priority: 1,
+                    icon: '📱',
+                    urls: {
+                        en: 'devices/iphone-viewport-sizes.html',
+                        zh: 'devices/iphone-viewport-sizes.html',
+                        de: 'devices/iphone-viewport-sizes.html',
+                        es: 'devices/iphone-viewport-sizes.html'
+                    },
+                    titleKey: 'iphone_sizes',
+                    descriptionKey: 'iphone_page_description'
+                },
+                'ipad-viewport-sizes': {
+                    id: 'ipad-viewport-sizes',
+                    category: 'device-info',
+                    priority: 2,
+                    icon: '🖥️',
+                    urls: {
+                        en: 'devices/ipad-viewport-sizes.html',
+                        zh: 'devices/ipad-viewport-sizes.html',
+                        de: 'devices/ipad-viewport-sizes.html',
+                        es: 'devices/ipad-viewport-sizes.html'
+                    },
+                    titleKey: 'ipad_sizes',
+                    descriptionKey: 'ipad_page_description'
+                },
+                'android-viewport-sizes': {
+                    id: 'android-viewport-sizes',
+                    category: 'device-info',
+                    priority: 3,
+                    icon: '🤖',
+                    urls: {
+                        en: 'devices/android-viewport-sizes.html',
+                        zh: 'devices/android-viewport-sizes.html',
+                        de: 'devices/android-viewport-sizes.html',
+                        es: 'devices/android-viewport-sizes.html'
+                    },
+                    titleKey: 'android_sizes',
+                    descriptionKey: 'android_page_description'
+                }
+            },
+            categories: {
+                calculator: { priority: 1, maxItems: 4, name: 'Calculators' },
+                'device-info': { priority: 2, maxItems: 4, name: 'Device Info' },
+                tools: { priority: 3, maxItems: 4, name: 'Tools' },
+                reference: { priority: 4, maxItems: 2, name: 'Reference' }
+            },
+            display: {
+                maxTotal: 10,
+                responsive: {
+                    mobile: 6,
+                    tablet: 8,
+                    desktop: 10
+                }
+            },
+            rules: {
+                excludeCurrent: true,
+                prioritizeCategory: true,
+                fallbackToAll: true
+            }
+        };
     }
 
     /**
