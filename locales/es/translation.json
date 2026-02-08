@@ -946,5 +946,16 @@
   "device_data_status_sources_label": "Fuentes:",
   "device_data_status_sources_value": "Páginas oficiales de especificaciones de Apple, Google y Samsung",
   "device_data_status_method_label": "Método:",
-  "device_data_status_method_value": "Los valores de iPhone y iPad se calculan principalmente como resolución dividida por DPR. El viewport CSS y el DPR en Android pueden variar por escala de pantalla, interfaz del navegador y ajustes del sistema."
+  "device_data_status_method_value": "Los valores de iPhone y iPad se calculan principalmente como resolución dividida por DPR. El viewport CSS y el DPR en Android pueden variar por escala de pantalla, interfaz del navegador y ajustes del sistema.",
+  "device_faq_heading": "Preguntas frecuentes sobre viewports de dispositivos",
+  "device_faq_q1": "¿Cuál es la diferencia entre tamaño de viewport y resolución de pantalla?",
+  "device_faq_a1": "El tamaño de viewport es el área en píxeles CSS que usa tu diseño, mientras que la resolución es el número de píxeles físicos del dispositivo. Se relacionan por el DPR, pero la interfaz del navegador y la escala pueden cambiar el viewport efectivo.",
+  "device_faq_q2": "¿Por qué dos móviles con resolución similar muestran anchos de viewport distintos?",
+  "device_faq_a2": "Valores de DPR diferentes, escalado del sistema y comportamiento del navegador pueden producir anchos de viewport CSS distintos aunque la resolución física sea parecida.",
+  "device_faq_q3": "¿Cómo debo definir breakpoints responsivos con esta tabla?",
+  "device_faq_a3": "Úsala como referencia de dispositivos reales, pero define breakpoints por comportamiento del contenido, no por un solo modelo. Prueba rangos clave como 360, 390, 412, 768, 820, 834 y 1024 píxeles CSS.",
+  "device_faq_q4": "¿Cómo afectan los plegables a las pruebas de viewport?",
+  "device_faq_a4": "Los plegables cambian entre pantalla externa e interna con proporciones de viewport muy distintas. Prueba ambos estados y rotación, y evita fijar el layout a un único ancho.",
+  "device_faq_q5": "¿Con qué frecuencia se actualizan estos datos de viewport?",
+  "device_faq_a5": "Actualizamos estos datos tras lanzamientos importantes y cambios de especificaciones. Para casos críticos en producción, verifica siempre en dispositivos reales o laboratorios en la nube."
 }

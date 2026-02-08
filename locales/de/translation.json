@@ -946,5 +946,16 @@
   "device_data_status_sources_label": "Quellen:",
   "device_data_status_sources_value": "Offizielle Spezifikationsseiten von Apple, Google und Samsung",
   "device_data_status_method_label": "Methode:",
-  "device_data_status_method_value": "iPhone- und iPad-Werte werden hauptsächlich als Auflösung durch DPR berechnet. Android-CSS-Viewport und DPR können durch Display-Skalierung, Browser-UI und Systemeinstellungen variieren."
+  "device_data_status_method_value": "iPhone- und iPad-Werte werden hauptsächlich als Auflösung durch DPR berechnet. Android-CSS-Viewport und DPR können durch Display-Skalierung, Browser-UI und Systemeinstellungen variieren.",
+  "device_faq_heading": "Häufige Fragen zu Geräte-Viewports",
+  "device_faq_q1": "Was ist der Unterschied zwischen Viewport-Größe und Bildschirmauflösung?",
+  "device_faq_a1": "Die Viewport-Größe ist der CSS-Pixelbereich für dein Layout, die Bildschirmauflösung ist die physische Pixelanzahl des Geräts. Beides ist über DPR verbunden, aber Browser-UI und Skalierung können den effektiven Viewport ändern.",
+  "device_faq_q2": "Warum können zwei Handys mit ähnlicher Auflösung unterschiedliche Viewport-Breiten haben?",
+  "device_faq_a2": "Unterschiedliche DPR-Werte, Display-Skalierung und Browser-Verhalten können verschiedene CSS-Viewport-Breiten erzeugen, auch bei ähnlicher physischer Auflösung.",
+  "device_faq_q3": "Wie setze ich responsive Breakpoints mit dieser Tabelle?",
+  "device_faq_a3": "Nutze die Tabelle als Referenz für reale Geräte, definiere Breakpoints aber nach Inhaltsverhalten statt nach einzelnen Modellen. Teste wichtige Bereiche wie 360, 390, 412, 768, 820, 834 und 1024 CSS-Pixel.",
+  "device_faq_q4": "Wie beeinflussen Foldables das Viewport-Testing?",
+  "device_faq_a4": "Foldables wechseln zwischen Cover- und Hauptdisplay mit sehr unterschiedlichen Viewport-Verhältnissen. Teste beide Zustände und Rotationen und vermeide hart codierte Layouts für nur eine Breite.",
+  "device_faq_q5": "Wie oft werden diese Geräte-Viewport-Daten aktualisiert?",
+  "device_faq_a5": "Wir aktualisieren die Daten nach wichtigen Geräte-Releases und Spezifikationsänderungen. Prüfe kritische Produktionsfälle immer zusätzlich auf echten Geräten oder Cloud-Testlabs."
 }

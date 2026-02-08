@@ -984,11 +984,17 @@ noscript .noscript-hero-content {
 }
 
 /* Focus styles for accessibility */
-.copy-btn:focus,
-.tool-card:focus,
-.faq-question:focus {
+.copy-btn:focus-visible,
+.tool-card:focus-visible,
+.faq-question:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+.copy-btn:focus:not(:focus-visible),
+.tool-card:focus:not(:focus-visible),
+.faq-question:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* Error Message Styles */

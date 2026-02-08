@@ -1030,5 +1030,16 @@
   "device_data_status_sources_label": "Sources:",
   "device_data_status_sources_value": "Official Apple, Google, and Samsung specification pages",
   "device_data_status_method_label": "Method:",
-  "device_data_status_method_value": "iPhone and iPad values are mainly resolution divided by DPR. Android CSS viewport and DPR can vary by display scaling, browser UI, and system settings."
+  "device_data_status_method_value": "iPhone and iPad values are mainly resolution divided by DPR. Android CSS viewport and DPR can vary by display scaling, browser UI, and system settings.",
+  "device_faq_heading": "Frequently Asked Questions About Device Viewports",
+  "device_faq_q1": "What is the difference between viewport size and screen resolution?",
+  "device_faq_a1": "Viewport size is the CSS pixel area your layout uses, while screen resolution is the device's physical pixel count. They are related by DPR, but browser UI and scaling can change the effective viewport.",
+  "device_faq_q2": "Why can two phones with similar resolution show different viewport widths?",
+  "device_faq_a2": "Different DPR values, system display scaling, and browser behavior can produce different CSS viewport widths even when physical resolutions are close.",
+  "device_faq_q3": "How should I build responsive breakpoints using this table?",
+  "device_faq_a3": "Use this table as a reference for common real devices, then define flexible breakpoints by content behavior, not single models. Test key ranges like 360, 390, 412, 768, 820, 834, and 1024 CSS pixels.",
+  "device_faq_q4": "How do foldable devices affect viewport testing?",
+  "device_faq_a4": "Foldables can switch between cover and main displays with very different viewport ratios. Test both states and rotation, and avoid hard-coding layouts to one exact width.",
+  "device_faq_q5": "How often is this device viewport data updated?",
+  "device_faq_a5": "We update this data after major device launches and specification changes. Always verify critical production cases on real devices or cloud test labs."
 }

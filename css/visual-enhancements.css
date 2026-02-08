@@ -566,11 +566,19 @@ summary:hover {
     background: var(--accent-primary-dim);
 }
 
-/* FAQ 内容 */
+/* FAQ 内容: keep collapsed state truly hidden */
 .faq-answer,
 .accordion-content {
-    padding: 0 var(--space-md) var(--space-md);
+    padding: 0;
     animation: fadeInUp var(--duration-normal) var(--ease-gentle);
+}
+
+/* Only add answer padding when expanded/open */
+.faq-item.active .faq-answer,
+.accordion-item.active .accordion-content,
+details[open] .faq-answer,
+details[open] .accordion-content {
+    padding: 0 var(--space-md) var(--space-md);
 }
 
 /* ============================================

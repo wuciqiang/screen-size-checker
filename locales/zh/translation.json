@@ -1190,5 +1190,16 @@
   "device_data_status_sources_label": "数据来源：",
   "device_data_status_sources_value": "Apple、Google、Samsung 官方规格页面",
   "device_data_status_method_label": "计算口径：",
-  "device_data_status_method_value": "iPhone 和 iPad 主要按分辨率除以 DPR 计算。Android 的 CSS 视口和 DPR 会受显示缩放、浏览器 UI 与系统设置影响。"
+  "device_data_status_method_value": "iPhone 和 iPad 主要按分辨率除以 DPR 计算。Android 的 CSS 视口和 DPR 会受显示缩放、浏览器 UI 与系统设置影响。",
+  "device_faq_heading": "设备视口常见问题",
+  "device_faq_q1": "视口尺寸和屏幕分辨率有什么区别？",
+  "device_faq_a1": "视口尺寸是页面布局使用的 CSS 像素区域，屏幕分辨率是设备的物理像素数量。二者由 DPR 关联，但浏览器 UI 和系统缩放会改变实际视口。",
+  "device_faq_q2": "为什么分辨率接近的两台手机，视口宽度却不同？",
+  "device_faq_a2": "即使物理分辨率接近，DPR、系统显示缩放和浏览器实现差异也会让 CSS 视口宽度不同。",
+  "device_faq_q3": "如何基于这张表设置响应式断点？",
+  "device_faq_a3": "这张表可作为真实设备参考，但断点应优先依据内容布局变化而不是单一机型。建议重点覆盖 360、390、412、768、820、834、1024 等 CSS 像素宽度。",
+  "device_faq_q4": "折叠屏设备会如何影响视口测试？",
+  "device_faq_a4": "折叠屏在外屏和内屏下会出现差异很大的视口比例。应分别测试两种状态和横竖屏切换，避免把布局写死在单一宽度。",
+  "device_faq_q5": "这些设备视口数据多久更新一次？",
+  "device_faq_a5": "我们会在主要新品发布或规格更新后同步数据。上线前的关键页面，请务必再用真机或云真机进行验证。"
 }

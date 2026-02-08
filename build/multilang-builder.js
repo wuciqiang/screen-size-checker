@@ -1565,6 +1565,27 @@ class MultiLangBuilder extends ComponentBuilder {
                 ['faq_different_question', 'faq_different_answer'],
                 ['faq_aspect_question', 'faq_aspect_answer']
             ],
+            'iphone-viewport-sizes': [
+                ['device_faq_q1', 'device_faq_a1'],
+                ['device_faq_q2', 'device_faq_a2'],
+                ['device_faq_q3', 'device_faq_a3'],
+                ['device_faq_q4', 'device_faq_a4'],
+                ['device_faq_q5', 'device_faq_a5']
+            ],
+            'ipad-viewport-sizes': [
+                ['device_faq_q1', 'device_faq_a1'],
+                ['device_faq_q2', 'device_faq_a2'],
+                ['device_faq_q3', 'device_faq_a3'],
+                ['device_faq_q4', 'device_faq_a4'],
+                ['device_faq_q5', 'device_faq_a5']
+            ],
+            'android-viewport-sizes': [
+                ['device_faq_q1', 'device_faq_a1'],
+                ['device_faq_q2', 'device_faq_a2'],
+                ['device_faq_q3', 'device_faq_a3'],
+                ['device_faq_q4', 'device_faq_a4'],
+                ['device_faq_q5', 'device_faq_a5']
+            ],
             'projection-calculator': [
                 ['projectionCalculator.faq1q', 'projectionCalculator.faq1a'],
                 ['projectionCalculator.faq2q', 'projectionCalculator.faq2a'],

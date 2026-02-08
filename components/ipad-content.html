@@ -295,5 +295,49 @@
     </div>
 </section>
 
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-title" id="faq" data-i18n="device_faq_heading">Frequently Asked Questions About Device Viewports</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="device_faq_q1">What is the difference between viewport size and screen resolution?</button>
+                <div class="faq-answer">
+                    <p data-i18n="device_faq_a1">Viewport size is the CSS pixel area your layout uses, while screen resolution is the device's physical pixel count. They are related by DPR, but browser UI and scaling can change the effective viewport.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="device_faq_q2">Why can two phones with similar resolution show different viewport widths?</button>
+                <div class="faq-answer">
+                    <p data-i18n="device_faq_a2">Different DPR values, system display scaling, and browser behavior can produce different CSS viewport widths even when physical resolutions are close.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="device_faq_q3">How should I build responsive breakpoints using this table?</button>
+                <div class="faq-answer">
+                    <p data-i18n="device_faq_a3">Use this table as a reference for common real devices, then define flexible breakpoints by content behavior, not single models. Test key ranges like 360, 390, 412, 768, 820, 834, and 1024 CSS pixels.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="device_faq_q4">How do foldable devices affect viewport testing?</button>
+                <div class="faq-answer">
+                    <p data-i18n="device_faq_a4">Foldables can switch between cover and main displays with very different viewport ratios. Test both states and rotation, and avoid hard-coding layouts to one exact width.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-i18n="device_faq_q5">How often is this device viewport data updated?</button>
+                <div class="faq-answer">
+                    <p data-i18n="device_faq_a5">We update this data after major device launches and specification changes. Always verify critical production cases on real devices or cloud test labs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Related Resources -->
 {{component:internal-links}} 
