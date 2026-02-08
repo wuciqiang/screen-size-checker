@@ -777,11 +777,13 @@ noscript .noscript-hero-content {
 .faq-question {
     width: 100%;
     padding: var(--spacing-lg);
+    padding-right: calc(var(--spacing-lg) + 28px);
     background: none;
     border: none;
     border-bottom: none;
     text-align: left;
     font-size: 1rem;
+    line-height: 1.45;
     font-weight: 500;
     color: var(--text-primary);
     cursor: pointer;
@@ -1695,6 +1697,70 @@ noscript .noscript-hero-content {
 
 [data-theme="dark"] .device-table tr:hover {
     background: #374151;
+}
+
+
+/* Mobile optimization for device tables and FAQ */
+@media (max-width: 768px) {
+    .device-table-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .device-table-section .section-container,
+    .understanding-section .section-container,
+    .device-data-status-section .section-container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    .table-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .device-table {
+        min-width: 620px;
+        font-size: 0.8125rem;
+    }
+
+    .device-table th,
+    .device-table td {
+        white-space: nowrap;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .faq-question {
+        font-size: 0.98rem;
+        padding-right: calc(var(--spacing-md) + 28px);
+    }
+
+    .faq-answer p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+}
+
+@media (max-width: 480px) {
+    .device-table {
+        min-width: 560px;
+        font-size: 0.78rem;
+    }
+
+    .faq-question {
+        font-size: 0.95rem;
+    }
+}
+
+/* Prevent sticky hover style on touch screens */
+@media (hover: none) {
+    .faq-item:hover {
+        border-color: var(--border-color);
+    }
+
+    .faq-question:hover {
+        background: transparent;
+    }
 }
 
 [data-theme="dark"] .comparison-tool {
