@@ -1,8 +1,8 @@
-// core-optimized.js - Phase 1.1 JavaScript浼樺寲
-// 鏁村悎鏍稿績鍔熻兘妯″潡锛屽噺灏慔TTP璇锋眰锛屼繚鎸佹墍鏈変笟鍔￠€昏緫瀹屾暣鎬?
-console.log('馃殌 Starting core-optimized.js...');
+// core-optimized.js - Phase 1.1 JavaScript濠电偞娼欓崥瀣晪闁?
+// 闂備浇妗ㄩ悞锕€顭囧▎鎾崇畺閹兼番鍔岄崘鈧紓浣割儓濞夋洘淇婇崶顒佺厱闁哄啫鍊搁弸娆撴煕韫囨枂顏囩亽闂佺偨鍎村▍鏇㈠磻閵夆晜鐓ユ繛鎴烆焾鐎氫即鏌涢敐鍫燁仩濞存粍鎮傞獮鍫ュ箼閻闂佽崵濮村ú顓㈠绩闁秵鍎戝ù鐓庣摠閺咁剟鎮橀悙璺轰汗缂佺姳绮欓弻鐔兼⒐閹邦喖濡芥繝鈷€鍐х€殿喖鐏氬鍕緞瀹€鈧幊婵嬫⒑閸涘﹥顥栫紒缁樼箞閸┾偓妞ゆ帊鐒﹂～妤冪磼妫版繂浜為柍褜鍓涢幊鎾诲嫉椤掑嫬姹查柨婵嗩槸缁?
+console.log('濡絽鍟悾?Starting core-optimized.js...');
 
-// ====== 鏍稿績宸ュ叿鍑芥暟 ======
+// ====== 闂備礁鎼粔鍫曗€﹂崼銏㈢处闁诡垎灞芥櫊闂侀潧顦崕鍗烆嚗閺冨牊鐓曢柟杈剧到琚氶梺?======
 
 /**
  * Debounce function to limit function calls
@@ -54,14 +54,14 @@ function calculateAspectRatio(width, height) {
     return `${aspectWidth}:${aspectHeight}`;
 }
 
-// ====== 璁惧妫€娴嬫牳蹇冨姛鑳?======
+// ====== 闂佽崵濮抽悞锕傚磿閹跺壙鍥敆閳ь剝鐏嬮梺閫炲苯澧棁澶愭倵閿濆骸浜炲鐟邦儔閻擃偊宕惰閺嗘瑥鈹戦鐣屾创闁?======
 
 let deviceInfoCache = null;
 let cacheTimestamp = 0;
 const CACHE_DURATION = 30000;
 
 /**
- * 鏀堕泦璁惧淇℃伅锛堜紭鍖栫増鏈級
+ * 闂備浇銆€閸嬫捇鏌涢锝嗙闁艰尙濞€閹鎷呴悷鏉垮Б濡炪倧瀵岄崜姘辩矚闁秴鐒洪柛鎰屽懐顦ラ梻浣瑰缁嬫垿鎮ч崨顖涱潟妞ゆ挶鍨圭粈宀勬煛瀹ュ骸浜滄い锝呫偢閺岋繝宕奸銏犫挄缂?
  */
 function collectDeviceInfo() {
     const info = {
@@ -84,7 +84,7 @@ function collectDeviceInfo() {
 }
 
 /**
- * 妫€娴嬫搷浣滅郴缁? */
+ * 婵犵妲呴崑鈧柛瀣尰缁绘盯寮堕幋顓炲壉闂佺懓銈搁弨閬嶅箯閸涱収鐓ラ柛娑欐綑閸樻瑧绱? */
 function detectOperatingSystem() {
     const userAgent = navigator.userAgent;
 
@@ -107,7 +107,7 @@ function detectOperatingSystem() {
 }
 
 /**
- * 妫€娴嬫祻瑙堝櫒淇℃伅
+ * 婵犵妲呴崑鈧柛瀣尰缁绘盯寮堕幋顓炲壉缂備椒娴囧畷鐢稿箟閹绢喖閱囨繝闈涙川瑜版粍绻涢敐鍛闁告挻绻冪€?
  */
 function detectBrowser() {
     const userAgent = navigator.userAgent;
@@ -130,7 +130,7 @@ function detectBrowser() {
 }
 
 /**
- * 鏇存柊璁惧鏄剧ず淇℃伅
+ * 闂備礁鎼ú銈夋偤閵娾晛钃熷┑鐘插婵ジ鏌熼鍡楁湰鏍￠梻浣告惈鐎氼剚鏅舵禒瀣︽慨姗嗗幘閳瑰秹鏌嶉埡浣告殨缂?
  */
 function updateDisplay() {
     try {
@@ -146,7 +146,7 @@ function updateDisplay() {
 }
 
 /**
- * 搴旂敤璁惧淇℃伅鍒癠I
+ * 闂佸湱鍘ч悺銊ヮ潖婵犳艾鏋侀柕鍫濇处婵ジ鏌熼鍡楁湰鏍″┑鐑囩到濞茬娀宕滃┑鍥ь嚤闁告稒娼欑粈鍡涙煟瑜忛崵?
  */
 function applyDeviceInfo(deviceInfo) {
     requestAnimationFrame(() => {
@@ -172,9 +172,9 @@ function applyDeviceInfo(deviceInfo) {
 }
 
 /**
- * 鏇存柊灞忓箷鍒嗚鲸鐜囨樉绀? */
+ * 闂備礁鎼ú銈夋偤閵娾晛钃熷┑鐘插濞岊亪鐓崶銊﹀暗妞ゆ柨閰ｉ弻娑㈠箳閹寸儐妫ユ俊鐐茬摠閹倿骞冮幎钘夌倞闁靛鑵归弸鏍磽娴ｆ彃浜? */
 function updateScreenResolution(deviceInfo) {
-    const resolution = `${deviceInfo.screenWidth} × ${deviceInfo.screenHeight}`;
+    const resolution = deviceInfo.screenWidth + ' × ' + deviceInfo.screenHeight;
     const screenResolutionDisplay = document.getElementById('screen-resolution-display');
 
     if (screenResolutionDisplay) {
@@ -206,10 +206,10 @@ function updateScreenResolution(deviceInfo) {
 }
 
 /**
- * 鏇存柊瑙嗗彛灏哄鏄剧ず
+ * 闂備礁鎼ú銈夋偤閵娾晛钃熷┑鐘插閸犲棝鏌涢埄鍐炬當缂傚秵鎹囬幃妯跨疀閹惧瓨鍎撳銈嗘处閸欏啫顕ｆ导鏉戠鐟滃绂?
  */
 function updateViewportSize(deviceInfo) {
-    const viewport = `${deviceInfo.viewportWidth} × ${deviceInfo.viewportHeight}`;
+    const viewport = deviceInfo.viewportWidth + ' × ' + deviceInfo.viewportHeight;
     const viewportDisplay = document.getElementById('viewport-display');
 
     if (viewportDisplay) {
@@ -219,14 +219,14 @@ function updateViewportSize(deviceInfo) {
 }
 
 /**
- * 瀹夊叏鏇存柊鍏冪礌鏂囨湰鍐呭
+ * 闂佽娴烽幊鎾凰囬鐐茬煑闊洦绋戦崡鎶芥倵濞戞鎴︽偂閳ь剟姊虹粙璺ㄧ闁哥喐澹嗙划鍫濈暆閸曨偅顥濋梺鎼炲劘閸斿秹骞忛柆宥嗙厱闁归偊鍓氶崳瑙勩亜?
  */
 function updateElementText(id, text) {
     const element = document.getElementById(id);
     if (element) {
-        // 娓呴櫎data-i18n灞炴€ч槻姝㈣i18next瑕嗙洊
+        // 婵犵數鍋為幐鎼佸箠濡　鏋嶇€圭妯卼a-i18n闂佽绻掗崑鐔煎磻閻愬搫鐒垫い鎴墮濞诧缚绨烘繝娈垮枟缁哄潡宕规總闈╃稏妞?8next闂佽崵鍠愬ú鏍涘☉妯?
         element.removeAttribute('data-i18n');
-        // 娓呴櫎瀛愬厓绱犵殑data-i18n
+        // 婵犵數鍋為幐鎼佸箠濡　鏋嶉幖杈剧岛閸嬫挸鈽夊▎蹇擃潓闂佸憡蓱閹告儳危閹扮増鍋愰柛顭戝亞閺嗙嚳ata-i18n
         const children = element.querySelectorAll('[data-i18n]');
         children.forEach(child => child.removeAttribute('data-i18n'));
         // Set text/value based on element type.
@@ -242,7 +242,7 @@ function updateElementText(id, text) {
 }
 
 /**
- * 璁剧疆闄嶇骇鍊? */
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冪⊕閳锋梻鈧箍鍎卞ú顓㈡偘閹剧粯鐓? */
 function setFallbackValues() {
     console.log('Setting fallback values...');
 
@@ -258,10 +258,10 @@ function setFallbackValues() {
     updateElementText('user-agent', 'Not available');
 }
 
-// ====== 涓婚绯荤粺鏍稿績鍔熻兘 ======
+// ====== 濠电偞鍨堕幐鎼佲€﹂悜濮愨偓鍌炴偩鐏炶棄顕ч梺鐓庮潟閸婃宕洪悩缁樼厸鐎广儱娴傞悞鍓х磼濞差亞鐣虹€规洘绻堥幃銏㈡嫚閹绘帒绠?======
 
 /**
- * 鍒濆鍖栦富棰樼郴缁? */
+ * 闂備礁鎲＄敮妤冩崲閸岀儑缍栭柟鐗堟緲缁€宀勬煛瀹ュ繒鐣遍柣锔界矊铻為柣妤€鐗滈悞浠嬫⒑椤旂⒈鍤熺紒? */
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
@@ -269,7 +269,7 @@ function initializeTheme() {
 }
 
 /**
- * 鍒囨崲涓婚
+ * 闂備礁鎲＄敮鎺懨洪敃鈧悾鐑藉矗婢跺备鏋栨繝鐢靛У閸戝綊寮?
  */
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -288,14 +288,14 @@ function toggleTheme() {
 }
 
 /**
- * 搴旂敤涓婚
+ * 闂佸湱鍘ч悺銊ヮ潖婵犳艾鏋侀柕鍫濇閳绘柨鈹戦悩鍐插毈闁?
  */
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
 }
 
 /**
- * 鏇存柊涓婚鍥炬爣
+ * 闂備礁鎼ú銈夋偤閵娾晛钃熷┑鐘插暟閳绘柨鈹戦悩鍐插毈闁哄棭鍨堕弻娑㈠Ψ瑜嶆禍楣冩煟?
  */
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('.theme-icon');
@@ -304,10 +304,10 @@ function updateThemeIcon(theme) {
     }
 }
 
-// ====== 澶嶅埗鍔熻兘鏍稿績 ======
+// ====== 濠电姰鍨煎▔娑氱矓閹绢喖鏄ユ俊銈呮噹缁€澶愭煟閺冨浂鍤欓柛妯绘尦閺屸€愁吋閸ュ墎鍔哥紓?======
 
 /**
- * 澶嶅埗鏂囨湰鍒板壀璐存澘
+ * 婵犮垼娉涚粔鎾春濡ゅ懎妫橀柛銉ｅ妽閹烽亶鏌涢幒鎾寸凡濠㈠厜鍋撻柣鐘冲姇閻°劌顭?
  */
 async function copyToClipboard(text) {
     try {
@@ -395,7 +395,7 @@ function getCopyText(key) {
 }
 
 /**
- * 澶勭悊澶嶅埗鎸夐挳鐐瑰嚮浜嬩欢
+ * 婵犮垼娉涚€氼噣骞冩繝鍐ㄧ窞鐎广儱鎳庨悡鎴︽煙缁嬫妯€闁瑰憡濞婇幃娆撴偡閺夋寧鐦栨繛瀛樼矊椤戝嫬鈻?
  */
 async function handleCopyClick(event) {
     const button = event.target;
@@ -419,7 +419,7 @@ async function handleCopyClick(event) {
 }
 
 /**
- * 澶嶅埗鎵€鏈変俊鎭? */
+ * 濠电姰鍨煎▔娑氱矓閹绢喖鏄ユ俊銈呮噹缁犮儵鏌嶈閸撶喎顕ｉ崹顐㈢窞濠㈣泛顦辩粻姘舵⒑? */
 async function copyAllInfo() {
     try {
         const info = [];
@@ -480,10 +480,10 @@ async function copyAllInfo() {
     }
 }
 
-// ====== 璇█鍔熻兘鏍稿績 ======
+// ====== 闂佽崵濮村ù鍌炲矗閳ь剟鏌嶇拠鑼ⅵ鐎规洘绻堥幃銏㈡嫚閹绘帒绠ｉ梻浣告惈缁夊爼鈥﹂崼銏㈢处?======
 
 /**
- * 瀵艰埅鍒版寚瀹氳瑷€
+ * 闂佽绨肩徊缁樼珶閸儱鏄ラ柛娑欐綑缁€鍡涙煟濡も偓閻楀棝鎯佽ぐ鎺撳€甸悷娆忓娴溿垺銇勯弴妯虹伄闁硅櫕鐩崺鈧?
  */
 function navigateToLanguage(newLang) {
     const currentPath = window.location.pathname;
@@ -544,7 +544,7 @@ function navigateToLanguage(newLang) {
 
         if (newLang === 'en') {
             if (pagePath) {
-                // 鑻辨枃鍗氬椤甸潰閮藉湪鏍圭洰褰曚笅锛屼笉闇€瑕?/en/ 鍓嶇紑
+                // 闂備礁鍚嬪Σ鎺撱仈閹间礁鍑犻柛鎰靛枛绾偓濠殿喗锕╅崜锕傚触閸屾凹娓婚柕鍫濇处閺嗩剚绻涢梻鏉戝祮闁哄苯鐗撻幐濠冨緞鐎ｎ厼鎯堥梻浣告惈缁夋潙锕㈤崡鐏绘椽骞忕仦璁虫睏闂佸搫娲﹀銊╂偡閹剧粯鐓ユ繛鎴灻〃娆戠磼濡も偓椤﹂潧螞娓氣偓閸┾偓妞ゆ帒鍊归崯?/en/ 闂備礁鎲￠幐鍝ョ矓閸撲焦顫?
                 newPath = `/${pagePath}`;
             } else {
                 newPath = '/';
@@ -565,10 +565,10 @@ function navigateToLanguage(newLang) {
     window.location.href = newUrl;
 }
 
-// ====== FAQ鍔熻兘鏍稿績 ======
+// ====== FAQ闂備礁鎲″濠氬窗閺囥垹绀傛慨妞诲亾鐎殿喚鏅划娆戞崉閵娿儺娲?======
 
 /**
- * 璁剧疆FAQ鍒囨崲鍔熻兘
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛婊咁浌Q闂備礁鎲＄敮鎺懨洪敃鈧悾鐑藉蓟閵夈儳顦梺缁樻椤曆囧储?
  */
 function setupFAQToggles() {
     const faqQuestions = document.querySelectorAll('.faq-question');
@@ -579,7 +579,7 @@ function setupFAQToggles() {
             const isExpanded = question.getAttribute('aria-expanded') === 'true';
             const answer = faqItem.querySelector('.faq-answer');
 
-            // 鍏抽棴鎵€鏈塅AQ椤圭洰
+            // 闂備胶顭堢换鎴炵箾婵犲伣娑㈠箻椤旇偐顓奸梺閫炲苯澧寸€殿喖鐏氱换鍛村礌閹佃鲸淇婇悙顏勨偓鏇烇耿閸楃伝?
             document.querySelectorAll('.faq-question').forEach(q => {
                 const item = q.closest('.faq-item');
                 if (item) {
@@ -594,7 +594,7 @@ function setupFAQToggles() {
                 }
             });
 
-            // 鍒囨崲褰撳墠椤圭洰
+            // 闂備礁鎲＄敮鎺懨洪敃鈧悾鐑芥嚑闊弓姹楅梺瑙勫劤閸熷潡路閸涱収娓婚柕鍫濇噺鐠愨剝绻?
             if (!isExpanded) {
                 faqItem.classList.add('active');
                 question.setAttribute('aria-expanded', 'true');
@@ -623,10 +623,10 @@ function setupFAQToggles() {
     });
 }
 
-// ====== Toast閫氱煡鍔熻兘 ======
+// ====== Toast闂傚倷绶￠崑鍛潩閵娾晜鍋傞柨鐔哄Т缁€澶愭煟閺冨浂鍤欓柛?======
 
 /**
- * 鏄剧ずToast閫氱煡
+ * 闂備礁鎼€氼剚鏅舵禒瀣︽慨婵嗘湞ast闂傚倷绶￠崑鍛潩閵娾晜鍋?
  */
 function showToast(message, duration = 2000) {
     const toast = document.getElementById('toast');
@@ -642,19 +642,19 @@ function showToast(message, duration = 2000) {
     }
 }
 
-// ====== 涓诲垵濮嬪寲鍑芥暟 ======
+// ====== 濠电偞鍨堕幑渚€顢氳瀹曞綊宕归锝呭伎闁诲函缍嗘禍婊堫敋瑜旈弻娑㈠箣閿濆憛鎾绘煛?======
 
 let isInitialized = false;
 
 /**
- * 鍒濆鍖栧簲鐢? */
+ * 闂備礁鎲＄敮妤冩崲閸岀儑缍栭柟鐗堟緲缁€宀勬煛瀹擃喖鎳庨悾銊╂⒑? */
 function initializeApp() {
     if (isInitialized) return;
 
     try {
         console.log('Starting optimized application initialization...');
 
-        // 绔嬪嵆鎵ц鐨勫叧閿垵濮嬪寲
+        // 缂傚倷鐒﹂弻銊╊敄閸涱厾鏆ら柛鈩冪☉缁犮儳鎲搁幋锔衡偓渚€骞嬮敂钘夊壄闂佸憡娲﹂崑鍕亹閻樼粯鈷戞繛鍡樺劤閺嬫盯鏌涢妸銉т粵闁逛究鍔庨埀顒婄秵娴滄粓顢?
         updateInitialDisplayValues();
         initializeTheme();
         setupBasicEventListeners();
@@ -666,10 +666,10 @@ function initializeApp() {
         }, 50);
 
         isInitialized = true;
-        console.log('鉁?Critical application initialization completed!');
+        console.log('Critical application initialization completed!');
 
     } catch (error) {
-        console.error('鉂?Failed to initialize application:', error);
+        console.error('Failed to initialize application:', error);
         showErrorMessage();
         updateInitialDisplayValues();
 
@@ -677,13 +677,13 @@ function initializeApp() {
             initializeTheme();
             setupBasicEventListeners();
         } catch (fallbackError) {
-            console.error('鉂?Even fallback initialization failed:', fallbackError);
+            console.error('Even fallback initialization failed:', fallbackError);
         }
     }
 }
 
 /**
- * 鏇存柊鍒濆鏄剧ず鍊? */
+ * 闂備礁鎼ú銈夋偤閵娾晛钃熷┑鐘叉搐缁€鍡樼節闂堟稒锛嶆繛鍏碱殜閺岋繝宕熼鈶╂寖闂侀潧娲﹀畝绋跨暦? */
 function updateInitialDisplayValues() {
     try {
         const viewportDisplay = document.getElementById('viewport-display');
@@ -698,7 +698,7 @@ function updateInitialDisplayValues() {
                 viewportDisplay.innerHTML = '';
             }
 
-            viewportDisplay.textContent = `${width} × ${height}`;
+            viewportDisplay.textContent = width + ' × ' + height;
         }
 
         const screenResolutionDisplay = document.getElementById('screen-resolution-display');
@@ -707,7 +707,7 @@ function updateInitialDisplayValues() {
             const screenHeight = window.screen.height;
 
             const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
-            if (detectingSpan) {
+            if (detectingSpan && detectingSpan.parentNode) {
                 detectingSpan.parentNode.removeChild(detectingSpan);
             }
 
@@ -727,8 +727,7 @@ function updateInitialDisplayValues() {
             let colonNode = null;
             for (let i = 0; i < screenResolutionDisplay.childNodes.length; i++) {
                 const node = screenResolutionDisplay.childNodes[i];
-                if (node.nodeType === Node.TEXT_NODE &&
-                    (node.textContent.includes(':') || node.textContent.includes('：'))) {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.includes(':')) {
                     colonNode = node;
                     break;
                 }
@@ -745,21 +744,21 @@ function updateInitialDisplayValues() {
             }
 
             valueSpan.removeAttribute('data-i18n');
-            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
+            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
         }
     } catch (error) {
-        console.error('鏇存柊鍒濆鏄剧ず鍊兼椂鍑洪敊:', error);
+        console.error('Error updating initial display values:', error);
     }
 }
 
 /**
- * 璁剧疆鍩虹浜嬩欢鐩戝惉鍣? */
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冪☉閺勩儵鏌ц箛姘煎殐闁衡偓閵娿儍鐟邦煥閸愭儳鍓┑鐐叉閸ㄤ粙骞嗛崟顖氱婵犻潧娲ら崜鍫曟⒑? */
 function setupBasicEventListeners() {
-    console.log('馃帶 Setting up basic event listeners...');
+    console.log('Setting up basic event listeners...');
 
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-        console.log('鉁?Found theme toggle button, binding click event');
+        console.log('Found theme toggle button, binding click event');
         themeToggle.addEventListener('click', toggleTheme);
     }
 
@@ -769,17 +768,17 @@ function setupBasicEventListeners() {
 
     setupFAQToggles();
     setupNavigationActiveState();
-    // setupInternalLinks(); // 宸茶縼绉诲埌 internal-links.js 妯″潡
+    // setupInternalLinks(); // 闁诲氦顫夐悺鏇犱焊椤忓棛绱﹂柤娴嬫櫇閻捇鎮归崶銊ョ祷闁?internal-links.js 婵犵妲呴崹顏堝焵椤掑啯鐝柛?
 
-    console.log('鉁?Basic event listeners setup completed');
+    console.log('Basic event listeners setup completed');
 }
 
 /**
- * 璁剧疆楂樼骇浜嬩欢鐩戝惉鍣? */
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冿供濞堟淇婇姘ュ仮闁绘稒鎸搁湁婵犲﹤鍠氶崕搴㈢箾閸℃劕鐏查柟顖氬楠炲鈹戦崶褍澹庨梻? */
 function setupAdvancedEventListeners() {
-    console.log('馃帶 Setting up advanced event listeners...');
+    console.log('Setting up advanced event listeners...');
 
-    // 澶嶅埗鎸夐挳浜嬩欢
+    // 濠电姰鍨煎▔娑氱矓閹绢喖鏄ユ俊銈呮噹缁犳澘顭块懜闈涘閻忓骏绠戦湁婵犲﹤鍠氶崕搴㈢箾?
     document.addEventListener('click', async (event) => {
         if (event.target.classList.contains('copy-btn') && event.target.getAttribute('data-clipboard-target')) {
             event.preventDefault();
@@ -805,11 +804,11 @@ function setupAdvancedEventListeners() {
         });
     }
 
-    console.log('鉁?Advanced event listeners setup completed');
+    console.log('Advanced event listeners setup completed');
 }
 
 /**
- * 璁剧疆瀵艰埅婵€娲荤姸鎬? */
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冪憿閸嬫挻鎷呴崘顭戞闂佺硶鏅涢幊搴ㄥ煘閹达箑鐒垫い鎺嗗亾閻撱倝鏌ゆ慨鎰偓鏇犵懅闂? */
 function setupNavigationActiveState() {
     // Skip client-side update when active nav already exists.
     const hasServerSideActive = document.querySelector('.nav-link.active');
@@ -840,7 +839,7 @@ function setupNavigationActiveState() {
 }
 
 /**
- * 璁剧疆鍐呴摼鍔熻兘
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冪☉缁€鍐煕濞戞鎽犻柟宕囧█閺屾盯寮崒姘亞闂?
  */
 function setupInternalLinks() {
     const container = document.getElementById('internal-links-container');
@@ -870,12 +869,12 @@ function setupInternalLinks() {
 }
 
 /**
- * 妫€娴嬪綋鍓嶈瑷€
+ * 婵犵妲呴崑鈧柛瀣尰缁绘盯寮堕幋顓炲壈缂傚倸绉撮澶婄暦濠婂喚鍚嬮柛顐亜濞堁囨煟閻旈娈遍柛?
  */
 function detectCurrentLanguage() {
     const path = window.location.pathname;
 
-    // 浠庤矾寰勪腑妫€娴嬭瑷€
+    // 濠电偛顕慨鏉戭潩閿曞倹鍎楅柟顖嗗苯娈梺鍛婃处娴滐綁宕㈤浣风箚妞ゆ劗鍠庢禍鎯р攽閻愬瓨缍戞い鎴濈墦椤㈡岸濮€閵忊€虫疁闂?
     if (path.includes('/zh/') || path.endsWith('/zh')) {
         return 'zh';
     }
@@ -895,12 +894,12 @@ function detectCurrentLanguage() {
         return htmlLang;
     }
 
-    // 榛樿杩斿洖鑻辨枃
+    // 濠殿喗甯楃粙鎺椻€﹂崼銉晣缂備焦蓱娴溿倝鏌￠崒娑橆嚋缂佲偓閳ь剟姊洪崗鍏碱潡濡炲瓨鎮傚?
     return 'en';
 }
 
 /**
- * 璋冩暣鐩稿璺緞
+ * 闂佽崵濮撮鍛村疮椤栫偛姹查柨婵嗩槹閸庡海绱掔€ｎ偒鍎ラ柛銈囧█閹绗熼姘变哗缂?
  */
 function adjustRelativePath(url, currentPath) {
     // If already relative, return as-is.
@@ -908,7 +907,7 @@ function adjustRelativePath(url, currentPath) {
         return url;
     }
 
-    // 瑙ｆ瀽褰撳墠璺緞
+    // 闂佽崵鍠愰悷杈╁緤妤ｅ啯鍊甸柛濠勫枂娴滃綊鏌熼幆褍鏆辨い銈呮嚇閹绗熼姘变哗缂?
     const pathParts = currentPath.split('/').filter(part => part);
     const urlParts = url.split('/').filter(part => part);
 
@@ -918,7 +917,7 @@ function adjustRelativePath(url, currentPath) {
     let isInLanguageDir = false;
     let isInBlogDir = false;
 
-    // 鍒嗘瀽褰撳墠璺緞缁撴瀯
+    // 闂備礁鎲＄敮鎺懳涘▎鎾村€甸柛濠勫枂娴滃綊鏌熼幆褍鏆辨い銈呮嚇閹绗熼姘变哗缂備礁澧庨崑鐔烘閹烘绠婚悗鐢电《閸?
     if (pathParts.length >= 1 && ['en', 'zh'].includes(pathParts[0])) {
         currentLang = pathParts[0];
         isInLanguageDir = true;
@@ -933,50 +932,50 @@ function adjustRelativePath(url, currentPath) {
 
     // Build relative path for current directory depth.
     if (isInLanguageDir && isInBlogDir) {
-        // 褰撳墠鍦ㄥ崥瀹㈢洰褰曚笅: /en/blog/xxx
+        // 闁荤喐绮庢晶妤呭箰閸涘﹥娅犻柣妯款嚙閹瑰爼鏌曟繛鍨姎閻熸瑱绠撻幃妤呯嵁閸喚浼勫┑鐐插级婵粙濡甸幇鏉垮嵆婵浜幉? /en/blog/xxx
         if (urlParts[0] === 'blog') {
-            // 璺宠浆鍒板崥瀹㈤〉闈? blog/index.html -> ../blog/index.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閻忔繄鎲撮敃鍌涘€垫鐐茬仢閻忔煡鏌曢崱妤婃█婵? blog/index.html -> ../blog/index.html
             return '../' + urlParts.join('/');
         } else {
-            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> ../../devices/xxx.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閵囨妲愰敐澶嬬厱闊洦娲栭崢鎾煏閸℃妯€婵? devices/xxx.html -> ../../devices/xxx.html
             return '../../' + urlParts.join('/');
         }
     } else if (isInLanguageDir && !isInBlogDir) {
-        // 褰撳墠鍦ㄨ瑷€鐩綍涓嬩絾涓嶅湪鍗氬鐩綍: /en/xxx
+        // 闁荤喐绮庢晶妤呭箰閸涘﹥娅犻柣妯款嚙閹瑰爼鏌曟繝搴ｅ帥闁搞倖妫冮幃椋庝焊娴ｉ晲澹曢梻浣哄劦閺呪晠宕伴弽顐ょ鐎广儱妫涢埢鏃堟倵閿濆倹娅囩紒瀣嚙閳藉骞樺畷鍥嗐垺绻濋埀顒勵敂閸繄顢呭┑顔斤供閸擄箓宕ラ崒鐐寸厽闁冲搫锕ら弸娑氱磽? /en/xxx
         if (urlParts[0] === 'blog') {
-            // 璺宠浆鍒板崥瀹㈤〉闈? blog/index.html -> ./blog/index.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閻忔繄鎲撮敃鍌涘€垫鐐茬仢閻忔煡鏌曢崱妤婃█婵? blog/index.html -> ./blog/index.html
             return urlParts.join('/');
         } else {
-            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> ./devices/xxx.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閵囨妲愰敐澶嬬厱闊洦娲栭崢鎾煏閸℃妯€婵? devices/xxx.html -> ./devices/xxx.html
             return urlParts.join('/');
         }
     } else {
-        // 褰撳墠鍦ㄦ牴鐩綍涓? /xxx
+        // 闁荤喐绮庢晶妤呭箰閸涘﹥娅犻柣妯款嚙閹瑰爼鏌曟繝蹇擃洭濠㈢懓鐭傞弻锝夊煛婵犲倹鐏堢紓鍌氱Т缁夌數绮? /xxx
         if (urlParts[0] === 'blog') {
-            // 璺宠浆鍒板崥瀹㈤〉闈紝闇€瑕佹坊鍔犺瑷€鍓嶇紑: blog/index.html -> en/blog/index.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閻忔繄鎲撮敃鍌涘€垫鐐茬仢閻忔煡鏌曢崱妤婃█婵☆偄鍟撮敐鐐侯敊閸撗屾Х闂傚倸鍊稿ú鐘诲磻閹剧粯鍋￠柡鍥ㄦ皑閸斿秹鏌涜閿曨亜鐣峰┑瀣亹濞撴凹鍨板▓褔鏌ｉ悢椋庢闁稿鎹囬弻娑㈠箻瀹曞泦銈囩磼? blog/index.html -> en/blog/index.html
             return currentLang + '/' + urlParts.join('/');
         } else {
-            // 璺宠浆鍒板伐鍏烽〉闈? devices/xxx.html -> devices/xxx.html
+            // 闂佽崵濮撮幖顐︽偪閸ヮ灐褰掑幢濞戞顦梺鍝勵槸閵囨妲愰敐澶嬬厱闊洦娲栭崢鎾煏閸℃妯€婵? devices/xxx.html -> devices/xxx.html
             return urlParts.join('/');
         }
     }
 }
 
 /**
- * 鐢熸垚鍐呴摼鏁版嵁
+ * 闂備焦鐪归崹濠氬窗閹版澘鍨傛慨妯挎硾缁€鍐煕濞戞鎽犻柟宕囧█閺屸剝鎷呴崫鍕垫毉閻?
  */
 function generateInternalLinks() {
     const currentPath = window.location.pathname;
     const currentPageId = getCurrentPageId(currentPath);
     const allLinks = [];
 
-    // 鍐呴摼閰嶇疆鏁版嵁 - 鍩轰簬internal-links-config.json
+    // 闂備礁鎲￠崝鏇㈠箠濮椻偓楠炴绺介崨濠勫帎閻庡箍鍎卞ú銊╁几閸岀偞鐓涘ù锝呮惈椤ｈ偐鈧?- 闂備胶纭堕弲鐐差浖閵娧嗗С闁荤偟鐏恡ernal-links-config.json
     const INTERNAL_LINKS_CONFIG = {
         pages: {
             "iphone-viewport-sizes": {
                 id: "iphone-viewport-sizes",
                 category: "device-info",
-                priority: 1,                icon: "tablet",
+                priority: 1,                icon: "📱",
                 urls: {
                     "en": "devices/iphone-viewport-sizes.html",
                     "zh": "devices/iphone-viewport-sizes.html"
@@ -988,7 +987,7 @@ function generateInternalLinks() {
                 id: "ipad-viewport-sizes",
                 category: "device-info",
                 priority: 2,
-                icon: "tablet",
+                icon: "📱",
                 urls: {
                     "en": "devices/ipad-viewport-sizes.html",
                     "zh": "devices/ipad-viewport-sizes.html"
@@ -1000,7 +999,7 @@ function generateInternalLinks() {
                 id: "android-viewport-sizes",
                 category: "device-info",
                 priority: 3,
-                icon: "馃",
+                icon: "📱",
                 urls: {
                     "en": "devices/android-viewport-sizes.html",
                     "zh": "devices/android-viewport-sizes.html"
@@ -1012,7 +1011,7 @@ function generateInternalLinks() {
                 id: "ppi-calculator",
                 category: "calculator",
                 priority: 1,
-                icon: "馃攳",
+                icon: "📱",
                 urls: {
                     "en": "devices/ppi-calculator.html",
                     "zh": "devices/ppi-calculator.html"
@@ -1024,7 +1023,7 @@ function generateInternalLinks() {
                 id: "aspect-ratio-calculator",
                 category: "calculator",
                 priority: 2,
-                icon: "馃搻",
+                icon: "📱",
                 urls: {
                     "en": "devices/aspect-ratio-calculator.html",
                     "zh": "devices/aspect-ratio-calculator.html"
@@ -1036,7 +1035,7 @@ function generateInternalLinks() {
                 id: "compare",
                 category: "tools",
                 priority: 1,
-                icon: "馃啔",
+                icon: "📱",
                 urls: {
                     "en": "devices/compare.html",
                     "zh": "devices/compare.html"
@@ -1048,7 +1047,7 @@ function generateInternalLinks() {
                 id: "standard-resolutions",
                 category: "reference",
                 priority: 1,
-                icon: "馃搳",
+                icon: "📱",
                 urls: {
                     "en": "devices/standard-resolutions.html",
                     "zh": "devices/standard-resolutions.html"
@@ -1060,7 +1059,7 @@ function generateInternalLinks() {
                 id: "responsive-tester",
                 category: "tools",
                 priority: 2,
-                icon: "馃摫",
+                icon: "📱",
                 urls: {
                     "en": "devices/responsive-tester.html",
                     "zh": "devices/responsive-tester.html"
@@ -1072,7 +1071,7 @@ function generateInternalLinks() {
                 id: "blog",
                 category: "content",
                 priority: 1,
-                icon: "馃摑",
+                icon: "📱",
                 urls: {
                     "en": "blog/index.html",
                     "zh": "blog/index.html"
@@ -1113,20 +1112,20 @@ function generateInternalLinks() {
         }
     };
 
-    // 妫€娴嬪綋鍓嶈瑷€
+    // 婵犵妲呴崑鈧柛瀣尰缁绘盯寮堕幋顓炲壈缂傚倸绉撮澶婄暦濠婂喚鍚嬮柛顐亜濞堁囨煟閻旈娈遍柛?
     const currentLang = detectCurrentLanguage();
 
-    // 鏀堕泦鎵€鏈夐〉闈㈢殑閾炬帴
+    // 闂備浇銆€閸嬫捇鏌涢锝嗙闁艰尙濞€閺岀喓鍠婂Ο杞板闂備礁鎼悧鍡浰囬悽绋课ュ鑸靛姈椤ュ牓鏌曡箛瀣仾闁伙綁浜跺娲礈瑜嶆禍楣冩偨?
     for (const [pageKey, page] of Object.entries(INTERNAL_LINKS_CONFIG.pages)) {
-        // 璺宠繃褰撳墠椤甸潰
+        // 闂佽崵濮撮幖顐︽偪閸モ晜宕查柛鎰靛幑娴滃綊鏌熼幆褍鏆辨い銈呮噹椤啴濡堕崶銊︽瘓濠?
         if (page.id === currentPageId) {
             continue;
         }
 
-        // 鑾峰彇閫傚悎褰撳墠璇█鐨刄RL
+        // 闂備礁鍚嬮崕鎶藉床閼艰翰浜归柛銉墯閻掑鏌涚仦鍓ь暡闁稿鍊楅幉鎼佹偋閸喎纰嶆繝鈷€鍛ラ柟椋庡█椤㈡﹢鍩﹂埀顒勫几閸涘瓨鐓熼柕濞垮劚閻庣ΖL
         let url = page.urls[currentLang] || page.urls.en || Object.values(page.urls)[0];
 
-        // 鏍规嵁褰撳墠椤甸潰璺緞璋冩暣鐩稿璺緞
+        // 闂備礁鎼粔鐑斤綖婢跺﹦鏆ゅù锝咁潟娴滃綊鏌熼幆褍鏆辨い銈呮噹椤啴濡堕崶銊︽瘓濠电偛鍚嬫竟鍡涘箲閸曨垼鏁嶆慨妯夸含閻涱噣鏌ｉ悩宸剰闁哥噥鍨跺鎶芥晲婢跺鍓紓浣割儐椤戞瑩宕甸悩缁樺仯濞撴凹鍨伴悘鐘电磼?
         url = adjustRelativePath(url, currentPath);
 
         allLinks.push({
@@ -1143,7 +1142,7 @@ function generateInternalLinks() {
 }
 
 /**
- * 鑾峰彇褰撳墠椤甸潰ID
+ * 闂備礁鍚嬮崕鎶藉床閼艰翰浜归柛銉簵娴滃綊鏌熼幆褍鏆辨い銈呮噹椤啴濡堕崶銊︽瘓濠电偠鍋愬绡?
  */
 function getCurrentPageId(path) {
     const pathParts = path.split('/').filter(part => part);
@@ -1163,7 +1162,7 @@ function getCurrentPageId(path) {
 }
 
 /**
- * 娓叉煋鍐呴摼鍒伴〉闈? */
+ * 婵犵數鍋為幐绋款嚕閸洘鍋傞悗锝庡枛缁€鍐煕濞戞鎽犻柟宕囧█閺屾盯骞掑鍛ギ闂侀潧妫楅ˇ闈浳? */
 function renderInternalLinks(container, links) {
     if (!links || links.length === 0) {
         container.innerHTML = '<div class="no-links">No related resources available</div>';
@@ -1183,7 +1182,7 @@ function renderInternalLinks(container, links) {
 }
 
 /**
- * 鍒涘缓鍐呴摼鍗＄墖鍏冪礌
+ * 闂備礁鎲＄敮妤冪矙閹寸姷纾介柟鎹愵嚙缁€鍐煕濞戞鎽犻柟宕囧█閺屾稑螖鐎ｎ剛锛熸繝鈷€鍕⒌鐎规洘顨婂畷姗€顢旈崱鈺傂?
  */
 function createInternalLinkCard(link) {
     const template = document.getElementById('internal-link-template');
@@ -1215,14 +1214,14 @@ function createInternalLinkCard(link) {
 }
 
 /**
- * 鍒涘缓榛樿閾炬帴鍗＄墖
+ * 闂備礁鎲＄敮妤冪矙閹寸姷纾介柟鐐儗濞撹埖淇婇娑卞劌闁告艾娲娲礈瑜嶆禍楣冩偨椤栨稒灏︾€规洩绻濋弫宥夊礋椤愵偅姣?
  */
 function createDefaultLinkCard() {
     const fragment = document.createDocumentFragment();
     const link = document.createElement('a');
     link.className = 'internal-link-card';
     link.innerHTML = `
-        <span class="link-icon" aria-hidden="true">馃摫</span>
+        <span class="link-icon" aria-hidden="true">濡絽鍟幊?/span>
         <div class="link-content">
             <span class="link-title"></span>
             <span class="link-description"></span>
@@ -1233,22 +1232,22 @@ function createDefaultLinkCard() {
 }
 
 /**
- * 鑾峰彇閾炬帴鍥炬爣
+ * 闂備礁鍚嬮崕鎶藉床閼艰翰浜归柛銉墯閻擄綁鏌ｉ幇闈涘濠㈣泛绉归弻娑㈠Ψ瑜嶆禍楣冩煟?
  */
 function getLinkIcon(category) {
     const icons = {
-        'device-info': '馃摫',
-        'calculator': '馃М',
-        'tools': '馃敡',
-        'reference': '馃摎',
-        'content': '馃摑'
+        'device-info': '📱',
+        'calculator': '🧮',
+        'tools': '🛠️',
+        'reference': '📚',
+        'content': '📄'
     };
 
-    return icons[category] || '馃敆';
+    return icons[category] || '📋';
 }
 
 /**
- * 璁剧疆鍩虹璇█閫夋嫨鍣? */
+ * 闂佽崵濮崇粈浣规櫠娴犲鍋柛鈩冪☉閺勩儵鏌ц箛姘煎殐闁衡偓閵娾晜鍋ｉ柛銉ㄦ硾瀵劑鏌嶇拠鑼ⅵ闁哄苯鎳忓鍕偓锝庝憾娴犳挳姊? */
 function setupBasicLanguageSelector() {
     const languageModalTrigger = document.getElementById('language-modal-trigger');
     const languageModal = document.getElementById('language-modal');
@@ -1314,7 +1313,7 @@ function setupBasicLanguageSelector() {
 }
 
 /**
- * 鏇存柊瑙嗗彛鏄剧ず
+ * 闂佸搫娲ら悺銊╁蓟婵犲嫭鍠嗛柛鈩冾殔缂嶆捇鏌￠崟顐⑩挃闁?
  */
 function updateViewportDisplay() {
     const viewportDisplay = document.getElementById('viewport-display');
@@ -1325,7 +1324,7 @@ function updateViewportDisplay() {
         const height = window.innerHeight;
 
         viewportDisplay.removeAttribute('data-i18n');
-        viewportDisplay.textContent = `${width} × ${height}`;
+        viewportDisplay.textContent = width + ' × ' + height;
     }
 
     if (screenResolutionDisplay) {
@@ -1333,29 +1332,27 @@ function updateViewportDisplay() {
         if (valueSpan) {
             const screenWidth = window.screen.width;
             const screenHeight = window.screen.height;
-            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
+            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
         }
     }
 }
 
 /**
- * 鏄剧ず閿欒娑堟伅
+ * 闂備礁鎼€氼剚鏅舵禒瀣︽慨妯垮煐閻撱儲绻涢崱妯轰刊闁搞倖鐗楃换娑㈠箣濠靛牆顤€婵?
  */
 function showErrorMessage() {
     const mainContent = document.querySelector('.main-content');
     if (mainContent) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
-        errorDiv.innerHTML = `
-            <h2>妫€娴嬪け璐?/h2>
-            <p>鏃犳硶妫€娴嬭澶囦俊鎭紝璇峰埛鏂伴〉闈㈤噸璇曘€?/p>
-            <button onclick="window.location.reload()">閲嶈瘯</button>
-        `;
+        errorDiv.innerHTML = '<h2>Something went wrong</h2>' +
+            '<p>We could not load all device information. Please refresh the page and try again.</p>' +
+            '<button onclick="window.location.reload()">Reload page</button>';
         mainContent.insertBefore(errorDiv, mainContent.firstChild);
     }
 }
 
-// ====== 鑷姩鍒濆鍖?======
+// ====== 闂備胶鍘ч〃搴㈢濠婂嫭鍙忛柍鍝勬噹缁€鍡樼節闂堟稒锛嶆繛鍏碱殜閺?======
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
@@ -1374,7 +1371,7 @@ setTimeout(() => {
 document.addEventListener('i18nextInitialized', () => {
     console.log('i18next initialized, updating translated values...');
     
-    // 寤惰繜鎵ц锛岀‘淇濆湪 i18next 鐨?updateUIElements 涔嬪悗
+    // 闁诲海鍋ｉ崐鏍磿閼测晜宕叉繝濠傜墕缁犮儳鎲搁幋锔衡偓渚€骞嬮敂鑺ユ珫閻庡厜鍋撻柍褜鍓熼崹鎯熼懡銈傛敵濠电娀娼уΛ娆撶叕?i18next 闂?updateUIElements 濠电偞鍨堕弻銊╊敄閸涙潙绠?
     setTimeout(() => {
         if (deviceInfoCache) {
             const cookiesStatus = deviceInfoCache.cookiesEnabled
@@ -1387,12 +1384,12 @@ document.addEventListener('i18nextInitialized', () => {
                 : (typeof i18next !== 'undefined' && i18next.t ? i18next.t('not_supported') : 'Not supported');
             updateElementText('touch-support', touchStatus);
             
-            console.log('鉁?Updated cookies and touch support after i18next');
+            console.log('Updated cookies and touch support after i18next');
         }
     }, 100);
 });
 
-// ====== 瀵煎嚭鍏ㄥ眬鍑芥暟 ======
+// ====== 闁诲海鏁搁崢褔宕甸銏犵闁靛鍎冲﹢浼存煕閹达絽袚闁?======
 
 if (typeof window !== 'undefined') {
     window.toggleTheme = toggleTheme;
@@ -1408,9 +1405,9 @@ if (typeof window !== 'undefined') {
     window.calculateAspectRatio = calculateAspectRatio;
     window.debounce = debounce;
 
-    console.log('馃實 Core functions exposed to global scope for compatibility');
+    console.log('Core functions exposed to global scope for compatibility');
 }
 
 // Functions are already exposed to global scope for compatibility
 
-console.log('鉁?core-optimized.js loaded successfully');
+console.log('core-optimized.js loaded successfully');

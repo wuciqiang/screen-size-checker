@@ -950,7 +950,7 @@ class CSSOptimizer {
      * 设置CSS缓存
      */
     setupCSSCaching() {
-        console.log('� Sentting up CSS caching...');
+        console.log('⚙️ Setting up CSS caching...');
         
         // 实现CSS文件的智能缓存
         this.implementIntelligentCSSCaching();

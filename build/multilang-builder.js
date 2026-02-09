@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const ComponentBuilder = require('./component-builder');
 const BlogBuilder = require('./blog-builder');
@@ -12,11 +12,11 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
-        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 褰撳墠鍚敤鐨勮瑷€锛氳嫳鏂囥€佷腑鏂囥€佸痉璇€佽タ鐝墮璇?
+        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 鐟滅増鎸告晶鐘诲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀顒勬晬濮樺啿顏伴柡鍌氭储閳ь兛妞掗懙鎴﹀棘閸ャ儮鍋撴担鍝ユ閻犲浂鍘归埀顑挎祰閵堝潡鎮甸鐘差潻閻?
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
         
-        // 璇█鍚嶇О鏄犲皠
+        // 閻犲浂鍙€閳诲牓宕ュ鍥嗙偤寮伴悩鑼
         this.languageNames = {
             'en': 'English',
             'zh': 'Chinese',
@@ -30,7 +30,7 @@ class MultiLangBuilder extends ComponentBuilder {
             'ru': 'Russian'
         };
         
-        // 璇█浠ｇ爜澶у啓鏄犲皠锛堢敤浜嶶I鏄剧ず锛?
+        // 閻犲浂鍙€閳诲牊绂掗敐鍥╁灣濠㈠爢鍐ㄦ櫢闁哄嫮濮撮惃鐘绘晬閸垺鏆忓ù婊冩姈I闁哄嫬澧介妵姘剧窗
         this.languageCodes = {
             'en': 'EN',
             'zh': 'ZH',
@@ -66,7 +66,7 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
     
-    // 鑾峰彇宓屽鐨勭炕璇戝€硷紝鏀寔濡?"ppiCalculator.pageTitle" 杩欐牱鐨勯敭
+    // 闁兼儳鍢茶ぐ鍥х暤鐏炵瓔娈伴柣銊ュ閻愭洜鎷犻幋婵冨亾绾绀夐柡鈧娑樼槷濠?"ppiCalculator.pageTitle" 閺夆晜鐟﹂悧閬嶆儍閸曨垱鏆?
     getNestedTranslation(translations, key) {
         if (!key || !translations) return null;
 
@@ -84,42 +84,42 @@ class MultiLangBuilder extends ComponentBuilder {
         return typeof current === 'string' ? current : null;
     }
 
-    // 缁熶竴鐨勫崥瀹RL鐢熸垚鍑芥暟 - 涓€鍔虫案閫哥殑瑙ｅ喅鏂规
+    // 缂備胶鍠嶇粩鎾儍閸曨偄瑙﹂悗璇℃暰RL闁汇垻鍠愰崹姘跺礄閼恒儲娈?- 濞戞挴鍋撻柛鏃囨珪濡楀牓鏌呴崫銉︾暠閻熸瑱绲介崰鍛村棘鐟欏嫷鏀?
     generateBlogUrl(depth, lang, isRootPage = false) {
         console.log(` Generating blog URL: depth=${depth}, lang=${lang}, isRootPage=${isRootPage}`);
 
-        // 鑻辨枃锛堥粯璁よ瑷€锛夊湪鏍硅矾寰勶紝鍏朵粬璇█鍦ㄨ瑷€瀛愮洰褰?
+        // 闁兼槒椴搁弸鍐晬閸儳甯涢悹浣靛€涢銏㈡嚊閳ь剟鏁嶆径濠冭含闁哄秶顢婇惌鎯ь嚗閸曞墎绀夐柛蹇旀构缁剛鎷犻鈾€鏋呴柛锔哄姀椤曘垻鎳涢埀顒傗偓娑欏姉濞叉媽銇?
         const isDefaultLang = lang === this.defaultLanguage;
 
         if (depth === 0) {
-            // 鍦ㄦ牴鐩綍鎴栬瑷€鏍圭洰褰?
+            // 闁革负鍔嶉悧鎾儎椤旇偐绉块柟瀛樼墳椤曘垻鎳涢埀顒勫冀閸︻厽绐楃憸?
             if (isDefaultLang) {
                 return 'blog/';
             } else {
                 return 'blog/';
             }
         } else {
-            // 鍦ㄥ瓙鐩綍涓紝闇€瑕佸洖鍒版牴鐩綍
+            // 闁革负鍔岄悺娆撴儎椤旇偐绉垮☉鎿冨弿缁辨繈妫侀埀顒傛啺娴ｅ憡绀€闁告帞澧楅悧鎾儎椤旇偐绉?
             const backToRoot = '../'.repeat(depth);
             if (isDefaultLang) {
-                // 鑻辨枃锛氬洖鍒版牴璺緞鍚庤繘鍏?blog/
+                // 闁兼槒椴搁弸鍐晬濮橆剚绀€闁告帞澧楅悧瀵告崉椤栨氨绐為柛姘唉缁绘﹢宕?blog/
                 return `${backToRoot}blog/`;
             } else {
-                // 鍏朵粬璇█锛氬洖鍒版牴璺緞鍚庤繘鍏ヨ瑷€鐩綍鍐嶈繘鍏?blog/
-                // 浣嗗疄闄呬笂鐜板湪宸茬粡鍦ㄨ瑷€瀛愮洰褰曚腑浜嗭紝鎵€浠ュ彧闇€瑕佸洖鍒拌瑷€鏍?
+                // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴柨娑欒壘濞叉牠宕氶悧鍫㈠閻犱警鍨扮欢鐐哄触鎼淬倗绠婚柛蹇嬪劥椤曘垻鎳涢埀顒勬儎椤旇偐绉块柛鎰Х缁绘﹢宕?blog/
+                // 濞达絽妫楅悿鍕⒔閸涱剛鐟愰柣婊勬緲濠€顏勵啅閼碱剛鐥呴柛锔哄姀椤曘垻鎳涢埀顒傗偓娑欏姉濞叉媽銇愰弴姘冲幀濞存粌妫寸槐婵嬪箥閳ь剚绂掗妷銉ユ锭闂傚洠鍋撻悷鏇氱濞叉牠宕氶幏宀婂殧閻熷皝鍋撻柡?
                 return `${backToRoot}blog/`;
             }
         }
     }
     
-    // 澶勭悊缈昏瘧鏇挎崲
+    // 濠㈣泛瀚幃濠勭礄閺勫繒妲柡鍥ㄥ瀹?
     translateContent(content, translations) {
         if (!translations) return content;
         
-        // 淇meta description鏍囩鐨凥TML缁撴瀯閿欒
+        // 濞ｅ浂鍠栭ˇ鐬瀍ta description闁哄秴娲ㄩ鐑芥儍閸戭櫄ML缂備焦鎸婚悗顖炴煥濞嗘帩鍤?
         let result = content;
         
-        // 鏌ユ壘骞朵慨澶嶇牬鍧忕殑meta description鏍囩
+        // 闁哄被鍎叉竟姗€鐛張鍨弿濠㈣泛绉堕悧顒勫锤韫囨洘鐣眒eta description闁哄秴娲ㄩ?
         result = result.replace(/<meta\s+name="description"[^>]*content="([^"]*)"[^>]*>([^<]*?)<meta\s+name="keywords"/g, (match, contentValue, extraText) => {
             console.log(' Fixing broken meta description tag');
             if (extraText.trim()) {
@@ -129,16 +129,16 @@ class MultiLangBuilder extends ComponentBuilder {
 <meta name="keywords"`;
         });
         
-        // 鏇挎崲 data-i18n 灞炴€у搴旂殑鏂囨湰鍐呭锛堝鐞嗘爣绛惧唴瀹癸級
+        // 闁哄洦瀵у畷?data-i18n 閻忕偟鍋為埀顑喚鍤犻幖瀛樻⒒濞堟垿寮崶銊︽嫳闁告劕鎳庨鎰版晬閸繍妲遍柣鐐叉閻栵絿绮甸幆褍鏁堕悗鍦缁?
         result = result.replace(/data-i18n="([^"]+)"[^>]*>([^<]*)</g, (match, key, originalText) => {
-            // 鐗规畩澶勭悊锛氬鏋滄槸title鏍囩锛屽畬鍏ㄨ烦杩囩炕璇戝鐞嗭紝淇濇寔椤甸潰鐗瑰畾鐨勬爣棰?
+            // 闁绘顫夐悾鈺傚緞閸曨厽鍊為柨娑欒壘椤┭囧几濠婂嫭笑title闁哄秴娲ㄩ鐑芥晬鐏炵晫鏆氶柛蹇嬪姀閻戯附娼婚崶鈺冨€抽悹鍥ㄥ灥椤︹晠鎮堕崱顓犵濞ｅ洦绻冪€垫梹銇勯悽鍛婃〃闁绘鎳撻悾楣冩儍閸曨剛鍨煎Λ?
             if (key === 'title') {
-                // 妫€鏌ユ槸鍚︽槸title鏍囩
+                // 婵☆偀鍋撻柡灞诲劜濡叉悂宕ラ敂鑺バitle闁哄秴娲ㄩ?
                 const beforeMatch = result.substring(0, result.indexOf(match));
                 const lastTitleIndex = beforeMatch.lastIndexOf('<title');
                 const lastCloseTitleIndex = beforeMatch.lastIndexOf('</title>');
                 
-                // 濡傛灉鏈€杩戠殑<title鏍囩鍦ㄦ渶杩戠殑</title>鏍囩涔嬪悗锛岃鏄庤繖鏄痶itle鏍囩鍐呭
+                // 濠碘€冲€归悘澶愬嫉閳ь剚娼婚幋鐘崇暠<title闁哄秴娲ㄩ鐑藉捶閵婏附浠橀弶鈺傚灩濞?/title>闁哄秴娲ㄩ閿嬬▕鐎ｎ亝鍊甸柨娑樼焷椤曗晠寮版惔銈囩闁哄嫮妞俰tle闁哄秴娲ㄩ鐑藉礃閸涱収鍟?
                 if (lastTitleIndex > lastCloseTitleIndex) {
                     console.log(`   Skipping title translation for: "${originalText}"`);
                     return match;
@@ -152,7 +152,7 @@ class MultiLangBuilder extends ComponentBuilder {
             return match;
         });
         
-        // 鏇挎崲妯℃澘鍙橀噺濡?{{t:key}}
+        // 闁哄洦瀵у畷鎻捨熼埄鍐╃凡闁告瑦锕㈤崳鐑樹繆?{{t:key}}
         result = result.replace(/\{\{t:(\w+)\}\}/g, (match, key) => {
             return this.getNestedTranslation(translations, key) || match;
         });
@@ -160,7 +160,7 @@ class MultiLangBuilder extends ComponentBuilder {
         return result;
     }
     
-    // 杩愯缈昏瘧楠岃瘉
+    // 閺夆晜鍔橀、鎴犵礄閺勫繒妲Δ鐘茬焷閻?
     async runTranslationValidation() {
         console.log('\n Validating translations...');
         
@@ -194,17 +194,17 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 鑾峰彇杈撳嚭璺緞锛堣嫳鏂囪緭鍑哄埌鏍圭洰褰曪紝鍏朵粬璇█杈撳嚭鍒板搴旂洰褰曪級
+    // 闁兼儳鍢茶ぐ鍥ㄦ綇閹惧啿姣夐悹渚灠缁剁偤鏁嶉崼锝咁伆闁哄倸娲╃欢顓㈠礄閸濆嫬鐓傞柡宥呮贡濞叉媽銇愰弴顏嗙闁稿繑婀圭划顒傛嫚椤撯檧鏋呴弶鍫熸尭閸ゎ參宕氶弶娆惧殸閹煎瓨姊诲ú鎷屻亹閺囶亞绀?
     getOutputPath(pageOutput, lang) {
         if (lang === this.defaultLanguage) {
-            // 鑻辨枃杈撳嚭鍒版牴鐩綍
+            // 闁兼槒椴搁弸鍐╂綇閹惧啿姣夐柛鎺斿閻楁挳鎯勯鑲╃Э
             return pageOutput;
         }
-        // 鍏朵粬璇█杈撳嚭鍒拌瑷€瀛愮洰褰?
+        // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴弶鍫熸尭閸ゎ參宕氶幏宀婂殧閻熷皝鍋撻悗娑欏姉濞叉媽銇?
         return path.join(lang, pageOutput);
     }
     
-    // 鑾峰彇URL璺緞锛堣嫳鏂囨棤鍓嶇紑锛屽叾浠栬瑷€鏈夊墠缂€锛?
+    // 闁兼儳鍢茶ぐ鍢L閻犱警鍨扮欢鐐烘晬閸絽顏伴柡鍌氭处濡倝宕滃鍥╃；闁挎稑鑻崣鐐閺嶎剦鍤旈悷灏佸亾闁哄牆顦晶鐘电磽閳ь剨绱?
     getUrlPath(pagePath, lang) {
         if (lang === this.defaultLanguage) {
             return `/${pagePath.replace('.html', '')}`;
@@ -212,18 +212,18 @@ class MultiLangBuilder extends ComponentBuilder {
         return `/${lang}/${pagePath.replace('.html', '')}`;
     }
     
-    // 鐢熸垚澶氳瑷€椤甸潰
+    // 闁汇垻鍠愰崹姘緞濮樻剚鍤旈悷灏佸亾濡炪倗鏁诲?
     buildMultiLangPages() {
         console.log('\n Building multilingual pages...');
         console.log(' URL');
         
-        // 澶勭悊鍐呴摼閰嶇疆
+        // 濠㈣泛瀚幃濠囧礃閸涘瓨鎳犻梺鏉跨Ф閻?
         const internalLinksResult = this.internalLinksProcessor.process(this.translations);
         if (!internalLinksResult.success) {
             console.error('[ERROR] Internal links processing failed, continuing with build...');
         }
         
-        // 浣跨敤绫诲睘鎬т腑瀹氫箟鐨勫惎鐢ㄨ瑷€
+        // 濞达綀娉曢弫銈囩尵鐠囪尙娼ｉ柟顑倽鍘悗瑙勭煯缁犵喖鎯冮崟顐ｅ剻闁活潿鍔忛銏㈡嚊閳?
         const enabledLanguages = this.enabledLanguages;
         
         const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
@@ -237,10 +237,10 @@ class MultiLangBuilder extends ComponentBuilder {
             summary: {}
         };
 
-        // 纭繚鏋勫缓鐩綍瀛樺湪 - 瀹屽叏娓呴櫎骞堕噸鏂板垱寤?
+        // 缁绢収鍠曠换姘跺几閸曨偆绱﹂柣鈺婂枛缂嶅秶鈧稒锚濠€?- 閻庣懓鑻崣蹇撱€掗崨瀛樼彑妤犵偛鐖奸崳鎼佸棘閺夊灝鐏＄€?
         const outputDir = 'multilang-build';
         if (fs.existsSync(outputDir)) {
-            // 鍒犻櫎鏁翠釜鐩綍 - 浣跨敤閫掑綊鍒犻櫎
+            // 闁告帞濞€濞呭酣寮紙鐘诲殝闁烩晩鍠栫紞?- 濞达綀娉曢弫銈夋焻閹烘垹绉洪柛鎺斿█濞?
             try {
                 fs.rmSync(outputDir, { recursive: true, force: true });
                 console.log('[OK] Cleared existing build directory');
@@ -250,11 +250,11 @@ class MultiLangBuilder extends ComponentBuilder {
         }
         fs.mkdirSync(outputDir, { recursive: true });
 
-        // 涓烘瘡绉嶅惎鐢ㄧ殑璇█鏋勫缓椤甸潰
+        // 濞戞挾鍎ら惁锛勭矓瀹ュ懏鍎欓柣顫妿濞堟垹鎷犻鈾€鏋呴柡瀣缂傛挻銇勯悽鍛婃〃
         for (const lang of enabledLanguages) {
             console.log(`\n Building pages for language: ${lang.toUpperCase()}`);
             
-            // 鑻辨枃杈撳嚭鍒版牴鐩綍锛屽叾浠栬瑷€杈撳嚭鍒拌瑷€瀛愮洰褰?
+            // 闁兼槒椴搁弸鍐╂綇閹惧啿姣夐柛鎺斿閻楁挳鎯勯鑲╃Э闁挎稑鑻崣鐐閺嶎剦鍤旈悷灏佸亾閺夊牊鎸搁崵顓㈠礆閹峰矈鍤旈悷灏佸亾閻庢稒鍔楀ú鎷屻亹?
             const langDir = lang === this.defaultLanguage ? outputDir : path.join(outputDir, lang);
             fs.mkdirSync(langDir, { recursive: true });
             
@@ -264,7 +264,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 console.log(`     ${lang.toUpperCase()} pages will be built at /${lang}/ directory`);
             }
 
-            // 鍔犺浇璇ヨ瑷€鐨勭炕璇戞枃浠?
+            // 闁告梻濮惧ù鍥╂嫚閵夘煈鍤旈悷灏佸亾闁汇劌瀚悙鏇犳嫚閹寸偞鐎ù?
             const translationPath = path.join('locales', lang, 'translation.json');
             let translations = {};
             
@@ -273,20 +273,20 @@ class MultiLangBuilder extends ComponentBuilder {
                 console.log(`[OK] Loaded translations for ${lang}`);
             } catch (error) {
                 console.warn(`    Warning: Could not load translations for ${lang}:`, error.message);
-                continue; // 璺宠繃娌℃湁缈昏瘧鏂囦欢鐨勮瑷€
+                continue; // 閻犲搫鐤囩换鍐ㄢ柦閳╁啯绠掔紓鍫熸閻ρ囧棘閸ワ附顐介柣銊ュ椤曘垻鎳涢埀?
             }
 
             buildReport.pages[lang] = [];
             
-            // 涓鸿璇█鍒涘缓蹇呰鐨勫瓙鐩綍
+            // 濞戞捇缂氶姘辨嫚椤撯檧鏋呴柛鎺撶☉缂傛捁绠涢崨閭︽矗闁汇劌瀚悺娆撴儎椤旇偐绉?
             const deviceDir = path.join(langDir, 'devices');
             fs.mkdirSync(deviceDir, { recursive: true });
             
-            // 鏋勫缓璇ヨ瑷€鐨勬墍鏈夐〉闈?
+            // 闁哄瀚紓鎾舵嫚閵夘煈鍤旈悷灏佸亾闁汇劌瀚晶宥夊嫉婢舵劑鈧妫?
             for (const page of config.pages) {
-                // 妫€鏌ラ〉闈㈡槸鍚﹂檺鍒朵簡鐗瑰畾璇█
+                // 婵☆偀鍋撻柡灞诲劦閵嗗妫冮姀鈩冃﹂柛姘剧畵濡炬椽宕氶張鐢靛晩闁绘鎳撻悾鍓ф嫚椤撯檧鏋?
                 if (page.enabled_languages && !page.enabled_languages.includes(lang)) {
-                    continue; // 璺宠繃涓嶉€傜敤浜庡綋鍓嶈瑷€鐨勯〉闈?
+                    continue; // 閻犲搫鐤囩换鍐╃▔瀹ュ鍋撻崒婊勬殢濞存粌楠哥紞瀣礈瀹ュ牜鍤旈悷灏佸亾闁汇劌瀚伴妴澶愭?
                 }
                 
                 totalPages++;
@@ -295,7 +295,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     const outputPath = this.getOutputPath(page.output, lang);
                     console.log(`   Building ${outputPath}`);
                     
-                    // 鍑嗗椤甸潰鏁版嵁骞惰皟鏁磋矾寰?
+                    // 闁告垵妫楅ˇ顒併亜閻㈠憡妗ㄩ柡浣哄瀹撲線鐛幆鎵闁轰胶顥愰惌鎯ь嚗?
                     const pageData = {
                         lang: lang,
                         lang_prefix: lang === this.defaultLanguage ? '' : `/${lang}`,
@@ -304,19 +304,19 @@ class MultiLangBuilder extends ComponentBuilder {
                         ...page.config
                     };
                     
-                    // 娣诲姞瀵艰埅鐘舵€佹爣璇?
+                    // 婵烇綀顕ф慨鐐碘偓浣冨閸╁懘鎮╅懜纰樺亾娴ｅ湱鍨奸悹?
                     const pagePath = page.path || page.config.path || outputPath || '';
                     
                     pageData.is_home = pagePath === 'index.html' || pagePath === '';
                     pageData.is_blog = pagePath.includes('blog/') || pagePath.startsWith('blog');
                     
-                    // 濡傛灉椤甸潰閰嶇疆涓凡缁忚缃簡瀵艰埅鐘舵€侊紝浣跨敤閰嶇疆鐨勫€?
+                    // 濠碘€冲€归悘澶嬨亜閻㈠憡妗ㄩ梺鏉跨Ф閻ゅ棙绋夐鐐插殥缂備礁绻楅鏇犵磾椤旇崵鍟婇悗浣冨閸╁懘鎮╅懜纰樺亾娓氬﹦绀夊ù锝堟硶閺併倝鏌婂鍥╂瀭闁汇劌瀚埀?
                     if (typeof page.config.is_gaming !== 'undefined') {
                         pageData.is_gaming = page.config.is_gaming;
                         pageData.is_tools = page.config.is_tools || false;
                         pageData.is_devices = page.config.is_devices || false;
                     } else {
-                        // 鍖哄垎 Tools 鍜?Devices锛堟帓闄ub椤甸潰锛?
+                        // 闁告牕鎼崹?Tools 闁?Devices闁挎稑鐗婄敮鎾绘⒔椤﹀窓b濡炪倗鏁诲甯窗
                         const isHubPage = pagePath.includes('hub/');
                         const isToolPage = !isHubPage && (pagePath.includes('calculator') || 
                             pagePath.includes('compare') || 
@@ -331,21 +331,21 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.is_gaming = false;
                     }
                     
-                    // 浠庣炕璇戞枃浠朵腑鑾峰彇椤甸潰鐗瑰畾鐨勭炕璇戝€?
+                    // 濞寸姴娴烽悙鏇犳嫚閹寸偞鐎ù鐘虫构閼垫垿鎳㈠畡鏉跨悼濡炪倗鏁诲浼存偋閻熸壆鏆伴柣銊ュ閻愭洜鎷犻幋婵冨亾?
                     if (pageData.page_title_key) {
-                        // 鏀寔宓屽鐨勭炕璇戦敭锛屽 "ppiCalculator.pageTitle"
+                        // 闁衡偓椤栨稑鐦€规挸鑻〃婊堟儍閸曨厾鍊抽悹鍥ㄥ灴閺侇參鏁嶇仦绛嬫搐 "ppiCalculator.pageTitle"
                         const translationValue = this.getNestedTranslation(translations, pageData.page_title_key);
                         if (translationValue) {
                             pageData.page_title = translationValue;
                         } else {
-                            // 濡傛灉娌℃湁鎵惧埌缈昏瘧锛屼娇鐢ㄩ粯璁ょ殑og_title
+                            // 婵″倹鐏夊▽鈩冩箒閹垫儳鍩岀紙鏄忕槯閿涘奔濞囬悽銊╃帛鐠併倗娈憃g_title
                             pageData.page_title = pageData.og_title || 'Screen Size Checker';
                         }
                     } else {
                         pageData.page_title = pageData.og_title || 'Screen Size Checker';
                     }
                     
-                    // 纭繚title鍙橀噺涔熻璁剧疆锛堢敤浜巋ead.html缁勪欢锛?
+                    // 缁绢収鍠曠换姝礽tle闁告瑦锕㈤崳鐑樼▕閻旀椿娼堕悹浣稿⒔閻ゅ棝鏁嶉崼銏℃殢濞存粌绌籩ad.html缂備礁瀚▎顫窗
                     pageData.title = pageData.page_title;
                     if (pageData.page_heading_key) {
                         const headingValue = this.getNestedTranslation(translations, pageData.page_heading_key);
@@ -359,7 +359,7 @@ class MultiLangBuilder extends ComponentBuilder {
                             pageData.page_intro = introValue;
                         }
                     }
-                    // 淇description娉ㄥ叆閫昏緫锛屾敮鎸佸祵濂楃炕璇戦敭
+                    // 濞ｅ浂鍠楅娓別scription婵炲鍔岄崣鍡涙焻閺勫繒甯嗛柨娑樻湰閺侇噣骞愭担鍝ャ偟濠靛倹顨堥悙鏇犳嫚閹达附鏆?
                     if (translations['description']) {
                         pageData.description = translations['description'];
                     } else if (pageData.page_description_key) {
@@ -373,26 +373,26 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.description = pageData.og_description || '';
                     }
                     
-                    // 璋冩暣闈欐€佽祫婧愯矾寰?
+                    // 閻犲鍟弳锝夋濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
                     const depth = page.output.split('/').length - 1;
-                    // 瀹氫箟 prefix 鐢ㄤ簬鍚庣画璺緞璁＄畻
+                    // 閻庤鐭粻?prefix 闁活潿鍔嬬花顒勫触鎼达絿鏁鹃悹渚灠缁剁偟鎷嬮敍鍕毈
                     const prefix = depth > 0 ? '../'.repeat(depth) : '';
                     
                     if (lang === this.defaultLanguage) {
-                        // 鑻辨枃鍦ㄦ牴鐩綍
+                        // 闁兼槒椴搁弸鍐捶閵婏妇澹岄柣鈺婂枛缂?
                         if (depth === 0) {
-                            // 鏍圭洰褰曚富椤?
+                            // 闁哄秴婀卞ú鎷屻亹閺囨艾鐦滃?
                             pageData.css_path = 'css';
                             pageData.locales_path = 'locales';
                             pageData.js_path = 'js';
                         } else {
-                            // 瀛愮洰褰曢〉闈?
+                            // 閻庢稒鍔楀ú鎷屻亹閺囶潿鈧妫?
                             pageData.css_path = prefix + 'css';
                             pageData.locales_path = prefix + 'locales';
                             pageData.js_path = prefix + 'js';
                         }
                     } else {
-                        // 鍏朵粬璇█鍦ㄨ瑷€瀛愮洰褰?
+                        // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴柛锔哄姀椤曘垻鎳涢埀顒傗偓娑欏姉濞叉媽銇?
                         if (depth === 0) {
                             pageData.css_path = '../css';
                             pageData.locales_path = '../locales';
@@ -405,13 +405,13 @@ class MultiLangBuilder extends ComponentBuilder {
                         }
                     }
                     
-                    // 鏇存柊鐩稿閾炬帴璺緞
+                    // 闁哄洤鐡ㄩ弻濠囨儎缁嬫鍤犻梺鍓у亾鐢鎹勯姘辩獮
                     if (pageData.home_url) {
                         if (lang === this.defaultLanguage) {
-                            // 鑻辨枃锛氬洖鍒版牴鐩綍
+                            // 闁兼槒椴搁弸鍐晬濮橆剚绀€闁告帞澧楅悧鎾儎椤旇偐绉?
                             pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         } else {
-                            // 鍏朵粬璇█锛氬洖鍒拌瑷€鏍圭洰褰?
+                            // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴柨娑欒壘濞叉牠宕氶幏宀婂殧閻熷皝鍋撻柡宥呮贡濞叉媽銇?
                             pageData.home_url = depth === 0 ? 'index.html' : '../'.repeat(depth) + 'index.html';
                         }
                     }
@@ -422,13 +422,13 @@ class MultiLangBuilder extends ComponentBuilder {
                             : (depth > 0 ? prefix + pageData.device_links_base : pageData.device_links_base);
                     }
                     
-                    // 淇鍗氬URL
+                    // 濞ｅ浂鍠栭ˇ鏌ュ础濮橆剦鍚俇RL
                     if (pageData.blog_url) {
                         if (lang === this.defaultLanguage) {
-                            // 鑻辨枃鍗氬鍦ㄦ牴鐩綍 /blog/
+                            // 闁兼槒椴搁弸鍐础濮橆剦鍚傞柛锔哄妽閻楁挳鎯勯鑲╃Э /blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         } else {
-                            // 鍏朵粬璇█鍗氬鍦ㄥ悇鑷殑璇█鐩綍涓?/zh/blog/, /de/blog/, /es/blog/
+                            // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴柛妤佽壘椤撳綊宕烽妸銉﹀€楅柤濂変簽濞堟垹鎷犻鈾€鏋呴柣鈺婂枛缂嶅秵绋?/zh/blog/, /de/blog/, /es/blog/
                             pageData.blog_url = depth === 0 ? 'blog/' : '../'.repeat(depth) + 'blog/';
                         }
                     }
@@ -439,13 +439,13 @@ class MultiLangBuilder extends ComponentBuilder {
                             : prefix + pageData.privacy_policy_url;
                     }
                     
-                    // 鏇存柊璇█鐩稿叧鐨刄RL鍜岃矾寰?
+                    // 闁哄洤鐡ㄩ弻濠勬嫚椤撯檧鏋呴柣鈺冾焾閸櫻囨儍閸掑嚧L闁告粌鐭侀惌鎯ь嚗?
                     if (lang === this.defaultLanguage) {
-                        // 鑻辨枃URL涓嶉渶瑕佽瑷€鍓嶇紑
-                        // 纭繚涓嶅寘鍚?/en/ 鍓嶇紑
+                        // 闁兼槒椴搁弸鍍揜L濞戞挸绉瑰〒鍓佹啺娴ｇ瓔鍤旈悷灏佸亾闁告挸绉剁槐?
+                        // 缁绢収鍠曠换姘▔瀹ュ懎鐦堕柛?/en/ 闁告挸绉剁槐?
                         pageData.canonical_url = pageData.canonical_url.replace('/en/', '/');
                     } else {
-                        // 鍏朵粬璇█闇€瑕佽瑷€鍓嶇紑
+                        // 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴梻鍥ｅ亾閻熸洑娴囬銏㈡嚊閳ь剟宕滃鍥╃；
                         if (!pageData.canonical_url.includes(`/${lang}/`)) {
                             pageData.canonical_url = pageData.canonical_url.replace(
                                 'https://screensizechecker.com/',
@@ -454,20 +454,20 @@ class MultiLangBuilder extends ComponentBuilder {
                         }
                     }
                     
-                    // 绉婚櫎.html鍚庣紑浠ュ尮閰岰loudflare Pages鐨刄RL鏍煎紡
+                    // 缂佸顭峰▍?html闁告艾娴风槐鎴炵閵夈儱鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐?
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                     pageData.og_url = pageData.canonical_url;
                     
-                    // 鏇存柊Open Graph鏁版嵁浠ヤ娇鐢ㄧ炕璇戝悗鐨勫唴瀹?
+                    // 闁哄洤鐡ㄩ弻濂減en Graph闁轰胶澧楀畵浣圭閵夈倕鈻忛柣顫妿閻愭洜鎷犻幋婵囧€甸柣銊ュ閸炲鈧?
                     pageData.og_title = pageData.page_title || pageData.og_title;
                     pageData.og_description = pageData.description || pageData.og_description;
 
-                    // 璁剧疆og:image - 浣跨敤椤甸潰鐗瑰畾鍥剧墖鎴栭粯璁ゅ垎浜浘
+                    // 閻犱礁澧介悿鍞巊:image - 濞达綀娉曢弫銈嗐亜閻㈠憡妗ㄩ柣妤冩嚀閻ｉ箖宕堕崜褍顣婚柟瀛樼墵缁垳鎷嬮妶鍛€诲ù婊庡亜濞?
                     if (!pageData.og_image) {
                         pageData.og_image = 'https://screensizechecker.com/images/og-default.png';
                     }
 
-                    // 璁剧疆og:locale
+                    // 閻犱礁澧介悿鍞巊:locale
                     const localeMap = {
                         'en': 'en_US',
                         'zh': 'zh_CN',
@@ -476,10 +476,10 @@ class MultiLangBuilder extends ComponentBuilder {
                     };
                     pageData.og_locale = localeMap[lang] || 'en_US';
                     
-                    // 娣诲姞hreflang鐩稿叧鏁版嵁
+                    // 婵烇綀顕ф慨鐎恟eflang闁烩晝顭堥崣褔寮悧鍫濈ウ
                     pageData.base_url = 'https://screensizechecker.com';
                     
-                    // 璁＄畻椤甸潰璺緞锛堜笉鍖呭惈璇█鍓嶇紑锛?
+                    // 閻犱緤绱曢悾缁樸亜閻㈠憡妗ㄩ悹渚灠缁剁偤鏁嶉崼婊呯憹闁告牕鎳庨幆鍫㈡嫚椤撯檧鏋呴柛鎾崇Ф缁辨埊绱?
                     if (lang === this.defaultLanguage) {
                         pageData.page_path = pageData.canonical_url.replace('https://screensizechecker.com', '');
                     } else {
@@ -489,43 +489,43 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.page_path = '/';
                     }
                     
-                    // 涓篽reflang鏍囩璁剧疆姝ｇ‘鐨刄RL
-                    // 濡傛灉椤甸潰閰嶇疆涓凡鏈塰reflang URL锛堝鍗氬鏍囩椤电殑璺ㄨ瑷€鏄犲皠锛夛紝鍒欎繚鐣?
-                    // 鍚﹀垯鍩轰簬page_path璁＄畻
+                    // 濞戞挾顕瞨eflang闁哄秴娲ㄩ椋庢媼閸撗呮瀭婵繐绲块垾姗€鎯冮崚鍑碙
+                    // 濠碘€冲€归悘澶嬨亜閻㈠憡妗ㄩ梺鏉跨Ф閻ゅ棙绋夐鐐插殥闁哄牆鈥渞eflang URL闁挎稑鐗嗛々褔宕″顒夊悅闁哄秴娲ㄩ閿嬨亜閻㈠灚鐣遍悹鎭掑姀椤曘垻鎳涢埀顒勫及閻樿尙娈搁柨娑橆檧缁辨繈宕氬▎搴ｇ闁?
+                    // 闁告熬绠戦崹顖炲春鏉炴壆鑹緋age_path閻犱緤绱曢悾?
                     if (!pageData.hreflang_en_url) {
-                        // x-default 鍜岃嫳鏂囩増鏈兘鎸囧悜鏍硅矾寰勶紙鏃?/en/ 鍓嶇紑锛?
+                        // x-default 闁告粌鐭佺€氭娊寮崶鈺侇暭闁哄牜鍓熼崗姗€骞愰崶褎鍊婚柡宥囶攰閻儳顕ラ崟鍓佺闁?/en/ 闁告挸绉剁槐鎴窗
                         pageData.hreflang_root_url = pageData.page_path === '/' ?
                             'https://screensizechecker.com/' :
                             `https://screensizechecker.com${pageData.page_path}`;
 
                         pageData.hreflang_en_url = pageData.hreflang_root_url;
 
-                        // 涓枃鐗堟湰
+                        // 濞戞搩鍘介弸鍐偋閸喐鎷?
                         pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
 
-                        // 寰疯鐗堟湰
+                        // 鐎垫壆鏌夐銏ゆ偋閸喐鎷?
                         pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
 
-                        // 瑗胯鐗堟湰
+                        // 閻熸鍎婚銏ゆ偋閸喐鎷?
                         pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
                     }
                     
-                    // 娣诲姞缁撴瀯鍖栨暟鎹?
+                    // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
                     
-                    // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+                    // 濞戞挾鍎ら悧瀹犵疀閸愩劋绱ｉ柛蹇曞厴閵嗗妫冮姀鈩冩殘闁稿浚妾禔Q缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟璇″櫙缁辨繈骞撻幇顒€纾砈ERP閻庨潧鐬肩划銊╁几濠婂嫭绨氬ù?
                     pageData.faq_structured_data = this.generateFAQStructuredDataForPage(page.name, lang);
                     
-                    // 鏋勫缓HTML
+                    // 闁哄瀚紓鎻孴ML
                     let html = this.buildPage(page.template, pageData);
                     
-                    // 搴旂敤缈昏瘧
+                    // 閹煎瓨姊婚弫銈囩礄閺勫繒妲?
                     html = this.translateContent(html, translations);
                     
-                    // 澶勭悊鍐呴摼
+                    // 濠㈣泛瀚幃濠囧礃閸涘瓨鎳?
                     html = this.internalLinksProcessor.processPageLinks(html, page.name, lang);
                     
-                    // 淇HTML缁撴瀯閿欒 - 绉婚櫎meta鏍囩鍚庣殑閲嶅鏂囧瓧
+                    // 濞ｅ浂鍠栭ˇ鐫璗ML缂備焦鎸婚悗顖炴煥濞嗘帩鍤?- 缂佸顭峰▍宸慹ta闁哄秴娲ㄩ鐑藉触鎼达絾鐣遍梺鎻掔Т椤︽煡寮崶褏鎽?
                     html = html.replace(/<meta name="description"[^>]*content="([^"]*)"[^>]*>([^<]*)<meta name="keywords"/g, (match, contentValue, extraText) => {
                         if (extraText && extraText.trim()) {
                             console.log(' Fixed meta description duplicate text');
@@ -535,14 +535,14 @@ class MultiLangBuilder extends ComponentBuilder {
                         return match;
                     });
                     
-                    // 鏇存柊HTML lang灞炴€?
+                    // 闁哄洤鐡ㄩ弻濂孴ML lang閻忕偟鍋為埀?
                     html = html.replace('<html lang="en">', `<html lang="${lang}">`);
                     
-                    // 淇闈欐€佽祫婧愯矾寰?
+                    // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
                     const fullOutputPath = lang === this.defaultLanguage ? page.output : path.join(lang, page.output);
                     html = this.fixStaticResourcePaths(html, fullOutputPath);
                     
-                    // 鍐欏叆鏂囦欢
+                    // 闁告劖鐟ラ崣鍡涘棘閸ワ附顐?
                     const finalOutputPath = path.join(langDir, page.output);
                     const outputDirPath = path.dirname(finalOutputPath);
                     
@@ -576,7 +576,7 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         }
 
-        // 鏇存柊 supportedLanguages 鍙寘鍚惎鐢ㄧ殑璇█
+        // 闁哄洤鐡ㄩ弻?supportedLanguages 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
         this.supportedLanguages = enabledLanguages;
 
         buildReport.summary = {
@@ -592,34 +592,34 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log(`[OK] Successful: ${successfulBuilds}/${totalPages}`);
         console.log(`[OK] Failed: ${totalPages - successfulBuilds}/${totalPages}`);
 
-        // 淇濆瓨鏋勫缓鎶ュ憡
+        // 濞ｅ洦绻傞悺銊╁几閸曨偆绱﹂柟韬插劚閹?
         fs.writeFileSync(
             path.join(outputDir, 'build-report.json'),
             JSON.stringify(buildReport, null, 2)
         );
 
-        // 澶嶅埗闈欐€佽祫婧愶紙鍙鍒堕渶瑕佺殑鏂囦欢锛?
+        // 濠㈣泛绉撮崺妤呮濞嗘劏鍋撴担鐣屻偒婵犙勫姧缁辨瑩宕ｉ鍕垫Щ闁告帒鐖煎〒鍓佹啺娴ｇ儤鐣遍柡鍌氭矗濞嗩澁绱?
         this.copyRequiredStaticResources(outputDir);
         
-        // 闆嗘垚鎬ц兘鐩戞帶绯荤粺
+        // 闂傚棗妫欓崹姘跺箑瑜戦崗姗€鎯勯幋鐐蹭粯缂侇垵宕电划?
         this.integratePerformanceMonitoring(outputDir);
         
-        // 鐢熸垚璇█閫夋嫨绱㈠紩椤甸潰
+        // 闁汇垻鍠愰崹姘辨嫚椤撯檧鏋呴梺顐㈩槹鐎氥劎妲愰姀鐘电┛濡炪倗鏁诲?
         this.generateLanguageIndex(outputDir);
         
-        // 鐢熸垚澶氳瑷€缃戠珯鍦板浘锛堝彧鍖呭惈鍚敤鐨勮瑷€锛?
+        // 闁汇垻鍠愰崹姘緞濮樻剚鍤旈悷灏佸亾缂傚啯鍨归悵顖炲捶閺夋寧绂堥柨娑樼墕瑜把囧礌閸涱厽鍎撻柛姘煎灣閺併倝鎯冮崟顕呭殧閻熷皝鍋撻敍?
         this.generateMultiLanguageSitemap(outputDir);
         
-        // 鎵ц鍐呭涓€鑷存€ф鏌?
+        // 闁圭瑳鍡╂斀闁告劕鎳庨鎰▔閳ь剟鎳涚€涙ǚ鍋撹椤ュ懘寮?
         this.validateContentConsistency(outputDir);
         
-        // 鎻愬彇骞跺唴鑱斿叧閿瓹SS (涓存椂绂佺敤浠ヤ慨澶岺TML缁撴瀯闂)
+        // 闁圭粯鍔曡ぐ鍥嵁鐠哄搫鏁堕柤杈ㄦ煥閸櫻囨煥閻＄瓖S (濞戞挸鐡ㄥ鍌滅矉娴ｇ儤鏆忓ù鐘劙閹便劍寰勫畝绡L缂備焦鎸婚悗顖炴⒒椤曗偓椤?
         // this.extractAndInlineCriticalCSS(outputDir);
 
         return buildReport;
     }
     
-    // 閫掑綊鍒犻櫎鐩綍锛堝吋瀹规€ф柟娉曪級
+    // 闂侇偅甯掔紞濠囧礆閻樼粯鐝熼柣鈺婂枛缂嶅秹鏁嶉崼婵嗘倯閻庣顫夐埀顑嫭鐓欐繛澶嬫穿缁?
     removeDirectoryRecursive(dirPath) {
         if (fs.existsSync(dirPath)) {
             const files = fs.readdirSync(dirPath);
@@ -639,7 +639,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 澶嶅埗闈欐€佽祫婧愭枃浠?
+    // 濠㈣泛绉撮崺妤呮濞嗘劏鍋撴担鐣屻偒婵犙勫姈閺嬪啯绂?
     copyStaticResources(outputDir) {
         console.log('\n Copying static resources...');
         
@@ -666,11 +666,11 @@ class MultiLangBuilder extends ComponentBuilder {
             if (fs.existsSync(sourcePath)) {
                 try {
                     if (fs.statSync(sourcePath).isDirectory()) {
-                        // 澶嶅埗鐩綍
+                        // 濠㈣泛绉撮崺妤呮儎椤旇偐绉?
                         this.copyDirectory(sourcePath, destPath);
                         console.log(`[OK] Copied directory: ${source}`);
                     } else {
-                        // 澶嶅埗鏂囦欢
+                        // 濠㈣泛绉撮崺妤呭棘閸ワ附顐?
                         fs.copyFileSync(sourcePath, destPath);
                         console.log(`[OK] Copied file: ${source}`);
                     }
@@ -685,7 +685,7 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log(' Static resources copied successfully!');
     }
     
-    // 閫掑綊澶嶅埗鐩綍
+    // 闂侇偅甯掔紞濠冨緞瀹ュ懎鐓戦柣鈺婂枛缂?
     copyDirectory(source, dest) {
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
@@ -705,11 +705,11 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
 
-    // 澶嶅埗蹇呰鐨勯潤鎬佽祫婧愶紙閬垮厤澶嶅埗鏈惎鐢ㄧ殑璇█鐩綍锛?
+    // 濠㈣泛绉撮崺妤勭疀閸涢偊娲ｉ柣銊ュ濞笺倝骞€娴ｇ晫銈繝褎鍔х槐娆撴焼閸喖甯冲璺虹Т閸╂寮甸鍕剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋呴柣鈺婂枛缂嶅稄绱?
     copyRequiredStaticResources(outputDir) {
         console.log('\n Copying required static resources...');
         
-        // 闇€瑕佺洿鎺ュ鍒剁殑璧勬簮锛堜笉鍖呮嫭robots.txt鍜宊redirects锛岃繖浜涘皢鍔ㄦ€佺敓鎴愶級
+        // 闂傚洠鍋撻悷鏇氳兌濞插潡骞掗妷銉Щ闁告帒澧庡▓鎴犳導閸曨剛鐖遍柨娑樼墔缁楀宕犻崨顔碱仾robots.txt闁告粌鐣﹔edirects闁挎稑鐭佺换鏍ㄧ濞戞娈洪柛鏂诲妽閳ь兛鑳堕弫鎾诲箣閹板墎绀?
         const resourcesToCopy = [
             'css',
             'js',
@@ -725,7 +725,7 @@ class MultiLangBuilder extends ComponentBuilder {
             '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead.txt'
         ];
         
-        // 鍗氬鍥剧墖璧勬簮锛堝崟鐙鐞嗭紝鍥犱负闇€瑕佸鍒跺埌鐗瑰畾浣嶇疆锛?
+        // 闁告鑹鹃褰掑炊閸撗冾暬閻犙冨缁噣鏁嶉崼婵嗙闁绘瑯鍓欓ˇ鈺呮偠閸☆厾绀夐柛銉уС鐠愮喖妫侀埀顒傛啺娴ｅ壊妲婚柛鎺曟硾閸╁矂鎮ч悷鎵毎濞达絽绉堕悿鍡窗
         const blogImagesSource = path.join(this.rootPath, 'blog-content', 'images');
         const blogImagesTarget = path.join(outputDir, 'images');
         
@@ -761,12 +761,12 @@ class MultiLangBuilder extends ComponentBuilder {
             }
         }
         
-        // 鐢熸垚浼樺寲鐨刜redirects鍜宺obots.txt鏂囦欢
+        // 闁汇垻鍠愰崹姘濡搫顕ч柣銊ュ灣redirects闁告粌顔憃bots.txt闁哄倸娲ｅ▎?
         this.generateRedirectsFile(outputDir);
         this.generateRobotsFile(outputDir);
     }
 
-    // 閫掑綊澶嶅埗鐩綍
+    // 闂侇偅甯掔紞濠冨緞瀹ュ懎鐓戦柣鈺婂枛缂?
     copyDirectoryRecursive(source, dest) {
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
@@ -786,12 +786,12 @@ class MultiLangBuilder extends ComponentBuilder {
         });
     }
 
-    // 闆嗘垚鎬ц兘鐩戞帶绯荤粺
+    // 闂傚棗妫欓崹姘跺箑瑜戦崗姗€鎯勯幋鐐蹭粯缂侇垵宕电划?
     integratePerformanceMonitoring(outputDir) {
         console.log('\n Integrating Performance Monitoring System...');
         
         try {
-            // 1. 楠岃瘉鎬ц兘鐩戞帶鏂囦欢鏄惁瀛樺湪
+            // 1. 濡ょ姴鐭侀惁澶愬箑瑜戦崗姗€鎯勯幋鐐蹭粯闁哄倸娲ｅ▎銏ゅ及椤栨碍鍎婇悗娑櫭﹢?
             const performanceMonitorPath = path.join(outputDir, 'js', 'performance-monitor.js');
             const appJsPath = path.join(outputDir, 'js', 'app.js');
             
@@ -805,7 +805,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 return;
             }
             
-            // 2. 楠岃瘉 app.js 鏄惁鍖呭惈鎬ц兘鐩戞帶瀵煎叆
+            // 2. 濡ょ姴鐭侀惁?app.js 闁哄嫷鍨伴幆渚€宕犻崨顓熷創闁诡儸鍡楀幋闁烩晜鍨剁敮鍓佲偓鐢靛帶閸?
             const appJsContent = fs.readFileSync(appJsPath, 'utf8');
             if (!appJsContent.includes("import { performanceMonitor } from './performance-monitor.js'")) {
                 console.warn('    Warning: app.js does not import performance monitor');
@@ -813,13 +813,13 @@ class MultiLangBuilder extends ComponentBuilder {
                 console.log('[OK] app.js includes performance monitor import');
             }
             
-            // 3. 鍒涘缓鎬ц兘鐩戞帶娴嬭瘯椤甸潰
+            // 3. 闁告帗绋戠紓鎾诲箑瑜戦崗姗€鎯勯幋鐐蹭粯婵炴潙顑堥惁顖涖亜閻㈠憡妗?
             this.createPerformanceTestPage(outputDir);
             
-            // 4. 鐢熸垚鎬ц兘鐩戞帶閮ㄧ讲鎶ュ憡
+            // 4. 閻㈢喐鍨氶幀褑鍏橀惄鎴炲付闁劎璁查幎銉ユ啞
             this.generatePerformanceDeploymentReport(outputDir);
             
-            // 5. 楠岃瘉鍏抽敭鏂囦欢
+            // 5. 濡ょ姴鐭侀惁澶愬礂閹惰姤鏆涢柡鍌氭矗濞?
             const requiredFiles = [
                 'js/performance-monitor.js',
                 'js/app.js',
@@ -849,387 +849,196 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 鍒涘缓鎬ц兘鐩戞帶娴嬭瘯椤甸潰
+    // 闁告帗绋戠紓鎾诲箑瑜戦崗姗€鎯勯幋鐐蹭粯婵炴潙顑堥惁顖涖亜閻㈠憡妗?
     createPerformanceTestPage(outputDir) {
         const testPagePath = path.join(outputDir, 'performance-test-production.html');
-        
-        const testPageContent = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯</title>
-    <style>
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            background: #f8f9fa;
-        }
-        
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .status-card {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-        
-        .status-indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .status-indicator.good { background: #28a745; }
-        .status-indicator.warning { background: #ffc107; }
-        .status-indicator.error { background: #dc3545; }
-        
-        .metrics-display {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: 'Consolas', monospace;
-            font-size: 12px;
-            margin: 15px 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        
-        button:hover { background: #0056b3; }
-        button:disabled { background: #6c757d; cursor: not-allowed; }
-        
-        .alert {
-            padding: 12px 16px;
-            border-radius: 6px;
-            margin: 15px 0;
-        }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .alert-warning {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .alert-danger {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>馃殌 鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯</h1>
-        <p>姝ら〉闈㈢敤浜庨獙璇佹€ц兘鐩戞帶绯荤粺鍦ㄧ敓浜х幆澧冧腑鏄惁姝ｅ父宸ヤ綔銆?/p>
-        
-        <div class="status-card">
-            <h3>
-                <span id="system-status" class="status-indicator error"></span>
-                绯荤粺鐘舵€佹鏌?
-            </h3>
-            <div id="status-message">姝ｅ湪妫€鏌ョ郴缁熺姸鎬?..</div>
-            <button onclick="checkSystemStatus()">馃攧 閲嶆柊妫€鏌?/button>
-        </div>
-        
-        <div class="status-card">
-            <h3>馃搳 Core Web Vitals 鐩戞帶</h3>
-            <div id="cwv-status">姝ｅ湪鏀堕泦鎬ц兘鏁版嵁...</div>
-            <div class="metrics-display" id="cwv-display">绛夊緟鏁版嵁...</div>
-            <button onclick="refreshMetrics()">馃搱 鍒锋柊鎸囨爣</button>
-            <button onclick="exportData()">馃摛 瀵煎嚭鏁版嵁</button>
-        </div>
-        
-        <div class="status-card">
-            <h3>馃И 鍔熻兘娴嬭瘯</h3>
-            <p>杩愯浠ヤ笅娴嬭瘯鏉ラ獙璇佺洃鎺х郴缁熺殑鍚勯」鍔熻兘锛?/p>
-            
-            <button onclick="testLongTask()">鈴憋笍 娴嬭瘯闀夸换鍔＄洃鎺?/button>
-            <button onclick="testLayoutShift()">馃搻 娴嬭瘯甯冨眬鍋忕Щ鐩戞帶</button>
-            <button onclick="testResourceLoading()">馃摝 娴嬭瘯璧勬簮鐩戞帶</button>
-            
-            <div id="test-results" class="metrics-display" style="min-height: 150px;">
-                娴嬭瘯缁撴灉灏嗘樉绀哄湪杩欓噷...
-            </div>
-        </div>
-    </div>
-    
-    <script type="module">
-        let testLog = [];
-        let performanceMonitor = null;
-        
-        // 灏濊瘯瀵煎叆鎬ц兘鐩戞帶妯″潡
-        async function initializeMonitoring() {
-            try {
-                const module = await import('./js/performance-monitor.js');
-                performanceMonitor = module.performanceMonitor;
-                
-                if (performanceMonitor) {
-                    addTestLog('鉁?鎬ц兘鐩戞帶妯″潡鍔犺浇鎴愬姛');
-                    updateSystemStatus('good', '鎬ц兘鐩戞帶绯荤粺杩愯姝ｅ父');
-                    return true;
-                } else {
-                    throw new Error('鎬ц兘鐩戞帶瀹炰緥鏈壘鍒?);
-                }
-            } catch (error) {
-                addTestLog(\`鉂?鎬ц兘鐩戞帶妯″潡鍔犺浇澶辫触: \${error.message}\`);
-                updateSystemStatus('error', \`绯荤粺鍔犺浇澶辫触: \${error.message}\`);
-                return false;
-            }
-        }
-        
-        function addTestLog(message) {
-            const timestamp = new Date().toLocaleTimeString();
-            const logEntry = \`[\${timestamp}] \${message}\`;
-            testLog.push(logEntry);
-            
-            if (testLog.length > 20) {
-                testLog = testLog.slice(-20);
-            }
-            
-            updateTestResults();
-        }
-        
-        function updateTestResults() {
-            const resultsDiv = document.getElementById('test-results');
-            resultsDiv.textContent = testLog.join('\\n');
-            resultsDiv.scrollTop = resultsDiv.scrollHeight;
-        }
-        
-        function updateSystemStatus(status, message) {
-            const statusIndicator = document.getElementById('system-status');
-            const statusMessage = document.getElementById('status-message');
-            
-            statusIndicator.className = \`status-indicator \${status}\`;
-            statusMessage.innerHTML = message;
-        }
-        
-        // 鍏ㄥ眬鍑芥暟
-        window.checkSystemStatus = async function() {
-            addTestLog('馃攳 寮€濮嬬郴缁熺姸鎬佹鏌?..');
-            
-            const checks = [
-                {
-                    name: 'HTTPS 鐜',
-                    test: () => location.protocol === 'https:' || location.hostname === 'localhost',
-                    message: 'HTTPS 鐜妫€鏌?
-                },
-                {
-                    name: 'PerformanceObserver 鏀寔',
-                    test: () => 'PerformanceObserver' in window,
-                    message: 'PerformanceObserver API 鏀寔'
-                }
-            ];
-            
-            let allPassed = true;
-            
-            for (const check of checks) {
-                try {
-                    const result = check.test();
-                    if (result) {
-                        addTestLog(\`鉁?\${check.message}: 閫氳繃\`);
-                    } else {
-                        addTestLog(\`鉂?\${check.message}: 澶辫触\`);
-                        allPassed = false;
-                    }
-                } catch (error) {
-                    addTestLog(\`鉂?\${check.message}: 閿欒 - \${error.message}\`);
-                    allPassed = false;
-                }
-            }
-            
-            const monitoringOk = await initializeMonitoring();
-            
-            if (allPassed && monitoringOk) {
-                updateSystemStatus('good', '鉁?鎵€鏈夌郴缁熸鏌ラ€氳繃锛屾€ц兘鐩戞帶姝ｅ父杩愯');
-            } else {
-                updateSystemStatus('error', '鉂?绯荤粺妫€鏌ュ彂鐜伴棶棰橈紝璇锋煡鐪嬫祴璇曟棩蹇?);
-        };
-        
-        window.refreshMetrics = function() {
-            if (!performanceMonitor) {
-                addTestLog('鉂?鎬ц兘鐩戞帶绯荤粺鏈垵濮嬪寲');
-                return;
-            }
-            
-            try {
-                const metrics = performanceMonitor.getMetrics();
-                const cwv = metrics.coreWebVitals;
-                
-                let display = '馃搳 Core Web Vitals 褰撳墠鏁版嵁:\\n\\n';
-                
-                if (cwv.LCP.value !== null) {
-                    const rating = cwv.LCP.rating;
-                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
-                    display += \`\${icon} LCP: \${cwv.LCP.value.toFixed(0)}ms (\${rating})\\n\`;
-                } else {
-                    display += '鈴?LCP: 姝ｅ湪娴嬮噺...\\n';
-                }
-                
-                if (cwv.FID.value !== null) {
-                    const rating = cwv.FID.rating;
-                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
-                    display += \`\${icon} FID: \${cwv.FID.value.toFixed(0)}ms (\${rating})\\n\`;
-                } else {
-                    display += '鈴?FID: 绛夊緟鐢ㄦ埛浜や簰...\\n';
-                }
-                
-                if (cwv.CLS.value !== null) {
-                    const rating = cwv.CLS.rating;
-                    const icon = rating === 'good' ? '鉁? : rating === 'needs-improvement' ? '鈿狅笍' : '鉂?;
-                    display += \`\${icon} CLS: \${cwv.CLS.value.toFixed(3)} (\${rating})\\n\`;
-                } else {
-                    display += '鈴?CLS: 姝ｅ湪鐩戞帶...\\n';
-                }
-                
-                display += \`\\n馃搱 缁煎悎鎬ц兘璇勫垎: \${metrics.performanceScore}/100\\n\`;
-                display += \`馃搳 闀夸换鍔℃暟閲? \${metrics.longTasksCount}\\n\`;
-                display += \`馃摝 璧勬簮鐩戞帶鏁伴噺: \${metrics.resourceTimingsCount}\`;
-                
-                document.getElementById('cwv-display').textContent = display;
-                document.getElementById('cwv-status').innerHTML = 
-                    \`<div class="alert alert-success">鉁?鎬ц兘鏁版嵁鏀堕泦姝ｅ父锛岃瘎鍒? \${metrics.performanceScore}/100</div>\`;
-                
-                addTestLog('馃搳 鎬ц兘鎸囨爣宸插埛鏂?);
-                
-            } catch (error) {
-                addTestLog(\`鉂?鍒锋柊鎸囨爣澶辫触: \${error.message}\`);
-        };
-        
-        window.testLongTask = function() {
-            addTestLog('鈴憋笍 寮€濮嬮暱浠诲姟娴嬭瘯...');
-            
-            const start = performance.now();
-            while (performance.now() - start < 100) {
-                // 闃诲涓荤嚎绋?
-            }
-            
-            setTimeout(() => {
-                if (performanceMonitor) {
-                    const metrics = performanceMonitor.getMetrics();
-                    addTestLog(\`鉁?闀夸换鍔℃祴璇曞畬鎴愶紝妫€娴嬪埌 \${metrics.longTasksCount} 涓暱浠诲姟\`);
-                }
-            }, 500);
-        };
-        
-        window.testLayoutShift = function() {
-            addTestLog('馃搻 寮€濮嬪竷灞€鍋忕Щ娴嬭瘯...');
-            
-            const testDiv = document.createElement('div');
-            testDiv.style.cssText = \`
-                height: 100px;
-                background: #ffeb3b;
-                margin: 10px 0;
-                padding: 20px;
-                border-radius: 5px;
-            \`;
-            testDiv.textContent = '杩欐槸娴嬭瘯甯冨眬鍋忕Щ鐨勫姩鎬佸唴瀹?;
-            
-            document.body.appendChild(testDiv);
-            
-            setTimeout(() => {
-                testDiv.remove();
-                if (performanceMonitor) {
-                    const cls = performanceMonitor.getMetric('CLS');
-                    addTestLog(\`鉁?甯冨眬鍋忕Щ娴嬭瘯瀹屾垚锛屽綋鍓?CLS: \${cls !== null ? cls.toFixed(3) : '鏈祴閲?}\`);
-                }
-            }, 2000);
-        };
-        
-        window.testResourceLoading = function() {
-            addTestLog('馃摝 寮€濮嬭祫婧愬姞杞芥祴璇?..');
-            
-            const img = new Image();
-            img.onload = () => {
-                addTestLog('鉁?娴嬭瘯鍥剧墖鍔犺浇瀹屾垚');
-                if (performanceMonitor) {
-                    const metrics = performanceMonitor.getMetrics();
-                    addTestLog(\`馃搳 褰撳墠鐩戞帶璧勬簮鏁伴噺: \${metrics.resourceTimingsCount}\`);
-                }
-            };
-            img.onerror = () => {
-                addTestLog('鉂?娴嬭瘯鍥剧墖鍔犺浇澶辫触');
-            };
-            img.src = \`data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwN2NiYSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVzdDwvdGV4dD48L3N2Zz4=\`;
-        };
-        
-        window.exportData = function() {
-            if (!performanceMonitor) {
-                addTestLog('鉂?鎬ц兘鐩戞帶绯荤粺鏈垵濮嬪寲锛屾棤娉曞鍑烘暟鎹?);
-                return;
-            }
-            
-            try {
-                const metrics = performanceMonitor.getMetrics();
-                const exportData = {
-                    timestamp: new Date().toISOString(),
-                    url: window.location.href,
-                    userAgent: navigator.userAgent,
-                    metrics: metrics,
-                    testLog: testLog
-                };
-                
-                console.log('[DATA] Export data:', exportData);
-                addTestLog('馃摛 鎬ц兘鏁版嵁宸插鍑哄埌鎺у埗鍙?);
-                
-            } catch (error) {
-                addTestLog(\`鉂?鏁版嵁瀵煎嚭澶辫触: \${error.message}\`);
-        };
-        
-        // 鍒濆鍖?
-        setTimeout(async () => {
-            addTestLog('馃殌 鐢熶骇鐜鎬ц兘鐩戞帶娴嬭瘯椤甸潰宸插姞杞?);
-            await checkSystemStatus();
-            
-            setTimeout(() => {
-                refreshMetrics();
-            }, 3000);
-        }, 1000);
-        
-        setInterval(() => {
-            if (document.visibilityState === 'visible' && performanceMonitor) {
-                refreshMetrics();
-            }
-        }, 10000);
-        
-        console.log('Performance monitor test page loaded');
-    </script>
-</body>
-</html>`;
-        
+
+        const testPageContent = [
+            '<!DOCTYPE html>',
+            '<html lang="en">',
+            '<head>',
+            '    <meta charset="UTF-8">',
+            '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            '    <title>Performance Monitor Test Page</title>',
+            '    <style>',
+            '        body { font-family: Arial, sans-serif; max-width: 880px; margin: 0 auto; padding: 20px; line-height: 1.6; background: #f8f9fa; }',
+            '        .container { background: #fff; padding: 24px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); }',
+            '        .status-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin: 14px 0; }',
+            '        .status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }',
+            '        .status-indicator.good { background: #28a745; }',
+            '        .status-indicator.warning { background: #ffc107; }',
+            '        .status-indicator.error { background: #dc3545; }',
+            '        .metrics-display { background: #1f2937; color: #e5e7eb; padding: 12px; border-radius: 6px; font-family: Consolas, monospace; font-size: 12px; margin-top: 12px; max-height: 280px; overflow-y: auto; white-space: pre-wrap; }',
+            '        button { background: #007bff; color: white; border: none; padding: 8px 14px; border-radius: 5px; cursor: pointer; margin-right: 8px; margin-top: 8px; }',
+            '        button:hover { background: #0056b3; }',
+            '        .alert { padding: 10px 12px; border-radius: 6px; margin-top: 12px; }',
+            '        .alert-success { background: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }',
+            '        .alert-warning { background: #fff3cd; color: #664d03; border: 1px solid #ffecb5; }',
+            '        .alert-danger { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }',
+            '    </style>',
+            '</head>',
+            '<body>',
+            '    <div class="container">',
+            '        <h1>Performance Monitor Test</h1>',
+            '        <p>Use this page to validate the production performance monitor integration.</p>',
+            '        <div class="status-card">',
+            '            <h3><span id="system-status" class="status-indicator error"></span>Monitoring system status</h3>',
+            '            <div id="status-message">Waiting for initialization...</div>',
+            '            <button onclick="checkSystemStatus()">Check status</button>',
+            '        </div>',
+            '        <div class="status-card">',
+            '            <h3>Core Web Vitals</h3>',
+            '            <div id="cwv-status">No metrics loaded yet.</div>',
+            '            <div id="cwv-display" class="metrics-display">Metrics will appear here.</div>',
+            '            <button onclick="refreshMetrics()">Refresh metrics</button>',
+            '            <button onclick="exportData()">Export data</button>',
+            '        </div>',
+            '        <div class="status-card">',
+            '            <h3>Manual test actions</h3>',
+            '            <p>Run synthetic checks to verify long task, layout shift, and resource tracking.</p>',
+            '            <button onclick="testLongTask()">Test long task</button>',
+            '            <button onclick="testLayoutShift()">Test layout shift</button>',
+            '            <button onclick="testResourceLoading()">Test resource loading</button>',
+            '            <div id="test-results" class="metrics-display" style="min-height: 140px;">Test logs will appear here.</div>',
+            '        </div>',
+            '    </div>',
+            '    <script type="module">',
+            '        let testLog = [];',
+            '        let performanceMonitor = null;',
+            '        function addTestLog(message) {',
+            '            const timestamp = new Date().toLocaleTimeString();',
+            '            const entry = "[" + timestamp + "] " + message;',
+            '            testLog.push(entry);',
+            '            if (testLog.length > 40) testLog = testLog.slice(-40);',
+            '            const resultsDiv = document.getElementById("test-results");',
+            '            if (resultsDiv) {',
+            '                resultsDiv.textContent = testLog.join(\"\n\");',
+            '                resultsDiv.scrollTop = resultsDiv.scrollHeight;',
+            '            }',
+            '        }',
+            '        function updateSystemStatus(status, message) {',
+            '            const dot = document.getElementById("system-status");',
+            '            const msg = document.getElementById("status-message");',
+            '            if (dot) dot.className = "status-indicator " + status;',
+            '            if (msg) msg.textContent = message;',
+            '        }',
+            '        async function initializeMonitoring() {',
+            '            try {',
+            '                const module = await import("./js/performance-monitor.js");',
+            '                performanceMonitor = module.performanceMonitor;',
+            '                if (!performanceMonitor) throw new Error("performanceMonitor export is missing");',
+            '                addTestLog("✅ Performance monitor module loaded successfully");',
+            '                updateSystemStatus("good", "Monitoring system is available");',
+            '                return true;',
+            '            } catch (error) {',
+            '                addTestLog("❌ Failed to load performance monitor: " + error.message);',
+            '                updateSystemStatus("error", "Initialization failed: " + error.message);',
+            '                return false;',
+            '            }',
+            '        }',
+            '        window.checkSystemStatus = async function() {',
+            '            addTestLog("🔍 Checking monitor status...");',
+            '            const ok = await initializeMonitoring();',
+            '            updateSystemStatus(ok ? "good" : "error", ok ? "System healthy and ready" : "System check failed");',
+            '        };',
+            '        window.refreshMetrics = function() {',
+            '            if (!performanceMonitor) {',
+            '                addTestLog("❌ Monitor not initialized. Please run check status first.");',
+            '                return;',
+            '            }',
+            '            try {',
+            '                const metrics = performanceMonitor.getMetrics();',
+            '                const lcp = metrics.lcp && metrics.lcp.value !== null ? metrics.lcp.value.toFixed(1) + "ms" : "N/A";',
+            '                const fid = metrics.fid && metrics.fid.value !== null ? metrics.fid.value.toFixed(1) + "ms" : "N/A";',
+            '                const cls = metrics.cls && metrics.cls.value !== null ? metrics.cls.value.toFixed(3) : "N/A";',
+            '                const cwvDisplay = document.getElementById("cwv-display");',
+            '                if (cwvDisplay) cwvDisplay.textContent = \"Core Web Vitals Metrics\n\nLCP: \" + lcp + \"\nFID: \" + fid + \"\nCLS: \" + cls;',
+            '                const cwvStatus = document.getElementById("cwv-status");',
+            '                if (cwvStatus) {',
+            '                    const score = metrics.performanceScore;',
+            '                    if (score >= 90) cwvStatus.innerHTML = "<div class=\"alert alert-success\">✅ Good performance score: " + score + "/100</div>";',
+            '                    else if (score >= 70) cwvStatus.innerHTML = "<div class=\"alert alert-warning\">⚠️ Needs improvement: " + score + "/100</div>";',
+            '                    else cwvStatus.innerHTML = "<div class=\"alert alert-danger\">❌ Poor performance score: " + score + "/100</div>";',
+            '                }',
+            '                addTestLog("📈 Metrics refreshed successfully");',
+            '            } catch (error) {',
+            '                addTestLog("❌ Failed to refresh metrics: " + error.message);',
+            '            }',
+            '        };',
+            '        window.testLongTask = function() {',
+            '            addTestLog("🧪 Running long task simulation...");',
+            '            const start = performance.now();',
+            '            while (performance.now() - start < 100) {}',
+            '            setTimeout(() => {',
+            '                if (performanceMonitor) {',
+            '                    const metrics = performanceMonitor.getMetrics();',
+            '                    addTestLog("✅ Long tasks detected: " + metrics.longTasksCount);',
+            '                }',
+            '            }, 500);',
+            '        };',
+            '        window.testLayoutShift = function() {',
+            '            addTestLog("🧪 Running layout shift simulation...");',
+            '            const testDiv = document.createElement("div");',
+            '            testDiv.style.cssText = "height:100px;background:#ffeb3b;margin:10px 0;padding:20px;border-radius:5px;";',
+            '            testDiv.textContent = "Temporary block to trigger layout shift";',
+            '            document.body.appendChild(testDiv);',
+            '            setTimeout(() => {',
+            '                testDiv.remove();',
+            '                if (performanceMonitor) {',
+            '                    const cls = performanceMonitor.getMetric("CLS");',
+            '                    addTestLog("✅ Layout shift test complete. CLS: " + (cls !== null ? cls.toFixed(3) : "N/A"));',
+            '                }',
+            '            }, 1500);',
+            '        };',
+            '        window.testResourceLoading = function() {',
+            '            addTestLog("🧪 Running resource loading simulation...");',
+            '            const img = new Image();',
+            '            img.onload = () => {',
+            '                addTestLog("✅ Resource loading test completed");',
+            '                if (performanceMonitor) {',
+            '                    const metrics = performanceMonitor.getMetrics();',
+            '                    addTestLog("ℹ️ Resource timings count: " + metrics.resourceTimingsCount);',
+            '                }',
+            '            };',
+            '            img.onerror = () => addTestLog("❌ Resource loading test failed");',
+            '            img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwN2NiYSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVzdDwvdGV4dD48L3N2Zz4=";',
+            '        };',
+            '        window.exportData = function() {',
+            '            if (!performanceMonitor) {',
+            '                addTestLog("❌ Monitor not initialized. Please run check status first.");',
+            '                return;',
+            '            }',
+            '            try {',
+            '                const exported = {',
+            '                    timestamp: new Date().toISOString(),',
+            '                    url: window.location.href,',
+            '                    userAgent: navigator.userAgent,',
+            '                    metrics: performanceMonitor.getMetrics(),',
+            '                    testLog: testLog',
+            '                };',
+            '                console.log("[DATA] Export data:", exported);',
+            '                addTestLog("📤 Export data has been printed to the browser console");',
+            '            } catch (error) {',
+            '                addTestLog("❌ Export failed: " + error.message);',
+            '            }',
+            '        };',
+            '        setTimeout(async () => {',
+            '            addTestLog("🚀 Performance monitor test page loaded");',
+            '            await checkSystemStatus();',
+            '            setTimeout(() => refreshMetrics(), 1500);',
+            '        }, 500);',
+            '        setInterval(() => {',
+            '            if (document.visibilityState === "visible" && performanceMonitor) refreshMetrics();',
+            '        }, 10000);',
+            '    </script>',
+            '</body>',
+            '</html>'
+        ].join('\n');
+
         fs.writeFileSync(testPagePath, testPageContent);
         console.log('[OK] Created performance test page: performance-test-production.html');
     }
 
-    // 鐢熸垚鎬ц兘鐩戞帶閮ㄧ讲鎶ュ憡
     generatePerformanceDeploymentReport(outputDir) {
         const report = {
             timestamp: new Date().toISOString(),
@@ -1281,7 +1090,7 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log('[OK] Generated deployment report: performance-monitor-deployment-report.json');
     }
 
-    // 鑾峰彇鏂囦欢澶у皬
+    // 闁兼儳鍢茶ぐ鍥棘閸ワ附顐藉鍫嗗啰姣?
     getFileSize(filePath) {
         try {
             const stats = fs.statSync(filePath);
@@ -1291,7 +1100,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
 
-    // 鏍煎紡鍖栨枃浠跺ぇ灏?
+    // 闁哄秶鍘х槐锟犲礌閺嶃劍鐎ù鐘烘硾閵囧洨浜?
     formatFileSize(bytes) {
         if (bytes === 0) return '0 B';
         const k = 1024;
@@ -1300,7 +1109,7 @@ class MultiLangBuilder extends ComponentBuilder {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
     }
     
-    // 鎻愬彇骞跺唴鑱斿叧閿瓹SS
+    // 闁圭粯鍔曡ぐ鍥嵁鐠哄搫鏁堕柤杈ㄦ煥閸櫻囨煥閻＄瓖S
     extractAndInlineCriticalCSS(outputDir) {
         console.log('\n Extracting and inlining critical CSS...');
         
@@ -1315,7 +1124,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 inlineThreshold: 50 * 1024 // 50KB
             });
             
-            // 杩愯鍏抽敭CSS鎻愬彇娴佺▼
+            // 閺夆晜鍔橀、鎴﹀礂閹惰姤鏆汣SS闁圭粯鍔曡ぐ鍥规担琛℃煠
             const result = extractor.run();
             
             if (result.success) {
@@ -1334,24 +1143,24 @@ class MultiLangBuilder extends ComponentBuilder {
         }
     }
     
-    // 鐢熸垚缁撴瀯鍖栨暟鎹?
+    // 闁汇垻鍠愰崹姘辩磼閹惧鈧垶宕犻弽銊︽闁?
     generateStructuredData(pageData, lang) {
-        // 濡傛灉椤甸潰鏁版嵁涓凡缁忓寘鍚粨鏋勫寲鏁版嵁閰嶇疆锛屼紭鍏堜娇鐢?
+        // 濠碘€冲€归悘澶嬨亜閻㈠憡妗ㄩ柡浣哄瀹撲焦绋夐鐐插殥缂備礁绻愮€垫﹢宕ラ銈囨尝闁哄瀚€垫煡寮悧鍫濈ウ闂佹澘绉堕悿鍡涙晬鐏炶偐鍠橀柛蹇撶墔婵炲洭鎮?
         if (pageData.structured_data && typeof pageData.structured_data === 'object') {
-            // 鏇存柊鍔ㄦ€佸瓧娈?
+            // 闁哄洤鐡ㄩ弻濠囧礉閵婏腹鍋撴担鍝ユ憻婵?
             const configStructuredData = { ...pageData.structured_data };
             configStructuredData.url = pageData.canonical_url || configStructuredData.url;
             configStructuredData.name = pageData.page_title || configStructuredData.name;
             configStructuredData.description = pageData.description || configStructuredData.description;
             configStructuredData.inLanguage = lang;
 
-            // 鏇存柊鏃ユ湡涓哄綋鍓嶆棩鏈?
+            // 闁哄洤鐡ㄩ弻濠囧籍閵夛附鍩傚☉鎾虫惈缂嶅宕滃鍡橈級闁?
             configStructuredData.dateModified = new Date().toISOString().split('T')[0];
 
             return this.buildStructuredDataPayload(configStructuredData, pageData, lang);
         }
 
-        // 鍥為€€鍒板熀鏈粨鏋勫寲鏁版嵁
+        // 闁搞儳鍋ら埀顑藉亾闁告帗婢橀悢鈧柡鍫墰缁劑寮搁崟顐㈩嚙闁轰胶澧楀畵?
         const baseStructuredData = {
             "@context": "https://schema.org",
             "@type": "WebApplication",
@@ -1385,9 +1194,9 @@ class MultiLangBuilder extends ComponentBuilder {
             "dateModified": new Date().toISOString().split('T')[0]
         };
 
-        // 濡傛灉鏄崥瀹㈤〉闈紝娣诲姞鍗氬鐗瑰畾鐨勭粨鏋勫寲鏁版嵁
+        // 濠碘€冲€归悘澶愬及椤栨艾瑙﹂悗骞垮灲閵嗗妫冮～顔剧婵烇綀顕ф慨鐐哄础濮橆剦鍚傞柣妤冩嚀閻ｉ箖鎯冮崟顓犳尝闁哄瀚€垫煡寮悧鍫濈ウ
         if (pageData.canonical_url.includes('/blog/') && !pageData.canonical_url.includes('/blog/category/') && !pageData.canonical_url.includes('/blog/tag/')) {
-            // 杩欐槸涓€涓叿浣撶殑鍗氬鏂囩珷
+            // 閺夆晜鐟﹀Σ鍛婄▔閳ь剚绋夐鍕緮濞达絾鎸惧▓鎴﹀础濮橆剦鍚傞柡鍌氭川閻?
             const blogStructuredData = {
                 "@context": "https://schema.org",
                 "@type": "BlogPosting",
@@ -1419,7 +1228,7 @@ class MultiLangBuilder extends ComponentBuilder {
             return this.buildStructuredDataPayload(blogStructuredData, pageData, lang);
         }
 
-        // 濡傛灉鏄崥瀹㈢储寮曢〉闈?
+        // 濠碘€冲€归悘澶愬及椤栨艾瑙﹂悗骞垮灮閸屻劌顕ｉ弴顫偓澶愭?
         if (pageData.canonical_url.includes('/blog') && !pageData.canonical_url.includes('/blog/')) {
             const blogIndexStructuredData = {
                 "@context": "https://schema.org",
@@ -1445,7 +1254,7 @@ class MultiLangBuilder extends ComponentBuilder {
         return this.buildStructuredDataPayload(baseStructuredData, pageData, lang);
     }
 
-    // 涓轰富缁撴瀯鍖栨暟鎹檮鍔燘readcrumb锛屾彁鍗囨悳绱㈢粨鏋滃彲璇绘€?
+    // 濞戞捁妗ㄧ€靛瞼绱掗幘瀵糕偓顖炲礌閺嶃劍娈堕柟璇″櫍濡绢噣宕濋悤姒琫adcrumb闁挎稑鏈ぐ渚€宕￠崶銊﹀仢缂佷究鍨荤划銊╁几濠婂啫璁查悹鍥╃帛閳?
     buildStructuredDataPayload(mainStructuredData, pageData, lang) {
         const breadcrumbStructuredData = this.generateBreadcrumbStructuredData(pageData, lang);
         if (!breadcrumbStructuredData) {
@@ -1461,7 +1270,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }, null, 2);
     }
 
-    // 鐢熸垚闈㈠寘灞戠粨鏋勫寲鏁版嵁
+    // 閻㈢喐鍨氶棃銏犲瘶鐏炴垹绮ㄩ弸鍕閺佺増宓?
     generateBreadcrumbStructuredData(pageData, lang) {
         if (!pageData || !pageData.canonical_url) {
             return null;
@@ -1543,14 +1352,14 @@ class MultiLangBuilder extends ComponentBuilder {
         };
     }
 
-    // URL鐗囨杞彲璇绘爣棰?
+    // URL闁绘娲﹂灞炬姜椤掆偓瑜拌尙鎷犵紒妯煎灱濡?
     humanizeSegment(segment) {
         return String(segment || '')
             .replace(/[-_]/g, ' ')
             .replace(/\b\w/g, function(c) { return c.toUpperCase(); });
     }
 
-    // 鎸夐〉闈㈢敓鎴怓AQ缁撴瀯鍖栨暟鎹?
+    // 闁圭顦甸妴澶愭閵忋垺鏅搁柟瀛樷偓鎻俀缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟?
     generateFAQStructuredDataForPage(pageName, lang) {
         const qaMap = {
             'responsive-tester': [
@@ -1609,7 +1418,7 @@ class MultiLangBuilder extends ComponentBuilder {
         return this.generateFAQStructuredDataFromPairs(lang, pairs);
     }
 
-    // 鏍规嵁闂瓟閿鐢熸垚FAQ JSON-LD
+    // 闁哄秷顫夊畵渚€姊婚鍓ф憰闂佹鍠栭顕€鎮介悢绋跨亣FAQ JSON-LD
     generateFAQStructuredDataFromPairs(lang, qaKeyPairs) {
         const translations = this.translations.get(lang);
         if (!translations || !Array.isArray(qaKeyPairs) || qaKeyPairs.length === 0) {
@@ -1649,29 +1458,29 @@ class MultiLangBuilder extends ComponentBuilder {
         return '<script type="application/ld+json">\n' + JSON.stringify(faqStructuredData, null, 2) + '\n</script>';
     }
 
-    // 淇闈欐€佽祫婧愯矾寰?
+    // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
     fixStaticResourcePaths(html, outputPath) {
-        // 璁＄畻鐩稿璺緞娣卞害 - 鏍囧噯鍖栬矾寰勫垎闅旂涓烘鏂滄潬
+        // 閻犱緤绱曢悾濠氭儎缁嬫鍤犻悹渚灠缁剁偛菐閸楃偛顔?- 闁哄秴娲ら崳顖炲礌閺嶎剛鐔呯€垫澘瀚崹搴ㄦ⒕閺冨偆鍎婂☉鎾跺劋椤掓粓寮鍕祮
         const normalizedPath = outputPath.replace(/\\/g, '/');
         const depth = normalizedPath.split('/').length - 1;
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
         
-        // 娉ㄦ剰锛氭垜浠凡缁忓湪鏋勫缓杩囩▼涓缃簡姝ｇ‘鐨勮矾寰勫彉閲忥紝
-        // 杩欓噷鍙慨澶嶉偅浜涘彲鑳介仐婕忕殑纭紪鐮佽矾寰?
+        // 婵炲鍔嶉崜浼存晬濮橆厼鐏夊ù鐙€鍓欓崙锛勭磼韫囨挻韬柡瀣缂傛挻娼婚崶鈹炬煠濞戞搩鍙€椤旀洜绱旈鑽ゅ晩婵繐绲块垾姗€鎯冮崟顔剧唴鐎垫澘瀚ぐ澶愭煂韫囥儳绀?
+        // 閺夆晜鐟╅崳鐑藉矗椤忓啯鍙忓璺虹Ч閸嬪懏绂嶅☉妯鸿闁煎厖绮欐禒鎰煶韫囨洘鐣辩痪顓у墰缁鳖亪鎯嶆担鐣岀唴鐎?
         
-        // 淇浠讳綍閬楃暀鐨勭‖缂栫爜CSS璺緞
+        // 濞ｅ浂鍠栭ˇ鍙夌鐠佸磭绉块梺顒侇殘閺嗏偓闁汇劌瀚垾鏍磽閺嶎偆鍨矯SS閻犱警鍨扮欢?
         html = html.replace(
             /href="css\/main\.css"/g,
             `href="${prefix}css/main.css"`
         );
         
-        // 淇浠讳綍閬楃暀鐨勭‖缂栫爜JavaScript璺緞  
+        // 濞ｅ浂鍠栭ˇ鍙夌鐠佸磭绉块梺顒侇殘閺嗏偓闁汇劌瀚垾鏍磽閺嶎偆鍨矹avaScript閻犱警鍨扮欢? 
         html = html.replace(
             /src="js\/app\.js"/g,
             `src="${prefix}js/app.js"`
         );
         
-        // 淇浠讳綍閬楃暀鐨勭炕璇戞枃浠惰矾寰?
+        // 濞ｅ浂鍠栭ˇ鍙夌鐠佸磭绉块梺顒侇殘閺嗏偓闁汇劌瀚悙鏇犳嫚閹寸偞鐎ù鐘冲劶閻儳顕?
         html = html.replace(
             /href="locales\/en\/translation\.json"/g,
             `href="${prefix}locales/en/translation.json"`
@@ -1681,15 +1490,15 @@ class MultiLangBuilder extends ComponentBuilder {
             `href="${prefix}locales/zh/translation.json"`
         );
         
-        // 淇鍗氬鍐呭涓殑鍥剧墖璺緞锛堥噸瑕侊細淇鍥剧墖鏄剧ず闂锛?
-        // 灏?../images/ 淇涓烘纭殑鐩稿璺緞
+        // 濞ｅ浂鍠栭ˇ鏌ュ础濮橆剦鍚傞柛鎰噹椤旀劖绋夐鐘崇暠闁搞儱澧芥晶鏍崉椤栨氨绐為柨娑樼墦閸ｅ摜鎲版笟濠勭獥濞ｅ浂鍠栭ˇ鏌ュ炊閸撗冾暬闁哄嫬澧介妵姘舵⒒椤曗偓椤ｆ枻绱?
+        // 閻?../images/ 濞ｅ浂鍠楅婊勭▔閻戞﹩鍔€缁绢収鍠氬▓鎴︽儎缁嬫鍤犻悹渚灠缁?
         html = html.replace(
             /src="\.\.\/(images\/[^"]+)"/g,
             `src="${prefix}$1"`
         );
         
-        // 淇鍗氬鏂囩珷涓殑鍥剧墖璺緞锛堢洿鎺?images/ 鍒版纭殑鐩稿璺緞锛?
-        // 鍗氬鏂囩珷閫氬父鍦?zh/blog/ 鐩綍涓嬶紝闇€瑕?../../images/
+        // 濞ｅ浂鍠栭ˇ鏌ュ础濮橆剦鍚傞柡鍌氭川閻濋攱绋夐鐘崇暠闁搞儱澧芥晶鏍崉椤栨氨绐為柨娑樼墢濞插潡骞?images/ 闁告帞澧楅婊呮兜椤旂偓鐣遍柣鈺冾焾椤曨喚鎹勯姘辩獮閿?
+        // 闁告鑹鹃褰掑棘閸モ晝褰块梺顐ｈ壘閻栧爼宕?zh/blog/ 闁烩晩鍠栫紞宥嗙▔鐎ｅ墎绀夐梻鍥ｅ亾閻?../../images/
         html = html.replace(
             /src="(images\/[^"]+)"/g,
             `src="${prefix}$1"`
@@ -1698,21 +1507,21 @@ class MultiLangBuilder extends ComponentBuilder {
         return html;
     }
     
-    // 鐢熸垚鏍圭洰褰曞崥瀹㈠唴瀹癸紙鑻辨枃鐗堟湰锛?
+    // 闁汇垻鍠愰崹姘跺冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨归崬瀵糕偓鍦缁辨瑩鎳熸潏銊︾€柣妤€鐗婂﹢甯窗
     generateRootBlogContent(outputDir, config, englishTranslations) {
         console.log(' Generating root directory blog content...');
         
-        // 鍒涘缓鏍圭洰褰曞崥瀹㈢洰褰?
+        // 闁告帗绋戠紓鎾诲冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨诲ú鎷屻亹?
         const rootBlogDir = path.join(outputDir, 'blog');
         fs.mkdirSync(rootBlogDir, { recursive: true });
         
-        // 鍒涘缓鍗氬瀛愮洰褰?
+        // 闁告帗绋戠紓鎾诲础濮橆剦鍚傞悗娑欏姉濞叉媽銇?
         const blogSubDirs = ['category', 'tag'];
         blogSubDirs.forEach(subDir => {
             fs.mkdirSync(path.join(rootBlogDir, subDir), { recursive: true });
         });
         
-        // 鑾峰彇鎵€鏈夊崥瀹㈢浉鍏抽〉闈?
+        // 闁兼儳鍢茶ぐ鍥箥閳ь剟寮垫径濠傝Е閻庡箍鍨诲ù澶愬礂閹跺鈧妫?
         const blogPages = config.pages.filter(page => 
             page.output.startsWith('blog/') && 
             (!page.enabled_languages || page.enabled_languages.includes('en'))
@@ -1720,10 +1529,10 @@ class MultiLangBuilder extends ComponentBuilder {
         
         console.log(`   Found ${blogPages.length} blog pages to generate at root level`);
         
-        // 涓烘瘡涓崥瀹㈤〉闈㈢敓鎴愭牴鐩綍鐗堟湰
+        // 濞戞挾鍎ら惁鈩冪▔椤忓嫬瑙﹂悗骞垮灲閵嗗妫冮姀銏℃櫢闁瑰瓨鍔栭悧鎾儎椤旇偐绉块柣妤€鐗婂﹢?
         for (const page of blogPages) {
             try {
-                // 鍑嗗鏍圭洰褰曞崥瀹㈤〉闈㈡暟鎹?
+                // 闁告垵妫楅ˇ顒勫冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨介妴澶愭閵忊剝娈堕柟?
                 const rootPageData = {
                     lang: 'en',
                     lang_prefix: '',
@@ -1732,7 +1541,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     ...page.config
                 };
                 
-                // 璋冩暣鏍圭洰褰曞崥瀹㈤〉闈㈢殑璺緞
+                // 閻犲鍟弳锝夊冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨介妴澶愭閵忋垺鐣遍悹渚灠缁?
                 rootPageData.css_path = '../css';
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
@@ -1740,13 +1549,13 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.blog_url = this.generateBlogUrl(0, 'en', true);
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 
-                // 鏇存柊canonical URL涓烘牴鐩綍鐗堟湰
+                // 闁哄洤鐡ㄩ弻濂礱nonical URL濞戞挾鍎ら悧鎾儎椤旇偐绉块柣妤€鐗婂﹢?
                 if (rootPageData.canonical_url) {
                     rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/blog/', '/blog/');
                     rootPageData.og_url = rootPageData.canonical_url;
                 }
                 
-                // 璁剧疆hreflang鏁版嵁
+                // 閻犱礁澧介悿鍞剅eflang闁轰胶澧楀畵?
                 rootPageData.base_url = 'https://screensizechecker.com';
                 const blogPath = page.output.replace('blog/', '/blog/');
                 rootPageData.page_path = blogPath.replace('.html', '');
@@ -1756,7 +1565,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
-                // 澶勭悊缈昏瘧
+                // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
                     const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
                     if (translationValue) {
@@ -1781,22 +1590,22 @@ class MultiLangBuilder extends ComponentBuilder {
                     rootPageData.description = rootPageData.og_description || '';
                 }
                 
-                // 娣诲姞缁撴瀯鍖栨暟鎹?
+                // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
                 
-                // 鏋勫缓HTML
+                // 闁哄瀚紓鎻孴ML
                 let html = this.buildPage(page.template, rootPageData);
                 
-                // 搴旂敤鑻辨枃缈昏瘧
+                // 閹煎瓨姊婚弫銈夋嚐鏉堛劍鐎紓鍫熸閻?
                 html = this.translateContent(html, englishTranslations);
                 
-                // 澶勭悊鍐呴摼
+                // 濠㈣泛瀚幃濠囧礃閸涘瓨鎳?
                 html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
                 
-                // 淇闈欐€佽祫婧愯矾寰?
+                // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
                 html = this.fixStaticResourcePaths(html, page.output);
                 
-                // 鍐欏叆鏂囦欢
+                // 闁告劖鐟ラ崣鍡涘棘閸ワ附顐?
                 const outputPath = path.join(outputDir, page.output);
                 const outputDirPath = path.dirname(outputPath);
                 
@@ -1815,15 +1624,15 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log('[OK] Root directory blog content generated');
     }
     
-    // 鐢熸垚鏍圭洰褰曡澶囬〉闈紙鑻辨枃鐗堟湰锛?
+    // 闁汇垻鍠愰崹姘跺冀閸︻厽绐楃憸鐗堟礉椤旀洘寰勯崶顑锯偓澶愭椤喚绀勯柤鏄忛哺閺嬪啴鎮ч崼鐔告嫳閿?
     generateRootDevicePages(outputDir, config, englishTranslations) {
         console.log(' Generating root directory device pages...');
         
-        // 鍒涘缓鏍圭洰褰曡澶囩洰褰?
+        // 闁告帗绋戠紓鎾诲冀閸︻厽绐楃憸鐗堟礉椤旀洘寰勯崶鈺傜獥鐟?
         const rootDevicesDir = path.join(outputDir, 'devices');
         fs.mkdirSync(rootDevicesDir, { recursive: true });
         
-        // 鑾峰彇鎵€鏈夎澶囬〉闈?
+        // 闁兼儳鍢茶ぐ鍥箥閳ь剟寮垫径搴晭濠㈣泛娲妴澶愭?
         const devicePages = config.pages.filter(page => 
             page.output.startsWith('devices/') && 
             (!page.enabled_languages || page.enabled_languages.includes('en'))
@@ -1831,10 +1640,10 @@ class MultiLangBuilder extends ComponentBuilder {
         
         console.log(`   Found ${devicePages.length} device pages to generate at root level`);
         
-        // 涓烘瘡涓澶囬〉闈㈢敓鎴愭牴鐩綍鐗堟湰
+        // 濞戞挾鍎ら惁鈩冪▔椤忓浂鍟庡璺烘喘閵嗗妫冮姀銏℃櫢闁瑰瓨鍔栭悧鎾儎椤旇偐绉块柣妤€鐗婂﹢?
         for (const page of devicePages) {
             try {
-                // 鍑嗗鏍圭洰褰曡澶囬〉闈㈡暟鎹?
+                // 闁告垵妫楅ˇ顒勫冀閸︻厽绐楃憸鐗堟礉椤旀洘寰勯崶顑锯偓澶愭閵忊剝娈堕柟?
                 const rootPageData = {
                     lang: 'en',
                     lang_prefix: '',
@@ -1843,7 +1652,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     ...page.config
                 };
                 
-                // 璋冩暣鏍圭洰褰曡澶囬〉闈㈢殑璺緞
+                // 閻犲鍟弳锝夊冀閸︻厽绐楃憸鐗堟礉椤旀洘寰勯崶顑锯偓澶愭閵忋垺鐣遍悹渚灠缁?
                 rootPageData.css_path = '../css';
                 rootPageData.locales_path = '../locales';
                 rootPageData.js_path = '../js';
@@ -1852,13 +1661,13 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.privacy_policy_url = '../privacy-policy.html';
                 rootPageData.device_links_base = '';
                 
-                // 鏇存柊canonical URL涓烘牴鐩綍鐗堟湰
+                // 闁哄洤鐡ㄩ弻濂礱nonical URL濞戞挾鍎ら悧鎾儎椤旇偐绉块柣妤€鐗婂﹢?
                 if (rootPageData.canonical_url) {
                     rootPageData.canonical_url = rootPageData.canonical_url.replace('/en/devices/', '/devices/').replace('.html', '');
                     rootPageData.og_url = rootPageData.canonical_url;
                 }
                 
-                // 璁剧疆hreflang鏁版嵁
+                // 閻犱礁澧介悿鍞剅eflang闁轰胶澧楀畵?
                 rootPageData.base_url = 'https://screensizechecker.com';
                 const devicePath = page.output.replace('devices/', '/devices/');
                 rootPageData.page_path = devicePath.replace('.html', '');
@@ -1868,7 +1677,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 
-                // 澶勭悊缈昏瘧
+                // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
                     const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
                     if (translationValue) {
@@ -1893,14 +1702,14 @@ class MultiLangBuilder extends ComponentBuilder {
                     rootPageData.description = rootPageData.og_description || '';
                 }
 
-                // 璁剧疆og:image鍜宱g:locale
+                // 閻犱礁澧介悿鍞巊:image闁告粌顔坓:locale
                 rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
                 rootPageData.og_locale = 'en_US';
 
-                // 娣诲姞缁撴瀯鍖栨暟鎹?
+                // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
                 rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
 
-                // 娣诲姞瀵艰埅鐘舵€佹爣璇?
+                // 婵烇綀顕ф慨鐐碘偓浣冨閸╁懘鎮╅懜纰樺亾娴ｅ湱鍨奸悹?
                 const pagePath = page.output || '';
                 rootPageData.is_home = pagePath === 'index.html' || pagePath === '';
                 rootPageData.is_blog = false;
@@ -1909,22 +1718,22 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.is_tools = isToolPage;
                 rootPageData.is_devices = isDevicePage;
                 
-                // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+                // 濞戞挾鍎ら悧瀹犵疀閸愩劋绱ｉ柛蹇曞厴閵嗗妫冮姀鈩冩殘闁稿浚妾禔Q缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟璇″櫙缁辨繈骞撻幇顒€纾砈ERP閻庨潧鐬肩划銊╁几濠婂嫭绨氬ù?
                 rootPageData.faq_structured_data = this.generateFAQStructuredDataForPage(page.name, 'en');
                 
-                // 鏋勫缓HTML
+                // 闁哄瀚紓鎻孴ML
                 let html = this.buildPage(page.template, rootPageData);
                 
-                // 搴旂敤鑻辨枃缈昏瘧
+                // 閹煎瓨姊婚弫銈夋嚐鏉堛劍鐎紓鍫熸閻?
                 html = this.translateContent(html, englishTranslations);
                 
-                // 澶勭悊鍐呴摼
+                // 濠㈣泛瀚幃濠囧礃閸涘瓨鎳?
                 html = this.internalLinksProcessor.processPageLinks(html, page.name, 'en');
                 
-                // 淇闈欐€佽祫婧愯矾寰?
+                // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
                 html = this.fixStaticResourcePaths(html, page.output);
                 
-                // 鍐欏叆鏂囦欢
+                // 闁告劖鐟ラ崣鍡涘棘閸ワ附顐?
                 const outputPath = path.join(outputDir, page.output);
                 fs.writeFileSync(outputPath, html);
                 console.log(`[OK] Generated root device page: ${page.output}`);
@@ -1937,20 +1746,20 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log('[OK] Root directory device pages generated');
     }
 
-    // 鐢熸垚璇█閫夋嫨绱㈠紩椤甸潰
+    // 闁汇垻鍠愰崹姘辨嫚椤撯檧鏋呴梺顐㈩槹鐎氥劎妲愰姀鐘电┛濡炪倗鏁诲?
     generateLanguageIndex(outputDir) {
         console.log('\n Generating root English page and language selection...');
         
-        // 瀹氫箟宸插惎鐢ㄧ殑璇█锛堝彧鏈夎嫳鏂囧拰涓枃锛?
+        // 閻庤鐭粻鐔奉啅閹绘帗鍎欓柣顫妿濞堟垹鎷犻鈾€鏋呴柨娑樼墕瑜把囧嫉婢跺骸顏伴柡鍌氭搐閹风増绋夐鐔哥€敍?
         const enabledLanguages = ['en', 'zh'];
         
-        // 1. 鐢熸垚鏍圭洰褰曡嫳鏂囦富椤靛唴瀹癸紙涓嶅啀閲嶅畾鍚戯級
+        // 1. 閻㈢喐鍨氶弽鍦窗瑜版洝瀚抽弬鍥﹀瘜妞ら潧鍞寸€圭櫢绱欐稉宥呭晙闁插秴鐣鹃崥鎴礆
         console.log(' Generating root directory English homepage...');
         
-        // 鑾峰彇鑻辨枃缈昏瘧
+        // 闁兼儳鍢茶ぐ鍥嚐鏉堛劍鐎紓鍫熸閻?
         const englishTranslations = this.translations.get('en') || {};
         
-        // 閰嶇疆鏍圭洰褰曢〉闈㈡暟鎹紝鍩轰簬pages-config.json涓殑index椤甸潰閰嶇疆
+        // 闂佹澘绉堕悿鍡涘冀閸︻厽绐楃憸鐗堟礋閵嗗妫冮姀鈩冩闁硅鍣槐婵嬪春鏉炴壆鑹緋ages-config.json濞戞搩鍘惧▓鎱絥dex濡炪倗鏁诲浼存煀瀹ュ洨鏋?
         const config = JSON.parse(fs.readFileSync('build/pages-config.json', 'utf8'));
         const indexPageConfig = config.pages.find(page => page.name === 'index');
         
@@ -1958,7 +1767,7 @@ class MultiLangBuilder extends ComponentBuilder {
             throw new Error('Index page configuration not found in pages-config.json');
         }
         
-        // 鍑嗗鏍圭洰褰曢〉闈㈡暟鎹?
+        // 闁告垵妫楅ˇ顒勫冀閸︻厽绐楃憸鐗堟礋閵嗗妫冮姀鈩冩闁?
         const rootPageData = {
             lang: 'en',
             lang_prefix: '',
@@ -1967,7 +1776,7 @@ class MultiLangBuilder extends ComponentBuilder {
             ...indexPageConfig.config
         };
         
-        // 璁剧疆鏍圭洰褰曠壒瀹氱殑璺緞鍜孶RL
+        // 閻犱礁澧介悿鍡涘冀閸︻厽绐楃憸鐗堟礈婢规帞鈧姘ㄥ▓鎴犳崉椤栨氨绐為柛婊冾劘RL
         rootPageData.canonical_url = 'https://screensizechecker.com/';
         rootPageData.og_url = 'https://screensizechecker.com/';
         rootPageData.css_path = 'css';
@@ -1978,7 +1787,7 @@ class MultiLangBuilder extends ComponentBuilder {
         rootPageData.privacy_policy_url = 'privacy-policy.html';
         rootPageData.device_links_base = 'devices/';
         
-        // 璁剧疆鏍圭洰褰曢〉闈㈢殑hreflang鏁版嵁
+        // 閻犱礁澧介悿鍡涘冀閸︻厽绐楃憸鐗堟礋閵嗗妫冮姀銏＄暠hreflang闁轰胶澧楀畵?
         rootPageData.base_url = 'https://screensizechecker.com';
         rootPageData.page_path = '/';
         rootPageData.hreflang_root_url = 'https://screensizechecker.com/';
@@ -1987,7 +1796,7 @@ class MultiLangBuilder extends ComponentBuilder {
         rootPageData.hreflang_de_url = 'https://screensizechecker.com/de/';
         rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
         
-        // 浠庣炕璇戞枃浠朵腑鑾峰彇椤甸潰鐗瑰畾鐨勭炕璇戝€?
+        // 濞寸姴娴烽悙鏇犳嫚閹寸偞鐎ù鐘虫构閼垫垿鎳㈠畡鏉跨悼濡炪倗鏁诲浼存偋閻熸壆鏆伴柣銊ュ閻愭洜鎷犻幋婵冨亾?
         if (rootPageData.page_title_key) {
             const translationValue = this.getNestedTranslation(englishTranslations, rootPageData.page_title_key);
             if (translationValue) {
@@ -1999,7 +1808,7 @@ class MultiLangBuilder extends ComponentBuilder {
             rootPageData.page_title = rootPageData.og_title || 'Screen Size Checker';
         }
         
-        // 纭繚title鍙橀噺涔熻璁剧疆
+        // 缁绢収鍠曠换姝礽tle闁告瑦锕㈤崳鐑樼▕閻旀椿娼堕悹浣稿⒔閻?
         rootPageData.title = rootPageData.page_title;
         
         if (rootPageData.page_description_key) {
@@ -2013,49 +1822,49 @@ class MultiLangBuilder extends ComponentBuilder {
             rootPageData.description = rootPageData.og_description || '';
         }
         
-        // 璁剧疆og:image鍜宱g:locale
+        // 閻犱礁澧介悿鍞巊:image闁告粌顔坓:locale
         rootPageData.og_image = 'https://screensizechecker.com/images/og-default.png';
         rootPageData.og_locale = 'en_US';
 
-        // 娣诲姞缁撴瀯鍖栨暟鎹?
+        // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
         rootPageData.structured_data = this.generateStructuredData(rootPageData, 'en');
 
-        // 娣诲姞瀵艰埅鐘舵€佹爣璇?
+        // 婵烇綀顕ф慨鐐碘偓浣冨閸╁懘鎮╅懜纰樺亾娴ｅ湱鍨奸悹?
         rootPageData.is_home = true;
         rootPageData.is_blog = false;
         rootPageData.is_tools = false;
         rootPageData.is_devices = false;
         
-        // 涓烘牳蹇冨伐鍏烽〉闈㈡敞鍏AQ缁撴瀯鍖栨暟鎹紝鎻愬崌SERP瀵岀粨鏋滄満浼?
+        // 濞戞挾鍎ら悧瀹犵疀閸愩劋绱ｉ柛蹇曞厴閵嗗妫冮姀鈩冩殘闁稿浚妾禔Q缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟璇″櫙缁辨繈骞撻幇顒€纾砈ERP閻庨潧鐬肩划銊╁几濠婂嫭绨氬ù?
         rootPageData.faq_structured_data = this.generateFAQStructuredDataForPage(indexPageConfig.name, 'en');
         
-        // 鏋勫缓鏍圭洰褰旽TML椤甸潰
+        // 闁哄瀚紓鎾诲冀閸︻厽绐楃憸鐗堟TML濡炪倗鏁诲?
         let rootHtml = this.buildPage(indexPageConfig.template, rootPageData);
         
-        // 搴旂敤鑻辨枃缈昏瘧
+        // 閹煎瓨姊婚弫銈夋嚐鏉堛劍鐎紓鍫熸閻?
         rootHtml = this.translateContent(rootHtml, englishTranslations);
         
-        // 澶勭悊鍐呴摼锛堟牴鐩綍椤甸潰浣跨敤鐗规畩鐨勯〉闈D锛?
+        // 濠㈣泛瀚幃濠囧礃閸涘瓨鎳犻柨娑樼墛閻楁挳鎯勯鑲╃Э濡炪倗鏁诲鐗堟媴鐠恒劍鏆忛柣妤勵潐閻ｂ晠鎯冮崟顖樷偓澶愭椤㈢枍閿?
         rootHtml = this.internalLinksProcessor.processPageLinks(rootHtml, 'index-root', 'en');
         
-        // 鏇存柊HTML lang灞炴€?
+        // 闁哄洤鐡ㄩ弻濂孴ML lang閻忕偟鍋為埀?
         rootHtml = rootHtml.replace('<html lang="en">', '<html lang="en">');
         
-        // 淇闈欐€佽祫婧愯矾寰勶紙鏍圭洰褰曚笉闇€瑕侀澶栫殑璺緞鍓嶇紑锛?
+        // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕ラ崟鍓佺闁哄秴婀卞ú鎷屻亹閺囨氨鐟濋梻鍥ｅ亾閻熸洑绶氶·鍌涘緞閺嶎偅鐣遍悹渚灠缁剁偤宕滃鍥╃；閿?
         rootHtml = this.fixStaticResourcePaths(rootHtml, 'index.html');
         
-        // 鍐欏叆鏍圭洰褰昳ndex.html
+        // 闁告劖鐟ラ崣鍡涘冀閸︻厽绐楃憸鐗堟Ъndex.html
         fs.writeFileSync(path.join(outputDir, 'index.html'), rootHtml);
         console.log('[OK] Root English homepage created (no redirect)');
         
-        // 1.5. 璺宠繃鏍圭洰褰曞崥瀹㈠唴瀹圭敓鎴愶紝鍗氬閾炬帴灏嗘寚鍚?/en/blog/
+        // 1.5. 閻犲搫鐤囩换鍐冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨归崬瀵糕偓鐟版贡閺佹捇骞嬮幇鍓佺闁告鑹鹃褰掓煣閻愵剙澶嶉悘蹇撴鐎垫岸宕?/en/blog/
         console.log(' Skipping root directory blog content generation - blog links will point to /en/blog/');
         
-        // 1.6. 鐢熸垚鏍圭洰褰曡澶囬〉闈紙鑻辨枃鐗堟湰锛?
+        // 1.6. 闁汇垻鍠愰崹姘跺冀閸︻厽绐楃憸鐗堟礉椤旀洘寰勯崶顑锯偓澶愭椤喚绀勯柤鏄忛哺閺嬪啴鎮ч崼鐔告嫳閿?
         this.generateRootDevicePages(outputDir, config, englishTranslations);
         
-        // 2. 鐢熸垚璇█閫夋嫨椤甸潰鍒?select-language.html
-        // 璇█閰嶇疆
+        // 2. 闁汇垻鍠愰崹姘辨嫚椤撯檧鏋呴梺顐㈩槹鐎氥劍銇勯悽鍛婃〃闁?select-language.html
+        // 閻犲浂鍙€閳诲牓鏌婂鍥╂瀭
         const languageConfigs = [
             { code: 'en', name: 'English', flag: 'EN' },
             { code: 'zh', name: 'Chinese', flag: 'ZH' },
@@ -2069,7 +1878,7 @@ class MultiLangBuilder extends ComponentBuilder {
             { code: 'it', name: 'Italiano', flag: 'IT' }
         ];
         
-        // 鐢熸垚璇█鍗＄墖HTML
+        // 闁汇垻鍠愰崹姘辨嫚椤撯檧鏋呴柛妤嬬磿婢ф湌TML
         const languageCards = languageConfigs.map(lang => {
             const isEnabled = enabledLanguages.includes(lang.code);
             
@@ -2113,7 +1922,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }
         .language-card.disabled .flag { opacity: 0.5; }
         .language-card.disabled::after {
-            content: "鍗冲皢鎺ㄥ嚭";
+            content: "閸楀啿鐨㈤幒銊ュ毉";
             position: absolute;
             top: 50%;
             left: 50%;
@@ -2134,34 +1943,34 @@ class MultiLangBuilder extends ComponentBuilder {
     </style>
 </head>
 <body>
-    <h1>馃實 Screen Size Checker</h1>
-    <p class="subtitle">Choose your language / 閫夋嫨鎮ㄧ殑璇█</p>
+    <h1>棣冨 Screen Size Checker</h1>
+    <p class="subtitle">Choose your language / 闂侇偄顦扮€氥劑骞冮妸褎鐣遍悹鍥跺弨閳?/p>
     
     <div class="language-grid">
 ${languageCards}
     </div>
     
-    <p class="note">馃挕 鍏朵粬璇█鐗堟湰姝ｅ湪缈昏瘧涓紝鏁鏈熷緟锛?br>Other language versions are being translated, stay tuned!</p>
+    <p class="note">棣冩寱 闁稿繑婀圭划顒傛嫚椤撯檧鏋呴柣妤€鐗婂﹢鏉款潰閿濆懏韬紓鍫熸閻ρ勭▔椤撱劎绀夐柡渚囧墲椤曨剟寮甸悢椋庣閿涙瓬r>Other language versions are being translated, stay tuned!</p>
     
     <script>
-        // 鑷姩璇█妫€娴嬪拰閲嶅畾鍚戯紙浠呴檺宸插惎鐢ㄧ殑璇█锛?
+        // 闁煎浜滄慨鈺冩嫚椤撯檧鏋呮俊顐熷亾婵炴潙顑呴幏浼存煂瀹ュ懐鏆伴柛姘煀缁辨瑦绂掗崨瀛橆€欑€瑰憡褰冮幆搴ㄦ偨閵娧勭暠閻犲浂鍙€閳诲牞绱?
         function detectAndRedirect() {
             const userLang = navigator.language || navigator.userLanguage;
             const langCode = userLang.split('-')[0];
-            const availableLangs = ${JSON.stringify(enabledLanguages)}; // 浠呭凡鍚敤鐨勮瑷€
+            const availableLangs = ${JSON.stringify(enabledLanguages)}; // 濞寸姴鎳庨崙锟犲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀?
             
             if (availableLangs.includes(langCode)) {
                 const targetUrl = langCode + '/index.html';
                 console.log('Auto-redirecting to:', targetUrl);
-                // window.location.href = targetUrl; // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄩ噸瀹氬悜
+                // window.location.href = targetUrl; // 閸欐牗绉峰▔銊╁櫞娴犮儱鎯庨悽銊ㄥ殰閸斻劑鍣哥€规艾鎮?
             } else {
-                // 濡傛灉鐢ㄦ埛璇█涓嶅湪鍙敤鍒楄〃涓紝榛樿璺宠浆鍒拌嫳鏂?
+                // 濠碘€冲€归悘澶愭偨閵婏箑鐓曢悹鍥跺弨閳诲牊绋夊鍛含闁告瑯鍨抽弫銈夊礆濡ゅ嫨鈧啯绋夐銊х濮掓稒顭堥鑽ゆ崉鐎圭姵绁柛鎺撳鐎氭娊寮?
                 console.log('Language not available, defaulting to English');
-                // window.location.href = 'en/index.html'; // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄩ噸瀹氬悜
+                // window.location.href = 'en/index.html'; // 閸欐牗绉峰▔銊╁櫞娴犮儱鎯庨悽銊ㄥ殰閸斻劑鍣哥€规艾鎮?
             }
         }
         
-        // detectAndRedirect(); // 鍙栨秷娉ㄩ噴浠ュ惎鐢ㄨ嚜鍔ㄨ瑷€妫€娴?
+        // detectAndRedirect(); // 闁告瑦鐗楃粔宄扳枖閵娾晛娅炲ù鐘劚閹酣鎮介妸銊ユ闁告柣鍔忛銏㈡嚊閳ь剙螞閳ь剙霉?
     </script>
 </body>
 </html>`;
@@ -2170,15 +1979,15 @@ ${languageCards}
         console.log('[OK] Language selection page created at select-language.html');
     }
 
-    // 鐢熸垚澶氳瑷€缃戠珯鍦板浘锛堝彧鍖呭惈鍚敤鐨勮瑷€锛?
+    // 闁汇垻鍠愰崹姘緞濮樻剚鍤旈悷灏佸亾缂傚啯鍨归悵顖炲捶閺夋寧绂堥柨娑樼墕瑜把囧礌閸涱厽鍎撻柛姘煎灣閺併倝鎯冮崟顕呭殧閻熷皝鍋撻敍?
     generateMultiLanguageSitemap(outputDir) {
         console.log('\n[OK] Generating multilingual sitemap (enabled languages only)...');
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
-        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 鍙寘鍚惎鐢ㄧ殑璇█
+        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
         
-        // 瀹氫箟椤甸潰缁撴瀯锛堟棤.html鍚庣紑锛屽尮閰岰loudflare Pages鐨刄RL鏍煎紡锛?
+        // 閻庤鐭粻鐔搞亜閻㈠憡妗ㄧ紓浣规尰閻庮垶鏁嶉崼鐔革骏.html闁告艾娴风槐鎴︽晬鐏炶棄鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐鈽呯窗
         const pages = [
             { path: '', priority: '1.0', changefreq: 'weekly' },
             { path: '/devices/iphone-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
@@ -2192,7 +2001,7 @@ ${languageCards}
             { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
         ];
         
-        // 瀹氫箟鍗氬椤甸潰缁撴瀯
+        // 閻庤鐭粻鐔煎础濮橆剦鍚傚銈囨暬濞兼壆绱掗幘瀵糕偓?
         const blogPages = [
             { path: '/blog', priority: '0.9', changefreq: 'weekly' },
             { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
@@ -2226,7 +2035,7 @@ ${languageCards}
             { path: '/blog/tag/web-development', priority: '0.6', changefreq: 'monthly' }
         ];
         
-        // 涓枃鐗规湁鐨勬爣绛鹃〉闈?
+        // 濞戞搩鍘介弸鍐偋鐟欏嫭绠掗柣銊ュ閻栵絿绮垫ィ鍐︹偓澶愭?
         const zhBlogPages = [
             { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
             { path: '/blog/tag/responsive-design', priority: '0.6', changefreq: 'monthly' },
@@ -2238,7 +2047,7 @@ ${languageCards}
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
         
-        // 娣诲姞鏍硅矾寰勶紙鑻辨枃鐗堟湰鐨勪富瑕佸叆鍙ｏ級
+        // 婵烇綀顕ф慨鐐哄冀绾懐鐔呯€垫澘瀚哥槐娆撴嚐鏉堛劍鐎柣妤€鐗婂﹢浼存儍閸曨亜鐦滈悷鏇氱閸欏棝宕ｉ敐蹇曠
         sitemapContent += `
     <url>
         <loc>${baseUrl}/</loc>
@@ -2247,7 +2056,7 @@ ${languageCards}
         <priority>1.0</priority>
     </url>`;
         
-        // 娣诲姞鏍圭洰褰曠殑璁惧椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
+        // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟垹鎷嬮幆褜妲靛銈囨暬濞间即鏁嶉崼锝咁伆闁哄倸娲ｇ€靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
         pages.forEach(page => {
             if (page.path !== '') {
                 sitemapContent += `
@@ -2260,7 +2069,7 @@ ${languageCards}
             }
         });
         
-        // 娣诲姞鏍圭洰褰曠殑鍗氬椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
+        // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟垿宕″顒夊悅濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
         blogPages.forEach(page => {
             sitemapContent += `
     <url>
@@ -2271,8 +2080,8 @@ ${languageCards}
     </url>`;
         });
         
-        // 娣诲姞鏍圭洰褰曠殑Hub椤甸潰锛堣嫳鏂囦富瑕佺増鏈級
-        // 浠巔ages-config.json璇诲彇Hub椤甸潰
+        // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟厰ub濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
+        // 濞寸姴绐媋ges-config.json閻犲洩顕цぐ鍢搖b濡炪倗鏁诲?
         const configPath = path.join(__dirname, 'pages-config.json');
         const pagesConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         const hubPagesEn = pagesConfig.pages.filter(p => 
@@ -2291,7 +2100,7 @@ ${languageCards}
     </url>`;
         });
         
-        // 娣诲姞璇█閫夋嫨椤甸潰
+        // 婵烇綀顕ф慨鐐垫嫚椤撯檧鏋呴梺顐㈩槹鐎氥劍銇勯悽鍛婃〃
         sitemapContent += `
     <url>
         <loc>${baseUrl}/select-language</loc>
@@ -2300,17 +2109,17 @@ ${languageCards}
         <priority>0.8</priority>
     </url>`;
         
-        // 鍙负闈炶嫳鏂囩殑鍚敤璇█鐢熸垚URL锛堣嫳鏂囧凡鍦ㄦ牴鐩綍锛?
+        // 闁告瑯浜欑拹鐔兼閻愯泛顏伴柡鍌氭川濞堟垿宕ラ婊勬殢閻犲浂鍙€閳诲牓鎮介悢绋跨亣URL闁挎稑鐗愮€氭娊寮崶褍鍤掗柛锔哄妽閻楁挳鎯勯鑲╃Э閿?
         enabledLanguages.forEach(lang => {
-            // 璺宠繃鑻辨枃锛屽洜涓鸿嫳鏂囩増鏈凡缁忓湪鏍圭洰褰?
+            // 閻犲搫鐤囩换鍐嚐鏉堛劍鐎柨娑樿嫰濞叉粍绋夋ウ鍨伆闁哄倸娲ㄦ晶妤呭嫉椤掆偓閸戯紕绱掕箛鎾磋含闁哄秴婀卞ú鎷屻亹?
             if (lang === 'en') {
                 return;
             }
             
-            // 娣诲姞鍩虹椤甸潰
+            // 婵烇綀顕ф慨鐐哄春閾忚鏀ㄥ銈囨暬濞?
             pages.forEach(page => {
                 if (page.path === '') {
-                    // 璇█棣栭〉
+                    // 閻犲浂鍙€閳诲牊锛冮弽顓溾偓?
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}/</loc>
@@ -2319,7 +2128,7 @@ ${languageCards}
         <priority>${page.priority}</priority>
     </url>`;
                 } else {
-                    // 鍏朵粬椤甸潰
+                    // 闁稿繑婀圭划顒併亜閻㈠憡妗?
                     sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
@@ -2330,7 +2139,7 @@ ${languageCards}
                 }
             });
             
-            // 娣诲姞鍗氬椤甸潰
+            // 婵烇綀顕ф慨鐐哄础濮橆剦鍚傚銈囨暬濞?
             blogPages.forEach(page => {
                 sitemapContent += `
     <url>
@@ -2341,7 +2150,7 @@ ${languageCards}
     </url>`;
             });
             
-            // 娣诲姞Hub椤甸潰
+            // 婵烇綀顕ф慨婵皍b濡炪倗鏁诲?
             const hubPagesLang = pagesConfig.pages.filter(p => 
                 p.template === 'hub-page' && 
                 p.enabled_languages && 
@@ -2358,7 +2167,7 @@ ${languageCards}
     </url>`;
             });
             
-            // 涓轰腑鏂囨坊鍔犵壒鏈夌殑鏍囩椤甸潰
+            // 濞戞捁妗ㄩ懙鎴﹀棘閸ャ劌娼戦柛鏃傚Х婢规帡寮垫径灞剧暠闁哄秴娲ㄩ閿嬨亜閻㈠憡妗?
             if (lang === 'zh') {
                 zhBlogPages.forEach(page => {
                     sitemapContent += `
@@ -2372,7 +2181,7 @@ ${languageCards}
             }
         });
         
-        // 娣诲姞闅愮鏀跨瓥椤甸潰
+        // 婵烇綀顕ф慨鐐烘⒕閹邦噮娼岄柡鈧捄銊ф憸濡炪倗鏁诲?
         sitemapContent += `
     <url>
         <loc>${baseUrl}/privacy-policy</loc>
@@ -2386,14 +2195,14 @@ ${languageCards}
         
         fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
         
-        // 璁＄畻鎬籙RL鏁伴噺锛?
-        // 1涓牴鐩綍 + 鏍圭洰褰曠殑璁惧椤甸潰 + 鏍圭洰褰曠殑鍗氬椤甸潰 + Hub椤甸潰 + 1涓瑷€閫夋嫨椤甸潰 + 1涓殣绉佹斂绛栭〉闈?
-        // + 璇█鐗堟湰椤甸潰 + 涓枃鐗规湁椤甸潰
+        // 閻犱緤绱曢悾濠氬箑缁┌L闁轰椒鍗抽崳鐚寸窗
+        // 1濞戞搩浜濋悧鎾儎椤旇偐绉?+ 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍悹浣瑰劤椤︻剚銇勯悽鍛婃〃 + 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍柛妤佽壘椤撹銇勯悽鍛婃〃 + Hub濡炪倗鏁诲?+ 1濞戞搩浜ｉ銏㈡嚊閳ь剟鏌呮径瀣仴濡炪倗鏁诲?+ 1濞戞搩浜▓锝囩矓娴ｈ鏉虹紒娑欑墵閵嗗妫?
+        // + 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳濡炪倗鏁诲?+ 濞戞搩鍘介弸鍐偋鐟欏嫭绠掑銈囨暬濞?
         const hubPagesCount = pagesConfig.pages.filter(p => p.template === 'hub-page').length;
-        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 鏍圭洰褰曠浉鍏砋RL
-        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 璇█鐗堟湰URL
-        const hubUrls = hubPagesCount; // Hub椤甸潰锛堟墍鏈夎瑷€锛?
-        const otherUrls = 2; // 璇█閫夋嫨椤甸潰 + 闅愮鏀跨瓥椤甸潰
+        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 闁哄秴婀卞ú鎷屻亹閺囩姵绁查柛蹇曠埀RL
+        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳URL
+        const hubUrls = hubPagesCount; // Hub濡炪倗鏁诲浼存晬閸喎顣查柡鍫濐槼椤曘垻鎳涢埀顒婄窗
+        const otherUrls = 2; // 閻犲浂鍙€閳诲牓鏌呮径瀣仴濡炪倗鏁诲?+ 闂傚懏鍔楅～鍡涘绩鐠恒劎鎽滃銈囨暬濞?
         const totalUrls = rootUrls + languageUrls + hubUrls + zhBlogPages.length + otherUrls;
         
         console.log('[OK] Multilingual sitemap generated with optimized structure');
@@ -2405,7 +2214,7 @@ ${languageCards}
         console.log(`    Other pages: ${otherUrls}`);
     }
     
-    // 鐢熸垚鏋勫缓鎶ュ憡
+    // 闁汇垻鍠愰崹姘跺几閸曨偆绱﹂柟韬插劚閹?
     generateBuildReport(outputDir, successPages, totalPages) {
         const report = {
             buildTime: new Date().toISOString(),
@@ -2417,7 +2226,7 @@ ${languageCards}
             languageStructure: {}
         };
         
-        // 鏀堕泦姣忕璇█鐨勯〉闈俊鎭?
+        // 闁衡偓閸洘鑲犳慨锝呯箳椤帞鎷犻鈾€鏋呴柣銊ュ閵嗗妫冮～顓濈箚闁?
         this.supportedLanguages.forEach(lang => {
             const langDir = path.join(outputDir, lang);
             if (fs.existsSync(langDir)) {
@@ -2437,7 +2246,7 @@ ${languageCards}
         console.log(' Build report saved: multilang-build/build-report.json');
     }
     
-    // 閫掑綊鑾峰彇鐩綍涓嬫墍鏈夋枃浠?
+    // 闂侇偅甯掔紞濠囨嚔瀹勬澘绲块柣鈺婂枛缂嶅秵绋夌€ｎ偄顣查柡鍫濐槹閺嬪啯绂?
     getAllFiles(dirPath) {
         const files = [];
         const items = fs.readdirSync(dirPath);
@@ -2454,35 +2263,35 @@ ${languageCards}
         return files;
     }
     
-    // 鐢熸垚浼樺寲鐨刜redirects鏂囦欢
+    // 闁汇垻鍠愰崹姘濡搫顕ч柣銊ュ灣redirects闁哄倸娲ｅ▎?
     generateRedirectsFile(outputDir) {
         console.log('\n Generating optimized _redirects file...');
         
-        const redirectsContent = `# Cloudflare Pages 閲嶅畾鍚戦厤缃枃浠?
-# URL 缁撴瀯杩佺Щ锛氳嫳鏂囧唴瀹逛粠 /en/* 杩佺Щ鍒版牴璺緞 /*
+        const redirectsContent = `# Cloudflare Pages 闂佹彃绉撮悾楣冨触閹达箑甯崇紓鍐惧枟閺嬪啯绂?
+# URL 缂備焦鎸婚悗顖涙交娴ｇ洅鈺呮晬濮樺啿顏伴柡鍌氭搐閸炲鈧綊鈧稓鐭?/en/* 閺夆晙鑳朵簺闁告帞澧楅悧瀵告崉椤栨氨绐?/*
 
-# ===== 閲嶈锛氭棫鑻辨枃璺緞 鈫?鏂版牴璺緞 =====
-# 杩欎簺瑙勫垯纭繚鏃х殑 /en/* URL 姝ｇ‘閲嶅畾鍚戝埌鏂扮殑鏍硅矾寰?
+# ===== 闂佹彃绉烽々锕傛晬濮橆厽锛嬮柤鏄忛哺閺嬪啰鎹勯姘辩獮 闁?闁哄倻澧楅悧瀵告崉椤栨氨绐?=====
+# 閺夆晜鐟ょ花铏规喆閸曨偄鐏熺痪顓у枙缁绘岸寮濞?/en/* URL 婵繐绲块垾姗€鏌屽鍛毎闁告碍鍨甸崺宀勫棘閹殿喗鐣遍柡宥囶攰閻儳顕?
 
-# 鑻辨枃涓婚〉閲嶅畾鍚?
+# 闁兼槒椴搁弸鍐╃▔婵犳哎鈧鏌屽鍛毎闁?
 /en/                  /                   301
 /en/index.html        /                   301
 
-# 鑻辨枃鍗氬閲嶅畾鍚戯紙鏃ц矾寰?鈫?鏂拌矾寰勶級
+# 闁兼槒椴搁弸鍐础濮橆剦鍚傞梺鎻掔Т閻ｉ箖宕ラ幋顖滅闁哄唲鍡欑唴鐎?闁?闁哄倹濯介惌鎯ь嚗閸曞墎绀?
 /en/blog              /blog               301
 /en/blog/             /blog/              301
 /en/blog/*            /blog/:splat        301
 
-# 鑻辨枃璁惧椤甸潰閲嶅畾鍚戯紙鏃ц矾寰?鈫?鏂拌矾寰勶級
+# 闁兼槒椴搁弸鍐媼閹屾У濡炪倗鏁诲浼存煂瀹ュ懐鏆伴柛姘煀缁辨瑩寮閻儳顕?闁?闁哄倹濯介惌鎯ь嚗閸曞墎绀?
 /en/devices/*         /devices/:splat     301
 
-# 鑻辨枃宸ュ叿椤甸潰閲嶅畾鍚戯紙濡傛灉瀛樺湪锛?
+# 闁兼槒椴搁弸鍐啅閵夈儱寰斿銈囨暬濞间即鏌屽鍛毎闁告碍鍩婄槐娆愪繆閸屾稓浜悗娑櫭﹢顏庣窗
 /en/tools/*           /tools/:splat       301
 
-# 閫氱敤瑙勫垯锛氭墍鏈夊墿浣欑殑 /en/* 璺緞閲嶅畾鍚戝埌鏍硅矾寰?
+# 闂侇偅姘ㄩ弫銈囨喆閸曨偄鐏熼柨娑欑婢у秹寮垫径濠傗挅濞达絾鐟у▓?/en/* 閻犱警鍨扮欢鐐烘煂瀹ュ懐鏆伴柛姘灥閸╁矂寮界涵鍛唴鐎?
 /en/*                 /:splat             301
 
-# ===== .html 鍚庣紑閲嶅畾鍚戯紙鏍硅矾寰勮嫳鏂囩増鏈級=====
+# ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑩寮界涵鍛唴鐎垫澘瀚€氭娊寮崶鈺侇暭闁哄牜鍓ㄧ槐?====
 /devices/iphone-viewport-sizes.html       /devices/iphone-viewport-sizes      301
 /devices/ipad-viewport-sizes.html         /devices/ipad-viewport-sizes        301
 /devices/android-viewport-sizes.html      /devices/android-viewport-sizes     301
@@ -2494,7 +2303,7 @@ ${languageCards}
 /devices/projection-calculator.html       /devices/projection-calculator      301
 /devices/lcd-screen-tester.html           /devices/lcd-screen-tester          301
 
-# ===== .html 鍚庣紑閲嶅畾鍚戯紙涓枃鐗堟湰锛?====
+# ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑦绋夐鐔哥€柣妤€鐗婂﹢甯窗====
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
 /zh/devices/ipad-viewport-sizes.html      /zh/devices/ipad-viewport-sizes     301
 /zh/devices/android-viewport-sizes.html   /zh/devices/android-viewport-sizes  301
@@ -2506,7 +2315,7 @@ ${languageCards}
 /zh/devices/projection-calculator.html    /zh/devices/projection-calculator   301
 /zh/devices/lcd-screen-tester.html        /zh/devices/lcd-screen-tester       301
 
-# ===== .html 鍚庣紑閲嶅畾鍚戯紙寰疯鐗堟湰锛?====
+# ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑥顕ラ悿顖ｅ殧闁绘鐗婂﹢甯窗====
 /de/devices/iphone-viewport-sizes.html    /de/devices/iphone-viewport-sizes   301
 /de/devices/ipad-viewport-sizes.html      /de/devices/ipad-viewport-sizes     301
 /de/devices/android-viewport-sizes.html   /de/devices/android-viewport-sizes  301
@@ -2518,7 +2327,7 @@ ${languageCards}
 /de/devices/projection-calculator.html    /de/devices/projection-calculator   301
 /de/devices/lcd-screen-tester.html        /de/devices/lcd-screen-tester       301
 
-# ===== .html 鍚庣紑閲嶅畾鍚戯紙瑗跨彮鐗欒鐗堟湰锛?====
+# ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑧鎲茬捄銊ョ枂闁绘鐟ㄩ銏ゆ偋閸喐鎷遍敍?===
 /es/devices/iphone-viewport-sizes.html    /es/devices/iphone-viewport-sizes   301
 /es/devices/ipad-viewport-sizes.html      /es/devices/ipad-viewport-sizes     301
 /es/devices/android-viewport-sizes.html   /es/devices/android-viewport-sizes  301
@@ -2530,7 +2339,7 @@ ${languageCards}
 /es/devices/projection-calculator.html    /es/devices/projection-calculator   301
 /es/devices/lcd-screen-tester.html        /es/devices/lcd-screen-tester       301
 
-# ===== 鍗氬 .html 鍚庣紑閲嶅畾鍚?=====
+# ===== 闁告鑹鹃?.html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛?=====
 /blog/index.html                          /blog                               301
 /zh/blog/index.html                       /zh/blog                            301
 /de/blog/index.html                       /de/blog                            301
@@ -2540,17 +2349,17 @@ ${languageCards}
 /de/blog/*.html                           /de/blog/:splat                     301
 /es/blog/*.html                           /es/blog/:splat                     301
 
-# ===== 璇█鐗堟湰 index.html 閲嶅畾鍚?=====
+# ===== 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳 index.html 闂佹彃绉撮悾楣冨触?=====
 /zh/index.html                            /zh/                                301
 /de/index.html                            /de/                                301
 /es/index.html                            /es/                                301
 
-# ===== 鍏朵粬椤甸潰閲嶅畾鍚?=====
+# ===== 闁稿繑婀圭划顒併亜閻㈠憡妗ㄩ梺鎻掔Т閻ｉ箖宕?=====
 /privacy-policy.html                      /privacy-policy                     301
 /terms-of-service.html                    /terms-of-service                  301
 
 
-# ===== 渚挎嵎璁块棶閲嶅畾鍚?=====
+# ===== 濞撴碍瀵у畵搴ｆ媼閸ф锛栭梺鎻掔Т閻ｉ箖宕?=====
 /devices/                                 /devices/iphone-viewport-sizes      301
 /devices                                  /devices/iphone-viewport-sizes      301`;
 
@@ -2558,16 +2367,16 @@ ${languageCards}
         console.log('[OK] Generated simplified _redirects file');
     }
     
-    // 鐢熸垚浼樺寲鐨剅obots.txt鏂囦欢
-    // 鍐呭涓€鑷存€ф鏌ワ細纭繚鑻辨枃鐗堟湰锛堟牴鐩綍锛夊拰涓枃鐗堟湰锛?zh/锛夋纭敓鎴?
+    // 闁汇垻鍠愰崹姘濡搫顕ч柣銊ュobots.txt闁哄倸娲ｅ▎?
+    // 闁告劕鎳庨鎰▔閳ь剟鎳涚€涙ǚ鍋撹椤ュ懘寮婚妷顖滅獥缁绢収鍠曠换姘舵嚐鏉堛劍鐎柣妤€鐗婂﹢浼存晬閸喓澹岄柣鈺婂枛缂嶅秹鏁嶆径濠冨濞戞搩鍘介弸鍐偋閸喐鎷遍敍姝緃/闁挎稑顦伴婊呮兜椤旂偓鏅搁柟?
     validateContentConsistency(outputDir) {
         console.log('\n Validating content consistency between English (root) and Chinese (/zh/) versions...');
         
         const inconsistencies = [];
-        const rootDir = outputDir; // 鑻辨枃鐗堟湰鍦ㄦ牴鐩綍
-        const zhDir = path.join(outputDir, 'zh'); // 涓枃鐗堟湰鍦?/zh/ 鐩綍
+        const rootDir = outputDir; // 闁兼槒椴搁弸鍐偋閸喐鎷遍柛锔哄妽閻楁挳鎯勯鑲╃Э
+        const zhDir = path.join(outputDir, 'zh'); // 濞戞搩鍘介弸鍐偋閸喐鎷遍柛?/zh/ 闁烩晩鍠栫紞?
         
-        // 闇€瑕佹鏌ョ殑椤甸潰鍒楄〃
+        // 闂傚洠鍋撻悷鏇氱劍椤ュ懘寮婚妷褎鐣卞銈囨暬濞间即宕氬Δ鍕┾偓?
         const pagesToCheck = [
             'index.html',
             'devices/iphone-viewport-sizes.html',
@@ -2586,10 +2395,10 @@ ${languageCards}
         let consistentPages = 0;
         
         pagesToCheck.forEach(pagePath => {
-            const rootPagePath = path.join(rootDir, pagePath); // 鑻辨枃鐗堟湰
-            const zhPagePath = path.join(zhDir, pagePath); // 涓枃鐗堟湰
+            const rootPagePath = path.join(rootDir, pagePath); // 闁兼槒椴搁弸鍐偋閸喐鎷?
+            const zhPagePath = path.join(zhDir, pagePath); // 濞戞搩鍘介弸鍐偋閸喐鎷?
             
-            // 妫€鏌ユ枃浠舵槸鍚﹀瓨鍦?
+            // 婵☆偀鍋撻柡灞诲劜閺嬪啯绂掗懜鍨﹂柛姘剧畱閻°劑宕?
             if (!fs.existsSync(rootPagePath)) {
                 inconsistencies.push({
                     page: pagePath,
@@ -2609,13 +2418,13 @@ ${languageCards}
             }
             
             try {
-                // 璇诲彇鏂囦欢鍐呭
+                // 閻犲洩顕цぐ鍥棘閸ワ附顐介柛鎰噹椤?
                 const rootContent = fs.readFileSync(rootPagePath, 'utf8');
                 const zhContent = fs.readFileSync(zhPagePath, 'utf8');
                 
                 checkedPages++;
                 
-                // 妫€鏌ュ叧閿甋EO鍏冪礌鐨勪竴鑷存€?
+                // 婵☆偀鍋撻柡灞诲劚閸櫻囨煥閻㈠┄O闁稿繐鍟扮粈宀勬儍閸曨亞顏遍柤宄扮摠閳?
                 const seoChecks = [
                     { name: 'Title', regex: /<title[^>]*>(.*?)<\/title>/is },
                     { name: 'Meta Description', regex: /<meta[^>]*name="description"[^>]*content="([^"]*)"[^>]*>/i },
@@ -2632,9 +2441,9 @@ ${languageCards}
                         const rootValue = rootMatch[1].trim();
                         const zhValue = zhMatch[1].trim();
                         
-                        // 鑻辨枃鍜屼腑鏂囩増鏈殑鍐呭搴旇鏄炕璇戝叧绯伙紝涓嶅簲璇ョ浉鍚?
-                        // 杩欓噷鍙鏌ヤ袱鑰呴兘瀛樺湪鍗冲彲锛屼笉姣旇緝鍐呭
-                        // 濡傛灉闇€瑕侊紝鍙互鍦ㄨ繖閲屾坊鍔犳洿澶嶆潅鐨勭炕璇戦獙璇侀€昏緫
+                        // 闁兼槒椴搁弸鍐椽鐏炶壈鍘柡鍌氭川婢ф寮甸鍌涚暠闁告劕鎳庨鎰償閺冨浂鍤夐柡鍕靛灣閻愭洜鎷犻幋婵嗗綘缂侇垯绱槐婵囩▔瀹ュ懐瀹夐悹鍥ュ劤濞村宕?
+                        // 閺夆晜鐟╅崳鐑藉矗椤忓拋姊鹃柡灞诲劙鐞氶亶鎳撻崨鏉戝幋閻庢稒锚濠€顏堝础閸愭彃璁查柨娑樺缁楀袙閺冨洨绐涢柛鎰噹椤?
+                        // 濠碘€冲€归悘澶愭閳ь剛鎲版笟濠勭闁告瑯鍨禍鎺楀捶閵娿劎绠归梺鎻掓湰閸у﹪宕濋悩铏函濠㈣泛绉靛鍛存儍閸曨厾鍊抽悹鍥ㄥ灴閻涙瑧鎷犳笟鈧埀顒佹缁?
                     } else if (!rootMatch) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2652,7 +2461,7 @@ ${languageCards}
                     }
                 });
                 
-                // 妫€鏌anonical URL鐨勬纭€?
+                // 婵☆偀鍋撻柡宀婃珦anonical URL闁汇劌瀚婊呮兜椤旇В鍋?
                 const rootCanonical = rootContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
                 const zhCanonical = zhContent.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"[^>]*>/i);
                 
@@ -2660,8 +2469,8 @@ ${languageCards}
                     const rootCanonicalUrl = rootCanonical[1];
                     const zhCanonicalUrl = zhCanonical[1];
                     
-                    // 楠岃瘉canonical URL鐨勬纭€?
-                    // 鑻辨枃鐗堟湰锛堟牴鐩綍锛変笉搴旇鍖呭惈 /en/
+                    // 濡ょ姴鐭侀惁濉゛nonical URL闁汇劌瀚婊呮兜椤旇В鍋?
+                    // 闁兼槒椴搁弸鍐偋閸喐鎷遍柨娑樼墛閻楁挳鎯勯鑲╃Э闁挎稑顦粭澶嬫償閺冨浂鍤夐柛鏍ф噹閹?/en/
                     if (rootCanonicalUrl.includes('/en/')) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2671,7 +2480,7 @@ ${languageCards}
                         pageConsistent = false;
                     }
                     
-                    // 涓枃鐗堟湰搴旇鍖呭惈 /zh/
+                    // 濞戞搩鍘介弸鍐偋閸喐鎷遍幖瀛樻椤曟岸宕犻崨顓熷創 /zh/
                     if (!zhCanonicalUrl.includes('/zh/')) {
                         inconsistencies.push({
                             page: pagePath,
@@ -2695,7 +2504,7 @@ ${languageCards}
             }
         });
         
-        // 鐢熸垚楠岃瘉鎶ュ憡
+        // 闁汇垻鍠愰崹姘殽瀹€鍐闁硅翰鍎遍幉?
         const validationReport = {
             timestamp: new Date().toISOString(),
             summary: {
@@ -2707,13 +2516,13 @@ ${languageCards}
             issues: inconsistencies
         };
         
-        // 淇濆瓨楠岃瘉鎶ュ憡
+        // 濞ｅ洦绻傞悺銊︻殽瀹€鍐闁硅翰鍎遍幉?
         fs.writeFileSync(
             path.join(outputDir, 'content-consistency-report.json'),
             JSON.stringify(validationReport, null, 2)
         );
         
-        // 杈撳嚭缁撴灉
+        // 閺夊牊鎸搁崵顓犵磼閹惧浜?
         console.log(` Content consistency validation completed:`);
         console.log(`    Pages checked: ${checkedPages}/${pagesToCheck.length}`);
         console.log(`[OK] Consistent pages: ${consistentPages}`);
@@ -2850,14 +2659,14 @@ function processTemplate(templatePath, config, lang) {
     // ... existing code ...
 }
 
-// 濡傛灉鐩存帴杩愯姝よ剼鏈紝鎵ц澶氳瑷€鏋勫缓
+// 濠碘€冲€归悘澶愭儎鐎涙ê澶嶉弶鈺傚姌椤㈡垵顫㈤妶鍫濆闁哄牜鍓ㄧ槐婵嬪箥瑜戦、鎴炲緞濮樻剚鍤旈悷灏佸亾闁哄瀚紓?
 if (require.main === module) {
     (async () => {
         const builder = new MultiLangBuilder();
         
         console.log(' Starting integrated build process...');
         
-        // Step 0: 杩愯缈昏瘧楠岃瘉
+        // Step 0: 閺夆晜鍔橀、鎴犵礄閺勫繒妲Δ鐘茬焷閻?
         console.log('\n Step 0: Validating translations...');
         const validationResult = await builder.runTranslationValidation();
         
@@ -2866,7 +2675,7 @@ if (require.main === module) {
             process.exit(1);
         }
         
-        // 棣栧厛杩愯鍗氬鏋勫缓鍣?
+        // 濡絾鐗曢崢娑欐交閹邦垼鏀介柛妤佽壘椤撳綊寮搁崟顐ょ处闁?
         console.log('\n Step 1: Building blog system...');
         
         try {
@@ -2880,7 +2689,7 @@ if (require.main === module) {
             hubBuilder.build();
             console.log('[OK] Gaming Hub system build completed successfully!');
             
-            // 閲嶆柊鍔犺浇缁勪欢锛屽寘鎷柊鐢熸垚鐨勫崥瀹㈢粍浠?
+            // 闂佹彃绉甸弻濠囧礉閻樼儤绁扮紓浣稿濞嗐垽鏁嶇仦钘夌樁闁瑰鍓氶弻濠囨偨閻旂鐏囬柣銊ュ瀹曘儳鈧箍鍨荤划宥嗙?
             console.log(' Reloading components after blog build...');
             builder.loadComponents();
             console.log('[OK] Components reloaded successfully!');

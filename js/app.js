@@ -1,6 +1,6 @@
 // app.js - Main application entry point (Performance Optimized with Module Loading)
 
-console.log('馃殌 Starting app.js module load...');
+console.log('Starting app.js module load...');
 
 // Only import critical utilities immediately
 import { debounce } from './utils.js';
@@ -11,11 +11,12 @@ import CSSOptimizer from './css-optimizer.js';
 import { initializeMobileOptimization } from './mobile-performance-optimizer.js';
 // FontLoadingOptimizer will be imported dynamically to avoid blocking
 
-// 鏆傛椂绉婚櫎璧勬簮鍔犺浇浼樺寲鍣ㄧ殑瀵煎叆浠ラ伩鍏嶉樆濉?let resourceLoadingOptimizer = null;
+// NOTE: cleaned malformed mojibake comment.
+let resourceLoadingOptimizer = null;
 let performanceErrorHandler = null;
 let optimizedEventManager = null;
 
-console.log('鉁?Critical modules imported successfully');
+console.log('Critical modules imported successfully');
 
 // Module references (will be loaded by ModuleLoadingOptimizer)
 let i18nModule = null;
@@ -38,29 +39,29 @@ async function initializeApp() {
     try {
         console.log('Starting optimized application initialization...');
 
-        // PHASE 0: 璺宠繃閿欒澶勭悊鍣ㄥ垵濮嬪寲浠ラ伩鍏嶉樆濉?        // await initializeErrorHandler();
+        // PHASE 0: 闁荤姴鎼悿鍥╂崲閸愵喗鐓ユ繛鍡樺俯閸ゆ牕顭跨捄鍝勵伀闁诡喖锕畷鎶藉Ω閵夈儳浠存繝娈垮枛椤戝懐鈧潧寮剁粋鎺楀Ψ閳衡偓缂傚鏌涜箛鎾缎ф俊顖氭缁?        // await initializeErrorHandler();
 
-        // PHASE 1: 璺宠繃璧勬簮鍔犺浇浼樺寲鍣ㄤ互閬垮厤闃诲
+        // PHASE 1: 闁荤姴鎼悿鍥╂崲閸愵亝灏庨柛鏇ㄥ墰閻栭亶鏌涢弮鍌毿繛鏉戞处鐎电厧螣閸濆嫷鍤欓梺闈╃祷閸斿绂嶉幒妤佺劶闁割煈鍠栫敮鎶芥⒒閸愵収鍤欐い?
         // await resourceLoadingOptimizer.initialize();
 
         // PHASE 2: Critical immediate initialization
         updateInitialDisplayValues();
         initializeTheme();
 
-        // PHASE 2.0: 鍒濆鍖栫Щ鍔ㄧ鎬ц兘浼樺寲绯荤粺锛堝叧閿€ц兘浼樺寲锛?        try {
+        // PHASE 2.0: 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宥庡€ｉ埡鍛闁靛ě灞肩磽闂佽鍎搁崱妤€骞嬫繛鏉戝悑閿氶悗浣冨皺閸栨牠鎳￠妶鍥х厷闂佹寧绋戦悧鍡涘矗瑜旈弻銊╊敊鐟欙絽浜剧憸鎴﹀礂濡顕辨俊顖氭惈椤曆囨晬?       try {
             const mobileOptimizer = initializeMobileOptimization({
                 enableDeviceDetection: true,
                 enableNetworkAdaptation: true,
                 enableLowEndOptimization: true,
                 debugMode: false
             });
-            console.log('鉁?Mobile performance optimizer initialized successfully');
+            console.log('Mobile performance optimizer initialized successfully');
         } catch (error) {
-            console.warn('鈿狅笍 Mobile performance optimizer failed to initialize:', error);
-            // 绉诲姩绔紭鍖栧櫒鍒濆鍖栧け璐ヤ笉搴旇闃绘搴旂敤鍚姩
+            console.warn('Mobile performance optimizer failed to initialize:', error);
+            // 缂備礁顦抽褎鎱ㄩ埡鍐崥妞ゆ牗鐟ч崰姗€鏌涢弽銊уⅹ婵炲懏甯″畷姘攽閸♀晜缍忛梺鍛婄墬閻楁洟濡甸幋鐘冲闁靛鍊楅悷婵嬪箹鐎涙ɑ顥嗘い鏇熷哺濮婅偐绱掑鍡楀闁圭厧鐡ㄥ濠氬极閵堝瑙︽い鏍ㄨ壘琚?
         }
 
-        // PHASE 2.1: 鍒濆鍖栧瓧浣撳姞杞戒紭鍖栧櫒锛堝叧閿€ц兘浼樺寲锛?        try {
+        // PHASE 2.1: 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宓懏鎲绘繛杈剧稻閹稿憡鎱ㄩ悙瀛樺闁瑰瓨甯為崰姗€鏌涢弽銊уⅹ婵炲懏甯￠弫宥夊醇濠靛棗缍橀梻浣诡儥閸犳鍩€椤戭剙妫楅崢鏉懨归崗娴庮亞鈧絻顕滅槐?       try {
             const FontLoadingOptimizerModule = await import('./font-loading-optimizer.js');
             const FontLoadingOptimizer = FontLoadingOptimizerModule.default;
 
@@ -71,24 +72,25 @@ async function initializeApp() {
                 fontDisplay: 'swap'
             });
 
-            console.log('鉁?Font loading optimizer initialized successfully');
+            console.log('Font loading optimizer initialized successfully');
         } catch (error) {
-            console.warn('鈿狅笍 Font loading optimizer failed to initialize:', error);
-            // 瀛椾綋浼樺寲鍣ㄥ垵濮嬪寲澶辫触涓嶅簲璇ラ樆姝㈠簲鐢ㄥ惎鍔?        }
+            console.warn('Font loading optimizer failed to initialize:', error);
+            // NOTE: cleaned malformed mojibake comment.
+            }
 
-        // PHASE 2.2: 绔嬪嵆璁剧疆鍩虹浜嬩欢鐩戝惉鍣紝纭繚涓婚鍒囨崲鍔熻兘鍙敤
+        // PHASE 2.2: 缂備焦鏌ㄩ鍛暤閸℃瑦濯奸柛鎾楀懏鐎梺绯曟櫈濞咃綁銆侀崨顔绢洸閻庯絺鏅滈浠嬫煟閳哄倸鐏ラ柟顖氼樀瀹曟娊鈥﹂幒鏃傤槷缂佺虎鍙庨崰鏇犳崲濮橆厾鈻斿┑鐘冲嚬閺嗩垶鏌涢幒鎴炲鐎规洘鐓″畷婵嬫偄鐠囨彃骞嬮梺鍛婄懐閸ㄦ娊寮?
         setupBasicEventListeners();
 
-        // PHASE 2.2: CSS Optimizer 閲嶆柊鍚敤锛屼絾閰嶇疆涓轰笉褰卞搷涓婚鍒囨崲
+        // PHASE 2.2: CSS Optimizer 闂備焦褰冪粔鐢稿蓟婵犲洤瑙︽い鏍ㄧ矋閺嗗繘鏌ㄥ☉妯侯殭缂佹煡绠栭弻濠傤吋閸モ晜鐎繛鎴炴崄濡椼劎绮径搴涗汗闁告鍋為幆娆忊槈閹炬剚鐓兼い锝勭矙瀹曟岸宕堕妸銉ョ哎
         const cssOptimizer = new CSSOptimizer({
             enableMinification: true,
             enableCaching: true,
             deferLoadDelay: 100,
-            enableCSSCompression: false, // 绂佺敤CSS鍘嬬缉浠ラ伩鍏嶅奖鍝嶄富棰?            enableCSSCaching: false,     // 绂佺敤CSS缂撳瓨浠ラ伩鍏嶅奖鍝嶄富棰?            enableFallbackHandling: true,
-            protectThemeCSS: true        // 鏂板锛氫繚鎶や富棰樼浉鍏矯SS
+            enableCSSCompression: false, // 缂備礁鍊烽懗鍫曞极椤ャ彃S闂佸憡锚椤戝洨绱撴径瀣浄闁靛鏅欑紓澶愭煕韫囨挾孝濠靛倹鐗犲畷顐㈩吋閸曨偆妲ｆ俊?            enableCSSCaching: false,     // 缂備礁鍊烽懗鍫曞极椤ャ彃S缂傚倸鍊归幐鎼佹偤閵婏妇顩烽柕澶嗘櫃缂傚鏌涜箛鎾缎㈠┑鍌涚墵瀹曨偄顓奸崟顐ゆВ婵?            enableFallbackHandling: true,
+            protectThemeCSS: true        // 闂佸搫鍊瑰姗€路閸愵喗鏅慨姗嗗亞缁犱粙鏌熼煬鎻掆偓鎾垛偓闈涙湰閿涙劕螣閸忚偐銈查梺绋跨箳閻撶櫇S
         });
 
-        // 寤惰繜瀵艰埅楂樹寒璁剧疆锛岀‘淇滵OM瀹屽叏鍔犺浇
+        // 鐎点倖鍎肩换婊呪偓浣冨閸╁懏顨囧Ο鐟扮槰閻犱礁澧介悿鍡涙晬瀹€鈧垾妯荤┍濠婄M閻庣懓鑻崣蹇涘礉閻樼儤绁?
         setTimeout(() => {
             setupNavigationHighlighting();
         }, 100);
@@ -106,25 +108,26 @@ async function initializeApp() {
         }, 50); // Small delay to allow critical content to render
 
         isInitialized = true;
-        console.log('鉁?Critical application initialization completed!');
+        console.log('Critical application initialization completed!');
 
     } catch (error) {
-        console.error('鉂?Failed to initialize application:', error);
+        console.error('Failed to initialize application:', error);
 
-        // 濡傛灉鏈夐敊璇鐞嗗櫒锛岃褰曢敊璇?        if (performanceErrorHandler) {
+        // NOTE: cleaned malformed mojibake comment.
+        if (performanceErrorHandler) {
             performanceErrorHandler.logError('Application initialization failed', error);
         }
 
-        // 鏄剧ず闄嶇骇鐨勯敊璇秷鎭拰鍩虹鍔熻兘
+        // 闂佸搫瀚晶浠嬪Φ濮樿埖鈷旂€广儱娲悰鎾绘煟閵娿儱顏柡浣革功閹风娀顢涘☉姣裤儵鏌熼褍鐏犻柟铚傚嵆瀹曟椽鎼圭拠鈩冩暏闂佸憡姊婚崰鏇㈠礂?
         showErrorMessage();
         updateInitialDisplayValues();
 
-        // 灏濊瘯鍚敤鍩虹鍔熻兘
+        // 闁诲繐绻戠换鍡涙儊椤栫偛瑙︽い鏍ㄧ矋閺嗗繘鏌涢埡鍕仩妞ゃ垹鎳樺畷婵嬫偄鐠囨彃骞?
         try {
             initializeTheme();
             setupBasicEventListeners();
         } catch (fallbackError) {
-            console.error('鉂?Even fallback initialization failed:', fallbackError);
+            console.error('Even fallback initialization failed:', fallbackError);
         }
     }
 }
@@ -134,12 +137,12 @@ async function initializeApp() {
  */
 async function initializeErrorHandler() {
     try {
-        console.log('馃敡 Initializing error handler...');
+        console.log('Initializing error handler...');
 
-        // 鍔ㄦ€佸鍏ラ敊璇鐞嗗櫒
+        // 闂佸憡鏌ｉ崝宥夊焵椤戣法顦︽い鏇憾瀹曟濡烽埡鍌涙珦闁荤姴娴傞崹浼此囬埡鍛仩闁糕剝顨嗛悵?
         const { default: PerformanceErrorHandler } = await import('./performance-error-handler.js');
 
-        // 鍒涘缓閿欒澶勭悊鍣ㄥ疄渚?        performanceErrorHandler = new PerformanceErrorHandler({
+        // 闂佸憡甯楃粙鎴犵磽閹剧粯鐓ユ繛鍡樺俯閸ゆ牕顭跨捄鍝勵伀闁诡喖锕畷鎶藉Ω閵壯勬緰婵?        performanceErrorHandler = new PerformanceErrorHandler({
             enableLogging: true,
             reportErrors: true,
             maxRetries: 3,
@@ -147,11 +150,12 @@ async function initializeErrorHandler() {
             enableFallback: true
         });
 
-        console.log('鉁?Error handler initialized successfully');
+        console.log('Error handler initialized successfully');
 
     } catch (error) {
-        console.error('鉂?Failed to initialize error handler:', error);
-        // 閿欒澶勭悊鍣ㄥ垵濮嬪寲澶辫触涓嶅簲璇ラ樆姝㈠簲鐢ㄥ惎鍔?        // 搴旂敤灏嗗湪娌℃湁閿欒澶勭悊鍣ㄧ殑鎯呭喌涓嬬户缁繍琛?    }
+        console.error('Failed to initialize error handler:', error);
+        // NOTE: cleaned malformed mojibake comment.
+        }
 }
 
 /**
@@ -161,21 +165,22 @@ async function initializeNonCriticalModules() {
     try {
         console.log('Loading non-critical modules with ModuleLoadingOptimizer...');
 
-        // 浣跨敤妯″潡鍔犺浇浼樺寲鍣ㄦ櫤鑳藉姞杞介〉闈㈡墍闇€妯″潡
+        // 婵炶揪缍€濞夋洟寮妶鍛傜喖鍨鹃搹顐淮闂佸憡姊绘慨鎯归崶銊ヮ嚤婵☆垰鎼褔鏌涢敐鍐ㄥ婵炲懌鍊濋幊妤呮寠婢跺娼遍柡澶屽仒缁瑩濡存径鎰棃闁靛繆鈧剚鏆￠梻鍌氭礌閸嬫挻淇婇妞诲亾閾忣偄浠?
         await moduleLoadingOptimizer.loadPageModules();
 
-        // 鑾峰彇宸插姞杞界殑鍏抽敭妯″潡
+        // 闂佸吋鍎抽崲鑼躲亹閸パ屽晠闁圭粯甯掗～锝夊级閻愬灚娅曟繛鍫熷灴瀹曟骞庨懞銉︽濠碘槅鍨埀顒冩珪閸?
         i18nModule = moduleLoadingOptimizer.moduleRegistry.get('i18n');
         deviceDetectorModule = moduleLoadingOptimizer.moduleRegistry.get('device-detector');
 
-        // 鍒濆鍖栧凡鍔犺浇鐨刬18n妯″潡锛堜紭鍖栫増鏈級
+        // 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宓啫娈ラ梺鍛婃⒒婵儳霉閸ヮ剚鍎嶉柛?8n濠碘槅鍨埀顒冩珪閸嬨儵鏌ㄥ☉妯煎缂侀硸鍙冨畷鐘诲冀椤愩埄鏆梺鍝勭墱閸撱劎妲?
         if (i18nModule) {
             const i18nStartTime = performance.now();
             await i18nModule.initializeI18next();
             i18nModule.setupLanguageSelector();
             i18nModule.updateUIElements();
 
-            // 棰勫姞杞藉叾浠栬瑷€鐨勭炕璇戣祫婧?            if (i18nModule.preloadTranslations) {
+            // NOTE: cleaned malformed mojibake comment.
+            if (i18nModule.preloadTranslations) {
                 i18nModule.preloadTranslations(['en', 'zh']).catch(error => {
                     console.warn('Translation preloading failed:', error);
                 });
@@ -185,28 +190,28 @@ async function initializeNonCriticalModules() {
             const i18nLoadTime = performance.now() - i18nStartTime;
             performanceMonitor.recordCustomMetric('translationLoadTime', i18nLoadTime);
 
-            // 璁板綍鍥介檯鍖栨€ц兘鎸囨爣
+            // 闁荤姳鐒﹀妯肩礊瀹ュ鐐婂ù鐘差儐椤庡酣鏌涢弽銊у闁逞屽劯閸℃骞嬮梺鍦焾濞诧箓鎮?
             if (i18nModule.getI18nPerformanceMetrics) {
                 const i18nMetrics = i18nModule.getI18nPerformanceMetrics();
-                console.log('馃搳 I18n performance metrics:', i18nMetrics);
+                console.log('I18n performance metrics:', i18nMetrics);
             }
         }
 
-        // 鍒濆鍖栧凡鍔犺浇鐨勮澶囨娴嬪櫒妯″潡锛堜紭鍖栫増鏈級
+        // 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宓啫娈ラ梺鍛婃⒒婵儳霉閸ヮ剚鍎嶉柛鏇ㄥ櫘閸熷骸顭跨捄鐑樺妞ゃ儱鎳庨湁閻庯綆浜濋悵銈嗕繆椤栨せ鍋撻搹顐淮闂佹寧绋戦悧鍛椤撱垹绀岄柡宥庡亜椤ｅジ鏌￠崼顐㈠⒕缂?
         if (deviceDetectorModule) {
             const deviceDetectorStartTime = performance.now();
             await deviceDetectorModule.updateDisplay();
 
-            // 璁剧疆浼樺寲鐨勮鍙ｅ昂瀵告洿鏂扮洃鍚櫒
+            // 闁荤姳绀佹晶浠嬫偪閸℃ê顕辨俊顖氭惈椤曆囨煟閵娿儱顏い顐㈩儔瀹曪綁鏁愰崨顔筋潊闁诲酣娼ч幉鈥趁洪崸妤€妫橀柟娈垮枟绾狙囨煕濮樼厧澧繛?
             window.addEventListener('resize', deviceDetectorModule.updateViewportSize);
 
             // Record device detection time
             const deviceDetectionTime = performance.now() - deviceDetectorStartTime;
             performanceMonitor.recordCustomMetric('deviceDetectionTime', deviceDetectionTime);
 
-            // 璁板綍璁惧妫€娴嬫€ц兘鎸囨爣
+            // 闁荤姳鐒﹀妯肩礊瀹ュ洦濯奸柟顖嗗本校濠碘槅鍋€閸嬫挻绻涢弶鎴剱闁逞屽劯閸℃骞嬮梺鍦焾濞诧箓鎮?
             const deviceMetrics = deviceDetectorModule.getPerformanceMetrics();
-            console.log('馃搳 Device detection performance:', deviceMetrics);
+            console.log('Device detection performance:', deviceMetrics);
         }
 
         // Setup advanced event listeners
@@ -215,32 +220,35 @@ async function initializeNonCriticalModules() {
         // Load page-specific modules (now handled by ModuleLoadingOptimizer)
         loadPageSpecificModulesOptimized();
 
-        console.log('鉁?Non-critical modules loaded successfully with optimization!');
+        console.log('Non-critical modules loaded successfully with optimization!');
 
-        // 璁板綍妯″潡鍔犺浇缁熻
+        // 闁荤姳鐒﹀妯肩礊瀹ュ憘鐔煎灳閾忣偄浠撮梺鍛婃⒒婵儳霉閸モ晝纾奸柣鏃€妞块崥鈧?
         const stats = moduleLoadingOptimizer.getLoadingStats();
-        console.log('馃搳 Module loading stats:', stats);
+        console.log('Module loading stats:', stats);
 
     } catch (error) {
-        console.error('鉂?Error loading non-critical modules:', error);
+        console.error('Error loading non-critical modules:', error);
 
-        // 濡傛灉鏈夐敊璇鐞嗗櫒锛岃褰曢敊璇?        if (performanceErrorHandler) {
+        // NOTE: cleaned malformed mojibake comment.
+        if (performanceErrorHandler) {
             performanceErrorHandler.logError('Non-critical modules loading failed', error);
         }
 
-        // 灏濊瘯鍚敤鍩虹鍔熻兘浣滀负闄嶇骇
+        // 闁诲繐绻戠换鍡涙儊椤栫偛瑙︽い鏍ㄧ矋閺嗗繘鏌涢埡鍕仩妞ゃ垹鎳樺畷婵嬫偄鐠囨彃骞嬫繛杈剧稻缁牏鎷归悢鍏尖挃鐎广儱娲悰?
         try {
-            // 濡傛灉i18n鍔犺浇澶辫触锛岃嚦灏戠‘淇濆熀纭€鏄剧ず鍊兼槸姝ｇ‘鐨?            if (!i18nModule) {
+            // NOTE: cleaned malformed mojibake comment.
+            if (!i18nModule) {
                 console.log('i18n failed to load, using fallback display values');
                 updateInitialDisplayValues();
             }
 
-            // 濡傛灉璁惧妫€娴嬪櫒鍔犺浇澶辫触锛岃嚦灏戠‘淇濊鍙ｅ昂瀵告洿鏂?            if (!deviceDetectorModule) {
+            // NOTE: cleaned malformed mojibake comment.
+            if (!deviceDetectorModule) {
                 console.log('Device detector failed to load, using basic viewport updates');
                 window.addEventListener('resize', debounce(updateViewportDisplay, 100));
             }
         } catch (fallbackError) {
-            console.error('鉂?Even fallback for non-critical modules failed:', fallbackError);
+            console.error('Even fallback for non-critical modules failed:', fallbackError);
         }
     }
 }
@@ -252,7 +260,7 @@ function loadPageSpecificModulesOptimized() {
     const currentPath = window.location.pathname;
     console.log('Loading page-specific modules for path:', currentPath);
 
-    // 浣跨敤妯″潡鍔犺浇浼樺寲鍣ㄦ寜闇€鍔犺浇鐗瑰畾鍔熻兘妯″潡
+    // 婵炶揪缍€濞夋洟寮妶鍛傜喖鍨鹃搹顐淮闂佸憡姊绘慨鎯归崶銊ヮ嚤婵☆垰鎼褔鏌涢敐鍐ㄥ閻庡灚绮撳Λ渚€鍩€椤掑嫬绀夐柣妯煎劋缁佷即鏌ｅΔ鍐╁殌闁伙綁绠栧畷婵嬫偄鐠囨彃骞嬪┑鈽嗗灙閳ь剝娅曢崑?
     if (currentPath.includes('ppi-calculator')) {
         moduleLoadingOptimizer.loadOnDemand('ppi-calculator').then(module => {
             if (module && module.initializePPICalculator) {
@@ -284,7 +292,7 @@ function loadPageSpecificModulesOptimized() {
             }
         }).catch(error => {
             console.error('Failed to load simulator module:', error);
-            // 闄嶇骇澶勭悊锛氬皾璇曠洿鎺ヨ皟鐢ㄥ叏灞€鍑芥暟
+            // 闂傚倸瀚粔鑸殿殽閸ャ劌绶為柛鏇ㄥ幗閸婄偤鏌ㄥ☉娆掑闁汇劌澧介幏鐘诲即閻樺磭鍑介梺瑙勪航閸庢挳鎯冮悢鍏煎仺闁靛鍎卞鍧楁倶閻愨晛浜鹃梺鍛婂灱婵倝寮?
             if (typeof window.initializeSimulator === 'function') {
                 window.initializeSimulator();
             }
@@ -300,10 +308,12 @@ function loadPageSpecificModulesOptimized() {
         });
     }
 
-    // Blog pages - 浣跨敤浼樺寲鍣ㄥ姞杞藉崥瀹㈢浉鍏虫ā鍧?    if (currentPath.includes('/blog/')) {
+    // NOTE: cleaned malformed mojibake comment.
+    if (currentPath.includes('/blog/')) {
         console.log('Blog page detected, loading blog modules with optimizer');
 
-        // Blog妯″潡宸茬粡鍦ㄩ〉闈㈢被鍨嬮厤缃腑澶勭悊锛岃繖閲屽彧闇€瑕佺‘淇濈壒瀹氬姛鑳藉姞杞?        moduleLoadingOptimizer.loadOnDemand('blog-progress').then(module => {
+        // NOTE: cleaned malformed mojibake comment.
+        moduleLoadingOptimizer.loadOnDemand('blog-progress').then(module => {
             if (module && module.initializeBlogProgress) {
                 module.initializeBlogProgress();
             }
@@ -312,14 +322,16 @@ function loadPageSpecificModulesOptimized() {
         });
     }
 
-    // Internal Links (load for all pages but with low priority) - 浣跨敤浼樺寲鍣ㄥ姞杞?    setTimeout(() => {
+    // NOTE: cleaned malformed mojibake comment.
+    setTimeout(() => {
         moduleLoadingOptimizer.loadOnDemand('internal-links').then(module => {
             if (module && module.initializeInternalLinks) {
                 module.initializeInternalLinks();
             }
         }).catch(error => {
             console.error('Failed to load internal links:', error);
-            // 闄嶇骇澶勭悊锛氱洿鎺ュ鍏?            import('./internal-links.js').then(module => {
+            // NOTE: cleaned malformed mojibake comment.
+            import('./internal-links.js').then(module => {
                 module.initializeInternalLinks();
             }).catch(fallbackError => {
                 console.error('Fallback internal links loading also failed:', fallbackError);
@@ -334,7 +346,8 @@ function loadPageSpecificModulesOptimized() {
 function loadPageSpecificModules() {
     const currentPath = window.location.pathname;
 
-    // 鐩存帴鍔犺浇椤甸潰鐗瑰畾妯″潡锛屼笉渚濊禆璧勬簮浼樺寲鍣?    if (currentPath.includes('ppi-calculator')) {
+    // NOTE: cleaned malformed mojibake comment.
+    if (currentPath.includes('ppi-calculator')) {
         import('./ppi-calculator.js').then(module => {
             module.initializePPICalculator();
         }).catch(console.error);
@@ -354,8 +367,9 @@ function loadPageSpecificModules() {
         }
     }
 
-    // Blog pages - 鐩存帴鍔犺浇锛屼笉渚濊禆浼樺寲鍣?    if (currentPath.includes('/blog/')) {
-        // Blog鍔熻兘浼氬湪闇€瑕佹椂鑷姩鍔犺浇
+    // NOTE: cleaned malformed mojibake comment.
+    if (currentPath.includes('/blog/')) {
+        // Blog闂佸憡姊婚崰鏇㈠礂濡顕辨慨姗嗗墯闊剟姊婚崶锝呬壕闁荤喐娲戦悞锕€顪冮崒鐐村殜妞ゅ繐瀚闂佸憡姊绘慨鎯?
         console.log('Blog page detected, modules will load as needed');
     }
 
@@ -365,69 +379,62 @@ function loadPageSpecificModules() {
             module.initializeInternalLinks();
         }).catch(error => {
             console.error('Failed to load internal links:', error);
-            // 鍐呴摼鍔犺浇澶辫触涓嶅簲璇ュ奖鍝嶅叾浠栧姛鑳?        });
+            // NOTE: cleaned malformed mojibake comment.
+            });
     }, 1000);
 }
 
 /**
- * 鏇存柊鍒濆鏄剧ず鍊硷紝涓嶄緷璧栦簬i18next鎴栧叾浠栫郴缁? */
+ * 闂佸搫娲ら悺銊╁蓟婵犲洤绀嗘繝闈涙－濞兼鏌￠崟顐⑩挃闁靛洦宀稿畷鎰兜妞嬪海顦繛鎴炴尭缁夊磭娆㈡搴㈠皫闁哄稄濡囬懝绶?8next闂佺懓鐡ㄩ悧鏇㈠矗閻愵剛顩烽柡宥庡亰閸忓洨绱? */
 function updateInitialDisplayValues() {
     try {
-        console.log('鐩存帴鏇存柊鍒濆鏄剧ず鍊?..');
+        console.log('Initializing display values...');
 
-        // 鐩存帴鏇存柊瑙嗗彛灏哄锛屼笉浣跨敤浠讳綍渚濊禆
         const viewportDisplay = document.getElementById('viewport-display');
         if (viewportDisplay) {
             const width = window.innerWidth;
             const height = window.innerHeight;
 
-            // 绉婚櫎鍙兘瀵艰嚧琚炕璇戠郴缁熻鐩栫殑灞炴€?            viewportDisplay.removeAttribute('data-i18n');
+            viewportDisplay.removeAttribute('data-i18n');
 
-            // 娓呴櫎鏃у唴瀹癸紝鍖呮嫭鍙兘瀛樺湪鐨刣etecting span
             const detectingSpan = viewportDisplay.querySelector('span[data-i18n="detecting"]');
             if (detectingSpan) {
-                // 濡傛灉鏄痵pan鍏冪礌鍖呭惈detecting锛屽垯鏇挎崲鏁翠釜鍐呭
                 viewportDisplay.innerHTML = '';
             }
 
-            // 璁剧疆鏂板唴瀹?            viewportDisplay.textContent = `${width} × ${height}`;
-            console.log(`瑙嗗彛灏哄宸叉洿鏂? ${width} × ${height}`);
+            viewportDisplay.textContent = width + ' × ' + height;
+            console.log('Viewport updated: ' + width + ' × ' + height);
         } else {
-            console.warn('瑙嗗彛灏哄鍏冪礌鏈壘鍒?);
+            console.warn('Viewport display element not found');
         }
 
-        // 鐩存帴鏇存柊灞忓箷鍒嗚鲸鐜囷紝涓嶄娇鐢ㄤ换浣曚緷璧?        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
+        const screenResolutionDisplay = document.getElementById('screen-resolution-display');
         if (screenResolutionDisplay) {
             const screenWidth = window.screen.width;
             const screenHeight = window.screen.height;
 
-            // 妫€鏌ユ槸鍚﹀瓨鍦ㄦ棫鐨勭粨鏋?            const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
-            if (detectingSpan) {
-                // 濡傛灉鎵惧埌"detecting..."鐨剆pan锛屽厛绉婚櫎瀹?                detectingSpan.parentNode.removeChild(detectingSpan);
+            const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
+            if (detectingSpan && detectingSpan.parentNode) {
+                detectingSpan.parentNode.removeChild(detectingSpan);
             }
 
-            // 鏌ユ壘鎴栧垱寤簂abel鍜寁alue鐨剆pan鍏冪礌
             let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
             let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
 
             if (!labelSpan) {
-                // 濡傛灉娌℃湁label span锛屾壘绗竴涓瓙鍏冪礌锛屾垨鑰呭垱寤轰竴涓柊鐨?                labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
+                labelSpan = screenResolutionDisplay.querySelector('span:first-child') || document.createElement('span');
                 labelSpan.setAttribute('data-i18n', 'screen_resolution');
+                labelSpan.textContent = 'Screen Resolution';
 
-                // 璁剧疆榛樿鏂囨湰
-                labelSpan.textContent = '灞忓箷鍒嗚鲸鐜?;
-
-                // 濡傛灉涓嶅湪DOM涓紝娣诲姞瀹?                if (!labelSpan.parentNode) {
+                if (!labelSpan.parentNode) {
                     screenResolutionDisplay.appendChild(labelSpan);
                 }
             }
 
-            // 纭繚鎴戜滑鏈夊啋鍙峰垎闅旂
             let colonNode = null;
             for (let i = 0; i < screenResolutionDisplay.childNodes.length; i++) {
                 const node = screenResolutionDisplay.childNodes[i];
-                if (node.nodeType === Node.TEXT_NODE &&
-                    (node.textContent.includes(':') || node.textContent.includes('锛?))) {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.includes(':')) {
                     colonNode = node;
                     break;
                 }
@@ -438,20 +445,19 @@ function updateInitialDisplayValues() {
                 screenResolutionDisplay.appendChild(colonNode);
             }
 
-            // 鍒涘缓鎴栨洿鏂皏alue span
             if (!valueSpan) {
                 valueSpan = document.createElement('span');
                 screenResolutionDisplay.appendChild(valueSpan);
             }
 
-            // 鏇存柊鍊?            valueSpan.removeAttribute('data-i18n');
-            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
-            console.log(`灞忓箷鍒嗚鲸鐜囧凡鏇存柊: ${screenWidth} × ${screenHeight}`);
+            valueSpan.removeAttribute('data-i18n');
+            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
+            console.log('Screen resolution updated: ' + screenWidth + ' × ' + screenHeight);
         } else {
-            console.warn('灞忓箷鍒嗚鲸鐜囧厓绱犳湭鎵惧埌');
+            console.warn('Screen resolution display element not found');
         }
     } catch (error) {
-        console.error('鏇存柊鍒濆鏄剧ず鍊兼椂鍑洪敊:', error);
+        console.error('Error updating initial display values:', error);
     }
 }
 
@@ -459,21 +465,21 @@ function updateInitialDisplayValues() {
  * Setup basic event listeners (critical, non-blocking)
  */
 function setupBasicEventListeners() {
-    console.log('馃帶 Setting up basic event listeners...');
+    console.log('Setting up basic event listeners...');
 
-    // Theme toggle - 纭繚绔嬪嵆鍙敤
+    // Theme toggle - 缂佺虎鍙庨崰鏇犳崲濮樿京鍗氶悗锝庝簻缁侇噣鏌涘▎妯虹仯闁?
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-        console.log('鉁?Found theme toggle button, binding click event');
+        console.log('Found theme toggle button, binding click event');
         themeToggle.addEventListener('click', toggleTheme);
 
-        // 楠岃瘉浜嬩欢缁戝畾
+        // 婵°倗濮撮惌渚€鎯佹径瀣洸閻庯絺鏅滈鐣岀磽娴ｇ懓鐏ラ柣?
         setTimeout(() => {
             const hasListener = themeToggle.onclick || themeToggle.addEventListener;
-            console.log('馃攳 Theme toggle event binding verified:', !!hasListener);
+            console.log('Theme toggle event binding verified:', !!hasListener);
         }, 100);
     } else {
-        console.warn('鈿狅笍 Theme toggle button not found during basic event setup');
+        console.warn('Theme toggle button not found during basic event setup');
     }
 
     // Language selector basic setup (before i18n loads)
@@ -485,7 +491,7 @@ function setupBasicEventListeners() {
     // FAQ toggle functionality
     setupFAQToggles();
 
-    console.log('鉁?Basic event listeners setup completed');
+    console.log('Basic event listeners setup completed');
 }
 
 /**
@@ -497,7 +503,7 @@ function navigateToLanguage(newLang) {
     const currentSearch = window.location.search;
     const currentHash = window.location.hash;
 
-    console.log('馃寪 Navigating to language:', newLang, 'from path:', currentPath);
+    console.log('Navigating to language:', newLang, 'from path:', currentPath);
 
     // Save language preference
     localStorage.setItem('i18nextLng', newLang);
@@ -526,7 +532,7 @@ function navigateToLanguage(newLang) {
                 } else {
                     newPath = `${basePath}/multilang-build${pathAfterLang}`;
                 }
-                console.log('馃彔 English: using root path for SEO optimization (with blog special-case in multilang-build)');
+                console.log('English: using root path for SEO optimization (with blog special-case in multilang-build)');
             } else {
                 newPath = `${basePath}/multilang-build/${newLang}${pathAfterLang}`;
             }
@@ -579,22 +585,22 @@ function navigateToLanguage(newLang) {
             } else {
                 newPath = '/';
             }
-            console.log('馃彔 English: using root path for SEO optimization');
+            console.log('English: using root path for SEO optimization');
         } else {
             // Other languages: use language prefix
             newPath = `/${newLang}`;
             if (pagePath) {
                 newPath += `/${pagePath}`;
             }
-            console.log('馃實 Non-English: using language prefix');
+            console.log('Non-English: using language prefix');
         }
     }
 
     // Construct the full URL
     const newUrl = newPath + currentSearch + currentHash;
 
-    console.log('馃幆 Navigating to:', newUrl);
-    console.log('馃搳 Language switch mapping:', currentPath, '->', newUrl);
+    console.log('Navigating to:', newUrl);
+    console.log('Language switch mapping:', currentPath, '->', newUrl);
 
     // Navigate to the new URL
     window.location.href = newUrl;
@@ -744,7 +750,7 @@ function setupBasicLanguageSelector() {
  * Note: Basic event delegation is now handled by OptimizedEventManager
  */
 function setupAdvancedEventListeners() {
-    console.log('馃帶 Setting up advanced event listeners (optimized event manager handles basic delegation)...');
+    console.log('Setting up advanced event listeners (optimized event manager handles basic delegation)...');
 
     // Individual copy button delegation.
     document.addEventListener('click', async (event) => {
@@ -770,7 +776,7 @@ function setupAdvancedEventListeners() {
         copyAllBtn.addEventListener('click', async () => {
             try {
                 if (!clipboardModule) {
-                    // 浼樺厛浠庢ā鍧楁敞鍐岃〃鑾峰彇锛屽鏋滄病鏈夊垯鎸夐渶鍔犺浇
+                    // 婵炴潙鍚嬮敋闁告ɑ绋掔粋鎺撴償閳锋稐绶氬畷绋课旀担瑙勬畼闂佸憡鍔曢惌渚€濡撮崘顔藉殧鐎瑰嫭婢樼徊鍧楁煥濞戞瀚版い鈹洤鍑犳繝濠傚濮婇箖鏌￠崼婵愭Ц闁割煈鍨堕獮鎰緞閹邦厺绮梺鍛婃⒒婵儳霉?
                     clipboardModule = moduleLoadingOptimizer.moduleRegistry.get('clipboard') ||
                         await moduleLoadingOptimizer.loadOnDemand('clipboard');
                 }
@@ -812,12 +818,12 @@ function setupAdvancedEventListeners() {
         });
     }
 
-    // 鐩戝惉浼樺寲浜嬩欢绠＄悊鍣ㄧ殑鑷畾涔変簨浠?    window.addEventListener('optimizedResize', (event) => {
-        console.log('馃搻 Optimized resize event received:', event.detail);
-        // 杩欓噷鍙互娣诲姞鍏朵粬闇€瑕佸搷搴旂獥鍙ｅぇ灏忓彉鍖栫殑閫昏緫
+    // 闂佺儵鏅滈崹鐢稿箚婢跺顕辨俊顖氭惈椤曆兠瑰鍐惧剮婵炲棎鍨荤划濠氭晬閸曨剙鈧偤鏌涢敐鍐ㄥ婵炲牊鍨块幊娑㈩敂閸曨厽姣庢繛鎴炴煥椤︻喚鑺遍妸锔绢浄?    window.addEventListener('optimizedResize', (event) => {
+        console.log('Optimized resize event received:', event.detail);
+        // 闁哄鏅滈悷鈺呭闯閻戣棄鐭楁い鏍ㄧ懁缁ㄧ増绻涢敐鍫殭濠殿喚鍋ゅ畷妤呭嫉閻㈢敻鎼ㄩ梻鍌氭礌閸嬫捇鎮烽弴姘鳖槮闁瑰ジ鏀遍幆鏃堝籍閸屾粌鐐婇梺鍛婄懕缁蹭粙濡甸崶鈺€鐒婇煫鍥ㄦ尭缂嶄線鏌涢弽銊у⒈婵炲牊鍨块弻鍛村及韫囨洖绔?
     });
 
-    console.log('鉁?Advanced event listeners setup completed');
+    console.log('Advanced event listeners setup completed');
 }
 
 /**
@@ -848,7 +854,7 @@ function setupNavigationHighlighting() {
                 const linkDataI18n = link.getAttribute('data-i18n');
 
                 // Check if this is the blog link by text content or data-i18n attribute
-                if (linkDataI18n === 'nav_blog' || linkText.includes('鍗氬') || linkText.includes('Blog')) {
+                if (linkDataI18n === 'nav_blog' || linkText.includes('博客') || linkText.includes('Blog')) {
                     link.classList.add('active');
                     console.log('Added active class to blog link');
                 }
@@ -860,7 +866,7 @@ function setupNavigationHighlighting() {
                 const linkText = link.textContent.trim();
 
                 // Check if this is the home link by data-i18n attribute or text content
-                if (linkDataI18n === 'nav_home' || linkText.includes('棣栭〉') || linkText.includes('Home')) {
+                if (linkDataI18n === 'nav_home' || linkText.includes('首页') || linkText.includes('Home')) {
                     link.classList.add('active');
                     console.log('Added active class to home link');
                 }
@@ -947,23 +953,22 @@ function updateViewportDisplay() {
         const width = window.innerWidth;
         const height = window.innerHeight;
 
-        // 鐩存帴鏇存柊瑙嗗彛灏哄鏄剧ず锛岀Щ闄ょ炕璇戝睘鎬?        viewportDisplay.removeAttribute('data-i18n');
-        viewportDisplay.textContent = `${width} × ${height}`;
+        viewportDisplay.removeAttribute('data-i18n');
+        viewportDisplay.textContent = width + ' × ' + height;
     }
 
     if (screenResolutionDisplay) {
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
 
-        // 鑾峰彇鐜版湁鐨勬爣绛惧拰鍊肩殑span
-        let labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
-        let valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
+        const labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
+        const valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
 
-        // 濡傛灉鎵惧埌浜嗗€約pan锛屽彧鏇存柊鍏跺唴瀹?        if (valueSpan) {
-            valueSpan.textContent = `${screenWidth} × ${screenHeight}`;
+        if (valueSpan) {
+            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
         }
 
-        // 濡傛灉鎵惧埌浜嗘爣绛緎pan骞朵笖i18next鍙敤锛屾洿鏂扮炕璇?        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
+        if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {
             labelSpan.textContent = i18next.t('screen_resolution');
         }
     }
@@ -986,19 +991,19 @@ function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    console.log('馃帹 Toggling theme:', currentTheme, '->', newTheme);
+    console.log('Toggling theme:', currentTheme, '->', newTheme);
 
-    // 纭繚涓婚鍒囨崲绔嬪嵆鐢熸晥
+    // 缂佺虎鍙庨崰鏇犳崲濮橆厾鈻斿┑鐘冲嚬閺嗩垶鏌涢幒鎴炲鐎规洝灏欑划鈺冣偓锝庝簻缁侇噣鏌ｉ姀銏犳瀾闁?
     applyTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
 
-    // 楠岃瘉涓婚鏄惁鎴愬姛搴旂敤
+    // 婵°倗濮撮惌渚€鎯佹径瀣枖濠电姵鍑归弳顖炴煛閸曢潧鐏犻柟顖欑窔楠炲骞囬鈧～鐘诲箹鐎涙ɑ鈷掗柡?
     setTimeout(() => {
         const appliedTheme = document.documentElement.getAttribute('data-theme');
-        console.log('鉁?Theme applied successfully:', appliedTheme);
+        console.log('Theme applied successfully:', appliedTheme);
 
-        // 瑙﹀彂鑷畾涔変簨浠堕€氱煡涓婚鍙樺寲
+        // 闁荤喐鐟辩粻鎴ｃ亹閸岀偞鍤婃い蹇撳閺嗘澘鈽夐弬娆炬Х缂併劊鍔嶇粋鎺楀醇閺囨浜炬慨妯夸含閸欌偓婵炴垶鎸搁…鐑姐€傛禒瀣煑婵☆垰鎼?
         window.dispatchEvent(new CustomEvent('themeChanged', {
             detail: { oldTheme: currentTheme, newTheme: appliedTheme }
         }));
@@ -1009,15 +1014,17 @@ function toggleTheme() {
  * Apply theme to document
  */
 function applyTheme(theme) {
-    console.log('馃帹 Applying theme:', theme);
+    console.log('Applying theme:', theme);
 
-    // 绔嬪嵆搴旂敤涓婚灞炴€?    document.documentElement.setAttribute('data-theme', theme);
+    // NOTE: cleaned malformed mojibake comment.
+    document.documentElement.setAttribute('data-theme', theme);
 
-    // 寮哄埗閲嶆柊璁＄畻CSS鍙橀噺锛屼絾涓嶅奖鍝嶆樉绀?    const computedStyle = getComputedStyle(document.documentElement);
+    // NOTE: cleaned malformed mojibake comment.
+    const computedStyle = getComputedStyle(document.documentElement);
     const bgColor = computedStyle.getPropertyValue('--background-primary');
 
-    console.log('鉁?Theme attribute set to:', document.documentElement.getAttribute('data-theme'));
-    console.log('馃帹 CSS variable --background-primary:', bgColor.trim());
+    console.log('Theme attribute set to:', document.documentElement.getAttribute('data-theme'));
+    console.log('CSS variable --background-primary:', bgColor.trim());
 }
 
 /**
@@ -1026,7 +1033,7 @@ function applyTheme(theme) {
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('.theme-icon');
     if (themeIcon) {
-        themeIcon.textContent = theme === 'light' ? '馃寵' : '鈽€锔?;
+        themeIcon.textContent = theme === 'light' ? '妫ｅ啫顕? : '闁宠В鍋撻柨?
     }
 }
 
@@ -1039,9 +1046,9 @@ function showErrorMessage() {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.innerHTML = `
-            <h2>妫€娴嬪け璐?/h2>
-            <p>鏃犳硶妫€娴嬭澶囦俊鎭紝璇峰埛鏂伴〉闈㈤噸璇曘€?/p>
-            <button onclick="window.location.reload()">閲嶈瘯</button>
+            <h2>濠碘槅鍋€閸嬫挻绻涢弶鎴剰闁靛洦鍨归幏?/h2>
+            <p>闂佸搫鍟版慨鐢垫兜鐠轰綍娑㈠焵椤掆偓闇夐悗锝庡弾閸熷骸顭跨捄鐑樼煑濞ｅ洤锕獮渚€顢涢妶鍥╊槷闁荤姴娲ら崲鏌ュ春濞戙垹妫樺ù鍏肩暘閳ь剙顦靛Λ鍐閵堝懏顏熼柣鐘叉处濞插繘鍩€?/p>
+            <button onclick="window.location.reload()">闂備焦褰冪粔鐑芥儊?/button>
         `;
         mainContent.insertBefore(errorDiv, mainContent.firstChild);
     }
@@ -1083,11 +1090,11 @@ setTimeout(() => {
 // Export for manual initialization if needed
 export { initializeApp, toggleTheme, applyTheme, updateThemeIcon, initializeTheme };
 
-// 纭繚鍏抽敭鍑芥暟鍦ㄥ叏灞€浣滅敤鍩熶腑鍙敤锛堢敤浜庤皟璇曞拰鍏煎鎬э級
+// 缂佺虎鍙庨崰鏇犳崲濮樿泛绀傞柟鎯板Г閺嗘盯鏌涢幋锝呅撻柡鍡欏枛瀹曠兘濡搁妷銉ヤ紟闁诲繒鍋愰崑鎾趁归敐鍡欑煂闁轰降鍊濆畷娲偄閹澘骞€闂佸憡鐟崹鎶藉极閵堝鏅柛顐犲灪閺嗗繐霉濠婂啯鍞夐柣銊у枔閹风娀寮撮悙鏉戭伅闂佺绻掗崢褔顢欓幇鏉跨畱鐟滄繄妲?
 if (typeof window !== 'undefined') {
     window.toggleTheme = toggleTheme;
     window.applyTheme = applyTheme;
     window.initializeTheme = initializeTheme;
     window.updateThemeIcon = updateThemeIcon;
-    console.log('馃實 Theme functions exposed to global scope for compatibility');
+    console.log('Theme functions exposed to global scope for compatibility');
 } 
