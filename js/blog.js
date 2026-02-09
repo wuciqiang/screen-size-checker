@@ -2,6 +2,60 @@
  * 博客系统的JavaScript功能
  */
 
+const highlightState = {
+    cssLoaded: false,
+    loadingPromise: null,
+};
+
+function getHighlightScriptUrl() {
+    return new URL('./highlight.min.js', import.meta.url).href;
+}
+
+function getHighlightCssUrl() {
+    return new URL('../css/highlight.min.css', import.meta.url).href;
+}
+
+function ensureHighlightStylesheet() {
+    if (highlightState.cssLoaded) {
+        return;
+    }
+
+    const stylesheetUrl = getHighlightCssUrl();
+    const existingStylesheet = document.querySelector(`link[href="${stylesheetUrl}"]`);
+
+    if (existingStylesheet) {
+        highlightState.cssLoaded = true;
+        return;
+    }
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = stylesheetUrl;
+    document.head.appendChild(link);
+    highlightState.cssLoaded = true;
+}
+
+function ensureHighlightScript() {
+    if (typeof hljs !== 'undefined') {
+        return Promise.resolve(true);
+    }
+
+    if (highlightState.loadingPromise) {
+        return highlightState.loadingPromise;
+    }
+
+    highlightState.loadingPromise = new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = getHighlightScriptUrl();
+        script.defer = true;
+        script.onload = () => resolve(typeof hljs !== 'undefined');
+        script.onerror = () => resolve(false);
+        document.body.appendChild(script);
+    });
+
+    return highlightState.loadingPromise;
+}
+
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化代码高亮
@@ -23,17 +77,23 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * 初始化代码高亮
  */
-function initializeCodeHighlighting() {
-    // 如果hljs存在，则应用高亮
-    if (typeof hljs !== 'undefined') {
-        document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightElement(block);
-        });
-        
-        console.log('✅ Code highlighting applied');
-    } else {
-        console.warn('⚠️ highlight.js not loaded');
+async function initializeCodeHighlighting() {
+    const codeBlocks = document.querySelectorAll('pre code');
+    if (!codeBlocks.length) {
+        return;
     }
+
+    ensureHighlightStylesheet();
+    const highlightReady = await ensureHighlightScript();
+
+    if (!highlightReady || typeof hljs === 'undefined') {
+        console.warn('highlight.js failed to load, skipping syntax highlighting');
+        return;
+    }
+
+    codeBlocks.forEach((block) => {
+        hljs.highlightElement(block);
+    });
 }
 
 /**

@@ -11,8 +11,6 @@
     <!-- Unified mobile CSS replacing 10 mobile files (4,586 lines -> 1 optimized file) -->
     <link rel="stylesheet" href="{{css_path}}/blog.css">
     <link rel="stylesheet" href="{{css_path}}/mobile-unified.css">
-    <link rel="preload" href="{{css_path}}/highlight.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{css_path}}/highlight.min.css"></noscript>
     <link rel="preload" href="{{css_path}}/blog-progress.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{css_path}}/blog-progress.css"></noscript>
     
@@ -77,9 +75,32 @@
     {{component:toast}}
     
     <!-- 博客特定JavaScript -->
-    <script src="{{js_path}}/highlight.min.js" defer></script>
-    <script src="{{js_path}}/mobile-image-optimizer.js" defer></script>
-    <script src="{{js_path}}/code-block-manager.js" defer></script>
+    <script>
+        (function() {
+            function loadMobileImageOptimizer() {
+                if (!window.matchMedia('(max-width: 768px)').matches) {
+                    return;
+                }
+
+                if (!document.querySelector('.blog-content-area img')) {
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = '{{js_path}}/mobile-image-optimizer.js';
+                script.defer = true;
+                document.body.appendChild(script);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(loadMobileImageOptimizer, 300);
+                }, { once: true });
+            } else {
+                setTimeout(loadMobileImageOptimizer, 300);
+            }
+        })();
+    </script>
     <script src="{{js_path}}/blog.js" type="module"></script>
     <script src="{{js_path}}/blog-progress.js" type="module"></script>
     <script src="{{js_path}}/app.js" type="module"></script>
