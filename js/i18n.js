@@ -129,7 +129,6 @@ export async function initializeI18next() {
                     loadPath: getLocalesPath(),
                     allowMultiLoading: true,
                     reloadInterval: false,
-                    queryStringParams: { v: new Date().getTime() },
                     customHeaders: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json; charset=utf-8'

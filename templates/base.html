@@ -29,9 +29,41 @@
     
     <!-- Phase 0.2 JavaScript - Mega Menu Navigation -->
     <script src="{{js_path}}/mega-menu.js" defer></script>
-    
-    <!-- Internal Links Module -->
-    <script type="module" src="{{js_path}}/internal-links.js" defer></script>
+    <!-- Internal Links Module (lazy-loaded, robust on mobile browsers) -->
+    <script>
+    (function() {
+        var loaded = false;
+
+        function injectInternalLinksModule() {
+            if (loaded) return;
+            loaded = true;
+
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "{{js_path}}/internal-links.js";
+            script.onerror = function() {
+                // Keep page stable even if module loading fails.
+            };
+            document.body.appendChild(script);
+        }
+
+        function scheduleLoad() {
+            if ("requestIdleCallback" in window) {
+                requestIdleCallback(injectInternalLinksModule, { timeout: 1500 });
+            } else {
+                setTimeout(injectInternalLinksModule, 600);
+            }
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", scheduleLoad, { once: true });
+            // Fallback for edge timing cases on some mobile browsers.
+            setTimeout(injectInternalLinksModule, 2500);
+        } else {
+            scheduleLoad();
+        }
+    })();
+    </script>
 
     <!-- Scroll Animations - Visual Enhancements -->
     <script src="{{js_path}}/scroll-animations.js" defer></script>
