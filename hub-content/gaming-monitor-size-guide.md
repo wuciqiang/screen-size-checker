@@ -482,6 +482,8 @@ Not comfortably. You'd sit only 50-55cm away, causing neck strain and excessive 
 ### Is 32 inches too big for FPS games?
 For competitive FPS, yes. The increased eye movement hurts reaction times. 24-27" is optimal for competitive shooters. 32" is better for casual/immersive FPS campaigns.
 
+> **Pro Tip**: Not sure if a 32-inch monitor fits your desk? Use our [Visual Screen Comparison Tool]({{lang_prefix}}/devices/compare) to see it side-by-side with your current monitor.
+
 ---
 
 **Related Gaming Resources**:
