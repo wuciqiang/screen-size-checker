@@ -433,6 +433,8 @@ If you have less than RTX 4070 Ti / RX 7900 XT, stick to 1440p for better experi
 
 Ready to optimize your gaming experience? Start by checking your current screen specifications with our [free screen size checker tool]({{lang_prefix}}/).
 
+> **Resolution vs Size**: Want to see the physical difference between a 27" 1440p and 32" 4K monitor? Compare them side-by-side with our [Screen Size Comparison Tool]({{lang_prefix}}/devices/compare).
+
 ---
 
 **Related Resources**:

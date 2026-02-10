@@ -1,5 +1,5 @@
 ---
-title: "Best Gaming Monitor Size 2026: FPS vs Immersive (24\" vs 27\" vs 32\")"
+title: "Gaming Monitor Size Guide 2026: FPS vs Immersive (24\" vs 27\" vs 32\")"
 description: "Stop guessing. Compare 24 vs 27 vs 32 inch monitors for gaming. See exact viewing distances, desk depth requirements, and PPI charts."
 slug: "gaming-monitor-size-guide"
 date: "2026-02-10"
