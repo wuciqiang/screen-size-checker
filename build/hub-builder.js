@@ -105,6 +105,9 @@ class HubBuilder {
                     // 解析Markdown内容
                     let htmlContent = marked.parse(content);
                     
+                    // 将Markdown中的H1标签转换为H2，避免多个H1
+                    htmlContent = htmlContent.replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>');
+                    
                     // 替换 {{lang_prefix}} 变量为正确的路径
                     // 对于英文，lang_prefix 是 ..（因为hub在根目录下的hub文件夹）
                     // 对于其他语言，lang_prefix 是 ../..（因为在/zh/hub/下）
@@ -469,6 +472,12 @@ class HubBuilder {
             };
         }
     }
+}
+
+// 如果直接运行此脚本，执行构建
+if (require.main === module) {
+    const hubBuilder = new HubBuilder();
+    hubBuilder.build();
 }
 
 module.exports = HubBuilder;
