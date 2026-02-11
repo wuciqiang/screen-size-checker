@@ -13,7 +13,7 @@ class HubBuilder {
         this.rootPath = path.join(__dirname, '..');
         this.hubContentPath = path.join(this.rootPath, 'hub-content');
         this.hubOutputPath = path.join(this.rootPath, 'components'); // 输出到components目录
-        this.languages = ['en', 'zh', 'de', 'es']; // 支持的语言
+        this.languages = ['en', 'zh', 'de', 'es', 'pt']; // 支持的语言
         this.hubPages = new Map(); // 存储所有Hub页面
         this.categories = new Map(); // 按分类存储页面
         
@@ -78,7 +78,7 @@ class HubBuilder {
                 if (file.includes(`.${lang}.md`)) return true;
                 if (lang === 'en' && !allFiles.some(f => f === file.replace('.md', '.en.md')) && file.endsWith('.md')) {
                     // 如果没有.en.md版本，且文件是.md结尾，默认为英文
-                    return !file.match(/\.(zh|de|es)\.md$/);
+                    return !file.match(/\.(zh|de|es|pt)\.md$/);
                 }
                 return false;
             });
@@ -341,7 +341,8 @@ class HubBuilder {
             'en': 'en-US',
             'zh': 'zh-CN',
             'de': 'de-DE',
-            'es': 'es-ES'
+            'es': 'es-ES',
+            'pt': 'pt-BR'
         };
         
         return date.toLocaleDateString(locales[lang] || 'en-US', options);

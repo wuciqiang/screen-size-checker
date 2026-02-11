@@ -12,7 +12,7 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
-        this.enabledLanguages = ['en', 'zh', 'de', 'es']; // 鐟滅増鎸告晶鐘诲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀顒勬晬濮樺啿顏伴柡鍌氭储閳ь兛妞掗懙鎴﹀棘閸ャ儮鍋撴担鍝ユ閻犲浂鍘归埀顑挎祰閵堝潡鎮甸鐘差潻閻?
+        this.enabledLanguages = ['en', 'zh', 'de', 'es', 'pt']; // 鐟滅増鎸告晶鐘诲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀顒勬晬濮樺啿顏伴柡鍌氭储閳ь兛妞掗懙鎴﹀棘閸ャ儮鍋撴担鍝ユ閻犲浂鍘归埀顑挎祰閵堝潡鎮甸鐘差潻閻?
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
         
@@ -472,7 +472,8 @@ class MultiLangBuilder extends ComponentBuilder {
                         'en': 'en_US',
                         'zh': 'zh_CN',
                         'de': 'de_DE',
-                        'es': 'es_ES'
+                        'es': 'es_ES',
+                        'pt': 'pt_BR'
                     };
                     pageData.og_locale = localeMap[lang] || 'en_US';
                     
@@ -508,6 +509,8 @@ class MultiLangBuilder extends ComponentBuilder {
 
                         // 閻熸鍎婚銏ゆ偋閸喐鎷?
                         pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+
+                        pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
                     }
                     
                     // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
@@ -1564,6 +1567,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
+                rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
@@ -1676,6 +1680,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
+                rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
@@ -1795,6 +1800,7 @@ class MultiLangBuilder extends ComponentBuilder {
         rootPageData.hreflang_zh_url = 'https://screensizechecker.com/zh/';
         rootPageData.hreflang_de_url = 'https://screensizechecker.com/de/';
         rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
+        rootPageData.hreflang_pt_url = 'https://screensizechecker.com/pt/';
         
         // 濞寸姴娴烽悙鏇犳嫚閹寸偞鐎ù鐘虫构閼垫垿鎳㈠畡鏉跨悼濡炪倗鏁诲浼存偋閻熸壆鏆伴柣銊ュ閻愭洜鎷犻幋婵冨亾?
         if (rootPageData.page_title_key) {
@@ -1985,7 +1991,7 @@ ${languageCards}
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
-        const enabledLanguages = ['en', 'zh', 'de', 'es']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
+        const enabledLanguages = ['en', 'zh', 'de', 'es', 'pt']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
         
         // 閻庤鐭粻鐔搞亜閻㈠憡妗ㄧ紓浣规尰閻庮垶鏁嶉崼鐔革骏.html闁告艾娴风槐鎴︽晬鐏炶棄鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐鈽呯窗
         const pages = [
@@ -2339,6 +2345,21 @@ ${languageCards}
 /es/devices/projection-calculator.html    /es/devices/projection-calculator   301
 /es/devices/lcd-screen-tester.html        /es/devices/lcd-screen-tester       301
 
+# ===== .html redirects for Portuguese pages =====
+/pt/devices/iphone-viewport-sizes.html    /pt/devices/iphone-viewport-sizes   301
+/pt/devices/ipad-viewport-sizes.html      /pt/devices/ipad-viewport-sizes     301
+/pt/devices/android-viewport-sizes.html   /pt/devices/android-viewport-sizes  301
+/pt/devices/compare.html                  /pt/devices/compare                 301
+/pt/devices/standard-resolutions.html     /pt/devices/standard-resolutions    301
+/pt/devices/responsive-tester.html        /pt/devices/responsive-tester       301
+/pt/devices/ppi-calculator.html           /pt/devices/ppi-calculator          301
+/pt/devices/aspect-ratio-calculator.html  /pt/devices/aspect-ratio-calculator 301
+/pt/devices/projection-calculator.html    /pt/devices/projection-calculator   301
+/pt/devices/lcd-screen-tester.html        /pt/devices/lcd-screen-tester       301
+
+# ===== Blog redirects for Portuguese (Temporary, fallback to English) =====
+/pt/blog/*                                /blog/:splat                        302
+
 # ===== 闁告鑹鹃?.html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛?=====
 /blog/index.html                          /blog                               301
 /zh/blog/index.html                       /zh/blog                            301
@@ -2353,6 +2374,7 @@ ${languageCards}
 /zh/index.html                            /zh/                                301
 /de/index.html                            /de/                                301
 /es/index.html                            /es/                                301
+/pt/index.html                            /pt/                                301
 
 # ===== 闁稿繑婀圭划顒併亜閻㈠憡妗ㄩ梺鎻掔Т閻ｉ箖宕?=====
 /privacy-policy.html                      /privacy-policy                     301

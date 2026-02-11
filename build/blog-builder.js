@@ -12,7 +12,7 @@ class BlogBuilder {
         this.rootPath = path.join(__dirname, '..');
         this.blogContentPath = path.join(this.rootPath, 'blog-content');
         this.blogOutputPath = path.join(this.rootPath, 'components'); // 直接输出到components目录，而非子目录
-        this.languages = ['en', 'zh', 'de', 'es']; // 支持的语言：英文、中文、德语、西班牙语
+        this.languages = ['en', 'zh', 'de', 'es', 'pt']; // 支持的语言：英文、中文、德语、西班牙语、葡萄牙语
         this.blogPosts = new Map(); // 存储所有博客文章
         this.categories = new Map(); // 按分类存储文章
         this.tags = new Map(); // 按标签存储文章
@@ -476,27 +476,44 @@ class BlogBuilder {
         const displayPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
         // 语言相关文本
-        const texts = lang === 'zh' ? {
-            title: '博客',
-            subtitle: '探索屏幕尺寸与响应式设计的知识库',
-            latest: '最新文章',
-            readMore: '阅读全文',
-            allCategories: '所有分类',
-            viewAll: '查看全部',
-            prev: '上一页',
-            next: '下一页',
-            pageInfo: `第 ${page} 页，共 ${totalPages} 页`
-        } : {
-            title: 'Blog',
-            subtitle: 'Explore our knowledge base on screen sizes and responsive design',
-            latest: 'Latest Articles',
-            readMore: 'Read More',
-            allCategories: 'All Categories',
-            viewAll: 'View All',
-            prev: 'Previous',
-            next: 'Next',
-            pageInfo: `Page ${page} of ${totalPages}`
-        };
+        let texts;
+        if (lang === 'zh') {
+            texts = {
+                title: '博客',
+                subtitle: '探索屏幕尺寸与响应式设计的知识库',
+                latest: '最新文章',
+                readMore: '阅读全文',
+                allCategories: '所有分类',
+                viewAll: '查看全部',
+                prev: '上一页',
+                next: '下一页',
+                pageInfo: `第 ${page} 页，共 ${totalPages} 页`
+            };
+        } else if (lang === 'pt') {
+            texts = {
+                title: 'Blog',
+                subtitle: 'Explore nossa base de conhecimento sobre tamanhos de tela e design responsivo',
+                latest: 'Últimos Artigos',
+                readMore: 'Ler Mais',
+                allCategories: 'Todas as Categorias',
+                viewAll: 'Ver Tudo',
+                prev: 'Anterior',
+                next: 'Próximo',
+                pageInfo: `Página ${page} de ${totalPages}`
+            };
+        } else {
+            texts = {
+                title: 'Blog',
+                subtitle: 'Explore our knowledge base on screen sizes and responsive design',
+                latest: 'Latest Articles',
+                readMore: 'Read More',
+                allCategories: 'All Categories',
+                viewAll: 'View All',
+                prev: 'Previous',
+                next: 'Next',
+                pageInfo: `Page ${page} of ${totalPages}`
+            };
+        }
 
         // 获取所有分类
         const categories = this.categories.has(lang) ?
@@ -572,12 +589,12 @@ class BlogBuilder {
                 <!-- Card image temporarily disabled until images are created -->
                 <div class="blog-card-content">
                     <div class="blog-card-meta">
-                        <span class="blog-card-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', {
+                        <span class="blog-card-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : (lang === 'pt' ? 'pt-BR' : 'en-US'), {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
                         })}</span>
-                        <span class="blog-card-reading-time">${post.readingTime} ${lang === 'zh' ? '分钟阅读' : 'min read'}</span>
+                        <span class="blog-card-reading-time">${post.readingTime} ${lang === 'zh' ? '分钟阅读' : (lang === 'pt' ? 'min de leitura' : 'min read')}</span>
                     </div>
                     <h3 class="blog-card-title">${post.title}</h3>
                     <p class="blog-card-excerpt">${post.description}</p>
@@ -600,7 +617,7 @@ class BlogBuilder {
                 return `
                 <a href="${page > 1 ? '../../' : ''}category/${category}" class="category-card">
                     <h3 class="category-title">${category}</h3>
-                    <p class="category-count">${categoryPosts} ${lang === 'zh' ? '篇文章' : 'articles'}</p>
+                    <p class="category-count">${categoryPosts} ${lang === 'zh' ? '篇文章' : (lang === 'pt' ? 'artigos' : 'articles')}</p>
                     <span class="category-link" data-i18n="view_all">${texts.viewAll} →</span>
                 </a>
                 `;
@@ -615,17 +632,29 @@ class BlogBuilder {
      */
     generateCategoryComponent(posts, category, lang) {
         // 语言相关文本
-        const texts = lang === 'zh' ? {
-            title: `分类：${category}`,
-            subtitle: '探索这个分类下的所有文章',
-            readMore: '阅读全文',
-            backToAll: '返回所有分类'
-        } : {
-            title: `Category: ${category}`,
-            subtitle: 'Explore all articles in this category',
-            readMore: 'Read More',
-            backToAll: 'Back to all categories'
-        };
+        let texts;
+        if (lang === 'zh') {
+            texts = {
+                title: `分类：${category}`,
+                subtitle: '探索这个分类下的所有文章',
+                readMore: '阅读全文',
+                backToAll: '返回所有分类'
+            };
+        } else if (lang === 'pt') {
+            texts = {
+                title: `Categoria: ${category}`,
+                subtitle: 'Explore todos os artigos nesta categoria',
+                readMore: 'Ler Mais',
+                backToAll: 'Voltar para todas as categorias'
+            };
+        } else {
+            texts = {
+                title: `Category: ${category}`,
+                subtitle: 'Explore all articles in this category',
+                readMore: 'Read More',
+                backToAll: 'Back to all categories'
+            };
+        }
         
         return `<!-- Blog Category Page: ${category} -->
 <section class="blog-hero blog-hero-small">
@@ -671,17 +700,29 @@ class BlogBuilder {
      */
     generateTagComponent(posts, tag, tagSlug, lang) {
         // 语言相关文本
-        const texts = lang === 'zh' ? {
-            title: `标签：${tag}`,
-            subtitle: '探索这个标签下的所有文章',
-            readMore: '阅读全文',
-            backToAll: '返回所有标签'
-        } : {
-            title: `Tag: ${tag}`,
-            subtitle: 'Explore all articles with this tag',
-            readMore: 'Read More',
-            backToAll: 'Back to all tags'
-        };
+        let texts;
+        if (lang === 'zh') {
+            texts = {
+                title: `标签：${tag}`,
+                subtitle: '探索这个标签下的所有文章',
+                readMore: '阅读全文',
+                backToAll: '返回所有标签'
+            };
+        } else if (lang === 'pt') {
+            texts = {
+                title: `Tag: ${tag}`,
+                subtitle: 'Explore todos os artigos com esta tag',
+                readMore: 'Ler Mais',
+                backToAll: 'Voltar para todas as tags'
+            };
+        } else {
+            texts = {
+                title: `Tag: ${tag}`,
+                subtitle: 'Explore all articles with this tag',
+                readMore: 'Read More',
+                backToAll: 'Back to all tags'
+            };
+        }
         
         return `<!-- Blog Tag Page: ${tag} -->
 <section class="blog-hero blog-hero-small">
@@ -726,17 +767,29 @@ class BlogBuilder {
      */
     generateSidebarComponent(lang, isSubPage = false) {
         // 语言相关文本
-        const texts = lang === 'zh' ? {
-            categories: '分类',
-            recentPosts: '最近文章',
-            tags: '标签',
-            readMore: '阅读全文'
-        } : {
-            categories: 'Categories',
-            recentPosts: 'Recent Posts',
-            tags: 'Tags',
-            readMore: 'Read More'
-        };
+        let texts;
+        if (lang === 'zh') {
+            texts = {
+                categories: '分类',
+                recentPosts: '最近文章',
+                tags: '标签',
+                readMore: '阅读全文'
+            };
+        } else if (lang === 'pt') {
+            texts = {
+                categories: 'Categorias',
+                recentPosts: 'Artigos Recentes',
+                tags: 'Tags',
+                readMore: 'Ler Mais'
+            };
+        } else {
+            texts = {
+                categories: 'Categories',
+                recentPosts: 'Recent Posts',
+                tags: 'Tags',
+                readMore: 'Read More'
+            };
+        }
         
         // 获取最新的5篇文章
         const recentPosts = Array.from(this.blogPosts.entries())
@@ -786,7 +839,7 @@ class BlogBuilder {
             <li>
                 <a href="${pathPrefix}${post.slug}" class="sidebar-post-link">
                     <span class="post-title">${post.title}</span>
-                    <span class="post-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', { 
+                    <span class="post-date">${post.date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : (lang === 'pt' ? 'pt-BR' : 'en-US'), { 
                         year: 'numeric', 
                         month: 'short', 
                         day: 'numeric' 
@@ -850,16 +903,18 @@ class BlogBuilder {
                             page_title_key: 'blog_page_title',
                             page_title: lang === 'zh' ?
                                 'Screen Size Checker 博客 - 屏幕尺寸与响应式设计指南' :
-                                'Screen Size Checker Blog - Screen Size & Responsive Design Guides',
+                                (lang === 'pt' ? 'Blog Screen Size Checker - Guias de Tamanho de Tela e Design Responsivo' :
+                                'Screen Size Checker Blog - Screen Size & Responsive Design Guides'),
                             page_description_key: 'blog_page_description',
                             page_heading_key: 'blog_page_heading',
                             page_intro_key: 'blog_page_intro',
                             page_keywords: 'blog, responsive design, viewport, screen resolution, web development',
                             canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
-                            og_title: lang === 'zh' ? '屏幕尺寸检查器博客' : 'Screen Size Checker Blog',
+                            og_title: lang === 'zh' ? '屏幕尺寸检查器博客' : (lang === 'pt' ? 'Blog Screen Size Checker' : 'Screen Size Checker Blog'),
                             og_description: lang === 'zh' ? 
                                 '探索屏幕尺寸、视口和响应式设计的知识库' : 
-                                'Explore our knowledge base on screen sizes, viewports, and responsive design',
+                                (lang === 'pt' ? 'Explore nossa base de conhecimento sobre tamanhos de tela, viewports e design responsivo' :
+                                'Explore our knowledge base on screen sizes, viewports, and responsive design'),
                             og_type: 'website',
                             og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
                             css_path: '../../css',
@@ -870,11 +925,11 @@ class BlogBuilder {
                             privacy_policy_url: '../../privacy-policy',
                             show_breadcrumb: true,
                             current_key: 'blog',
-                            current_name: lang === 'zh' ? '博客' : 'Blog',
+                            current_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog'),
                             parent_url: `../`,
                             blog_sidebar: `blog-sidebar-${lang}`,
                             parent_key: 'home',
-                            parent_name: lang === 'zh' ? '首页' : 'Home'
+                            parent_name: lang === 'zh' ? '首页' : (lang === 'pt' ? 'Início' : 'Home')
                         }
                     });
 
@@ -910,11 +965,11 @@ class BlogBuilder {
                                 blog_url: `../../`,
                                 privacy_policy_url: '../../../../privacy-policy',
                                 current_key: 'blog',
-                                current_name: lang === 'zh' ? '博客' : 'Blog',
+                                current_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog'),
                                 parent_url: `../../`,
                                 blog_sidebar: `blog-sidebar-${lang}`,
                                 parent_key: 'home',
-                                parent_name: lang === 'zh' ? '首页' : 'Home'
+                                parent_name: lang === 'zh' ? '首页' : (lang === 'pt' ? 'Início' : 'Home')
                             }
                         });
                     }
@@ -951,7 +1006,7 @@ class BlogBuilder {
                                     current_name: post.title,
                                     parent_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/`,
                                     parent_key: 'blog',
-                                    parent_name: lang === 'zh' ? '博客' : 'Blog',
+                                    parent_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog'),
                                     structured_data: {
                                         '@context': 'https://schema.org',
                                         '@type': 'BlogPosting',
@@ -987,16 +1042,19 @@ class BlogBuilder {
                                 config: {
                                     page_title: lang === 'zh' ?
                                         `${category} 文章 - 技术指南与教程 | Screen Size Checker` :
-                                        `${category} Articles - Guides & Tutorials | Screen Size Checker`,
+                                        (lang === 'pt' ? `${category} Artigos - Guias e Tutoriais | Screen Size Checker` :
+                                        `${category} Articles - Guides & Tutorials | Screen Size Checker`),
                                     page_description: lang === 'zh' ?
                                         `浏览${category}分类中的所有文章，包含详细的技术指南和实用教程` :
-                                        `Browse all articles in the ${category} category with detailed guides and practical tutorials`,
-                                    page_keywords: `blog, ${category}, ${lang === 'zh' ? '分类' : 'category'}`,
+                                        (lang === 'pt' ? `Navegue por todos os artigos na categoria ${category} com guias detalhados e tutoriais práticos` :
+                                        `Browse all articles in the ${category} category with detailed guides and practical tutorials`),
+                                    page_keywords: `blog, ${category}, ${lang === 'zh' ? '分类' : (lang === 'pt' ? 'categoria' : 'category')}`,
                                     canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/category/${category}`,
-                                    og_title: lang === 'zh' ? `分类: ${category}` : `Category: ${category}`,
+                                    og_title: lang === 'zh' ? `分类: ${category}` : (lang === 'pt' ? `Categoria: ${category}` : `Category: ${category}`),
                                     og_description: lang === 'zh' ? 
                                         `浏览${category}分类中的所有文章` : 
-                                        `Browse all articles in the ${category} category`,
+                                        (lang === 'pt' ? `Navegue por todos os artigos na categoria ${category}` :
+                                        `Browse all articles in the ${category} category`),
                                     og_type: 'website',
                                     og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/category/${category}`,
                                     css_path: '../../../css',
@@ -1011,7 +1069,7 @@ class BlogBuilder {
                                     parent_url: `../../`,
                                     blog_sidebar: `blog-sidebar-sub-${lang}`,
                                     parent_key: 'blog',
-                                    parent_name: lang === 'zh' ? '博客' : 'Blog'
+                                    parent_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog')
                                 }
                             });
                         });
@@ -1031,20 +1089,23 @@ class BlogBuilder {
                                 config: {
                                     page_title: lang === 'zh' ?
                                         `${tag} - 相关文章与指南 | Screen Size Checker` :
-                                        `${tag} - Related Articles & Guides | Screen Size Checker`,
+                                        (lang === 'pt' ? `${tag} - Artigos e Guias Relacionados | Screen Size Checker` :
+                                        `${tag} - Related Articles & Guides | Screen Size Checker`),
                                     page_description: lang === 'zh' ?
                                         `浏览${tag}标签下的所有文章，探索相关技术和最佳实践` :
-                                        `Browse all articles tagged with ${tag}, explore related techniques and best practices`,
-                                    page_keywords: `blog, ${tag}, ${lang === 'zh' ? '标签' : 'tag'}`,
+                                        (lang === 'pt' ? `Navegue por todos os artigos com a tag ${tag}, explore técnicas e melhores práticas relacionadas` :
+                                        `Browse all articles tagged with ${tag}, explore related techniques and best practices`),
+                                    page_keywords: `blog, ${tag}, ${lang === 'zh' ? '标签' : (lang === 'pt' ? 'tag' : 'tag')}`,
                                     canonical_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/tag/${tagSlug}`,
                                     hreflang_en_url: hreflangUrls.en,
                                     hreflang_zh_url: hreflangUrls.zh,
                                     hreflang_de_url: hreflangUrls.de,
                                     hreflang_es_url: hreflangUrls.es,
-                                    og_title: lang === 'zh' ? `标签: ${tag}` : `Tag: ${tag}`,
+                                    og_title: lang === 'zh' ? `标签: ${tag}` : (lang === 'pt' ? `Tag: ${tag}` : `Tag: ${tag}`),
                                     og_description: lang === 'zh' ?
                                         `浏览${tag}标签下的所有文章` :
-                                        `Browse all articles tagged with ${tag}`,
+                                        (lang === 'pt' ? `Navegue por todos os artigos com a tag ${tag}` :
+                                        `Browse all articles tagged with ${tag}`),
                                     og_type: 'website',
                                     og_url: `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}blog/tag/${tagSlug}`,
                                     css_path: '../../../css',
@@ -1059,7 +1120,7 @@ class BlogBuilder {
                                     parent_url: `../../`,
                                     blog_sidebar: `blog-sidebar-sub-${lang}`,
                                     parent_key: 'blog',
-                                    parent_name: lang === 'zh' ? '博客' : 'Blog'
+                                    parent_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog')
                                 }
                             });
                         });
