@@ -3,6 +3,10 @@
 # 构建产物
 multilang-build/
 test-build/
+components/generated/blog/*.html
+components/generated/hub/*.html
+build/internal-links-report.json
+build/translation-validation-report.json
 
 #参考文档
 SEMRUSH
@@ -27,6 +31,10 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+.playwright-mcp/
+.claude/state/
+.claude/.attention-refresh-state.json
+.claude/settings.local.json
 
 # 临时文件
 *.tmp

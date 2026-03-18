@@ -11,7 +11,7 @@ class BlogBuilder {
     constructor() {
         this.rootPath = path.join(__dirname, '..');
         this.blogContentPath = path.join(this.rootPath, 'blog-content');
-        this.blogOutputPath = path.join(this.rootPath, 'components'); // 直接输出到components目录，而非子目录
+        this.blogOutputPath = path.join(this.rootPath, 'components', 'generated', 'blog');
         this.languages = ['en', 'zh', 'de', 'es', 'pt']; // 支持的语言：英文、中文、德语、西班牙语、葡萄牙语
         this.blogPosts = new Map(); // 存储所有博客文章
         this.categories = new Map(); // 按分类存储文章
@@ -179,10 +179,9 @@ class BlogBuilder {
      * 确保必要的目录存在
      */
     ensureDirectories() {
-        // 确保输出目录存在
-        if (!fs.existsSync(this.blogOutputPath)) {
-            fs.mkdirSync(this.blogOutputPath, { recursive: true });
-        }
+        // 清理并重建专用生成目录
+        fs.rmSync(this.blogOutputPath, { recursive: true, force: true });
+        fs.mkdirSync(this.blogOutputPath, { recursive: true });
         
         // 确保每种语言的内容目录存在
         this.languages.forEach(lang => {
@@ -253,9 +252,10 @@ class BlogBuilder {
                         id,
                         slug,
                         lang,
+                        sourceFile: path.relative(this.rootPath, filePath).replace(/\\/g, '/'),
                         title: data.title,
                         description: data.description || '',
-                        date: data.date ? new Date(data.date) : new Date(),
+                        date: this.resolvePostDate(filePath, data.date),
                         author: data.author || 'Screen Size Checker Team',
                         category: data.category || 'uncategorized',
                         tags: data.tags || [],
@@ -303,6 +303,21 @@ class BlogBuilder {
         
         console.log(` Total blog posts loaded: ${this.blogPosts.size}`);
     }
+
+    resolvePostDate(filePath, frontMatterDate) {
+        if (frontMatterDate) {
+            const resolvedDate = frontMatterDate instanceof Date
+                ? frontMatterDate
+                : new Date(frontMatterDate);
+
+            if (!Number.isNaN(resolvedDate.getTime())) {
+                return resolvedDate;
+            }
+        }
+
+        const { mtime } = fs.statSync(filePath);
+        return new Date(mtime);
+    }
     
     /**
      * 生成博客文章组件
@@ -326,7 +341,7 @@ class BlogBuilder {
                 const componentContent = this.generatePostComponent(post);
                 const componentPath = path.join(this.blogOutputPath, `${componentName}.html`);
                 
-                fs.writeFileSync(componentPath, componentContent, 'utf8');
+                this.writeGeneratedComponent(componentPath, componentContent, post.sourceFile);
                 console.log(` Generated component: ${componentName}.html`);
             });
             
@@ -339,7 +354,7 @@ class BlogBuilder {
             const indexComponentContent = this.generateIndexComponent(langPosts, lang, 1);
             const indexComponentPath = path.join(this.blogOutputPath, `${indexComponentName}.html`);
 
-            fs.writeFileSync(indexComponentPath, indexComponentContent, 'utf8');
+            this.writeGeneratedComponent(indexComponentPath, indexComponentContent, `blog-content/${lang}/**/*.md`);
             console.log(` Generated blog index component: ${indexComponentName}.html`);
 
             // 生成分页页面（第2页及以后）
@@ -348,7 +363,7 @@ class BlogBuilder {
                 const pageComponentContent = this.generateIndexComponent(langPosts, lang, page);
                 const pageComponentPath = path.join(this.blogOutputPath, `${pageComponentName}.html`);
 
-                fs.writeFileSync(pageComponentPath, pageComponentContent, 'utf8');
+                this.writeGeneratedComponent(pageComponentPath, pageComponentContent, `blog-content/${lang}/**/*.md`);
                 console.log(` Generated blog page ${page} component: ${pageComponentName}.html`);
             }
             
@@ -366,7 +381,7 @@ class BlogBuilder {
                     const categoryComponentContent = this.generateCategoryComponent(categoryPosts, category, lang);
                     const categoryComponentPath = path.join(this.blogOutputPath, `${categoryComponentName}.html`);
                     
-                    fs.writeFileSync(categoryComponentPath, categoryComponentContent, 'utf8');
+                    this.writeGeneratedComponent(categoryComponentPath, categoryComponentContent, `blog-content/${lang}/**/*.md`);
                     console.log(` Generated category component: ${categoryComponentName}.html`);
                 });
             }
@@ -386,7 +401,7 @@ class BlogBuilder {
                     const tagComponentContent = this.generateTagComponent(tagPosts, tag, tagSlug, lang);
                     const tagComponentPath = path.join(this.blogOutputPath, `${tagComponentName}.html`);
                     
-                    fs.writeFileSync(tagComponentPath, tagComponentContent, 'utf8');
+                    this.writeGeneratedComponent(tagComponentPath, tagComponentContent, `blog-content/${lang}/**/*.md`);
                     console.log(` Generated tag component: ${tagComponentName}.html`);
                 });
             }
@@ -399,7 +414,7 @@ class BlogBuilder {
             const sidebarComponentContent = this.generateSidebarComponent(lang, false);
             const sidebarComponentPath = path.join(this.blogOutputPath, `${sidebarComponentName}.html`);
             
-            fs.writeFileSync(sidebarComponentPath, sidebarComponentContent, 'utf8');
+            this.writeGeneratedComponent(sidebarComponentPath, sidebarComponentContent, `blog-content/${lang}/**/*.md`);
             console.log(` Generated sidebar component: ${sidebarComponentName}.html`);
             
             // 为子页面（标签页面、分类页面）生成侧边栏（需要 ../）
@@ -407,11 +422,22 @@ class BlogBuilder {
             const sidebarSubComponentContent = this.generateSidebarComponent(lang, true);
             const sidebarSubComponentPath = path.join(this.blogOutputPath, `${sidebarSubComponentName}.html`);
             
-            fs.writeFileSync(sidebarSubComponentPath, sidebarSubComponentContent, 'utf8');
+            this.writeGeneratedComponent(sidebarSubComponentPath, sidebarSubComponentContent, `blog-content/${lang}/**/*.md`);
             console.log(` Generated sub-page sidebar component: ${sidebarSubComponentName}.html`);
         });
         
         console.log('\n All blog components generated successfully!');
+    }
+
+    writeGeneratedComponent(filePath, content, sourceLabel) {
+        const header = [
+            '<!-- @generated by build/blog-builder.js -->',
+            `<!-- source: ${sourceLabel} -->`,
+            '<!-- do not edit directly; edit blog-content markdown or the builder instead -->',
+            ''
+        ].join('\n');
+
+        fs.writeFileSync(filePath, `${header}${content}`, 'utf8');
     }
     
     /**
@@ -879,7 +905,17 @@ class BlogBuilder {
         
         try {
             // 读取现有配置
-            const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+            const originalConfigText = fs.readFileSync(configPath, 'utf8');
+            const originalConfig = JSON.parse(originalConfigText);
+            const config = JSON.parse(originalConfigText);
+            const firstBlogPageIndex = config.pages.findIndex(
+                page => typeof page?.name === 'string' && page.name.startsWith('blog-')
+            );
+            const existingBlogPagesByName = new Map(
+                config.pages
+                    .filter(page => typeof page?.name === 'string' && page.name.startsWith('blog-'))
+                    .map(page => [page.name, page])
+            );
             
             // 检查是否已存在博客页面
             const blogPages = config.pages.filter(page => 
@@ -890,10 +926,11 @@ class BlogBuilder {
                 // Remove existing blog pages to regenerate them
                 config.pages = config.pages.filter(page => !page.name.includes('blog-'));
             }
+                const generatedPages = [];
                 // 为每种语言添加博客页面
                 this.languages.forEach(lang => {
                     // 博客首页
-                    config.pages.push({
+                    generatedPages.push({
                         name: `blog-index-${lang}`,
                         template: 'blog-index',
                         output: `blog/index.html`,
@@ -941,7 +978,7 @@ class BlogBuilder {
                     const totalPages = Math.ceil(langPosts.length / postsPerPage);
 
                     for (let page = 2; page <= totalPages; page++) {
-                        config.pages.push({
+                        generatedPages.push({
                             name: `blog-page-${page}-${lang}`,
                             template: 'blog-index',
                             output: `blog/page/${page}/index.html`,
@@ -979,8 +1016,12 @@ class BlogBuilder {
                         .filter(([key]) => key.startsWith(`${lang}:`))
                         .map(([_, post]) => post)
                         .forEach(post => {
-                            config.pages.push({
-                                name: `blog-post-${post.id}-${lang}`,
+                            const pageName = `blog-post-${post.id}-${lang}`;
+                            const existingPage = existingBlogPagesByName.get(pageName);
+                            const existingDatePublished = existingPage?.config?.structured_data?.datePublished;
+
+                            generatedPages.push({
+                                name: pageName,
                                 template: 'blog-post',
                                 output: `blog/${post.slug}.html`,
                                 page_content: `blog-post-${post.id}-${lang}`,
@@ -1016,7 +1057,7 @@ class BlogBuilder {
                                             '@type': 'Person',
                                             'name': post.author
                                         },
-                                        'datePublished': post.date.toISOString(),
+                                        'datePublished': existingDatePublished || post.date.toISOString(),
                                         'publisher': {
                                             '@type': 'Organization',
                                             'name': 'Screen Size Checker',
@@ -1033,7 +1074,7 @@ class BlogBuilder {
                     // 遍历分类添加配置
                     if (this.categories.has(lang)) {
                         Array.from(this.categories.get(lang).keys()).forEach(category => {
-                            config.pages.push({
+                            generatedPages.push({
                                 name: `blog-category-${category}-${lang}`,
                                 template: 'blog-category',
                                 output: `blog/category/${category}.html`,
@@ -1080,7 +1121,7 @@ class BlogBuilder {
                         Array.from(this.tags.get(lang).keys()).forEach(tag => {
                             const tagSlug = this.sanitizeSlug(tag);
                             const hreflangUrls = this.getTagHreflangUrls(tagSlug, lang);
-                            config.pages.push({
+                            generatedPages.push({
                                 name: `blog-tag-${tagSlug}-${lang}`,
                                 template: 'blog-tag',
                                 output: `blog/tag/${tagSlug}.html`,
@@ -1126,10 +1167,22 @@ class BlogBuilder {
                         });
                     }
                 });
+
+                if (generatedPages.length > 0) {
+                    const insertIndex = firstBlogPageIndex === -1
+                        ? config.pages.length
+                        : Math.min(firstBlogPageIndex, config.pages.length);
+                    config.pages.splice(insertIndex, 0, ...generatedPages);
+                }
                 
                 // 保存更新后的配置
-                fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
-                console.log(' Pages configuration updated successfully!');
+                const nextConfigText = `${JSON.stringify(config, null, 2)}\n`;
+                if (JSON.stringify(config) === JSON.stringify(originalConfig)) {
+                    console.log(' Pages configuration unchanged.');
+                } else {
+                    fs.writeFileSync(configPath, nextConfigText, 'utf8');
+                    console.log(' Pages configuration updated successfully!');
+                }
             
             return true;
         } catch (error) {
