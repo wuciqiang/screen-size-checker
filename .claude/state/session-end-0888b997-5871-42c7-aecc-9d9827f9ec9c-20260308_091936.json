@@ -1,9 +1,0 @@
-{
-  "event": "session_end",
-  "timestamp": "2026-03-08T09:19:36.416448Z",
-  "session_id": "0888b997-5871-42c7-aecc-9d9827f9ec9c",
-  "final_usage_percent": 0.0,
-  "final_context_tokens": 0,
-  "transcript_path": "C:\\Users\\Administrator\\.claude\\projects\\G--Workspace-screen-size-checker\\0888b997-5871-42c7-aecc-9d9827f9ec9c.jsonl",
-  "cwd": "G:\\Workspace\\screen-size-checker"
-}
