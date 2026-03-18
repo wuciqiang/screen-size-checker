@@ -1,0 +1,754 @@
+<!-- Blog Post: Guia de CSS Container Queries -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">Guia de CSS Container Queries</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">January 9, 2025</span>
+            <span class="blog-post-author">Equipe Screen Size Checker</span>
+            <span class="blog-post-reading-time">13 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h2 id="guia-completo-de-css-container-queries-diga-adeus-aos-problemas-das-media-queries">Guia Completo de CSS Container Queries: Diga Adeus aos Problemas das Media Queries</h2>
+<p>Por anos, o design web responsivo dependeu de media queries para adaptar layouts a diferentes tamanhos de tela. Mas o que acontece quando você precisa que um componente responda ao tamanho de seu container, e não ao viewport? Entrem as CSS Container Queries — um recurso revolucionário que está remodelando a forma como pensamos sobre design responsivo em 2025.</p>
+<h2 id="por-que-precisávamos-desesperadamente-de-container-queries">Por Que Precisávamos Desesperadamente de Container Queries</h2>
+<p>Imagine isto: Você construiu um componente de cartão bonito que parece perfeito no desktop. Ele tem uma imagem à esquerda, conteúdo à direita e tudo está bem equilibrado. Agora você precisa usar esse mesmo componente em uma barra lateral estreita. Com media queries, você está preso — o componente só conhece a largura do viewport, não seu espaço real disponível.</p>
+<pre><code class="language-css"><span class="hljs-comment">/* A maneira antiga com media queries - problemática */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+  }
+}
+<span class="hljs-comment">/* Mas e se este cartão estiver em uma barra lateral de 300px em uma tela de 1920px? */</span>
+</code></pre>
+<p>Essa limitação fundamental atormentou os desenvolvedores por anos, levando a componentes duplicados, convenções de nomenclatura complexas e pesadelos de manutenção. As container queries resolvem isso elegantemente, permitindo que os componentes respondam ao tamanho de seu container.</p>
+<h2 id="entendendo-container-queries-o-básico">Entendendo Container Queries: O Básico</h2>
+<h3 id="o-que-são-exatamente-as-container-queries">O Que São Exatamente as Container Queries?</h3>
+<p>As container queries permitem que elementos adaptem seus estilos com base no tamanho de seu elemento pai (container), em vez do viewport. Isso significa que um componente pode ser verdadeiramente independente e responsivo, independentemente de onde for colocado em seu layout.</p>
+<p><strong>Diferenças Chave das Media Queries:</strong></p>
+<ul>
+<li><strong>Media Queries</strong>: Respondem às características do viewport/dispositivo</li>
+<li><strong>Container Queries</strong>: Respondem às dimensões do container pai</li>
+<li><strong>Escopo</strong>: Media queries são globais, container queries são escopadas para containers específicos</li>
+</ul>
+<h3 id="suporte-do-navegador-em-2025">Suporte do Navegador em 2025</h3>
+<p>Boas notícias! A partir de 2025, as container queries têm excelente suporte nos navegadores:</p>
+<table>
+<thead>
+<tr>
+<th>Navegador</th>
+<th>Versão</th>
+<th>Suporte</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome</td>
+<td>105+</td>
+<td>✅ Suporte Total</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>110+</td>
+<td>✅ Suporte Total</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>16+</td>
+<td>✅ Suporte Total</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>105+</td>
+<td>✅ Suporte Total</td>
+</tr>
+</tbody></table>
+<p>Com mais de 90% dos usuários agora em navegadores suportados, as container queries estão prontas para produção na maioria dos projetos.</p>
+<h3 id="sintaxe-básica-e-configuração">Sintaxe Básica e Configuração</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Passo 1: Definir um container */</span>
+<span class="hljs-selector-class">.card-wrapper</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-comment">/* ou */</span>
+  <span class="hljs-attribute">container</span>: card / inline-size; <span class="hljs-comment">/* com um nome */</span>
+}
+
+<span class="hljs-comment">/* Passo 2: Consultar o container */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+  }
+}
+
+<span class="hljs-comment">/* Ou consultar um container nomeado */</span>
+<span class="hljs-keyword">@container</span> card (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card-title</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2rem</span>;
+  }
+}
+</code></pre>
+<h2 id="aplicações-e-exemplos-do-mundo-real">Aplicações e Exemplos do Mundo Real</h2>
+<h3 id="exemplo-1-componente-de-cartão-adaptativo">Exemplo 1: Componente de Cartão Adaptativo</h3>
+<p>Vamos construir um componente de cartão que se adapta inteligentemente ao seu espaço disponível:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.card-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.card</span> {
+  <span class="hljs-attribute">background</span>: white;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">8px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.1</span>);
+}
+
+<span class="hljs-comment">/* Container estreito: Empilhar verticalmente */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: column;
+  }
+  
+  <span class="hljs-selector-class">.card-image</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">object-fit</span>: cover;
+  }
+  
+  <span class="hljs-selector-class">.card-content</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span> <span class="hljs-number">0</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-title</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.25rem</span>;
+  }
+}
+
+<span class="hljs-comment">/* Container médio: Lado a lado com imagem pequena */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-number">400px</span> &lt;= <span class="hljs-attribute">width</span> &lt; <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-image</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">120px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">120px</span>;
+    <span class="hljs-attribute">object-fit</span>: cover;
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-title</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5rem</span>;
+  }
+}
+
+<span class="hljs-comment">/* Container grande: Layout espaçoso */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">2rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-image</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;
+    <span class="hljs-attribute">object-fit</span>: cover;
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-title</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.75rem</span>;
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.card-description</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.1rem</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6</span>;
+  }
+}
+</code></pre>
+<h3 id="exemplo-2-menu-de-navegação-responsivo">Exemplo 2: Menu de Navegação Responsivo</h3>
+<p>Container queries são excelentes para criar componentes de navegação que se adaptam ao espaço disponível:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.nav-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+
+<span class="hljs-selector-class">.nav-menu</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-comment">/* Menu estilo mobile em containers estreitos */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.nav-menu</span> {
+    <span class="hljs-attribute">flex-direction</span>: column;
+  }
+  
+  <span class="hljs-selector-class">.nav-item</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.75rem</span>;
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#eee</span>;
+  }
+  
+  <span class="hljs-selector-class">.nav-dropdown</span> {
+    <span class="hljs-attribute">position</span>: static;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  }
+}
+
+<span class="hljs-comment">/* Menu horizontal com dropdowns em containers mais largos */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.nav-menu</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
+    <span class="hljs-attribute">justify-content</span>: space-between;
+  }
+  
+  <span class="hljs-selector-class">.nav-item</span> {
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5rem</span> <span class="hljs-number">1rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.nav-dropdown</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">200px</span>;
+  }
+}
+</code></pre>
+<h3 id="exemplo-3-layouts-de-grid-dinâmicos">Exemplo 3: Layouts de Grid Dinâmicos</h3>
+<p>Crie grids que se ajustam com base na largura do container, não do viewport:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+
+<span class="hljs-selector-class">.product-grid</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-comment">/* Uma coluna para containers estreitos */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.product-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr;
+  }
+}
+
+<span class="hljs-comment">/* Duas colunas para containers médios */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-number">400px</span> &lt;= <span class="hljs-attribute">width</span> &lt; <span class="hljs-number">800px</span>) {
+  <span class="hljs-selector-class">.product-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);
+  }
+}
+
+<span class="hljs-comment">/* Três colunas para containers largos */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">800px</span>) {
+  <span class="hljs-selector-class">.product-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>fr);
+  }
+}
+
+<span class="hljs-comment">/* Quatro colunas para containers extra largos */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">1200px</span>) {
+  <span class="hljs-selector-class">.product-grid</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);
+  }
+}
+</code></pre>
+<h2 id="técnicas-avançadas-e-unidades-de-container">Técnicas Avançadas e Unidades de Container</h2>
+<h3 id="unidades-de-container-query">Unidades de Container Query</h3>
+<p>As container queries introduzem novas unidades CSS que são relativas às dimensões do container:</p>
+<ul>
+<li><strong>cqw</strong>: 1% da largura do container</li>
+<li><strong>cqh</strong>: 1% da altura do container</li>
+<li><strong>cqi</strong>: 1% do tamanho inline do container</li>
+<li><strong>cqb</strong>: 1% do tamanho de bloco do container</li>
+<li><strong>cqmin</strong>: O menor valor entre cqi ou cqb</li>
+<li><strong>cqmax</strong>: O maior valor entre cqi ou cqb</li>
+</ul>
+<pre><code class="language-css"><span class="hljs-selector-class">.responsive-text</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+
+<span class="hljs-selector-class">.responsive-text</span> <span class="hljs-selector-tag">h2</span> {
+  <span class="hljs-comment">/* Tamanho da fonte escala com a largura do container */</span>
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">clamp</span>(<span class="hljs-number">1.5rem</span>, <span class="hljs-number">5</span>cqi, <span class="hljs-number">3rem</span>);
+  
+  <span class="hljs-comment">/* Padding relativo ao container */</span>
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">2</span>cqi <span class="hljs-number">4</span>cqi;
+}
+
+<span class="hljs-selector-class">.responsive-text</span> <span class="hljs-selector-tag">p</span> {
+  <span class="hljs-comment">/* Altura da linha que se adapta ao container */</span>
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">clamp</span>(<span class="hljs-number">0.875rem</span>, <span class="hljs-number">2</span>cqi, <span class="hljs-number">1.125rem</span>);
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6</span>;
+  
+  <span class="hljs-comment">/* Margem que escala com o container */</span>
+  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">3</span>cqb;
+}
+</code></pre>
+<h3 id="combinando-container-e-media-queries">Combinando Container e Media Queries</h3>
+<p>Para a melhor experiência responsiva, combine ambas as abordagens:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.article-layout</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+
+<span class="hljs-comment">/* Estilos base mobile-first */</span>
+<span class="hljs-selector-class">.article-content</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-comment">/* Responder ao viewport para grandes mudanças de layout */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-selector-class">.article-layout</span> {
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr <span class="hljs-number">300px</span>;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">2rem</span>;
+  }
+}
+
+<span class="hljs-comment">/* Ajuste fino baseado no tamanho real do container */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.article-content</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">2rem</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.125rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.article-content</span> <span class="hljs-selector-tag">h2</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2rem</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">2rem</span> <span class="hljs-number">0</span> <span class="hljs-number">1rem</span>;
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">800px</span>) {
+  <span class="hljs-selector-class">.article-content</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">3rem</span>;
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">65ch</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+  }
+}
+</code></pre>
+<h3 id="style-queries-experimental">Style Queries (Experimental)</h3>
+<p>Olhando para o futuro, style queries permitem consultar propriedades personalizadas:</p>
+<pre><code class="language-css"><span class="hljs-comment">/* Sintaxe futura - suporte limitado em 2025 */</span>
+<span class="hljs-selector-class">.theme-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attr">--theme</span>: dark;
+}
+
+<span class="hljs-keyword">@container</span> style(<span class="hljs-attribute">--theme</span>: dark) {
+  <span class="hljs-selector-class">.card</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#1a1a1a</span>;
+    <span class="hljs-attribute">color</span>: white;
+  }
+}
+</code></pre>
+<h2 id="testando-container-queries-com-ferramentas-de-tamanho-de-tela">Testando Container Queries com Ferramentas de Tamanho de Tela</h2>
+<p>Para testar efetivamente suas container queries, você precisa das ferramentas certas. Nosso <a href="%7B%7Blang_prefix%7D%7D/devices/responsive-tester">Testador de Design Responsivo</a> é perfeito para isso:</p>
+<ol>
+<li><strong>Teste Diferentes Tamanhos de Container</strong>: Use o recurso de arrastar para redimensionar para ver como seus componentes respondem a várias larguras de container</li>
+<li><strong>Predefinições de Dispositivo</strong>: Verifique como os containers se comportam dentro de diferentes viewports de dispositivos</li>
+<li><strong>Atualizações em Tempo Real</strong>: Veja suas container queries dispararem enquanto você redimensiona</li>
+</ol>
+<p>Para calcular breakpoints ideais com base no conteúdo, nossa <a href="%7B%7Blang_prefix%7D%7D/devices/aspect-ratio-calculator">Calculadora de Proporção</a> ajuda a determinar as melhores dimensões de container para seus layouts.</p>
+<h2 id="considerações-de-desempenho">Considerações de Desempenho</h2>
+<h3 id="melhores-práticas-para-desempenho">Melhores Práticas para Desempenho</h3>
+<ol>
+<li><strong>Evite Aninhamento Profundo</strong></li>
+</ol>
+<pre><code class="language-css"><span class="hljs-comment">/* Evite */</span>
+<span class="hljs-selector-class">.container1</span> { <span class="hljs-attribute">container-type</span>: inline-size; }
+  <span class="hljs-selector-class">.container2</span> { <span class="hljs-attribute">container-type</span>: inline-size; }
+    <span class="hljs-selector-class">.container3</span> { <span class="hljs-attribute">container-type</span>: inline-size; }
+
+<span class="hljs-comment">/* Melhor */</span>
+<span class="hljs-selector-class">.component-container</span> { <span class="hljs-attribute">container-type</span>: inline-size; }
+</code></pre>
+<ol start="2">
+<li><strong>Use Contenção com Sabedoria</strong></li>
+</ol>
+<pre><code class="language-css"><span class="hljs-comment">/* Apenas defina container-type onde necessário */</span>
+<span class="hljs-selector-class">.card-grid</span> {
+  <span class="hljs-comment">/* Nenhum container-type necessário aqui */</span>
+}
+
+<span class="hljs-selector-class">.card-wrapper</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size; <span class="hljs-comment">/* Apenas no pai direto */</span>
+}
+</code></pre>
+<ol start="3">
+<li><strong>Otimize Condições de Consulta</strong></li>
+</ol>
+<pre><code class="language-css"><span class="hljs-comment">/* Use combinações lógicas eficientemente */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-number">400px</span> &lt;= <span class="hljs-attribute">width</span> &lt; <span class="hljs-number">800px</span>) {
+  <span class="hljs-comment">/* Estilos para containers médios */</span>
+}
+
+<span class="hljs-comment">/* Evite consultas redundantes */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">799px</span>) {
+  <span class="hljs-comment">/* Mesmo que acima, mas mais verboso */</span>
+}
+</code></pre>
+<h3 id="métricas-de-desempenho">Métricas de Desempenho</h3>
+<p>As container queries têm impacto mínimo no desempenho quando usadas corretamente:</p>
+<ul>
+<li><strong>Tempo de pintura</strong>: aumento de ~2-5% com uso intenso</li>
+<li><strong>Recálculo de layout</strong>: Semelhante às media queries</li>
+<li><strong>Uso de memória</strong>: Aumento insignificante</li>
+</ul>
+<h2 id="estratégia-de-migração-de-media-queries-para-container-queries">Estratégia de Migração: De Media Queries para Container Queries</h2>
+<h3 id="passo-1-audite-seus-estilos-atuais">Passo 1: Audite Seus Estilos Atuais</h3>
+<p>Identifique componentes que se beneficiariam de container queries:</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Componentes que aparecem em múltiplos contextos</span>
+<span class="hljs-keyword">const</span> candidateComponents = [
+  <span class="hljs-string">&#x27;cards&#x27;</span>,
+  <span class="hljs-string">&#x27;menus de navegação&#x27;</span>,
+  <span class="hljs-string">&#x27;barras laterais&#x27;</span>,
+  <span class="hljs-string">&#x27;tabelas de dados&#x27;</span>,
+  <span class="hljs-string">&#x27;layouts de formulário&#x27;</span>,
+  <span class="hljs-string">&#x27;galerias de imagens&#x27;</span>
+];
+</code></pre>
+<h3 id="passo-2-abordagem-de-melhoria-progressiva">Passo 2: Abordagem de Melhoria Progressiva</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Estilos base que funcionam em todos os lugares */</span>
+<span class="hljs-selector-class">.card</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">background</span>: white;
+}
+
+<span class="hljs-comment">/* Fallback com media queries */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">768px</span>) {
+  <span class="hljs-keyword">@supports</span> <span class="hljs-keyword">not</span> (<span class="hljs-attribute">container-type</span>: inline-size) {
+    <span class="hljs-selector-class">.card</span> {
+      <span class="hljs-attribute">display</span>: flex;
+    }
+  }
+}
+
+<span class="hljs-comment">/* Container queries modernas */</span>
+<span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">container-type</span>: inline-size) {
+  <span class="hljs-selector-class">.card-wrapper</span> {
+    <span class="hljs-attribute">container-type</span>: inline-size;
+  }
+  
+  <span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+    <span class="hljs-selector-class">.card</span> {
+      <span class="hljs-attribute">display</span>: flex;
+    }
+  }
+}
+</code></pre>
+<h3 id="passo-3-teste-e-validação">Passo 3: Teste e Validação</h3>
+<p>Use detecção de recursos para garantir compatibilidade:</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Detecção de recursos JavaScript</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">supportsContainerQueries</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">containerType</span> = <span class="hljs-string">&#x27;inline-size&#x27;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">containerType</span> === <span class="hljs-string">&#x27;inline-size&#x27;</span>;
+  } <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+
+<span class="hljs-keyword">if</span> (<span class="hljs-title function_">supportsContainerQueries</span>()) {
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;container-queries-supported&#x27;</span>);
+}
+</code></pre>
+<h2 id="armadilhas-comuns-e-como-evitá-las">Armadilhas Comuns e Como Evitá-las</h2>
+<h3 id="armadilha-1-esquecer-de-definir-container-type">Armadilha 1: Esquecer de Definir Container Type</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Não funcionará - nenhum container-type definido */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> { <span class="hljs-attribute">display</span>: flex; }
+}
+
+<span class="hljs-comment">/* Corrigido */</span>
+<span class="hljs-selector-class">.card-wrapper</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> { <span class="hljs-attribute">display</span>: flex; }
+}
+</code></pre>
+<h3 id="armadilha-2-container-type-no-elemento-errado">Armadilha 2: Container Type no Elemento Errado</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Errado - container-type no elemento sendo estilizado */</span>
+<span class="hljs-selector-class">.card</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> { <span class="hljs-comment">/* Isso não funcionará */</span> }
+}
+
+<span class="hljs-comment">/* Certo - container-type no pai */</span>
+<span class="hljs-selector-class">.card-wrapper</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.card</span> { <span class="hljs-comment">/* Isso funciona */</span> }
+}
+</code></pre>
+<h3 id="armadilha-3-nomes-de-container-conflitantes">Armadilha 3: Nomes de Container Conflitantes</h3>
+<pre><code class="language-css"><span class="hljs-comment">/* Cuidado com a nomenclatura */</span>
+<span class="hljs-selector-class">.outer</span> {
+  <span class="hljs-attribute">container</span>: layout / inline-size;
+}
+<span class="hljs-selector-class">.inner</span> {
+  <span class="hljs-attribute">container</span>: layout / inline-size; <span class="hljs-comment">/* Mesmo nome - confuso */</span>
+}
+
+<span class="hljs-comment">/* Melhor - use nomes únicos */</span>
+<span class="hljs-selector-class">.outer</span> {
+  <span class="hljs-attribute">container</span>: outer-layout / inline-size;
+}
+<span class="hljs-selector-class">.inner</span> {
+  <span class="hljs-attribute">container</span>: inner-layout / inline-size;
+}
+</code></pre>
+<h2 id="exemplo-de-implementação-de-projeto-real">Exemplo de Implementação de Projeto Real</h2>
+<p>Vamos implementar um painel responsivo completo que mostra container queries em ação:</p>
+<pre><code class="language-css"><span class="hljs-comment">/* Layout do Dashboard */</span>
+<span class="hljs-selector-class">.dashboard</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">250px</span> <span class="hljs-number">1</span>fr;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-comment">/* Container da barra lateral */</span>
+<span class="hljs-selector-class">.sidebar</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#f5f5f5</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-comment">/* Área de conteúdo principal */</span>
+<span class="hljs-selector-class">.main-content</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+
+<span class="hljs-comment">/* Containers de widget */</span>
+<span class="hljs-selector-class">.widget</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attribute">background</span>: white;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">4px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.1</span>);
+}
+
+<span class="hljs-comment">/* Navegação da barra lateral adapta-se à largura da barra lateral */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">200px</span>) {
+  <span class="hljs-selector-class">.sidebar-nav</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: column;
+  }
+  
+  <span class="hljs-selector-class">.sidebar-nav-item</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5rem</span>;
+    <span class="hljs-attribute">text-align</span>: center;
+  }
+  
+  <span class="hljs-selector-class">.sidebar-nav-text</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+  
+  <span class="hljs-selector-class">.sidebar-nav-icon</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5rem</span>;
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">200px</span>) {
+  <span class="hljs-selector-class">.sidebar-nav-item</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">0.75rem</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.75rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.sidebar-nav-text</span> {
+    <span class="hljs-attribute">display</span>: block;
+  }
+}
+
+<span class="hljs-comment">/* Widgets adaptam-se ao seu container */</span>
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">300px</span>) {
+  <span class="hljs-selector-class">.widget-content</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.875rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-chart</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-stats</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr;
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-number">300px</span> &lt;= <span class="hljs-attribute">width</span> &lt; <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.widget-content</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-chart</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-stats</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.widget-header</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">justify-content</span>: space-between;
+    <span class="hljs-attribute">align-items</span>: center;
+  }
+  
+  <span class="hljs-selector-class">.widget-chart</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">300px</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-stats</span> {
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);
+  }
+}
+
+<span class="hljs-comment">/* Tabela responsiva dentro de widgets */</span>
+<span class="hljs-selector-class">.widget-table-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attribute">overflow-x</span>: auto;
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &lt; <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.widget-table</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.875rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-table</span> <span class="hljs-selector-tag">th</span><span class="hljs-selector-pseudo">:nth-child</span>(n+<span class="hljs-number">4</span>),
+  <span class="hljs-selector-class">.widget-table</span> <span class="hljs-selector-tag">td</span><span class="hljs-selector-pseudo">:nth-child</span>(n+<span class="hljs-number">4</span>) {
+    <span class="hljs-attribute">display</span>: none; <span class="hljs-comment">/* Esconder colunas menos importantes */</span>
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.widget-table</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+  }
+  
+  <span class="hljs-selector-class">.widget-table</span> <span class="hljs-selector-tag">th</span>,
+  <span class="hljs-selector-class">.widget-table</span> <span class="hljs-selector-tag">td</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.75rem</span> <span class="hljs-number">1rem</span>;
+  }
+}
+</code></pre>
+<h2 id="o-futuro-das-container-queries">O Futuro das Container Queries</h2>
+<h3 id="o-que-vem-por-aí">O Que Vem Por Aí?</h3>
+<ol>
+<li><strong>Style Queries</strong>: Consultar qualquer propriedade CSS, não apenas tamanho</li>
+<li><strong>Unidades de Comprimento de Container Query em Cálculos</strong>: Cálculos mais complexos com unidades cq</li>
+<li><strong>DevTools Melhorados</strong>: Melhores ferramentas de depuração e visualização</li>
+<li><strong>Integração com Frameworks</strong>: Melhor suporte em bibliotecas CSS-in-JS</li>
+</ol>
+<h3 id="container-queries--css-moderno">Container Queries + CSS Moderno</h3>
+<p>As container queries funcionam lindamente com outros recursos CSS modernos:</p>
+<pre><code class="language-css"><span class="hljs-comment">/* Com CSS Grid */</span>
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fit, <span class="hljs-built_in">minmax</span>(<span class="hljs-built_in">min</span>(<span class="hljs-number">100%</span>, <span class="hljs-number">300px</span>), <span class="hljs-number">1</span>fr));
+}
+
+<span class="hljs-comment">/* Com Cascade Layers */</span>
+<span class="hljs-keyword">@layer</span> components {
+  <span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>) {
+    <span class="hljs-selector-class">.card</span> { <span class="hljs-attribute">display</span>: flex; }
+  }
+}
+
+<span class="hljs-comment">/* Com Propriedades Personalizadas */</span>
+<span class="hljs-selector-class">.theme-aware</span> {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+  <span class="hljs-attr">--spacing</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">600px</span>) {
+  <span class="hljs-selector-class">.theme-aware</span> {
+    <span class="hljs-attr">--spacing</span>: <span class="hljs-number">2rem</span>;
+  }
+}
+
+<span class="hljs-comment">/* Com seletor :has() */</span>
+<span class="hljs-selector-class">.dynamic-container</span><span class="hljs-selector-pseudo">:has</span>(<span class="hljs-selector-class">.special-content</span>) {
+  <span class="hljs-attribute">container-type</span>: inline-size;
+}
+</code></pre>
+<h2 id="exercício-prático-tente-você-mesmo">Exercício Prático: Tente Você Mesmo</h2>
+<p>Aqui está um desafio para testar seu entendimento:</p>
+<p><strong>Desafio</strong>: Crie um componente de postagem de blog responsivo que:</p>
+<ol>
+<li>Mostra apenas o título e o resumo em containers abaixo de 300px</li>
+<li>Adiciona uma imagem em miniatura entre 300px e 500px</li>
+<li>Mostra conteúdo completo com uma grande imagem de destaque acima de 500px</li>
+<li>Ajusta a tipografia com base na largura do container</li>
+</ol>
+<p><strong>Código Inicial</strong>:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.blog-post-container</span> {
+  <span class="hljs-comment">/* Adicione configuração de container query */</span>
+}
+
+<span class="hljs-selector-class">.blog-post</span> {
+  <span class="hljs-comment">/* Estilos base */</span>
+}
+
+<span class="hljs-comment">/* Adicione suas container queries aqui */</span>
+</code></pre>
+<p>Teste sua solução usando nosso <a href="%7B%7Blang_prefix%7D%7D/devices/responsive-tester">Testador de Design Responsivo</a> para ver como ele se comporta em diferentes tamanhos de container!</p>
+<h2 id="conclusão-a-revolução-das-container-queries">Conclusão: A Revolução das Container Queries</h2>
+<p>As container queries representam uma mudança fundamental na forma como abordamos o design responsivo. Elas permitem componentes verdadeiramente modulares e conscientes do contexto que se adaptam inteligentemente ao seu ambiente.</p>
+<h3 id="principais-aprendizados">Principais Aprendizados:</h3>
+<ul>
+<li><strong>Container queries</strong> tornam os componentes verdadeiramente reutilizáveis e conscientes do contexto</li>
+<li><strong>Suporte do navegador</strong> agora é suficiente para uso em produção (cobertura de 90%+)</li>
+<li><strong>Impacto no desempenho</strong> é mínimo quando usado corretamente</li>
+<li><strong>Migração</strong> pode ser feita progressivamente com fallbacks adequados</li>
+<li><strong>Recursos futuros</strong> as tornarão ainda mais poderosas</li>
+</ul>
+<h3 id="próximos-passos">Próximos Passos:</h3>
+<ol>
+<li>Comece a experimentar com container queries em novos componentes</li>
+<li>Identifique componentes existentes que se beneficiariam da migração</li>
+<li>Use nossas <a href="%7B%7Blang_prefix%7D%7D/">ferramentas do Screen Size Checker</a> para testar suas implementações</li>
+<li>Mantenha-se atualizado sobre novos desenvolvimentos em style queries e unidades de container</li>
+</ol>
+<p>A era dos componentes verdadeiramente responsivos chegou. Container queries não são apenas um novo recurso — são uma nova maneira de pensar sobre design web. Comece a usá-las hoje, e seu eu futuro (e sua equipe) lhe agradecerão.</p>
+<hr>
+<p><em>Quer testar suas container queries em diferentes tamanhos de tela? Tente nosso <a href="%7B%7Blang_prefix%7D%7D/devices/responsive-tester">Testador de Design Responsivo gratuito</a> para ver como seus componentes se adaptam em tempo real. Para mais artigos sobre CSS moderno e design responsivo, confira nosso <a href="%7B%7Blang_prefix%7D%7D/blog/">blog</a>.</em></p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/css" class="tag-link">#css</a> <a href="tag/design-responsivo" class="tag-link">#design-responsivo</a> <a href="tag/container-queries" class="tag-link">#container-queries</a> <a href="tag/desenvolvimento-web" class="tag-link">#desenvolvimento-web</a> <a href="tag/frontend" class="tag-link">#frontend</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/pt/blog/container-queries-guide" data-title="Guia de CSS Container Queries">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/pt/blog/container-queries-guide" data-title="Guia de CSS Container Queries">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/pt/blog/container-queries-guide" data-title="Guia de CSS Container Queries">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/pt/blog/container-queries-guide">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="container-queries-guide" data-post-lang="pt"></div>
+        </div>
+    </div>
+</article>

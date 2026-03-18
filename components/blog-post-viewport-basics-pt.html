@@ -1,0 +1,93 @@
+<!-- Blog Post: Entendendo os Fundamentos do Viewport -->
+<article class="blog-post">
+    <header class="blog-post-header">
+        <h1 class="blog-post-title">Entendendo os Fundamentos do Viewport</h1>
+        <div class="blog-post-meta">
+            <span class="blog-post-date">October 15, 2023</span>
+            <span class="blog-post-author">Equipe Screen Size Checker</span>
+            <span class="blog-post-reading-time">3 min read</span>
+        </div>
+        <!-- Featured image temporarily disabled until images are created -->
+    </header>
+    
+    <div class="blog-post-content">
+        <h2 id="entendendo-os-fundamentos-do-viewport">Entendendo os Fundamentos do Viewport</h2>
+<p>O viewport é um dos conceitos mais fundamentais em design e desenvolvimento web, mas muitas vezes é mal compreendido. Este artigo explica o que é o viewport, como ele difere da resolução da tela e por que ele é importante para criar sites responsivos.</p>
+<h2 id="o-que-é-um-viewport">O Que é um Viewport?</h2>
+<p>O viewport é a área visível de uma página web na janela do seu navegador. Pense nele como a &quot;janela&quot; através da qual você visualiza um site. O tamanho dessa janela pode variar dependendo do dispositivo que você está usando — desde pequenas telas de smartphones até grandes monitores de desktop.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+</code></pre>
+<p>Esta meta tag é essencial para o design web responsivo, pois instrui o navegador sobre como controlar as dimensões e a escala da página.</p>
+<h2 id="viewport-vs-resolução-da-tela">Viewport vs. Resolução da Tela</h2>
+<p>Muitos desenvolvedores confundem o tamanho do viewport com a resolução da tela, mas são conceitos diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Conceito</th>
+<th>Definição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tamanho do Viewport</td>
+<td>A área visível em pixels CSS</td>
+<td>375 × 812 no iPhone 13</td>
+</tr>
+<tr>
+<td>Resolução da Tela</td>
+<td>Pixels físicos no dispositivo</td>
+<td>1170 × 2532 no iPhone 13</td>
+</tr>
+<tr>
+<td>Proporção de Pixels do Dispositivo (DPR)</td>
+<td>Pixels físicos ÷ Pixels CSS</td>
+<td>3.0 no iPhone 13</td>
+</tr>
+</tbody></table>
+<h2 id="por-que-o-viewport-importa-para-desenvolvedores">Por Que o Viewport Importa para Desenvolvedores</h2>
+<p>Entender o viewport é crítico por várias razões:</p>
+<ol>
+<li><strong>Design Responsivo</strong>: Dispositivos diferentes têm tamanhos de viewport diferentes, exigindo layouts adaptáveis.</li>
+<li><strong>Otimização Móvel</strong>: Viewports móveis exigem consideração especial para interações de toque e legibilidade.</li>
+<li><strong>Desempenho</strong>: Conhecer o viewport ajuda a otimizar imagens e ativos para diferentes tamanhos de tela.</li>
+<li><strong>Experiência do Usuário</strong>: Um design responsivo bem implementado fornece uma experiência consistente em todos os dispositivos.</li>
+</ol>
+<h2 id="como-verificar-o-tamanho-do-seu-viewport">Como Verificar o Tamanho do Seu Viewport</h2>
+<p>Você pode verificar facilmente o tamanho do seu viewport atual usando nossa ferramenta <a href="%7B%7Blang_prefix%7D%7D/">Verificador de Tamanho de Tela</a>. Isso exibirá suas dimensões de viewport atuais em pixels CSS, juntamente com outras informações úteis como proporção de pixels do dispositivo e resolução da tela.</p>
+<h2 id="tamanhos-de-viewport-comuns-a-considerar">Tamanhos de Viewport Comuns a Considerar</h2>
+<p>Ao projetar sites responsivos, considere estas larguras de viewport comuns:</p>
+<ul>
+<li><strong>Móvel Pequeno</strong>: 320px - 375px</li>
+<li><strong>Móvel Grande</strong>: 376px - 428px</li>
+<li><strong>Tablet</strong>: 768px - 1024px</li>
+<li><strong>Desktop</strong>: 1025px - 1440px</li>
+<li><strong>Desktop Grande</strong>: 1441px+</li>
+</ul>
+<h2 id="conclusão">Conclusão</h2>
+<p>Entender o conceito de viewport é fundamental para o desenvolvimento web moderno. Ao implementar adequadamente técnicas de design responsivo com base no tamanho do viewport em vez de detecção de dispositivo, você pode criar sites que parecem ótimos e funcionam bem em todos os dispositivos.</p>
+<p>Lembre-se de que o tamanho do viewport pode mudar quando os usuários giram seus dispositivos ou redimensionam as janelas do navegador, então seus designs devem ser flexíveis o suficiente para acomodar essas mudanças.</p>
+<p>Para informações mais detalhadas sobre viewports de dispositivos específicos, confira nossos guias de <a href="%7B%7Blang_prefix%7D%7D/devices/iphone-viewport-sizes">Tamanhos de Viewport iPhone</a> e <a href="%7B%7Blang_prefix%7D%7D/devices/android-viewport-sizes">Tamanhos de Viewport Android</a>.</p>
+
+    </div>
+    
+    <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+            <a href="tag/viewport" class="tag-link">#viewport</a> <a href="tag/design-responsivo" class="tag-link">#design-responsivo</a> <a href="tag/desenvolvimento-web" class="tag-link">#desenvolvimento-web</a>
+        </div>
+        <div class="blog-post-share">
+            <span>Share: </span>
+            <button class="share-btn share-twitter" data-url="/pt/blog/viewport-basics" data-title="Entendendo os Fundamentos do Viewport">Twitter</button>
+            <button class="share-btn share-facebook" data-url="/pt/blog/viewport-basics" data-title="Entendendo os Fundamentos do Viewport">Facebook</button>
+            <button class="share-btn share-linkedin" data-url="/pt/blog/viewport-basics" data-title="Entendendo os Fundamentos do Viewport">LinkedIn</button>
+            <button class="share-btn share-copy" data-url="/pt/blog/viewport-basics">Copy Link</button>
+        </div>
+    </footer>
+    
+    <div class="blog-post-related">
+        <h3>Related Articles</h3>
+        <div class="blog-post-related-container">
+            <!-- 相关文章将通过JS动态加载 -->
+            <div class="related-posts-placeholder" data-post-id="viewport-basics" data-post-lang="pt"></div>
+        </div>
+    </div>
+</article>

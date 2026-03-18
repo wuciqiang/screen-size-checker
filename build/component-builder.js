@@ -14,61 +14,17 @@ class ComponentBuilder {
             console.error('Components directory not found!');
             return;
         }
-
-        this.components.clear();
-        const counts = {
-            manual: 0,
-            generatedBlog: 0,
-            generatedHub: 0
-        };
-        const verbose = process.env.DEBUG_COMPONENTS === '1';
-
-        const files = this.getComponentFiles(componentDir);
-        files.forEach(filePath => {
-            const name = path.basename(filePath, '.html');
-            const content = fs.readFileSync(filePath, 'utf8');
-            const relativePath = path.relative(this.rootPath, filePath).replace(/\\/g, '/');
-
-            if (this.components.has(name)) {
-                console.warn(`Duplicate component "${name}" detected, overriding with ${relativePath}`);
-            }
-
-            this.components.set(name, content);
-
-            if (relativePath.startsWith('components/generated/blog/')) {
-                counts.generatedBlog += 1;
-            } else if (relativePath.startsWith('components/generated/hub/')) {
-                counts.generatedHub += 1;
-            } else {
-                counts.manual += 1;
-            }
-
-            if (verbose) {
-                console.log(`Loaded component: ${relativePath}`);
+        
+        const files = fs.readdirSync(componentDir);
+        files.forEach(file => {
+            if (file.endsWith('.html')) {
+                const name = path.basename(file, '.html');
+                const filePath = path.join(componentDir, file);
+                const content = fs.readFileSync(filePath, 'utf8');
+                this.components.set(name, content);
+                console.log(`Loaded component: ${name}`);
             }
         });
-
-        console.log(
-            `Loaded ${this.components.size} components `
-            + `(${counts.manual} manual, ${counts.generatedBlog} generated blog, ${counts.generatedHub} generated hub)`
-        );
-    }
-
-    getComponentFiles(dir) {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        const files = [];
-
-        entries.forEach(entry => {
-            const fullPath = path.join(dir, entry.name);
-
-            if (entry.isDirectory()) {
-                files.push(...this.getComponentFiles(fullPath));
-            } else if (entry.isFile() && entry.name.endsWith('.html')) {
-                files.push(fullPath);
-            }
-        });
-
-        return files.sort((a, b) => a.localeCompare(b));
     }
     
     buildPage(templateName, pageData) {
@@ -370,7 +326,6 @@ class ComponentBuilder {
                     
                     // 写入文件
                     const outputPath = path.join(testDir, page.output);
-                    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
                     fs.writeFileSync(outputPath, html);
                     
                     console.log(` Successfully built: ${page.output}`);
