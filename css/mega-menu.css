@@ -125,7 +125,8 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.nav-item.has-megamenu:hover .mega-menu {
+.nav-item.has-megamenu.hover .mega-menu,
+.nav-item.has-megamenu.expanded .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -329,7 +330,8 @@ body {
     padding: 16px;
 }
 
-.nav-item.has-dropdown:hover .dropdown-menu {
+.nav-item.has-dropdown.hover .dropdown-menu,
+.nav-item.has-dropdown.expanded .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);

@@ -9,12 +9,13 @@ const TESTS = {
     cleanUrls: 'test/dev-server-clean-url-test.js',
     languageUrls: 'test/language-url-canonicalization-test.js',
     canonicalLinks: 'test/canonical-internal-links-test.js',
-    blogLanguageModal: 'test/blog-language-modal-test.js'
+    blogLanguageModal: 'test/blog-language-modal-test.js',
+    languageSwitchMenu: 'test/language-switch-mega-menu-test.js'
 };
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu'];
     }
 
     const namedArgs = args
