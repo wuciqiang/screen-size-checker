@@ -550,14 +550,7 @@ function navigateToLanguage(newLang) {
                 newPath = '/';
             }
         } else {
-            newPath = `/${newLang}`;
-            if (pagePath) {
-                newPath += `/${pagePath}`;
-            }
-
-            if (!pagePath || (!pagePath.includes('.') && !pagePath.endsWith('/'))) {
-                newPath += '/';
-            }
+            newPath = pagePath ? `/${newLang}/${pagePath}` : `/${newLang}/`;
         }
     }
 
@@ -1255,6 +1248,12 @@ function setupBasicLanguageSelector() {
     const languageModalBackdrop = document.getElementById('language-modal-backdrop');
 
     if (languageModalTrigger && languageModal) {
+        if (languageModal.dataset.basicSelectorBound === 'true') {
+            console.log('Basic language modal already initialized, skipping duplicate binding');
+            return;
+        }
+
+        languageModal.dataset.basicSelectorBound = 'true';
         console.log('Setting up basic language modal');
 
         languageModalTrigger.addEventListener('click', (event) => {

@@ -5,12 +5,15 @@ const TESTS = {
     validation: 'test/simple-validation.js',
     seo: 'test/seo-tags-validator.js',
     links: 'test/internal-links-checker.js',
-    redirects: 'test/blog-redirect-test.js'
+    redirects: 'test/blog-redirect-test.js',
+    cleanUrls: 'test/dev-server-clean-url-test.js',
+    languageUrls: 'test/language-url-canonicalization-test.js',
+    canonicalLinks: 'test/canonical-internal-links-test.js'
 };
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks'];
     }
 
     const namedArgs = args

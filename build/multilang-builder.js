@@ -1461,6 +1461,118 @@ class MultiLangBuilder extends ComponentBuilder {
         return '<script type="application/ld+json">\n' + JSON.stringify(faqStructuredData, null, 2) + '\n</script>';
     }
 
+    normalizeInternalAnchorHref(href) {
+        if (!href || /^(#|mailto:|tel:|javascript:|data:)/i.test(href)) {
+            return href;
+        }
+
+        const sameSiteMatch = href.match(/^(https?:\/\/screensizechecker\.com)(\/[^?#]*)?([?#].*)?$/i);
+        if (/^[a-z][a-z0-9+.-]*:/i.test(href) && !sameSiteMatch) {
+            return href;
+        }
+
+        let origin = '';
+        let rawPath = href;
+        let suffix = '';
+
+        if (sameSiteMatch) {
+            origin = sameSiteMatch[1];
+            rawPath = sameSiteMatch[2] || '/';
+            suffix = sameSiteMatch[3] || '';
+        } else {
+            const parts = href.match(/^([^?#]*)([?#].*)?$/);
+            if (!parts) {
+                return href;
+            }
+
+            rawPath = parts[1];
+            suffix = parts[2] || '';
+        }
+
+        const isCanonicalCandidate =
+            rawPath === '' ||
+            rawPath === '/' ||
+            /(^|\/)en(?:\/|$)/.test(rawPath) ||
+            /(^|\/)index\.html$/i.test(rawPath) ||
+            /\.html$/i.test(rawPath);
+
+        if (!isCanonicalCandidate) {
+            return href;
+        }
+
+        const isRootRelative = rawPath.startsWith('/');
+        let normalizedPath = rawPath;
+
+        if (isRootRelative) {
+            if (normalizedPath === '/en' || normalizedPath === '/en/') {
+                normalizedPath = '/';
+            } else {
+                normalizedPath = normalizedPath.replace(/^\/en(?=\/|$)/, '');
+                if (!normalizedPath) {
+                    normalizedPath = '/';
+                }
+            }
+
+            if (normalizedPath === '/index.html') {
+                normalizedPath = '/';
+            } else if (normalizedPath.endsWith('/index.html')) {
+                normalizedPath = normalizedPath.replace(/\/index\.html$/i, '/');
+            } else {
+                normalizedPath = normalizedPath.replace(/\.html$/i, '');
+            }
+
+            if (!normalizedPath) {
+                normalizedPath = '/';
+            }
+        } else {
+            let relativePrefix = '';
+
+            while (normalizedPath.startsWith('../')) {
+                relativePrefix += '../';
+                normalizedPath = normalizedPath.slice(3);
+            }
+
+            if (normalizedPath.startsWith('./')) {
+                relativePrefix += './';
+                normalizedPath = normalizedPath.slice(2);
+            }
+
+            if (normalizedPath === 'en' || normalizedPath === 'en/') {
+                normalizedPath = '';
+            } else if (normalizedPath.startsWith('en/')) {
+                normalizedPath = normalizedPath.slice(3);
+            }
+
+            if (normalizedPath === 'index.html') {
+                normalizedPath = '';
+            } else if (normalizedPath.endsWith('/index.html')) {
+                normalizedPath = normalizedPath.replace(/\/index\.html$/i, '/');
+            } else {
+                normalizedPath = normalizedPath.replace(/\.html$/i, '');
+            }
+
+            if (!normalizedPath) {
+                normalizedPath = relativePrefix || './';
+            } else {
+                normalizedPath = relativePrefix + normalizedPath;
+            }
+        }
+
+        return `${origin}${normalizedPath}${suffix}`;
+    }
+
+    normalizeInternalAnchorHrefs(html) {
+        return html.replace(/<a\b([^>]*?)\bhref=(["'])(.*?)\2([^>]*)>/gi, (match, before, quote, href, after) => {
+            const normalizedHref = this.normalizeInternalAnchorHref(href);
+
+            if (normalizedHref === href) {
+                return match;
+            }
+
+            return `<a${before}href=${quote}${normalizedHref}${quote}${after}>`;
+        });
+    }
+
     // 濞ｅ浂鍠栭ˇ鏌ユ濞嗘劏鍋撴担鐣屻偒婵犙勫姌閻儳顕?
     fixStaticResourcePaths(html, outputPath) {
         // 閻犱緤绱曢悾濠氭儎缁嬫鍤犻悹渚灠缁剁偛菐閸楃偛顔?- 闁哄秴娲ら崳顖炲礌閺嶎剛鐔呯€垫澘瀚崹搴ㄦ⒕閺冨偆鍎婂☉鎾跺劋椤掓粓寮鍕祮
@@ -1506,8 +1618,8 @@ class MultiLangBuilder extends ComponentBuilder {
             /src="(images\/[^"]+)"/g,
             `src="${prefix}$1"`
         );
-        
-        return html;
+
+        return this.normalizeInternalAnchorHrefs(html);
     }
     
     // 闁汇垻鍠愰崹姘跺冀閸︻厽绐楃憸鐗堟礀瀹曘儳鈧箍鍨归崬瀵糕偓鍦缁辨瑩鎳熸潏銊︾€柣妤€鐗婂﹢甯窗
@@ -1889,7 +2001,8 @@ class MultiLangBuilder extends ComponentBuilder {
             const isEnabled = enabledLanguages.includes(lang.code);
             
             if (isEnabled) {
-                return `        <a href="${lang.code}/index.html" class="language-card">
+                const href = lang.code === 'en' ? './' : `${lang.code}/`;
+                return `        <a href="${href}" class="language-card">
             <div class="flag">${lang.flag}</div>
             <div class="lang-name">${lang.name}</div>
             <div class="lang-code">${lang.code}</div>
@@ -1980,8 +2093,10 @@ ${languageCards}
     </script>
 </body>
 </html>`;
+
+        const normalizedLanguageSelectionHtml = this.normalizeInternalAnchorHrefs(languageSelectionHtml);
         
-        fs.writeFileSync(path.join(outputDir, 'select-language.html'), languageSelectionHtml);
+        fs.writeFileSync(path.join(outputDir, 'select-language.html'), normalizedLanguageSelectionHtml);
         console.log('[OK] Language selection page created at select-language.html');
     }
 

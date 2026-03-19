@@ -617,6 +617,12 @@ function setupBasicLanguageSelector() {
     const languageModalBackdrop = document.getElementById('language-modal-backdrop');
 
     if (languageModalTrigger && languageModal) {
+        if (languageModal.dataset.basicSelectorBound === 'true') {
+            console.log('Basic language modal already initialized, skipping duplicate binding');
+            return;
+        }
+
+        languageModal.dataset.basicSelectorBound = 'true';
         console.log('Setting up basic language modal (before i18n)');
 
         // Open modal when button is clicked

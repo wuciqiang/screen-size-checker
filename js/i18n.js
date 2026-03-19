@@ -15,26 +15,20 @@ if (typeof i18next === 'undefined') {
  */
 function getLocalesPath() {
     const currentPath = window.location.pathname;
-    // console.log('🔍 Calculating locales path for:', currentPath); // 已注释减少日志
-    
-    // 如果在语言子目录下的设备页面 (/en/devices/, /zh/devices/ 等)，需要回到上两级目录
-    if (currentPath.match(/\/[a-z]{2}\/devices\//) || currentPath.includes('/devices/')) {
-        const path = '../../locales/{{lng}}/translation.json';
-        // console.log('📂 Devices page path:', path); // 已注释减少日志
-        return path;
+
+    if (currentPath.match(/\/[a-z]{2}\/(devices|hub|blog)\//)) {
+        return '../../locales/{{lng}}/translation.json';
     }
-    
-    // 如果只在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+
+    if (currentPath.match(/^\/(devices|hub|blog)\//)) {
+        return '../locales/{{lng}}/translation.json';
+    }
+
     if (currentPath.match(/\/[a-z]{2}\//)) {
-        const path = '../locales/{{lng}}/translation.json';
-        // console.log('🌍 Language subdirectory path:', path); // 已注释减少日志
-        return path;
+        return '../locales/{{lng}}/translation.json';
     }
-    
-    // 如果在根目录
-    const path = './locales/{{lng}}/translation.json';
-    // console.log('🏠 Root directory path:', path); // 已注释减少日志
-    return path;
+
+    return './locales/{{lng}}/translation.json';
 }
 
 /**
@@ -43,18 +37,19 @@ function getLocalesPath() {
  */
 function getChineseTranslationsPath() {
     const currentPath = window.location.pathname;
-    
-    // 如果在语言子目录下的设备页面 (/en/devices/, /zh/devices/ 等)，需要回到上两级目录
-    if (currentPath.match(/\/[a-z]{2}\/devices\//) || currentPath.includes('/devices/')) {
+
+    if (currentPath.match(/\/[a-z]{2}\/(devices|hub|blog)\//)) {
         return '../../locales/zh/translation.json';
     }
-    
-    // 如果只在语言子目录 (/zh/, /en/, /fr/ 等)，需要回到上一级目录
+
+    if (currentPath.match(/^\/(devices|hub|blog)\//)) {
+        return '../locales/zh/translation.json';
+    }
+
     if (currentPath.match(/\/[a-z]{2}\//)) {
         return '../locales/zh/translation.json';
     }
-    
-    // 如果在根目录
+
     return './locales/zh/translation.json';
 }
 

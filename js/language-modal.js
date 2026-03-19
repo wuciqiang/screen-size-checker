@@ -251,34 +251,12 @@ class LanguageModal {
         
         if (targetLang === 'en') {
             // English: prefer root path without language prefix
-            // Special case: blog pages are only available under /en/blog/* in current build output
-            if (pagePath) {
-                if (pagePath.startsWith('blog/')) {
-                    targetUrl = `/en/${pagePath}`;
-                } else {
-                    targetUrl = `/${pagePath}`;
-                }
-            } else {
-                targetUrl = '/';
-            }
-            console.log(`🏠 English target: using root path with blog special-case (${targetUrl})`);
+            targetUrl = pagePath ? `/${pagePath}` : '/';
+            console.log(`?? English target: using root path (${targetUrl})`);
         } else {
             // Other languages: use language prefix
-            targetUrl = `/${targetLang}`;
-            if (pagePath) {
-                targetUrl += `/${pagePath}`;
-            }
-            
-            // Ensure trailing slash for directory-like paths (index pages)
-            // But NOT for hub pages or other specific page paths
-            const isHubPage = pagePath && pagePath.includes('hub/');
-            const isFilePath = pagePath && pagePath.includes('.');
-            const hasTrailingSlash = pagePath && pagePath.endsWith('/');
-            
-            if (!pagePath || (!isFilePath && !hasTrailingSlash && !isHubPage)) {
-                targetUrl += '/';
-            }
-            console.log(`🌍 Non-English target: using language prefix (${targetUrl})`);
+            targetUrl = pagePath ? `/${targetLang}/${pagePath}` : `/${targetLang}/`;
+            console.log(`?? Non-English target: using language prefix (${targetUrl})`);
         }
         
         // Add search params and hash if they exist

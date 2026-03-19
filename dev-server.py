@@ -8,6 +8,7 @@ import logging
 import socketserver
 import sys
 from datetime import datetime
+from http import HTTPStatus
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -54,6 +55,11 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
     def _resolve_clean_url(self, request_path: str) -> str:
         """Return rewritten path for clean URL resolution, or the original path."""
         decoded_path = unquote(urlsplit(request_path).path)
+        normalized_path = (
+            decoded_path[:-1]
+            if decoded_path.endswith("/") and decoded_path != "/"
+            else decoded_path
+        )
 
         # Root path should be handled by default behavior.
         if decoded_path == "/":
@@ -61,34 +67,71 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
 
         # Try /path/ -> /path/index.html
         if decoded_path.endswith("/"):
-            index_path = Path(DIRECTORY) / decoded_path.lstrip("/") / "index.html"
+            index_path = Path(DIRECTORY) / normalized_path.lstrip("/") / "index.html"
             if index_path.is_file():
-                return f"{decoded_path}index.html"
+                return f"{normalized_path}/index.html"
 
         # Try /path -> /path.html when no extension and file not found.
-        path_obj = Path(decoded_path)
+        path_obj = Path(normalized_path)
         if path_obj.suffix:
             return decoded_path
 
-        target = Path(DIRECTORY) / decoded_path.lstrip("/")
+        target = Path(DIRECTORY) / normalized_path.lstrip("/")
         if target.exists():
             return decoded_path
 
         html_target = target.with_suffix(".html")
         if html_target.is_file():
-            return f"{decoded_path}.html"
+            return f"{normalized_path}.html"
 
         return decoded_path
 
-    def do_GET(self) -> None:  # noqa: N802
+    def _get_redirect_target(self, request_path: str) -> str | None:
+        """Return canonical clean URL when a trailing slash points to an HTML file."""
+        parts = urlsplit(request_path)
+        decoded_path = unquote(parts.path)
+
+        if decoded_path in {"", "/"} or not decoded_path.endswith("/"):
+            return None
+
+        normalized_path = decoded_path[:-1]
+        index_path = Path(DIRECTORY) / normalized_path.lstrip("/") / "index.html"
+        if index_path.is_file():
+            return None
+
+        html_target = (Path(DIRECTORY) / normalized_path.lstrip("/")).with_suffix(
+            ".html"
+        )
+        if not html_target.is_file():
+            return None
+
+        redirect_target = normalized_path or "/"
+        if parts.query:
+            redirect_target = f"{redirect_target}?{parts.query}"
+
+        return redirect_target
+
+    def send_head(self):  # noqa: D401
+        """Serve the request after applying clean-URL redirects and rewrites."""
+        redirect_target = self._get_redirect_target(self.path)
+        if redirect_target:
+            LOGGER.info(
+                'redirect %s "%s" -> "%s"', self.command, self.path, redirect_target
+            )
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", redirect_target)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return None
+
         original = self.path
         rewritten = self._resolve_clean_url(self.path)
         self.path = rewritten
 
         if rewritten != unquote(urlsplit(original).path):
-            LOGGER.info('rewrite GET "%s" -> "%s"', original, rewritten)
+            LOGGER.info('rewrite %s "%s" -> "%s"', self.command, original, rewritten)
 
-        return super().do_GET()
+        return super().send_head()
 
 
 class ThreadingTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
