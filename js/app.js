@@ -48,8 +48,9 @@ async function initializeApp() {
         updateInitialDisplayValues();
         initializeTheme();
 
-        // PHASE 2.0: 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宥庡€ｉ埡鍛闁靛ě灞肩磽闂佽鍎搁崱妤€骞嬫繛鏉戝悑閿氶悗浣冨皺閸栨牠鎳￠妶鍥х厷闂佹寧绋戦悧鍡涘矗瑜旈弻銊╊敊鐟欙絽浜剧憸鎴﹀礂濡顕辨俊顖氭惈椤曆囨晬?       try {
-            const mobileOptimizer = initializeMobileOptimization({
+        // PHASE 2.0: Initialize mobile performance optimizations
+        try {
+            initializeMobileOptimization({
                 enableDeviceDetection: true,
                 enableNetworkAdaptation: true,
                 enableLowEndOptimization: true,
@@ -58,14 +59,14 @@ async function initializeApp() {
             console.log('Mobile performance optimizer initialized successfully');
         } catch (error) {
             console.warn('Mobile performance optimizer failed to initialize:', error);
-            // 缂備礁顦抽褎鎱ㄩ埡鍐崥妞ゆ牗鐟ч崰姗€鏌涢弽銊уⅹ婵炲懏甯″畷姘攽閸♀晜缍忛梺鍛婄墬閻楁洟濡甸幋鐘冲闁靛鍊楅悷婵嬪箹鐎涙ɑ顥嗘い鏇熷哺濮婅偐绱掑鍡楀闁圭厧鐡ㄥ濠氬极閵堝瑙︽い鏍ㄨ壘琚?
         }
 
-        // PHASE 2.1: 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宓懏鎲绘繛杈剧稻閹稿憡鎱ㄩ悙瀛樺闁瑰瓨甯為崰姗€鏌涢弽銊уⅹ婵炲懏甯￠弫宥夊醇濠靛棗缍橀梻浣诡儥閸犳鍩€椤戭剙妫楅崢鏉懨归崗娴庮亞鈧絻顕滅槐?       try {
+        // PHASE 2.1: Initialize the font loading optimizer lazily
+        try {
             const FontLoadingOptimizerModule = await import('./font-loading-optimizer.js');
             const FontLoadingOptimizer = FontLoadingOptimizerModule.default;
 
-            const fontOptimizer = new FontLoadingOptimizer({
+            new FontLoadingOptimizer({
                 preloadCriticalFonts: true,
                 enableFallback: true,
                 enableMetrics: true,
@@ -75,19 +76,20 @@ async function initializeApp() {
             console.log('Font loading optimizer initialized successfully');
         } catch (error) {
             console.warn('Font loading optimizer failed to initialize:', error);
-            // NOTE: cleaned malformed mojibake comment.
-            }
+        }
 
-        // PHASE 2.2: 缂備焦鏌ㄩ鍛暤閸℃瑦濯奸柛鎾楀懏鐎梺绯曟櫈濞咃綁銆侀崨顔绢洸閻庯絺鏅滈浠嬫煟閳哄倸鐏ラ柟顖氼樀瀹曟娊鈥﹂幒鏃傤槷缂佺虎鍙庨崰鏇犳崲濮橆厾鈻斿┑鐘冲嚬閺嗩垶鏌涢幒鎴炲鐎规洘鐓″畷婵嬫偄鐠囨彃骞嬮梺鍛婄懐閸ㄦ娊寮?
+        // PHASE 2.2: Initialize basic event listeners
         setupBasicEventListeners();
 
-        // PHASE 2.2: CSS Optimizer 闂備焦褰冪粔鐢稿蓟婵犲洤瑙︽い鏍ㄧ矋閺嗗繘鏌ㄥ☉妯侯殭缂佹煡绠栭弻濠傤吋閸モ晜鐎繛鎴炴崄濡椼劎绮径搴涗汗闁告鍋為幆娆忊槈閹炬剚鐓兼い锝勭矙瀹曟岸宕堕妸銉ョ哎
+        // PHASE 2.3: Initialize CSS optimizer
         const cssOptimizer = new CSSOptimizer({
             enableMinification: true,
             enableCaching: true,
             deferLoadDelay: 100,
-            enableCSSCompression: false, // 缂備礁鍊烽懗鍫曞极椤ャ彃S闂佸憡锚椤戝洨绱撴径瀣浄闁靛鏅欑紓澶愭煕韫囨挾孝濠靛倹鐗犲畷顐㈩吋閸曨偆妲ｆ俊?            enableCSSCaching: false,     // 缂備礁鍊烽懗鍫曞极椤ャ彃S缂傚倸鍊归幐鎼佹偤閵婏妇顩烽柕澶嗘櫃缂傚鏌涜箛鎾缎㈠┑鍌涚墵瀹曨偄顓奸崟顐ゆВ婵?            enableFallbackHandling: true,
-            protectThemeCSS: true        // 闂佸搫鍊瑰姗€路閸愵喗鏅慨姗嗗亞缁犱粙鏌熼煬鎻掆偓鎾垛偓闈涙湰閿涙劕螣閸忚偐銈查梺绋跨箳閻撶櫇S
+            enableCSSCompression: false,
+            enableCSSCaching: false,
+            enableFallbackHandling: true,
+            protectThemeCSS: true
         });
 
         // 鐎点倖鍎肩换婊呪偓浣冨閸╁懏顨囧Ο鐟扮槰閻犱礁澧介悿鍡涙晬瀹€鈧垾妯荤┍濠婄M閻庣懓鑻崣蹇涘礉閻樼儤绁?
@@ -139,10 +141,9 @@ async function initializeErrorHandler() {
     try {
         console.log('Initializing error handler...');
 
-        // 闂佸憡鏌ｉ崝宥夊焵椤戣法顦︽い鏇憾瀹曟濡烽埡鍌涙珦闁荤姴娴傞崹浼此囬埡鍛仩闁糕剝顨嗛悵?
         const { default: PerformanceErrorHandler } = await import('./performance-error-handler.js');
 
-        // 闂佸憡甯楃粙鎴犵磽閹剧粯鐓ユ繛鍡樺俯閸ゆ牕顭跨捄鍝勵伀闁诡喖锕畷鎶藉Ω閵壯勬緰婵?        performanceErrorHandler = new PerformanceErrorHandler({
+        performanceErrorHandler = new PerformanceErrorHandler({
             enableLogging: true,
             reportErrors: true,
             maxRetries: 3,
@@ -151,11 +152,9 @@ async function initializeErrorHandler() {
         });
 
         console.log('Error handler initialized successfully');
-
     } catch (error) {
         console.error('Failed to initialize error handler:', error);
-        // NOTE: cleaned malformed mojibake comment.
-        }
+    }
 }
 
 /**
@@ -824,7 +823,8 @@ function setupAdvancedEventListeners() {
         });
     }
 
-    // 闂佺儵鏅滈崹鐢稿箚婢跺顕辨俊顖氭惈椤曆兠瑰鍐惧剮婵炲棎鍨荤划濠氭晬閸曨剙鈧偤鏌涢敐鍐ㄥ婵炲牊鍨块幊娑㈩敂閸曨厽姣庢繛鎴炴煥椤︻喚鑺遍妸锔绢浄?    window.addEventListener('optimizedResize', (event) => {
+    // Listen for optimized resize events emitted by the event manager
+    window.addEventListener('optimizedResize', (event) => {
         console.log('Optimized resize event received:', event.detail);
         // 闁哄鏅滈悷鈺呭闯閻戣棄鐭楁い鏍ㄧ懁缁ㄧ増绻涢敐鍫殭濠殿喚鍋ゅ畷妤呭嫉閻㈢敻鎼ㄩ梻鍌氭礌閸嬫捇鎮烽弴姘鳖槮闁瑰ジ鏀遍幆鏃堝籍閸屾粌鐐婇梺鍛婄懕缁蹭粙濡甸崶鈺€鐒婇煫鍥ㄦ尭缂嶄線鏌涢弽銊у⒈婵炲牊鍨块弻鍛村及韫囨洖绔?
     });
@@ -1039,7 +1039,7 @@ function applyTheme(theme) {
 function updateThemeIcon(theme) {
     const themeIcon = document.querySelector('.theme-icon');
     if (themeIcon) {
-        themeIcon.textContent = theme === 'light' ? '妫ｅ啫顕? : '闁宠В鍋撻柨?
+        themeIcon.textContent = theme === 'light' ? '\uD83C\uDF19' : '\u2600\uFE0F';
     }
 }
 
