@@ -160,6 +160,37 @@
     transform: translateY(-2px);
 }
 
+.rss-feed-badge {
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 8px;
+    box-shadow: 0 10px 24px rgba(234, 88, 12, 0.22);
+    opacity: 1;
+    text-decoration: none;
+}
+
+.rss-feed-badge:hover {
+    color: #ffffff;
+    box-shadow: 0 14px 28px rgba(234, 88, 12, 0.28);
+}
+
+.rss-feed-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rss-feed-badge-text {
+    line-height: 1;
+    white-space: nowrap;
+}
+
 .indie-deals-badge {
     position: relative;
     overflow: hidden;
@@ -305,6 +336,11 @@
     .footer-badge svg {
         max-width: 100px;
         height: auto;
+    }
+
+    .rss-feed-badge {
+        min-width: 100px;
+        justify-content: center;
     }
     
     .footer-bottom {
