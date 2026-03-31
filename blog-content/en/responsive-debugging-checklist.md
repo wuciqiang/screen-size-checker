@@ -32,6 +32,8 @@ If your responsive layout is broken, check these first:
 
 The fastest way to reproduce issues is to test with the [Responsive Tester](https://screensizechecker.com/devices/responsive-tester) and compare your current viewport in the [Screen Size Checker](https://screensizechecker.com/).
 
+If you need quick breakpoint references while debugging, keep our [screen dimensions cheat sheet](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet) and [standard resolutions guide](https://screensizechecker.com/devices/standard-resolutions) open alongside your browser tools.
+
 ## The Debugging Mindset
 
 Before diving into the checklist, let's establish the right mindset. Effective responsive debugging isn't about randomly changing CSS properties until something works—it's about following a systematic approach that saves time and prevents new problems.
@@ -532,6 +534,7 @@ Having the right tools makes responsive debugging significantly faster and more 
 - **Responsive Design Checker**: Use our [responsive tester tool](https://screensizechecker.com/devices/responsive-tester) to quickly preview your site across multiple device sizes
 - **Lighthouse**: Built into Chrome DevTools, it identifies performance issues that can affect responsive layouts
 - **Can I Use**: Check browser support for CSS features before implementing fixes
+- **Reference guides**: Pair this checklist with our [CSS media queries guide](https://screensizechecker.com/blog/media-queries-essentials) and [device pixel ratio explainer](https://screensizechecker.com/blog/device-pixel-ratio) when the bug involves breakpoint logic or high-DPR rendering
 
 ## Conclusion
 

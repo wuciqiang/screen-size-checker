@@ -18,6 +18,8 @@ Need to know **how to measure laptop screen size**? The correct method is to mea
 
 If you also want to compare laptops visually or check pixel density, use the [Screen Size Comparison Tool](https://screensizechecker.com/devices/compare) and [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator).
 
+If you're unsure whether your panel is HD, Full HD, QHD, or 4K after measuring it, cross-check the result with our [screen resolution guide](https://screensizechecker.com/blog/how-to-check-screen-resolution) and [standard resolutions reference](https://screensizechecker.com/devices/standard-resolutions).
+
 ## Quick Ways to Find Your Laptop Screen Size
 
 - **Most accurate**: measure the visible screen diagonally
@@ -281,6 +283,8 @@ Your operating system can provide display information.
 - Display resolution (not physical size directly)
 - Sometimes manufacturer and model
 - Connection type and refresh rate
+
+If Windows or macOS shows the resolution but not the panel size, compare that result with our [standard resolutions list](https://screensizechecker.com/devices/standard-resolutions) to narrow down what class of laptop display you're using.
 
 ### macOS
 
@@ -654,6 +658,8 @@ Measure exactly the same way as any laptop: **diagonal distance** from corner to
 **Related guides**:
 - [How to Measure Monitor Size](https://screensizechecker.com/blog/how-to-measure-monitor-size) - For desktop monitors
 - [Average Laptop Screen Size in 2026](https://screensizechecker.com/blog/average-laptop-screen-size-2025) - Industry trends
+- [How to Check Screen Resolution](https://screensizechecker.com/blog/how-to-check-screen-resolution) - Confirm the panel resolution after measuring
+- [Screen Dimensions Cheat Sheet](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet) - Quick width and height reference for common display sizes
 - [Device Pixel Ratio Explained](https://screensizechecker.com/blog/device-pixel-ratio) - Understanding DPI/PPI
 
 **External resources**:

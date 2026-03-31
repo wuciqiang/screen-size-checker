@@ -66,6 +66,8 @@ Here are the most frequently used media features:
 
 Breakpoints are the viewport widths at which your design adapts. There are several approaches to choosing breakpoints:
 
+If you want a faster starting point before defining custom breakpoints, use our [screen dimensions cheat sheet](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet) and [standard resolutions reference](https://screensizechecker.com/devices/standard-resolutions) to review common viewport and display patterns.
+
 ### 1. Device-based Breakpoints
 
 Based on common device categories:
@@ -304,12 +306,14 @@ Properly testing your media queries is crucial for ensuring your responsive desi
 2. **Real Devices**: Test on actual phones, tablets, and computers
 3. **Screen Size Checker Tool**: Use our [Screen Size Checker](https://screensizechecker.com/) to verify your viewport dimensions and test how your design responds
 
+If styles still fail at specific widths, work through our [responsive debugging checklist](https://screensizechecker.com/blog/responsive-debugging-checklist) to catch overflow, box-model, and stacking issues that media queries alone won't solve.
+
 ## Conclusion
 
 Media queries are an essential tool for creating modern, responsive websites. By understanding how to structure and implement them effectively, you can ensure your site provides an optimal experience across all devices and screen sizes.
 
 Remember that responsive design is about more than just making elements fit on different screens—it's about creating a cohesive user experience regardless of how someone accesses your content.
 
-For more on related topics, check out our articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics) and [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio).
+For more on related topics, check out our articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics), [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio), and the full [Responsive Debugging Checklist](https://screensizechecker.com/blog/responsive-debugging-checklist).
 
 *Last updated: March 2026*
