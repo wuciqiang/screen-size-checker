@@ -66,7 +66,7 @@
             "bestRating": "5",
             "worstRating": "1"
           },
-          "dateModified": "2026-03-30",
+          "dateModified": "2026-03-31",
           "datePublished": "2024-01-01",
           "isAccessibleForFree": true,
           "creativeWorkStatus": "Published",
@@ -127,7 +127,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-03-30"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -144,8 +144,8 @@
         "page_intro_key": "ipad_page_intro",
         "page_keywords": "ipad viewport sizes, ipad screen resolution, ipad css viewport, ipad dpr, ipad screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
-        "og_title": "iPad Viewport Sizes (2026): Pro, Air, mini & iPad",
-        "og_description": "Updated iPad viewport sizes for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, and screen resolution.",
+        "og_title": "iPad Viewport Sizes (2026) | Pro, Air, mini & Breakpoints",
+        "og_description": "Updated iPad viewport size chart for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, resolution, and breakpoint data.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
         "css_path": "../css",
@@ -163,8 +163,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPad Viewport Sizes (2026): Pro, Air, mini & iPad",
-          "description": "Updated iPad viewport sizes for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, and screen resolution.",
+          "headline": "iPad Viewport Sizes (2026) | Pro, Air, mini & Breakpoints",
+          "description": "Updated iPad viewport size chart for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, resolution, and breakpoint data.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -178,7 +178,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-03-30"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -195,8 +195,8 @@
         "page_intro_key": "android_page_intro",
         "page_keywords": "android viewport sizes, android screen resolution, pixel viewport sizes, galaxy viewport sizes, css viewport dpr",
         "canonical_url": "https://screensizechecker.com/devices/android-viewport-sizes",
-        "og_title": "Android Viewport Sizes (2026): Pixel, Galaxy & Foldables",
-        "og_description": "Updated Android viewport sizes for Pixel, Galaxy, and foldable devices. Includes CSS viewport width, DPR, and screen resolution.",
+        "og_title": "Android Viewport Sizes (2026) | Pixel, Galaxy & Fold",
+        "og_description": "Android viewport size chart for Pixel, Galaxy, and foldable phones. Find CSS viewport width, DPR, resolution, and responsive breakpoints for testing.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/android-viewport-sizes",
         "css_path": "../css",
@@ -214,8 +214,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Android Viewport Sizes (2026): Pixel, Galaxy & Foldables",
-          "description": "Updated Android viewport sizes for Pixel, Galaxy, and foldable devices. Includes CSS viewport width, DPR, and screen resolution.",
+          "headline": "Android Viewport Sizes (2026) | Pixel, Galaxy & Fold",
+          "description": "Android viewport size chart for Pixel, Galaxy, and foldable phones. Find CSS viewport width, DPR, resolution, and responsive breakpoints for testing.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -229,7 +229,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-03-30"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -246,8 +246,8 @@
         "page_intro_key": "compare_page_intro",
         "page_keywords": "screen size comparison, monitor size comparison, compare screen sizes, TV size comparison, laptop screen comparison, phone screen comparison",
         "canonical_url": "https://screensizechecker.com/devices/compare",
-        "og_title": "Screen Size Comparison Tool | Monitors, TVs & Phones",
-        "og_description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. Check exact width, height, area, and aspect-ratio differences before you buy.",
+        "og_title": "Screen Size Comparison Tool | Monitor, TV, Laptop & Phone",
+        "og_description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. See exact width, height, area, and aspect-ratio differences instantly.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/compare",
         "css_path": "../css",
@@ -265,8 +265,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Comparison Tool | Monitors, TVs & Phones",
-          "description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. Check exact width, height, area, and aspect-ratio differences before you buy.",
+          "name": "Screen Size Comparison Tool | Monitor, TV, Laptop & Phone",
+          "description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. See exact width, height, area, and aspect-ratio differences instantly.",
           "url": "https://screensizechecker.com/devices/compare.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
