@@ -289,7 +289,7 @@ Redondea al **tamaño estándar más cercano**. Por ejemplo:
 ### Usa Nuestras Herramientas
 
 **Screen Size Checker**: [Verifica tu tamaño de pantalla y resolución actual]({{lang_prefix}}/)  
-**Calculadora PPI**: [Calcula la densidad de píxeles de tu monitor](/ppi-calculator)  
+**Calculadora PPI**: [Calcula la densidad de píxeles de tu monitor]({{lang_prefix}}/devices/ppi-calculator)  
 **Herramienta de Comparación**: [Compara diferentes tamaños de monitor lado a lado](/compare)
 
 ---

@@ -297,7 +297,7 @@ Das liegt meist an **Skalierungs-Problemen**. 4K-Monitore bei 100% Skalierung ma
 ### Nutzen Sie unsere Tools
 
 **Screen Size Checker**: [Ihre aktuelle Auflösung und Display-Spezifikationen sofort erkennen]({{lang_prefix}}/)  
-**PPI Calculator**: [Pixel pro Zoll für jeden Bildschirm berechnen](/ppi-calculator)  
+**PPI Calculator**: [Pixel pro Zoll für jeden Bildschirm berechnen]({{lang_prefix}}/devices/ppi-calculator)  
 **Vergleichstool**: [Visueller Vergleich verschiedener Auflösungen und Bildschirmgrößen](/compare)
 
 ### Mehr erfahren

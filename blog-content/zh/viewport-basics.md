@@ -43,7 +43,7 @@ featuredImage: "viewport-basics.jpg"
 
 ## 如何检查您的视口大小
 
-您可以使用我们的[屏幕尺寸检查工具](/zh/index.html)轻松检查当前的视口大小。这将显示您当前的视口尺寸（以CSS像素为单位），以及其他有用信息，如设备像素比和屏幕分辨率。
+您可以使用我们的[屏幕尺寸检查工具]({{lang_prefix}}/)轻松检查当前的视口大小。这将显示您当前的视口尺寸（以CSS像素为单位），以及其他有用信息，如设备像素比和屏幕分辨率。
 
 ## 需要考虑的常见视口大小
 
@@ -61,4 +61,4 @@ featuredImage: "viewport-basics.jpg"
 
 请记住，当用户旋转设备或调整浏览器窗口大小时，视口大小可能会发生变化，因此您的设计应该足够灵活以适应这些变化。
 
-有关特定设备视口的更多详细信息，请查看我们的[iPhone视口尺寸](/zh/devices/iphone-viewport-sizes.html)和[Android视口尺寸](/zh/devices/android-viewport-sizes.html)指南。 
+有关特定设备视口的更多详细信息，请查看我们的[iPhone视口尺寸]({{lang_prefix}}/devices/iphone-viewport-sizes)和[Android视口尺寸]({{lang_prefix}}/devices/android-viewport-sizes)指南。 

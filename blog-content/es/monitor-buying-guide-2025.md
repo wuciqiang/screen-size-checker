@@ -254,7 +254,7 @@ Una buena regla es gastar **15-25% de tu presupuesto total de PC en el monitor**
 ### Usa Nuestras Herramientas
 
 **Screen Size Checker**: [Verifica las especificaciones actuales de tu pantalla]({{lang_prefix}}/)  
-**Calculadora PPI**: [Calcula la densidad de píxeles para cualquier pantalla](/ppi-calculator)  
+**Calculadora PPI**: [Calcula la densidad de píxeles para cualquier pantalla]({{lang_prefix}}/devices/ppi-calculator)  
 **Herramienta de Comparación**: [Compara visualmente diferentes tamaños de monitor](/compare)
 
 ### Aprende Más

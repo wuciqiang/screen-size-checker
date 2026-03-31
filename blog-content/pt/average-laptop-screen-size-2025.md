@@ -312,7 +312,7 @@ O cenário de telas de notebook continuará evoluindo, mas ao focar em princípi
 <div class="cta-box">
 <h3>Pronto para Testar Seus Designs?</h3>
 <p>Pare de adivinhar e comece a ver. Use nosso poderoso Testador de Design Responsivo gratuito para verificar instantaneamente o layout do seu site em dezenas de tamanhos de tela de notebook e celular modernos.</p>
-<a href="https://screensizechecker.com/devices/responsive-tester" class="cta-button">Teste Seu Site Agora Gratuitamente</a>
+<a href="{{lang_prefix}}/devices/responsive-tester" class="cta-button">Teste Seu Site Agora Gratuitamente</a>
 </div>
 
 ---

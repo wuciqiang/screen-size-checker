@@ -254,7 +254,7 @@ Eine gute Regel ist **15-25% Ihres gesamten PC-Budgets für den Monitor** auszug
 ### Nutzen Sie unsere Tools
 
 **Screen Size Checker**: [Prüfen Sie Ihre aktuellen Display-Spezifikationen]({{lang_prefix}}/)  
-**PPI Calculator**: [Berechnen Sie die Pixeldichte für jeden Bildschirm](/ppi-calculator)  
+**PPI Calculator**: [Berechnen Sie die Pixeldichte für jeden Bildschirm]({{lang_prefix}}/devices/ppi-calculator)  
 **Vergleichstool**: [Visueller Vergleich verschiedener Monitorgrößen](/compare)
 
 ### Mehr erfahren

@@ -309,7 +309,7 @@ No necesariamente. Una resolución más alta proporciona **más detalle y espaci
 ### Usa Nuestras Herramientas
 
 **Screen Size Checker**: [Detecta instantáneamente tu resolución actual y especificaciones de pantalla]({{lang_prefix}}/)  
-**Calculadora PPI**: [Calcula píxeles por pulgada para cualquier pantalla](/ppi-calculator)  
+**Calculadora PPI**: [Calcula píxeles por pulgada para cualquier pantalla]({{lang_prefix}}/devices/ppi-calculator)  
 **Herramienta de Comparación**: [Comparación visual de diferentes resoluciones y tamaños de pantalla](/compare)
 
 ### Aprende Más

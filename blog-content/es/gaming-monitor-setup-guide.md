@@ -286,7 +286,7 @@ Muchos gamers juegan sin saberlo con ajustes subóptimos:
 ### Usa Nuestras Herramientas
 
 **Screen Size Checker**: [Verifica especificaciones de tu display]({{lang_prefix}}/)  
-**Calculadora PPI**: [Calcula densidad de píxeles](/ppi-calculator)  
+**Calculadora PPI**: [Calcula densidad de píxeles]({{lang_prefix}}/devices/ppi-calculator)  
 **Herramienta de Comparación**: [Compara specs de monitores](/compare)
 
 ### Guías Gaming Relacionadas

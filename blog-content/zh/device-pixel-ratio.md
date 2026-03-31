@@ -53,7 +53,7 @@ const dpr = window.devicePixelRatio;
 console.log(`您的设备像素比是：${dpr}`);
 ```
 
-或者直接使用我们的[屏幕尺寸检查器](/zh/index.html)工具，它会显示DPR和其他设备信息。
+或者直接使用我们的[屏幕尺寸检查器]({{lang_prefix}}/)工具，它会显示DPR和其他设备信息。
 
 ## 为不同DPR优化图像
 
@@ -129,4 +129,4 @@ ctx.scale(dpr, dpr);
 
 请记住，针对不同DPR进行优化不仅仅是关于图像质量——还需要为每个用户的设备找到视觉保真度和性能之间的平衡。
 
-有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于[视口基础](/zh/blog/viewport-basics.html)的其他文章，以及我们的设备专用指南，如[iPhone视口尺寸](/zh/devices/iphone-viewport-sizes.html)和[Android视口尺寸](/zh/devices/android-viewport-sizes.html)。 
+有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于[视口基础]({{lang_prefix}}/blog/viewport-basics)的其他文章，以及我们的设备专用指南，如[iPhone视口尺寸]({{lang_prefix}}/devices/iphone-viewport-sizes)和[Android视口尺寸]({{lang_prefix}}/devices/android-viewport-sizes)。 

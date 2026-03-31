@@ -43,7 +43,7 @@ Das Verständnis des Viewports ist aus mehreren Gründen entscheidend:
 
 ## So überprüfst du deine Viewport-Größe
 
-Du kannst deine aktuelle Viewport-Größe einfach mit unserem [Screen Size Checker](/de/index.html) Tool überprüfen. Dies zeigt deine aktuellen Viewport-Dimensionen in CSS-Pixeln an, zusammen mit anderen nützlichen Informationen wie Gerätepixelverhältnis und Bildschirmauflösung.
+Du kannst deine aktuelle Viewport-Größe einfach mit unserem [Screen Size Checker]({{lang_prefix}}/) Tool überprüfen. Dies zeigt deine aktuellen Viewport-Dimensionen in CSS-Pixeln an, zusammen mit anderen nützlichen Informationen wie Gerätepixelverhältnis und Bildschirmauflösung.
 
 ## Häufige Viewport-Größen
 
@@ -61,4 +61,4 @@ Das Verständnis des Viewport-Konzepts ist grundlegend für moderne Webentwicklu
 
 Denke daran, dass sich die Viewport-Größe ändern kann, wenn Benutzer ihre Geräte drehen oder ihre Browserfenster ändern, daher sollten deine Designs flexibel genug sein, um diese Änderungen zu berücksichtigen.
 
-Für detailliertere Informationen über spezifische Geräte-Viewports siehe unsere Leitfäden zu [iPhone Viewport-Größen](/de/devices/iphone-viewport-sizes.html) und [Android Viewport-Größen](/de/devices/android-viewport-sizes.html). 
+Für detailliertere Informationen über spezifische Geräte-Viewports siehe unsere Leitfäden zu [iPhone Viewport-Größen]({{lang_prefix}}/devices/iphone-viewport-sizes) und [Android Viewport-Größen]({{lang_prefix}}/devices/android-viewport-sizes). 

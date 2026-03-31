@@ -388,8 +388,8 @@ lshw -C display
 
 ### 使用我们的工具
 
-**屏幕尺寸检测器**：[检查当前屏幕分辨率和尺寸](/)  
-**PPI计算器**：[计算屏幕像素密度](/ppi-calculator)  
+**屏幕尺寸检测器**：[检查当前屏幕分辨率和尺寸]({{lang_prefix}}/)  
+**PPI计算器**：[计算屏幕像素密度]({{lang_prefix}}/devices/ppi-calculator)  
 **对比工具**：[可视化比较不同笔记本屏幕尺寸](/compare)
 
 ### 了解更多

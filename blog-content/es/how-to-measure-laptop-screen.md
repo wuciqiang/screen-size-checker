@@ -265,7 +265,7 @@ Si la pantalla está rota pero los límites de visualización aún son visibles,
 ### Usa Nuestras Herramientas
 
 **Screen Size Checker**: [Verifica tu resolución y tamaño de pantalla actual]({{lang_prefix}}/)  
-**Calculadora PPI**: [Calcula la densidad de píxeles de tu pantalla](/ppi-calculator)  
+**Calculadora PPI**: [Calcula la densidad de píxeles de tu pantalla]({{lang_prefix}}/devices/ppi-calculator)  
 **Herramienta de Comparación**: [Compara diferentes tamaños de pantalla de laptop visualmente](/compare)
 
 ### Aprende Más

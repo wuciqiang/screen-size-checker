@@ -265,7 +265,7 @@ Wenn der Bildschirm kaputt ist, aber Display-Grenzen noch sichtbar sind, messen 
 ### Nutzen Sie unsere Tools
 
 **Screen Size Checker**: [Prüfen Sie Ihre aktuelle Bildschirmauflösung und -größe]({{lang_prefix}}/)  
-**PPI Calculator**: [Berechnen Sie die Pixeldichte Ihres Bildschirms](/ppi-calculator)  
+**PPI Calculator**: [Berechnen Sie die Pixeldichte Ihres Bildschirms]({{lang_prefix}}/devices/ppi-calculator)  
 **Vergleichstool**: [Vergleichen Sie verschiedene Laptop-Bildschirmgrößen visuell](/compare)
 
 ### Mehr erfahren

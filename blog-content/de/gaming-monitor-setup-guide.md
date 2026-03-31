@@ -286,7 +286,7 @@ Viele Gamer spielen unwissentlich mit suboptimalen Einstellungen:
 ### Nutzen Sie unsere Tools
 
 **Screen Size Checker**: [Display-Spezifikationen prüfen]({{lang_prefix}}/)  
-**PPI Calculator**: [Pixeldichte berechnen](/ppi-calculator)  
+**PPI Calculator**: [Pixeldichte berechnen]({{lang_prefix}}/devices/ppi-calculator)  
 **Vergleichstool**: [Verschiedene Monitor-Specs vergleichen](/compare)
 
 ### Verwandte Gaming-Anleitungen

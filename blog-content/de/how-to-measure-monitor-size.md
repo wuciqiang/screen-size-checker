@@ -289,7 +289,7 @@ Runden Sie zur **nächsten Standardgröße**. Zum Beispiel:
 ### Nutzen Sie unsere Tools
 
 **Screen Size Checker**: [Prüfen Sie Ihre aktuelle Bildschirmgröße und Auflösung]({{lang_prefix}}/)  
-**PPI Calculator**: [Berechnen Sie die Pixeldichte Ihres Monitors](/ppi-calculator)  
+**PPI Calculator**: [Berechnen Sie die Pixeldichte Ihres Monitors]({{lang_prefix}}/devices/ppi-calculator)  
 **Vergleichstool**: [Vergleichen Sie verschiedene Monitor-Größen nebeneinander](/compare)
 
 ---
