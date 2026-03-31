@@ -22,6 +22,8 @@ Whether you're debugging a responsive layout at 2 AM, choosing breakpoints for a
 
 **What you'll find here:** common screen sizes, viewport references, breakpoint guidance, and direct links to our [Responsive Tester](https://screensizechecker.com/devices/responsive-tester), [Compare Tool](https://screensizechecker.com/devices/compare), and [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator).
 
+If you also need a fast lookup for physical display formats, bookmark the [Standard Screen Resolutions Chart](https://screensizechecker.com/devices/standard-resolutions) and the [Screen Size Comparison Tool](https://screensizechecker.com/devices/compare) alongside this page.
+
 ## Quick Answer
 
 If you only need the short version:
@@ -123,6 +125,8 @@ Bookmark these tools to make your responsive design workflow more efficient:
 - **[Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator)** - Calculate screen proportions and dimensions
 
 These tools, combined with this cheat sheet, will equip you to handle any responsive design challenge with confidence.
+
+For adjacent workflows, you may also want the [Viewport Basics guide](https://screensizechecker.com/blog/viewport-basics), the [Responsive Debugging Checklist](https://screensizechecker.com/blog/responsive-debugging-checklist), and the [Media Queries Essentials guide](https://screensizechecker.com/blog/media-queries-essentials).
 
 ## FAQ
 

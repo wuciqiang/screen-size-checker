@@ -18,6 +18,8 @@ Buying a monitor in 2026 is mostly about matching the right **size, resolution, 
 
 If you are still deciding between sizes, start with the [Screen Size Comparison Tool](https://screensizechecker.com/devices/compare) and the [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator) before you buy.
 
+For low-risk shortlist building, also keep the [Standard Resolutions reference](https://screensizechecker.com/devices/standard-resolutions), the [Gaming Monitor Size Guide](https://screensizechecker.com/hub/gaming-monitor-size-guide), and our [Curved vs Flat monitor guide](https://screensizechecker.com/hub/curved-vs-flat-monitor-gaming) handy.
+
 ---
 
 ## Best Monitor Size by Use Case
@@ -582,7 +584,9 @@ Quality monitors typically last **5-10 years**. LED backlights may dim over time
 - [How to Check Screen Resolution](https://screensizechecker.com/blog/how-to-check-screen-resolution)
 - [Best Gaming Resolution in 2026](https://screensizechecker.com/hub/best-gaming-resolution-2025)
 - [1440p vs 4K Gaming](https://screensizechecker.com/hub/1440p-vs-4k-gaming)
+- [Gaming Monitor Size Guide](https://screensizechecker.com/hub/gaming-monitor-size-guide)
 - [IPS vs TN vs VA Gaming](https://screensizechecker.com/hub/ips-vs-tn-vs-va-gaming)
+- [Curved vs Flat Monitor Gaming](https://screensizechecker.com/hub/curved-vs-flat-monitor-gaming)
 
 ---
 

@@ -18,6 +18,8 @@ If you are searching for the **best gaming monitor settings**, start with five t
 
 Before you change anything, check your current display with the [Screen Size Checker](https://screensizechecker.com/), compare sharpness with the [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator), and review the [Best Gaming Resolution in 2026](https://screensizechecker.com/hub/best-gaming-resolution-2025) if you are unsure whether 1080p, 1440p, or 4K makes sense for your setup.
 
+If you are still deciding between 24", 27", and 32" layouts, keep the [Screen Size Comparison Tool](https://screensizechecker.com/devices/compare), the [Gaming Monitor Size Guide](https://screensizechecker.com/hub/gaming-monitor-size-guide), and the [G-Sync vs FreeSync guide](https://screensizechecker.com/hub/g-sync-vs-freesync-gaming) open while you tune settings.
+
 ---
 
 ## Best Gaming Monitor Settings Checklist
@@ -602,7 +604,9 @@ Use these tests:
 - [Best Gaming Resolution in 2026](https://screensizechecker.com/hub/best-gaming-resolution-2025)
 - [144Hz vs 240Hz Gaming](https://screensizechecker.com/hub/144hz-vs-240hz-gaming)
 - [G-Sync vs FreeSync Gaming](https://screensizechecker.com/hub/g-sync-vs-freesync-gaming)
+- [Gaming Monitor Size Guide](https://screensizechecker.com/hub/gaming-monitor-size-guide)
 - [IPS vs TN vs VA Gaming](https://screensizechecker.com/hub/ips-vs-tn-vs-va-gaming)
+- [HDR Gaming Monitor Guide](https://screensizechecker.com/hub/hdr-gaming-monitor-guide)
 - [Monitor Buying Guide 2026](https://screensizechecker.com/blog/monitor-buying-guide-2025)
 
 ---
