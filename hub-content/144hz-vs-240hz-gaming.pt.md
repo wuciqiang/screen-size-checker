@@ -567,6 +567,6 @@ A maioria dos profissionais usa 240Hz (66%), com crescente adoção de 360Hz (11
 ---
 
 **Complete sua configuração**: Confira nossos outros guias de taxa de atualização e exibição:
-- [Melhor Resolução para Jogos 2026: Guia de FPS & Qualidade](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2026: Guia de FPS & Qualidade](/hub/best-gaming-resolution-2025)
 - [Melhor Tamanho de Monitor para Jogos FPS: Análise 24" vs 27"](/hub/best-monitor-size-fps)
 - [Guia de Tamanho de Monitor Gamer: Guia Completo do Comprador](/hub/gaming-monitor-size-guide)

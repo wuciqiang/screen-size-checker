@@ -9625,12 +9625,12 @@
         "pt"
       ],
       "config": {
-        "page_title": "Checklist de Depuração Responsiva: 15 Itens | Screen Size Checker Blog",
-        "page_description": "Lista de verificação de 15 pontos para corrigir problemas de design responsivo. Guia sistemático de depuração para economizar horas de troubleshooting CSS.",
+        "page_title": "Checklist de Depuração Responsiva 2026: 15 Itens | Screen Size Checker Blog",
+        "page_description": "Checklist com 15 pontos para corrigir problemas de design responsivo em 2026. Um guia sistemático para depurar layouts quebrados mais rápido.",
         "page_keywords": "design-responsivo, depuracao, css, media-queries, viewport, desenvolvimento-web",
         "canonical_url": "https://screensizechecker.com/pt/blog/responsive-debugging-checklist",
-        "og_title": "Checklist de Depuração Responsiva: 15 Itens",
-        "og_description": "Lista de verificação de 15 pontos para corrigir problemas de design responsivo. Guia sistemático de depuração para economizar horas de troubleshooting CSS.",
+        "og_title": "Checklist de Depuração Responsiva 2026: 15 Itens",
+        "og_description": "Checklist com 15 pontos para corrigir problemas de design responsivo em 2026. Um guia sistemático para depurar layouts quebrados mais rápido.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/pt/blog/responsive-debugging-checklist",
         "css_path": "../../css",
@@ -9641,16 +9641,16 @@
         "blog_sidebar": "blog-sidebar-pt",
         "privacy_policy_url": "../../privacy-policy",
         "show_breadcrumb": true,
-        "current_key": "Checklist de Depuração Responsiva: 15 Itens",
-        "current_name": "Checklist de Depuração Responsiva: 15 Itens",
+        "current_key": "Checklist de Depuração Responsiva 2026: 15 Itens",
+        "current_name": "Checklist de Depuração Responsiva 2026: 15 Itens",
         "parent_url": "https://screensizechecker.com/pt/blog/",
         "parent_key": "blog",
         "parent_name": "Blog",
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": "Checklist de Depuração Responsiva: 15 Itens",
-          "description": "Lista de verificação de 15 pontos para corrigir problemas de design responsivo. Guia sistemático de depuração para economizar horas de troubleshooting CSS.",
+          "headline": "Checklist de Depuração Responsiva 2026: 15 Itens",
+          "description": "Checklist com 15 pontos para corrigir problemas de design responsivo em 2026. Um guia sistemático para depurar layouts quebrados mais rápido.",
           "author": {
             "@type": "Person",
             "name": "Equipe Screen Size Checker"

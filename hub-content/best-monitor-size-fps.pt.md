@@ -2,7 +2,7 @@
 title: "Melhor Tamanho de Monitor para Jogos FPS: Guia 24 vs 27 vs 32 Polegadas 2026"
 description: "Guia especializado sobre como escolher o tamanho de monitor perfeito para jogos FPS. Compare telas de 24\", 27\" e 32\" com dados de jogadores profissionais, análise de tempo de reação e recomendações ergonômicas."
 slug: "best-monitor-size-fps"
-date: "2026-01-19"
+date: "2026-03-31"
 author: "Equipe Gamer Screen Size Checker"
 category: "gaming"
 tags: ["jogos-fps", "tamanho-monitor", "jogos-competitivos", "esports", "configuracao-gamer"]
@@ -322,7 +322,7 @@ Pesquisa com 500+ profissionais de FPS em CS2, Valorant, Apex Legends, COD e Rai
 - Recomendado: 240Hz
 - Profissional: 360Hz+
 
-> **Guia de Resolução**: Saiba mais sobre como escolher a melhor resolução para suas necessidades de jogos em nosso guia [Melhor Resolução para Jogos 2026](/hub/best-gaming-resolution-2026).
+> **Guia de Resolução**: Saiba mais sobre como escolher a melhor resolução para suas necessidades de jogos em nosso guia [Melhor Resolução para Jogos 2026](/hub/best-gaming-resolution-2025).
 
 ## Recomendações Específicas por Jogo
 
@@ -521,6 +521,6 @@ Mínimo: 144Hz (padrão moderno). Recomendado: 240Hz (ponto ideal competitivo). 
 ---
 
 **Pronto para completar sua configuração?** Confira nossos outros guias:
-- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2025)
 - [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
 - [Guia de Tamanho de Monitor Gamer: Análise Completa](/hub/gaming-monitor-size-guide)

@@ -611,6 +611,6 @@ A "melhor" escolha depende de seus hábitos de jogo, restrições de espaço e o
 ---
 
 **Complete sua configuração de jogos**: Explore nossos outros guias de exibição de jogos:
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2025)
 - [Guia de Tamanho de Monitor Gamer: Encontrando Seu Ajuste Perfeito](/hub/gaming-monitor-size-guide)
 - [Jogos IPS vs TN vs VA: Comparação de Tipo de Painel](/hub/ips-vs-tn-vs-va-gaming)

@@ -2,7 +2,7 @@
 title: "Jogos em 1440p vs 4K: Comparação Completa de Desempenho e Custo 2026"
 description: "Comparação aprofundada de jogos 1440p vs 4K com benchmarks reais de FPS, requisitos de GPU e análise de custo. Faça a escolha certa para sua configuração de jogos com recomendações de especialistas."
 slug: "1440p-vs-4k-gaming"
-date: "2026-01-19"
+date: "2026-03-31"
 author: "Equipe Gamer Screen Size Checker"
 category: "gaming"
 tags: ["1440p", "jogos-4k", "comparacao-jogos", "resolucao", "desempenho-gpu", "monitor"]
@@ -49,7 +49,7 @@ Em distâncias típicas de visualização de jogos (24-32 polegadas da tela):
 
 ### Jogos AAA - Comparação de Desempenho
 
-Baseado nos últimos benchmarks de GPU (Janeiro de 2026):
+Baseado nas referências e comparações mais recentes usadas nesta atualização de Março de 2026:
 
 #### RTX 4070 (Jogos Intermediários)
 
@@ -399,6 +399,6 @@ Absolutamente. 1440p permanece a resolução ideal para a maioria dos jogadores 
 ---
 
 **Pronto para montar sua configuração?** Confira nossos outros guias:
-- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2025)
 - [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
 - [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

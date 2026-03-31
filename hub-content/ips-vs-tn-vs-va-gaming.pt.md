@@ -791,6 +791,6 @@ O "melhor" painel depende de suas prioridades, mas em 2026, a tecnologia IPS ava
 ---
 
 **Construa sua configuração completa**: Explore nossos outros guias de monitores gamer:
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2025)
 - [Jogos 144Hz vs 240Hz: Vale a Pena?](/hub/144hz-vs-240hz-gaming)
 - [Ultrawide vs Monitor Duplo Jogos: Comparação de Configuração](/hub/ultrawide-vs-dual-monitor-gaming)
