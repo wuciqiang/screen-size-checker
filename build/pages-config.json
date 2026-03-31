@@ -10,8 +10,8 @@
         "page_description_key": "page_description",
         "page_keywords": "screen size checker, what is my screen size, screen resolution checker, viewport size, device pixel ratio, responsive design",
         "canonical_url": "https://screensizechecker.com/",
-        "og_title": "Screen Size Checker: Find Screen Size & Resolution",
-        "og_description": "Check your screen size, resolution, viewport, and DPR instantly. Free online tool for developers, designers, QA, and responsive testing.",
+        "og_title": "Screen Size Checker | Check Screen Size, Resolution & Viewport",
+        "og_description": "Check your screen size, resolution, viewport, and DPR instantly. Free screen size detector for developers, designers, QA, and responsive testing.",
         "og_type": "website",
         "og_url": "https://screensizechecker.com/",
         "css_path": "css",
@@ -25,9 +25,9 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Checker: Find Screen Size & Resolution",
+          "name": "Screen Size Checker | Check Screen Size, Resolution & Viewport",
           "url": "https://screensizechecker.com/",
-          "description": "Check your screen size, resolution, viewport, and DPR instantly. Free online tool for developers, designers, QA, and responsive testing.",
+          "description": "Check your screen size, resolution, viewport, and DPR instantly. Free screen size detector for developers, designers, QA, and responsive testing.",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
           "inLanguage": "en",
@@ -93,8 +93,8 @@
         "page_intro_key": "iphone_page_intro",
         "page_keywords": "iphone viewport sizes, iphone screen resolution, iphone css viewport, iphone dpr, iphone screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
-        "og_title": "iPhone Viewport Sizes (2026): iPhone 17, 16 & 15",
-        "og_description": "Updated iPhone viewport sizes for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, and screen resolution.",
+        "og_title": "iPhone Viewport Sizes (2026) | CSS Viewports & DPR",
+        "og_description": "Updated iPhone viewport size chart for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, resolution, and breakpoint data.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
         "css_path": "../css",
@@ -112,8 +112,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPhone Viewport Sizes (2026): iPhone 17, 16 & 15",
-          "description": "Updated iPhone viewport sizes for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, and screen resolution.",
+          "headline": "iPhone Viewport Sizes (2026) | CSS Viewports & DPR",
+          "description": "Updated iPhone viewport size chart for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, resolution, and breakpoint data.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -267,7 +267,7 @@
           "@type": "WebApplication",
           "name": "Screen Size Comparison Tool | Monitor, TV, Laptop & Phone",
           "description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. See exact width, height, area, and aspect-ratio differences instantly.",
-          "url": "https://screensizechecker.com/devices/compare.html",
+          "url": "https://screensizechecker.com/devices/compare",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -364,7 +364,7 @@
           "@type": "WebApplication",
           "name": "Responsive Design Tester (Free) | Test Real Device Viewports",
           "description": "Test your website at common mobile, tablet, and desktop viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
-          "url": "https://screensizechecker.com/devices/responsive-tester.html",
+          "url": "https://screensizechecker.com/devices/responsive-tester",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -410,7 +410,7 @@
           "@type": "WebApplication",
           "name": "PPI Calculator | Pixel Density & DPI for Screens",
           "description": "Calculate PPI, pixel density, and effective DPI from screen resolution and diagonal size. Compare monitor, laptop, phone, tablet, and TV sharpness instantly.",
-          "url": "https://screensizechecker.com/devices/ppi-calculator.html",
+          "url": "https://screensizechecker.com/devices/ppi-calculator",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -469,7 +469,7 @@
           "@type": "WebApplication",
           "name": "Aspect Ratio Calculator",
           "description": "Calculate missing width or height while preserving aspect ratio for images, videos, and layouts.",
-          "url": "https://screensizechecker.com/devices/aspect-ratio-calculator.html",
+          "url": "https://screensizechecker.com/devices/aspect-ratio-calculator",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -528,7 +528,7 @@
           "@type": "WebApplication",
           "name": "Projector Distance Calculator",
           "description": "Plan projector placement with throw ratio, room distance, and target screen size.",
-          "url": "https://screensizechecker.com/devices/projection-calculator.html",
+          "url": "https://screensizechecker.com/devices/projection-calculator",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -587,7 +587,7 @@
           "@type": "WebApplication",
           "name": "LCD Screen Tester",
           "description": "Run fullscreen monitor tests to detect dead pixels, backlight bleed, color banding, and motion ghosting.",
-          "url": "https://screensizechecker.com/devices/lcd-screen-tester.html",
+          "url": "https://screensizechecker.com/devices/lcd-screen-tester",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
