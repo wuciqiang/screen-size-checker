@@ -138,7 +138,7 @@ High Dynamic Range (HDR) representa a próxima fronteira em fidelidade visual no
 | **IPS LCD** | 1000:1 | ❌ Ruim para HDR | Requer Mini-LED para HDR real |
 | **TN LCD** | 600:1 | ❌ Terrível para HDR | Não recomendado para jogos HDR |
 
-> **Guia de Painel**: Saiba mais sobre diferentes tecnologias de painel em nossa [comparação Jogos IPS vs TN vs VA](/hub/ips-vs-tn-vs-va-gaming).
+> **Guia de Painel**: Saiba mais sobre diferentes tecnologias de painel em nossa [comparação Jogos IPS vs TN vs VA]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## HDR Real vs Falso: O Que Evitar
 
@@ -463,6 +463,10 @@ O futuro dos jogos é definitivamente HDR, mas apenas quando implementado corret
 ---
 
 **Complete seu conhecimento de exibição de jogos**: Explore nossos outros guias essenciais:
-- [Monitor Gamer vs TV: Qual Tipo de Display?](/hub/gaming-monitor-vs-tv)
-- [G-Sync vs FreeSync: Comparação de Tecnologia VRR](/hub/g-sync-vs-freesync-gaming)
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2025)
+- [Monitor Gamer vs TV: Qual Tipo de Display?]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [G-Sync vs FreeSync: Comparação de Tecnologia VRR]({{lang_prefix}}/hub/g-sync-vs-freesync-gaming)
+- [Melhor Resolução para Jogos 2026: Análise Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+
+---
+
+**Última Atualização**: Março de 2026

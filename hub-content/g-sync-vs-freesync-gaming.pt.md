@@ -289,7 +289,7 @@ Escolher entre NVIDIA G-Sync e AMD FreeSync é crucial ao selecionar um monitor 
 - **Status**: Melhorando suporte de driver
 - **Futuro**: Provável foco em FreeSync
 
-> **Guia de Painel**: Quer entender as tecnologias de painel de monitor que funcionam com esses sistemas de sincronização? Leia nossa [comparação Jogos IPS vs TN vs VA](/hub/ips-vs-tn-vs-va-gaming).
+> **Guia de Painel**: Quer entender as tecnologias de painel de monitor que funcionam com esses sistemas de sincronização? Leia nossa [comparação Jogos IPS vs TN vs VA]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## Análise de Preço e Valor
 
@@ -559,6 +559,10 @@ A guerra de tecnologia VRR acabou essencialmente — FreeSync venceu através de
 ---
 
 **Aperfeiçoe sua configuração de jogos**: Explore nossos outros guias de monitores gamer:
-- [Monitor Gamer vs TV: Comparação Completa de Tela](/hub/gaming-monitor-vs-tv)
-- [Monitor Gamer Curvo vs Plano: Comparação de Formato](/hub/curved-vs-flat-monitor-gaming)
-- [Jogos 144Hz vs 240Hz: Análise de Taxa de Atualização](/hub/144hz-vs-240hz-gaming)
+- [Monitor Gamer vs TV: Comparação Completa de Tela]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [Monitor Gamer Curvo vs Plano: Comparação de Formato]({{lang_prefix}}/hub/curved-vs-flat-monitor-gaming)
+- [Jogos 144Hz vs 240Hz: Análise de Taxa de Atualização]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+
+---
+
+**Última Atualização**: Março de 2026

@@ -118,7 +118,7 @@ Escolher entre um monitor ultrawide e uma configuração de monitor duplo é uma
 
 **Veredito**: **Monitores duplos vencem** para jogos competitivos — versatilidade sem comprometer a integridade competitiva.
 
-> **Guia Relacionado**: Querendo saber qual taxa de atualização combina melhor com sua configuração? Confira nossa comparação [Jogos 144Hz vs 240Hz](/hub/144hz-vs-240hz-gaming).
+> **Guia Relacionado**: Querendo saber qual taxa de atualização combina melhor com sua configuração? Confira nossa comparação [Jogos 144Hz vs 240Hz]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ### Compatibilidade e Suporte de Jogos
 
@@ -256,7 +256,7 @@ Escolher entre um monitor ultrawide e uma configuração de monitor duplo é uma
 - 49" Ultrawide: 32-40 polegadas (81-102cm)
 - Duplo 27": 20-28 polegadas (51-71cm)
 
-> **Guia de Tamanho**: Inseguro qual tamanho de monitor funciona para seus jogos? Leia nosso guia [Melhor Tamanho de Monitor para Jogos FPS](/hub/best-monitor-size-fps).
+> **Guia de Tamanho**: Inseguro qual tamanho de monitor funciona para seus jogos? Leia nosso guia [Melhor Tamanho de Monitor para Jogos FPS]({{lang_prefix}}/hub/best-monitor-size-fps).
 
 ## Análise de Custo
 
@@ -615,6 +615,10 @@ Não há uma escolha universal "melhor" — apenas o que é melhor **para você*
 ---
 
 **Complete sua configuração perfeita**: Confira nossos outros guias de monitores:
-- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2025)
-- [Jogos 144Hz vs 240Hz: Vale a Atualização?](/hub/144hz-vs-240hz-gaming)
-- [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)
+- [Melhor Resolução para Jogos 2026: Guia Completo]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Jogos 144Hz vs 240Hz: Vale a Atualização?]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+- [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+
+---
+
+**Última Atualização**: Março de 2026

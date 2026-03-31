@@ -260,7 +260,7 @@ Escolher entre um monitor gamer curvo e plano é uma das decisões mais debatida
 4. **Trabalho de criação de conteúdo** (preocupações com distorção)
 5. **Cenários multi-espectador** (problemas de ângulo de visão)
 
-> **Guia de Tamanho**: Inseguro sobre o tamanho de monitor certo para sua configuração? Confira nosso [Guia de Tamanho de Monitor Gamer](/hub/gaming-monitor-size-guide) para recomendações detalhadas.
+> **Guia de Tamanho**: Inseguro sobre o tamanho de monitor certo para sua configuração? Confira nosso [Guia de Tamanho de Monitor Gamer]({{lang_prefix}}/hub/gaming-monitor-size-guide) para recomendações detalhadas.
 
 ## Análise de Gênero de Jogo
 
@@ -634,6 +634,10 @@ A "melhor" escolha depende do seu estilo de jogo primário e casos de uso. Não 
 ---
 
 **Otimize sua configuração completa**: Explore nossos outros guias de monitores gamer:
-- [Monitor Gamer vs TV: Comparação Completa de Tela](/hub/gaming-monitor-vs-tv)
-- [Jogos IPS vs TN vs VA: Análise de Tipo de Painel](/hub/ips-vs-tn-vs-va-gaming)
-- [Jogos 144Hz vs 240Hz: Comparação de Taxa de Atualização](/hub/144hz-vs-240hz-gaming)
+- [Monitor Gamer vs TV: Comparação Completa de Tela]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [Jogos IPS vs TN vs VA: Análise de Tipo de Painel]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
+- [Jogos 144Hz vs 240Hz: Comparação de Taxa de Atualização]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+
+---
+
+**Última Atualização**: Março de 2026

@@ -43,7 +43,7 @@ Em distâncias típicas de visualização de jogos (24-32 polegadas da tela):
 - Densidade de pixels: ~163 PPI em 27" (ultra-nítido)
 - Melhor para visualização de perto ou telas maiores (32"+)
 
-> **Guia Relacionado**: Não tem certeza se 1440p é ideal para você? Confira nossa comparação completa de [Jogos 1080p vs 1440p](/hub/1080p-vs-1440p-gaming) para ver todas as opções de resolução.
+> **Guia Relacionado**: Não tem certeza se 1440p é ideal para você? Confira nossa comparação completa de [Jogos 1080p vs 1440p]({{lang_prefix}}/hub/1080p-vs-1440p-gaming) para ver todas as opções de resolução.
 
 ## Desempenho Real em Jogos (Benchmarks de 2026)
 
@@ -253,7 +253,7 @@ GPUs modernas oferecem upscaling alimentado por IA que pode preencher a lacuna e
 | 32" | 1440p | 92 PPI | Adequado |
 | 32" | 4K | 138 PPI | ⭐ **Ideal** |
 
-> **Guia de Compra de Monitor**: Precisa de ajuda para escolher o tamanho de monitor gamer perfeito? Leia nosso [Guia de Tamanho de Monitor Gamer](/hub/gaming-monitor-size-guide) completo com cálculos de distância de visualização.
+> **Guia de Compra de Monitor**: Precisa de ajuda para escolher o tamanho de monitor gamer perfeito? Leia nosso [Guia de Tamanho de Monitor Gamer]({{lang_prefix}}/hub/gaming-monitor-size-guide) completo com cálculos de distância de visualização.
 
 ### Considerações sobre Taxa de Atualização
 
@@ -399,6 +399,10 @@ Absolutamente. 1440p permanece a resolução ideal para a maioria dos jogadores 
 ---
 
 **Pronto para montar sua configuração?** Confira nossos outros guias:
-- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2025)
-- [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
-- [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)
+- [Melhor Resolução para Jogos 2026: Guia Completo]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Jogos 1080p vs 1440p: Comparação de Desempenho]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+
+---
+
+**Última Atualização**: Março de 2026

@@ -326,7 +326,7 @@ Escolher a tecnologia de painel certa é crítico para o desempenho do monitor g
 | AOC CU34G2X | 34" | 3440×1440 | 144Hz | $450 | Valor ultrawide VA |
 | MSI MAG274QRF-QD | 27" | 2560×1440 | 165Hz | $350 | Opção VA econômica |
 
-> **Guia Relacionado**: Não tem certeza de qual taxa de atualização emparelhar com sua escolha de painel? Leia nossa comparação [Jogos 144Hz vs 240Hz](/hub/144hz-vs-240hz-gaming).
+> **Guia Relacionado**: Não tem certeza de qual taxa de atualização emparelhar com sua escolha de painel? Leia nossa comparação [Jogos 144Hz vs 240Hz]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## OLED (Organic Light-Emitting Diode)
 
@@ -490,7 +490,7 @@ Escolher a tecnologia de painel certa é crítico para o desempenho do monitor g
 
 **Veredito**: OLED e Mini-LED IPS oferecem jogos HDR verdadeiros. HDR LCD padrão é principalmente marketing.
 
-> **Guia de Monitor**: Curioso como o tipo de painel afeta a escolha do tamanho do monitor gamer? Confira nosso guia [Melhor Tamanho de Monitor para Jogos FPS](/hub/best-monitor-size-fps).
+> **Guia de Monitor**: Curioso como o tipo de painel afeta a escolha do tamanho do monitor gamer? Confira nosso guia [Melhor Tamanho de Monitor para Jogos FPS]({{lang_prefix}}/hub/best-monitor-size-fps).
 
 ## Tipo de Painel por Gênero de Jogo
 
@@ -791,6 +791,10 @@ O "melhor" painel depende de suas prioridades, mas em 2026, a tecnologia IPS ava
 ---
 
 **Construa sua configuração completa**: Explore nossos outros guias de monitores gamer:
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2025)
-- [Jogos 144Hz vs 240Hz: Vale a Pena?](/hub/144hz-vs-240hz-gaming)
-- [Ultrawide vs Monitor Duplo Jogos: Comparação de Configuração](/hub/ultrawide-vs-dual-monitor-gaming)
+- [Melhor Resolução para Jogos 2026: Análise Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Jogos 144Hz vs 240Hz: Vale a Pena?]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+- [Ultrawide vs Monitor Duplo Jogos: Comparação de Configuração]({{lang_prefix}}/hub/ultrawide-vs-dual-monitor-gaming)
+
+---
+
+**Última Atualização**: Março de 2026

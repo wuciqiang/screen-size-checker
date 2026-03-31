@@ -118,7 +118,7 @@ Escolher entre um monitor gamer e uma TV é uma das decisões mais importantes p
 - **Jogos de Corrida**: <5ms preferido → Monitor gamer ou TV OLED
 - **Jogos de Luta**: <3ms crítico → Monitor gamer vence
 
-> **Guia Relacionado**: Confuso sobre tipos de painel e tempos de resposta? Leia nossa comparação [Jogos IPS vs TN vs VA](/hub/ips-vs-tn-vs-va-gaming).
+> **Guia Relacionado**: Confuso sobre tipos de painel e tempos de resposta? Leia nossa comparação [Jogos IPS vs TN vs VA]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## Análise de Taxa de Atualização
 
@@ -154,7 +154,7 @@ Escolher entre um monitor gamer e uma TV é uma das decisões mais importantes p
 
 **Limitação do Console**: PS5 e Xbox Series X atingem no máximo 120Hz, tornando monitores de alta atualização (240Hz+) desnecessários para jogos de console.
 
-> **Guia de Taxa de Atualização**: Quer saber se 240Hz vale a pena? Confira nossa análise [Jogos 144Hz vs 240Hz](/hub/144hz-vs-240hz-gaming).
+> **Guia de Taxa de Atualização**: Quer saber se 240Hz vale a pena? Confira nossa análise [Jogos 144Hz vs 240Hz]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## Desempenho HDR
 
@@ -216,7 +216,7 @@ Escolher entre um monitor gamer e uma TV é uma das decisões mais importantes p
 **Jogos Competitivos**: Telas menores (24-27") melhores para rastrear tela inteira de uma vez
 **Jogos Imersivos**: Telas maiores (43"+) melhores para experiências single-player
 
-> **Guia de Tamanho**: Precisa de ajuda para escolher o tamanho certo de monitor? Leia nosso [Guia de Tamanho de Monitor Gamer](/hub/gaming-monitor-size-guide).
+> **Guia de Tamanho**: Precisa de ajuda para escolher o tamanho certo de monitor? Leia nosso [Guia de Tamanho de Monitor Gamer]({{lang_prefix}}/hub/gaming-monitor-size-guide).
 
 ## Jogos PC: Monitor vs TV
 
@@ -611,6 +611,10 @@ A "melhor" escolha depende de seus hábitos de jogo, restrições de espaço e o
 ---
 
 **Complete sua configuração de jogos**: Explore nossos outros guias de exibição de jogos:
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2025)
-- [Guia de Tamanho de Monitor Gamer: Encontrando Seu Ajuste Perfeito](/hub/gaming-monitor-size-guide)
-- [Jogos IPS vs TN vs VA: Comparação de Tipo de Painel](/hub/ips-vs-tn-vs-va-gaming)
+- [Melhor Resolução para Jogos 2026: Análise Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guia de Tamanho de Monitor Gamer: Encontrando Seu Ajuste Perfeito]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [Jogos IPS vs TN vs VA: Comparação de Tipo de Painel]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
+
+---
+
+**Última Atualização**: Março de 2026
