@@ -512,6 +512,27 @@ class MultiLangBuilder extends ComponentBuilder {
 
                         pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
                     }
+
+                    if (!pageData.hreflang_root_url) {
+                        pageData.hreflang_root_url = pageData.page_path === '/' ?
+                            'https://screensizechecker.com/' :
+                            `https://screensizechecker.com${pageData.page_path}`;
+                    }
+                    if (!pageData.hreflang_en_url) {
+                        pageData.hreflang_en_url = pageData.hreflang_root_url;
+                    }
+                    if (!pageData.hreflang_zh_url) {
+                        pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+                    }
+                    if (!pageData.hreflang_de_url) {
+                        pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
+                    }
+                    if (!pageData.hreflang_es_url) {
+                        pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+                    }
+                    if (!pageData.hreflang_pt_url) {
+                        pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
+                    }
                     
                     // 濠电姷鏁搁崕鎴犵礊閳ь剚銇勯弴鍡楀閸欏繘鏌ｉ幇顔芥毄缁炬儳銈搁弻鐔煎箚瑜滈崵鐔兼煃瑜滈崜锕傚垂鐠鸿櫣鏆﹂柣妯款嚙閸愨偓闂侀潧顭梽鍕敊瀹ュ鈷?
                     pageData.structured_data = this.generateStructuredData(pageData, lang);

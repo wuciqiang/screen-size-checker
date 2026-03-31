@@ -22,6 +22,11 @@
         "privacy_policy_url": "privacy-policy.html",
         "device_links_base": "devices/",
         "show_breadcrumb": false,
+        "current_key": "home",
+        "current_name": "Home",
+        "parent_url": "",
+        "parent_key": "",
+        "parent_name": "",
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
