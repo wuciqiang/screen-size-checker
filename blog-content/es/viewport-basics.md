@@ -1,16 +1,16 @@
 ---
-title: "Entendiendo los Fundamentos del Viewport"
-description: "Aprende qué es el viewport y por qué es crucial para el diseño web responsive"
-date: "2023-10-15"
+title: "Fundamentos del Viewport en 2026"
+description: "Aprende en 2026 qué es el viewport, cómo se diferencia de la resolución de pantalla y por qué sigue siendo clave para responsive design."
+date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
 ---
 
-## Entendiendo los Fundamentos del Viewport
+## Fundamentos del Viewport en 2026
 
-El viewport es uno de los conceptos más fundamentales en el diseño y desarrollo web, pero a menudo se malinterpreta. Este artículo explica qué es el viewport, cómo difiere de la resolución de pantalla y por qué es importante para crear sitios web responsive.
+El viewport es uno de los conceptos más básicos del frontend, pero sigue generando confusión. Mucha gente lo mezcla con la resolución física de pantalla, cuando en realidad lo que define el comportamiento responsive es el área visible real dentro del navegador.`r`n`r`n**Respuesta rápida**: el viewport es la zona visible de una página web en el navegador y normalmente se mide en píxeles CSS. No es lo mismo que la resolución física del dispositivo, y entender esa diferencia es clave para diseñar mejor.
 
 ## ¿Qué es un Viewport?
 

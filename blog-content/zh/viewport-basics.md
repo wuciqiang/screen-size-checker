@@ -1,16 +1,16 @@
-﻿---
-title: "视口（Viewport）基础知识详解"
-description: "深入了解什么是视口及其对响应式网页设计的重要性"
-date: "2023-10-15"
+---
+title: "2026 年视口（Viewport）基础知识"
+description: "了解 2026 年什么是视口、它与屏幕分辨率的区别，以及为何它对响应式网页设计至关重要。"
+date: "2026-03-31"
 author: "Screen Size Checker团队"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
 ---
 
-## 视口（Viewport）基础知识详解
+## 2026 年视口（Viewport）基础知识
 
-视口是网页设计和开发中最基本的概念之一，但它常常被误解。本文将解释什么是视口，它与屏幕分辨率的区别，以及为什么它对创建响应式网站至关重要。
+视口（Viewport）是响应式设计里最基础、也最容易被误解的概念之一。很多人会把视口宽度、屏幕分辨率和设备尺寸混为一谈，但真正影响布局表现的，往往是浏览器里的实际视口大小。`r`n`r`n**快速回答**：视口是浏览器中网页的可见区域，通常以 CSS 像素表示。它不等于设备的物理分辨率，因此做响应式设计时，必须优先关注视口而不是单纯的屏幕参数。
 
 ## 什么是视口？
 
