@@ -16,6 +16,12 @@ Choosing between a gaming monitor and a TV is still one of the most practical ga
 
 **Quick Answer**: **Gaming monitors are superior for competitive PC gaming** (better response time, higher refresh rates, lower input lag). **Modern gaming TVs (OLED/QLED) are excellent for console gaming and single-player experiences** (bigger screen, better HDR, more immersive). For mixed use (movies + gaming + productivity), **a high-quality gaming TV offers the best versatility**. Budget and use case determine the optimal choice.
 
+**Helpful Comparison Tools**:
+- [Compare monitor and TV sizes side by side]({{lang_prefix}}/devices/compare)
+- [Check whether 27", 32", 42", or 55" fits your setup]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [Review common 1440p and 4K formats]({{lang_prefix}}/devices/standard-resolutions)
+- [See what real HDR performance looks like before paying extra]({{lang_prefix}}/hub/hdr-gaming-monitor-guide)
+
 ## Key Differences Overview
 
 ### Gaming Monitor Characteristics
@@ -118,7 +124,7 @@ Choosing between a gaming monitor and a TV is still one of the most practical ga
 - **Racing Games**: <5ms preferred → Gaming monitor or OLED TV
 - **Fighting Games**: <3ms critical → Gaming monitor wins
 
-> **Related Guide**: Confused about panel types and response times? Read our [IPS vs TN vs VA Gaming comparison](/hub/ips-vs-tn-vs-va-gaming).
+> **Related Guide**: Confused about panel types and response times? Read our [IPS vs TN vs VA Gaming comparison]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## Refresh Rate Analysis
 
@@ -154,7 +160,7 @@ Choosing between a gaming monitor and a TV is still one of the most practical ga
 
 **Console Limitation**: PS5 and Xbox Series X max out at 120Hz, making high-refresh monitors (240Hz+) unnecessary for console gaming.
 
-> **Refresh Rate Guide**: Want to know if 240Hz is worth it? Check our [144Hz vs 240Hz Gaming analysis](/hub/144hz-vs-240hz-gaming).
+> **Refresh Rate Guide**: Want to know if 240Hz is worth it? Check our [144Hz vs 240Hz Gaming analysis]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## HDR Performance
 
@@ -216,7 +222,7 @@ Choosing between a gaming monitor and a TV is still one of the most practical ga
 **Competitive Gaming**: Smaller screens (24-27") better for tracking entire screen at once
 **Immersive Gaming**: Larger screens (43"+) better for single-player experiences
 
-> **Size Guide**: Need help choosing the right monitor size? Read our [Gaming Monitor Size Guide](/hub/gaming-monitor-size-guide).
+> **Size Guide**: Need help choosing the right monitor size? Read our [Gaming Monitor Size Guide]({{lang_prefix}}/hub/gaming-monitor-size-guide), then verify real dimensions in the [screen size comparison tool]({{lang_prefix}}/devices/compare).
 
 ## PC Gaming: Monitor vs TV
 
@@ -612,7 +618,10 @@ The "best" choice depends on your gaming habits, space constraints, and budget. 
 
 **Complete your gaming setup**: Explore our other gaming display guides:
 - [Best Gaming Resolution in 2026: Complete Analysis]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Best Monitor Size for FPS Games]({{lang_prefix}}/hub/best-monitor-size-fps)
 - [Gaming Monitor Size Guide: Finding Your Perfect Fit]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [HDR Gaming Monitor Guide]({{lang_prefix}}/hub/hdr-gaming-monitor-guide)
 - [IPS vs TN vs VA Gaming: Panel Type Comparison]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
+- [Compare Screen Sizes Side by Side]({{lang_prefix}}/devices/compare)
 
 **Last Updated**: March 2026 | **Reading Time**: 15 minutes
