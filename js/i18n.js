@@ -1034,7 +1034,7 @@ export function updateStructuredData() {
                     : "Learn how to use the online aspect ratio calculator to calculate and convert different screen ratios while maintaining proper proportions for images and videos.",
                 "image": {
                     "@type": "ImageObject",
-                    "url": "https://screensize.cc/images/aspect-ratio-calculator-guide.jpg",
+                    "url": "https://screensizechecker.com/images/aspect-ratio-calculator-guide.jpg",
                     "width": 1200,
                     "height": 630
                 },
@@ -1058,7 +1058,7 @@ export function updateStructuredData() {
                     {
                         "@type": "HowToTool",
                         "name": currentLang === 'zh' ? "长宽比计算器" : "Aspect Ratio Calculator",
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator"
                     }
                 ],
                 "step": [
@@ -1070,11 +1070,11 @@ export function updateStructuredData() {
                             : "Enter your original width and height values in the calculator's left input boxes. For example, enter 1920 as width and 1080 as height.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step1-input-dimensions.jpg",
+                            "url": "https://screensizechecker.com/images/step1-input-dimensions.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step1"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step1"
                     },
                     {
                         "@type": "HowToStep",
@@ -1084,11 +1084,11 @@ export function updateStructuredData() {
                             : "The system will automatically calculate and display the current aspect ratio, such as 16:9. This ratio will remain constant throughout the calculation process.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step2-view-ratio.jpg",
+                            "url": "https://screensizechecker.com/images/step2-view-ratio.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step2"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step2"
                     },
                     {
                         "@type": "HowToStep",
@@ -1098,11 +1098,11 @@ export function updateStructuredData() {
                             : "In the new dimensions section on the right, enter the new width or height you want to convert to. You only need to enter one value.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step3-target-size.jpg",
+                            "url": "https://screensizechecker.com/images/step3-target-size.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step3"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step3"
                     },
                     {
                         "@type": "HowToStep",
@@ -1112,11 +1112,11 @@ export function updateStructuredData() {
                             : "The system will automatically calculate and display the corresponding dimensions that maintain the same aspect ratio. You can view the scale factor and final ratio in the calculation summary.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step4-get-result.jpg",
+                            "url": "https://screensizechecker.com/images/step4-get-result.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step4"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step4"
                     },
                     {
                         "@type": "HowToStep",
@@ -1126,11 +1126,11 @@ export function updateStructuredData() {
                             : "You can also click the common ratio buttons below the page (such as 16:9, 4:3, etc.) to quickly apply standard ratios, and the system will automatically fill in the corresponding values.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step5-preset-ratios.jpg",
+                            "url": "https://screensizechecker.com/images/step5-preset-ratios.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step5"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step5"
                     },
                     {
                         "@type": "HowToStep",
@@ -1140,11 +1140,11 @@ export function updateStructuredData() {
                             : "In the aspect ratio preview area, you can see a visual representation of the ratio, helping you better understand the effect of dimension changes.",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "https://screensize.cc/images/step6-visual-preview.jpg",
+                            "url": "https://screensizechecker.com/images/step6-visual-preview.jpg",
                             "width": 800,
                             "height": 450
                         },
-                        "url": "https://screensize.cc/tools/aspect-ratio-calculator/#step6"
+                        "url": "https://screensizechecker.com/devices/aspect-ratio-calculator#step6"
                     }
                 ],
                 "video": {
@@ -1153,22 +1153,22 @@ export function updateStructuredData() {
                     "description": currentLang === 'zh' 
                         ? "详细演示如何使用长宽比计算器进行尺寸转换"
                         : "Detailed demonstration of how to use the aspect ratio calculator for dimension conversion",
-                    "thumbnailUrl": "https://screensize.cc/images/video-thumbnail-aspect-ratio.jpg",
+                    "thumbnailUrl": "https://screensizechecker.com/images/video-thumbnail-aspect-ratio.jpg",
                     "uploadDate": "2024-01-15",
                     "duration": "PT1M30S",
-                    "contentUrl": "https://screensize.cc/videos/aspect-ratio-calculator-tutorial.mp4"
+                    "contentUrl": "https://screensizechecker.com/videos/aspect-ratio-calculator-tutorial.mp4"
                 },
                 "author": {
                     "@type": "Organization",
-                    "name": "ScreenSize.cc",
-                    "url": "https://screensize.cc"
+                    "name": "Screen Size Checker",
+                    "url": "https://screensizechecker.com"
                 },
                 "publisher": {
                     "@type": "Organization",
-                    "name": "ScreenSize.cc",
+                    "name": "Screen Size Checker",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://screensize.cc/images/logo.png",
+                        "url": "https://screensizechecker.com/images/logo.png",
                         "width": 200,
                         "height": 60
                     }
