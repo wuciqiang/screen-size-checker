@@ -1,16 +1,22 @@
 ﻿---
-title: "Media Queries Essentials for Responsive Design"
-description: "Master the fundamentals of CSS media queries for creating responsive websites that work on any device"
-date: "2023-10-25"
+title: "CSS Media Queries Guide for Responsive Design in 2026"
+description: "Learn CSS media queries for responsive design in 2026, including breakpoints, min-width vs max-width, common patterns, and testing tips."
+slug: "media-queries-essentials"
+date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
+keywords: "css media queries, media queries guide, responsive design breakpoints, min-width vs max-width, css breakpoints"
 ---
 
-## Media Queries Essentials for Responsive Design
+# CSS Media Queries Guide for Responsive Design in 2026
 
-Media queries are the backbone of responsive web design, allowing websites to adapt their layout and styling based on device characteristics. This guide covers everything you need to know to implement effective media queries in your projects.
+Media queries are still one of the core tools behind responsive design. If you need a practical **CSS media queries guide**, this article covers the essentials: how media queries work, how to choose breakpoints, when to use `min-width` or `max-width`, and how to test layouts properly.
+
+## Quick Answer
+
+For most modern projects, start with a **mobile-first** approach and use `min-width` breakpoints such as **768px**, **1024px**, and **1440px**. Then test your layout with the [Responsive Tester](https://screensizechecker.com/devices/responsive-tester) and verify your real viewport with the [Screen Size Checker](https://screensizechecker.com/).
 
 ## What Are Media Queries?
 
@@ -296,7 +302,7 @@ Properly testing your media queries is crucial for ensuring your responsive desi
 
 1. **Browser Developer Tools**: Use responsive mode to resize the viewport
 2. **Real Devices**: Test on actual phones, tablets, and computers
-3. **Screen Size Checker Tool**: Use our [Screen Size Checker](/en/index.html) to verify your viewport dimensions and test how your design responds
+3. **Screen Size Checker Tool**: Use our [Screen Size Checker](https://screensizechecker.com/) to verify your viewport dimensions and test how your design responds
 
 ## Conclusion
 
@@ -304,4 +310,6 @@ Media queries are an essential tool for creating modern, responsive websites. By
 
 Remember that responsive design is about more than just making elements fit on different screens—it's about creating a cohesive user experience regardless of how someone accesses your content.
 
-For more on related topics, check out our articles on [Viewport Basics](/blog/viewport-basics.html) and [Device Pixel Ratio](/blog/device-pixel-ratio.html). 
+For more on related topics, check out our articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics.html) and [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio.html).
+
+*Last updated: March 2026*

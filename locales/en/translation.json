@@ -629,8 +629,8 @@
   "aspectRatioCalculator": {
     "title": "Aspect Ratio Calculator",
     "intro": "Calculate new dimensions while maintaining a specific aspect ratio. Enter original dimensions and get proportionally scaled new dimensions.",
-    "pageTitle": "Aspect Ratio & Screen Proportion Calculator | Resize Width and Height",
-    "pageDescription": "Use this aspect ratio and screen proportion calculator to resize width or height without distortion. Ideal for image scaling, video editing, CSS layouts, and responsive design.",
+    "pageTitle": "Aspect Ratio Calculator for Width & Height",
+    "pageDescription": "Calculate aspect ratio and resize width or height without distortion. Useful for images, video editing, CSS layouts, and responsive design.",
     "pageHeading": "Aspect Ratio and Screen Proportion Calculator",
     "pageIntro": "Calculate missing width or height while preserving a target aspect ratio. Perfect for screen proportion checks, image resizing, and video dimension planning.",
     "originalRatio": "Original Ratio",
