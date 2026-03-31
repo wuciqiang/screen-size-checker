@@ -43,7 +43,7 @@ keywords: "1440p vs 4k游戏, 1440p vs 4k帧率, 4k游戏值得吗, 1440p还是4
 - 像素密度：27英寸约163 PPI（超清晰）
 - 更适合近距离观看或更大显示器（32英寸以上）
 
-> **相关指南**：不确定1440p是否适合你？查看我们的完整[1080p vs 1440p游戏对比](/hub/1080p-vs-1440p-gaming)了解所有分辨率选项。
+> **相关指南**：不确定1440p是否适合你？查看我们的完整[1080p vs 1440p游戏对比]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)了解所有分辨率选项。
 
 ## 真实游戏性能（2025年基准测试）
 
@@ -253,7 +253,7 @@ keywords: "1440p vs 4k游戏, 1440p vs 4k帧率, 4k游戏值得吗, 1440p还是4
 | 32英寸 | 1440p | 92 PPI | 足够 |
 | 32英寸 | 4K | 138 PPI | ⭐ **理想** |
 
-> **显示器购买指南**：需要帮助选择完美的游戏显示器尺寸？阅读我们的完整[游戏显示器尺寸指南](/hub/gaming-monitor-size-guide)，包含观看距离计算。
+> **显示器购买指南**：需要帮助选择完美的游戏显示器尺寸？阅读我们的完整[游戏显示器尺寸指南]({{lang_prefix}}/hub/gaming-monitor-size-guide)，包含观看距离计算。
 
 ### 刷新率考虑
 
@@ -399,6 +399,6 @@ RTX 4070可以在中高画质（45-60 FPS）或使用DLSS质量模式驾驭4K游
 ---
 
 **准备好装机了吗？**查看我们的其他指南：
-- [2025年最佳游戏分辨率：完整指南](/hub/best-gaming-resolution-2025)
-- [1080p vs 1440p游戏：性能对比](/hub/1080p-vs-1440p-gaming)
-- [游戏显示器尺寸指南：24英寸 vs 27英寸 vs 32英寸](/hub/gaming-monitor-size-guide)
+- [2025年最佳游戏分辨率：完整指南]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [1080p vs 1440p游戏：性能对比]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [游戏显示器尺寸指南：24英寸 vs 27英寸 vs 32英寸]({{lang_prefix}}/hub/gaming-monitor-size-guide)

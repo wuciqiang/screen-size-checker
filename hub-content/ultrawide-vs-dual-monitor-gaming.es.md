@@ -118,7 +118,7 @@ Elegir entre un monitor ultrawide y un setup de monitor dual es una de las pregu
 
 **Veredicto**: **Monitores duales ganan** para gaming competitivo—versatilidad sin comprometer integridad competitiva.
 
-> **Guía Relacionada**: ¿Te preguntas qué tasa de refresco se empareja mejor con tu setup? Consulta nuestra [comparación de 144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming).
+> **Guía Relacionada**: ¿Te preguntas qué tasa de refresco se empareja mejor con tu setup? Consulta nuestra [comparación de 144Hz vs 240Hz Gaming]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ### Compatibilidad de Juegos y Soporte
 
@@ -184,7 +184,7 @@ Elegir entre un monitor ultrawide y un setup de monitor dual es una de las pregu
 - Flexibilidad: Puede inclinar monitores hacia adentro
 - Montaje VESA: 2× 100×100 o brazo dual
 
-> **Guía de Tamaño**: ¿No estás seguro qué tamaño de monitor funciona para tu gaming? Lee nuestra [guía de Mejor Tamaño de Monitor para FPS Gaming](/hub/best-monitor-size-fps).
+> **Guía de Tamaño**: ¿No estás seguro qué tamaño de monitor funciona para tu gaming? Lee nuestra [guía de Mejor Tamaño de Monitor para FPS Gaming]({{lang_prefix}}/hub/best-monitor-size-fps).
 
 ## Análisis de Costo
 
@@ -320,6 +320,6 @@ Depende del flujo de trabajo. Ultrawide mejor para: coding, edición de video, f
 ---
 
 **Completa tu setup perfecto**: Consulta nuestras otras guías de monitor:
-- [Mejor Resolución Gaming 2025: Guía Completa](/hub/best-gaming-resolution-2025)
-- [144Hz vs 240Hz Gaming: ¿Vale la Pena el Upgrade?](/hub/144hz-vs-240hz-gaming)
-- [Guía de Tamaño de Monitor Gaming: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)
+- [Mejor Resolución Gaming 2025: Guía Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [144Hz vs 240Hz Gaming: ¿Vale la Pena el Upgrade?]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+- [Guía de Tamaño de Monitor Gaming: 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)

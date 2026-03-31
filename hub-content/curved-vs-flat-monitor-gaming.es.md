@@ -274,6 +274,6 @@ Solo en escenarios específicos: monitores 32"+ para gaming inmersivo, monitores
 ---
 
 **Optimiza tu setup completo**: Explora nuestras otras guías monitor gaming:
-- [Monitor Gaming vs TV: Comparación Display Completa](/hub/gaming-monitor-vs-tv)
-- [IPS vs TN vs VA Gaming: Análisis Tipo Panel](/hub/ips-vs-tn-vs-va-gaming)
-- [144Hz vs 240Hz Gaming: Comparación Tasa Refresco](/hub/144hz-vs-240hz-gaming)
+- [Monitor Gaming vs TV: Comparación Display Completa]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [IPS vs TN vs VA Gaming: Análisis Tipo Panel]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
+- [144Hz vs 240Hz Gaming: Comparación Tasa Refresco]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)

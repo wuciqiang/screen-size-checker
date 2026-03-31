@@ -233,6 +233,6 @@ Schlechte HDR-Implementierung, falsche Monitor-Einstellungen oder Fake HDR-Monit
 ---
 
 **Vervollständigen Sie Ihr Gaming-Display-Wissen**: Erkunden Sie unsere anderen essentiellen Leitfäden:
-- [Gaming Monitor vs TV: Welcher Display-Typ?](/hub/gaming-monitor-vs-tv)
-- [G-Sync vs FreeSync: VRR-Technologie-Vergleich](/hub/g-sync-vs-freesync-gaming)
-- [Beste Gaming-Auflösung 2025: Komplette Analyse](/hub/best-gaming-resolution-2025)
+- [Gaming Monitor vs TV: Welcher Display-Typ?]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [G-Sync vs FreeSync: VRR-Technologie-Vergleich]({{lang_prefix}}/hub/g-sync-vs-freesync-gaming)
+- [Beste Gaming-Auflösung 2025: Komplette Analyse]({{lang_prefix}}/hub/best-gaming-resolution-2025)

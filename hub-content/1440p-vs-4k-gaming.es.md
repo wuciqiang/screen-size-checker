@@ -43,7 +43,7 @@ A distancias típicas de visualización gaming (60-80 cm de la pantalla):
 - Densidad de píxeles: ~163 PPI en 27" (ultra-nítido)
 - Mejor para visualización cercana o displays más grandes (32"+)
 
-> **Guía Relacionada**: ¿No estás seguro si 1440p es adecuado para ti? Consulta nuestra [comparación completa de 1080p vs 1440p Gaming](/hub/1080p-vs-1440p-gaming) para ver todas las opciones de resolución.
+> **Guía Relacionada**: ¿No estás seguro si 1440p es adecuado para ti? Consulta nuestra [comparación completa de 1080p vs 1440p Gaming]({{lang_prefix}}/hub/1080p-vs-1440p-gaming) para ver todas las opciones de resolución.
 
 ## Rendimiento Gaming Real (Benchmarks 2025)
 
@@ -245,7 +245,7 @@ Las GPUs modernas ofrecen upscaling impulsado por IA que puede cerrar la brecha 
 | 32" | 1440p | 92 PPI | Adecuado |
 | 32" | 4K | 138 PPI | ⭐ **Ideal** |
 
-> **Guía de Compra de Monitor**: ¿Necesitas ayuda eligiendo el tamaño perfecto de monitor gaming? Lee nuestra [Guía Completa de Tamaño de Monitor Gaming](/hub/gaming-monitor-size-guide) con cálculos de distancia de visualización.
+> **Guía de Compra de Monitor**: ¿Necesitas ayuda eligiendo el tamaño perfecto de monitor gaming? Lee nuestra [Guía Completa de Tamaño de Monitor Gaming]({{lang_prefix}}/hub/gaming-monitor-size-guide) con cálculos de distancia de visualización.
 
 ## Recomendaciones de Expertos
 
@@ -339,6 +339,6 @@ Absolutamente. 1440p sigue siendo la resolución óptima para la mayoría de gam
 ---
 
 **¿Listo para construir tu setup?** Consulta nuestras otras guías:
-- [Mejor Resolución Gaming 2025: Guía Completa](/hub/best-gaming-resolution-2025)
-- [1080p vs 1440p Gaming: Comparación de Rendimiento](/hub/1080p-vs-1440p-gaming)
-- [Guía de Tamaño de Monitor Gaming: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)
+- [Mejor Resolución Gaming 2025: Guía Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [1080p vs 1440p Gaming: Comparación de Rendimiento]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Guía de Tamaño de Monitor Gaming: 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)

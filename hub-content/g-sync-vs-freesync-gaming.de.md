@@ -313,6 +313,6 @@ Suchen Sie nach Monitoren mit mindestens 48-144Hz Bereich mit LFC (Low Framerate
 ---
 
 **Vervollständigen Sie Ihr Gaming-Setup**: Erkunden Sie unsere anderen Gaming-Monitor-Leitfäden:
-- [Gaming Monitor vs TV: Kompletter Display-Vergleich](/hub/gaming-monitor-vs-tv)
-- [Curved vs Flat Monitor Gaming: Form-Vergleich](/hub/curved-vs-flat-monitor-gaming)
-- [144Hz vs 240Hz Gaming: Bildwiederholrate-Analyse](/hub/144hz-vs-240hz-gaming)
+- [Gaming Monitor vs TV: Kompletter Display-Vergleich]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [Curved vs Flat Monitor Gaming: Form-Vergleich]({{lang_prefix}}/hub/curved-vs-flat-monitor-gaming)
+- [144Hz vs 240Hz Gaming: Bildwiederholrate-Analyse]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)

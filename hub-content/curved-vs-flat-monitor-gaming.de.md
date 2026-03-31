@@ -274,6 +274,6 @@ Nur in spezifischen Szenarien: 32"+ Monitore für immersives Gaming, Ultrawide-M
 ---
 
 **Optimieren Sie Ihr komplettes Setup**: Erkunden Sie unsere anderen Gaming-Monitor-Leitfäden:
-- [Gaming Monitor vs TV: Kompletter Display-Vergleich](/hub/gaming-monitor-vs-tv)
-- [IPS vs TN vs VA Gaming: Panel-Typ-Analyse](/hub/ips-vs-tn-vs-va-gaming)
-- [144Hz vs 240Hz Gaming: Bildwiederholrate-Vergleich](/hub/144hz-vs-240hz-gaming)
+- [Gaming Monitor vs TV: Kompletter Display-Vergleich]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [IPS vs TN vs VA Gaming: Panel-Typ-Analyse]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
+- [144Hz vs 240Hz Gaming: Bildwiederholrate-Vergleich]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)

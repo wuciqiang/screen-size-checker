@@ -370,6 +370,6 @@ La guerra tecnología VRR esencialmente terminó—FreeSync ha ganado a través 
 ---
 
 **Perfecciona tu setup gaming**: Explora nuestras otras guías monitor gaming:
-- [Monitor Gaming vs TV: Comparación Display Completa](/hub/gaming-monitor-vs-tv)
-- [Monitor Curvo vs Plano Gaming: Comparación Formas](/hub/curved-vs-flat-monitor-gaming)
-- [144Hz vs 240Hz Gaming: Análisis Tasa Refresco](/hub/144hz-vs-240hz-gaming)
+- [Monitor Gaming vs TV: Comparación Display Completa]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [Monitor Curvo vs Plano Gaming: Comparación Formas]({{lang_prefix}}/hub/curved-vs-flat-monitor-gaming)
+- [144Hz vs 240Hz Gaming: Análisis Tasa Refresco]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)

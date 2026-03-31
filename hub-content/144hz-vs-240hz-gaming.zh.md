@@ -133,7 +133,7 @@ keywords: "144hz vs 240hz, 240hz值得吗, 144hz vs 240hz区别, 刷新率游戏
 - ❌ 回合制游戏：无收益
 - **改进**：0%功能差异
 
-> **相关指南**：想知道什么显示器尺寸与高刷新率最搭配？查看我们的[FPS游戏最佳显示器尺寸](/hub/best-monitor-size-fps)指南。
+> **相关指南**：想知道什么显示器尺寸与高刷新率最搭配？查看我们的[FPS游戏最佳显示器尺寸]({{lang_prefix}}/hub/best-monitor-size-fps)指南。
 
 ## 职业选手采用情况
 
@@ -314,7 +314,7 @@ keywords: "144hz vs 240hz, 240hz值得吗, 144hz vs 240hz区别, 刷新率游戏
 
 **关键考虑**：1ms响应时间的144Hz显示器可能比4ms响应时间的240Hz显示器感觉更响应。**总动作清晰度 = 刷新率 + 响应时间**。
 
-> **分辨率指南**：在为高刷新游戏决定1440p还是4K？阅读我们的[1440p vs 4K游戏对比](/hub/1440p-vs-4k-gaming)。
+> **分辨率指南**：在为高刷新游戏决定1440p还是4K？阅读我们的[1440p vs 4K游戏对比]({{lang_prefix}}/hub/1440p-vs-4k-gaming)。
 
 ## 升级决策框架
 
@@ -553,6 +553,6 @@ keywords: "144hz vs 240hz, 240hz值得吗, 144hz vs 240hz区别, 刷新率游戏
 ---
 
 **完成你的设置**：查看我们的其他刷新率和显示器指南：
-- [2025年最佳游戏分辨率：FPS与质量指南](/hub/best-gaming-resolution-2025)
-- [FPS游戏最佳显示器尺寸：24英寸vs 27英寸分析](/hub/best-monitor-size-fps)
-- [游戏显示器尺寸指南：完整购买指南](/hub/gaming-monitor-size-guide)
+- [2025年最佳游戏分辨率：FPS与质量指南]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [FPS游戏最佳显示器尺寸：24英寸vs 27英寸分析]({{lang_prefix}}/hub/best-monitor-size-fps)
+- [游戏显示器尺寸指南：完整购买指南]({{lang_prefix}}/hub/gaming-monitor-size-guide)

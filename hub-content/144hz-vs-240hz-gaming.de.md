@@ -133,7 +133,7 @@ Nicht alle Spiele profitieren gleich von 240Hz:
 - ❌ Rundenbasierte Spiele: Kein Nutzen
 - **Verbesserung**: 0% funktionaler Unterschied
 
-> **Verwandter Leitfaden**: Fragen Sie sich, welche Monitor-Größe am besten mit hohen Bildwiederholraten passt? Sehen Sie unseren [Beste Monitor-Größe für FPS Gaming](/hub/best-monitor-size-fps) Leitfaden.
+> **Verwandter Leitfaden**: Fragen Sie sich, welche Monitor-Größe am besten mit hohen Bildwiederholraten passt? Sehen Sie unseren [Beste Monitor-Größe für FPS Gaming]({{lang_prefix}}/hub/best-monitor-size-fps) Leitfaden.
 
 ## Profispieler-Adoption
 
@@ -285,6 +285,6 @@ Nur wenn Sie ein ernsthafter kompetitiver Spieler sind, eine High-End-GPU (RTX 4
 ---
 
 **Vervollständigen Sie Ihr Setup**: Sehen Sie unsere anderen Leitfäden:
-- [Beste Gaming-Auflösung 2025: FPS & Qualitätsleitfaden](/hub/best-gaming-resolution-2025)
-- [Beste Monitor-Größe für FPS Gaming: 24" vs 27" Analyse](/hub/best-monitor-size-fps)
-- [Gaming Monitor Größenleitfaden: Kompletter Käuferleitfaden](/hub/gaming-monitor-size-guide)
+- [Beste Gaming-Auflösung 2025: FPS & Qualitätsleitfaden]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Beste Monitor-Größe für FPS Gaming: 24" vs 27" Analyse]({{lang_prefix}}/hub/best-monitor-size-fps)
+- [Gaming Monitor Größenleitfaden: Kompletter Käuferleitfaden]({{lang_prefix}}/hub/gaming-monitor-size-guide)

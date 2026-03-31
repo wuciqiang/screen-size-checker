@@ -118,7 +118,7 @@ Elegir entre un monitor gaming y un TV es una de las decisiones más importantes
 - **Juegos Carreras**: <5ms preferido → Monitor gaming u OLED TV
 - **Juegos Lucha**: <3ms crítico → Monitor gaming gana
 
-> **Guía Relacionada**: ¿Confundido sobre tipos panel y tiempos respuesta? Lee nuestra [comparación IPS vs TN vs VA Gaming](/hub/ips-vs-tn-vs-va-gaming).
+> **Guía Relacionada**: ¿Confundido sobre tipos panel y tiempos respuesta? Lee nuestra [comparación IPS vs TN vs VA Gaming]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## Análisis Tasa Refresco
 
@@ -154,7 +154,7 @@ Elegir entre un monitor gaming y un TV es una de las decisiones más importantes
 
 **Limitación Consola**: PS5 y Xbox Series X máximo 120Hz, hace monitores high-refresh (240Hz+) innecesarios para gaming consola.
 
-> **Guía Tasa Refresco**: ¿Quieres saber si 240Hz vale la pena? Revisa nuestro [análisis 144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming).
+> **Guía Tasa Refresco**: ¿Quieres saber si 240Hz vale la pena? Revisa nuestro [análisis 144Hz vs 240Hz Gaming]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## Rendimiento HDR
 
@@ -237,6 +237,6 @@ OLED es mejor para calidad imagen (negros perfectos, contraste infinito, tiempo 
 ---
 
 **Completa tu setup gaming**: Explora nuestras otras guías display gaming:
-- [Mejor Resolución Gaming 2025: Análisis Completo](/hub/best-gaming-resolution-2025)
-- [Guía Tamaño Monitor Gaming: Encontrando Tu Ajuste Perfecto](/hub/gaming-monitor-size-guide)
-- [IPS vs TN vs VA Gaming: Comparación Tipo Panel](/hub/ips-vs-tn-vs-va-gaming)
+- [Mejor Resolución Gaming 2025: Análisis Completo]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guía Tamaño Monitor Gaming: Encontrando Tu Ajuste Perfecto]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [IPS vs TN vs VA Gaming: Comparación Tipo Panel]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)

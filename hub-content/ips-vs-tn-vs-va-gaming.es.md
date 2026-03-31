@@ -200,7 +200,7 @@ Elegir la tecnología de panel correcta es crítico para el rendimiento del moni
 | AOC CU34G2X | 34" | 3440×1440 | 144Hz | $450 | Valor ultrawide VA |
 | MSI MAG274QRF-QD | 27" | 2560×1440 | 165Hz | $350 | Opción VA budget |
 
-> **Guía Relacionada**: ¿No estás seguro qué tasa de refresco emparejar con tu elección panel? Lee nuestra [comparación 144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming).
+> **Guía Relacionada**: ¿No estás seguro qué tasa de refresco emparejar con tu elección panel? Lee nuestra [comparación 144Hz vs 240Hz Gaming]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## Paneles OLED
 
@@ -295,6 +295,6 @@ IPS glow es fuga luz visible en esquinas pantalla al ver contenido oscuro en hab
 ---
 
 **Construye tu setup completo**: Explora nuestras otras guías monitor gaming:
-- [Mejor Resolución Gaming 2025: Análisis Completo](/hub/best-gaming-resolution-2025)
-- [144Hz vs 240Hz Gaming: ¿Vale la Pena?](/hub/144hz-vs-240hz-gaming)
-- [Ultrawide vs Dual Monitor Gaming: Comparación Setup](/hub/ultrawide-vs-dual-monitor-gaming)
+- [Mejor Resolución Gaming 2025: Análisis Completo]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [144Hz vs 240Hz Gaming: ¿Vale la Pena?]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+- [Ultrawide vs Dual Monitor Gaming: Comparación Setup]({{lang_prefix}}/hub/ultrawide-vs-dual-monitor-gaming)

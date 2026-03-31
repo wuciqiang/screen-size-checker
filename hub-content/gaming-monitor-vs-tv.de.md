@@ -118,7 +118,7 @@ Die Wahl zwischen Gaming-Monitor und TV ist eine der wichtigsten Entscheidungen 
 - **Rennspiele**: <5ms bevorzugt → Gaming-Monitor oder OLED-TV
 - **Kampfspiele**: <3ms kritisch → Gaming-Monitor gewinnt
 
-> **Verwandter Leitfaden**: Verwirrt über Panel-Typen und Reaktionszeiten? Lesen Sie unseren [IPS vs TN vs VA Gaming-Vergleich](/hub/ips-vs-tn-vs-va-gaming).
+> **Verwandter Leitfaden**: Verwirrt über Panel-Typen und Reaktionszeiten? Lesen Sie unseren [IPS vs TN vs VA Gaming-Vergleich]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
 
 ## Bildwiederholrate-Analyse
 
@@ -154,7 +154,7 @@ Die Wahl zwischen Gaming-Monitor und TV ist eine der wichtigsten Entscheidungen 
 
 **Konsolen-Limitierung**: PS5 und Xbox Series X maximal 120Hz, macht High-Refresh-Monitore (240Hz+) unnötig für Konsolen-Gaming.
 
-> **Bildwiederholrate-Leitfaden**: Wissen wollen ob 240Hz es wert ist? Check unsere [144Hz vs 240Hz Gaming-Analyse](/hub/144hz-vs-240hz-gaming).
+> **Bildwiederholrate-Leitfaden**: Wissen wollen ob 240Hz es wert ist? Check unsere [144Hz vs 240Hz Gaming-Analyse]({{lang_prefix}}/hub/144hz-vs-240hz-gaming).
 
 ## HDR-Performance
 
@@ -237,6 +237,6 @@ OLED ist besser für Bildqualität (perfekte Schwarzwerte, unendlicher Kontrast,
 ---
 
 **Vervollständigen Sie Ihr Gaming-Setup**: Erkunden Sie unsere anderen Gaming-Display-Leitfäden:
-- [Beste Gaming-Auflösung 2025: Komplette Analyse](/hub/best-gaming-resolution-2025)
-- [Gaming-Monitor-Größen-Leitfaden: Perfekte Passform Finden](/hub/gaming-monitor-size-guide)
-- [IPS vs TN vs VA Gaming: Panel-Typ-Vergleich](/hub/ips-vs-tn-vs-va-gaming)
+- [Beste Gaming-Auflösung 2025: Komplette Analyse]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Gaming-Monitor-Größen-Leitfaden: Perfekte Passform Finden]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [IPS vs TN vs VA Gaming: Panel-Typ-Vergleich]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)

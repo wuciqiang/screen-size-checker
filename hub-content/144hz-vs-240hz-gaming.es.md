@@ -133,7 +133,7 @@ No todos los juegos se benefician igual de 240Hz:
 - ❌ Juegos por turnos: Sin beneficio
 - **Mejora**: 0% diferencia funcional
 
-> **Guía Relacionada**: ¿Te preguntas qué tamaño de monitor se empareja mejor con altas tasas de refresco? Consulta nuestra guía [Mejor Tamaño de Monitor para FPS Gaming](/hub/best-monitor-size-fps).
+> **Guía Relacionada**: ¿Te preguntas qué tamaño de monitor se empareja mejor con altas tasas de refresco? Consulta nuestra guía [Mejor Tamaño de Monitor para FPS Gaming]({{lang_prefix}}/hub/best-monitor-size-fps).
 
 ## Adopción de Jugadores Profesionales
 
@@ -285,6 +285,6 @@ Solo si eres un jugador competitivo serio, tienes una GPU de alta gama (RTX 4070
 ---
 
 **Completa tu setup**: Consulta nuestras otras guías:
-- [Mejor Resolución Gaming 2025: Guía de FPS y Calidad](/hub/best-gaming-resolution-2025)
-- [Mejor Tamaño de Monitor para FPS Gaming: Análisis 24" vs 27"](/hub/best-monitor-size-fps)
-- [Guía de Tamaño de Monitor Gaming: Guía Completa del Comprador](/hub/gaming-monitor-size-guide)
+- [Mejor Resolución Gaming 2025: Guía de FPS y Calidad]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Mejor Tamaño de Monitor para FPS Gaming: Análisis 24" vs 27"]({{lang_prefix}}/hub/best-monitor-size-fps)
+- [Guía de Tamaño de Monitor Gaming: Guía Completa del Comprador]({{lang_prefix}}/hub/gaming-monitor-size-guide)
