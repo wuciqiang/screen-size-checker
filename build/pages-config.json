@@ -246,8 +246,8 @@
         "page_intro_key": "compare_page_intro",
         "page_keywords": "screen size comparison, monitor size comparison, compare screen sizes, TV size comparison, laptop screen comparison, phone screen comparison",
         "canonical_url": "https://screensizechecker.com/devices/compare",
-        "og_title": "Screen Size Comparison Tool for Monitors, TVs & Phones",
-        "og_description": "Compare monitor, TV, laptop, tablet, and phone sizes side by side. See exact width, height, and area differences before you buy.",
+        "og_title": "Screen Size Comparison Tool | Monitors, TVs & Phones",
+        "og_description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. Check exact width, height, area, and aspect-ratio differences before you buy.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/compare",
         "css_path": "../css",
@@ -265,8 +265,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Comparison Tool for Monitors, TVs & Phones",
-          "description": "Compare monitor, TV, laptop, tablet, and phone sizes side by side. See exact width, height, and area differences before you buy.",
+          "name": "Screen Size Comparison Tool | Monitors, TVs & Phones",
+          "description": "Compare screen sizes side by side for monitors, TVs, laptops, tablets, and phones. Check exact width, height, area, and aspect-ratio differences before you buy.",
           "url": "https://screensizechecker.com/devices/compare.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -275,7 +275,7 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "dateModified": "2026-03-30"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -292,8 +292,8 @@
         "page_intro_key": "standard_resolutions_page_intro",
         "page_keywords": "standard screen resolutions chart, standard display resolutions, common monitor resolutions, 1080p resolution, 1440p resolution, 4K resolution, 8K resolution, resolution aspect ratio chart",
         "canonical_url": "https://screensizechecker.com/devices/standard-resolutions",
-        "og_title": "Standard Screen Resolutions Chart (2026) | 720p, 1080p, 1440p, 4K, 8K",
-        "og_description": "Browse standard display resolutions and aspect ratios from 720p to 8K. Includes common monitor and laptop pixel dimensions in one reference chart.",
+        "og_title": "Standard Screen Resolutions Chart (2026) | 720p to 8K Pixel Sizes",
+        "og_description": "Reference chart for standard screen resolutions, pixel dimensions, and aspect ratios from 720p to 8K. Includes desktop, laptop, ultrawide, and mobile display standards.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/standard-resolutions",
         "css_path": "../css",
@@ -312,7 +312,7 @@
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Standard Screen Resolutions (2026): 720p, 1080p, 1440p, 4K, 8K Chart",
-          "description": "Reference chart for common screen resolutions and aspect ratios, including pixel dimensions for mobile, laptop, desktop, ultrawide, 4K, and 8K displays.",
+          "description": "Reference chart for standard screen resolutions, pixel dimensions, and aspect ratios from 720p to 8K. Includes desktop, laptop, ultrawide, and mobile display standards.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -326,7 +326,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -343,8 +343,8 @@
         "page_intro_key": "responsive_tester_intro",
         "page_keywords": "responsive design tester, mobile-friendly test, viewport tester, responsive checker, website testing tool, breakpoint tester, screen size simulator",
         "canonical_url": "https://screensizechecker.com/devices/responsive-tester",
-        "og_title": "Responsive Design Tester (Free) | Test Website on Mobile, Tablet & Desktop",
-        "og_description": "Preview and test your website at common viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
+        "og_title": "Responsive Design Tester (Free) | Test Real Device Viewports",
+        "og_description": "Test your website at common mobile, tablet, and desktop viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/responsive-tester",
         "css_path": "../css",
@@ -362,8 +362,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Responsive Design Tester",
-          "description": "Preview and test websites at common viewport sizes to validate breakpoints and mobile responsiveness.",
+          "name": "Responsive Design Tester (Free) | Test Real Device Viewports",
+          "description": "Test your website at common mobile, tablet, and desktop viewport sizes. Quickly check breakpoints, layout behavior, and mobile responsiveness in one tool.",
           "url": "https://screensizechecker.com/devices/responsive-tester.html",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
@@ -372,7 +372,7 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
@@ -389,8 +389,8 @@
         "page_intro_key": "ppiCalculator.pageIntro",
         "page_keywords": "ppi calculator, pixel density calculator, monitor ppi calculator, phone ppi calculator, TV ppi calculator, pixels per inch",
         "canonical_url": "https://screensizechecker.com/devices/ppi-calculator",
-        "og_title": "PPI Calculator (Pixels Per Inch) | Monitor, Phone, TV Pixel Density",
-        "og_description": "Calculate pixel density (PPI) from screen resolution and diagonal size. Compare display sharpness for monitors, laptops, phones, and TVs.",
+        "og_title": "PPI Calculator | Pixel Density for Monitors, Phones, Laptops & TVs",
+        "og_description": "Calculate PPI from screen resolution and diagonal size. Compare monitor, laptop, phone, tablet, and TV sharpness with one free pixel density calculator.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/devices/ppi-calculator",
         "css_path": "../css",
@@ -408,8 +408,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "PPI Calculator",
-          "description": "Calculate pixel density (PPI) from screen resolution and diagonal size to compare display sharpness.",
+          "name": "PPI Calculator | Pixel Density for Monitors, Phones, Laptops & TVs",
+          "description": "Calculate PPI from screen resolution and diagonal size. Compare monitor, laptop, phone, tablet, and TV sharpness with one free pixel density calculator.",
           "url": "https://screensizechecker.com/devices/ppi-calculator.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -431,7 +431,7 @@
             }
           },
           "datePublished": "2025-01-26",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-31"
         },
         "blog_url": "../blog/index.html"
       }
