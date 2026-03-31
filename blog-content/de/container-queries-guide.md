@@ -1,15 +1,16 @@
 ---
-title: "CSS Container Queries Leitfaden 2026"
-description: "Erfahren Sie, wie Sie CSS Container Queries 2026 einsetzen, um Komponenten flexibel auf ihre Container statt auf den Viewport reagieren zu lassen."
+title: "CSS Container Queries 2026: Leitfaden + Beispiele"
+description: "Lernen Sie CSS Container Queries mit Syntax, Beispielen, Browser-Support und praktischen Patterns für wirklich responsive Komponenten."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["css", "responsive-design", "container-queries", "web-development", "frontend"]
 featured: true
 readingTime: "12 min read"
+keywords: "css container queries, container queries leitfaden, container queries beispiele, responsive komponenten css, browser support"
 ---
 
-# CSS Container Queries Leitfaden 2026
+# CSS Container Queries 2026: Leitfaden + Beispiele
 
 Lange Zeit bedeutete Responsive Design vor allem Media Queries. Doch viele UI-Probleme entstehen nicht wegen der gesamten Viewport-Breite, sondern weil eine Komponente in einem kleineren Bereich landet: Sidebar, Card, Dashboard-Widget oder eingebettetes Modul. Genau hier sind Container Queries 2026 das richtige Werkzeug.
 

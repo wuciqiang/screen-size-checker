@@ -1,6 +1,6 @@
 ---
-title: "Guia de CSS Container Queries em 2026"
-description: "Domine CSS Container Queries em 2026 com exemplos práticos. Crie componentes responsivos que se adaptam ao container, não ao viewport."
+title: "CSS Container Queries em 2026: guia e exemplos"
+description: "Aprenda CSS Container Queries com sintaxe, exemplos, compatibilidade e padrões práticos para criar componentes realmente responsivos."
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "css"
@@ -8,10 +8,10 @@ tags: ["css", "design-responsivo", "container-queries", "desenvolvimento-web", "
 featured: true
 readingTime: "12 min de leitura"
 slug: "guia-css-container-queries"
-keywords: "container queries, css, design responsivo, media queries, frontend, container queries css"
+keywords: "css container queries, guia container queries, exemplos container queries, componentes responsivos css, compatibilidade container queries"
 ---
 
-# Guia Completo de CSS Container Queries em 2026
+# CSS Container Queries em 2026: guia e exemplos
 
 Por anos, o design web responsivo dependeu de media queries para adaptar layouts a diferentes tamanhos de tela. Mas o que acontece quando você precisa que um componente responda ao tamanho do próprio container, e não ao viewport? Em 2026, CSS Container Queries já fazem parte do toolkit moderno para criar componentes realmente reutilizáveis.
 

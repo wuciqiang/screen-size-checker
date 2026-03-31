@@ -1,15 +1,16 @@
 ﻿---
-title: "2026 年 CSS 容器查询完全指南"
-description: "通过这份全面的指南掌握 2026 年的 CSS 容器查询。学习如何创建真正响应式的组件，让它们根据容器大小而非视口大小自适应。"
+title: "CSS 容器查询怎么用？2026 完整指南"
+description: "想让组件根据容器而不是视口自适应？这篇指南讲清楚 CSS 容器查询语法、示例、兼容性和实战用法。"
 date: "2026-03-31"
-author: "Screen Size Checker 团队"
+author: "Screen Size Checker Team"
 category: "css"
 tags: ["css", "响应式设计", "容器查询", "网页开发", "前端"]
 featured: true
 readingTime: "12 分钟阅读"
+keywords: "CSS 容器查询, container queries 怎么用, 容器查询示例, 响应式组件, 浏览器兼容性, CSS 组件布局"
 ---
 
-# 2026 年 CSS 容器查询完全指南
+# CSS 容器查询怎么用？2026 完整指南
 
 多年来，响应式网页设计一直依赖媒体查询来适配不同的屏幕尺寸。但当你需要组件根据其容器的大小而非视口大小进行响应时，该怎么办？到了 2026 年，CSS 容器查询已经成为现代前端构建真正可复用组件的核心能力。
 

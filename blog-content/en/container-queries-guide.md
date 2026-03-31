@@ -1,15 +1,16 @@
 ﻿---
-title: "CSS Container Queries Guide for Responsive Components"
-description: "Learn CSS container queries with examples, browser support, syntax, and practical patterns for building responsive components in 2026."
+title: "CSS Container Queries 2026: Guide + Examples"
+description: "Learn CSS container queries with syntax, examples, browser support, and practical patterns for building truly responsive components in 2026."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["css", "responsive-design", "container-queries", "web-development", "frontend"]
 featured: true
 readingTime: "12 min read"
+keywords: "css container queries, container queries guide, container queries examples, responsive components css, browser support container queries"
 ---
 
-# CSS Container Queries Guide for Responsive Components
+# CSS Container Queries 2026: Guide + Examples
 
 If you are looking for a practical **CSS container queries guide**, the short version is simple: container queries let a component respond to the size of its parent container instead of the browser viewport. That makes them ideal for reusable cards, sidebars, dashboards, and design systems where the same component appears in different layout contexts.
 
