@@ -1,16 +1,16 @@
 ---
-title: "Cómo verificar la resolución de pantalla en 2026"
-description: "Aprende cómo verificar la resolución de pantalla en 2026 en Windows, Mac, Linux y dispositivos móviles. Incluye métodos rápidos, consejos de escalado y notas sobre DPR."
+title: "Cómo ver la resolución de pantalla en Windows, Mac y móvil"
+description: "¿Necesitas ver la resolución de pantalla rápido? Aprende a comprobarla en Windows, Mac, Linux, iPhone y Android y a identificar la resolución nativa."
 slug: "how-to-check-screen-resolution"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["resolución-pantalla", "configuración-display", "guía", "básicos"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "cómo verificar resolución pantalla, comprobar resolución monitor, resolución pantalla Windows, configuración display, resolución monitor Mac"
+keywords: "cómo ver resolución de pantalla, resolución windows mac, resolución nativa monitor, comprobar resolución móvil, ajustes resolución pantalla, resolución monitor"
 ---
 
-# Cómo verificar la resolución de pantalla en 2026
+# Cómo ver la resolución de pantalla en Windows, Mac y móvil
 
 Conocer la resolución de tu pantalla sigue siendo importante en 2026: afecta la nitidez, el escalado, el rendimiento en juegos, la configuración de varios monitores y la forma en que se muestran webs y aplicaciones. Ya sea que uses Windows, Mac, Linux o dispositivos móviles, hay varias formas rápidas de comprobar tu resolución actual.
 

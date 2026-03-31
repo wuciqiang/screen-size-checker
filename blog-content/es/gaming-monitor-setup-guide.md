@@ -1,16 +1,16 @@
 ---
-title: "Guía de configuración de monitor gaming 2026"
-description: "Guía completa para configurar tu monitor gaming en 2026. Aprende los mejores ajustes para tasa de refresco, resolución, color y G-Sync/FreeSync."
+title: "Mejores ajustes para monitor gaming en 2026: Hz, VRR y HDR"
+description: "Configura bien tu monitor gaming en 2026: tasa de refresco, resolución nativa, VRR, overdrive, HDR y brillo para jugar más fluido."
 slug: "gaming-monitor-setup-guide"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["configuración-gaming", "ajustes-monitor", "optimización-display", "guía"]
 featuredImage: "gaming-monitor-setup-guide.jpg"
-keywords: "configurar monitor gaming, ajustes monitor gaming, mejores ajustes display gaming, cómo configurar monitor gaming, calibración monitor gaming"
+keywords: "mejores ajustes monitor gaming, configurar monitor gaming 2026, hz vrr hdr monitor, overdrive monitor gaming, g sync freesync configurar, brillo monitor juegos"
 ---
 
-# Guía de configuración de monitor gaming 2026
+# Mejores ajustes para monitor gaming en 2026: Hz, VRR y HDR
 
 Configurar bien tu monitor gaming sigue marcando una gran diferencia en 2026. Muchos jugadores invierten bastante en pantallas rápidas, pero nunca activan la tasa de refresco correcta, la resolución nativa o los ajustes clave del OSD, y terminan perdiendo rendimiento real.
 

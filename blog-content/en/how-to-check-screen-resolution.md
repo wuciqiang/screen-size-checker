@@ -1,16 +1,16 @@
 ---
-title: "How to Check Screen Resolution in 2026"
-description: "Learn how to check screen resolution on Windows, Mac, Linux, and mobile devices, plus how to find your native resolution and fix common display issues."
+title: "How to Check Screen Resolution on Windows, Mac & Phone (2026)"
+description: "Need to find your screen resolution fast? Check resolution on Windows, Mac, Linux, iPhone, and Android, then confirm the native setting in minutes."
 slug: "how-to-check-screen-resolution"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["screen-resolution", "display-settings", "how-to", "basics"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "how to check screen resolution, find screen resolution, check display resolution, screen resolution settings, monitor resolution, display properties"
+keywords: "how to check screen resolution, check resolution on windows and mac, find native resolution, how to see screen resolution, monitor resolution settings, phone screen resolution"
 ---
 
-# How to Check Screen Resolution in 2026
+# How to Check Screen Resolution on Windows, Mac & Phone (2026)
 
 If you are wondering **how to check screen resolution**, the fastest method is usually built into your operating system. On Windows, right-click the desktop and open **Display settings**. On Mac, open **System Settings > Displays**. This guide covers the fastest paths on Windows, macOS, Linux, and mobile.
 

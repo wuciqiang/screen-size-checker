@@ -1,16 +1,16 @@
 ---
-title: "如何在 2026 年查看屏幕分辨率"
-description: "学习如何在 Windows、Mac、Linux 和手机上查看屏幕分辨率。快速找到正确分辨率，并检查缩放、DPR 和显示设置。"
+title: "屏幕分辨率怎么看？2026 Windows、Mac、手机全指南"
+description: "想快速查看屏幕分辨率？教你在 Windows、Mac、Linux、iPhone 和 Android 上查看分辨率，并确认原生分辨率设置。"
 slug: "how-to-check-screen-resolution"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["屏幕分辨率", "显示设置", "使用教程", "基础知识"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "如何查看屏幕分辨率, 查看显示器分辨率, 电脑分辨率怎么看, 屏幕分辨率检测, 显示器分辨率设置, 分辨率查询"
+keywords: "屏幕分辨率怎么看, Windows 查看分辨率, Mac 查看分辨率, 手机分辨率查询, 显示器原生分辨率, 电脑分辨率设置"
 ---
 
-# 如何在 2026 年查看屏幕分辨率
+# 屏幕分辨率怎么看？2026 Windows、Mac、手机全指南
 
 了解屏幕分辨率在 2026 年依然很重要：它会直接影响缩放是否清晰、游戏是否跑在正确分辨率、双显示器是否协调，以及网页或应用是否正常显示。无论您使用 Windows、Mac、Linux 还是手机，都可以很快查到当前分辨率。
 

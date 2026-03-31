@@ -1,16 +1,16 @@
 ---
-title: "Bildschirmauflösung in 2026 prüfen"
-description: "Lernen Sie, wie Sie 2026 die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Inklusive schneller Methoden, Skalierungs-Tipps und DPR-Hinweisen."
+title: "Bildschirmauflösung prüfen: Windows, Mac & Handy (2026)"
+description: "Sie wollen Ihre Bildschirmauflösung schnell finden? So prüfen Sie Auflösung unter Windows, Mac, Linux, iPhone und Android und erkennen die native Einstellung."
 slug: "how-to-check-screen-resolution"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["bildschirmauflösung", "anzeigeeinstellungen", "anleitung", "grundlagen"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "Bildschirmauflösung prüfen, Auflösung anzeigen, Monitor Auflösung, Display Auflösung, Bildschirm Auflösung testen, Auflösung herausfinden"
+keywords: "bildschirmauflösung prüfen, auflösung windows mac prüfen, native auflösung finden, monitor auflösung anzeigen, handy auflösung prüfen, display einstellungen auflösung"
 ---
 
-# Bildschirmauflösung in 2026 prüfen
+# Bildschirmauflösung prüfen: Windows, Mac & Handy (2026)
 
 Die Kenntnis Ihrer Bildschirmauflösung bleibt auch 2026 wichtig: Sie beeinflusst Skalierung, Bildschärfe, Gaming-Leistung, Multi-Monitor-Setups und die korrekte Darstellung von Apps und Websites. Ob Sie Windows, Mac, Linux oder mobile Geräte verwenden – es gibt mehrere schnelle Wege, Ihre aktuelle Auflösung zuverlässig zu prüfen.
 

@@ -1,16 +1,16 @@
 ---
-title: "Como Verificar a Resolução de Tela em 2026"
-description: "Veja como descobrir a resolução da tela no Windows, Mac, Linux e celular. Métodos rápidos para identificar a resolução correta da sua tela."
+title: "Como ver a resolução da tela no Windows, Mac e celular"
+description: "Quer descobrir a resolução da tela rápido? Veja como verificar no Windows, Mac, Linux, iPhone e Android e como confirmar a resolução nativa."
 slug: "how-to-check-screen-resolution"
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "guides"
 tags: ["resolucao-de-tela", "configuracoes-de-exibicao", "como-fazer", "basico"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "como verificar resolução de tela, encontrar resolução de tela, verificar resolução de display, configurações de resolução de tela, resolução de monitor, propriedades de exibição"
+keywords: "como ver resolução da tela, resolução windows mac, resolução nativa monitor, verificar resolução celular, configurações resolução tela, resolução monitor"
 ---
 
-# Como Verificar a Resolução de Tela em 2026
+# Como ver a resolução da tela no Windows, Mac e celular
 
 Saber a resolução da sua tela continua sendo importante em 2026 para ajustar escala, configurar jogos, preparar layouts responsivos e garantir que tudo apareça com nitidez. Seja no Windows, Mac, Linux ou celular, existem maneiras rápidas de descobrir a resolução correta da sua tela.
 
