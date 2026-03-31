@@ -41,7 +41,7 @@ Resolution sits at the heart of the visual experience, and with Black Myth: Zhon
 
 **1440p (2560×1440)** strikes a compelling middle ground, offering significantly more detail than 1080p while remaining more accessible in terms of hardware requirements. For many gamers, 1440p represents the sweet spot where visual quality meets performance practicality. The increased pixel density over 1080p makes a noticeable difference in image clarity, particularly in a game with as much fine detail as Black Myth: Zhong Kui.
 
-**1080p (1920×1080)**, while still viable, may leave some of the game's visual splendor on the table. The lower pixel density means that fine details in textures and distant objects may appear softer or less defined than the developers intended. For those interested in exploring the technical differences between these resolutions in greater depth, our [comprehensive resolution comparison guide](https://screensizechecker.com/blog/your-future-4k-vs-1080p-article-url) breaks down the pros and cons of each option.
+**1080p (1920×1080)**, while still viable, may leave some of the game's visual splendor on the table. The lower pixel density means that fine details in textures and distant objects may appear softer or less defined than the developers intended. For those interested in exploring the technical differences between these resolutions in greater depth, our [best gaming resolution guide](https://screensizechecker.com/hub/best-gaming-resolution-2025) breaks down the pros and cons of 1080p, 1440p, and 4K.
 
 ### Pixel Density (PPI): Seeing Every Single Detail
 
@@ -65,7 +65,7 @@ For gamers considering different aspect ratios or curious about how various scre
 
 While Black Myth: Zhong Kui isn't primarily a competitive esports title, refresh rate and response time still play important roles in the overall experience. Higher refresh rates (120Hz, 144Hz, or beyond) can make camera movements and combat animations appear smoother and more fluid, particularly during fast-paced action sequences.
 
-**Refresh rate** determines how many times per second your monitor can display a new image. While 60Hz remains perfectly playable for single-player adventures, higher refresh rates can enhance the sense of smoothness and responsiveness, particularly if your hardware can maintain framerates that take advantage of the increased refresh capability.
+**Refresh rate** determines how many times per second your monitor can display a new image. While 60Hz remains perfectly playable for single-player adventures, higher refresh rates can enhance the sense of smoothness and responsiveness, particularly if your hardware can maintain framerates that take advantage of the increased refresh capability. If you're deciding between common upgrade paths, our [144Hz vs 240Hz gaming guide](https://screensizechecker.com/hub/144hz-vs-240hz-gaming) is a useful next read.
 
 **Response time** measures how quickly pixels can change from one color to another. Lower response times reduce motion blur and ghosting, which can be particularly noticeable during rapid camera movements or fast-paced combat scenarios. For gaming, response times under 5ms are generally considered excellent, while anything under 1ms represents the current pinnacle of display responsiveness.
 

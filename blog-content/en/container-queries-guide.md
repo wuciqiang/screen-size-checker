@@ -18,6 +18,8 @@ If you are looking for a practical **CSS container queries guide**, the short ve
 
 Use **media queries** when the whole page should react to the viewport. Use **container queries** when an individual component should react to the width of its own container. In 2026, container queries are mature enough for most production use cases.
 
+If you're still troubleshooting responsive bugs after adding breakpoints, pair this guide with our [Responsive Debugging Checklist](https://screensizechecker.com/blog/responsive-debugging-checklist) so you can separate viewport problems from component-level layout problems.
+
 For years, responsive web design has relied on media queries to adapt layouts to different screen sizes. But what happens when you need a component to respond to its container's size, not the viewport? Enter CSS Container Queries—a game-changing feature that's reshaping how we think about responsive design in 2026.
 
 ## Why We Desperately Needed Container Queries
@@ -378,6 +380,8 @@ To effectively test your container queries, you need the right tools. Our [Respo
 3. **Real-time Updates**: Watch your container queries trigger as you resize
 
 For calculating optimal breakpoints based on content, our [Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator) helps determine the best container dimensions for your layouts.
+
+It also helps to sanity-check component behavior against common device classes using our [screen dimensions cheat sheet](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet), especially when a component feels fine in isolation but breaks inside tighter layouts.
 
 ## Performance Considerations
 
