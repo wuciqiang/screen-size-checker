@@ -2,7 +2,7 @@
 title: "144Hz vs 240Hz: Você Consegue Ver a Diferença? (Teste 2026)"
 description: "240Hz vale a pena? Veja nossos resultados de teste cego e análise de tempo de quadro. Compare 144Hz vs 240Hz vs 360Hz para CS2, Valorant e Apex Legends."
 slug: "144hz-vs-240hz-gaming"
-date: "2026-02-10"
+date: "2026-03-31"
 author: "Equipe Gamer Screen Size Checker"
 category: "gaming"
 tags: ["taxa-de-atualizacao", "144hz", "240hz", "jogos-competitivos", "atualizacao-monitor"]
