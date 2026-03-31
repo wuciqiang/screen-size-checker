@@ -8,10 +8,10 @@
       "config": {
         "page_title_key": "page_title",
         "page_description_key": "page_description",
-        "page_keywords": "screen size, viewport size, screen resolution, browser detection, device pixel ratio, responsive design",
+        "page_keywords": "screen size checker, what is my screen size, screen resolution checker, viewport size, device pixel ratio, responsive design",
         "canonical_url": "https://screensizechecker.com/",
-        "og_title": "Screen Size Checker: What is my Screen Resolution? (Free Tool 2026)",
-        "og_description": "Check your screen size, resolution, and viewport instantly. Free online tool for developers and designers. No download required.",
+        "og_title": "Screen Size Checker: Find Screen Size & Resolution",
+        "og_description": "Check your screen size, resolution, viewport, and DPR instantly. Free online tool for developers, designers, QA, and responsive testing.",
         "og_type": "website",
         "og_url": "https://screensizechecker.com/",
         "css_path": "css",
@@ -25,9 +25,9 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Checker: What is my Screen Resolution? (Free Tool 2026)",
+          "name": "Screen Size Checker: Find Screen Size & Resolution",
           "url": "https://screensizechecker.com/",
-          "description": "Check your screen size, resolution, and viewport instantly. Free online tool for developers and designers. No download required.",
+          "description": "Check your screen size, resolution, viewport, and DPR instantly. Free online tool for developers, designers, QA, and responsive testing.",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
           "inLanguage": "en",
@@ -66,7 +66,7 @@
             "bestRating": "5",
             "worstRating": "1"
           },
-          "dateModified": "2025-10-11",
+          "dateModified": "2026-03-30",
           "datePublished": "2024-01-01",
           "isAccessibleForFree": true,
           "creativeWorkStatus": "Published",
@@ -91,10 +91,10 @@
         "page_description_key": "iphone_page_description",
         "page_heading_key": "iphone_page_heading",
         "page_intro_key": "iphone_page_intro",
-        "page_keywords": "iphone viewport sizes, iphone 17 viewport, iphone 17 pro max resolution, iphone 16e viewport, iphone screen dimensions, responsive design",
+        "page_keywords": "iphone viewport sizes, iphone screen resolution, iphone css viewport, iphone dpr, iphone screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
-        "og_title": "iPhone Viewport Sizes (2026): iPhone 17, 16e, 16, 15 and More",
-        "og_description": "Updated iPhone viewport sizes and screen resolutions, including iPhone 17 series and iPhone 16e. CSS viewport, DPR, and pixel resolution in one table.",
+        "og_title": "iPhone Viewport Sizes (2026): iPhone 17, 16 & 15",
+        "og_description": "Updated iPhone viewport sizes for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, and screen resolution.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
         "css_path": "../css",
@@ -112,8 +112,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPhone Viewport Sizes (2026): iPhone 17, 16e, 16, 15 and More",
-          "description": "Updated iPhone viewport sizes and screen resolutions, including iPhone 17 series and iPhone 16e. CSS viewport, DPR, and pixel resolution in one table.",
+          "headline": "iPhone Viewport Sizes (2026): iPhone 17, 16 & 15",
+          "description": "Updated iPhone viewport sizes for iPhone 17, 16, 15, and older models. Includes CSS viewport width, DPR, and screen resolution.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -127,7 +127,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-30"
         },
         "blog_url": "../blog/index.html"
       }
@@ -142,10 +142,10 @@
         "page_description_key": "ipad_page_description",
         "page_heading_key": "ipad_page_heading",
         "page_intro_key": "ipad_page_intro",
-        "page_keywords": "ipad viewport sizes, ipad pro 13 m4 viewport, ipad air m3 viewport, ipad mini a17 pro resolution, ipad screen dimensions",
+        "page_keywords": "ipad viewport sizes, ipad screen resolution, ipad css viewport, ipad dpr, ipad screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
-        "og_title": "iPad Viewport Sizes (2026): iPad Pro, Air, mini and iPad",
-        "og_description": "Updated iPad viewport sizes and resolutions, including iPad Pro M4, iPad Air M3, iPad mini A17 Pro, and iPad A16.",
+        "og_title": "iPad Viewport Sizes (2026): Pro, Air, mini & iPad",
+        "og_description": "Updated iPad viewport sizes for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, and screen resolution.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
         "css_path": "../css",
@@ -163,8 +163,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPad Viewport Sizes (2026): iPad Pro, Air, mini and iPad",
-          "description": "Updated iPad viewport sizes and resolutions, including iPad Pro M4, iPad Air M3, iPad mini A17 Pro, and iPad A16.",
+          "headline": "iPad Viewport Sizes (2026): Pro, Air, mini & iPad",
+          "description": "Updated iPad viewport sizes for iPad Pro, Air, mini, and standard iPad models. Includes CSS viewport width, DPR, and screen resolution.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -178,7 +178,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-30"
         },
         "blog_url": "../blog/index.html"
       }
@@ -193,10 +193,10 @@
         "page_description_key": "android_page_description",
         "page_heading_key": "android_page_heading",
         "page_intro_key": "android_page_intro",
-        "page_keywords": "android viewport sizes, pixel 10 viewport, galaxy s25 resolution, android screen dimensions, css viewport dpr",
+        "page_keywords": "android viewport sizes, android screen resolution, pixel viewport sizes, galaxy viewport sizes, css viewport dpr",
         "canonical_url": "https://screensizechecker.com/devices/android-viewport-sizes",
-        "og_title": "Android Viewport Sizes (2026): Pixel 10, Galaxy S25 and More",
-        "og_description": "Updated Android viewport sizes and resolutions for recent Pixel and Galaxy devices, with CSS viewport, DPR, and pixel resolution references.",
+        "og_title": "Android Viewport Sizes (2026): Pixel, Galaxy & Foldables",
+        "og_description": "Updated Android viewport sizes for Pixel, Galaxy, and foldable devices. Includes CSS viewport width, DPR, and screen resolution.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/android-viewport-sizes",
         "css_path": "../css",
@@ -214,8 +214,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Android Viewport Sizes (2026): Pixel 10, Galaxy S25 and More",
-          "description": "Updated Android viewport sizes and resolutions for recent Pixel and Galaxy devices, with CSS viewport, DPR, and pixel resolution references.",
+          "headline": "Android Viewport Sizes (2026): Pixel, Galaxy & Foldables",
+          "description": "Updated Android viewport sizes for Pixel, Galaxy, and foldable devices. Includes CSS viewport width, DPR, and screen resolution.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -229,7 +229,7 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-30"
         },
         "blog_url": "../blog/index.html"
       }
@@ -244,10 +244,10 @@
         "page_description_key": "compare_page_description",
         "page_heading_key": "compare_page_heading",
         "page_intro_key": "compare_page_intro",
-        "page_keywords": "screen size comparison tool, compare monitor sizes, compare device sizes, display size comparison, TV vs monitor size, laptop screen comparison, phone screen comparison, screen dimensions calculator",
+        "page_keywords": "screen size comparison, monitor size comparison, compare screen sizes, TV size comparison, laptop screen comparison, phone screen comparison",
         "canonical_url": "https://screensizechecker.com/devices/compare",
-        "og_title": "Visual Screen Size Comparison Tool (2026) | Monitor, Laptop & Phone Side-by-Side",
-        "og_description": "Instantly visualize and compare screen sizes side-by-side. Free tool to see exact difference in width, height, and area for monitors, laptops, and phones. Perfect for upgrades.",
+        "og_title": "Screen Size Comparison Tool for Monitors, TVs & Phones",
+        "og_description": "Compare monitor, TV, laptop, tablet, and phone sizes side by side. See exact width, height, and area differences before you buy.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/compare",
         "css_path": "../css",
@@ -265,8 +265,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Visual Screen Size Comparison Tool",
-          "description": "Instantly visualize and compare screen sizes side-by-side. Free tool to see exact difference in width, height, and area for monitors, laptops, and phones.",
+          "name": "Screen Size Comparison Tool for Monitors, TVs & Phones",
+          "description": "Compare monitor, TV, laptop, tablet, and phone sizes side by side. See exact width, height, and area differences before you buy.",
           "url": "https://screensizechecker.com/devices/compare.html",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -275,7 +275,7 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-03-30"
         },
         "blog_url": "../blog/index.html"
       }
@@ -723,12 +723,12 @@
         "en"
       ],
       "config": {
-        "page_title": "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide) | Screen Size Checker Blog",
-        "page_description": "Learn the average laptop screen size in 2025, common laptop screen dimensions, and aspect-ratio trends. Includes practical guidance for responsive design and UI breakpoints.",
+        "page_title": "Average Laptop Screen Size in 2026: 13, 14, 15.6 & 16 | Screen Size Checker Blog",
+        "page_description": "What is the average laptop screen size in 2026? Learn the most common 13, 14, 15.6, and 16 inch laptop sizes plus practical testing targets.",
         "page_keywords": "laptop, screen-size, web-development, responsive-design, display-technology",
         "canonical_url": "https://screensizechecker.com/blog/average-laptop-screen-size-2025",
-        "og_title": "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide)",
-        "og_description": "Learn the average laptop screen size in 2025, common laptop screen dimensions, and aspect-ratio trends. Includes practical guidance for responsive design and UI breakpoints.",
+        "og_title": "Average Laptop Screen Size in 2026: 13, 14, 15.6 & 16",
+        "og_description": "What is the average laptop screen size in 2026? Learn the most common 13, 14, 15.6, and 16 inch laptop sizes plus practical testing targets.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/blog/average-laptop-screen-size-2025",
         "css_path": "../../css",
@@ -739,16 +739,16 @@
         "blog_sidebar": "blog-sidebar-en",
         "privacy_policy_url": "../../privacy-policy",
         "show_breadcrumb": true,
-        "current_key": "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide)",
-        "current_name": "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide)",
+        "current_key": "Average Laptop Screen Size in 2026: 13, 14, 15.6 & 16",
+        "current_name": "Average Laptop Screen Size in 2026: 13, 14, 15.6 & 16",
         "parent_url": "https://screensizechecker.com/blog/",
         "parent_key": "blog",
         "parent_name": "Blog",
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide)",
-          "description": "Learn the average laptop screen size in 2025, common laptop screen dimensions, and aspect-ratio trends. Includes practical guidance for responsive design and UI breakpoints.",
+          "headline": "Average Laptop Screen Size in 2026: 13, 14, 15.6 & 16",
+          "description": "What is the average laptop screen size in 2026? Learn the most common 13, 14, 15.6, and 16 inch laptop sizes plus practical testing targets.",
           "author": {
             "@type": "Person",
             "name": "Blues"
@@ -11204,12 +11204,12 @@
         "en"
       ],
       "config": {
-        "page_title": "Best Gaming Resolution 2025: Complete Guide to 1080p vs 1440p vs 4K",
-        "page_description": "Discover the best gaming resolution for your setup in 2025. Expert comparison of 1080p, 1440p, and 4K gaming with FPS benchmarks, hardware requirements, and pro player recommendations.",
-        "page_keywords": "best gaming resolution, gaming resolution 2025, 1080p vs 1440p gaming, 4k gaming, best resolution for gaming, gaming monitor resolution",
+        "page_title": "Best Gaming Resolution in 2026: 1080p vs 1440p vs 4K",
+        "page_description": "Compare 1080p, 1440p, and 4K gaming to find the best resolution for FPS, image quality, hardware cost, and refresh rate.",
+        "page_keywords": "best gaming resolution, gaming resolution 2026, 1080p vs 1440p gaming, 4k gaming, best resolution for gaming, gaming monitor resolution",
         "canonical_url": "https://screensizechecker.com/hub/best-gaming-resolution-2025",
-        "og_title": "Best Gaming Resolution 2025: Complete Guide to 1080p vs 1440p vs 4K",
-        "og_description": "Discover the best gaming resolution for your setup in 2025. Expert comparison of 1080p, 1440p, and 4K gaming with FPS benchmarks, hardware requirements, and pro player recommendations.",
+        "og_title": "Best Gaming Resolution in 2026: 1080p vs 1440p vs 4K",
+        "og_description": "Compare 1080p, 1440p, and 4K gaming to find the best resolution for FPS, image quality, hardware cost, and refresh rate.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/hub/best-gaming-resolution-2025",
         "og_image": "https://screensizechecker.com/images/best-gaming-resolution-hero.jpg",
@@ -11221,7 +11221,7 @@
         "privacy_policy_url": "../privacy-policy.html",
         "show_breadcrumb": true,
         "current_key": "best-gaming-resolution-2025",
-        "current_name": "Best Gaming Resolution 2025: Complete Guide to 1080p vs 1440p vs 4K",
+        "current_name": "Best Gaming Resolution in 2026: 1080p vs 1440p vs 4K",
         "parent_url": "../index.html",
         "parent_key": "hub",
         "parent_name": "Hub",
@@ -11235,7 +11235,7 @@
           "monitor"
         ],
         "hub_date": "2025-01-19",
-        "hub_reading_time": 14,
+        "hub_reading_time": 15,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -11253,12 +11253,12 @@
         "en"
       ],
       "config": {
-        "page_title": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
-        "page_description": "Expert guide on choosing the perfect monitor size for FPS gaming. Compare 24\", 27\", and 32\" displays with pro player data, reaction time analysis, and ergonomic recommendations.",
+        "page_title": "Best Monitor Size for FPS Games in 2026: 24 vs 27 Inch Guide",
+        "page_description": "Find the best monitor size for FPS games. Compare 24 vs 27 inch monitors for aim, field of view, desk distance, and competitive play.",
         "page_keywords": "best monitor size for fps, fps gaming monitor size, 24 vs 27 inch gaming, competitive gaming monitor, esports monitor size",
         "canonical_url": "https://screensizechecker.com/hub/best-monitor-size-fps",
-        "og_title": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
-        "og_description": "Expert guide on choosing the perfect monitor size for FPS gaming. Compare 24\", 27\", and 32\" displays with pro player data, reaction time analysis, and ergonomic recommendations.",
+        "og_title": "Best Monitor Size for FPS Games in 2026: 24 vs 27 Inch Guide",
+        "og_description": "Find the best monitor size for FPS games. Compare 24 vs 27 inch monitors for aim, field of view, desk distance, and competitive play.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/hub/best-monitor-size-fps",
         "og_image": "https://screensizechecker.com/images/best-monitor-size-fps-hero.jpg",
@@ -11270,7 +11270,7 @@
         "privacy_policy_url": "../privacy-policy.html",
         "show_breadcrumb": true,
         "current_key": "best-monitor-size-fps",
-        "current_name": "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025",
+        "current_name": "Best Monitor Size for FPS Games in 2026: 24 vs 27 Inch Guide",
         "parent_url": "../index.html",
         "parent_key": "hub",
         "parent_name": "Hub",
@@ -11283,7 +11283,7 @@
           "gaming-setup"
         ],
         "hub_date": "2025-01-19",
-        "hub_reading_time": 15,
+        "hub_reading_time": 16,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
@@ -11398,12 +11398,12 @@
         "en"
       ],
       "config": {
-        "page_title": "Gaming Monitor Size Guide 2026: FPS vs Immersive (24\" vs 27\" vs 32\")",
-        "page_description": "Stop guessing. Compare 24 vs 27 vs 32 inch monitors for gaming. See exact viewing distances, desk depth requirements, and PPI charts.",
+        "page_title": "Best Gaming Monitor Size in 2026: 24 vs 27 vs 32 Inch Guide",
+        "page_description": "Trying to choose between a 24, 27, or 32 inch gaming monitor? Compare viewing distance, desk depth, PPI, and immersion before you buy.",
         "page_keywords": "gaming monitor size, best monitor size for gaming, 24 vs 27 inch monitor gaming, 27 vs 32 inch gaming, optimal monitor size",
         "canonical_url": "https://screensizechecker.com/hub/gaming-monitor-size-guide",
-        "og_title": "Gaming Monitor Size Guide 2026: FPS vs Immersive (24\" vs 27\" vs 32\")",
-        "og_description": "Stop guessing. Compare 24 vs 27 vs 32 inch monitors for gaming. See exact viewing distances, desk depth requirements, and PPI charts.",
+        "og_title": "Best Gaming Monitor Size in 2026: 24 vs 27 vs 32 Inch Guide",
+        "og_description": "Trying to choose between a 24, 27, or 32 inch gaming monitor? Compare viewing distance, desk depth, PPI, and immersion before you buy.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/hub/gaming-monitor-size-guide",
         "og_image": "https://screensizechecker.com/images/gaming-monitor-size-hero.jpg",
@@ -11415,7 +11415,7 @@
         "privacy_policy_url": "../privacy-policy.html",
         "show_breadcrumb": true,
         "current_key": "gaming-monitor-size-guide",
-        "current_name": "Gaming Monitor Size Guide 2026: FPS vs Immersive (24\" vs 27\" vs 32\")",
+        "current_name": "Best Gaming Monitor Size in 2026: 24 vs 27 vs 32 Inch Guide",
         "parent_url": "../index.html",
         "parent_key": "hub",
         "parent_name": "Hub",
@@ -11429,7 +11429,7 @@
           "viewing-distance"
         ],
         "hub_date": "2026-02-10",
-        "hub_reading_time": 14,
+        "hub_reading_time": 15,
         "hub_author": "Screen Size Checker Gaming Team",
         "is_home": false,
         "is_blog": false,
