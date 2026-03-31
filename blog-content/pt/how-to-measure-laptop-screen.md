@@ -1,16 +1,16 @@
 ---
-title: "Como Medir a Tela do Notebook em 2026"
-description: "Aprenda como medir a tela do notebook corretamente em 2026. Veja métodos rápidos para descobrir o tamanho exato sem contar a moldura."
+title: "Como medir tela de notebook: 13,3, 14, 15,6 ou 16 polegadas"
+description: "Seu notebook é 13,3, 14, 15,6 ou 16 pol.? Aprenda a medir a diagonal correta sem contar a moldura e confirme o tamanho da tela rápido."
 slug: "how-to-measure-laptop-screen"
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "guides"
 tags: ["medicao-notebook", "tamanho-de-tela", "como-fazer", "basico"]
 featuredImage: "how-to-measure-laptop-screen.jpg"
-keywords: "como medir tela de notebook, medir tamanho tela notebook, medição tela notebook, medir display notebook, verificar tamanho tela notebook, dimensões notebook"
+keywords: "como medir tela de notebook, notebook 13 3 ou 14 polegadas, medir notebook 15 6 polegadas, tamanho tela notebook, diagonal notebook, como saber polegadas notebook"
 ---
 
-# Como Medir a Tela do Notebook em 2026
+# Como medir tela de notebook: 13,3, 14, 15,6 ou 16 polegadas
 
 Saber o tamanho da tela do seu notebook continua essencial em 2026 para comprar uma peça de reposição, escolher capa ou mochila, comparar modelos e confirmar compatibilidade antes de vender ou trocar o aparelho. Diferente de monitores de desktop, notebooks exigem atenção extra com moldura, nome do modelo e variações como 13,3", 14", 15,6" e 17,3".
 
