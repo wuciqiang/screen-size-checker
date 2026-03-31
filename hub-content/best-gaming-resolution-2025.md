@@ -2,7 +2,7 @@
 title: "Best Gaming Resolution in 2026: 1080p vs 1440p vs 4K"
 description: "Compare 1080p, 1440p, and 4K gaming to find the best resolution for FPS, image quality, hardware cost, and refresh rate."
 slug: "best-gaming-resolution-2025"
-date: "2025-01-19"
+date: "2026-03-31"
 author: "Screen Size Checker Gaming Team"
 category: "gaming"
 tags: ["gaming-resolution", "1080p", "1440p", "4k-gaming", "fps", "monitor"]
