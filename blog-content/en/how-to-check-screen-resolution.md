@@ -18,6 +18,8 @@ If you are wondering **how to check screen resolution**, the fastest method is u
 
 If you also need to compare sharpness or physical size after checking resolution, use the [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator) and [Screen Size Comparison Tool](https://screensizechecker.com/devices/compare).
 
+If the numbers still feel abstract, keep the [Standard Screen Resolutions Chart](https://screensizechecker.com/devices/standard-resolutions), the [How to Measure Monitor Size guide](https://screensizechecker.com/blog/how-to-measure-monitor-size), and the [Viewport Basics guide](https://screensizechecker.com/blog/viewport-basics) open while you verify your setup.
+
 ## Quick Answer by Device
 
 - **Windows**: Right-click desktop → **Display settings**
@@ -555,6 +557,8 @@ Not necessarily. Higher resolution provides **more detail and screen space** but
 - [How to Measure Monitor Size](https://screensizechecker.com/blog/how-to-measure-monitor-size) - Physical screen measurement
 - [How to Measure Laptop Screen](https://screensizechecker.com/blog/how-to-measure-laptop-screen) - Laptop-specific measurement
 - [Device Pixel Ratio Explained](https://screensizechecker.com/blog/device-pixel-ratio) - Understanding DPI and scaling
+- [Viewport Basics](https://screensizechecker.com/blog/viewport-basics) - Screen resolution vs CSS viewport
+- [Standard Screen Resolutions Chart](https://screensizechecker.com/devices/standard-resolutions) - Quick reference for common formats
 
 **External resources**:
 - Monitor manufacturer websites for specifications
