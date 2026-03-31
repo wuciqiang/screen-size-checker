@@ -1,7 +1,7 @@
 ---
-title: "Guia de CSS Container Queries"
-description: "Domine CSS Container Queries com exemplos práticos. Crie componentes responsivos que se adaptam ao container, não ao viewport."
-date: "2025-01-09"
+title: "Guia de CSS Container Queries em 2026"
+description: "Domine CSS Container Queries em 2026 com exemplos práticos. Crie componentes responsivos que se adaptam ao container, não ao viewport."
+date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "css"
 tags: ["css", "design-responsivo", "container-queries", "desenvolvimento-web", "frontend"]
@@ -11,9 +11,11 @@ slug: "guia-css-container-queries"
 keywords: "container queries, css, design responsivo, media queries, frontend, container queries css"
 ---
 
-# Guia Completo de CSS Container Queries: Diga Adeus aos Problemas das Media Queries
+# Guia Completo de CSS Container Queries em 2026
 
-Por anos, o design web responsivo dependeu de media queries para adaptar layouts a diferentes tamanhos de tela. Mas o que acontece quando você precisa que um componente responda ao tamanho de seu container, e não ao viewport? Entrem as CSS Container Queries — um recurso revolucionário que está remodelando a forma como pensamos sobre design responsivo em 2025.
+Por anos, o design web responsivo dependeu de media queries para adaptar layouts a diferentes tamanhos de tela. Mas o que acontece quando você precisa que um componente responda ao tamanho do próprio container, e não ao viewport? Em 2026, CSS Container Queries já fazem parte do toolkit moderno para criar componentes realmente reutilizáveis.
+
+**Resposta Rápida**: Use `container-type: inline-size` no elemento pai e escreva regras `@container` para adaptar o componente ao espaço disponível. Em 2026, container queries já são uma solução prática para cards, sidebars, grids, widgets e blocos reutilizáveis.
 
 ## Por Que Precisávamos Desesperadamente de Container Queries
 
@@ -42,9 +44,9 @@ As container queries permitem que elementos adaptem seus estilos com base no tam
 - **Container Queries**: Respondem às dimensões do container pai
 - **Escopo**: Media queries são globais, container queries são escopadas para containers específicos
 
-### Suporte do Navegador em 2025
+### Suporte do Navegador em 2026
 
-Boas notícias! A partir de 2025, as container queries têm excelente suporte nos navegadores:
+Boas notícias: em 2026, container queries já têm suporte sólido nos principais navegadores modernos:
 
 | Navegador | Versão | Suporte |
 |---------|---------|---------|
@@ -350,7 +352,7 @@ Para a melhor experiência responsiva, combine ambas as abordagens:
 Olhando para o futuro, style queries permitem consultar propriedades personalizadas:
 
 ```css
-/* Sintaxe futura - suporte limitado em 2025 */
+/* Sintaxe futura - ainda com suporte limitado em 2026 */
 .theme-container {
   container-type: inline-size;
   --theme: dark;
@@ -780,5 +782,7 @@ As container queries representam uma mudança fundamental na forma como abordamo
 A era dos componentes verdadeiramente responsivos chegou. Container queries não são apenas um novo recurso — são uma nova maneira de pensar sobre design web. Comece a usá-las hoje, e seu eu futuro (e sua equipe) lhe agradecerão.
 
 ---
+
+*Última atualização: Março de 2026*
 
 *Quer testar suas container queries em diferentes tamanhos de tela? Tente nosso [Testador de Design Responsivo gratuito]({{lang_prefix}}/devices/responsive-tester) para ver como seus componentes se adaptam em tempo real. Para mais artigos sobre CSS moderno e design responsivo, confira nosso [blog]({{lang_prefix}}/blog/).*
