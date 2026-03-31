@@ -10,7 +10,7 @@
         "page_description_key": "page_description",
         "page_keywords": "screen size checker, what is my screen size, screen resolution checker, viewport size, device pixel ratio, responsive design",
         "canonical_url": "https://screensizechecker.com/",
-        "og_title": "Screen Size Checker | Check Screen Size, Resolution & Viewport",
+        "og_title": "Screen Size Checker | Screen Resolution & Viewport",
         "og_description": "Check your screen size, resolution, viewport, and DPR instantly. Free screen size detector for developers, designers, QA, and responsive testing.",
         "og_type": "website",
         "og_url": "https://screensizechecker.com/",
@@ -25,7 +25,7 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Screen Size Checker | Check Screen Size, Resolution & Viewport",
+          "name": "Screen Size Checker | Screen Resolution & Viewport",
           "url": "https://screensizechecker.com/",
           "description": "Check your screen size, resolution, viewport, and DPR instantly. Free screen size detector for developers, designers, QA, and responsive testing.",
           "applicationCategory": "DeveloperApplication",
