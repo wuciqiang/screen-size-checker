@@ -1,14 +1,15 @@
 ---
-title: "Web 设计师与开发者屏幕尺寸速查表 2026"
-description: "停止猜测屏幕尺寸。这是一份适用于 2026 年网页设计和开发的屏幕尺寸、分辨率与断点速查表。"
+title: "2026 屏幕尺寸速查表"
+description: "需要一份快速查阅的屏幕尺寸表？这里整理了 2026 常见笔记本、手机、平板、视口、分辨率和 CSS 断点参考。"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["屏幕尺寸", "响应式设计", "断点", "视口", "网页开发"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
+keywords: "屏幕尺寸速查表, 屏幕尺寸表, 视口尺寸, 分辨率表, 响应式断点, 设备尺寸参考"
 ---
 
-# Web 设计师与开发者屏幕尺寸速查表 2026
+# 2026 屏幕尺寸速查表：视口、分辨率与 CSS
 
 ## 介绍
 

@@ -1,14 +1,15 @@
 ---
-title: "Responsive Design Debugging Checkliste 2026: 15 Prüfungen"
-description: "Eine praktische Checkliste für 2026, um Responsive-Design-Probleme systematisch zu finden und zu beheben – von Viewport bis Overflow."
+title: "Responsive Debug Checkliste 2026"
+description: "Mit dieser Checkliste finden Sie Responsive-Fehler schneller: Overflow, Breakpoints, Viewport-Probleme, CSS-Bugs und Tests auf echten Geräten."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["responsive-design", "debugging", "css", "media-queries", "viewport", "web-development"]
 featuredImage: "responsive-debugging-checklist.jpg"
+keywords: "responsive debugging checkliste, layout fehler mobil, overflow debug, breakpoint probleme, css debugging responsive, viewport fehler"
 ---
 
-# Responsive Design Debugging Checkliste 2026: 15 Prüfungen
+# Responsive Debug Checkliste 2026: 15 Prüfungen
 
 Responsive Layouts brechen selten aus nur einem Grund. Meist ist es eine Kombination aus falschem Viewport-Verhalten, zu engen Komponenten, fehlerhaften Media Queries oder nicht getesteten echten Inhalten.
 

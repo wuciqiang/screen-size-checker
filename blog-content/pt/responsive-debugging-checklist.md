@@ -1,16 +1,16 @@
 ---
-title: "Checklist de Depuração Responsiva 2026: 15 Itens"
-description: "Checklist com 15 pontos para corrigir problemas de design responsivo em 2026. Um guia sistemático para depurar layouts quebrados mais rápido."
+title: "Checklist responsivo 2026"
+description: "Use esta checklist para achar erros responsivos mais rápido: overflow, breakpoints quebrados, viewport, CSS mobile e testes em dispositivos reais."
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "technical"
 tags: ["design-responsivo", "depuracao", "css", "media-queries", "viewport", "desenvolvimento-web"]
 featuredImage: "responsive-debugging-checklist.jpg"
 slug: "checklist-depuracao-responsivo"
-keywords: "depuração responsiva, checklist, layout, debug, design responsivo, css debug"
+keywords: "checklist responsivo, depuração responsiva, layout quebrado mobile, overflow css, breakpoints, teste responsivo"
 ---
 
-# Checklist Definitivo de Depuração Responsiva em 2026: 15 Coisas para Verificar Quando Seu Layout Quebra
+# Checklist responsivo 2026: 15 erros para revisar
 
 Parece perfeito no seu monitor, mas quebra no celular, no tablet ou naquele notebook menor usado pelo cliente. Em 2026, esse ainda é um dos problemas mais comuns em sites responsivos.
 

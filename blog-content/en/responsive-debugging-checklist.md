@@ -1,16 +1,16 @@
 ﻿---
-title: "Responsive Design Debugging Checklist: 15 Fixes for Broken Layouts"
-description: "Use this responsive design debugging checklist to fix broken layouts, overflow, bad breakpoints, and mobile CSS issues faster."
+title: "Responsive Debug Checklist 2026"
+description: "Fix broken responsive layouts faster with this 2026 checklist for overflow, bad breakpoints, viewport bugs, CSS issues, and device testing."
 slug: "responsive-debugging-checklist"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["responsive-design", "debugging", "css", "media-queries", "viewport", "web-development"]
 featuredImage: "responsive-debugging-checklist.jpg"
-keywords: "responsive design debugging, broken responsive layout, css debugging checklist, mobile layout issues, responsive checklist"
+keywords: "responsive debugging checklist, broken responsive layout, mobile css issues, overflow debug, breakpoint bugs, responsive testing checklist"
 ---
 
-# Responsive Design Debugging Checklist: 15 Fixes for Broken Layouts
+# Responsive Design Debugging Checklist 2026: 15 Fixes
 
 It looks perfect on your 27-inch monitor, but it's a disaster on your phone. We've all been there.
 

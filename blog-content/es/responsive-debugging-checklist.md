@@ -1,14 +1,15 @@
 ---
-title: "Checklist de depuración responsive 2026: 15 revisiones"
-description: "Una checklist práctica para detectar y corregir problemas de responsive design en 2026, desde viewport y overflow hasta testing real."
+title: "Checklist responsive 2026"
+description: "Usa esta checklist para encontrar fallos responsive más rápido: overflow, breakpoints rotos, viewport, CSS móvil y pruebas en dispositivos reales."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["responsive-design", "debugging", "css", "media-queries", "viewport", "web-development"]
 featuredImage: "responsive-debugging-checklist.jpg"
+keywords: "checklist responsive, depuración responsive, layout móvil roto, overflow css, breakpoints, testing responsive"
 ---
 
-# Checklist de depuración responsive 2026: 15 revisiones
+# Checklist responsive 2026: 15 fallos a revisar
 
 Cuando un layout responsive se rompe, casi nunca es por una sola razón. Normalmente hay una mezcla de viewport mal configurado, overflow horizontal, componentes demasiado rígidos, media queries defectuosas o contenido real nunca probado.
 

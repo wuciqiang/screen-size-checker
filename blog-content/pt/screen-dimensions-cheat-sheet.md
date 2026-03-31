@@ -1,16 +1,16 @@
 ---
-title: "Tabela de Dimensões de Tela 2026"
-description: "Sua folha de referência para dimensões de tela, resoluções e breakpoints essenciais para web design responsivo em 2026."
+title: "Tamanhos de tela 2026"
+description: "Precisa de uma referência rápida de tamanhos de tela? Veja viewports, resoluções e breakpoints úteis para web design em 2026."
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "technical"
 tags: ["dimensoes-de-tela", "design-responsivo", "breakpoints", "viewport", "desenvolvimento-web"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
 slug: "tabela-dimensoes-tela"
-keywords: "dimensões tela, resolução, tamanho tela, breakpoints, dispositivos, tabela dimensões"
+keywords: "tamanhos de tela, tabela dimensões tela, viewports, resoluções, breakpoints responsivos, referência dispositivos"
 ---
 
-# A Cola do Web Designer e Desenvolvedor para Dimensões de Tela em 2026
+# Tamanhos de tela 2026: viewports, resoluções e CSS
 
 ## Introdução
 

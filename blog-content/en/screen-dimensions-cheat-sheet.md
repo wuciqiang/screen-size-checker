@@ -1,16 +1,16 @@
 ﻿---
-title: "Screen Dimensions Cheat Sheet 2026: Sizes, Viewports & CSS"
-description: "A practical screen dimensions cheat sheet for 2026 with laptop, phone, tablet, viewport, resolution, and breakpoint references for web work."
+title: "Screen Size Chart 2026"
+description: "Need a fast screen size reference? Use this 2026 chart for laptop, phone, tablet, viewport, resolution, and CSS breakpoint planning."
 slug: "screen-dimensions-cheat-sheet"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
-keywords: "screen dimensions cheat sheet, screen sizes, viewport sizes, responsive breakpoints, device resolutions, screen size chart"
+keywords: "screen size chart, screen dimensions chart, viewport sizes, screen resolutions, responsive breakpoints, device size reference"
 ---
 
-# Screen Dimensions Cheat Sheet 2026: Sizes, Viewports & CSS
+# Screen Size Chart 2026: Viewports, Resolutions & CSS
 
 ## Introduction
 

@@ -1,14 +1,15 @@
 ---
-title: "Hoja rápida de dimensiones de pantalla 2026"
-description: "Una referencia rápida para 2026 con tamaños de pantalla, viewports, breakpoints y herramientas clave para responsive design."
+title: "Tamaños de pantalla 2026"
+description: "¿Necesitas una referencia rápida de tamaños de pantalla? Aquí tienes viewports, resoluciones y breakpoints útiles para web en 2026."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
+keywords: "tamaños de pantalla, screen size chart, viewports, resoluciones pantalla, breakpoints responsive, referencia dispositivos"
 ---
 
-# Hoja rápida de dimensiones de pantalla 2026
+# Tamaños de pantalla 2026: viewports, resoluciones y CSS
 
 Si necesitas una referencia rápida para tamaños de pantalla, viewports, breakpoints y herramientas útiles, esta hoja está pensada para eso: ayudarte a tomar decisiones más rápidas sin tener que buscar cifras cada vez.
 

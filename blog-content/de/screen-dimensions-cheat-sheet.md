@@ -1,14 +1,15 @@
 ---
-title: "Bildschirmabmessungen Spickzettel 2026"
-description: "Ein praktischer Spickzettel für 2026 mit gängigen Bildschirmgrößen, Viewports, Breakpoints und Tools für Responsive Design."
+title: "Bildschirmgrößen 2026 im Überblick"
+description: "Brauchen Sie eine schnelle Referenz für Bildschirmgrößen? Diese Übersicht sammelt 2026 Viewports, Auflösungen und Breakpoints für Webarbeit."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
+keywords: "bildschirmgrößen, screen size chart, viewport größen, auflösungen, responsive breakpoints, geräte referenz"
 ---
 
-# Bildschirmabmessungen Spickzettel 2026
+# Bildschirmgrößen 2026: Viewports, Auflösungen & CSS
 
 Wenn Sie schnell eine Orientierung für Gerätebreiten, Viewports, Laptopgrößen und Breakpoints brauchen, ist dieser Spickzettel der kompakte Einstiegspunkt. Statt jedes Mal Zahlen zu suchen, haben Sie hier die wichtigsten Größen und Regeln an einem Ort.
 
