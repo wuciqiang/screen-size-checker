@@ -1,8 +1,8 @@
 ---
-title: "Bildschirmauflösung prüfen: Komplette Anleitung (2025)"
-description: "Lernen Sie, wie Sie die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Enthält einfache Methoden, Auflösungs-Erklärungen und Tipps für optimale Anzeigeeinstellungen."
+title: "Bildschirmauflösung in 2026 prüfen"
+description: "Lernen Sie, wie Sie 2026 die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Inklusive schneller Methoden, Skalierungs-Tipps und DPR-Hinweisen."
 slug: "how-to-check-screen-resolution"
-date: "2025-01-19"
+date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "guides"
 tags: ["bildschirmauflösung", "anzeigeeinstellungen", "anleitung", "grundlagen"]
@@ -10,11 +10,11 @@ featuredImage: "how-to-check-screen-resolution.jpg"
 keywords: "Bildschirmauflösung prüfen, Auflösung anzeigen, Monitor Auflösung, Display Auflösung, Bildschirm Auflösung testen, Auflösung herausfinden"
 ---
 
-# Bildschirmauflösung prüfen: Komplette Anleitung (2025)
+# Bildschirmauflösung in 2026 prüfen
 
-Die Kenntnis Ihrer Bildschirmauflösung ist wichtig für die Optimierung Ihrer Display-Einstellungen, die Auswahl geeigneter Hintergrundbilder, das Einrichten von Dual-Monitoren und die Gewährleistung korrekter Software-Anzeige. Ob Sie Windows, Mac, Linux oder mobile Geräte verwenden, es gibt mehrere Wege, Ihre Bildschirmauflösung schnell und einfach zu prüfen.
+Die Kenntnis Ihrer Bildschirmauflösung bleibt auch 2026 wichtig: Sie beeinflusst Skalierung, Bildschärfe, Gaming-Leistung, Multi-Monitor-Setups und die korrekte Darstellung von Apps und Websites. Ob Sie Windows, Mac, Linux oder mobile Geräte verwenden – es gibt mehrere schnelle Wege, Ihre aktuelle Auflösung zuverlässig zu prüfen.
 
-**Schnellantwort**: Um Ihre Bildschirmauflösung zu prüfen, **Rechtsklick auf den Desktop** und wählen Sie **Anzeigeeinstellungen** (Windows) oder **Systemeinstellungen** → **Monitore** (Mac). Ihre Auflösung wird als Breite × Höhe in Pixeln angezeigt (z.B. 1920×1080, 2560×1440). Alternativ nutzen Sie unser [Screen Size Checker Tool](/) für sofortige Erkennung und detaillierte Display-Informationen.
+**Schnellantwort**: Öffnen Sie unter Windows die **Anzeigeeinstellungen** oder auf dem Mac die Einstellungen für **Monitore**. Dort sehen Sie Ihre Auflösung als Breite × Höhe in Pixeln, z. B. **1920×1080** oder **2560×1440**. Wenn Sie zusätzlich Viewport, DPR und weitere Display-Daten prüfen möchten, nutzen Sie unser [Screen Size Checker Tool]({{lang_prefix}}/).
 
 In diesem umfassenden Leitfaden behandeln wir **mehrere Methoden** zur Überprüfung der Bildschirmauflösung auf allen Plattformen, erklären was Auflösungs-Zahlen bedeuten und helfen Ihnen bei der Optimierung Ihrer Display-Einstellungen.
 
@@ -296,16 +296,16 @@ Das liegt meist an **Skalierungs-Problemen**. 4K-Monitore bei 100% Skalierung ma
 
 ### Nutzen Sie unsere Tools
 
-**Screen Size Checker**: [Ihre aktuelle Auflösung und Display-Specs sofort erkennen](/)  
+**Screen Size Checker**: [Ihre aktuelle Auflösung und Display-Spezifikationen sofort erkennen]({{lang_prefix}}/)  
 **PPI Calculator**: [Pixel pro Zoll für jeden Bildschirm berechnen](/ppi-calculator)  
 **Vergleichstool**: [Visueller Vergleich verschiedener Auflösungen und Bildschirmgrößen](/compare)
 
 ### Mehr erfahren
 
 **Verwandte Anleitungen**:
-- [Monitor Größe messen](/blog/how-to-measure-monitor-size) - Physische Bildschirm-Messung
-- [Laptop Bildschirmgröße messen](/blog/how-to-measure-laptop-screen) - Laptop-spezifische Messung
-- [Device Pixel Ratio erklärt](/blog/device-pixel-ratio) - DPI und Skalierung verstehen
+- [Monitor Größe messen]({{lang_prefix}}/blog/how-to-measure-monitor-size) - Physische Bildschirm-Messung
+- [Laptop Bildschirmgröße messen]({{lang_prefix}}/blog/how-to-measure-laptop-screen) - Laptop-spezifische Messung
+- [Device Pixel Ratio erklärt]({{lang_prefix}}/blog/device-pixel-ratio) - DPI und Skalierung verstehen
 
 ---
 
@@ -322,8 +322,8 @@ Die Überprüfung Ihrer Bildschirmauflösung ist unkompliziert mit mehreren verf
 
 Das Verstehen Ihrer Auflösung hilft dabei, Ihre Display-Erfahrung zu optimieren, Gaming-Leistung zu verbessern und informierte Entscheidungen über Monitor-Upgrades oder Software-Einstellungen zu treffen.
 
-**Benötigen Sie Hilfe bei der Bestimmung anderer Display-Spezifikationen?** Nutzen Sie unser [Screen Size Checker Tool](/) zur Verifikation Ihrer Messung und erkunden Sie detaillierte Informationen über Ihr Display.
+**Benötigen Sie Hilfe bei der Bestimmung anderer Display-Spezifikationen?** Nutzen Sie unser [Screen Size Checker Tool]({{lang_prefix}}/) zur Verifikation Ihrer Messung und erkunden Sie detaillierte Informationen über Ihr Display.
 
 ---
 
-*Zuletzt aktualisiert: 19. Januar 2025*
+*Zuletzt aktualisiert: März 2026*
