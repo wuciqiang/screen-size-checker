@@ -1,14 +1,15 @@
 ---
-title: "CSS Media Queries Grundlagen 2026"
-description: "Lernen Sie 2026 die wichtigsten CSS Media Queries für Responsive Design – inklusive Breakpoints, typischer Fehler und praktischer Einsatzfälle."
+title: "CSS Media Queries 2026: Grundlagen"
+description: "Lernen Sie CSS Media Queries richtig zu nutzen: bessere Breakpoints wählen, min-width und max-width verstehen und typische Fehler vermeiden."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
+keywords: "css media queries, breakpoints, min width max width, responsive design css, media queries grundlagen"
 ---
 
-# CSS Media Queries Grundlagen 2026
+# CSS Media Queries Grundlagen für 2026
 
 Media Queries gehören weiterhin zu den wichtigsten Werkzeugen für Responsive Design. Sie helfen dabei, Layout, Typografie und Komponenten an unterschiedliche Bildschirmgrößen, Ausrichtungen oder Geräteeigenschaften anzupassen.
 

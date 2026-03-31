@@ -1,16 +1,16 @@
 ---
-title: "Fundamentos do Viewport em 2026"
-description: "Aprenda em 2026 o que é viewport, como ele difere da resolução de tela e por que continua essencial para criar sites responsivos."
+title: "O que é viewport: guia básico 2026"
+description: "Entenda o que é viewport, como ele difere da resolução de tela e por que ele influencia tanto layouts responsivos e breakpoints."
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "basics"
 tags: ["viewport", "design-responsivo", "desenvolvimento-web"]
 featuredImage: "viewport-basics.jpg"
 slug: "fundamentos-viewport"
-keywords: "viewport, meta viewport, largura viewport, design responsivo, mobile, viewport css"
+keywords: "o que é viewport, viewport básico, viewport vs resolução, design responsivo viewport, largura viewport"
 ---
 
-# Fundamentos do Viewport em 2026
+# O que é viewport: fundamentos básicos em 2026
 
 Viewport é um dos conceitos mais básicos do frontend, mas continua sendo uma fonte comum de confusão. Muita gente mistura viewport com resolução física da tela, quando na prática o que manda no layout responsivo é a área visível real do navegador.`r`n`r`n**Resposta rápida**: viewport é a área visível da página dentro do navegador, normalmente medida em pixels CSS. Ele não é a mesma coisa que a resolução física da tela, por isso entender essa diferença é essencial para um design responsivo consistente.
 

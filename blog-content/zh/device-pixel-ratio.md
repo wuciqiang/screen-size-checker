@@ -1,11 +1,12 @@
 ---
-title: "设备像素比（DPR）2026 详解"
-description: "了解 2026 年设备像素比（DPR）是什么、它为何影响清晰度与性能，以及如何为高密度屏幕优化网站。"
+title: "DPR 是什么？设备像素比 2026 速懂"
+description: "想搞懂设备像素比（DPR）？这篇文章会讲清楚 DPR 如何影响清晰度、响应式图片、Canvas 和 CSS 像素。"
 date: "2026-03-31"
-author: "Screen Size Checker团队"
+author: "Screen Size Checker Team"
 category: "technical"
 tags: ["dpr", "像素密度", "视网膜显示", "响应式设计"]
 featuredImage: "device-pixel-ratio.jpg"
+keywords: "DPR 是什么, 设备像素比, CSS 像素和设备像素, Retina 屏幕, 响应式图片, 高密度屏幕"
 ---
 
 ## 设备像素比（DPR）2026 详解

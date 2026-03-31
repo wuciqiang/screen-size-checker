@@ -1,16 +1,16 @@
 ---
-title: "Device Pixel Ratio (DPR) em 2026"
-description: "Entenda em 2026 o que é Device Pixel Ratio, por que ele afeta nitidez e performance, e como otimizar sites para telas de alta densidade."
+title: "O que é Device Pixel Ratio (DPR) em 2026"
+description: "Entenda o que é Device Pixel Ratio, como ele afeta nitidez, imagens responsivas, canvas e por que CSS pixels não são iguais aos pixels reais."
 date: "2026-03-31"
 author: "Equipe Screen Size Checker"
 category: "technical"
 tags: ["dpr", "densidade-de-pixels", "tela-retina", "design-responsivo"]
 featuredImage: "device-pixel-ratio.jpg"
 slug: "proporcao-pixels-dispositivo-dpr"
-keywords: "device pixel ratio, dpr, densidade pixels, tela retina, resolução, proporção pixels dispositivo"
+keywords: "device pixel ratio, dpr, css pixels vs device pixels, tela retina, imagens responsivas, alta densidade"
 ---
 
-# Device Pixel Ratio (DPR) em 2026
+# O que é Device Pixel Ratio: DPR explicado em 2026
 
 Device Pixel Ratio, ou simplesmente **DPR**, é um dos conceitos que mais afetam a nitidez real de uma interface. Ele influencia como textos, imagens, ícones e screenshots aparecem em celulares, notebooks e monitores modernos.`r`n`r`n**Resposta rápida**: DPR é a relação entre **pixels físicos** e **pixels CSS**. Quanto maior o DPR, mais nítida a interface pode parecer — mas também maior é o risco de imagens borradas e assets mal dimensionados ficarem evidentes.
 

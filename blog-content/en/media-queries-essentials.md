@@ -1,13 +1,13 @@
 ﻿---
-title: "CSS Media Queries Guide for Responsive Design in 2026"
-description: "Learn CSS media queries for responsive design in 2026, including breakpoints, min-width vs max-width, common patterns, and testing tips."
+title: "CSS Media Queries 2026 Guide"
+description: "Learn how to use CSS media queries in 2026: choose better breakpoints, understand min-width vs max-width, and avoid common responsive mistakes."
 slug: "media-queries-essentials"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
-keywords: "css media queries, media queries guide, responsive design breakpoints, min-width vs max-width, css breakpoints"
+keywords: "css media queries, media queries guide, responsive breakpoints, min width vs max width, css breakpoints, responsive css"
 ---
 
 # CSS Media Queries Guide for Responsive Design in 2026

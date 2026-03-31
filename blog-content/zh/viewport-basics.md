@@ -1,11 +1,12 @@
 ---
-title: "2026 年视口（Viewport）基础知识"
-description: "了解 2026 年什么是视口、它与屏幕分辨率的区别，以及为何它对响应式网页设计至关重要。"
+title: "什么是视口？2026 Viewport 基础"
+description: "视口和屏幕分辨率有什么区别？这篇文章会讲清楚 viewport 的含义，以及它为什么决定响应式布局和断点。"
 date: "2026-03-31"
-author: "Screen Size Checker团队"
+author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
+keywords: "什么是视口, viewport 是什么, 视口和分辨率区别, 响应式设计视口, viewport 宽度"
 ---
 
 ## 2026 年视口（Viewport）基础知识

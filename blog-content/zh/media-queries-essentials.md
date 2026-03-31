@@ -1,11 +1,12 @@
 ---
-title: "2026 年 CSS 媒体查询基础指南"
-description: "掌握 2026 年 CSS 媒体查询、断点与常见误区，构建适用于不同设备的响应式布局。"
+title: "CSS 媒体查询怎么用？2026 入门指南"
+description: "想搞懂 CSS 媒体查询？快速掌握断点、min-width 与 max-width 的区别，以及响应式布局常见误区。"
 date: "2026-03-31"
-author: "Screen Size Checker团队"
+author: "Screen Size Checker Team"
 category: "css"
 tags: ["媒体查询", "响应式设计", "css", "断点"]
 featuredImage: "media-queries.jpg"
+keywords: "CSS 媒体查询, media queries 怎么用, 响应式断点, min width max width, CSS 断点, 响应式布局"
 ---
 
 ## 2026 年 CSS 媒体查询基础指南

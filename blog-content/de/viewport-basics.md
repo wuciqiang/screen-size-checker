@@ -1,11 +1,12 @@
 ---
-title: "Viewport-Grundlagen 2026"
-description: "Lerne 2026, was ein Viewport ist, wie er sich von der Bildschirmauflösung unterscheidet und warum er für Responsive Design entscheidend bleibt."
+title: "Was ist ein Viewport? Grundlagen 2026"
+description: "Was genau ist ein Viewport? Lernen Sie den Unterschied zwischen Viewport und Bildschirmauflösung und warum er für Responsive Design wichtig ist."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
+keywords: "was ist ein viewport, viewport grundlagen, viewport vs auflösung, responsive design viewport, css viewport"
 ---
 
 ## Viewport-Grundlagen 2026

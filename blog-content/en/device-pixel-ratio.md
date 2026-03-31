@@ -1,16 +1,16 @@
 ﻿---
-title: "Device Pixel Ratio (DPR) Explained for Web Design"
-description: "Learn what device pixel ratio means, how DPR affects responsive design, images, canvas, and why CSS pixels differ from screen pixels."
+title: "Device Pixel Ratio (DPR) 2026"
+description: "What is device pixel ratio and why does it matter? Learn how DPR affects sharpness, responsive images, canvas, and CSS pixels on modern screens."
 slug: "device-pixel-ratio"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"
-keywords: "device pixel ratio, dpr explained, css pixels vs device pixels, retina display, responsive images"
+keywords: "device pixel ratio, dpr, css pixels vs device pixels, retina display, responsive images, high density screens"
 ---
 
-# Device Pixel Ratio (DPR) Explained for Web Design
+# What Is Device Pixel Ratio? DPR Explained for 2026
 
 Device Pixel Ratio (DPR) is one of the most important concepts behind sharp modern interfaces. If you have ever wondered why a phone with a 390px viewport can still have a much higher screen resolution, DPR is the missing piece. This guide explains what DPR means, why it matters, and how to design for it without wasting bandwidth or shipping blurry assets.
 

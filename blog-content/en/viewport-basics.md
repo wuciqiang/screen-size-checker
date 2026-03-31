@@ -1,16 +1,16 @@
 ﻿---
-title: "Viewport Basics Explained for Responsive Design"
-description: "Learn what a viewport is, how it differs from screen resolution, and why viewport size matters for responsive web design and CSS breakpoints."
+title: "What Is a Viewport? 2026 Basics"
+description: "What is a viewport in web design? Learn how viewport width differs from screen resolution and why it matters for responsive layouts and breakpoints."
 slug: "viewport-basics"
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
-keywords: "viewport basics, what is viewport, viewport vs resolution, responsive design viewport, css viewport"
+keywords: "what is viewport, viewport basics, viewport vs screen resolution, responsive design viewport, css viewport width"
 ---
 
-# Viewport Basics Explained for Responsive Design
+# What Is a Viewport? Responsive Design Basics in 2026
 
 The viewport is one of the most important ideas in responsive web design, yet it is still confused with screen size and screen resolution all the time. This guide explains what the viewport is, how it differs from screen resolution, and why viewport size should drive your layout decisions.
 

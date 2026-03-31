@@ -1,14 +1,15 @@
 ---
-title: "Gerätepixelverhältnis (DPR) 2026 erklärt"
-description: "Verstehen Sie 2026, was Device Pixel Ratio (DPR) bedeutet, warum es für Schärfe und Performance wichtig ist und wie Sie Websites dafür optimieren."
+title: "Device Pixel Ratio (DPR) 2026 erklärt"
+description: "Was ist Device Pixel Ratio und warum ist sie wichtig? Verstehen Sie DPR, CSS-Pixel, scharfe Bilder und High-DPI-Displays in modernen Layouts."
 date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"
+keywords: "device pixel ratio, dpr erklärt, css pixel vs gerätepixel, retina display, responsive bilder, high dpi"
 ---
 
-# Gerätepixelverhältnis (DPR) 2026 erklärt
+# Was ist Device Pixel Ratio? DPR 2026 erklärt
 
 Das Gerätepixelverhältnis – meist **Device Pixel Ratio** oder kurz **DPR** genannt – gehört zu den wichtigsten Grundlagen im modernen Frontend. Es beeinflusst direkt, wie scharf Texte, Icons, Bilder und UI-Elemente auf echten Geräten wirken.
 
