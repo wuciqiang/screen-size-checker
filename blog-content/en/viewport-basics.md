@@ -1,4 +1,4 @@
-﻿---
+---
 title: "What Is a Viewport? 2026 Basics"
 description: "What is a viewport in web design? Learn how viewport width differs from screen resolution and why it matters for responsive layouts and breakpoints."
 slug: "viewport-basics"
@@ -67,6 +67,6 @@ Understanding the viewport concept is fundamental to modern web development. By 
 
 Remember that viewport size can change when users rotate their devices or resize their browser windows, so your designs should be flexible enough to accommodate these changes.
 
-For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes.html) guides.
+For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes) and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes) guides.
 
 *Last updated: March 2026*

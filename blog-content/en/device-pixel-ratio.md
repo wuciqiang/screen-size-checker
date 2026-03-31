@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Device Pixel Ratio (DPR) 2026"
 description: "What is device pixel ratio and why does it matter? Learn how DPR affects sharpness, responsive images, canvas, and CSS pixels on modern screens."
 slug: "device-pixel-ratio"
@@ -135,6 +135,6 @@ Device Pixel Ratio significantly impacts how your website appears across differe
 
 Remember that optimizing for different DPRs isn't just about image quality—it's about finding the right balance between visual fidelity and performance for each user's device.
 
-For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics.html) and explore our device-specific guides like [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes.html).
+For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics) and explore our device-specific guides like [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes) and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes).
 
 *Last updated: March 2026*

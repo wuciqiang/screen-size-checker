@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Responsive Debug Checklist 2026"
 description: "Fix broken responsive layouts faster with this 2026 checklist for overflow, bad breakpoints, viewport bugs, CSS issues, and device testing."
 slug: "responsive-debugging-checklist"
@@ -50,7 +50,7 @@ With this mindset in place, let's dive into the systematic checklist that will s
 
 ### 1. Check Your Viewport Meta Tag
 
-This is the most fundamental check, yet it's often overlooked. The [viewport](https://screensizechecker.com/blog/viewport-basics.html) meta tag tells the browser how to control the page's dimensions and scaling on mobile devices.
+This is the most fundamental check, yet it's often overlooked. The [viewport](https://screensizechecker.com/blog/viewport-basics) meta tag tells the browser how to control the page's dimensions and scaling on mobile devices.
 
 **What to check:**
 - Ensure you have `<meta name="viewport" content="width=device-width, initial-scale=1.0">` in your HTML head
@@ -94,7 +94,7 @@ By default, CSS uses `content-box`, meaning padding and borders are added to the
 
 ### 3. Validate Your Media Queries
 
-[Media queries](https://screensizechecker.com/blog/media-queries-essentials.html) are the backbone of responsive design, but they're easy to get wrong.
+[Media queries](https://screensizechecker.com/blog/media-queries-essentials) are the backbone of responsive design, but they're easy to get wrong.
 
 **What to check:**
 - Verify syntax: missing commas, incorrect operators, typos

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CSS Media Queries 2026 Guide"
 description: "Learn how to use CSS media queries in 2026: choose better breakpoints, understand min-width vs max-width, and avoid common responsive mistakes."
 slug: "media-queries-essentials"
@@ -310,6 +310,6 @@ Media queries are an essential tool for creating modern, responsive websites. By
 
 Remember that responsive design is about more than just making elements fit on different screens—it's about creating a cohesive user experience regardless of how someone accesses your content.
 
-For more on related topics, check out our articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics.html) and [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio.html).
+For more on related topics, check out our articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics) and [Device Pixel Ratio](https://screensizechecker.com/blog/device-pixel-ratio).
 
 *Last updated: March 2026*

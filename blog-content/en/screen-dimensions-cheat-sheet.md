@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Screen Size Chart 2026"
 description: "Need a fast screen size reference? Use this 2026 chart for laptop, phone, tablet, viewport, resolution, and CSS breakpoint planning."
 slug: "screen-dimensions-cheat-sheet"
@@ -34,7 +34,7 @@ If you only need the short version:
 
 ## Core Concepts in 60 Seconds
 
-**Resolution & Viewport:** Resolution is the physical pixel count of a screen, while [Viewport](https://screensizechecker.com/blog/viewport-basics.html) is the browser's visible area. Understanding this difference is crucial for responsive design.
+**Resolution & Viewport:** Resolution is the physical pixel count of a screen, while [Viewport](https://screensizechecker.com/blog/viewport-basics) is the browser's visible area. Understanding this difference is crucial for responsive design.
 
 **Aspect Ratio:** The proportional relationship between screen width and height. Use our [Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator) to quickly calculate proportions for any dimensions.
 
@@ -111,7 +111,7 @@ Based on 2026 device usage trends, here are our recommended breakpoints:
 }
 ```
 
-To learn more about how to implement these breakpoints effectively, read our [Media Queries Essentials guide](https://screensizechecker.com/blog/media-queries-essentials.html).
+To learn more about how to implement these breakpoints effectively, read our [Media Queries Essentials guide](https://screensizechecker.com/blog/media-queries-essentials).
 
 ## Your Essential Toolkit (Putting It All Together)
 

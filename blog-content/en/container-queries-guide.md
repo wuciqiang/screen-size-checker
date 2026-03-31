@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CSS Container Queries 2026: Guide + Examples"
 description: "Learn CSS container queries with syntax, examples, browser support, and practical patterns for building truly responsive components in 2026."
 date: "2026-03-31"
@@ -58,7 +58,7 @@ Good news! As of 2025, container queries have excellent browser support:
 | Safari | 16+ | ✅ Full Support |
 | Edge | 105+ | ✅ Full Support |
 
-With over 90% of users now on supported browsers, container queries are production-ready for most projects. If you need a refresher on the viewport-first approach they improve on, read our [CSS Media Queries Guide](https://screensizechecker.com/blog/media-queries-essentials.html) and [Viewport Basics](https://screensizechecker.com/blog/viewport-basics.html).
+With over 90% of users now on supported browsers, container queries are production-ready for most projects. If you need a refresher on the viewport-first approach they improve on, read our [CSS Media Queries Guide](https://screensizechecker.com/blog/media-queries-essentials) and [Viewport Basics](https://screensizechecker.com/blog/viewport-basics).
 
 ### Basic Syntax and Setup
 
