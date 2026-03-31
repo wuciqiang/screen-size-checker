@@ -16,6 +16,12 @@ Choosing between a curved and flat gaming monitor is still a practical buying de
 
 **Quick Answer**: **Curved monitors are better for immersive single-player gaming and ultrawide setups** (enhanced FOV, reduced eye movement, more cinematic). **Flat monitors are superior for competitive gaming and productivity** (no distortion, tournament standard, better multi-monitor setups). For most gamers, **flat 27" monitors remain the versatile choice**, while **curved 32"+ and ultrawide monitors provide the best curved experience**.
 
+**Helpful Comparison Tools**:
+- [Compare 27", 32", and ultrawide displays side by side]({{lang_prefix}}/devices/compare)
+- [Use the gaming monitor size guide before choosing 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)
+- [Check which resolutions pair best with each size]({{lang_prefix}}/devices/standard-resolutions)
+- [See how ultrawide setups compare with dual monitors]({{lang_prefix}}/hub/ultrawide-vs-dual-monitor-gaming)
+
 ## Understanding Monitor Curvature
 
 ### Curvature Measurements
@@ -260,7 +266,7 @@ Choosing between a curved and flat gaming monitor is still a practical buying de
 4. **Content creation work** (distortion concerns)
 5. **Multi-viewer scenarios** (viewing angle issues)
 
-> **Size Guide**: Unsure about the right monitor size for your setup? Check our [Gaming Monitor Size Guide](/hub/gaming-monitor-size-guide) for detailed recommendations.
+> **Size Guide**: Unsure about the right monitor size for your setup? Check our [Gaming Monitor Size Guide]({{lang_prefix}}/hub/gaming-monitor-size-guide) for detailed recommendations, then verify dimensions in the [screen size comparison tool]({{lang_prefix}}/devices/compare).
 
 ## Gaming Genre Analysis
 
@@ -635,7 +641,9 @@ The "best" choice depends on your primary gaming style and use cases. There's no
 
 **Optimize your complete setup**: Explore our other gaming monitor guides:
 - [Gaming Monitor vs TV: Complete Display Comparison]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [Best Monitor Size for FPS Games]({{lang_prefix}}/hub/best-monitor-size-fps)
 - [IPS vs TN vs VA Gaming: Panel Type Analysis]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
 - [144Hz vs 240Hz Gaming: Refresh Rate Comparison]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+- [Compare Screen Sizes Side by Side]({{lang_prefix}}/devices/compare)
 
 **Last Updated**: March 2026 | **Reading Time**: 14 minutes
