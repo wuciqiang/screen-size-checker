@@ -1,134 +1,113 @@
 ---
-title: "Relación de Píxeles del Dispositivo (DPR) Explicada"
-description: "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web"
-date: "2023-10-20"
+title: "Device Pixel Ratio (DPR) explicado en 2026"
+description: "Entiende qué es el Device Pixel Ratio en 2026, por qué afecta a nitidez y rendimiento, y cómo optimizar webs para pantallas de alta densidad."
+date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"
 ---
 
-> **注意**: 此文章的西班牙语翻译版本正在准备中。以下是英文原文，翻译工作将很快完成。
+# Device Pixel Ratio (DPR) explicado en 2026
 
-## Device Pixel Ratio Explained
+El **Device Pixel Ratio** o **DPR** es una de esas bases del frontend que cambia por completo cómo se ven textos, iconos, capturas e imágenes en dispositivos reales. Si no lo entiendes, es fácil que una interfaz se vea perfecta en un equipo y borrosa en otro.
 
-Device Pixel Ratio (DPR) is a critical concept in modern web development that directly impacts the visual quality and performance of your websites across different devices. This article explains what DPR is, why it matters, and how to account for it in your projects.
+**Respuesta rápida**: DPR es la relación entre **píxeles físicos** y **píxeles CSS**. Un dispositivo con **DPR 2** usa cuatro píxeles reales para representar un solo píxel CSS. Eso mejora la nitidez, pero también obliga a cuidar mejor assets, imágenes y rendimiento.
 
-## What is Device Pixel Ratio?
+## Qué significa exactamente DPR
 
-Device Pixel Ratio (DPR) is the ratio between physical pixels (the actual dots on a screen) and CSS pixels (the logical pixels used in web development). It's calculated as:
+La fórmula básica es:
 
-```
-Device Pixel Ratio = Physical Pixels / CSS Pixels
-```
-
-For example, if a device has a DPR of 2, it means there are 2×2 (or 4) physical pixels for every CSS pixel.
-
-## The Evolution of High-DPR Displays
-
-High-density displays began gaining popularity with Apple's introduction of "Retina" displays in 2010. Since then, high-DPR screens have become standard across most devices:
-
-| Device Type | Common DPR Range |
-|-------------|------------------|
-| Budget Phones | 1.5 - 2.0 |
-| Flagship Phones | 2.5 - 4.0 |
-| Tablets | 2.0 - 3.0 |
-| Laptops/Desktops | 1.0 - 2.0 |
-| 4K Monitors | 1.5 - 2.0 |
-
-## Why DPR Matters for Web Developers
-
-Understanding DPR is essential for several reasons:
-
-1. **Image Quality**: Low-resolution images appear blurry on high-DPR displays
-2. **Performance**: Serving unnecessarily high-resolution images wastes bandwidth
-3. **Font Rendering**: Text appears sharper on high-DPR screens
-4. **CSS Precision**: Sub-pixel layouts work differently across DPR values
-5. **Canvas and SVG**: These elements render differently based on DPR
-
-## How to Detect Device Pixel Ratio
-
-You can detect a device's DPR using JavaScript:
-
-```javascript
-const dpr = window.devicePixelRatio;
-console.log(`Your device pixel ratio is: ${dpr}`);
+```text
+Device Pixel Ratio = píxeles físicos / píxeles CSS
 ```
 
-Or check it directly using our [Screen Size Checker](/en/index.html) tool, which displays DPR along with other device information.
+Si un dispositivo tiene DPR 2:
+- 1 píxel CSS se representa con 2×2 píxeles físicos
+- la interfaz puede verse mucho más nítida
+- imágenes pequeñas o de baja calidad se ven peor más rápido
 
-## Optimizing Images for Different DPRs
+## Por qué importa en desarrollo web
 
-To serve the appropriate image for each device's DPR, you can use these techniques:
+### 1. Nitidez visual
 
-### 1. CSS Resolution Media Queries
+En pantallas de alta densidad, imágenes poco preparadas se ven suaves o borrosas. Esto afecta especialmente a:
+- logos
+- iconos
+- capturas de producto
+- imágenes dentro de cards o posts
 
-```css
-/* Default image for standard displays */
-.my-image {
-  background-image: url('image.png');
-}
+### 2. Rendimiento
 
-/* High-res image for high-DPR displays */
-@media (-webkit-min-device-pixel-ratio: 2), 
-       (min-resolution: 192dpi) { 
-  .my-image {
-    background-image: url('image@2x.png');
-  }
-}
-```
+Subir siempre la resolución de todo no es la solución. Más calidad visual también puede significar archivos más pesados, peor LCP y más consumo de datos.
 
-### 2. HTML srcset Attribute
+### 3. Consistencia de UI
 
-```html
-<img src="image.png"
-     srcset="image.png 1x, 
-             image@2x.png 2x, 
-             image@3x.png 3x"
-     alt="Responsive image example">
-```
+Si no ajustas bien imágenes, escalado y tamaño visual, la interfaz puede sentirse incoherente entre pantallas estándar y pantallas Retina/High-DPI.
 
-### 3. Picture Element
+## Rangos típicos de DPR
 
-```html
-<picture>
-  <source media="(min-resolution: 3dppx)" srcset="image@3x.png">
-  <source media="(min-resolution: 2dppx)" srcset="image@2x.png">
-  <img src="image.png" alt="Responsive image example">
-</picture>
-```
+Como referencia rápida:
 
-## Canvas and DPR Considerations
+| Tipo de dispositivo | Rango habitual de DPR |
+|---|---:|
+| Móviles económicos | 1.5 – 2.0 |
+| Móviles de gama alta | 2.5 – 4.0 |
+| Tablets | 2.0 – 3.0 |
+| Laptops / escritorio | 1.0 – 2.0 |
+| Monitores 4K con escalado | 1.5 – 2.0 |
 
-When working with HTML Canvas elements, you need to adjust for DPR to ensure sharp rendering:
+Recuerda: un DPR alto no significa automáticamente “más espacio útil” en pantalla. Muchas veces el viewport efectivo es menor por la escala del sistema.
 
-```javascript
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-const dpr = window.devicePixelRatio || 1;
+## Cómo optimizar correctamente
 
-// Adjust canvas dimensions
-canvas.width = canvas.clientWidth * dpr;
-canvas.height = canvas.clientHeight * dpr;
+### Usa SVG cuando tenga sentido
 
-// Scale the context
-ctx.scale(dpr, dpr);
+Para iconos, logos y gráficos sencillos, SVG suele ser la mejor opción porque mantiene nitidez independientemente del DPR.
 
-// Now draw on the canvas as usual
-```
+### Trabaja con imágenes responsive
 
-## Common Pitfalls and Solutions
+`srcset` y tamaños bien definidos ayudan a no enviar archivos gigantes a quien no los necesita.
 
-1. **Fuzzy Text**: Ensure you're not scaling text elements with transforms on high-DPR devices
-2. **Blurry UI Elements**: Use SVG where possible for interface elements
-3. **Performance Issues**: Implement lazy loading for high-resolution images
-4. **Inconsistent Rendering**: Test on various DPR screens during development
-5. **Bandwidth Concerns**: Use responsive image techniques to serve appropriate file sizes
+### Revisa capturas y visuales de producto
 
-## Conclusion
+En pantallas Retina, las capturas con poca resolución pierden calidad muy rápido.
 
-Device Pixel Ratio significantly impacts how your website appears across different devices. By understanding DPR and implementing responsive techniques to account for it, you can ensure your websites look crisp and professional while maintaining good performance.
+### Prueba en dispositivos reales
 
-Remember that optimizing for different DPRs isn't just about image quality—it's about finding the right balance between visual fidelity and performance for each user's device.
+No basta con hacer zoom o resize en el navegador. Conviene validar en distintos tipos de pantalla o usar herramientas específicas.
 
-For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](/blog/viewport-basics.html) and explore our device-specific guides like [iPhone Viewport Sizes](/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/devices/android-viewport-sizes.html).
+## DPR vs. PPI
+
+Aunque se relacionan, no son lo mismo:
+
+- **PPI** = densidad física de píxeles de la pantalla
+- **DPR** = cómo el dispositivo traduce píxeles físicos a píxeles CSS
+
+Si quieres calcular la nitidez física de un monitor o dispositivo, usa nuestra [calculadora PPI]({{lang_prefix}}/devices/ppi-calculator).
+
+## Errores frecuentes
+
+Suelen repetirse estos fallos:
+
+- usar bitmaps pequeños donde conviene SVG
+- no tener estrategia `srcset`
+- capturas de producto con resolución insuficiente
+- no probar en laptops y móviles de alta densidad
+
+## Conclusión
+
+DPR no es un detalle menor: afecta de forma directa a cómo se percibe la calidad visual de una web. Si lo tienes en cuenta desde el diseño y la implementación, puedes conseguir interfaces mucho más nítidas, consistentes y eficientes.
+
+---
+
+## Lecturas relacionadas
+
+- [Fundamentos del viewport]({{lang_prefix}}/blog/viewport-basics)
+- [Calculadora PPI]({{lang_prefix}}/devices/ppi-calculator)
+- [Responsive Design Tester]({{lang_prefix}}/devices/responsive-tester)
+- [Checklist de depuración responsive 2026]({{lang_prefix}}/blog/responsive-debugging-checklist)
+
+---
+
+*Última actualización: marzo de 2026*

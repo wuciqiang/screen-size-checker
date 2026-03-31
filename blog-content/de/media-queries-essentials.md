@@ -1,309 +1,127 @@
 ---
-title: "CSS Media Queries Grundlagen"
-description: "CSS Media Queries für responsives Webdesign meistern"
-date: "2023-10-25"
+title: "CSS Media Queries Grundlagen 2026"
+description: "Lernen Sie 2026 die wichtigsten CSS Media Queries für Responsive Design – inklusive Breakpoints, typischer Fehler und praktischer Einsatzfälle."
+date: "2026-03-31"
 author: "Screen Size Checker Team"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
 ---
 
-> **注意**: 此文章的德语翻译版本正在准备中。以下是英文原文，翻译工作将很快完成。
+# CSS Media Queries Grundlagen 2026
 
-## Media Queries Essentials for Responsive Design
+Media Queries gehören weiterhin zu den wichtigsten Werkzeugen für Responsive Design. Sie helfen dabei, Layout, Typografie und Komponenten an unterschiedliche Bildschirmgrößen, Ausrichtungen oder Geräteeigenschaften anzupassen.
 
-Media queries are the backbone of responsive web design, allowing websites to adapt their layout and styling based on device characteristics. This guide covers everything you need to know to implement effective media queries in your projects.
+**Kurzantwort**: Media Queries sind CSS-Regeln, die Styles nur dann anwenden, wenn bestimmte Bedingungen erfüllt sind – etwa eine maximale Breite, ein bestimmtes Seitenverhältnis oder die Ausrichtung des Displays.
 
-## What Are Media Queries?
+## Was sind Media Queries?
 
-Media queries are CSS techniques that allow you to apply different styles based on the device's characteristics, such as screen size, resolution, or orientation. They're defined using the `@media` rule in CSS:
+Ein einfaches Beispiel:
 
 ```css
 @media screen and (max-width: 768px) {
-  /* Styles applied when viewport width is 768px or less */
   .container {
     flex-direction: column;
   }
 }
 ```
 
-This simple concept powers the responsive behavior of modern websites, enabling them to provide optimized experiences across devices.
+Hier wird das Layout unterhalb von 768px Breite umgestellt.
 
-## Anatomy of a Media Query
+## Wann Media Queries sinnvoll sind
 
-A typical media query consists of:
+Sie sind besonders gut geeignet für:
 
-1. **Media Type**: Specifies the device type (e.g., `screen`, `print`, `speech`)
-2. **Logical Operators**: `and`, `not`, `only`, and commas for combining multiple queries
-3. **Media Features**: Conditions like `width`, `height`, `orientation`, etc.
-4. **CSS Rules**: The styles to apply when conditions are met
+- Umschalten zwischen Mobile-, Tablet- und Desktop-Layout
+- Anpassung von Navigationen
+- Änderung von Grid- und Spaltenstrukturen
+- Typografie-Feinschliff auf sehr kleinen oder sehr großen Screens
 
-```css
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Styles for tablets and small laptops */
-}
-```
+Für komponenteninterne Anpassungen in kleinen Containern sind dagegen oft [Container Queries]({{lang_prefix}}/blog/container-queries-guide) die bessere Wahl.
 
-## Common Media Features
+## Typische Arten von Media Queries
 
-Here are the most frequently used media features:
-
-| Feature | Description | Example |
-|---------|-------------|---------|
-| `width` | Viewport width | `(min-width: 768px)` |
-| `height` | Viewport height | `(max-height: 1024px)` |
-| `aspect-ratio` | Width/height ratio | `(aspect-ratio: 16/9)` |
-| `orientation` | Portrait or landscape | `(orientation: landscape)` |
-| `resolution` | Pixel density | `(min-resolution: 2dppx)` |
-| `hover` | Hover capability | `(hover: hover)` |
-| `prefers-color-scheme` | User color preference | `(prefers-color-scheme: dark)` |
-
-## Breakpoint Strategies
-
-Breakpoints are the viewport widths at which your design adapts. There are several approaches to choosing breakpoints:
-
-### 1. Device-based Breakpoints
-
-Based on common device categories:
-- Mobile phones: 360px - 428px
-- Tablets: 768px - 1024px
-- Laptops: 1024px - 1440px
-- Desktops: 1440px+
+### Breite
 
 ```css
-/* Mobile styles (default) */
-.container { width: 100%; }
-
-/* Tablet styles */
-@media (min-width: 768px) {
-  .container { width: 750px; }
-}
-
-/* Laptop styles */
-@media (min-width: 1024px) {
-  .container { width: 980px; }
-}
-
-/* Desktop styles */
-@media (min-width: 1440px) {
-  .container { width: 1200px; }
-}
-```
-
-### 2. Content-based Breakpoints
-
-A more flexible approach that adapts based on when your content starts to look broken:
-
-```css
-.article-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-/* When there's enough space for 2 columns */
-@media (min-width: 600px) {
-  .article-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* When there's enough space for 3 columns */
-@media (min-width: 900px) {
-  .article-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-```
-
-## Mobile-First vs. Desktop-First
-
-There are two main approaches to implementing media queries:
-
-### Mobile-First Approach
-
-Start with styles for small screens and add complexity for larger ones using `min-width` queries:
-
-```css
-/* Base styles for mobile */
-.navigation {
-  flex-direction: column;
-}
-
-/* Enhance for larger screens */
-@media (min-width: 768px) {
-  .navigation {
-    flex-direction: row;
-  }
-}
-```
-
-### Desktop-First Approach
-
-Start with styles for large screens and simplify for smaller ones using `max-width` queries:
-
-```css
-/* Base styles for desktop */
-.navigation {
-  flex-direction: row;
-}
-
-/* Simplify for smaller screens */
 @media (max-width: 767px) {
-  .navigation {
-    flex-direction: column;
-  }
+  /* Mobile */
 }
 ```
 
-Most modern development favors the mobile-first approach for its progressive enhancement philosophy and typically cleaner code.
-
-## Advanced Media Query Techniques
-
-### 1. Range Queries
-
-Target a specific range of viewport sizes:
+### Höhe
 
 ```css
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Styles only for tablets */
+@media (max-height: 700px) {
+  /* Wenig vertikaler Platz */
 }
 ```
 
-### 2. Orientation Queries
-
-Apply styles based on device orientation:
+### Orientierung
 
 ```css
 @media (orientation: landscape) {
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (orientation: portrait) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Querformat */
 }
 ```
 
-### 3. Feature Queries with `@supports`
-
-Combine media queries with feature detection:
+### Auflösung / Dichte
 
 ```css
-@media (min-width: 768px) {
-  @supports (display: grid) {
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-  }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* High-DPI Assets */
 }
 ```
 
-### 4. Container Queries (New!)
+## Sinnvolle Breakpoints für viele Projekte
 
-The future of responsive design, allowing styles based on container size rather than viewport:
+Eine pragmatische Basis für 2026 ist oft:
 
-```css
-@container (min-width: 400px) {
-  .card {
-    display: flex;
-  }
-}
-```
+- **Small Mobile**: bis `374px`
+- **Mobile**: `375px – 767px`
+- **Tablet**: `768px – 1023px`
+- **Desktop**: `1024px – 1439px`
+- **Large Desktop**: ab `1440px`
 
-Note: Container queries are still being implemented across browsers, so check compatibility before using them.
+Wichtig: Breakpoints sollten sich nicht nur an Gerätekategorien orientieren, sondern vor allem daran, wann Ihr Inhalt tatsächlich umbricht.
 
-## Common Media Query Use Cases
+## Häufige Fehler
 
-### Navigation Menus
+Diese Probleme tauchen besonders oft auf:
 
-```css
-/* Mobile: Hamburger menu */
-.nav-menu {
-  display: none;
-}
+- zu viele Breakpoints ohne klaren Grund
+- Breakpoints nur nach bekannten Geräten statt nach Inhalt
+- nur Breite getestet, nicht Höhe
+- fehlende Tests mit echten Übersetzungen und langen Texten
+- Komponenten hängen zu stark an globalen Breakpoints
 
-.hamburger-icon {
-  display: block;
-}
+## Praktische Tipps
 
-/* Desktop: Expanded menu */
-@media (min-width: 1024px) {
-  .nav-menu {
-    display: flex;
-  }
-  
-  .hamburger-icon {
-    display: none;
-  }
-}
-```
+### Mobile-first schreiben
 
-### Grid Layouts
+Starten Sie mit einer schlanken Grundversion und erweitern Sie schrittweise nach oben.
 
-```css
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
+### Auf Höhe achten
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+Gerade auf Laptops mit Sticky Headern oder großen Hero-Sektionen wird die vertikale Fläche schnell zum eigentlichen Problem.
 
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-```
+### Echte Geräte oder Tester nutzen
 
-### Typography
+Prüfen Sie Ihre Breakpoints nicht nur mit Browser-Resize. Unser [Responsive Design Tester]({{lang_prefix}}/devices/responsive-tester) hilft, verschiedene Stufen realistischer zu testen.
 
-```css
-body {
-  font-size: 16px;
-}
+## Fazit
 
-h1 {
-  font-size: 24px;
-}
+Media Queries bleiben 2026 ein Kernwerkzeug für Responsive Design. Richtig eingesetzt sorgen sie dafür, dass Seiten nicht nur „irgendwie passen“, sondern sich je nach Kontext sauber und nachvollziehbar anfühlen.
 
-@media (min-width: 768px) {
-  body {
-    font-size: 18px;
-  }
-  
-  h1 {
-    font-size: 32px;
-  }
-}
+---
 
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 48px;
-  }
-}
-```
+## Weiterführende Links
 
-## Testing Media Queries
+- [Viewport-Grundlagen verstehen]({{lang_prefix}}/blog/viewport-basics)
+- [Gerätepixelverhältnis (DPR) 2026 erklärt]({{lang_prefix}}/blog/device-pixel-ratio)
+- [Responsive Design Tester]({{lang_prefix}}/devices/responsive-tester)
+- [CSS Container Queries Leitfaden 2026]({{lang_prefix}}/blog/container-queries-guide)
 
-Properly testing your media queries is crucial for ensuring your responsive design works as expected:
+---
 
-1. **Browser Developer Tools**: Use responsive mode to resize the viewport
-2. **Real Devices**: Test on actual phones, tablets, and computers
-3. **Screen Size Checker Tool**: Use our [Screen Size Checker](/en/index.html) to verify your viewport dimensions and test how your design responds
-
-## Conclusion
-
-Media queries are an essential tool for creating modern, responsive websites. By understanding how to structure and implement them effectively, you can ensure your site provides an optimal experience across all devices and screen sizes.
-
-Remember that responsive design is about more than just making elements fit on different screens—it's about creating a cohesive user experience regardless of how someone accesses your content.
-
-For more on related topics, check out our articles on [Viewport Basics](/blog/viewport-basics.html) and [Device Pixel Ratio](/blog/device-pixel-ratio.html).
+*Zuletzt aktualisiert: März 2026*
