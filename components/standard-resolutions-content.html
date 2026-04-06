@@ -184,6 +184,152 @@
             </table>
         </div>
         
+        <!-- 社交媒体图片尺寸 -->
+        <h3 class="subsection-title" data-i18n="social_media_sizes_heading">社交媒体图片尺寸</h3>
+        
+        <!-- Facebook图片尺寸 -->
+        <h4 class="platform-title" data-i18n="facebook_sizes">Facebook图片尺寸</h4>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="image_type">图片类型</th>
+                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
+                        <th data-i18n="aspect_ratio">宽高比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="profile_picture">个人头像</td>
+                        <td>170 × 170</td>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="cover_photo">封面图片</td>
+                        <td>820 × 312</td>
+                        <td>2.63:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="shared_image">分享图片</td>
+                        <td>1200 × 630</td>
+                        <td>1.91:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="event_cover">活动封面</td>
+                        <td>1920 × 1080</td>
+                        <td>16:9</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="group_cover">群组封面</td>
+                        <td>1640 × 856</td>
+                        <td>1.91:1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Instagram图片尺寸 -->
+        <h4 class="platform-title" data-i18n="instagram_sizes">Instagram图片尺寸</h4>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="image_type">图片类型</th>
+                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
+                        <th data-i18n="aspect_ratio">宽高比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="profile_picture">个人头像</td>
+                        <td>110 × 110</td>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="square_post">方形帖子</td>
+                        <td>1080 × 1080</td>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="portrait_post">竖向帖子</td>
+                        <td>1080 × 1350</td>
+                        <td>4:5</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="landscape_post">横向帖子</td>
+                        <td>1080 × 608</td>
+                        <td>1.91:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="stories">Stories</td>
+                        <td>1080 × 1920</td>
+                        <td>9:16</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Twitter图片尺寸 -->
+        <h4 class="platform-title" data-i18n="twitter_sizes">Twitter图片尺寸</h4>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="image_type">图片类型</th>
+                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
+                        <th data-i18n="aspect_ratio">宽高比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="profile_picture">个人头像</td>
+                        <td>400 × 400</td>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="header_photo">横幅照片</td>
+                        <td>1500 × 500</td>
+                        <td>3:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="in_stream_photo">信息流图片</td>
+                        <td>1200 × 675</td>
+                        <td>16:9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- YouTube图片尺寸 -->
+        <h4 class="platform-title" data-i18n="youtube_sizes">YouTube图片尺寸</h4>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="image_type">图片类型</th>
+                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
+                        <th data-i18n="aspect_ratio">宽高比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="channel_profile">频道头像</td>
+                        <td>800 × 800</td>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="channel_cover">频道封面</td>
+                        <td>2560 × 1440</td>
+                        <td>16:9</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="video_thumbnail">视频缩略图</td>
+                        <td>1280 × 720</td>
+                        <td>16:9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -236,47 +382,6 @@
                 <li data-i18n="tech_point4">使用CSS的srcset和picture元素加载适合不同设备像素比的图片</li>
                 <li data-i18n="tech_point5">利用CSS Grid和Flexbox创建自适应布局</li>
             </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Resolution Workflow Links -->
-<section class="understanding-section">
-    <div class="section-container">
-        <h2 class="section-title" data-i18n="related_tools_title">Related Tools</h2>
-        <div class="content-grid">
-            <div class="content-card">
-                <h3><a href="ppi-calculator" data-i18n="ppi_calculator">PPI Calculator</a></h3>
-                <p data-i18n="ppi_calculator_desc">Calculate pixel density</p>
-            </div>
-            <div class="content-card">
-                <h3><a href="aspect-ratio-calculator" data-i18n="aspect_ratio_calculator">Aspect Ratio Calculator</a></h3>
-                <p data-i18n="aspect_ratio_desc">Screen proportions</p>
-            </div>
-            <div class="content-card">
-                <h3><a href="responsive-tester" data-i18n="responsive_tester">Responsive Design Tester</a></h3>
-                <p data-i18n="responsive_tester_desc">Test your design</p>
-            </div>
-            <div class="content-card">
-                <h3><a href="compare" data-i18n="compare_tool">Screen Size Comparison</a></h3>
-                <p data-i18n="compare_screens_desc">Side-by-side comparison</p>
-            </div>
-        </div>
-
-        <h2 class="section-title" data-i18n="recommended_devices_title">Recommended Devices</h2>
-        <div class="content-grid">
-            <div class="content-card">
-                <h3><a href="iphone-viewport-sizes" data-i18n="iphone_sizes">iPhone Sizes</a></h3>
-                <p data-i18n="iphone_sizes_desc">Complete guide to iPhone viewport dimensions and resolutions</p>
-            </div>
-            <div class="content-card">
-                <h3><a href="ipad-viewport-sizes" data-i18n="ipad_sizes">iPad Sizes</a></h3>
-                <p data-i18n="ipad_sizes_desc">iPad models with screen specifications</p>
-            </div>
-            <div class="content-card">
-                <h3><a href="android-viewport-sizes" data-i18n="android_sizes">Android Sizes</a></h3>
-                <p data-i18n="android_sizes_desc">Android device screens and viewport reference</p>
-            </div>
         </div>
     </div>
 </section>

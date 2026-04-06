@@ -80,15 +80,15 @@ class ComponentBuilder {
         
         let html = fs.readFileSync(templatePath, 'utf8');
         
-        // 缁熶竴鐨勭粍浠跺鐞嗘柟娉?
+        // 统一的组件处理方法
         html = this.processAllComponents(html, pageData);
         
         return html;
     }
     
-    // 缁熶竴澶勭悊鎵€鏈夌被鍨嬬殑缁勪欢寮曠敤
+    // 统一处理所有类型的组件引用
     processAllComponents(html, pageData, depth = 0) {
-        // 闃叉鏃犻檺閫掑綊
+        // 防止无限递归
         if (depth > 5) {
             console.warn(`Maximum recursion depth reached at depth ${depth}`);
             return html;
@@ -98,12 +98,12 @@ class ComponentBuilder {
         let hasChanges = true;
         let iterations = 0;
         
-        // 寰幆澶勭悊鐩村埌娌℃湁鏇村鍙樺寲锛岀‘淇濇墍鏈夊祵濂楅兘琚鐞?
+        // 循环处理直到没有更多变化，确保所有嵌套都被处理
         while (hasChanges && iterations < 15) {
             const originalResult = result;
             iterations++;
             
-            // 1. 棣栧厛澶勭悊鏈€澶嶆潅鐨勫祵濂楃粍浠跺紩鐢細{{component:{{variable}}}}
+            // 1. 首先处理最复杂的嵌套组件引用：{{component:{{variable}}}}
             result = result.replace(/\{\{component:\{\{(\w+)\}\}\}\}/g, (match, variableName) => {
                 if (pageData[variableName]) {
                     const componentName = pageData[variableName];
@@ -119,18 +119,18 @@ class ComponentBuilder {
                 return `<!-- Variable not found: ${variableName} -->`;
             });
             
-            // 2. 澶勭悊鍖呭惈鍙橀噺鐨勭粍浠跺紩鐢細{{component:name-{{variable}}-suffix}}
-            // 浣跨敤鏇寸簿纭殑姝ｅ垯琛ㄨ揪寮忔潵鍖归厤杩欑妯″紡
+            // 2. 处理包含变量的组件引用：{{component:name-{{variable}}-suffix}}
+            // 使用更精确的正则表达式来匹配这种模式
             result = result.replace(/\{\{component:([^{}]*\{\{[^{}]+\}\}[^{}]*)\}\}/g, (match, componentNameWithVar) => {
-                // 鍏堟浛鎹㈢粍浠跺悕涓殑鍙橀噺
+                // 先替换组件名中的变量
                 let actualComponentName = componentNameWithVar;
                 
-                // 鏇挎崲鎵€鏈夊彉閲忓崰浣嶇
+                // 替换所有变量占位符
                 actualComponentName = actualComponentName.replace(/\{\{(\w+)\}\}/g, (varMatch, varName) => {
                     return pageData[varName] || varMatch;
                 });
                 
-                // 濡傛灉杩樻湁鏈浛鎹㈢殑鍙橀噺锛岃烦杩囪繖娆″鐞?
+                // 如果还有未替换的变量，跳过这次处理
                 if (actualComponentName.includes('{{')) {
                     return match;
                 }
@@ -144,9 +144,9 @@ class ComponentBuilder {
                 }
             });
             
-            // 3. 澶勭悊绠€鍗曠殑缁勪欢寮曠敤锛歿{component:name}}
+            // 3. 处理简单的组件引用：{{component:name}}
             result = result.replace(/\{\{component:([\w-]+)\}\}/g, (match, componentName) => {
-                // 妫€鏌ユ槸鍚︽槸鍙橀噺寮曠敤
+                // 检查是否是变量引用
                 if (pageData[componentName]) {
                     const actualComponentName = pageData[componentName];
                     const component = this.components.get(actualComponentName);
@@ -155,7 +155,7 @@ class ComponentBuilder {
                     }
                 }
                 
-                // 鐩存帴缁勪欢寮曠敤
+                // 直接组件引用
                 const component = this.components.get(componentName);
                 if (component) {
                     return this.processAllComponents(component, pageData, depth + 1);
@@ -165,13 +165,13 @@ class ComponentBuilder {
                 }
             });
             
-            // 4. 澶勭悊椤甸潰鍙橀噺
+            // 4. 处理页面变量
             result = this.processVariables(result, pageData, depth);
             
-            // 妫€鏌ユ槸鍚﹁繕鏈夊彉鍖?
+            // 检查是否还有变化
             hasChanges = (result !== originalResult);
             
-            // 濡傛灉杩樻湁鏈鐞嗙殑缁勪欢寮曠敤锛岃褰曡鍛?
+            // 如果还有未处理的组件引用，记录警告
             if (!hasChanges && result.includes('{{component:')) {
                 console.warn(`Unprocessed component references found after ${iterations} iterations`);
                 const matches = result.match(/\{\{component:[^}]+\}\}/g);
@@ -189,24 +189,16 @@ class ComponentBuilder {
         return result;
     }
     
-    // 澶勭悊鍙橀噺鍜屾潯浠惰〃杈惧紡
+    // 处理变量和条件表达式
     processVariables(content, data, depth = 0) {
-        // 闃叉鏃犻檺閫掑綊
+        // 防止无限递归
         if (depth > 3) {
             return content;
         }
         
         let result = content;
         
-        // 鍏堝鐞嗘潯浠惰鍙ワ紝閬垮厤 false 鍒嗘敮閲岀殑鍙橀噺浠嶇劧瑙﹀彂 undefined 璀﹀憡
-        result = result.replace(/\{\{#if\s+(\w+)\}\}([\s\S]*?)\{\{\/if\}\}/g, (match, condition, content) => {
-            if (data[condition]) {
-                return content;
-            }
-            return '';
-        });
-        
-        // 澶勭悊绠€鍗曠殑鍙橀噺鏇挎崲 {{variable}}
+        // 处理简单的变量替换 {{variable}}
         result = result.replace(/\{\{(\w+)\}\}/g, (match, key) => {
             if (data[key] !== undefined) {
                 if (typeof data[key] === 'object') {
@@ -216,7 +208,7 @@ class ComponentBuilder {
                 // 检查变量值是否是组件名
                 const variableValue = data[key];
                 if (typeof variableValue === 'string' && this.components.has(variableValue)) {
-                    // 濡傛灉鏄粍浠跺悕锛岃繑鍥炵粍浠跺唴瀹瑰苟閫掑綊澶勭悊
+                    // 如果是组件名，返回组件内容并递归处理
                     const component = this.components.get(variableValue);
                     return this.processVariables(component, data, depth + 1);
                 }
@@ -228,14 +220,22 @@ class ComponentBuilder {
             return '';
         });
         
+        // 处理条件语句 {{#if condition}}...{{/if}}
+        result = result.replace(/\{\{#if\s+(\w+)\}\}([\s\S]*?)\{\{\/if\}\}/g, (match, condition, content) => {
+            if (data[condition]) {
+                return content;
+            }
+            return '';
+        });
+        
         return result;
     }
     
-    // 娴嬭瘯鏋勫缓 - 鐢熸垚娴嬭瘯椤甸潰浣嗕笉鏇挎崲鐜版湁鏂囦欢
+    // 测试构建 - 生成测试页面但不替换现有文件
     testBuild() {
         console.log('\n Starting test build...');
         
-        // 娴嬭瘯涓婚〉鏋勫缓
+        // 测试主页构建
         const indexData = {
             lang: 'en',
             page_title_key: 'page_title',
@@ -272,12 +272,12 @@ class ComponentBuilder {
                 <!-- Part 2: Hero Display -->
                 <section class="hero-section">
                     <div class="hero-container">
-                        <p class="hero-subtitle" data-i18n="hero_subtitle">浣犵殑娴忚鍣ㄨ鍙ｅぇ灏?/p>
+                        <p class="hero-subtitle" data-i18n="hero_subtitle">你的浏览器视口大小</p>
                         <h1 class="hero-title huge-number" id="viewport-display">
-                            <span data-i18n="detecting">妫€娴嬩腑...</span>
+                            <span data-i18n="detecting">检测中...</span>
                         </h1>
                         <p class="hero-secondary" id="screen-resolution-display">
-                            <span data-i18n="screen_resolution">灞忓箷鍒嗚鲸鐜?/span>: <span data-i18n="detecting">妫€娴嬩腑...</span>
+                            <span data-i18n="screen_resolution">屏幕分辨率</span>: <span data-i18n="detecting">检测中...</span>
                         </p>
                     </div>
                 </section>
@@ -289,13 +289,13 @@ class ComponentBuilder {
         try {
             const html = this.buildPage('base', indexData);
             
-            // 鍒涘缓娴嬭瘯杈撳嚭鐩綍
+            // 创建测试输出目录
             const testDir = path.join(this.rootPath, 'test-build');
             if (!fs.existsSync(testDir)) {
                 fs.mkdirSync(testDir, { recursive: true });
             }
             
-            // 鍐欏叆娴嬭瘯鏂囦欢
+            // 写入测试文件
             fs.writeFileSync(path.join(testDir, 'index.html'), html);
             console.log(' Test build completed successfully!');
             console.log(' Test file created: test-build/index.html');
@@ -307,7 +307,7 @@ class ComponentBuilder {
         }
     }
     
-    // 楠岃瘉缁勪欢瀹屾暣鎬?
+    // 验证组件完整性
     validateComponents() {
         console.log('\n Validating components...');
         
@@ -329,22 +329,22 @@ class ComponentBuilder {
         return true;
     }
     
-    // 鎵归噺鏋勫缓鎵€鏈夐〉闈?
+    // 批量构建所有页面
     buildAllPages() {
         console.log('\n Starting batch build...');
         
         try {
-            // 璇诲彇椤甸潰閰嶇疆
+            // 读取页面配置
             const configPath = path.join(this.rootPath, 'build', 'pages-config.json');
             const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
             
-            // 鍒涘缓娴嬭瘯鏋勫缓鐩綍
+            // 创建测试构建目录
             const testDir = path.join(this.rootPath, 'test-build');
             if (!fs.existsSync(testDir)) {
                 fs.mkdirSync(testDir, { recursive: true });
             }
             
-            // 涓烘瘡涓〉闈㈠垱寤虹洰褰?
+            // 为每个页面创建目录
             const devicesDir = path.join(testDir, 'devices');
             if (!fs.existsSync(devicesDir)) {
                 fs.mkdirSync(devicesDir, { recursive: true });
@@ -353,22 +353,22 @@ class ComponentBuilder {
             let successCount = 0;
             let totalCount = config.pages.length;
             
-            // 鏋勫缓姣忎釜椤甸潰
+            // 构建每个页面
             for (const page of config.pages) {
                 try {
                     console.log(`\n Building page: ${page.name}`);
                     
-                    // 鍚堝苟椤甸潰鏁版嵁
+                    // 合并页面数据
                     const pageData = {
                         lang: 'en',
-                        page_content: page.page_content, // 杩欎細鎸囧悜鍐呭缁勪欢
+                        page_content: page.page_content, // 这会指向内容组件
                         ...page.config
                     };
                     
-                    // 鐢熸垚椤甸潰
+                    // 生成页面
                     const html = this.buildPage(page.template, pageData);
                     
-                    // 鍐欏叆鏂囦欢
+                    // 写入文件
                     const outputPath = path.join(testDir, page.output);
                     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
                     fs.writeFileSync(outputPath, html);
@@ -394,12 +394,12 @@ class ComponentBuilder {
     }
 }
 
-// 濡傛灉鐩存帴杩愯姝よ剼鏈紝鎵ц娴嬭瘯鏋勫缓
+// 如果直接运行此脚本，执行测试构建
 if (require.main === module) {
     const builder = new ComponentBuilder();
     
     if (builder.validateComponents()) {
-        // 妫€鏌ュ懡浠よ鍙傛暟
+        // 检查命令行参数
         const args = process.argv.slice(2);
         if (args.includes('--batch') || args.includes('-b')) {
             builder.buildAllPages();

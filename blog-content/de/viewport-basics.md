@@ -1,17 +1,16 @@
 ---
-title: "Was ist ein Viewport? Grundlagen 2026"
-description: "Was genau ist ein Viewport? Lernen Sie den Unterschied zwischen Viewport und Bildschirmauflösung und warum er für Responsive Design wichtig ist."
-date: "2026-03-31"
+title: "Viewport-Grundlagen verstehen"
+description: "Lerne, was Viewport ist und warum es für responsives Webdesign entscheidend ist"
+date: "2023-10-15"
 author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
-keywords: "was ist ein viewport, viewport grundlagen, viewport vs auflösung, responsive design viewport, css viewport"
 ---
 
-## Viewport-Grundlagen 2026
+## Viewport-Grundlagen verstehen
 
-Der Viewport gehört zu den wichtigsten Grundlagen im Responsive Design und wird trotzdem häufig mit Bildschirmauflösung oder Gerätegröße verwechselt. Für echte Layout-Entscheidungen zählt aber vor allem der sichtbare Bereich im Browser.`r`n`r`n**Kurzantwort**: Der Viewport ist der sichtbare Bereich einer Webseite im Browser und wird meist in CSS-Pixeln gedacht. Er ist nicht identisch mit der physischen Bildschirmauflösung – genau deshalb ist er für Responsive Design so wichtig.
+Der Viewport ist eines der grundlegendsten Konzepte im Webdesign und der Webentwicklung, wird aber oft missverstanden. Dieser Artikel erklärt, was der Viewport ist, wie er sich von der Bildschirmauflösung unterscheidet und warum er für die Erstellung responsiver Websites wichtig ist.
 
 ## Was ist ein Viewport?
 
@@ -44,7 +43,7 @@ Das Verständnis des Viewports ist aus mehreren Gründen entscheidend:
 
 ## So überprüfst du deine Viewport-Größe
 
-Du kannst deine aktuelle Viewport-Größe einfach mit unserem [Screen Size Checker]({{lang_prefix}}/) Tool überprüfen. Dies zeigt deine aktuellen Viewport-Dimensionen in CSS-Pixeln an, zusammen mit anderen nützlichen Informationen wie Gerätepixelverhältnis und Bildschirmauflösung.
+Du kannst deine aktuelle Viewport-Größe einfach mit unserem [Screen Size Checker](/de/index.html) Tool überprüfen. Dies zeigt deine aktuellen Viewport-Dimensionen in CSS-Pixeln an, zusammen mit anderen nützlichen Informationen wie Gerätepixelverhältnis und Bildschirmauflösung.
 
 ## Häufige Viewport-Größen
 
@@ -62,4 +61,4 @@ Das Verständnis des Viewport-Konzepts ist grundlegend für moderne Webentwicklu
 
 Denke daran, dass sich die Viewport-Größe ändern kann, wenn Benutzer ihre Geräte drehen oder ihre Browserfenster ändern, daher sollten deine Designs flexibel genug sein, um diese Änderungen zu berücksichtigen.
 
-Für detailliertere Informationen über spezifische Geräte-Viewports siehe unsere Leitfäden zu [iPhone Viewport-Größen]({{lang_prefix}}/devices/iphone-viewport-sizes) und [Android Viewport-Größen]({{lang_prefix}}/devices/android-viewport-sizes). 
+Für detailliertere Informationen über spezifische Geräte-Viewports siehe unsere Leitfäden zu [iPhone Viewport-Größen](/de/devices/iphone-viewport-sizes.html) und [Android Viewport-Größen](/de/devices/android-viewport-sizes.html). 

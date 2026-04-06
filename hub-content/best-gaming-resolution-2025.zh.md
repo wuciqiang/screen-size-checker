@@ -1,16 +1,16 @@
 ---
-title: "2026 最佳游戏分辨率：1080p、1440p 还是 4K？"
-description: "2026 年玩游戏该选 1080p、1440p 还是 4K？按 FPS、3A、预算和显卡等级，快速找到最适合你的分辨率。"
+title: "2025年最佳游戏分辨率：1080p vs 1440p vs 4K完整指南"
+description: "发现2025年最适合你的游戏分辨率。专家对比1080p、1440p和4K游戏，包含FPS基准测试、硬件要求和职业选手推荐。"
 slug: "best-gaming-resolution-2025"
-date: "2026-03-31"
-author: "Screen Size Checker Gaming Team"
+date: "2025-01-19"
+author: "Screen Size Checker 游戏团队"
 category: "gaming"
-tags: ["游戏分辨率", "1080p", "1440p", "4K 游戏", "FPS", "显示器"]
+tags: ["游戏分辨率", "1080p", "1440p", "4k游戏", "fps", "显示器"]
 featuredImage: "best-gaming-resolution-hero.jpg"
-keywords: "最佳游戏分辨率, 2026 游戏分辨率, 1080p vs 1440p 游戏, 4K 游戏, 游戏显示器分辨率"
+keywords: "最佳游戏分辨率, 游戏分辨率2025, 1080p vs 1440p游戏, 4k游戏, 最佳游戏分辨率, 游戏显示器分辨率"
 ---
 
-# 2026 最佳游戏分辨率：1080p、1440p 还是 4K？
+# 2025年最佳游戏分辨率：终极指南
 
 选择合适的游戏分辨率是每个PC玩家最关键的决策之一。2025年，1080p、1440p和4K之间的竞争持续演化，每种分辨率在不同游戏场景下都有独特优势。本综合指南将帮助你根据硬件、游戏偏好和预算做出完美选择。
 

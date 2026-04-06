@@ -1,92 +1,123 @@
 ---
-title: "Tamaños de pantalla 2026"
-description: "¿Necesitas una referencia rápida de tamaños de pantalla? Aquí tienes viewports, resoluciones y breakpoints útiles para web en 2026."
-date: "2026-03-31"
+title: "Hoja de Referencia de Dimensiones de Pantalla"
+description: "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes"
+date: "2024-01-15"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"
-keywords: "tamaños de pantalla, screen size chart, viewports, resoluciones pantalla, breakpoints responsive, referencia dispositivos"
 ---
 
-# Tamaños de pantalla 2026: viewports, resoluciones y CSS
+> **注意**: 此文章的西班牙语翻译版本正在准备中。以下是英文原文，翻译工作将很快完成。
 
-Si necesitas una referencia rápida para tamaños de pantalla, viewports, breakpoints y herramientas útiles, esta hoja está pensada para eso: ayudarte a tomar decisiones más rápidas sin tener que buscar cifras cada vez.
+# The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025
 
-## Conceptos clave en menos de un minuto
+## Introduction
 
-**Resolución** = número físico de píxeles de una pantalla.  
-**Viewport** = área visible real del navegador.  
-**PPI** = nitidez de la pantalla.  
-**DPR** = cómo se renderiza el contenido web en pantallas de alta densidad.
+Stop guessing. This is your one-stop, bookmarkable cheat sheet for all the screen dimensions, resolutions, and key concepts you need for web design and development in 2025.
 
-Para profundizar:
-- [Fundamentos del viewport]({{lang_prefix}}/blog/viewport-basics)
-- [Device Pixel Ratio explicado]({{lang_prefix}}/blog/device-pixel-ratio)
-- [Calculadora PPI]({{lang_prefix}}/devices/ppi-calculator)
+Whether you're debugging a responsive layout at 2 AM, choosing the perfect breakpoints for your new project, or need to quickly look up specs for a specific device during a client meeting, this article will become one of the most valuable resources in your bookmarks bar.
 
-## Tamaños de laptop más comunes en 2026
+**Why this matters:** In 2025, users access websites from an unprecedented variety of devices - from foldable phones to ultra-wide monitors. Having instant access to accurate screen data isn't just convenient; it's essential for creating experiences that work everywhere.
 
-Los tamaños que más peso siguen teniendo son:
+**What you'll find here:** Current market data, practical breakpoint recommendations, device specifications for popular models, and direct links to all the tools you need. Everything is organized for maximum scannability - because when you're debugging, every second counts.
 
-- **13.3 a 14 pulgadas** – portátiles ligeros y compactos
-- **14 a 15.6 pulgadas** – el bloque principal del mercado
-- **16 pulgadas** – equipos premium, creator y gaming
-- **17 pulgadas o más** – workstations y reemplazo de escritorio
+## Core Concepts in 60 Seconds
 
-Hoy la optimización entre 14 y 16 pulgadas cubre una parte muy relevante del uso real. Más contexto: [Tamaño promedio de pantalla de laptop en 2026]({{lang_prefix}}/blog/average-laptop-screen-size-2025)
+**Resolution & Viewport:** Resolution is the physical pixel count of a screen, while [Viewport](https://screensizechecker.com/blog/viewport-basics.html) is the browser's visible area. Understanding this difference is crucial for responsive design.
 
-## Breakpoints útiles para empezar
+**Aspect Ratio:** The proportional relationship between screen width and height. Use our [Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator) to quickly calculate proportions for any dimensions.
 
-Una base razonable para muchos proyectos en 2026:
+**Pixel Density (PPI & DPR):** PPI (Pixels Per Inch) measures screen sharpness, while DPR (Device Pixel Ratio) affects how web content renders. Use our [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator) and learn about [DPR concepts](https://screensizechecker.com/blog/device-pixel-ratio).
 
-- **Small Mobile**: hasta `374px`
-- **Mobile**: `375px – 767px`
-- **Tablet**: `768px – 1023px`
-- **Desktop**: `1024px – 1439px`
-- **Large Desktop**: desde `1440px`
-- **Ultra-wide**: desde `1920px`
+## Laptop Screen Dimensions - The 2025 Landscape
 
-No los tomes como una ley fija: la altura del viewport, el contenido real y el tamaño del contenedor suelen importar tanto como el ancho.
+Our latest data shows that 15.6-inch screens continue to dominate the market, accounting for approximately 40% of all laptop sales. Here's what you need to know about the most common laptop screen sizes:
 
-## Referencia rápida por clase de dispositivo
+- **13.3 inches:** The portability champion, popular in ultrabooks and premium thin laptops
+- **14 inches:** The sweet spot for balancing performance and portability
+- **15.6 inches:** The market leader, offering the best value for most users
+- **17.3 inches:** The powerhouse choice for gaming and professional workstations
 
-| Clase | Rango típico | Nota |
-|---|---:|---|
-| Móvil pequeño | 320–374px | equipos compactos |
-| Móvil estándar | 375–430px | gran parte del tráfico actual |
-| Tablet | 768–1024px | prueba vertical y horizontal |
-| Laptop compacta | 1280–1440px+ | la altura disponible suele ser crítica |
-| Desktop | 1440–1920px | ideal para validar grids anchos |
-| Ultra-wide | 1920px+ | revisa max-widths y espacios vacíos |
+**Common Resolutions:**
+- **1366×768:** Still found in budget laptops (avoid for modern web design)
+- **1920×1080 (Full HD):** The current standard across all sizes
+- **2560×1440 (QHD):** Growing in premium 14" and 15.6" models
+- **3840×2160 (4K):** Premium territory, mainly 15.6" and 17.3"
 
-## Herramientas que conviene tener a mano
+For a full breakdown and detailed chart with market share data, see our in-depth analysis: [Average Laptop Screen Size 2025](https://screensizechecker.com/blog/average-laptop-screen-size-2025).
 
-- [Screen Size Checker]({{lang_prefix}}/) – consulta rápida del tamaño de pantalla actual
-- [Responsive Design Tester]({{lang_prefix}}/devices/responsive-tester) – prueba tu sitio en varios viewports
-- [Calculadora PPI]({{lang_prefix}}/devices/ppi-calculator) – calcula densidad de píxeles
-- [Calculadora de relación de aspecto]({{lang_prefix}}/devices/aspect-ratio-calculator) – compara proporciones de pantalla
+## Key Mobile & Tablet Dimensions (Quick Reference Table)
 
-## Recomendaciones prácticas
+| Device | Screen Size | Resolution | Viewport Size | Pixel Density |
+|--------|-------------|------------|---------------|---------------|
+| iPhone 15 Pro Max | 6.7" | 1290×2796 | 430×932 | 460 PPI |
+| iPhone 15 | 6.1" | 1179×2556 | 393×852 | 460 PPI |
+| iPhone 14 | 6.1" | 1170×2532 | 390×844 | 460 PPI |
+| iPad Pro 12.9" | 12.9" | 2048×2732 | 1024×1366 | 264 PPI |
+| iPad Air 10.9" | 10.9" | 1640×2360 | 820×1180 | 264 PPI |
+| Samsung Galaxy S24 Ultra | 6.8" | 1440×3120 | 480×1040 | 501 PPI |
+| Samsung Galaxy S24 | 6.2" | 1080×2340 | 360×780 | 416 PPI |
+| Google Pixel 8 Pro | 6.7" | 1344×2992 | 448×998 | 489 PPI |
 
-1. No pruebes solo móvil y desktop: laptops de 13–15 pulgadas siguen siendo críticas.  
-2. Vigila la altura útil, sobre todo con headers fijos y héroes grandes.  
-3. Revisa tablas, filtros y comparadores por separado.  
-4. Usa pruebas reales con herramientas o dispositivos, no solo resize manual del navegador.
+Need specs for a different model? Check our complete, searchable databases: [Full iPhone List](https://screensizechecker.com/devices/iphone-viewport-sizes), [Full iPad List](https://screensizechecker.com/devices/ipad-viewport-sizes), [Full Android List](https://screensizechecker.com/devices/android-viewport-sizes).
 
-## Conclusión
+## Responsive Design Breakpoints (Cheat Sheet)
 
-Esta hoja rápida no sustituye el testing real, pero sí ahorra mucho tiempo en el trabajo diario con interfaces responsive. Tener a mano tamaños, viewports y enlaces útiles te permite decidir mejor y más rápido.
+Based on 2025 device usage trends, here are our recommended breakpoints:
 
----
+### Standard Breakpoints
+- **Mobile:** `max-width: 767px`
+- **Tablet:** `768px - 1023px`
+- **Desktop:** `1024px - 1439px`
+- **Large Desktop:** `min-width: 1440px`
 
-## Lecturas relacionadas
+### Advanced Breakpoints (Optional)
+- **Small Mobile:** `max-width: 374px`
+- **Large Mobile:** `375px - 767px`
+- **Small Tablet:** `768px - 991px`
+- **Large Tablet:** `992px - 1199px`
+- **Small Desktop:** `1200px - 1439px`
+- **Ultra-wide:** `min-width: 1920px`
 
-- [Responsive Design Tester]({{lang_prefix}}/devices/responsive-tester)
-- [Fundamentos de CSS Media Queries]({{lang_prefix}}/blog/media-queries-essentials)
-- [Checklist de depuración responsive 2026]({{lang_prefix}}/blog/responsive-debugging-checklist)
-- [Tamaño promedio de pantalla de laptop en 2026]({{lang_prefix}}/blog/average-laptop-screen-size-2025)
+**Quick CSS Template:**
+```css
+/* Mobile First Approach */
+.container { width: 100%; }
 
----
+@media (min-width: 768px) {
+  /* Tablet */
+  .container { max-width: 750px; }
+}
 
-*Última actualización: marzo de 2026*
+@media (min-width: 1024px) {
+  /* Desktop */
+  .container { max-width: 1000px; }
+}
+
+@media (min-width: 1440px) {
+  /* Large Desktop */
+  .container { max-width: 1200px; }
+}
+```
+
+To learn more about how to implement these breakpoints effectively, read our [Media Queries Essentials guide](https://screensizechecker.com/blog/media-queries-essentials.html).
+
+## Your Essential Toolkit (Putting It All Together)
+
+Bookmark these tools to make your responsive design workflow more efficient:
+
+- **[Screen Size Checker](https://screensizechecker.com/)** - Check your current screen dimensions instantly
+- **[Responsive Tester](https://screensizechecker.com/devices/responsive-tester)** - Test your website across different device sizes
+- **[PPI Calculator](https://screensizechecker.com/devices/ppi-calculator)** - Calculate pixel density for any screen
+- **[Aspect Ratio Calculator](https://screensizechecker.com/devices/aspect-ratio-calculator)** - Calculate screen proportions and dimensions
+
+These tools, combined with this cheat sheet, will equip you to handle any responsive design challenge with confidence.
+
+## Conclusion
+
+In 2025's diverse device landscape, having instant access to accurate screen dimensions isn't just convenient—it's essential for creating web experiences that work everywhere. This cheat sheet brings together the most important data points, practical recommendations, and powerful tools you need to make informed responsive design decisions.
+
+**Bookmark this page** and return whenever you need quick answers about screen sizes, breakpoints, or device specifications. With the web becoming more diverse every day, this resource will save you countless hours of research and help you build better, more inclusive websites.
+
+Ready to put this knowledge into practice? Start with our [free Responsive Tester](https://screensizechecker.com/devices/responsive-tester) and see how your designs perform across the full spectrum of devices.

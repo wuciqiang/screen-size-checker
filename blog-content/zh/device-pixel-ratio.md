@@ -1,17 +1,16 @@
----
-title: "DPR 是什么？设备像素比 2026 速懂"
-description: "想搞懂设备像素比（DPR）？这篇文章会讲清楚 DPR 如何影响清晰度、响应式图片、Canvas 和 CSS 像素。"
-date: "2026-03-31"
-author: "Screen Size Checker Team"
+﻿---
+title: "设备像素比详解"
+description: "了解设备像素比(DPR)及其对网页设计和开发的影响"
+date: "2023-10-20"
+author: "Screen Size Checker团队"
 category: "technical"
 tags: ["dpr", "像素密度", "视网膜显示", "响应式设计"]
 featuredImage: "device-pixel-ratio.jpg"
-keywords: "DPR 是什么, 设备像素比, CSS 像素和设备像素, Retina 屏幕, 响应式图片, 高密度屏幕"
 ---
 
-## 设备像素比（DPR）2026 详解
+## 设备像素比详解
 
-设备像素比（Device Pixel Ratio，简称 DPR）是影响现代网页清晰度、图片质量和加载效率的核心概念之一。如果您曾经疑惑为什么同样一张图片在某些手机上很锐利、在另一些设备上却显得发虚，往往就和 DPR 有关。`r`n`r`n**快速回答**：DPR 描述的是**物理像素**与**CSS 像素**之间的比例。DPR 越高，界面通常越清晰，但也更容易暴露低分辨率图片、模糊图标和不合理的资源加载策略。
+设备像素比（Device Pixel Ratio，简称DPR）是现代网页开发中的一个关键概念，它直接影响着您的网站在不同设备上的视觉质量和性能表现。本文将解释什么是设备像素比、为什么它很重要，以及如何在项目中考虑这一因素。
 
 ## 什么是设备像素比？
 
@@ -54,7 +53,7 @@ const dpr = window.devicePixelRatio;
 console.log(`您的设备像素比是：${dpr}`);
 ```
 
-或者直接使用我们的[屏幕尺寸检查器]({{lang_prefix}}/)工具，它会显示DPR和其他设备信息。
+或者直接使用我们的[屏幕尺寸检查器](/zh/index.html)工具，它会显示DPR和其他设备信息。
 
 ## 为不同DPR优化图像
 
@@ -130,4 +129,4 @@ ctx.scale(dpr, dpr);
 
 请记住，针对不同DPR进行优化不仅仅是关于图像质量——还需要为每个用户的设备找到视觉保真度和性能之间的平衡。
 
-有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于[视口基础]({{lang_prefix}}/blog/viewport-basics)的其他文章，以及我们的设备专用指南，如[iPhone视口尺寸]({{lang_prefix}}/devices/iphone-viewport-sizes)和[Android视口尺寸]({{lang_prefix}}/devices/android-viewport-sizes)。 
+有关如何构建在所有设备上都能出色显示的响应式网站的更多信息，请查看我们关于[视口基础](/zh/blog/viewport-basics.html)的其他文章，以及我们的设备专用指南，如[iPhone视口尺寸](/zh/devices/iphone-viewport-sizes.html)和[Android视口尺寸](/zh/devices/android-viewport-sizes.html)。 

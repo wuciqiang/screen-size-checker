@@ -941,7 +941,7 @@ class BlogBuilder {
                             page_title: lang === 'zh' ?
                                 'Screen Size Checker 博客 - 屏幕尺寸与响应式设计指南' :
                                 (lang === 'pt' ? 'Blog Screen Size Checker - Guias de Tamanho de Tela e Design Responsivo' :
-                                'Screen Size & Viewport Blog | Screen Size Checker'),
+                                'Screen Size Checker Blog - Screen Size & Responsive Design Guides'),
                             page_description_key: 'blog_page_description',
                             page_heading_key: 'blog_page_heading',
                             page_intro_key: 'blog_page_intro',

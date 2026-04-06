@@ -1,284 +1,284 @@
 ---
-title: "G-Sync vs FreeSync em 2026: qual VRR compensa mais?"
-description: "NVIDIA G-Sync ou AMD FreeSync? Veja compatibilidade, preço, qualidade do VRR e qual opção faz mais sentido para sua GPU."
+title: "G-Sync vs FreeSync Jogos: Qual Tecnologia VRR é Melhor em 2026?"
+description: "Comparação completa de NVIDIA G-Sync vs AMD FreeSync para monitores gamers. Cobre desempenho, preço, compatibilidade e recomendações de especialistas para cada GPU e configuração de jogos."
 slug: "g-sync-vs-freesync-gaming"
-date: "2026-03-31"
+date: "2026-01-19"
 author: "Equipe Gamer Screen Size Checker"
 category: "gaming"
 tags: ["g-sync", "freesync", "vrr", "monitores-gamer", "nvidia", "amd"]
 featuredImage: "g-sync-vs-freesync-gaming-hero.jpg"
-keywords: "g sync vs freesync, melhor tecnologia vrr, nvidia g sync freesync, tecnologia de sincroniza莽茫o monitor gamer, compara莽茫o sincroniza莽茫o adaptativa"
+keywords: "g sync vs freesync, melhor tecnologia vrr, nvidia g sync freesync, tecnologia de sincronização monitor gamer, comparação sincronização adaptativa"
 ---
 
-# G-Sync vs FreeSync em 2026: qual VRR compensa mais?
+# G-Sync vs FreeSync Jogos: A Comparação Definitiva de Tecnologia VRR 2026
 
-Escolher entre NVIDIA G-Sync e AMD FreeSync 茅 crucial ao selecionar um monitor gamer. Ambas as tecnologias de Taxa de Atualiza莽茫o Vari谩vel (VRR) eliminam o screen tearing (rasgos na tela) e o stuttering (gagueira), mas diferem significativamente em implementa莽茫o, desempenho, compatibilidade e custo. Este guia abrangente analisa as diferen莽as t茅cnicas, desempenho real em jogos, compatibilidade de GPU e pre莽os para ajud谩-lo a escolher a tecnologia de sincroniza莽茫o ideal para sua configura莽茫o de jogos.
+Escolher entre NVIDIA G-Sync e AMD FreeSync é crucial ao selecionar um monitor gamer. Ambas as tecnologias de Taxa de Atualização Variável (VRR) eliminam o screen tearing (rasgos na tela) e o stuttering (gagueira), mas diferem significativamente em implementação, desempenho, compatibilidade e custo. Este guia abrangente analisa as diferenças técnicas, desempenho real em jogos, compatibilidade de GPU e preços para ajudá-lo a escolher a tecnologia de sincronização ideal para sua configuração de jogos.
 
-**Resposta R谩pida**: **FreeSync 茅 a escolha de melhor valor para a maioria dos jogadores em 2026** (padr茫o aberto, menor custo, ampla compatibilidade incluindo GPUs NVIDIA). **G-Sync ainda oferece desempenho premium e qualidade garantida** (m贸dulo dedicado, certifica莽茫o mais rigorosa, melhor manuseio de baixa taxa de quadros). Para jogadores conscientes do or莽amento e a maioria dos casos de uso, **FreeSync Premium 茅 o ponto ideal**. Para entusiastas com configura莽玫es de ponta, **G-Sync Ultimate entrega a melhor experi锚ncia**.
+**Resposta Rápida**: **FreeSync é a escolha de melhor valor para a maioria dos jogadores em 2026** (padrão aberto, menor custo, ampla compatibilidade incluindo GPUs NVIDIA). **G-Sync ainda oferece desempenho premium e qualidade garantida** (módulo dedicado, certificação mais rigorosa, melhor manuseio de baixa taxa de quadros). Para jogadores conscientes do orçamento e a maioria dos casos de uso, **FreeSync Premium é o ponto ideal**. Para entusiastas com configurações de ponta, **G-Sync Ultimate entrega a melhor experiência**.
 
 ## Entendendo a Tecnologia VRR
 
-### O Que 脡 Taxa de Atualiza莽茫o Vari谩vel (VRR)?
+### O Que É Taxa de Atualização Variável (VRR)?
 
 **O Problema que o VRR Resolve**:
-- **Screen Tearing**: Quando a taxa de quadros da GPU n茫o corresponde 脿 taxa de atualiza莽茫o do monitor
+- **Screen Tearing**: Quando a taxa de quadros da GPU não corresponde à taxa de atualização do monitor
 - **Stuttering**: Entrega de quadros inconsistente causando movimento irregular
 - **Input Lag**: V-Sync adiciona atraso para eliminar tearing
 
 **Como o VRR Funciona**:
-- O monitor ajusta dinamicamente a taxa de atualiza莽茫o para corresponder 脿 sa铆da de quadros da GPU
+- O monitor ajusta dinamicamente a taxa de atualização para corresponder à saída de quadros da GPU
 - Elimina tearing sem a penalidade de input lag do V-Sync
-- Cria uma experi锚ncia de jogo suave em taxas de quadros variadas
+- Cria uma experiência de jogo suave em taxas de quadros variadas
 - Sincroniza display e GPU para qualidade visual ideal
 
 ### Linha do Tempo da Tecnologia VRR
 
-**Evolu莽茫o da Sincroniza莽茫o Adaptativa**:
-- **2013**: NVIDIA introduz G-Sync (m贸dulo propriet谩rio)
-- **2014**: AMD anuncia FreeSync (padr茫o VESA aberto)
+**Evolução da Sincronização Adaptativa**:
+- **2013**: NVIDIA introduz G-Sync (módulo proprietário)
+- **2014**: AMD anuncia FreeSync (padrão VESA aberto)
 - **2019**: NVIDIA adiciona compatibilidade FreeSync (G-Sync Compatible)
-- **2020**: HDMI 2.1 VRR torna-se padr茫o
+- **2020**: HDMI 2.1 VRR torna-se padrão
 - **2026**: Suporte VRR universal na maioria dos monitores gamers
 
 ## Aprofundamento na Tecnologia G-Sync
 
 ### Arquitetura G-Sync
 
-**Implementa莽茫o de Hardware**:
-- **M贸dulo G-Sync Dedicado**: Hardware f铆sico dentro do monitor
-- **Controle NVIDIA**: Controle completo da taxa de atualiza莽茫o
+**Implementação de Hardware**:
+- **Módulo G-Sync Dedicado**: Hardware físico dentro do monitor
+- **Controle NVIDIA**: Controle completo da taxa de atualização
 - **Baseado em FPGA**: Processamento Field-Programmable Gate Array
-- **Comunica莽茫o Direta com a GPU**: Ignora o escalonador do monitor
+- **Comunicação Direta com a GPU**: Ignora o escalonador do monitor
 
-**N铆veis G-Sync (2026)**:
+**Níveis G-Sync (2026)**:
 
-| N铆vel | M贸dulo | Desempenho | Pr锚mio de Pre莽o | Recursos |
+| Nível | Módulo | Desempenho | Prêmio de Preço | Recursos |
 |------|--------|-------------|---------------|-----------|
-| **G-Sync Compatible** | Nenhum | Vari谩vel | $0 | VRR B谩sico, monitor FreeSync |
-| **G-Sync** | Padr茫o | Excelente | $100-200 | Overdrive vari谩vel, baixo lag |
+| **G-Sync Compatible** | Nenhum | Variável | $0 | VRR Básico, monitor FreeSync |
+| **G-Sync** | Padrão | Excelente | $100-200 | Overdrive variável, baixo lag |
 | **G-Sync Ultimate** | Premium | Melhor | $300-500 | HDR1000, Ultra Low Motion Blur |
 
 ### Vantagens do G-Sync
 
-鉁?**Desempenho Superior em Baixa Taxa de Quadros**
-- Faixa efetiva: Frequentemente at茅 1Hz
-- Compensa莽茫o de Baixa Taxa de Quadros (LFC) integrada
-- Melhor duplica莽茫o/triplica莽茫o de taxa de quadros
+✅ **Desempenho Superior em Baixa Taxa de Quadros**
+- Faixa efetiva: Frequentemente até 1Hz
+- Compensação de Baixa Taxa de Quadros (LFC) integrada
+- Melhor duplicação/triplicação de taxa de quadros
 - Desempenho suave abaixo de 30 FPS
 
-鉁?**Controle de Qualidade Mais Rigoroso**
-- Processo de certifica莽茫o da NVIDIA
-- Padr玫es de desempenho garantidos
+✅ **Controle de Qualidade Mais Rigoroso**
+- Processo de certificação da NVIDIA
+- Padrões de desempenho garantidos
 - Testado e verificado pela NVIDIA
-- Experi锚ncia consistente entre modelos
+- Experiência consistente entre modelos
 
-鉁?**Overdrive Vari谩vel**
-- Ajuste autom谩tico de overdrive por taxa de atualiza莽茫o
+✅ **Overdrive Variável**
+- Ajuste automático de overdrive por taxa de atualização
 - Elimina ghosting em todas as taxas de quadros
 - Tempo de resposta ideal em qualquer velocidade
 - Sem necessidade de ajuste manual
 
-鉁?**Ultra Low Motion Blur (ULMB)**
-- Estrobosc贸pio de luz de fundo para clareza de movimento
-- Reduz desfoque de movimento em jogos r谩pidos
-- Dispon铆vel em displays G-Sync Ultimate
-- N茫o pode usar com VRR simultaneamente
+✅ **Ultra Low Motion Blur (ULMB)**
+- Estroboscópio de luz de fundo para clareza de movimento
+- Reduz desfoque de movimento em jogos rápidos
+- Disponível em displays G-Sync Ultimate
+- Não pode usar com VRR simultaneamente
 
-鉁?**Integra莽茫o Avan莽ada de HDR**
+✅ **Integração Avançada de HDR**
 - G-Sync Ultimate requer HDR1000
-- Melhor implementa莽茫o de HDR
+- Melhor implementação de HDR
 - Garantias de pico de brilho
-- Padr玫es de precis茫o de cor
+- Padrões de precisão de cor
 
 ### Desvantagens do G-Sync
 
-鉂?**Custo Mais Alto**
-- Pr锚mio de $100-500 sobre FreeSync
-- M贸dulo dedicado aumenta custo de fabrica莽茫o
-- Limita op莽玫es de monitor econ么mico
+❌ **Custo Mais Alto**
+- Prêmio de $100-500 sobre FreeSync
+- Módulo dedicado aumenta custo de fabricação
+- Limita opções de monitor econômico
 - Melhor valor apenas no topo de linha
 
-鉂?**Bloqueio de GPU NVIDIA**
-- Funciona apenas com placas gr谩ficas NVIDIA
+❌ **Bloqueio de GPU NVIDIA**
+- Funciona apenas com placas gráficas NVIDIA
 - Sem compatibilidade entre plataformas
-- Limita flexibilidade de atualiza莽茫o de GPU
-- Estrat茅gia de bloqueio de fornecedor
+- Limita flexibilidade de atualização de GPU
+- Estratégia de bloqueio de fornecedor
 
-鉂?**Sele莽茫o Limitada de Monitores**
-- Menos modelos dispon铆veis
+❌ **Seleção Limitada de Monitores**
+- Menos modelos disponíveis
 - Concentrado no segmento premium
-- Menos variedade em or莽amento/m茅dio alcance
-- Ado莽茫o mais lenta pelos fabricantes
+- Menos variedade em orçamento/médio alcance
+- Adoção mais lenta pelos fabricantes
 
-鉂?**Consumo de Energia**
-- M贸dulo G-Sync requer energia adicional
+❌ **Consumo de Energia**
+- Módulo G-Sync requer energia adicional
 - Custos de eletricidade mais altos
-- Mais gera莽茫o de calor
+- Mais geração de calor
 - Pode exigir resfriamento ativo
 
 ## Aprofundamento na Tecnologia FreeSync
 
 ### Arquitetura FreeSync
 
-**Implementa莽茫o de Software**:
-- **Padr茫o VESA Adaptive Sync**: Padr茫o aberto da ind煤stria
-- **DisplayPort/HDMI Nativo**: Usa padr玫es existentes
-- **Implementa莽茫o Escal谩vel**: V谩rios n铆veis de desempenho
+**Implementação de Software**:
+- **Padrão VESA Adaptive Sync**: Padrão aberto da indústria
+- **DisplayPort/HDMI Nativo**: Usa padrões existentes
+- **Implementação Escalável**: Vários níveis de desempenho
 - **Controle de Driver de GPU**: Suporte a driver AMD/NVIDIA
 
-**N铆veis FreeSync (2026)**:
+**Níveis FreeSync (2026)**:
 
-| N铆vel | Requisitos | Desempenho | Recursos | Disponibilidade |
+| Nível | Requisitos | Desempenho | Recursos | Disponibilidade |
 |------|-------------|-------------|----------|-------------|
-| **FreeSync** | VRR B谩sico | Bom | Faixa 48-75Hz | Ampla |
+| **FreeSync** | VRR Básico | Bom | Faixa 48-75Hz | Ampla |
 | **FreeSync Premium** | LFC + 120Hz | Muito Bom | Faixa estendida | Comum |
 | **FreeSync Premium Pro** | HDR + LFC | Excelente | Requer HDR400+ | Crescente |
 
 ### Vantagens do FreeSync
 
-鉁?**Benef铆cios de Padr茫o Aberto**
+✅ **Benefícios de Padrão Aberto**
 - Sem taxas de licenciamento para fabricantes
-- Pre莽os de monitor mais baixos
-- Ado莽茫o mais ampla por fabricantes
-- Ecossistema amig谩vel 脿 inova莽茫o
+- Preços de monitor mais baixos
+- Adoção mais ampla por fabricantes
+- Ecossistema amigável à inovação
 
-鉁?**Compatibilidade Entre Plataformas**
+✅ **Compatibilidade Entre Plataformas**
 - Funciona com GPUs AMD (nativo)
 - Funciona com GPUs NVIDIA (G-Sync Compatible)
 - Suporte a GPU Intel chegando
-- Tend锚ncia de compatibilidade universal
+- Tendência de compatibilidade universal
 
-鉁?**Ampla Gama de Op莽玫es**
-- Dispon铆vel em todos os pontos de pre莽o
-- Segmentos de or莽amento a premium cobertos
+✅ **Ampla Gama de Opções**
+- Disponível em todos os pontos de preço
+- Segmentos de orçamento a premium cobertos
 - Muitos fabricantes participando
 - Variedade em tamanhos e recursos
 
-鉁?**Melhor Proposta de Valor**
-- Sem pr锚mio de hardware
-- Pre莽os competitivos
-- Bom desempenho por d贸lar
-- Acess铆vel a usu谩rios mainstream
+✅ **Melhor Proposta de Valor**
+- Sem prêmio de hardware
+- Preços competitivos
+- Bom desempenho por dólar
+- Acessível a usuários mainstream
 
-鉁?**Integra莽茫o HDMI 2.1**
+✅ **Integração HDMI 2.1**
 - Compatibilidade com console (PS5, Xbox Series X)
-- Solu莽茫o de cabo 煤nico
-- Integra莽茫o com TV poss铆vel
-- Conectividade 脿 prova de futuro
+- Solução de cabo único
+- Integração com TV possível
+- Conectividade à prova de futuro
 
 ### Desvantagens do FreeSync
 
-鉂?**Qualidade Inconsistente**
-- Ampla varia莽茫o na implementa莽茫o
-- Sem padr玫es de certifica莽茫o rigorosos
-- Alguns monitores t锚m faixas de VRR ruins
+❌ **Qualidade Inconsistente**
+- Ampla variação na implementação
+- Sem padrões de certificação rigorosos
+- Alguns monitores têm faixas de VRR ruins
 - Qualidade varia por fabricante
 
-鉂?**Suporte Limitado a Baixa Taxa de Quadros**
+❌ **Suporte Limitado a Baixa Taxa de Quadros**
 - Faixa efetiva mais estreita (tipicamente 48-75Hz)
 - Desempenho ruim abaixo de 48 FPS
 - Stuttering quando fora da faixa
-- Compensa莽茫o de taxa de quadros menos eficaz
+- Compensação de taxa de quadros menos eficaz
 
-鉂?**Ajuste Manual de Overdrive**
-- Configura莽玫es de overdrive fixas
+❌ **Ajuste Manual de Overdrive**
+- Configurações de overdrive fixas
 - Pode precisar de ajuste manual
-- Ghosting em algumas taxas de atualiza莽茫o
-- N茫o ideal em toda a faixa
+- Ghosting em algumas taxas de atualização
+- Não ideal em toda a faixa
 
-鉂?**Implementa莽茫o Vari谩vel de HDR**
+❌ **Implementação Variável de HDR**
 - Qualidade HDR inconsistente
 - Requisitos de brilho mais baixos
-- Padr玫es de cor menos rigorosos
+- Padrões de cor menos rigorosos
 - Ampla gama de desempenho HDR
 
-## Compara莽茫o de Desempenho
+## Comparação de Desempenho
 
-### An谩lise de Faixa VRR
+### Análise de Faixa VRR
 
 **Faixas Operacionais Efetivas**:
 
-| Tecnologia | Faixa T铆pica | Limite LFC | Classifica莽茫o de Desempenho |
+| Tecnologia | Faixa Típica | Limite LFC | Classificação de Desempenho |
 |------------|---------------|---------------|-------------------|
-| G-Sync | 1-240Hz | Sempre ativo | 猸愨瓙猸愨瓙猸?Excelente |
-| G-Sync Compatible | 48-240Hz | Vari谩vel | 猸愨瓙猸愨瓙 Muito Bom |
-| FreeSync Premium | 48-165Hz | 48Hz+ necess谩rio | 猸愨瓙猸愨瓙 Muito Bom |
-| FreeSync Basic | 48-75Hz | Sem LFC | 猸愨瓙猸?Bom |
+| G-Sync | 1-240Hz | Sempre ativo | ⭐⭐⭐⭐⭐ Excelente |
+| G-Sync Compatible | 48-240Hz | Variável | ⭐⭐⭐⭐ Muito Bom |
+| FreeSync Premium | 48-165Hz | 48Hz+ necessário | ⭐⭐⭐⭐ Muito Bom |
+| FreeSync Basic | 48-75Hz | Sem LFC | ⭐⭐⭐ Bom |
 
-### Cen谩rios de Desempenho em Jogos
+### Cenários de Desempenho em Jogos
 
 **Jogos de Alta Taxa de Quadros (100+ FPS)**:
 - **Vencedor**: Empate - Ambos funcionam excelentemente
-- **G-Sync**: Overdrive vari谩vel ligeiramente melhor
-- **FreeSync**: Desempenho compar谩vel, melhor valor
-- **Diferen莽a Real**: M铆nima na pr谩tica
+- **G-Sync**: Overdrive variável ligeiramente melhor
+- **FreeSync**: Desempenho comparável, melhor valor
+- **Diferença Real**: Mínima na prática
 
-**Jogos de M茅dio Alcance (60-100 FPS)**:
+**Jogos de Médio Alcance (60-100 FPS)**:
 - **Vencedor**: Leve vantagem G-Sync
 - **G-Sync**: Desempenho mais consistente
-- **FreeSync**: Bom desempenho com implementa莽茫o adequada
-- **Not谩vel**: A maioria dos jogos acontece nesta faixa
+- **FreeSync**: Bom desempenho com implementação adequada
+- **Notável**: A maioria dos jogos acontece nesta faixa
 
 **Jogos de Baixa Taxa de Quadros (<48 FPS)**:
 - **Vencedor**: G-Sync (Claro)**
-- **G-Sync**: Excelente LFC e duplica莽茫o de quadros
+- **G-Sync**: Excelente LFC e duplicação de quadros
 - **FreeSync**: Frequentemente cai fora da faixa VRR
 - **Impacto**: Significativo para jogos exigentes
 
 **Jogos Competitivos (240Hz+)**:
-- **Vencedor**: Depende da implementa莽茫o
-- **G-Sync**: Melhor em taxas de atualiza莽茫o extremas
-- **FreeSync**: Alcan莽ando com monitores mais novos
-- **Considera莽茫o**: Ambos excedem limites de percep莽茫o humana
+- **Vencedor**: Depende da implementação
+- **G-Sync**: Melhor em taxas de atualização extremas
+- **FreeSync**: Alcançando com monitores mais novos
+- **Consideração**: Ambos excedem limites de percepção humana
 
-### Compara莽茫o de Input Lag
+### Comparação de Input Lag
 
 **Input Lag Medido (Jogos 240Hz)**:
 
-| Tecnologia de Sincroniza莽茫o | Input Lag | vs Sem Sync | Notas |
+| Tecnologia de Sincronização | Input Lag | vs Sem Sync | Notas |
 |----------------|-----------|------------|-------|
-| Sem Sync (Tearing) | 1-2ms | Base | Tearing vis铆vel |
+| Sem Sync (Tearing) | 1-2ms | Base | Tearing visível |
 | G-Sync | 2-3ms | +1-2ms | Excelente |
 | FreeSync Premium | 3-4ms | +2-3ms | Muito bom |
 | FreeSync Basic | 4-5ms | +3-4ms | Bom |
 | V-Sync | 16-33ms | +15-32ms | Ruim |
 
-**Insight Chave**: VRR moderno adiciona input lag m铆nimo comparado 脿 penalidade significativa do V-Sync.
+**Insight Chave**: VRR moderno adiciona input lag mínimo comparado à penalidade significativa do V-Sync.
 
-## An谩lise de Compatibilidade de GPU
+## Análise de Compatibilidade de GPU
 
 ### Suporte a GPU NVIDIA
 
-**GeForce RTX S茅rie 40 (2026)**:
+**GeForce RTX Série 40 (2026)**:
 - **G-Sync**: Suporte nativo, recursos completos
-- **FreeSync**: Certifica莽茫o G-Sync Compatible
+- **FreeSync**: Certificação G-Sync Compatible
 - **Desempenho**: Excelente com ambas as tecnologias
-- **Recomenda莽茫o**: FreeSync oferece melhor valor
+- **Recomendação**: FreeSync oferece melhor valor
 
-**GeForce RTX S茅rie 30**:
-- **G-Sync**: Suporte completo, todos os n铆veis
+**GeForce RTX Série 30**:
+- **G-Sync**: Suporte completo, todos os níveis
 - **FreeSync**: Bom suporte G-Sync Compatible
 - **Desempenho**: Ambos funcionam bem
 - **Custo**: FreeSync proporciona economia
 
-**GeForce GTX S茅rie 16/10**:
-- **G-Sync**: Limitado a m贸dulos mais antigos
+**GeForce GTX Série 16/10**:
+- **G-Sync**: Limitado a módulos mais antigos
 - **FreeSync**: Suporte G-Sync Compatible varia
-- **Compatibilidade**: Verifique suporte de modelo espec铆fico
-- **Futuro**: Op莽玫es de novos monitores limitadas
+- **Compatibilidade**: Verifique suporte de modelo específico
+- **Futuro**: Opções de novos monitores limitadas
 
 ### Suporte a GPU AMD
 
-**Radeon RX S茅rie 7000 (2026)**:
+**Radeon RX Série 7000 (2026)**:
 - **FreeSync**: Nativo, desempenho ideal
-- **G-Sync**: N茫o compat铆vel
-- **Exclusivo**: FreeSync 煤nica op莽茫o
-- **Desempenho**: Excelente em todos os n铆veis
+- **G-Sync**: Não compatível
+- **Exclusivo**: FreeSync única opção
+- **Desempenho**: Excelente em todos os níveis
 
-**Radeon RX S茅rie 6000**:
-- **FreeSync**: Suporte completo, todos os n铆veis
-- **G-Sync**: Incompat铆vel
-- **Valor**: FreeSync essencial para usu谩rios AMD
+**Radeon RX Série 6000**:
+- **FreeSync**: Suporte completo, todos os níveis
+- **G-Sync**: Incompatível
+- **Valor**: FreeSync essencial para usuários AMD
 - **Faixa**: Funciona em toda a linha de produtos
 
 ### Suporte a GPU Intel
@@ -287,82 +287,82 @@ Escolher entre NVIDIA G-Sync e AMD FreeSync 茅 crucial ao selecionar um monitor
 - **FreeSync**: Suporte crescente
 - **G-Sync**: Compatibilidade limitada
 - **Status**: Melhorando suporte de driver
-- **Futuro**: Prov谩vel foco em FreeSync
+- **Futuro**: Provável foco em FreeSync
 
-> **Guia de Painel**: Quer entender as tecnologias de painel de monitor que funcionam com esses sistemas de sincroniza莽茫o? Leia nossa [compara莽茫o Jogos IPS vs TN vs VA]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming).
+> **Guia de Painel**: Quer entender as tecnologias de painel de monitor que funcionam com esses sistemas de sincronização? Leia nossa [comparação Jogos IPS vs TN vs VA](/hub/ips-vs-tn-vs-va-gaming).
 
-## An谩lise de Pre莽o e Valor
+## Análise de Preço e Valor
 
-### Impacto no Pre莽o do Monitor (2026)
+### Impacto no Preço do Monitor (2026)
 
-**Pre莽os de Monitor 27" 1440p 165Hz**:
+**Preços de Monitor 27" 1440p 165Hz**:
 
-| Tecnologia de Sincroniza莽茫o | Or莽amento | M茅dio Alcance | Premium | Notas |
+| Tecnologia de Sincronização | Orçamento | Médio Alcance | Premium | Notas |
 |----------------|--------|-----------|---------|--------|
-| Sem VRR | $250-300 | $300-400 | $400-500 | Monitores b谩sicos |
+| Sem VRR | $250-300 | $300-400 | $400-500 | Monitores básicos |
 | FreeSync | $300-350 | $400-500 | $500-700 | Melhor valor |
 | FreeSync Premium | $350-400 | $450-550 | $600-800 | Ponto ideal |
 | G-Sync Compatible | $300-350 | $400-500 | $500-700 | Mesmo que FreeSync |
 | G-Sync | $500-600 | $700-800 | $900-1200 | Custo premium |
 | G-Sync Ultimate | $800-1000 | $1200-1500 | $1500+ | Apenas entusiasta |
 
-### An谩lise de Custo-Benef铆cio
+### Análise de Custo-Benefício
 
-**Melhores Cen谩rios de Valor**:
-- **Jogos Econ么micos**: FreeSync Basic ($350 vs $600 G-Sync)
+**Melhores Cenários de Valor**:
+- **Jogos Econômicos**: FreeSync Basic ($350 vs $600 G-Sync)
 - **Jogos Mainstream**: FreeSync Premium ($500 vs $800 G-Sync)
-- **Jogos High-End**: Considere G-Sync Ultimate ($1200+ justific谩vel)
-- **Prepara莽茫o para o Futuro**: FreeSync para flexibilidade de GPU
+- **Jogos High-End**: Considere G-Sync Ultimate ($1200+ justificável)
+- **Preparação para o Futuro**: FreeSync para flexibilidade de GPU
 
 **Custo Total de Propriedade**:
 
-| Cen谩rio de 5 Anos | FreeSync Premium | G-Sync | Economia |
+| Cenário de 5 Anos | FreeSync Premium | G-Sync | Economia |
 |----------------|-----------------|--------|---------|
 | Custo do Monitor | $500 | $800 | $300 |
 | Flexibilidade de GPU | Alta | Baixa | $200+ |
 | Consumo de Energia | Menor | Maior | $50 |
 | **Economia Total** | **Base** | **+$550** | **$550** |
 
-## Casos de Uso de Jogos e Recomenda莽玫es
+## Casos de Uso de Jogos e Recomendações
 
 ### Jogos Competitivos
 
 **Melhor Escolha**: **FreeSync Premium**
 
 **Por Que FreeSync Vence**:
-- Custo menor deixa or莽amento para melhor GPU
-- Excelente desempenho de alta atualiza莽茫o
+- Custo menor deixa orçamento para melhor GPU
+- Excelente desempenho de alta atualização
 - Compatibilidade NVIDIA remove bloqueio de fornecedor
-- Diferen莽a de desempenho m铆nima em 240Hz+
+- Diferença de desempenho mínima em 240Hz+
 
-**Configura莽茫o Recomendada**:
+**Configuração Recomendada**:
 - 24-27" 1440p 240Hz FreeSync Premium ($600)
 - RTX 4070 ou RX 7700 XT
-- Foco total na taxa de quadros sobre pr锚mio de sincroniza莽茫o
+- Foco total na taxa de quadros sobre prêmio de sincronização
 
 ### Jogos Imersivos Single-Player
 
-**Melhor Escolha**: **Depende do Or莽amento**
+**Melhor Escolha**: **Depende do Orçamento**
 
-**Or莽amento/M茅dio Alcance**: FreeSync Premium
-- Excelente experi锚ncia por $500-700
-- Ampla sele莽茫o de monitores
+**Orçamento/Médio Alcance**: FreeSync Premium
+- Excelente experiência por $500-700
+- Ampla seleção de monitores
 - Bom manuseio de quadros baixos com LFC
 
 **High-End/Entusiasta**: G-Sync Ultimate
-- Melhor experi锚ncia poss铆vel
-- Integra莽茫o HDR superior
-- Vale o pr锚mio para qualidade m谩xima
+- Melhor experiência possível
+- Integração HDR superior
+- Vale o prêmio para qualidade máxima
 
 ### Jogos Mistos e Produtividade
 
 **Melhor Escolha**: **FreeSync Premium**
 
-**Por Que FreeSync 茅 Ideal**:
+**Por Que FreeSync é Ideal**:
 - Melhor variedade de monitores (recursos de produtividade)
 - Custo menor permite monitor maior/melhor
 - Compatibilidade entre plataformas
-- Sem sacrif铆cio de desempenho para uso misto
+- Sem sacrifício de desempenho para uso misto
 
 ### Jogos de Console (PS5/Xbox Series X)
 
@@ -371,107 +371,107 @@ Escolher entre NVIDIA G-Sync e AMD FreeSync 茅 crucial ao selecionar um monitor
 **Requisitos do Console**:
 - Suporte HDMI 2.1 VRR essencial
 - FreeSync funciona com consoles
-- G-Sync n茫o funciona com consoles
-- Capacidade 4K 120Hz necess谩ria
+- G-Sync não funciona com consoles
+- Capacidade 4K 120Hz necessária
 
-### Jogos Econ么micos
+### Jogos Econômicos
 
 **Melhor Escolha**: **FreeSync Basic**
 
-**Considera莽玫es de Or莽amento**:
+**Considerações de Orçamento**:
 - Ponto ideal $300-400
 - Ainda elimina tearing
 - Bom o suficiente para jogos 60-75 FPS
-- Deixa or莽amento para melhor GPU/CPU
+- Deixa orçamento para melhor GPU/CPU
 
 ## Futuro da Tecnologia VRR
 
-### Tend锚ncias da Ind煤stria (2026)
+### Tendências da Indústria (2026)
 
-**Converg锚ncia Acontecendo**:
-- Padroniza莽茫o HDMI 2.1 VRR
-- NVIDIA abra莽ando compatibilidade FreeSync
-- M贸dulos G-Sync tornando-se apenas premium
-- Padr玫es abertos ganhando mainstream
+**Convergência Acontecendo**:
+- Padronização HDMI 2.1 VRR
+- NVIDIA abraçando compatibilidade FreeSync
+- Módulos G-Sync tornando-se apenas premium
+- Padrões abertos ganhando mainstream
 
 **Impacto do Console**:
 - PS5/Xbox Series X usam HDMI 2.1 VRR
 - Fabricantes de TV adotando FreeSync
 - TVs de jogos implementando VRR amplamente
-- Jogos de console impulsionando a ado莽茫o
+- Jogos de console impulsionando a adoção
 
-### Evolu莽茫o Tecnol贸gica
+### Evolução Tecnológica
 
-**VRR de Pr贸xima Gera莽茫o**:
-- **Variable Rate Shading**: Otimiza莽茫o de quadros n铆vel GPU
-- **AI-Enhanced Sync**: Previs茫o de quadros por aprendizado de m谩quina
-- **Cloud Gaming VRR**: Integra莽茫o de servi莽o de streaming
+**VRR de Próxima Geração**:
+- **Variable Rate Shading**: Otimização de quadros nível GPU
+- **AI-Enhanced Sync**: Previsão de quadros por aprendizado de máquina
+- **Cloud Gaming VRR**: Integração de serviço de streaming
 - **Universal VRR**: Compatibilidade completa entre plataformas
 
-**Previs玫es 2026-2027**:
-- M贸dulos G-Sync limitados a ultra-premium
-- FreeSync torna-se padr茫o universal
+**Previsões 2026-2027**:
+- Módulos G-Sync limitados a ultra-premium
+- FreeSync torna-se padrão universal
 - Todos os monitores gamers incluem VRR
-- Pr锚mios de pre莽o desaparecem
+- Prêmios de preço desaparecem
 
-## Mitos Comuns e Equ铆vocos
+## Mitos Comuns e Equívocos
 
-### Mito 1: "G-Sync 茅 sempre melhor que FreeSync"
+### Mito 1: "G-Sync é sempre melhor que FreeSync"
 
-**Realidade**: Falso em 2026. Enquanto G-Sync era superior nos primeiros anos, o FreeSync Premium moderno oferece desempenho compar谩vel a menor custo. A lacuna diminuiu significativamente, e para a maioria dos usu谩rios, a diferen莽a de desempenho n茫o justifica o pr锚mio de pre莽o.
+**Realidade**: Falso em 2026. Enquanto G-Sync era superior nos primeiros anos, o FreeSync Premium moderno oferece desempenho comparável a menor custo. A lacuna diminuiu significativamente, e para a maioria dos usuários, a diferença de desempenho não justifica o prêmio de preço.
 
-### Mito 2: "FreeSync n茫o funciona com GPUs NVIDIA"
+### Mito 2: "FreeSync não funciona com GPUs NVIDIA"
 
-**Realidade**: Completamente falso desde 2019. NVIDIA suporta FreeSync atrav茅s da certifica莽茫o "G-Sync Compatible". A maioria dos monitores FreeSync funciona excelentemente com GPUs NVIDIA, fornecendo a mesma experi锚ncia que o suporte nativo AMD.
+**Realidade**: Completamente falso desde 2019. NVIDIA suporta FreeSync através da certificação "G-Sync Compatible". A maioria dos monitores FreeSync funciona excelentemente com GPUs NVIDIA, fornecendo a mesma experiência que o suporte nativo AMD.
 
-### Mito 3: "Voc锚 precisa de G-Sync para jogos competitivos"
+### Mito 3: "Você precisa de G-Sync para jogos competitivos"
 
-**Realidade**: Falso. Jogadores profissionais de esports raramente usam VRR, preferindo altas taxas de quadros consistentes (240Hz+ fixos). Quando o VRR 茅 usado competitivamente, o FreeSync Premium desempenha identicamente ao G-Sync em altas taxas de atualiza莽茫o.
+**Realidade**: Falso. Jogadores profissionais de esports raramente usam VRR, preferindo altas taxas de quadros consistentes (240Hz+ fixos). Quando o VRR é usado competitivamente, o FreeSync Premium desempenha identicamente ao G-Sync em altas taxas de atualização.
 
 ### Mito 4: "FreeSync tem pior input lag que G-Sync"
 
-**Realidade**: N茫o 茅 verdade para implementa莽玫es modernas. Monitores FreeSync Premium t锚m input lag dentro de 1-2ms dos monitores G-Sync. A diferen莽a est谩 abaixo dos limites de percep莽茫o humana para jogos.
+**Realidade**: Não é verdade para implementações modernas. Monitores FreeSync Premium têm input lag dentro de 1-2ms dos monitores G-Sync. A diferença está abaixo dos limites de percepção humana para jogos.
 
-### Mito 5: "G-Sync Ultimate vale o pr锚mio"
+### Mito 5: "G-Sync Ultimate vale o prêmio"
 
-**Realidade**: Raramente verdadeiro para a maioria dos jogadores. G-Sync Ultimate adiciona pr锚mio de $300-500 principalmente para certifica莽茫o HDR. A menos que voc锚 precise especificamente de HDR premium para cria莽茫o de conte煤do ou tenha or莽amento ilimitado, FreeSync Premium fornece 95% da experi锚ncia.
+**Realidade**: Raramente verdadeiro para a maioria dos jogadores. G-Sync Ultimate adiciona prêmio de $300-500 principalmente para certificação HDR. A menos que você precise especificamente de HDR premium para criação de conteúdo ou tenha orçamento ilimitado, FreeSync Premium fornece 95% da experiência.
 
-### Mito 6: "VRR n茫o importa acima de 120Hz"
+### Mito 6: "VRR não importa acima de 120Hz"
 
-**Realidade**: Parcialmente verdadeiro. Benef铆cios do VRR diminuem em taxas de atualiza莽茫o muito altas, mas a consist锚ncia da taxa de quadros varia. Mesmo a 144Hz+, VRR ajuda quando as taxas de quadros caem abaixo da taxa de atualiza莽茫o m谩xima do monitor.
+**Realidade**: Parcialmente verdadeiro. Benefícios do VRR diminuem em taxas de atualização muito altas, mas a consistência da taxa de quadros varia. Mesmo a 144Hz+, VRR ajuda quando as taxas de quadros caem abaixo da taxa de atualização máxima do monitor.
 
-## Recomenda莽玫es de Especialistas 2026
+## Recomendações de Especialistas 2026
 
 ### Melhor Monitor VRR Geral
 
 **LG 27GP850-B** (27" 1440p 165Hz FreeSync Premium) - $400
-- Excelente implementa莽茫o FreeSync Premium
+- Excelente implementação FreeSync Premium
 - Funciona perfeitamente com GPUs NVIDIA e AMD
-- Grande equil铆brio de pre莽o, desempenho e recursos
-- Nossa principal recomenda莽茫o para a maioria dos jogadores
+- Grande equilíbrio de preço, desempenho e recursos
+- Nossa principal recomendação para a maioria dos jogadores
 
-### Melhor Monitor VRR Econ么mico
+### Melhor Monitor VRR Econômico
 
 **AOC 24G2** (24" 1080p 144Hz FreeSync) - $180
-- Valor incr铆vel para jogos VRR
-- Boa implementa莽茫o FreeSync
-- Perfeito para jogos competitivos com or莽amento
+- Valor incrível para jogos VRR
+- Boa implementação FreeSync
+- Perfeito para jogos competitivos com orçamento
 - Deixa dinheiro para melhor GPU
 
 ### Melhor Monitor VRR Premium
 
 **ASUS ROG Swift PG32UQX** (32" 4K 144Hz G-Sync Ultimate) - $3000
-- Experi锚ncia de jogo definitiva
-- Implementa莽茫o Mini-LED HDR1000
+- Experiência de jogo definitiva
+- Implementação Mini-LED HDR1000
 - G-Sync Ultimate com todos os recursos
-- Para entusiastas com or莽amento ilimitado
+- Para entusiastas com orçamento ilimitado
 
 ### Melhor Monitor VRR de Valor
 
 **Dell S2722DGM** (27" 1440p 165Hz FreeSync Premium) - $350
-- Excelente pre莽o-desempenho
-- Implementa莽茫o FreeSync Premium s贸lida
-- 脫tima qualidade de constru莽茫o
+- Excelente preço-desempenho
+- Implementação FreeSync Premium sólida
+- Ótima qualidade de construção
 - Melhor valor em jogos 1440p
 
 ### Melhor Monitor VRR para Console
@@ -480,33 +480,33 @@ Escolher entre NVIDIA G-Sync e AMD FreeSync 茅 crucial ao selecionar um monitor
 - HDMI 2.1 com suporte VRR
 - Perfeito para PS5/Xbox Series X
 - Tamanho grande ideal para jogos de console
-- Funciona muito bem com PCs tamb茅m
+- Funciona muito bem com PCs também
 
 ## Perguntas Frequentes
 
-### Qual 茅 melhor, G-Sync ou FreeSync?
+### Qual é melhor, G-Sync ou FreeSync?
 
-FreeSync 茅 melhor para a maioria dos jogadores em 2026 devido ao menor custo, compatibilidade mais ampla e desempenho compar谩vel. G-Sync s贸 oferece vantagens em segmentos premium (G-Sync Ultimate) ou cen谩rios espec铆ficos que exigem o melhor desempenho poss铆vel em baixa taxa de quadros. A proposta de valor favorece fortemente o FreeSync.
+FreeSync é melhor para a maioria dos jogadores em 2026 devido ao menor custo, compatibilidade mais ampla e desempenho comparável. G-Sync só oferece vantagens em segmentos premium (G-Sync Ultimate) ou cenários específicos que exigem o melhor desempenho possível em baixa taxa de quadros. A proposta de valor favorece fortemente o FreeSync.
 
 ### FreeSync funciona com GPUs NVIDIA?
 
-Sim, FreeSync funciona excelentemente com GPUs NVIDIA atrav茅s do suporte "G-Sync Compatible" introduzido em 2019. A maioria dos monitores FreeSync 茅 certificada como compat铆vel, fornecendo a mesma experi锚ncia de jogo suave que o suporte nativo AMD. Usu谩rios NVIDIA podem escolher monitores FreeSync sem preocupa莽玫es de compatibilidade.
+Sim, FreeSync funciona excelentemente com GPUs NVIDIA através do suporte "G-Sync Compatible" introduzido em 2019. A maioria dos monitores FreeSync é certificada como compatível, fornecendo a mesma experiência de jogo suave que o suporte nativo AMD. Usuários NVIDIA podem escolher monitores FreeSync sem preocupações de compatibilidade.
 
 ### G-Sync vale o custo extra?
 
-Raramente em 2026. O pr锚mio de $100-500 do G-Sync s贸 茅 justific谩vel para entusiastas que buscam recursos G-Sync Ultimate (HDR premium, ULMB) ou usu谩rios que especificamente precisam do melhor desempenho poss铆vel em baixa taxa de quadros. Para 90% dos jogadores, FreeSync Premium fornece experi锚ncia equivalente a um custo muito menor.
+Raramente em 2026. O prêmio de $100-500 do G-Sync só é justificável para entusiastas que buscam recursos G-Sync Ultimate (HDR premium, ULMB) ou usuários que especificamente precisam do melhor desempenho possível em baixa taxa de quadros. Para 90% dos jogadores, FreeSync Premium fornece experiência equivalente a um custo muito menor.
 
 ### Posso usar FreeSync com AMD e G-Sync com NVIDIA?
 
-FreeSync funciona com GPUs AMD (nativo) e NVIDIA (G-Sync Compatible). G-Sync funciona apenas com GPUs NVIDIA. Isso torna o FreeSync a escolha mais flex铆vel para usu谩rios que podem mudar de marca de GPU no futuro.
+FreeSync funciona com GPUs AMD (nativo) e NVIDIA (G-Sync Compatible). G-Sync funciona apenas com GPUs NVIDIA. Isso torna o FreeSync a escolha mais flexível para usuários que podem mudar de marca de GPU no futuro.
 
 ### Qual faixa de VRR devo procurar?
 
-Procure monitores com pelo menos faixa de 48-144Hz com LFC (Compensa莽茫o de Baixa Taxa de Quadros). A certifica莽茫o FreeSync Premium garante isso. Evite monitores FreeSync b谩sicos com faixas estreitas (ex: 48-75Hz) pois eles fornecem experi锚ncia ruim em baixa taxa de quadros.
+Procure monitores com pelo menos faixa de 48-144Hz com LFC (Compensação de Baixa Taxa de Quadros). A certificação FreeSync Premium garante isso. Evite monitores FreeSync básicos com faixas estreitas (ex: 48-75Hz) pois eles fornecem experiência ruim em baixa taxa de quadros.
 
 ### Consoles suportam G-Sync ou FreeSync?
 
-PS5 e Xbox Series X suportam HDMI 2.1 VRR, que 茅 compat铆vel com FreeSync, mas n茫o com G-Sync. Se voc锚 joga em consoles, escolha um monitor FreeSync com suporte HDMI 2.1. Monitores G-Sync n茫o fornecer茫o funcionalidade VRR com consoles.
+PS5 e Xbox Series X suportam HDMI 2.1 VRR, que é compatível com FreeSync, mas não com G-Sync. Se você joga em consoles, escolha um monitor FreeSync com suporte HDMI 2.1. Monitores G-Sync não fornecerão funcionalidade VRR com consoles.
 
 ### Devo desativar VSync ao usar VRR?
 
@@ -514,55 +514,51 @@ Sim, sempre desative V-Sync ao usar G-Sync ou FreeSync. VRR substitui a funciona
 
 ### VRR afeta a qualidade da imagem?
 
-N茫o, VRR implementado corretamente n茫o afeta a qualidade da imagem est谩tica. Ele apenas controla o tempo de entrega de quadros para eliminar tearing e stuttering. Cores, nitidez e outros aspectos visuais permanecem inalterados.
+Não, VRR implementado corretamente não afeta a qualidade da imagem estática. Ele apenas controla o tempo de entrega de quadros para eliminar tearing e stuttering. Cores, nitidez e outros aspectos visuais permanecem inalterados.
 
-## Conclus茫o: Fazendo Sua Escolha VRR
+## Conclusão: Fazendo Sua Escolha VRR
 
-### Estrutura de Decis茫o
+### Estrutura de Decisão
 
 **Escolha FreeSync Se**:
-- Consciente do or莽amento (fator mais importante)
+- Consciente do orçamento (fator mais importante)
 - Quer flexibilidade de marca de GPU
 - Joga em consoles (PS5/Xbox Series X)
 - Principalmente jogos competitivos (altas taxas de quadros)
 - Comprador focado em valor
 
 **Escolha G-Sync Se**:
-- Or莽amento ilimitado para experi锚ncia definitiva
-- J谩 possui GPU NVIDIA high-end
-- Necessidade espec铆fica de recursos G-Sync Ultimate
+- Orçamento ilimitado para experiência definitiva
+- Já possui GPU NVIDIA high-end
+- Necessidade específica de recursos G-Sync Ultimate
 - Exige o melhor desempenho absoluto em baixa taxa de quadros
 - Entusiasta com requisitos premium
 
-### Recomenda莽玫es Espec铆ficas por GPU
+### Recomendações Específicas por GPU
 
-**Usu谩rios de GPU NVIDIA**:
-- **Or莽amento**: FreeSync Basic ($300-400)
+**Usuários de GPU NVIDIA**:
+- **Orçamento**: FreeSync Basic ($300-400)
 - **Mainstream**: FreeSync Premium ($400-600)
 - **High-End**: FreeSync Premium ou G-Sync ($600-1200)
 - **Entusiasta**: G-Sync Ultimate ($1200+)
 
-**Usu谩rios de GPU AMD**:
-- FreeSync 茅 sua 煤nica op莽茫o
-- **Or莽amento**: FreeSync Basic ($300-400)
+**Usuários de GPU AMD**:
+- FreeSync é sua única opção
+- **Orçamento**: FreeSync Basic ($300-400)
 - **Recomendado**: FreeSync Premium ($400-600)
 - **Premium**: FreeSync Premium Pro ($600-1000)
 
-### Recomenda莽茫o Final 2026
+### Recomendação Final 2026
 
-**Para 85% dos jogadores**: **FreeSync Premium** 茅 a escolha ideal. Fornece excelente desempenho VRR, funciona com todas as GPUs modernas, custa significativamente menos que G-Sync e oferece a melhor proposta de valor.
+**Para 85% dos jogadores**: **FreeSync Premium** é a escolha ideal. Fornece excelente desempenho VRR, funciona com todas as GPUs modernas, custa significativamente menos que G-Sync e oferece a melhor proposta de valor.
 
-**Para entusiastas com or莽amento ilimitado**: **G-Sync Ultimate** entrega a melhor experi锚ncia absoluta, mas a um pr锚mio que s贸 茅 justific谩vel para aqueles que buscam a perfei莽茫o independentemente do custo.
+**Para entusiastas com orçamento ilimitado**: **G-Sync Ultimate** entrega a melhor experiência absoluta, mas a um prêmio que só é justificável para aqueles que buscam a perfeição independentemente do custo.
 
-A guerra de tecnologia VRR acabou essencialmente 鈥?FreeSync venceu atrav茅s de padr玫es abertos, custos mais baixos e ampla compatibilidade enquanto alcan莽ava paridade de desempenho na maioria dos cen谩rios.
-
----
-
-**Aperfei莽oe sua configura莽茫o de jogos**: Explore nossos outros guias de monitores gamer:
-- [Monitor Gamer vs TV: Compara莽茫o Completa de Tela]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
-- [Monitor Gamer Curvo vs Plano: Compara莽茫o de Formato]({{lang_prefix}}/hub/curved-vs-flat-monitor-gaming)
-- [Jogos 144Hz vs 240Hz: An谩lise de Taxa de Atualiza莽茫o]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)
+A guerra de tecnologia VRR acabou essencialmente — FreeSync venceu através de padrões abertos, custos mais baixos e ampla compatibilidade enquanto alcançava paridade de desempenho na maioria dos cenários.
 
 ---
 
-**脷ltima Atualiza莽茫o**: Mar莽o de 2026
+**Aperfeiçoe sua configuração de jogos**: Explore nossos outros guias de monitores gamer:
+- [Monitor Gamer vs TV: Comparação Completa de Tela](/hub/gaming-monitor-vs-tv)
+- [Monitor Gamer Curvo vs Plano: Comparação de Formato](/hub/curved-vs-flat-monitor-gaming)
+- [Jogos 144Hz vs 240Hz: Análise de Taxa de Atualização](/hub/144hz-vs-240hz-gaming)

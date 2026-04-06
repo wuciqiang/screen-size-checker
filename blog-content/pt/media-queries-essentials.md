@@ -1,18 +1,18 @@
 ---
-title: "CSS Media Queries em 2026: guia base"
-description: "Aprenda a usar CSS media queries melhor: escolher breakpoints úteis, entender min-width vs max-width e evitar erros comuns de layout responsivo."
-date: "2026-03-31"
+title: "Fundamentos de Media Queries para Design Responsivo"
+description: "Domine CSS media queries para criar sites responsivos. Aprenda sintaxe, breakpoints, boas práticas e como adaptar layouts para qualquer dispositivo."
+date: "2023-10-25"
 author: "Equipe Screen Size Checker"
 category: "css"
 tags: ["media-queries", "design-responsivo", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"
 slug: "fundamentos-media-queries"
-keywords: "css media queries, breakpoints responsivos, min width max width, design responsivo css, media queries guia"
+keywords: "media queries, css, design responsivo, breakpoints, viewport, media queries css"
 ---
 
-# CSS Media Queries em 2026: guia básico
+# Fundamentos de Media Queries para Design Responsivo
 
-Media queries continuam sendo uma das ferramentas mais importantes do CSS responsivo. Elas permitem ajustar layout, tipografia e espaçamento de acordo com largura, altura, orientação e outras condições reais do dispositivo.`r`n`r`n**Resposta rápida**: uma media query aplica estilos CSS apenas quando uma condição específica é atendida — por exemplo, viewport menor que 768px ou tela em modo paisagem. É assim que um layout muda de forma controlada entre celular, tablet e desktop.
+Media queries são a espinha dorsal do design web responsivo, permitindo que sites adaptem seu layout e estilo com base nas características do dispositivo. Este guia cobre tudo o que você precisa saber para implementar media queries eficazes em seus projetos.
 
 ## O Que São Media Queries?
 

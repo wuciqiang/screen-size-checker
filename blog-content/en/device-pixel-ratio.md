@@ -1,24 +1,16 @@
----
-title: "Device Pixel Ratio (DPR) 2026"
-description: "What is device pixel ratio and why does it matter? Learn how DPR affects sharpness, responsive images, canvas, and CSS pixels on modern screens."
-slug: "device-pixel-ratio"
-date: "2026-03-31"
+﻿---
+title: "Device Pixel Ratio Explained"
+description: "Learn about device pixel ratio (DPR) and how it affects web design and development"
+date: "2023-10-20"
 author: "Screen Size Checker Team"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"
-keywords: "device pixel ratio, dpr, css pixels vs device pixels, retina display, responsive images, high density screens"
 ---
 
-# What Is Device Pixel Ratio? DPR Explained for 2026
+## Device Pixel Ratio Explained
 
-Device Pixel Ratio (DPR) is one of the most important concepts behind sharp modern interfaces. If you have ever wondered why a phone with a 390px viewport can still have a much higher screen resolution, DPR is the missing piece. This guide explains what DPR means, why it matters, and how to design for it without wasting bandwidth or shipping blurry assets.
-
-## Quick Answer
-
-**Device Pixel Ratio (DPR)** is the ratio between **physical device pixels** and **CSS pixels**. A DPR of **2** means each CSS pixel maps to **4 physical pixels**. Higher DPR screens look sharper, but they also require better image handling, better canvas scaling, and more careful responsive design.
-
-If you want to connect DPR to real devices quickly, compare your current screen in the [Screen Size Checker](https://screensizechecker.com/), verify density with the [PPI Calculator](https://screensizechecker.com/devices/ppi-calculator), and cross-check layout behavior in the [Responsive Tester](https://screensizechecker.com/devices/responsive-tester).
+Device Pixel Ratio (DPR) is a critical concept in modern web development that directly impacts the visual quality and performance of your websites across different devices. This article explains what DPR is, why it matters, and how to account for it in your projects.
 
 ## What is Device Pixel Ratio?
 
@@ -61,7 +53,7 @@ const dpr = window.devicePixelRatio;
 console.log(`Your device pixel ratio is: ${dpr}`);
 ```
 
-Or check it directly using our [Screen Size Checker](https://screensizechecker.com/) tool, which displays DPR along with other device information.
+Or check it directly using our [Screen Size Checker](/en/index.html) tool, which displays DPR along with other device information.
 
 ## Optimizing Images for Different DPRs
 
@@ -137,6 +129,4 @@ Device Pixel Ratio significantly impacts how your website appears across differe
 
 Remember that optimizing for different DPRs isn't just about image quality—it's about finding the right balance between visual fidelity and performance for each user's device.
 
-For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](https://screensizechecker.com/blog/viewport-basics), [Screen Size Chart 2026](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet), and explore our device-specific guides like [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes) and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes).
-
-*Last updated: March 2026*
+For more information on how to build responsive websites that look great on all devices, check our other articles on [Viewport Basics](/blog/viewport-basics.html) and explore our device-specific guides like [iPhone Viewport Sizes](/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/devices/android-viewport-sizes.html). 

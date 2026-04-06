@@ -1030,8 +1030,8 @@ function generateInternalLinks() {
                 priority: 1,
                 icon: "📱",
                 urls: {
-                    "en": "devices/compare",
-                    "zh": "devices/compare"
+                    "en": "devices/compare.html",
+                    "zh": "devices/compare.html"
                 },
                 title: "Screen Size Comparison",
                 description: "Compare different screen sizes side by side"

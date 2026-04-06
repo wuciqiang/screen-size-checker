@@ -1,24 +1,16 @@
----
-title: "What Is a Viewport? 2026 Basics"
-description: "What is a viewport in web design? Learn how viewport width differs from screen resolution and why it matters for responsive layouts and breakpoints."
-slug: "viewport-basics"
-date: "2026-03-31"
+﻿---
+title: "Understanding Viewport Basics"
+description: "Learn what viewport is and why it's crucial for responsive web design"
+date: "2023-10-15"
 author: "Screen Size Checker Team"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
-keywords: "what is viewport, viewport basics, viewport vs screen resolution, responsive design viewport, css viewport width"
 ---
 
-# What Is a Viewport? Responsive Design Basics in 2026
+## Understanding Viewport Basics
 
-The viewport is one of the most important ideas in responsive web design, yet it is still confused with screen size and screen resolution all the time. This guide explains what the viewport is, how it differs from screen resolution, and why viewport size should drive your layout decisions.
-
-## Quick Answer
-
-The **viewport** is the visible area of a web page in **CSS pixels**. It is not the same as the screen's physical resolution. For responsive design, the viewport is usually the number you should care about when setting breakpoints and testing layouts.
-
-To make that difference concrete, compare your current device in the [Screen Size Checker](https://screensizechecker.com/), test layouts in the [Responsive Tester](https://screensizechecker.com/devices/responsive-tester), and keep the [Screen Size Chart 2026](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet) nearby as a quick reference.
+The viewport is one of the most fundamental concepts in web design and development, yet it's often misunderstood. This article explains what the viewport is, how it differs from screen resolution, and why it matters for creating responsive websites.
 
 ## What is a Viewport?
 
@@ -51,7 +43,7 @@ Understanding the viewport is critical for several reasons:
 
 ## How to Check Your Viewport Size
 
-You can easily check your current viewport size using our [Screen Size Checker](https://screensizechecker.com/) tool. This will display your current viewport dimensions in CSS pixels, along with other useful information like device pixel ratio and screen resolution.
+You can easily check your current viewport size using our [Screen Size Checker](/en/index.html) tool. This will display your current viewport dimensions in CSS pixels, along with other useful information like device pixel ratio and screen resolution.
 
 ## Common Viewport Sizes to Consider
 
@@ -63,14 +55,10 @@ When designing responsive websites, consider these common viewport widths:
 - **Desktop**: 1025px - 1440px
 - **Large Desktop**: 1441px+
 
-If you need exact device references instead of broad ranges, also use the [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes), [iPad Viewport Sizes](https://screensizechecker.com/devices/ipad-viewport-sizes), and [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes) databases.
-
 ## Conclusion
 
 Understanding the viewport concept is fundamental to modern web development. By properly implementing responsive design techniques based on viewport size rather than device detection, you can create websites that look great and function well across all devices.
 
 Remember that viewport size can change when users rotate their devices or resize their browser windows, so your designs should be flexible enough to accommodate these changes.
 
-For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](https://screensizechecker.com/devices/iphone-viewport-sizes), [Android Viewport Sizes](https://screensizechecker.com/devices/android-viewport-sizes), and [Device Pixel Ratio guide](https://screensizechecker.com/blog/device-pixel-ratio).
-
-*Last updated: March 2026*
+For more detailed information about specific device viewports, check our [iPhone Viewport Sizes](/devices/iphone-viewport-sizes.html) and [Android Viewport Sizes](/devices/android-viewport-sizes.html) guides. 

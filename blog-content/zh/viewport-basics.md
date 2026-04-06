@@ -1,17 +1,16 @@
----
-title: "什么是视口？2026 Viewport 基础"
-description: "视口和屏幕分辨率有什么区别？这篇文章会讲清楚 viewport 的含义，以及它为什么决定响应式布局和断点。"
-date: "2026-03-31"
-author: "Screen Size Checker Team"
+﻿---
+title: "视口（Viewport）基础知识详解"
+description: "深入了解什么是视口及其对响应式网页设计的重要性"
+date: "2023-10-15"
+author: "Screen Size Checker团队"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"
-keywords: "什么是视口, viewport 是什么, 视口和分辨率区别, 响应式设计视口, viewport 宽度"
 ---
 
-## 2026 年视口（Viewport）基础知识
+## 视口（Viewport）基础知识详解
 
-视口（Viewport）是响应式设计里最基础、也最容易被误解的概念之一。很多人会把视口宽度、屏幕分辨率和设备尺寸混为一谈，但真正影响布局表现的，往往是浏览器里的实际视口大小。`r`n`r`n**快速回答**：视口是浏览器中网页的可见区域，通常以 CSS 像素表示。它不等于设备的物理分辨率，因此做响应式设计时，必须优先关注视口而不是单纯的屏幕参数。
+视口是网页设计和开发中最基本的概念之一，但它常常被误解。本文将解释什么是视口，它与屏幕分辨率的区别，以及为什么它对创建响应式网站至关重要。
 
 ## 什么是视口？
 
@@ -44,7 +43,7 @@ keywords: "什么是视口, viewport 是什么, 视口和分辨率区别, 响应
 
 ## 如何检查您的视口大小
 
-您可以使用我们的[屏幕尺寸检查工具]({{lang_prefix}}/)轻松检查当前的视口大小。这将显示您当前的视口尺寸（以CSS像素为单位），以及其他有用信息，如设备像素比和屏幕分辨率。
+您可以使用我们的[屏幕尺寸检查工具](/zh/index.html)轻松检查当前的视口大小。这将显示您当前的视口尺寸（以CSS像素为单位），以及其他有用信息，如设备像素比和屏幕分辨率。
 
 ## 需要考虑的常见视口大小
 
@@ -62,4 +61,4 @@ keywords: "什么是视口, viewport 是什么, 视口和分辨率区别, 响应
 
 请记住，当用户旋转设备或调整浏览器窗口大小时，视口大小可能会发生变化，因此您的设计应该足够灵活以适应这些变化。
 
-有关特定设备视口的更多详细信息，请查看我们的[iPhone视口尺寸]({{lang_prefix}}/devices/iphone-viewport-sizes)和[Android视口尺寸]({{lang_prefix}}/devices/android-viewport-sizes)指南。 
+有关特定设备视口的更多详细信息，请查看我们的[iPhone视口尺寸](/zh/devices/iphone-viewport-sizes.html)和[Android视口尺寸](/zh/devices/android-viewport-sizes.html)指南。 
