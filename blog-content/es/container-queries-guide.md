@@ -2,7 +2,7 @@
 title: "Guía de Container Queries"
 description: "Aprende a usar CSS Container Queries para diseños responsive más flexibles"
 date: "2025-01-09"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["css", "responsive-design", "container-queries", "web-development", "frontend"]
 featured: true

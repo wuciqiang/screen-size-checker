@@ -2,8 +2,8 @@
 title: "HDR游戏显示器指南：2025年最佳HDR游戏显示器"
 description: "HDR游戏显示器完整指南。涵盖HDR标准、真假HDR、面板类型、游戏性能，以及针对每种预算和设置的专家建议。"
 slug: "hdr-gaming-monitor-guide"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-04-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["hdr", "游戏显示器", "hdr10", "杜比视界", "高动态范围"]
 featuredImage: "hdr-gaming-monitor-guide-hero.jpg"

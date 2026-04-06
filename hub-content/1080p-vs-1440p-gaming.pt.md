@@ -2,8 +2,8 @@
 title: "Jogos em 1080p vs 1440p: Qual Resolução é a Certa para Você em 2026?"
 description: "Comparação completa do desempenho em jogos 1080p vs 1440p, requisitos de hardware e análise de custo. Recomendações de especialistas baseadas em benchmarks de GPU de 2026 e preferências de jogadores profissionais."
 slug: "1080p-vs-1440p-gaming"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-02-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1080p", "1440p", "comparacao-jogos", "resolucao", "fps", "gpu"]
 featuredImage: "1080p-vs-1440p-hero.jpg"

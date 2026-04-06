@@ -2,6 +2,8 @@
 title: "Black Myth: Wukong - Ultimativer Anzeigeeinstellungen-Leitfaden"
 description: "Optimiere dein Spielerlebnis mit den perfekten Anzeigeeinstellungen"
 category: technical
+author: "Marcus Rivera"
+date: "2025-01-12"
 tags: ["black myth", "gaming", "hardware", "monitors", "4k"]
 ---
 

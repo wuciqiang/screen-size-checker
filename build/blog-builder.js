@@ -246,7 +246,10 @@ class BlogBuilder {
                     // 提取阅读时间（假设每分钟200字）
                     const wordCount = content.split(/\s+/).length;
                     const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-                    
+
+                    // 提取 FAQ 数据用于 FAQPage Schema
+                    const faqItems = this.extractFaqItems(content);
+
                     // 保存文章数据
                     const post = {
                         id,
@@ -261,7 +264,8 @@ class BlogBuilder {
                         tags: data.tags || [],
                         featuredImage: data.featuredImage || '',
                         content: htmlContent,
-                        readingTime
+                        readingTime,
+                        faqItems
                     };
                     
                     // 使用语言+ID作为唯一键，便于后续处理
@@ -318,7 +322,68 @@ class BlogBuilder {
         const { mtime } = fs.statSync(filePath);
         return new Date(mtime);
     }
-    
+
+    /**
+     * 从 Markdown 内容中提取 FAQ 问答对
+     * 查找 ## FAQ 或 ## Frequently Asked Questions 后的 ### 问题
+     */
+    extractFaqItems(markdownContent) {
+        const faqItems = [];
+        const lines = markdownContent.split('\n');
+        let inFaqSection = false;
+        let currentQuestion = null;
+        let currentAnswer = [];
+
+        for (const line of lines) {
+            if (/^##\s+(FAQ|Frequently Asked Questions)/i.test(line)) {
+                inFaqSection = true;
+                continue;
+            }
+            if (inFaqSection && /^##\s+[^#]/.test(line)) {
+                // Hit next h2 section, FAQ is over
+                if (currentQuestion) {
+                    faqItems.push({ question: currentQuestion, answer: currentAnswer.join(' ').trim() });
+                }
+                break;
+            }
+            if (inFaqSection && /^###\s+/.test(line)) {
+                if (currentQuestion) {
+                    faqItems.push({ question: currentQuestion, answer: currentAnswer.join(' ').trim() });
+                }
+                currentQuestion = line.replace(/^###\s+/, '').replace(/\*\*/g, '').trim();
+                currentAnswer = [];
+                continue;
+            }
+            if (inFaqSection && currentQuestion && line.trim()) {
+                currentAnswer.push(line.replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim());
+            }
+        }
+        if (currentQuestion) {
+            faqItems.push({ question: currentQuestion, answer: currentAnswer.join(' ').trim() });
+        }
+        return faqItems;
+    }
+
+    /**
+     * 从 FAQ 问答对生成 FAQPage Schema JSON-LD
+     */
+    generateFaqSchema(faqItems) {
+        if (!faqItems || faqItems.length < 2) return '';
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map(item => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                }
+            }))
+        };
+        return '<script type="application/ld+json">\n' + JSON.stringify(schema, null, 2) + '\n</script>';
+    }
+
     /**
      * 生成博客文章组件
      */
@@ -1053,11 +1118,14 @@ class BlogBuilder {
                                         '@type': 'BlogPosting',
                                         'headline': post.title,
                                         'description': post.description,
+                                        'image': post.featuredImage ? `https://screensizechecker.com/images/${post.featuredImage}` : undefined,
                                         'author': {
                                             '@type': 'Person',
-                                            'name': post.author
+                                            'name': post.author,
+                                            'url': `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}about`
                                         },
                                         'datePublished': existingDatePublished || post.date.toISOString(),
+                                        'dateModified': new Date().toISOString().split('T')[0],
                                         'publisher': {
                                             '@type': 'Organization',
                                             'name': 'Screen Size Checker',
@@ -1066,11 +1134,12 @@ class BlogBuilder {
                                                 'url': 'https://screensizechecker.com/favicon.png'
                                             }
                                         }
-                                    }
+                                    },
+                                    faq_structured_data: this.generateFaqSchema(post.faqItems)
                                 }
                             });
                         });
-                    
+
                     // 遍历分类添加配置
                     if (this.categories.has(lang)) {
                         Array.from(this.categories.get(lang).keys()).forEach(category => {

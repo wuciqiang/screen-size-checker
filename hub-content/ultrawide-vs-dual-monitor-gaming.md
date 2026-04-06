@@ -2,8 +2,8 @@
 title: "Ultrawide vs Dual Monitor Gaming: Which Setup is Better in 2025?"
 description: "Complete comparison of ultrawide monitors vs dual monitor setups for gaming and productivity. Includes game compatibility, performance analysis, and expert recommendations."
 slug: "ultrawide-vs-dual-monitor-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-06-16"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["ultrawide", "dual-monitor", "gaming-setup", "productivity", "monitor-comparison"]
 featuredImage: "ultrawide-vs-dual-monitor-gaming-hero.jpg"

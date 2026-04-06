@@ -2,8 +2,8 @@
 title: "Guía de Tamaño de Monitor Gaming 2025: 24\" vs 27\" vs 32\" - ¿Cuál es mejor?"
 description: "Guía completa para elegir el tamaño perfecto de monitor gaming. Comparación experta de pantallas de 24, 27 y 32 pulgadas con cálculos de distancia de visualización, recomendaciones de resolución y consideraciones ergonómicas."
 slug: "gaming-monitor-size-guide"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-02-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["tamaño-monitor", "monitor-gaming", "24-pulgadas", "27-pulgadas", "32-pulgadas", "distancia-visualización"]
 featuredImage: "gaming-monitor-size-hero.jpg"

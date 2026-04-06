@@ -2,7 +2,7 @@
 title: "CSS Container Queries Complete Guide: Say Goodbye to Media Query Pain Points"
 description: "Master CSS Container Queries with this comprehensive guide. Learn how to create truly responsive components that adapt to their container size, not just the viewport. Includes practical examples, browser support, and migration strategies."
 date: "2025-01-09"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["css", "responsive-design", "container-queries", "web-development", "frontend"]
 featured: true

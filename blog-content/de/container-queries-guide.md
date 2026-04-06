@@ -2,7 +2,7 @@
 title: "Container Queries Leitfaden"
 description: "Lerne, wie man CSS Container Queries für flexiblere responsive Designs verwendet"
 date: "2025-01-09"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["css", "responsive-design", "container-queries", "web-development", "frontend"]
 featured: true

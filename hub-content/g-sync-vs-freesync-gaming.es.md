@@ -2,8 +2,8 @@
 title: "G-Sync vs FreeSync Gaming: ¿Qué Tecnología VRR es Mejor 2025?"
 description: "Comparación completa de NVIDIA G-Sync vs AMD FreeSync para monitores gaming. Cubre rendimiento, precios, compatibilidad y recomendaciones expertas para cada GPU y setup gaming."
 slug: "g-sync-vs-freesync-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-06-02"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["g-sync", "freesync", "vrr", "monitores-gaming", "nvidia", "amd"]
 featuredImage: "g-sync-vs-freesync-gaming-hero.jpg"

@@ -2,7 +2,7 @@
 title: "Average Laptop Screen Size in 2025: 14 to 15.6 Inches (Developer Guide)"
 description: "Learn the average laptop screen size in 2025, common laptop screen dimensions, and aspect-ratio trends. Includes practical guidance for responsive design and UI breakpoints."
 date: "2025-01-25"
-author: "Blues"
+author: "Alex Chen"
 category: "technical"
 tags: ["laptop", "screen-size", "web-development", "responsive-design", "display-technology"]
 featured: true

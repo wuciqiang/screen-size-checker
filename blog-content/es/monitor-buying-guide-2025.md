@@ -3,7 +3,7 @@ title: "Guía de Compra de Monitores 2025: Cómo Elegir la Pantalla Perfecta"
 description: "Guía completa para comprar un monitor en 2025. Aprende sobre tipos de panel, resoluciones, tasas de refresco y encuentra el mejor monitor para gaming, trabajo o creación de contenido."
 slug: "monitor-buying-guide-2025"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["guía-monitor", "guía-compra", "tecnología-display", "guía"]
 featuredImage: "monitor-buying-guide-2025.jpg"

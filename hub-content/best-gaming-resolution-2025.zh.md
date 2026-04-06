@@ -2,8 +2,8 @@
 title: "2025年最佳游戏分辨率：1080p vs 1440p vs 4K完整指南"
 description: "发现2025年最适合你的游戏分辨率。专家对比1080p、1440p和4K游戏，包含FPS基准测试、硬件要求和职业选手推荐。"
 slug: "best-gaming-resolution-2025"
-date: "2025-01-19"
-author: "Screen Size Checker 游戏团队"
+date: "2025-01-20"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["游戏分辨率", "1080p", "1440p", "4k游戏", "fps", "显示器"]
 featuredImage: "best-gaming-resolution-hero.jpg"

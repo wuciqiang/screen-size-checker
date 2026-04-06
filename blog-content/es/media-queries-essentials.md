@@ -2,7 +2,7 @@
 title: "Fundamentos de CSS Media Queries"
 description: "Domina las media queries de CSS para diseño web responsive"
 date: "2023-10-25"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"

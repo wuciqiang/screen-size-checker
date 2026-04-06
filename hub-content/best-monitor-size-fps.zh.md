@@ -2,8 +2,8 @@
 title: "FPS游戏最佳显示器尺寸：24英寸 vs 27英寸 vs 32英寸指南 2025"
 description: "选择FPS游戏完美显示器尺寸的专家指南。对比24英寸、27英寸和32英寸显示器，包含职业选手数据、反应时间分析和人体工程学建议。"
 slug: "best-monitor-size-fps"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-03-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["fps游戏", "显示器尺寸", "竞技游戏", "电竞", "游戏装备"]
 featuredImage: "best-monitor-size-fps-hero.jpg"

@@ -2,7 +2,7 @@
 title: "2025年笔记本电脑平均屏幕尺寸是多少？（开发者指南）"
 description: "了解当前笔记本屏幕尺寸趋势及其对网页开发的影响。学习屏幕比例、像素密度和现代笔记本显示器的优化策略。"
 date: "2025-01-25"
-author: "Blues"
+author: "Alex Chen"
 category: "technical"
 tags: ["笔记本", "屏幕尺寸", "网页开发", "响应式设计", "显示技术"]
 featured: true

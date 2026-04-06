@@ -2,8 +2,8 @@
 title: "IPS vs TN vs VA Gaming: Best Panel Type for Gaming 2025"
 description: "Complete comparison of IPS, TN, VA, and OLED gaming monitor panel types. Includes response time analysis, color accuracy testing, and expert recommendations for every gaming genre."
 slug: "ips-vs-tn-vs-va-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-07-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["panel-types", "ips", "tn", "va", "oled", "gaming-monitors"]
 featuredImage: "ips-vs-tn-vs-va-gaming-hero.jpg"

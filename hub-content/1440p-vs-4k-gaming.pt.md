@@ -2,8 +2,8 @@
 title: "Jogos em 1440p vs 4K: Comparação Completa de Desempenho e Custo 2026"
 description: "Comparação aprofundada de jogos 1440p vs 4K com benchmarks reais de FPS, requisitos de GPU e análise de custo. Faça a escolha certa para sua configuração de jogos com recomendações de especialistas."
 slug: "1440p-vs-4k-gaming"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-03-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1440p", "jogos-4k", "comparacao-jogos", "resolucao", "desempenho-gpu", "monitor"]
 featuredImage: "1440p-vs-4k-gaming-hero.jpg"

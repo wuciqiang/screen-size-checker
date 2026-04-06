@@ -2,8 +2,8 @@
 title: "Curved vs Flat Monitor Gaming: Was ist besser 2025?"
 description: "Kompletter Vergleich von curved vs flat Gaming-Monitoren. Behandelt Immersion, Competitive Gaming, Augenbelastung, Schreibtischplatz und Expertenempfehlungen für jedes Gaming-Setup und Budget."
 slug: "curved-vs-flat-monitor-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-05-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["curved-monitor", "flat-monitor", "gaming-monitore", "immersion", "competitive-gaming"]
 featuredImage: "curved-vs-flat-monitor-gaming-hero.jpg"

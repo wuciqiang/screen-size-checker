@@ -2,7 +2,7 @@
 title: "Tamanho Médio de Tela de Notebook 2025"
 description: "Descubra o tamanho médio de tela de notebook em 2025, dimensões comuns e tendências. Guia prático para design responsivo e breakpoints."
 date: "2025-01-25"
-author: "Blues"
+author: "Alex Chen"
 category: "technical"
 tags: ["notebook", "tamanho-de-tela", "desenvolvimento-web", "design-responsivo", "tecnologia-exibicao"]
 featured: true

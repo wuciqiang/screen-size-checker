@@ -2,8 +2,8 @@
 title: "Beste Monitor-Größe für FPS Gaming: 24 vs 27 vs 32 Zoll Guide 2025"
 description: "Expertenratgeber zur Wahl der perfekten Monitor-Größe für FPS-Gaming. Vergleichen Sie 24\", 27\" und 32\" Displays mit Pro-Spieler-Daten, Reaktionszeitanalyse und ergonomischen Empfehlungen."
 slug: "best-monitor-size-fps"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-03-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["fps-gaming", "monitor-größe", "competitive-gaming", "esports", "gaming-setup"]
 featuredImage: "best-monitor-size-fps-hero.jpg"

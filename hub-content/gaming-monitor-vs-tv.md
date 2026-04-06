@@ -2,8 +2,8 @@
 title: "Gaming Monitor vs TV: Which Is Better for Gaming in 2025?"
 description: "Complete comparison of gaming monitors vs TVs for PC and console gaming. Covers input lag, response time, features, sizes, and expert recommendations for every gaming setup."
 slug: "gaming-monitor-vs-tv"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-04-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["gaming-monitor", "tv", "console-gaming", "pc-gaming", "comparison"]
 featuredImage: "gaming-monitor-vs-tv-hero.jpg"

@@ -2,6 +2,8 @@
 title: "Black Myth: Wukong - Guía Definitiva de Configuración de Pantalla"
 description: "Optimiza tu experiencia de juego con la configuración de pantalla perfecta"
 category: technical
+author: "Marcus Rivera"
+date: "2025-01-12"
 tags: ["black myth", "gaming", "hardware", "monitors", "4k"]
 ---
 

@@ -2,7 +2,7 @@
 title: "Gerätepixelverhältnis (DPR) erklärt"
 description: "Vollständiger Leitfaden zum Verständnis und zur Arbeit mit dem Gerätepixelverhältnis in der Webentwicklung"
 date: "2023-10-20"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"

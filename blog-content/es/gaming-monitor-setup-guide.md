@@ -3,7 +3,7 @@ title: "Guía de Configuración de Monitor Gaming 2025: Optimiza tu Pantalla"
 description: "Guía completa para configurar tu monitor gaming. Aprende ajustes óptimos para tasa de refresco, resolución, calibración de color, G-Sync/FreeSync."
 slug: "gaming-monitor-setup-guide"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Marcus Rivera"
 category: "guides"
 tags: ["configuración-gaming", "ajustes-monitor", "optimización-display", "guía"]
 featuredImage: "gaming-monitor-setup-guide.jpg"

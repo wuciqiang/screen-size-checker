@@ -267,7 +267,7 @@ function buildPageData(builder, page, lang, translations) {
     }
 
     pageData.structured_data = builder.generateStructuredData(pageData, lang);
-    pageData.faq_structured_data = builder.generateFAQStructuredDataForPage(page.name, lang);
+    pageData.faq_structured_data = pageData.faq_structured_data || builder.generateFAQStructuredDataForPage(page.name, lang);
 
     return { pageData, outputPath };
 }

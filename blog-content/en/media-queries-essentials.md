@@ -2,7 +2,7 @@
 title: "Media Queries Essentials for Responsive Design"
 description: "Master the fundamentals of CSS media queries for creating responsive websites that work on any device"
 date: "2023-10-25"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"

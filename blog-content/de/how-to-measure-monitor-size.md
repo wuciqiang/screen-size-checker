@@ -3,7 +3,7 @@ title: "Monitor Größe messen: 4 einfache Methoden (2025 Anleitung)"
 description: "Lernen Sie, wie Sie Ihre Monitor-Größe mit 4 einfachen Methoden genau messen. Enthält Schritt-für-Schritt-Anleitungen, Mess-Tipps und Antworten auf häufige Fragen zur Monitor-Größenmessung."
 slug: "how-to-measure-monitor-size"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["monitor-messung", "bildschirmgröße", "anleitung", "grundlagen"]
 featuredImage: "how-to-measure-monitor-size.jpg"

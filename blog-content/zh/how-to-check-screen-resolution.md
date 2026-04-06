@@ -3,7 +3,7 @@ title: "如何查看屏幕分辨率：完整指南（2025）"
 description: "学习如何在Windows、Mac、Linux和移动设备上查看屏幕分辨率。包含简单方法、分辨率说明和最佳显示设置优化技巧。"
 slug: "how-to-check-screen-resolution"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["屏幕分辨率", "显示设置", "使用教程", "基础知识"]
 featuredImage: "how-to-check-screen-resolution.jpg"

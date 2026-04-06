@@ -2,8 +2,8 @@
 title: "Monitor Gamer vs TV: Qual é Melhor para Jogos em 2026?"
 description: "Comparação completa de monitores gamers vs TVs para jogos de PC e console. Cobre input lag, tempo de resposta, recursos, tamanhos e recomendações de especialistas para cada configuração de jogo."
 slug: "gaming-monitor-vs-tv"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-04-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["monitor-gamer", "tv", "jogos-console", "jogos-pc", "comparacao"]
 featuredImage: "gaming-monitor-vs-tv-hero.jpg"

@@ -2,8 +2,8 @@
 title: "1440p vs 4K游戏对比：2025年性能与成本完整分析"
 description: "深度对比1440p与4K游戏性能，包含真实FPS基准测试、GPU需求和成本分析。根据专家建议为你的游戏装备做出正确选择。"
 slug: "1440p-vs-4k-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-03-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1440p", "4k游戏", "游戏对比", "分辨率", "GPU性能", "显示器"]
 featuredImage: "1440p-vs-4k-gaming-hero.jpg"

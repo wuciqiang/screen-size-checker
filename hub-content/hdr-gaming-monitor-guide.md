@@ -2,8 +2,8 @@
 title: "HDR Gaming Monitor Guide: Best HDR Monitors for Gaming 2025"
 description: "Complete guide to HDR gaming monitors. Covers HDR standards, real vs fake HDR, panel types, gaming performance, and expert recommendations for every budget and setup."
 slug: "hdr-gaming-monitor-guide"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-04-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["hdr", "gaming-monitors", "hdr10", "dolby-vision", "high-dynamic-range"]
 featuredImage: "hdr-gaming-monitor-guide-hero.jpg"

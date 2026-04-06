@@ -3,7 +3,7 @@ title: "How to Check Screen Resolution: Complete Guide (2025)"
 description: "Learn how to check your screen resolution on Windows, Mac, Linux, and mobile devices. Includes easy methods, resolution explanations, and tips for optimal display settings."
 slug: "how-to-check-screen-resolution"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["screen-resolution", "display-settings", "how-to", "basics"]
 featuredImage: "how-to-check-screen-resolution.jpg"

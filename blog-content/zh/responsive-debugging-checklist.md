@@ -2,7 +2,7 @@
 title: "终极响应式设计调试清单：布局出错时需要检查的15个要点"
 description: "专家级15点清单快速修复响应式设计问题。系统性调试指南节省数小时CSS故障排除时间。"
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["响应式设计", "调试", "css", "媒体查询", "视口", "网页开发"]
 featuredImage: "responsive-debugging-checklist.jpg"

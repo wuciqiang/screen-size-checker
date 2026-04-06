@@ -2,8 +2,8 @@
 title: "游戏显示器vs电视：2025年哪个更适合游戏？"
 description: "游戏显示器与电视针对PC和主机游戏的完整对比。涵盖输入延迟、响应时间、功能、尺寸和针对每种游戏设置的专家建议。"
 slug: "gaming-monitor-vs-tv"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-04-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["游戏显示器", "电视", "主机游戏", "pc游戏", "对比"]
 featuredImage: "gaming-monitor-vs-tv-hero.jpg"

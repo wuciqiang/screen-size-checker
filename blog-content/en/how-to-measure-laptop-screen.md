@@ -3,7 +3,7 @@ title: "How to Measure Laptop Screen Size: Complete Guide (2025)"
 description: "Learn how to accurately measure your laptop screen size with multiple methods. Includes step-by-step instructions, measurement tips, and answers to common laptop sizing questions."
 slug: "how-to-measure-laptop-screen"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["laptop-measurement", "screen-size", "how-to", "basics"]
 featuredImage: "how-to-measure-laptop-screen.jpg"

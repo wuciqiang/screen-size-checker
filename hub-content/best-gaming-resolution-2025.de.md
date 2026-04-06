@@ -2,8 +2,8 @@
 title: "Beste Gaming-Auflösung 2025: Kompletter Leitfaden zu 1080p vs 1440p vs 4K"
 description: "Entdecke die beste Gaming-Auflösung für dein Setup in 2025. Expertenvergleich von 1080p, 1440p und 4K Gaming mit FPS-Benchmarks, Hardware-Anforderungen und Pro-Spieler-Empfehlungen."
 slug: "best-gaming-resolution-2025"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-01-20"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["gaming-auflösung", "1080p", "1440p", "4k-gaming", "fps", "monitor"]
 featuredImage: "best-gaming-resolution-hero.jpg"

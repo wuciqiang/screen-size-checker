@@ -2,8 +2,8 @@
 title: "游戏显示器尺寸指南2025：24英寸 vs 27英寸 vs 32英寸 - 哪个最好？"
 description: "选择完美游戏显示器尺寸的完整指南。24英寸、27英寸和32英寸显示器的专家对比，包含观看距离计算、分辨率建议和人体工程学考虑。"
 slug: "gaming-monitor-size-guide"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-02-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["显示器尺寸", "游戏显示器", "24英寸", "27英寸", "32英寸", "观看距离"]
 featuredImage: "gaming-monitor-size-hero.jpg"

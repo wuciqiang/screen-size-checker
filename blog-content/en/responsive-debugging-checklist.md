@@ -2,7 +2,7 @@
 title: "The Ultimate Responsive Design Debugging Checklist: 15 Things to Check When Your Layout Breaks"
 description: "Expert 15-point checklist to quickly fix responsive design issues. Systematic debugging guide saves hours of CSS troubleshooting."
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["responsive-design", "debugging", "css", "media-queries", "viewport", "web-development"]
 featuredImage: "responsive-debugging-checklist.jpg"

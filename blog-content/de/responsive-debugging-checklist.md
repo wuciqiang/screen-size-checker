@@ -2,7 +2,7 @@
 title: "Responsive Design Debugging Checkliste"
 description: "Vollständige Checkliste zum Debuggen von Responsive-Design-Problemen"
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["responsive-design", "debugging", "css", "media-queries", "viewport", "web-development"]
 featuredImage: "responsive-debugging-checklist.jpg"

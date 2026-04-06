@@ -2,6 +2,8 @@
 title: "Black Myth: Zhong Kui — Do You Need a New Monitor for the Ultimate 4K Experience?"
 description: "Is your monitor ready for Black Myth: Zhong Kui? Our guide breaks down the PC specs and display technology you need for the ultimate 4K gaming experience."
 category: technical
+author: "Marcus Rivera"
+date: "2025-01-12"
 tags: ["black myth", "gaming", "hardware", "monitors", "4k"]
 ---
 

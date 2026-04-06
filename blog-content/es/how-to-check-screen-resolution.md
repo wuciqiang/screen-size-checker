@@ -3,7 +3,7 @@ title: "Cómo Verificar la Resolución de Pantalla: Guía Completa (2025)"
 description: "Aprende cómo verificar la resolución de pantalla en Windows, Mac, Linux y dispositivos móviles. Incluye métodos sencillos, explicaciones de resolución y consejos para configuraciones óptimas de pantalla."
 slug: "how-to-check-screen-resolution"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["resolución-pantalla", "configuración-display", "guía", "básicos"]
 featuredImage: "how-to-check-screen-resolution.jpg"

@@ -3,7 +3,7 @@ title: "Bildschirmauflösung prüfen: Komplette Anleitung (2025)"
 description: "Lernen Sie, wie Sie die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Enthält einfache Methoden, Auflösungs-Erklärungen und Tipps für optimale Anzeigeeinstellungen."
 slug: "how-to-check-screen-resolution"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["bildschirmauflösung", "anzeigeeinstellungen", "anleitung", "grundlagen"]
 featuredImage: "how-to-check-screen-resolution.jpg"

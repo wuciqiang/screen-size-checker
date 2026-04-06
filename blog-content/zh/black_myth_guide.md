@@ -2,6 +2,8 @@
 title: "黑神话：钟馗 — 你的显示器准备好迎接终极4K体验了吗？"
 description: 你的显示器准备好迎接《黑神话：钟馗》了吗？我们的指南为你详解所需的PC配置和显示技术，助你获得终极4K游戏体验。
 category: technical
+author: "Marcus Rivera"
+date: "2025-01-12"
 tags: ["黑神话", "游戏", "硬件", "显示器", "4k"]
 ---
 

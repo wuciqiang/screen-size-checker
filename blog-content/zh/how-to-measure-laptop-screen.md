@@ -3,7 +3,7 @@ title: "如何测量笔记本屏幕尺寸：完整指南（2025）"
 description: "学习用多种方法准确测量笔记本电脑屏幕尺寸。包含详细步骤说明、测量技巧和常见笔记本尺寸问题解答。"
 slug: "how-to-measure-laptop-screen"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["笔记本测量", "屏幕尺寸", "使用教程", "基础知识"]
 featuredImage: "how-to-measure-laptop-screen.jpg"

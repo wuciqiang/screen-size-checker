@@ -2,8 +2,8 @@
 title: "曲面vs平面显示器游戏：2025年哪个更好？"
 description: "曲面vs平面游戏显示器的完整对比。涵盖沉浸感、竞技游戏、眼部疲劳、桌面空间，以及针对每种游戏设置和预算的专家建议。"
 slug: "curved-vs-flat-monitor-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-05-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["曲面显示器", "平面显示器", "游戏显示器", "沉浸感", "竞技游戏"]
 featuredImage: "curved-vs-flat-monitor-gaming-hero.jpg"

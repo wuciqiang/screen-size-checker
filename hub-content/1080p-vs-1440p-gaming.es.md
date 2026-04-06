@@ -2,8 +2,8 @@
 title: "1080p vs 1440p Gaming: ¿Cuál es la resolución correcta para ti en 2025?"
 description: "Comparación completa del rendimiento gaming 1080p vs 1440p, requisitos de hardware y análisis de costos. Recomendaciones expertas basadas en benchmarks GPU 2025 y preferencias de jugadores profesionales."
 slug: "1080p-vs-1440p-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-02-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1080p", "1440p", "comparación-gaming", "resolución", "fps", "gpu"]
 featuredImage: "1080p-vs-1440p-hero.jpg"

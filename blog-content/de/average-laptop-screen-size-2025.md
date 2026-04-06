@@ -2,7 +2,7 @@
 title: "Durchschnittliche Laptop-Bildschirmgröße 2025"
 description: "Vollständiger Leitfaden zu Laptop-Bildschirmgrößen, Auflösungen und Trends 2025"
 date: "2025-01-25"
-author: "Blues"
+author: "Alex Chen"
 category: "technical"
 tags: ["laptop", "screen-size", "web-development", "responsive-design", "display-technology"]
 featured: true

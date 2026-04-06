@@ -3,7 +3,7 @@ title: "2025显示器选购指南：如何选择完美的显示器"
 description: "2025年显示器购买完全指南。了解面板类型、分辨率、刷新率，为游戏、办公或内容创作找到最适合的显示器。"
 slug: "monitor-buying-guide-2025"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["显示器指南", "选购指南", "显示技术", "使用教程"]
 featuredImage: "monitor-buying-guide-2025.jpg"

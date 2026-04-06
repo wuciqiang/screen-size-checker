@@ -2,7 +2,7 @@
 title: "The Web Designer's & Developer's Cheat Sheet for Screen Dimensions in 2025"
 description: "Stop guessing screen sizes. Your bookmarkable cheat sheet for all screen dimensions, resolutions, and key concepts for web design in 2025."
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"

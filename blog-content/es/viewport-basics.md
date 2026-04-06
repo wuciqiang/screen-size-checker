@@ -2,7 +2,7 @@
 title: "Entendiendo los Fundamentos del Viewport"
 description: "Aprende qué es el viewport y por qué es crucial para el diseño web responsive"
 date: "2023-10-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "basics"
 tags: ["viewport", "responsive-design", "web-development"]
 featuredImage: "viewport-basics.jpg"

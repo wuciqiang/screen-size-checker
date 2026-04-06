@@ -2,8 +2,8 @@
 title: "Guia de Monitor Gamer HDR: Os Melhores Monitores HDR para Jogos 2026"
 description: "Guia completo para monitores gamers HDR. Cobre padrões HDR, HDR real vs falso, tipos de painel, desempenho em jogos e recomendações de especialistas para cada orçamento e configuração."
 slug: "hdr-gaming-monitor-guide"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-04-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["hdr", "monitores-gamer", "hdr10", "dolby-vision", "high-dynamic-range"]
 featuredImage: "hdr-gaming-monitor-guide-hero.jpg"

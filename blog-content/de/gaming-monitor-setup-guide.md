@@ -3,7 +3,7 @@ title: "Gaming Monitor Setup Guide 2025: Display für beste Leistung optimieren"
 description: "Komplette Anleitung zur Einrichtung Ihres Gaming-Monitors. Lernen Sie optimale Einstellungen für Bildwiederholrate, Auflösung, Farbkalibrierung, G-Sync/FreeSync."
 slug: "gaming-monitor-setup-guide"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Marcus Rivera"
 category: "guides"
 tags: ["gaming-setup", "monitor-einstellungen", "display-optimierung", "anleitung"]
 featuredImage: "gaming-monitor-setup-guide.jpg"

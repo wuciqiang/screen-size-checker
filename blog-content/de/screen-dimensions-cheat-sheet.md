@@ -2,7 +2,7 @@
 title: "Bildschirmabmessungen Spickzettel"
 description: "Schnellreferenz für gängige Bildschirmgrößen und Breakpoints"
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"

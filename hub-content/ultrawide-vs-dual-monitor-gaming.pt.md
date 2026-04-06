@@ -2,8 +2,8 @@
 title: "Ultrawide vs Monitor Duplo Jogos: Qual Configuração é Melhor em 2026?"
 description: "Comparação completa de monitores ultrawide vs configurações de monitor duplo para jogos e produtividade. Inclui compatibilidade de jogos, análise de desempenho e recomendações de especialistas."
 slug: "ultrawide-vs-dual-monitor-gaming"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-06-16"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["ultrawide", "monitor-duplo", "configuracao-gamer", "produtividade", "comparacao-monitor"]
 featuredImage: "ultrawide-vs-dual-monitor-gaming-hero.jpg"

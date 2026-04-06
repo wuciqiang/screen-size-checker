@@ -3,7 +3,7 @@ title: "Monitor Kaufberatung 2025: So wählen Sie das perfekte Display"
 description: "Komplette Anleitung zum Monitorkauf 2025. Erfahren Sie alles über Panel-Typen, Auflösungen, Bildwiederholraten und finden Sie den besten Monitor für Gaming, Arbeit oder Content-Erstellung."
 slug: "monitor-buying-guide-2025"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["monitor-ratgeber", "kaufberatung", "display-technologie", "anleitung"]
 featuredImage: "monitor-buying-guide-2025.jpg"

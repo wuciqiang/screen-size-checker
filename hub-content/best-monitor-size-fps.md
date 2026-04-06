@@ -2,8 +2,8 @@
 title: "Best Monitor Size for FPS Gaming: 24 vs 27 vs 32 Inch Guide 2025"
 description: "Expert guide on choosing the perfect monitor size for FPS gaming. Compare 24\", 27\", and 32\" displays with pro player data, reaction time analysis, and ergonomic recommendations."
 slug: "best-monitor-size-fps"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-03-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["fps-gaming", "monitor-size", "competitive-gaming", "esports", "gaming-setup"]
 featuredImage: "best-monitor-size-fps-hero.jpg"

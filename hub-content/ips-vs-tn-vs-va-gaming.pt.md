@@ -2,8 +2,8 @@
 title: "Jogos IPS vs TN vs VA: Melhor Tipo de Painel para Jogos 2026"
 description: "Comparação completa de tipos de painel de monitor gamer IPS, TN, VA e OLED. Inclui análise de tempo de resposta, testes de precisão de cor e recomendações de especialistas para cada gênero de jogo."
 slug: "ips-vs-tn-vs-va-gaming"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-07-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["tipos-de-painel", "ips", "tn", "va", "oled", "monitores-gamer"]
 featuredImage: "ips-vs-tn-vs-va-gaming-hero.jpg"

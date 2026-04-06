@@ -2,8 +2,8 @@
 title: "1440p vs 4K Gaming: Complete Performance & Cost Comparison 2025"
 description: "In-depth comparison of 1440p vs 4K gaming with real FPS benchmarks, GPU requirements, and cost analysis. Make the right choice for your gaming setup with expert recommendations."
 slug: "1440p-vs-4k-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-03-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1440p", "4k-gaming", "gaming-comparison", "resolution", "gpu-performance", "monitor"]
 featuredImage: "1440p-vs-4k-gaming-hero.jpg"

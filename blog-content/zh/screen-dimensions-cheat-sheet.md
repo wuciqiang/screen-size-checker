@@ -2,7 +2,7 @@
 title: "Web设计师与开发者屏幕尺寸速查表2025"
 description: "停止猜测屏幕尺寸。你在2025年进行网页设计和开发时所需的所有屏幕尺寸、分辨率和关键概念的可收藏速查表。"
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["屏幕尺寸", "响应式设计", "断点", "视口", "网页开发"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"

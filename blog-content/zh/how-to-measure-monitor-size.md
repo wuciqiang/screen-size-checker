@@ -3,7 +3,7 @@ title: "如何测量显示器尺寸：4种简单方法（2025指南）"
 description: "学习用4种简单方法准确测量显示器尺寸。包含详细步骤说明、测量技巧和常见问题解答，帮助您正确测量电脑显示器大小。"
 slug: "how-to-measure-monitor-size"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["显示器测量", "屏幕尺寸", "使用教程", "基础知识"]
 featuredImage: "how-to-measure-monitor-size.jpg"

@@ -2,8 +2,8 @@
 title: "Guia de Tamanho de Monitor Gamer 2026: FPS vs Imersivo (24\" vs 27\" vs 32\")"
 description: "Pare de adivinhar. Compare monitores de 24 vs 27 vs 32 polegadas para jogos. Veja distâncias de visualização exatas, requisitos de profundidade de mesa e gráficos PPI."
 slug: "gaming-monitor-size-guide"
-date: "2026-02-10"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-02-03"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["tamanho-monitor", "monitor-gamer", "24-polegadas", "27-polegadas", "32-polegadas", "distancia-visualizacao"]
 featuredImage: "gaming-monitor-size-hero.jpg"

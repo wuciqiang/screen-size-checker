@@ -2,7 +2,7 @@
 title: "Device Pixel Ratio Explained"
 description: "Learn about device pixel ratio (DPR) and how it affects web design and development"
 date: "2023-10-20"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"

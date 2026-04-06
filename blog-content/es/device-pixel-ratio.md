@@ -2,7 +2,7 @@
 title: "Relación de Píxeles del Dispositivo (DPR) Explicada"
 description: "Guía completa para entender y trabajar con la relación de píxeles del dispositivo en desarrollo web"
 date: "2023-10-20"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["dpr", "pixel-density", "retina-display", "responsive-design"]
 featuredImage: "device-pixel-ratio.jpg"

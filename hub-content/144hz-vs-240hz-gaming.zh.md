@@ -2,8 +2,8 @@
 title: "144Hz vs 240Hz游戏对比：240Hz值得吗？2025完整分析"
 description: "144Hz与240Hz游戏显示器的详细对比，包含科学分析、职业选手数据和价值评估。了解升级到240Hz是否值得投资。"
 slug: "144hz-vs-240hz-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-05-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["刷新率", "144hz", "240hz", "竞技游戏", "显示器升级"]
 featuredImage: "144hz-vs-240hz-gaming-hero.jpg"

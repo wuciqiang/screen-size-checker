@@ -2,8 +2,8 @@
 title: "Melhor Resolução para Jogos 2026: Guia Completo para 1080p vs 1440p vs 4K"
 description: "Descubra a melhor resolução para sua configuração em 2026. Comparação de especialistas de jogos em 1080p, 1440p e 4K com benchmarks de FPS, requisitos de hardware e recomendações de jogadores profissionais."
 slug: "best-gaming-resolution-2025"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-01-20"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["resolucao-jogos", "1080p", "1440p", "jogos-4k", "fps", "monitor"]
 featuredImage: "best-gaming-resolution-hero.jpg"

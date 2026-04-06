@@ -3,7 +3,7 @@ title: "Cómo Medir la Pantalla del Laptop: Guía Completa (2025)"
 description: "Aprende a medir con precisión el tamaño de pantalla de tu laptop usando múltiples métodos. Incluye instrucciones paso a paso, consejos de medición y respuestas a preguntas comunes sobre dimensiones de laptops."
 slug: "how-to-measure-laptop-screen"
 date: "2025-01-19"
-author: "Screen Size Checker Team"
+author: "Sarah Mitchell"
 category: "guides"
 tags: ["medición-laptop", "tamaño-pantalla", "guía", "básicos"]
 featuredImage: "how-to-measure-laptop-screen.jpg"

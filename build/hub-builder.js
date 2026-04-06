@@ -301,10 +301,11 @@ class HubBuilder {
             "description": page.description,
             "url": url,
             "datePublished": page.date,
-            "dateModified": page.date,
+            "dateModified": new Date().toISOString().split('T')[0],
             "author": {
-                "@type": "Organization",
-                "name": page.author
+                "@type": "Person",
+                "name": page.author,
+                "url": `https://screensizechecker.com${langPrefix}/about`
             },
             "publisher": {
                 "@type": "Organization",

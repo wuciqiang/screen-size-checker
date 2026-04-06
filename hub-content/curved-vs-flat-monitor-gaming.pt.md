@@ -2,8 +2,8 @@
 title: "Monitor Curvo vs Plano para Jogos: Qual é Melhor em 2026?"
 description: "Comparação completa de monitores curvos vs planos para jogos. Cobre imersão, jogos competitivos, tensão ocular, espaço na mesa e recomendações de especialistas para cada configuração e orçamento de jogos."
 slug: "curved-vs-flat-monitor-gaming"
-date: "2026-01-19"
-author: "Equipe Gamer Screen Size Checker"
+date: "2025-05-15"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["monitor-curvo", "monitor-plano", "monitores-gamer", "imersao", "jogos-competitivos"]
 featuredImage: "curved-vs-flat-monitor-gaming-hero.jpg"

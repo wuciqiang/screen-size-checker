@@ -2,7 +2,7 @@
 title: "CSS Media Queries Grundlagen"
 description: "CSS Media Queries für responsives Webdesign meistern"
 date: "2023-10-25"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "css"
 tags: ["media-queries", "responsive-design", "css", "breakpoints"]
 featuredImage: "media-queries.jpg"

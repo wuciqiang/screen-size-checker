@@ -2,7 +2,7 @@
 title: "Hoja de Referencia de Dimensiones de Pantalla"
 description: "Guía de referencia rápida para tamaños de pantalla y breakpoints comunes"
 date: "2024-01-15"
-author: "Screen Size Checker Team"
+author: "Alex Chen"
 category: "technical"
 tags: ["screen-dimensions", "responsive-design", "breakpoints", "viewport", "web-development"]
 featuredImage: "screen-dimensions-cheat-sheet.jpg"

@@ -2,8 +2,8 @@
 title: "1080p vs 1440p游戏对比：2025年该如何选择？"
 description: "完整对比1080p与1440p游戏性能、硬件需求和成本分析。基于2025年GPU基准测试和职业选手偏好的专家建议。"
 slug: "1080p-vs-1440p-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-02-17"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["1080p", "1440p", "游戏对比", "分辨率", "fps", "显卡"]
 featuredImage: "1080p-vs-1440p-hero.jpg"

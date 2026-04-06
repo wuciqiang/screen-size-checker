@@ -517,7 +517,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
                     
                     // 濞戞挾鍎ら悧瀹犵疀閸愩劋绱ｉ柛蹇曞厴閵嗗妫冮姀鈩冩殘闁稿浚妾禔Q缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟璇″櫙缁辨繈骞撻幇顒€纾砈ERP閻庨潧鐬肩划銊╁几濠婂嫭绨氬ù?
-                    pageData.faq_structured_data = this.generateFAQStructuredDataForPage(page.name, lang);
+                    pageData.faq_structured_data = pageData.faq_structured_data || this.generateFAQStructuredDataForPage(page.name, lang);
                     
                     // 闁哄瀚紓鎻孴ML
                     let html = this.buildPage(page.template, pageData);

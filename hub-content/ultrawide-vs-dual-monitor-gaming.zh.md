@@ -2,8 +2,8 @@
 title: "超宽屏 vs 双显示器游戏：2025年哪种设置更好？"
 description: "超宽屏显示器与双显示器设置在游戏和生产力方面的完整对比。包含游戏兼容性、性能分析和专家建议。"
 slug: "ultrawide-vs-dual-monitor-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-06-16"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["超宽屏", "双显示器", "游戏设置", "生产力", "显示器对比"]
 featuredImage: "ultrawide-vs-dual-monitor-gaming-hero.jpg"

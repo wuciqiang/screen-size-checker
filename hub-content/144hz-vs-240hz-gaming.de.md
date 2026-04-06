@@ -2,8 +2,8 @@
 title: "144Hz vs 240Hz Gaming: Lohnt sich 240Hz? Komplette 2025 Analyse"
 description: "Detaillierter Vergleich von 144Hz vs 240Hz Gaming-Monitoren mit wissenschaftlicher Analyse, Pro-Spieler-Daten und Wertbewertung. Erfahren Sie, ob das Upgrade auf 240Hz die Investition wert ist."
 slug: "144hz-vs-240hz-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-05-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["bildwiederholrate", "144hz", "240hz", "competitive-gaming", "monitor-upgrade"]
 featuredImage: "144hz-vs-240hz-gaming-hero.jpg"

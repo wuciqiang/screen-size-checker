@@ -2,8 +2,8 @@
 title: "IPS vs TN vs VA游戏对比：2025年最佳面板类型"
 description: "IPS、TN、VA和OLED游戏显示器面板类型的完整对比。包含响应时间分析、色彩准确度测试和针对每种游戏类型的专家建议。"
 slug: "ips-vs-tn-vs-va-gaming"
-date: "2025-01-19"
-author: "Screen Size Checker Gaming Team"
+date: "2025-07-01"
+author: "Marcus Rivera"
 category: "gaming"
 tags: ["面板类型", "ips", "tn", "va", "oled", "游戏显示器"]
 featuredImage: "ips-vs-tn-vs-va-gaming-hero.jpg"
