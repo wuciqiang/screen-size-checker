@@ -12,7 +12,7 @@ class BlogBuilder {
         this.rootPath = path.join(__dirname, '..');
         this.blogContentPath = path.join(this.rootPath, 'blog-content');
         this.blogOutputPath = path.join(this.rootPath, 'components', 'generated', 'blog');
-        this.languages = ['en', 'zh', 'de', 'es', 'pt']; // 支持的语言：英文、中文、德语、西班牙语、葡萄牙语
+        this.languages = ['en', 'zh', 'de', 'es', 'pt', 'fr']; // 支持的语言：英文、中文、德语、西班牙语、葡萄牙语
         this.blogPosts = new Map(); // 存储所有博客文章
         this.categories = new Map(); // 按分类存储文章
         this.tags = new Map(); // 按标签存储文章

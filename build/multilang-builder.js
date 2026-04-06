@@ -12,7 +12,7 @@ class MultiLangBuilder extends ComponentBuilder {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
         this.defaultLanguage = 'en';
-        this.enabledLanguages = ['en', 'zh', 'de', 'es', 'pt']; // 鐟滅増鎸告晶鐘诲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀顒勬晬濮樺啿顏伴柡鍌氭储閳ь兛妞掗懙鎴﹀棘閸ャ儮鍋撴担鍝ユ閻犲浂鍘归埀顑挎祰閵堝潡鎮甸鐘差潻閻?
+        this.enabledLanguages = ['en', 'zh', 'de', 'es', 'pt', 'fr']; // 鐟滅増鎸告晶鐘诲触椤栨粍鏆忛柣銊ュ椤曘垻鎳涢埀顒勬晬濮樺啿顏伴柡鍌氭储閳ь兛妞掗懙鎴﹀棘閸ャ儮鍋撴担鍝ユ閻犲浂鍘归埀顑挎祰閵堝潡鎮甸鐘差潻閻?
         this.translations = new Map();
         this.internalLinksProcessor = new InternalLinksProcessor();
         
@@ -2106,7 +2106,7 @@ ${languageCards}
         
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
-        const enabledLanguages = ['en', 'zh', 'de', 'es', 'pt']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
+        const enabledLanguages = ['en', 'zh', 'de', 'es', 'pt', 'fr']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
         
         // 閻庤鐭粻鐔搞亜閻㈠憡妗ㄧ紓浣规尰閻庮垶鏁嶉崼鐔革骏.html闁告艾娴风槐鎴︽晬鐏炶棄鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐鈽呯窗
         const pages = [
