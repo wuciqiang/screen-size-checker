@@ -1,6 +1,6 @@
 # Screen Size Checker - Claude Code 工作说明
 
-> 最后更新：2026-03-18  
+> 最后更新：2026-04-07  
 > 目标：让 Claude Code 先读对、少误改、少跑全量构建
 
 ## 1. 优先级与事实来源
@@ -14,7 +14,6 @@
 2. **本文件 `CLAUDE.md`**
 3. **`.claude/index.json`**（可由 `npm run ai:refresh-context` 刷新）
 4. **`docs/BUILD_SYSTEM.md` / `docs/DEPLOYMENT.md`**
-5. 其他辅助文档（如 `WARP.md`、`GEMINI.md`、历史 spec）
 
 如果 `WARP.md`、`GEMINI.md`、旧 spec 与代码不一致，**以代码和本文件为准**。
 
@@ -43,13 +42,16 @@
 如果需要修改它们：
 
 - 博客页面：改 `blog-content/**/*.md` 或 `build/blog-builder.js`
-- Hub 页面：改 `hub-content/**/*.md` 或 `build/hub-builder.js`
+- Hub 页面：改 `hub-content/*.md` 或 `build/hub-builder.js`
 
 ### 文档与规范
-- `docs/BUILD_SYSTEM.md`
-- `docs/DEPLOYMENT.md`
-- `.claude/specs/active/`
-- `.kiro/specs/`
+- `docs/BUILD_SYSTEM.md` - 构建系统
+- `docs/DEPLOYMENT.md` - 部署指南
+- `docs/MAINTENANCE_SOP.md` - 维护手册
+- `docs/PROGRESS_TRACKER.md` - 项目进度
+
+### 归档的 Specs（已完成）
+- `.claude/specs/archived/` - 已完成的规格文档
 
 ## 4. 常用命令
 
@@ -137,8 +139,10 @@ npm run ai:refresh-context
 - 内容预生成：
   - `build/blog-builder.js`
   - `build/hub-builder.js`
-- 当前启用输出语言：`en`、`zh`、`de`、`es`、`pt`
+- 当前启用输出语言：`en`、`zh`、`de`、`es`、`pt`、`fr`（默认英文）
+- 其他语言目录存在但未启用：`it`、`ja`、`ko`、`ru`
 - `build/pages-config.json` 是当前页面配置主入口
+- 项目当前处于**维护/SEO优化阶段**
 
 ## 8. 建议工作流
 
@@ -146,6 +150,6 @@ npm run ai:refresh-context
 
 1. 先看本文件
 2. 再看目标目录对应源码
-3. 只在必要时看 `docs/` 或历史 spec
+3. 只在必要时看 `docs/`
 4. 改完先跑单页 / 冒烟验证
 5. 最后再跑全量构建
