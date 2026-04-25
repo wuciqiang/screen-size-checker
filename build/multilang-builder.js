@@ -2189,6 +2189,14 @@ ${languageCards}
     </url>`;
             }
         });
+
+        sitemapContent += `
+    <url>
+        <loc>${baseUrl}/resolution-test</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`;
         
         // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟垿宕″顒夊悅濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
         blogPages.forEach(page => {
@@ -2846,7 +2854,6 @@ if (require.main === module) {
 }
 
 module.exports = MultiLangBuilder; 
-
 
 
 

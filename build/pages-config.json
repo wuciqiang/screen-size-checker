@@ -131,6 +131,54 @@
       }
     },
     {
+      "name": "resolution-test",
+      "template": "device-page",
+      "output": "resolution-test.html",
+      "page_content": "resolution-test-content",
+      "enabled_languages": [
+        "en"
+      ],
+      "config": {
+        "page_title": "Resolution Test - Check Your Screen Resolution Instantly",
+        "page_description": "Run an instant resolution test to see your screen resolution, browser viewport, DPR, aspect ratio, and display details. Free, fast, and works on any device.",
+        "page_keywords": "resolution test, screen resolution test, what is my resolution, check screen resolution, display resolution test",
+        "canonical_url": "https://screensizechecker.com/resolution-test",
+        "og_title": "Resolution Test - Check Your Screen Resolution Instantly",
+        "og_description": "Run an instant resolution test to see your screen resolution, browser viewport, DPR, aspect ratio, and display details.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/resolution-test",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "device_links_base": "devices/",
+        "show_breadcrumb": true,
+        "current_key": "resolution_test",
+        "current_name": "Resolution Test",
+        "parent_url": "index.html",
+        "parent_key": "nav_home",
+        "parent_name": "Home",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Resolution Test",
+          "description": "Run an instant resolution test to see screen resolution, browser viewport, device pixel ratio, aspect ratio, and display details.",
+          "url": "https://screensizechecker.com/resolution-test",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "datePublished": "2026-04-25",
+          "dateModified": "2026-04-25"
+        },
+        "blog_url": "blog/index.html"
+      }
+    },
+    {
       "name": "ipad-viewport-sizes",
       "template": "device-page",
       "output": "devices/ipad-viewport-sizes.html",
