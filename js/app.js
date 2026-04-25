@@ -411,6 +411,13 @@ function updateInitialDisplayValues() {
         if (screenResolutionDisplay) {
             const screenWidth = window.screen.width;
             const screenHeight = window.screen.height;
+            const screenResolution = screenWidth + ' × ' + screenHeight;
+
+            if (screenResolutionDisplay.dataset.displayFormat === 'value') {
+                screenResolutionDisplay.textContent = screenResolution;
+                console.log('Screen resolution updated: ' + screenResolution);
+                return;
+            }
 
             const detectingSpan = screenResolutionDisplay.querySelector('span[data-i18n="detecting"]');
             if (detectingSpan && detectingSpan.parentNode) {
@@ -450,8 +457,8 @@ function updateInitialDisplayValues() {
             }
 
             valueSpan.removeAttribute('data-i18n');
-            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
-            console.log('Screen resolution updated: ' + screenWidth + ' × ' + screenHeight);
+            valueSpan.textContent = screenResolution;
+            console.log('Screen resolution updated: ' + screenResolution);
         } else {
             console.warn('Screen resolution display element not found');
         }
@@ -966,12 +973,18 @@ function updateViewportDisplay() {
     if (screenResolutionDisplay) {
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
+        const screenResolution = screenWidth + ' × ' + screenHeight;
+
+        if (screenResolutionDisplay.dataset.displayFormat === 'value') {
+            screenResolutionDisplay.textContent = screenResolution;
+            return;
+        }
 
         const labelSpan = screenResolutionDisplay.querySelector('span[data-i18n="screen_resolution"]');
         const valueSpan = screenResolutionDisplay.querySelector('span:not([data-i18n])');
 
         if (valueSpan) {
-            valueSpan.textContent = screenWidth + ' × ' + screenHeight;
+            valueSpan.textContent = screenResolution;
         }
 
         if (labelSpan && typeof i18next !== 'undefined' && i18next.t) {

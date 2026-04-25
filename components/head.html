@@ -213,8 +213,11 @@ html, body {
 
         // Update screen resolution with optimized DOM manipulation
         if (elements.resolution) {
-            // Use textContent instead of innerHTML for better performance
-            if (!elements.resolution.hasAttribute('data-initialized')) {
+            if (elements.resolution.dataset.displayFormat === 'value') {
+                elements.resolution.textContent = resolution;
+                elements.resolution.setAttribute('data-initialized', 'true');
+            } else if (!elements.resolution.hasAttribute('data-initialized')) {
+                // Use textContent instead of innerHTML for better performance
                 elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: <span>' + resolution + '</span>';
                 elements.resolution.setAttribute('data-initialized', 'true');
             } else {

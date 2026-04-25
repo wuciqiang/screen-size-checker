@@ -156,9 +156,9 @@
         "show_breadcrumb": true,
         "current_key": "resolution_test",
         "current_name": "Resolution Test",
-        "parent_url": "index.html",
-        "parent_key": "nav_home",
-        "parent_name": "Home",
+        "parent_url": "",
+        "parent_key": "",
+        "parent_name": "",
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",

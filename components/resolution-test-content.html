@@ -1,16 +1,7 @@
-<section class="hero-section">
-    <div class="hero-container">
-        <p class="hero-subtitle">Resolution Test</p>
-        <h1 class="hero-title">
-            <span class="dynamic-hero-content">
-                <span class="huge-number" id="screen-resolution-display">
-                    <span data-i18n="screen_resolution">Screen Resolution</span>: <span data-i18n="detecting">Detecting...</span>
-                </span>
-            </span>
-        </h1>
-        <p class="hero-secondary">
-            Viewport size: <span id="viewport-display"><span data-i18n="detecting">Detecting...</span></span>
-        </p>
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title">Resolution Test</h1>
+        <p class="devices-hero-subtitle">Check your current screen resolution, browser viewport, DPR, and display details instantly.</p>
     </div>
 </section>
 
@@ -24,9 +15,17 @@
         <div class="dashboard-container">
             <div class="info-card card-display">
                 <div class="card-header">
-                    <h3 class="card-title">Display Properties</h3>
+                    <h3 class="card-title">Current Display</h3>
                 </div>
                 <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label">Screen Resolution</span>
+                        <span class="info-value" id="screen-resolution-display" data-display-format="value"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Viewport Size</span>
+                        <span class="info-value" id="viewport-display"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
                     <div class="info-row">
                         <span class="info-label">Aspect Ratio</span>
                         <span class="info-value" id="aspect-ratio"><span data-i18n="detecting">Detecting...</span></span>
@@ -76,4 +75,3 @@
         <p>Use the <a href="devices/compare.html">screen size comparison tool</a> to compare width, height, diagonal, and area between monitors, laptops, tablets, phones, and TVs.</p>
     </div>
 </section>
-
