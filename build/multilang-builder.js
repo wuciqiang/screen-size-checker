@@ -1421,6 +1421,14 @@ class MultiLangBuilder extends ComponentBuilder {
                 ['device_faq_q4', 'device_faq_a4'],
                 ['device_faq_q5', 'device_faq_a5']
             ],
+            'standard-resolutions': [
+                ['standard_seo_faq_gaming_q', 'standard_seo_faq_gaming_a'],
+                ['standard_seo_faq_1080p_q', 'standard_seo_faq_1080p_a'],
+                ['standard_seo_faq_1440p_q', 'standard_seo_faq_1440p_a'],
+                ['standard_seo_faq_viewport_q', 'standard_seo_faq_viewport_a'],
+                ['standard_seo_faq_streaming_q', 'standard_seo_faq_streaming_a'],
+                ['standard_seo_faq_check_q', 'standard_seo_faq_check_a_schema']
+            ],
             'projection-calculator': [
                 ['projectionCalculator.faq1q', 'projectionCalculator.faq1a'],
                 ['projectionCalculator.faq2q', 'projectionCalculator.faq2a'],
@@ -2874,4 +2882,3 @@ if (require.main === module) {
 }
 
 module.exports = MultiLangBuilder; 
-

@@ -1,6 +1,6 @@
 ---
 title: "Gaming Monitor Size Guide 2026 - Find Your Perfect Screen Size"
-description: "Not sure between 24-inch, 27-inch, or 32-inch? This guide matches monitor size to your game genre, desk depth, GPU, and viewing distance."
+description: "Not sure between 24-inch, 27-inch, or 32-inch? This guide matches monitor size to your game genre, desk depth, GPU, and viewing distance. Includes immersion calculator and pro picks."
 slug: "gaming-monitor-size-guide"
 date: "2025-02-03"
 author: "Marcus Rivera"
