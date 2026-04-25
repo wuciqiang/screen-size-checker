@@ -1,41 +1,41 @@
 <section class="devices-hero-section">
     <div class="devices-hero-container">
-        <h1 class="devices-hero-title">Resolution Test</h1>
-        <p class="devices-hero-subtitle">Check your current screen resolution, browser viewport, DPR, and display details instantly.</p>
+        <h1 class="devices-hero-title" data-i18n="resolution_test_page_heading">Resolution Test</h1>
+        <p class="devices-hero-subtitle" data-i18n="resolution_test_page_intro">Check your current screen resolution, browser viewport, DPR, and display details instantly.</p>
     </div>
 </section>
 
 <section class="content-section">
     <div class="section-container">
-        <h2>Instant Screen Resolution Test</h2>
-        <p>This resolution test shows your current screen resolution, browser viewport size, device pixel ratio, aspect ratio, and related display details. It is designed for everyday users who want a quick answer to "what is my resolution?" without opening system settings.</p>
-        <p>Screen resolution is the physical pixel grid of your display, such as 1920 x 1080, 2560 x 1440, or 3840 x 2160. Viewport size is the browser area available to a web page. These numbers are often different because browser chrome, zoom, operating-system scaling, and DPR all affect the CSS viewport.</p>
+        <h2 data-i18n="resolution_test_instant_heading">Instant Screen Resolution Test</h2>
+        <p data-i18n="resolution_test_instant_text">This resolution test shows your current screen resolution, browser viewport size, device pixel ratio, aspect ratio, and related display details. It is designed for everyday users who want a quick answer to "what is my resolution?" without opening system settings.</p>
+        <p data-i18n="resolution_test_resolution_vs_viewport">Screen resolution is the physical pixel grid of your display, such as 1920 x 1080, 2560 x 1440, or 3840 x 2160. Viewport size is the browser area available to a web page. These numbers are often different because browser chrome, zoom, operating-system scaling, and DPR all affect the CSS viewport.</p>
 
-        <h2>Resolution Test Results</h2>
+        <h2 data-i18n="resolution_test_results_heading">Resolution Test Results</h2>
         <div class="dashboard-container">
             <div class="info-card card-display">
                 <div class="card-header">
-                    <h3 class="card-title">Current Display</h3>
+                    <h3 class="card-title" data-i18n="resolution_test_current_display">Current Display</h3>
                 </div>
                 <div class="card-content">
                     <div class="info-row">
-                        <span class="info-label">Screen Resolution</span>
+                        <span class="info-label" data-i18n="resolution_test_screen_resolution">Screen Resolution</span>
                         <span class="info-value" id="screen-resolution-display" data-display-format="value"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Viewport Size</span>
+                        <span class="info-label" data-i18n="resolution_test_viewport_size">Viewport Size</span>
                         <span class="info-value" id="viewport-display"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Aspect Ratio</span>
+                        <span class="info-label" data-i18n="aspect_ratio">Aspect Ratio</span>
                         <span class="info-value" id="aspect-ratio"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Device Pixel Ratio</span>
+                        <span class="info-label" data-i18n="resolution_test_dpr">Device Pixel Ratio</span>
                         <span class="info-value" id="dpr"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Color Depth</span>
+                        <span class="info-label" data-i18n="color_depth">Color Depth</span>
                         <span class="info-value" id="color-depth"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                 </div>
@@ -43,35 +43,35 @@
 
             <div class="info-card card-system">
                 <div class="card-header">
-                    <h3 class="card-title">System and Browser</h3>
+                    <h3 class="card-title" data-i18n="resolution_test_system_browser">System and Browser</h3>
                 </div>
                 <div class="card-content">
                     <div class="info-row">
-                        <span class="info-label">Operating System</span>
+                        <span class="info-label" data-i18n="operating_system">Operating System</span>
                         <span class="info-value" id="os-info"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Browser</span>
+                        <span class="info-label" data-i18n="browser">Browser</span>
                         <span class="info-value" id="browser-info"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Touch Support</span>
+                        <span class="info-label" data-i18n="touch_support">Touch Support</span>
                         <span class="info-value" id="touch-support"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h2>How to Read Your Resolution Test</h2>
-        <p>If the screen resolution is 1920 x 1080, your display has 1,920 physical pixels across and 1,080 physical pixels down. If the viewport is smaller, the browser window or mobile browser UI is reducing the available page area. If DPR is 2 or 3, the device uses multiple physical pixels for each CSS pixel, which is common on phones, tablets, and high-density laptops.</p>
-        <p>Use this page when checking display settings, troubleshooting blurry text, choosing wallpapers, recording tutorials, testing browser zoom, or comparing your device against a <a href="devices/standard-resolutions.html">standard screen resolution chart</a>. Developers who need breakpoint testing should use the <a href="devices/responsive-tester.html">responsive design tester</a> instead.</p>
+        <h2 data-i18n="resolution_test_read_heading">How to Read Your Resolution Test</h2>
+        <p data-i18n="resolution_test_read_text">If the screen resolution is 1920 x 1080, your display has 1,920 physical pixels across and 1,080 physical pixels down. If the viewport is smaller, the browser window or mobile browser UI is reducing the available page area. If DPR is 2 or 3, the device uses multiple physical pixels for each CSS pixel, which is common on phones, tablets, and high-density laptops.</p>
+        <p><span data-i18n="resolution_test_use_cases_prefix">Use this page when checking display settings, troubleshooting blurry text, choosing wallpapers, recording tutorials, testing browser zoom, or comparing your device against a</span> <a href="devices/standard-resolutions.html" data-i18n="resolution_test_standard_chart_link">standard screen resolution chart</a>. <span data-i18n="resolution_test_developer_prefix">Developers who need breakpoint testing should use the</span> <a href="devices/responsive-tester.html" data-i18n="resolution_test_responsive_link">responsive design tester</a> <span data-i18n="resolution_test_developer_suffix">instead.</span></p>
 
-        <h2>Common Resolution Test Questions</h2>
-        <h3>Why is my browser viewport smaller than my screen resolution?</h3>
-        <p>The viewport excludes browser tabs, address bars, sidebars, scrollbars, and operating-system UI. On mobile devices, scaling and DPR also make the CSS viewport much smaller than the physical screen resolution.</p>
-        <h3>Is this different from a responsive tester?</h3>
-        <p>Yes. This resolution test reports your current device and browser. A responsive tester simulates many viewport sizes so developers can test layouts across phones, tablets, laptops, and desktops.</p>
-        <h3>How do I compare this screen with another display?</h3>
-        <p>Use the <a href="devices/compare.html">screen size comparison tool</a> to compare width, height, diagonal, and area between monitors, laptops, tablets, phones, and TVs.</p>
+        <h2 data-i18n="resolution_test_faq_heading">Common Resolution Test Questions</h2>
+        <h3 data-i18n="resolution_test_viewport_question">Why is my browser viewport smaller than my screen resolution?</h3>
+        <p data-i18n="resolution_test_viewport_answer">The viewport excludes browser tabs, address bars, sidebars, scrollbars, and operating-system UI. On mobile devices, scaling and DPR also make the CSS viewport much smaller than the physical screen resolution.</p>
+        <h3 data-i18n="resolution_test_responsive_question">Is this different from a responsive tester?</h3>
+        <p data-i18n="resolution_test_responsive_answer">Yes. This resolution test reports your current device and browser. A responsive tester simulates many viewport sizes so developers can test layouts across phones, tablets, laptops, and desktops.</p>
+        <h3 data-i18n="resolution_test_compare_question">How do I compare this screen with another display?</h3>
+        <p><span data-i18n="resolution_test_compare_answer_prefix">Use the</span> <a href="devices/compare.html" data-i18n="resolution_test_compare_tool_link">screen size comparison tool</a> <span data-i18n="resolution_test_compare_answer_suffix">to compare width, height, diagonal, and area between monitors, laptops, tablets, phones, and TVs.</span></p>
     </div>
 </section>

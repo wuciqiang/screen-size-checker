@@ -465,4 +465,4 @@ O futuro dos jogos é definitivamente HDR, mas apenas quando implementado corret
 **Complete seu conhecimento de exibição de jogos**: Explore nossos outros guias essenciais:
 - [Monitor Gamer vs TV: Qual Tipo de Display?](/hub/gaming-monitor-vs-tv)
 - [G-Sync vs FreeSync: Comparação de Tecnologia VRR](/hub/g-sync-vs-freesync-gaming)
-- [Melhor Resolução para Jogos 2026: Análise Completa](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2025: Análise Completa](/hub/best-gaming-resolution-2025)

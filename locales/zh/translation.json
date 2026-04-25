@@ -9,27 +9,23 @@
   "page_title": "屏幕尺寸检查器 - 免费在线工具 (2025)",
   "page_description": "即时检查您的屏幕尺寸、分辨率和视口。免费在线工具，适合开发者和设计师。无需下载。",
   "title": "我的屏幕分辨率是多少？ - 即时屏幕尺寸与视口检测工具",
-  
   "hero_subtitle": "你的浏览器视口大小",
   "screen_size_suffix": "屏幕尺寸",
   "screen_resolution": "屏幕分辨率",
   "detecting": "检测中...",
   "device_info_title": "设备信息",
   "copy_all_info": "复制全部信息",
-  
   "display_properties": "显示属性",
   "system_browser": "系统与浏览器",
   "advanced_info": "高级信息",
-  
   "aspect_ratio": "宽高比",
   "device_pixel_ratio": "设备像素比 (DPR)",
-  "color_depth": "颜色深度",
+  "color_depth": "色彩深度",
   "operating_system": "操作系统",
   "browser": "浏览器",
   "cookies_enabled": "Cookie已启用",
-  "touch_support": "触摸支持",
+  "touch_support": "触控支持",
   "user_agent": "用户代理",
-  
   "quick_links": "快速链接",
   "iphone_sizes": "iPhone 尺寸",
   "ipad_sizes": "iPad 尺寸",
@@ -38,7 +34,6 @@
   "standard_resolutions": "标准分辨率",
   "responsive_tester": "响应式测试器",
   "try_responsive_tester": "试用响应式测试器",
-  
   "faq_title": "常见问题",
   "faq_screen_resolution": "什么是屏幕分辨率？",
   "faq_screen_resolution_answer": "屏幕分辨率是指显示器能够显示的像素总数，通常以宽度×高度的格式表示（如1920×1080）。",
@@ -50,60 +45,49 @@
   "faq_web_development_answer": "了解屏幕尺寸、分辨率和DPR有助于开发者创建在所有设备上都表现良好的响应式网站。这对于优化不同屏幕上的用户体验至关重要。",
   "faq_check_frequency": "我应该多久检查一次设备信息？",
   "faq_check_frequency_answer": "在测试响应式设计、调试显示问题或确保网站在不同设备和浏览器上正常工作时，建议定期检查设备信息。",
-  
   "privacy_policy": "隐私政策",
   "about_us": "关于我们",
   "contact_us": "联系我们",
   "related_tools": "建筑计算器工具",
   "related_tools_localresizer": "图片调整工具",
   "all_rights_reserved": "保留所有权利",
-  
   "copied_success": "已复制!",
   "copy_failed": "复制失败",
   "all_info_copied": "所有信息已复制!",
   "copy_all_failed": "复制失败",
-  
   "yes": "是",
   "no": "否",
   "supported": "支持",
   "not_supported": "不支持",
   "not_available": "不可用",
-  
   "home": "首页",
   "devices": "设备",
   "back_to_home": "返回主页",
-  
   "iphone_page_title": "iPhone 视口尺寸（2026）：iPhone 17、16e、16、15 全机型指南 | Screen Size Checker",
   "iphone_page_description": "更新后的 iPhone 屏幕尺寸、分辨率与视口数据，包含 iPhone 17 系列与 iPhone 16e。",
   "iphone_page_heading": "iPhone 视口尺寸完整指南",
   "iphone_page_intro": "这份综合指南提供了所有iPhone机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
-  
   "ipad_page_title": "iPad 视口尺寸（2026）：iPad Pro、Air、mini 与 iPad 全机型指南 | Screen Size Checker",
   "ipad_page_description": "更新后的 iPad 屏幕尺寸、分辨率与视口数据，包含 iPad Pro M4、iPad Air M3、iPad mini A17 Pro 与 iPad A16。",
   "ipad_page_heading": "iPad 视口尺寸完整指南",
   "ipad_page_intro": "这份综合指南提供了所有iPad机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
-  
   "android_page_title": "Android 视口尺寸（2026）：Pixel 10、Galaxy S25 等主流机型 | Screen Size Checker",
   "android_page_description": "更新后的 Android 屏幕尺寸、分辨率与视口数据，覆盖 Pixel、Galaxy 与折叠屏机型。",
   "android_page_heading": "Android 视口尺寸完整指南",
   "android_page_intro": "这份综合指南提供了热门Android设备的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。",
-  
   "responsive_tester_title": "响应式设计测试器 - 在任何屏幕尺寸上测试您的网站",
-  "responsive_tester_description": "免费的响应式设计测试器，用于检查您的网站在各种屏幕分辨率（包括移动设备、平板电脑和桌面）上的布局。非常适合开发者和设计师。",
+  "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现",
   "responsive_tester_page_title": "免费响应式设计测试器",
   "responsive_tester_intro": "使用这个强大的工具测试您的网站在不同屏幕尺寸和设备上的响应式表现。选择预设设备尺寸或输入自定义尺寸，查看您的网站如何适应不同的屏幕。",
-  
   "simulator_title": "响应式设计测试器",
   "simulator_description": "测试您的网站在不同屏幕尺寸和设备上的外观和行为。选择预设设备尺寸或输入自定义尺寸。",
-  
   "website_url_label": "网站URL：",
   "website_url_placeholder": "https://example.com",
   "load_website": "加载网站",
   "url_note": "注意：某些网站可能因安全限制而无法显示。",
-  
   "device_presets": "设备预设",
   "iphone_se": "iPhone SE (375×667)",
-  "iphone_12": "iPhone 12/13/14 (390×844)",
+  "iphone_12": "iPhone 12",
   "iphone_promax": "iPhone Pro Max (428×926)",
   "android_medium": "Android中型 (360×800)",
   "ipad": "iPad (768×1024)",
@@ -112,27 +96,22 @@
   "laptop": "笔记本 (1366×768)",
   "desktop_medium": "中型桌面 (1440×900)",
   "desktop_large": "大型桌面 (1920×1080)",
-  
   "custom_size": "自定义尺寸",
-  "width": "宽度：",
-  "height": "高度：",
+  "width": "宽度",
+  "height": "高度",
   "apply_size": "应用尺寸",
   "rotate_device": "旋转设备",
-  
   "device_frame": "设备边框",
   "frame_none": "无边框",
   "frame_phone": "手机",
   "frame_tablet": "平板",
   "frame_laptop": "笔记本",
-  
   "current_size": "当前尺寸：",
   "invalid_custom_size_alert": "请输入有效的正数作为宽度和高度。",
   "website_load_error": "加载网站失败。可能是由于安全策略限制。",
-  
   "responsive_design_tips": "响应式设计提示",
   "why_responsive_design": "为什么响应式设计很重要",
   "why_responsive_design_text": "随着移动设备使用量的增加，响应式设计已成为现代网站开发的必备要素。Google的移动优先索引策略优先考虑移动友好的网站，使响应式设计对SEO成功至关重要。响应式网站能够自动调整布局以适应不同的屏幕尺寸，从智能手机到平板电脑再到桌面显示器，为所有设备提供最佳的用户体验。这种方法通过确保用户能够轻松导航和与内容交互（无论使用何种设备）来显著提高转化率。随着移动流量持续增长并占全球网络流量的50%以上，实施响应式设计不再是可选的——它是有效触达和吸引不断扩大的移动用户群体的必要条件。",
-  
   "common_breakpoints": "常见的断点尺寸",
   "testing_tips": "测试技巧",
   "testing_tip_1": "测试真实内容而非占位符，以确保布局能够处理各种内容长度",
@@ -143,29 +122,23 @@
   "testing_tip_6": "在模拟慢速网络（如3G）环境下测试加载性能，确保最佳的移动体验",
   "testing_tip_7": "通过确保文字大小和行高在最小的移动屏幕上仍然清晰易读来验证字体可读性",
   "testing_tip_8": "通过确认按钮和链接之间有足够的间距来验证交互元素，防止触摸设备上的误触",
-  
   "iframe_welcome_title": "欢迎使用响应式测试器！",
   "iframe_welcome_subtitle": "在上方输入URL开始测试您网站的响应式表现。",
   "iframe_welcome_feature1": "测试多种屏幕尺寸",
-  "iframe_welcome_feature2": "在不同设备上预览", 
+  "iframe_welcome_feature2": "在不同设备上预览",
   "iframe_welcome_feature3": "检查响应式布局",
-  
   "faq_q1": "为什么某些网站无法在测试器中加载？",
   "faq_a1": "许多网站出于安全原因设置了X-Frame-Options或Content-Security-Policy头，禁止其在iframe中被加载。这是一种防止点击劫持等攻击的安全措施。对于这些网站，您可能需要使用浏览器的开发者工具或其他方法进行测试。",
-  
   "faq_q2": "测试器中显示的网站与真实设备上有什么不同？",
   "faq_a2": "此测试器主要模拟不同的屏幕尺寸，但不能完全复制真实设备的所有特性，如触摸交互、设备像素比或特定的浏览器行为。对于最终测试，建议在实际设备上验证您的设计。",
-  
   "faq_q3": "如何测试特定的媒体查询断点？",
   "faq_a3": "使用自定义尺寸功能输入您的媒体查询断点值。例如，如果您有一个在768px宽度处的断点，可以输入767px和768px来测试断点两侧的布局变化。",
-  
   "device_table_heading": "视口尺寸表",
   "device_table_model": "机型",
   "device_table_viewport": "视口尺寸",
   "device_table_resolution": "屏幕分辨率",
   "device_table_dpr": "DPR",
   "device_table_year": "发布年份",
-  
   "understanding_viewport_heading": "理解视口尺寸",
   "viewport_basics": "视口基础知识",
   "viewport_size_explanation": "在为iPhone设备进行设计时，理解视口尺寸和屏幕分辨率之间的区别至关重要：",
@@ -178,51 +151,43 @@
   "orientation": "方向：",
   "orientation_desc": "iPad支持竖屏和横屏两种模式",
   "android_orientation_desc": "Android设备支持竖屏和横屏两种模式",
-  
   "design_considerations": "设计考虑",
-  "best_practices_point1": "使用响应式设计技术",
-  "best_practices_point2": "在多个iPhone机型上进行测试",
-  "best_practices_point3": "考虑刘海和主页指示器区域",
-  "best_practices_point4": "针对不同方向进行优化",
-  "best_practices_point5": "使用适当的媒体查询",
-  
+  "best_practices_point1": "考虑不同的屏幕尺寸和密度",
+  "best_practices_point2": "考虑各种宽高比",
+  "best_practices_point3": "针对不同方向进行优化",
+  "best_practices_point4": "在多个设备上测试",
+  "best_practices_point5": "考虑折叠屏和双屏设备",
   "ipad_design_point1": "为竖屏和横屏方向设计",
   "ipad_design_point2": "考虑iPad更大的屏幕空间",
   "ipad_design_point3": "针对触摸交互进行优化",
   "ipad_design_point4": "为不同iPad机型使用适当的媒体查询",
   "ipad_design_point5": "考虑可折叠设备",
-  
   "android_design_point1": "为各种屏幕尺寸和密度设计",
   "android_design_point2": "考虑不同的长宽比",
   "android_design_point3": "针对触摸交互进行优化",
   "android_design_point4": "使用适当的媒体查询",
   "android_design_point5": "考虑可折叠设备",
-  
   "technical_implementation": "技术实现",
   "technical_point1": "使用响应式设计技术",
   "technical_point2": "实现适当的视口元标签",
   "technical_point3": "考虑安全区域插入",
   "technical_point4": "针对不同DPR值进行优化",
   "technical_point5": "正确处理方向变化",
-  
   "ipad_technical_point1": "实现正确的视口元标签",
   "ipad_technical_point2": "有效使用CSS媒体查询",
   "ipad_technical_point3": "考虑安全区域插图",
   "ipad_technical_point4": "针对不同DPR值进行优化",
   "ipad_technical_point5": "正确处理方向变化",
-  
   "android_technical_point1": "实现正确的视口元标签",
   "android_technical_point2": "有效使用CSS媒体查询",
   "android_technical_point3": "考虑安全区域插图",
   "android_technical_point4": "针对不同DPR值进行优化",
   "android_technical_point5": "正确处理方向变化",
-  
   "related_resources_heading": "相关资源",
   "related_resources_iphone": "iPhone 视口尺寸指南",
   "related_resources_ipad": "iPad 视口尺寸指南",
   "related_resources_android": "Android 视口尺寸指南",
   "related_resources_compare": "设备尺寸对比工具",
-  
   "iphone_16_pro_max": "iPhone 16 Pro Max",
   "iphone_16_pro": "iPhone 16 Pro",
   "iphone_16_plus": "iPhone 16 Plus",
@@ -240,9 +205,7 @@
   "iphone_13_mini": "iPhone 13 mini",
   "iphone_12_pro_max": "iPhone 12 Pro Max",
   "iphone_12_pro": "iPhone 12 Pro",
-  "iphone_12": "iPhone 12",
   "iphone_12_mini": "iPhone 12 mini",
-  
   "ipad_pro_12_2024": "iPad Pro 12.9\" (2024)",
   "ipad_pro_11_2024": "iPad Pro 11\" (2024)",
   "ipad_air_2024": "iPad Air (2024)",
@@ -271,7 +234,6 @@
   "ipad_pro_12_2015": "iPad Pro 12.9\" (2015)",
   "ipad_mini_4": "iPad Mini 4",
   "ipad_air_2": "iPad Air 2",
-
   "samsung_galaxy_s24_ultra": "Samsung Galaxy S24 Ultra",
   "samsung_galaxy_s24_plus": "Samsung Galaxy S24+",
   "samsung_galaxy_s24": "Samsung Galaxy S24",
@@ -311,18 +273,15 @@
   "samsung_galaxy_s10_plus": "Samsung Galaxy S10+",
   "samsung_galaxy_s10": "Samsung Galaxy S10",
   "samsung_galaxy_s10e": "Samsung Galaxy S10e",
-
   "ipad_viewport_size_explanation": "在为iPad设备进行设计时，需要考虑几个重要因素：",
   "android_viewport_size_explanation": "在为Android设备进行设计时，需要考虑几个重要因素：",
-  
   "compare_page_title": "屏幕尺寸对比工具：比较显示器尺寸和分辨率 | Screen Size Checker",
-  "compare_page_description": "交互式工具，用于比较不同设备的屏幕尺寸和分辨率。非常适合响应式设计规划。",
+  "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
   "compare_page_heading": "屏幕尺寸对比工具",
   "compare_page_intro": "并排比较不同设备的屏幕尺寸和分辨率。这个交互式工具可以帮助您可视化显示器选择在实际尺寸中的比较效果。",
   "compare_description": "这个计算器使用精确的数学公式，基于行业标准长宽比准确计算对角线尺寸、宽度、高度和面积。所有测量结果都可以即时按比例可视化，实现真正的并排比较。",
   "compare_credits": "由 ScreenSizeChecker 团队开发，显示技术专家提供贡献。最后更新：2024年6月。",
   "screen_comparison": "屏幕对比",
-  
   "display_1": "显示器 1",
   "display_2": "显示器 2",
   "size": "尺寸",
@@ -330,28 +289,22 @@
   "inches": "英寸",
   "centimeters": "厘米",
   "compare_button": "比较",
-  
   "comparison_title": "52英寸16x9显示器 对比 56英寸16x9显示器",
   "specification": "规格",
   "stats_data": "统计数据",
   "comparison": "比较结果",
   "comparison_results": "比较结果",
-  
-  "width": "宽度",
-  "height": "高度",
   "area": "面积",
   "diagonal": "对角线",
   "actual_aspect_ratio": "实际长宽比",
   "width_diff": "宽度",
-  "height_diff": "高度", 
+  "height_diff": "高度",
   "area_diff": "面积",
   "diagonal_diff": "对角线",
-  
   "compare_title": "屏幕尺寸比较工具：比较显示器尺寸与分辨率 | ScreenSizeChecker",
   "compare_breadcrumb": "屏幕比较",
   "compare_heading": "屏幕尺寸比较工具",
   "compare_intro": "并排比较不同设备的屏幕尺寸和分辨率。这个交互式工具帮助您可视化显示器选择在实际尺寸中的比较效果。",
-  
   "aspect_label": "宽高比",
   "aspect_16x9": "16 x 9 宽屏",
   "aspect_16x10": "16 x 10 宽屏",
@@ -364,13 +317,11 @@
   "aspect_5x4": "5 x 4 显示器",
   "aspect_1x1": "1 x 1 正方形",
   "aspect_custom": "其他",
-  
   "size_label": "尺寸",
   "unit_inches": "英寸",
   "unit_cm": "厘米",
   "unit_toggle_inches": "英寸",
   "unit_toggle_cm": "使用厘米",
-  
   "stats_header": "统计",
   "stats_width": "宽度",
   "stats_height": "高度",
@@ -378,20 +329,17 @@
   "stats_as_4x3": "作为 4:3 显示器",
   "stats_as_16x9": "作为 16:9 显示器",
   "stats_as_235x1": "作为 2.35:1 显示器",
-  
   "comparison_header": "对比结果",
   "comparison_actual_ratio": "实际宽高比",
   "comparison_as_4x3": "作为 4:3 显示器",
   "comparison_as_16x9": "作为 16:9 显示器",
   "comparison_as_235x1": "作为 2.35:1 显示器",
-  
   "share_heading": "分享对比结果",
   "share_copy_link": "复制链接",
   "share_facebook": "Facebook",
   "share_twitter": "Twitter",
   "share_linkedin": "LinkedIn",
   "share_pinterest": "Pinterest",
-  
   "understanding_comparison_heading": "了解设备对比",
   "comparison_basics": "对比基础知识",
   "comparison_explanation": "在比较设备尺寸时，理解以下几个关键因素很重要：",
@@ -403,11 +351,7 @@
   "comparison_point3_desc": "物理像素与CSS像素的比率",
   "comparison_point4": "宽高比：",
   "comparison_point4_desc": "宽度和高度之间的比例关系",
-  
   "best_practices_heading": "选择显示器的最佳实践",
-  "best_practices_point1": "考虑不同的屏幕尺寸和密度",
-  "best_practices_point2": "考虑各种宽高比",
-  
   "size_type": "尺寸类型",
   "size_value": "尺寸值",
   "custom": "自定义",
@@ -416,17 +360,12 @@
   "metric": "公制",
   "imperial": "英制",
   "summary": "对比总结",
-  "best_practices_point3": "针对不同方向进行优化",
-  "best_practices_point4": "在多个设备上测试",
-  "best_practices_point5": "考虑折叠屏和双屏设备",
-  
   "compare_how_to_use": "如何使用屏幕尺寸比较工具",
   "compare_step1": "从下拉菜单中选择两个显示器的宽高比",
   "compare_step2": "输入两个显示器的对角线屏幕尺寸",
   "compare_step3": "点击\"比较\"查看详细尺寸和差异",
   "compare_step4": "使用单位切换在英寸和厘米之间切换",
   "compare_step5": "使用分享按钮与他人分享您的比较结果",
-  
   "faq_heading": "关于屏幕尺寸比较的常见问题",
   "faq_measure_question": "屏幕尺寸是如何测量的？",
   "faq_measure_answer": "屏幕尺寸通常是对角线测量，从一个角到对角，以英寸或厘米表示。例如，50英寸电视意味着对角线测量为50英寸。",
@@ -438,14 +377,12 @@
   "faq_different_answer": "不同宽高比的屏幕即使对角线测量相同，宽度和高度也会不同。例如，27英寸16:9显示器比27英寸4:3显示器更宽但更矮。",
   "faq_aspect_question": "什么是宽高比，为什么重要？",
   "faq_aspect_answer": "宽高比是屏幕宽度和高度之间的比例关系（宽度:高度）。常见比例包括16:9（宽屏）、4:3（传统）和21:9（超宽屏）。它很重要，因为它影响内容的显示方式和整体观看体验。",
-  
   "16_9_wide": "16:9 宽屏",
   "console_description": "打开浏览器控制台查看调试信息。",
   "console_test": "控制台测试",
   "copy_link": "📋 复制链接",
   "current_language": "当前语言",
   "current_theme": "当前主题",
-  "custom": "自定义",
   "difference": "差异",
   "error_message": "无法检测设备信息。请刷新页面并重试。",
   "error_retry": "重试",
@@ -474,12 +411,10 @@
   "devices_iphone": "iPhone 设备",
   "devices_android": "Android 设备",
   "devices_ipad": "iPad 设备",
-
   "toc_title": "目录",
   "related_articles": "相关文章",
   "reading_time": "分钟阅读",
   "read_more": "阅读全文",
-  
   "error_title": "检测失败",
   "how_to_use": "如何使用屏幕尺寸比较工具",
   "language_test": "语言切换测试",
@@ -499,23 +434,19 @@
   "theme_description": "点击上面的按钮在浅色和深色主题之间切换。",
   "theme_test": "主题切换测试",
   "toggle_theme": "切换主题",
-
-  "standard_resolutions_page_title": "标准屏幕分辨率：完整指南和尺寸图表 | Screen Size Checker",
-  "standard_resolutions_page_description": "标准屏幕分辨率、宽高比和社交媒体图片尺寸的综合指南。查找显示器、视频标准和流行社交平台的精确尺寸。",
-  "standard_resolutions_page_heading": "标准屏幕分辨率：完整指南",
-  "standard_resolutions_page_intro": "这份综合指南提供了关于标准屏幕分辨率、宽高比和社交媒体推荐图片尺寸的详细信息。对于网页开发者、设计师和内容创作者来说是必不可少的信息。",
-  
+  "standard_resolutions_page_title": "标准屏幕分辨率 2026：720p 到 8K 对照表",
+  "standard_resolutions_page_description": "一张表查看 720p、1080p、1440p、4K、5K、8K 等标准显示分辨率，包含宽高比、像素数量和用途。",
+  "standard_resolutions_page_heading": "屏幕分辨率表 2026：从 720p 到 8K 的完整参考",
+  "standard_resolutions_page_intro": "在一个页面中查找标准屏幕分辨率、像素尺寸、宽高比和实际用途，适用于显示器选购、响应式断点、QA 检查和内容制作。",
   "standard_table_heading": "标准分辨率表",
   "monitor_resolutions_heading": "显示器与屏幕分辨率",
   "aspect_ratios_heading": "常见宽高比",
   "video_resolutions_heading": "视频分辨率标准",
   "social_media_sizes_heading": "社交媒体图片尺寸",
-  
   "resolution_name": "标准名称",
   "resolution_size": "分辨率",
   "total_pixels": "总像素数",
   "common_usage": "常见用途",
-  
   "hd": "HD (720p)",
   "full_hd": "Full HD (1080p)",
   "wuxga": "WUXGA",
@@ -525,7 +456,6 @@
   "dci_4k": "DCI 4K",
   "5k": "5K",
   "8k": "8K UHD",
-  
   "hd_usage": "入门级显示器，较旧电视",
   "full_hd_usage": "标准显示器，主流电视",
   "wuxga_usage": "16:10 宽屏显示器，专业笔记本",
@@ -535,10 +465,8 @@
   "dci_4k_usage": "影院放映标准，专业电影制作",
   "5k_usage": "高端专业显示器，iMac等",
   "8k_usage": "顶级电视，专业影视制作",
-  
   "common_resolutions": "常见分辨率",
   "typical_devices": "常见设备",
-  
   "16_9_devices": "现代电视，大多数显示器，笔记本电脑",
   "16_10_devices": "苹果MacBook，一些专业笔记本",
   "21_9_devices": "超宽显示器，影院屏幕",
@@ -546,11 +474,8 @@
   "3_2_devices": "Surface设备，部分Chromebook",
   "1_1_devices": "Instagram方形照片，部分专业显示器",
   "32_9_devices": "超宽曲面显示器，双显示器替代品",
-  
   "video_standard": "视频标准",
-  "resolution": "分辨率",
   "common_platforms": "常用平台",
-  
   "360p_platforms": "低带宽YouTube，较旧的移动视频",
   "480p_platforms": "标清DVD，老旧视频内容",
   "720p_platforms": "高清视频，YouTube，直播",
@@ -558,15 +483,12 @@
   "1440p_platforms": "高端YouTube视频，游戏直播",
   "4k_platforms": "Netflix 4K，YouTube 4K，UHD蓝光",
   "8k_platforms": "试验性视频，高端YouTube视频",
-  
   "facebook_sizes": "Facebook图片尺寸",
   "instagram_sizes": "Instagram图片尺寸",
   "twitter_sizes": "Twitter图片尺寸",
   "youtube_sizes": "YouTube图片尺寸",
-  
   "image_type": "图片类型",
   "recommended_size": "推荐尺寸（像素）",
-  
   "profile_picture": "个人头像",
   "cover_photo": "封面图片",
   "shared_image": "分享图片",
@@ -581,26 +503,20 @@
   "channel_profile": "频道头像",
   "channel_cover": "频道封面",
   "video_thumbnail": "视频缩略图",
-  
   "understanding_resolutions_heading": "理解分辨率和尺寸",
   "resolution_basics": "分辨率基础知识",
-  
   "what_is_resolution": "什么是分辨率?",
   "resolution_explanation": "分辨率是指显示设备上水平和垂直像素的数量。分辨率越高，显示的细节越多，但需要更多的处理能力和带宽。",
-  
   "what_is_aspect_ratio": "什么是宽高比?",
   "aspect_ratio_explanation": "宽高比是屏幕宽度与高度的比例，表示为 x:y（例如 16:9）。它决定了显示区域的形状，影响观看体验和内容布局。",
-  
   "resolution_vs_size": "分辨率与物理尺寸的区别",
   "resolution_vs_size_explanation": "分辨率是像素数量，而物理尺寸是屏幕的实际大小（通常以英寸或厘米测量）。相同分辨率的屏幕可以有不同的物理尺寸，这影响了像素密度（PPI/DPI）。",
-  
   "design_considerations_heading": "设计注意事项",
   "design_point1": "设计时考虑多种分辨率和设备，不要只针对一种固定尺寸",
   "design_point2": "利用响应式设计确保内容在不同屏幕尺寸上正确显示",
   "design_point3": "为高分辨率显示器（如Retina屏幕）准备2x或3x图像资源",
   "design_point4": "测试您的设计在各种常见分辨率下的表现",
   "design_point5": "为社交媒体平台创建图像时，始终使用平台推荐的最新尺寸",
-  
   "technical_implementation_heading": "技术实现",
   "tech_point1": "使用CSS媒体查询为不同屏幕尺寸调整布局",
   "tech_point2": "实现适当的viewport meta标签以确保移动设备上正确缩放",
@@ -615,7 +531,6 @@
   "breakpoints_desktop_range": "1025px - 1440px",
   "breakpoints_large": "大屏幕:",
   "breakpoints_large_range": "1441px 及以上",
-
   "ppiCalculator": {
     "title": "PPI 计算器",
     "optimizedTitle": "像素密度（PPI）计算器",
@@ -624,67 +539,54 @@
     "pageDescription": "精确计算任何屏幕的 PPI（每英寸像素数）。只需输入分辨率和对角线尺寸，即可找到显示器、手机或电视的像素密度。",
     "pageHeading": "PPI 计算器",
     "pageIntro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
-    
     "inputTitle": "输入屏幕参数",
     "horizontalPixels": "水平像素数",
     "horizontalPixelsPlaceholder": "1920",
     "horizontalPixelsHelp": "屏幕宽度的像素数量",
     "verticalPixels": "垂直像素数",
-    "verticalPixelsPlaceholder": "1080", 
+    "verticalPixelsPlaceholder": "1080",
     "verticalPixelsHelp": "屏幕高度的像素数量",
     "diagonalInches": "对角线尺寸（英寸）",
     "diagonalInchesPlaceholder": "15.6",
     "diagonalInchesHelp": "屏幕对角线的长度（英寸）",
-    
     "resultTitle": "计算结果",
     "ppiUnit": "PPI",
     "resultDescription": "每英寸像素数",
     "pixelDiagonal": "像素对角线：",
     "pixelsUnit": "像素",
     "screenDensity": "屏幕密度：",
-    
     "lowDensity": "低密度",
     "mediumDensity": "中等密度",
-    "highDensity": "高密度", 
+    "highDensity": "高密度",
     "veryHighDensity": "超高密度",
-    
     "errorInvalidNumber": "请输入有效的数字",
     "errorNegativeValue": "值必须大于 0",
     "errorOutOfRange": "值必须在 {{min}} 到 {{max}} 之间",
     "errorCalculation": "计算过程中出现错误",
-    
     "whatIsPPI": "什么是 PPI（像素密度）？",
     "ppiDefinition": "PPI（Pixels Per Inch，每英寸像素数）是衡量显示设备像素密度的单位。它表示在一英寸长度内包含多少个像素点。PPI 值越高，显示效果越细腻，图像和文字看起来越清晰锐利。",
-    
     "howPPICalculated": "PPI 是如何计算的？",
     "ppiFormula": "PPI 的计算公式为：PPI = √(水平像素² + 垂直像素²) / 对角线英寸数。首先计算屏幕的像素对角线长度，然后除以物理对角线长度，就得到了每英寸的像素数量。",
-    
     "whyPPIImportant": "为什么 PPI 很重要？",
     "ppiImportance": "PPI 对显示质量有直接影响。高 PPI 显示器能够呈现更清晰的文字、更细腻的图像细节，减少像素颗粒感。对于设计师和开发者来说，了解目标设备的 PPI 有助于优化图像资源，确保在不同密度的屏幕上都能获得最佳显示效果。",
-    
     "ppiApplications": "PPI 的应用场景",
     "webDesign": "网页设计：为不同 PPI 的设备准备合适的图像资源",
     "appDevelopment": "应用开发：确保 UI 元素在各种屏幕上的显示效果",
     "printDesign": "印刷设计：理解屏幕显示与印刷输出的差异",
     "deviceSelection": "设备选择：比较不同显示器的显示质量",
-    
     "howToUse": "如何使用我们的 PPI 计算器？",
     "step1": "输入屏幕的水平像素数（如 1920）",
     "step2": "输入屏幕的垂直像素数（如 1080）",
     "step3": "输入屏幕的对角线尺寸（如 15.6 英寸）",
     "step4": "系统会自动计算并显示 PPI 值",
-    
     "exampleCalculation": "例如：一个 15.6 英寸的 1920×1080 显示器，其 PPI 值约为 141.21，这意味着每英寸包含约 141 个像素点。",
-    
     "ppiVsDpi": "PPI vs DPI：有什么区别？",
     "ppiVsDpiExplanation": "PPI 和 DPI 经常被混淆，但它们有不同的应用场景。PPI（每英寸像素数）主要用于描述数字显示设备的像素密度，而 DPI（每英寸点数）主要用于描述打印设备的分辨率。在网页设计和屏幕显示的语境下，我们通常使用 PPI 来衡量显示质量。",
-    
     "commonPPIValues": "常见的 PPI 值参考",
     "lowPPI": "低密度（72-120 PPI）：传统显示器、大尺寸电视",
     "mediumPPI": "中等密度（120-200 PPI）：标准笔记本电脑、台式机显示器",
     "highPPI": "高密度（200-300 PPI）：高分辨率笔记本、平板电脑",
     "veryHighPPI": "超高密度（300+ PPI）：智能手机、Retina 显示器",
-    
     "faq": {
       "title": "常见问题解答 (FAQ)",
       "goodPPI": {
@@ -704,7 +606,6 @@
         "answer": "在正常观看距离下，人眼通常可以分辨高达约 300 PPI 的差异。超过这个点，除非非常近距离观看屏幕，否则改善变得不太明显。"
       }
     },
-    
     "referenceTable": {
       "title": "常见设备的典型 PPI 值",
       "device": "设备",
@@ -719,14 +620,12 @@
         "ipadpro": "iPad Pro 12.9\""
       }
     },
-    
     "context": {
       "standard": "标准分辨率显示器。",
       "retina": "高分辨率\"Retina\"显示器，非常适合清晰的文字和图像。",
       "professional": "超高分辨率显示器，非常适合专业创意工作。"
     }
   },
-
   "projectionCalculator": {
     "title": "投影仪距离计算器",
     "intro": "计算投影仪的最佳安装距离和屏幕尺寸。输入投影比和距离，获得精确的安装参数。",
@@ -734,12 +633,10 @@
     "pageDescription": "计算投影仪的最佳安装距离和屏幕尺寸。输入投影比和距离，获得家庭影院或会议室的精确安装参数。",
     "pageHeading": "投影仪距离计算器",
     "pageIntro": "计算投影仪的最佳安装距离和屏幕尺寸。",
-    
     "inputTitle": "投影仪设置",
     "resultTitle": "计算结果",
     "modeDistance": "计算屏幕尺寸",
     "modeScreen": "计算投影距离",
-    
     "throwRatio": "投影比",
     "throwRatioHelp": "投影比 = 距离 / 屏幕宽度。请查看投影仪规格。",
     "customRatio": "自定义",
@@ -749,21 +646,18 @@
     "screenSizeHelp": "期望的屏幕对角线尺寸（英寸）",
     "aspectRatio": "宽高比",
     "aspectRatioHelp": "家庭影院常用16:9",
-    
     "meters": "米",
     "feet": "英尺",
     "inches": "英寸（对角线）",
     "inchesUnit": "英寸",
     "metersUnit": "米",
     "feetUnit": "英尺",
-    
     "screenSizeResult": "屏幕尺寸",
     "distanceResult": "所需距离",
     "screenWidth": "屏幕宽度",
     "screenHeight": "屏幕高度",
     "screenArea": "屏幕面积",
     "viewingDistance": "最佳观看距离",
-    
     "quickReference": "快速参考：常见设置",
     "homeTheater": "家庭影院",
     "homeTheater1": "屏幕：100-120英寸",
@@ -785,7 +679,6 @@
     "conference2": "距离：3-5米",
     "conference3": "宽高比：4:3或16:10",
     "conference4": "需要高亮度",
-    
     "whatIsThrowRatio": "什么是投影比？",
     "throwRatioExplain": "投影比是投影仪到屏幕距离与投影画面宽度之间的关系。计算公式：投影比 = 距离 ÷ 屏幕宽度。",
     "throwRatioTypes": "投影比类型",
@@ -801,12 +694,10 @@
     "standardUse": "家庭影院、会议室",
     "longThrow": "长焦",
     "longThrowUse": "大型场所、礼堂",
-    
     "howToCalculate": "如何计算投影距离",
     "calculateFormula": "基本公式：距离 = 投影比 × 屏幕宽度。对于16:9宽高比的屏幕，宽度约为对角线的87%。",
     "optimalViewing": "最佳观看距离",
     "viewingExplain": "最佳观看距离通常是屏幕对角线的1.5到2.5倍。",
-    
     "installationTips": "投影仪安装技巧",
     "tip1": "查看投影仪手册或规格中的具体投影比",
     "tip2": "规划安装位置时考虑镜头位移和变焦范围",
@@ -814,14 +705,12 @@
     "tip4": "考虑吊装以便永久安装",
     "tip5": "预留通风和走线空间",
     "tip6": "检查房间的环境光控制选项",
-    
     "lumensGuide": "投影仪亮度指南",
     "lumensIntro": "屏幕尺寸影响所需的投影仪亮度。屏幕越大，光线分布越广，需要更多流明。",
     "screenSizeHeader": "屏幕尺寸",
     "darkRoom": "暗室",
     "dimRoom": "昏暗房间",
     "brightRoom": "明亮房间",
-    
     "faqTitle": "常见问题",
     "faq1q": "如何查找投影仪的投影比？",
     "faq1a": "查看投影仪的规格表或手册。通常列为单个数字（如1.5）或范围（如1.2-1.9，用于带变焦镜头的投影仪）。",
@@ -834,7 +723,6 @@
     "faq5q": "宽高比如何影响屏幕尺寸计算？",
     "faq5a": "不同的宽高比有不同的宽高比例。16:9屏幕相对于其高度更宽，而4:3屏幕则更接近正方形。"
   },
-
   "lcdTester": {
     "title": "LCD屏幕测试工具",
     "intro": "检测显示器坏点、色彩准确性和显示质量。在全屏模式下运行全面的屏幕测试。",
@@ -842,7 +730,6 @@
     "pageDescription": "免费在线LCD屏幕测试工具。检测显示器坏点、色彩准确性、背光漏光等显示质量问题。",
     "pageHeading": "LCD屏幕测试工具",
     "pageIntro": "检测显示器坏点、色彩准确性和显示质量。",
-    
     "selectTest": "选择测试项目",
     "deadPixelTest": "坏点测试",
     "deadPixelDesc": "显示纯色以检测屏幕上的坏点或亮点。",
@@ -858,7 +745,6 @@
     "motionDesc": "检查拖影和响应时间问题。",
     "textTest": "文字清晰度测试",
     "textDesc": "验证文字渲染和字体清晰度。",
-    
     "red": "红色",
     "green": "绿色",
     "blue": "蓝色",
@@ -867,7 +753,6 @@
     "cyan": "青色",
     "magenta": "品红",
     "yellow": "黄色",
-    
     "horizontalGradient": "水平渐变",
     "verticalGradient": "垂直渐变",
     "rgbGradient": "RGB渐变",
@@ -883,18 +768,15 @@
     "scrollingText": "滚动文字",
     "textOnWhite": "白底黑字",
     "textOnBlack": "黑底白字",
-    
     "autoTest": "运行全部测试（自动）",
     "autoTestHint": "按ESC或点击退出。按空格键或方向键切换。",
     "pressEsc": "按ESC退出",
-    
     "instructions": "使用说明",
     "instruction1": "点击任意测试按钮启动全屏测试",
     "instruction2": "按ESC或点击任意位置退出测试",
     "instruction3": "使用方向键或空格键切换颜色/测试",
     "instruction4": "测试前清洁屏幕以获得准确结果",
     "instruction5": "在昏暗房间测试效果最佳",
-    
     "whatToLookFor": "检测要点",
     "deadPixels": "坏点",
     "deadPixelsInfo": "不会变色的小点。在亮色上显示为黑点，在黑色上显示为亮点。",
@@ -904,7 +786,6 @@
     "colorBandingInfo": "渐变中出现可见的阶梯或条纹，而非平滑过渡。表示色深受限。",
     "backlight": "背光漏光",
     "backlightInfo": "边缘或角落漏光，在暗室黑屏时尤为明显。",
-    
     "screenTypes": "屏幕面板类型",
     "panelType": "面板类型",
     "colorAccuracy": "色彩准确度",
@@ -920,7 +801,6 @@
     "vaUse": "电影、高对比度内容",
     "tnUse": "竞技游戏",
     "oledUse": "高端显示器、HDR内容",
-    
     "faqTitle": "常见问题",
     "faq1q": "坏点可以修复吗？",
     "faq1a": "坏点通常是永久性的。但亮点有时可以通过运行像素修复软件或用软布轻轻按摩受影响区域来修复。",
@@ -931,12 +811,10 @@
     "faq4q": "什么导致背光漏光？",
     "faq4a": "背光漏光是由LED背光的光线分布不均匀造成的，通常是由于制造公差或面板框架受压所致。"
   },
-
   "lcd_screen_tester": "LCD屏幕测试",
   "lcd_screen_tester_desc": "检测坏点",
   "tool_lcd_tester": "LCD屏幕测试",
   "footer_lcd_tester": "LCD屏幕测试",
-
   "aspectRatioCalculator": {
     "title": "长宽比计算器",
     "intro": "计算新尺寸的同时保持特定的长宽比。输入原始尺寸，自动计算比例相符的新尺寸。",
@@ -944,22 +822,20 @@
     "pageDescription": "免费的长宽比计算器，在调整图像、视频或布局尺寸时保持比例。计算新尺寸的同时保持原始长宽比。",
     "pageHeading": "长宽比计算器",
     "pageIntro": "计算新尺寸的同时保持特定的长宽比。输入原始尺寸，自动计算比例相符的新尺寸。",
-    
     "originalRatio": "原始比例",
     "newDimensions": "新尺寸",
     "width1": "宽度 1",
     "width1Placeholder": "1920",
     "width1Help": "原始宽度值",
-    "height1": "高度 1", 
+    "height1": "高度 1",
     "height1Placeholder": "1080",
     "height1Help": "原始高度值",
     "width2": "宽度 2",
     "width2Placeholder": "3840",
     "width2Help": "输入新宽度，高度将自动计算",
     "height2": "高度 2",
-    "height2Placeholder": "2160", 
+    "height2Placeholder": "2160",
     "height2Help": "输入新高度，宽度将自动计算",
-    
     "currentRatio": "当前比例：",
     "scaleFactor": "缩放倍数：",
     "aspectRatio": "长宽比：",
@@ -967,73 +843,55 @@
     "previewLabel": "比例预览",
     "originalSize": "原始尺寸：",
     "newSize": "新尺寸：",
-    
     "errors": {
       "invalidNumber": "请输入有效的数字",
       "negativeValue": "值必须大于 0",
       "outOfRange": "值必须在 {min} 到 {max} 之间",
       "calculationError": "计算过程中出现错误"
     },
-    
     "whatIsAspectRatio": "什么是长宽比？",
     "aspectRatioDefinition": "长宽比是指图像、屏幕或任何矩形区域的宽度与高度之间的比例关系。它通常表示为两个数字的比值，如16:9或4:3。长宽比决定了内容的形状和视觉比例，是设计和媒体制作中的重要概念。",
-    
     "howToCalculate": "如何计算长宽比？",
     "calculationFormula": "长宽比的计算很简单：将宽度和高度都除以它们的最大公约数，得到最简比例。例如，1920×1080的分辨率，最大公约数是120，所以长宽比是16:9。当你需要保持相同比例调整尺寸时，可以使用公式：新高度 = (原高度 ÷ 原宽度) × 新宽度。",
-    
     "commonAspectRatios": "常见的长宽比",
-    
     "widescreen169": "16:9 宽屏比例",
     "widescreen169Description": "16:9是现代最常见的长宽比，广泛用于高清电视、电脑显示器、YouTube视频和大多数现代设备。这个比例提供了宽广的视野，非常适合观看电影和游戏。",
-    
-    "traditional43": "4:3 传统比例", 
+    "traditional43": "4:3 传统比例",
     "traditional43Description": "4:3是传统的电视和电脑显示器比例，在早期的CRT显示器和老式电视中广泛使用。虽然现在不太常见，但在某些专业应用和老式内容中仍然重要。",
-    
     "square11": "1:1 正方形比例",
     "square11Description": "1:1正方形比例在社交媒体中非常流行，特别是Instagram的帖子。这种比例在移动设备上显示效果很好，也常用于头像、图标和某些艺术作品。",
-    
     "ultrawide219": "21:9 超宽屏比例",
     "ultrawide219Description": "21:9超宽屏比例主要用于电影制作和高端显示器。这种比例提供了更宽的视野，特别适合电影观看、游戏和多任务处理。",
-    
     "whyAspectRatioMatters": "为什么长宽比很重要？",
-    
     "responsiveDesign": "响应式网页设计",
     "responsiveDesignDescription": "在响应式网页设计中，了解不同设备的长宽比至关重要。设计师需要确保内容在各种屏幕比例上都能正确显示，从手机的窄屏到桌面的宽屏。",
-    
     "videoProduction": "视频制作",
     "videoProductionDescription": "视频制作中，选择正确的长宽比决定了最终作品的视觉效果和兼容性。不同平台有不同的推荐比例：YouTube推荐16:9，Instagram Stories使用9:16，而电影通常使用21:9。",
-    
     "imageEditing": "图像编辑和摄影",
     "imageEditingDescription": "在图像编辑中，保持正确的长宽比可以避免图像变形。当需要调整图像尺寸用于不同用途时，了解如何计算比例尺寸非常重要。",
-    
     "howToUse": "如何使用长宽比计算器？",
     "step1": "输入原始的宽度和高度值",
     "step2": "在新尺寸区域输入新的宽度或高度",
     "step3": "另一个维度将自动计算以保持相同比例",
     "step4": "查看可视化预览了解比例效果",
-    
     "exampleCalculation": "例如：如果原始尺寸是1920×1080（16:9），当你输入新宽度3840时，计算器会自动计算出新高度为2160，保持相同的16:9比例。",
-    
     "practicalApplications": "实际应用场景",
     "webDesign": "网页设计：为不同设备创建响应式布局",
     "videoEditing": "视频编辑：调整视频尺寸适配不同平台",
     "imageResize": "图像调整：按比例缩放图片避免变形",
     "printDesign": "印刷设计：确保设计在不同尺寸下保持比例",
     "socialMedia": "社交媒体：创建适合各平台的内容尺寸",
-    
     "useThisRatio": "使用此比例",
     "photography32": "3:2 摄影比例",
     "photography32Description": "3:2是传统摄影中常用的比例，也是35mm胶片的标准比例。这个比例在数码相机和平板电脑中也很常见，提供了良好的构图平衡。",
     "classic54": "5:4 经典比例",
     "classic54Description": "5:4比例常用于早期的电脑显示器和一些专业显示器。这个比例介于4:3和16:10之间，在文档处理和图形设计中有一定的应用。",
-    
     "tooltip169": "宽屏显示器标准比例",
     "tooltip43": "传统显示器比例",
     "tooltip11": "社交媒体正方形比例",
     "tooltip219": "电影院超宽屏比例",
     "tooltip32": "传统摄影标准比例",
     "tooltip54": "经典显示器比例",
-    
     "faq": {
       "title": "常见问题解答 (FAQ)",
       "whatIsRatio": {
@@ -1054,7 +912,6 @@
       }
     }
   },
-
   "ppi_calculator": "PPI 计算器",
   "projection_calculator": "投影仪计算器",
   "projection_calculator_desc": "计算投影距离",
@@ -1062,17 +919,8 @@
   "footer_projection": "投影仪计算器",
   "aspect_ratio_calculator": "长宽比计算器",
   "loading": "加载中...",
-  
-  "iphone_page_description": "更新后的 iPhone 屏幕尺寸、分辨率与视口数据，包含 iPhone 17 系列与 iPhone 16e。",
-  "ipad_page_description": "更新后的 iPad 屏幕尺寸、分辨率与视口数据，包含 iPad Pro M4、iPad Air M3、iPad mini A17 Pro 与 iPad A16。", 
-  "android_page_description": "更新后的 Android 屏幕尺寸、分辨率与视口数据，覆盖 Pixel、Galaxy 与折叠屏机型。",
-  "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
-  "standard_resolutions_page_description": "查看标准屏幕分辨率和宽高比参考表",
-  "responsive_tester_description": "测试网站在不同屏幕尺寸下的响应式表现",
-
   "static_hero_title": "屏幕尺寸检查器 - 检测您的显示器分辨率",
   "noscript_hero_title": "屏幕尺寸检查器 - 启用JavaScript以获得实时检测",
-
   "tool_intro_title": "如何检查您的屏幕尺寸",
   "tool_intro_description": "我们的屏幕尺寸检查器能够即时显示您设备的屏幕分辨率、视口尺寸和像素密度。这个工具对于需要在不同设备上测试响应式设计的网页开发者、UI/UX设计师和QA专业人员来说是必不可少的。",
   "tool_intro_for_developers": "面向开发者",
@@ -1081,19 +929,15 @@
   "tool_intro_for_designers_desc": "确保设计在不同屏幕尺寸上正常工作",
   "tool_intro_for_qa": "面向QA",
   "tool_intro_for_qa_desc": "验证显示兼容性和像素密度",
-
   "noscript_title": "启用JavaScript以获得精确检测",
   "noscript_description": "我们的屏幕尺寸检查器需要JavaScript才能准确显示您的设备信息。请在浏览器设置中启用JavaScript。",
   "noscript_common_resolutions": "常见屏幕分辨率",
   "noscript_how_to_enable": "如何启用JavaScript",
   "noscript_footer_text": "启用JavaScript后，请刷新此页面以查看您的设备信息。",
-  
-  "nav_home": "首页",
   "nav_devices": "设备",
   "nav_tools": "工具",
   "nav_gaming": "游戏",
   "nav_guides": "指南",
-  "nav_blog": "博客",
   "gaming_guides": "游戏指南",
   "gaming_comparisons": "对比",
   "gaming_featured": "推荐",
@@ -1110,22 +954,19 @@
   "tool_aspect": "纵横比",
   "tool_responsive": "响应式测试",
   "tools_calculators": "计算器",
-  "tools_testing": "测试工具",
-  "tools_comparison": "对比",
   "tools_testing": "测试与对比",
+  "tools_comparison": "对比",
   "featured_tools_guides_title": "精选工具与指南",
   "tools_reference": "参考资料",
   "devices_phones": "智能手机",
   "quick_access": "快速访问",
   "most_used": "最常用",
   "essential": "必备工具",
-  "gaming_guides": "游戏指南",
   "view_all_mobile": "查看所有手机 →",
   "view_all_tablets": "查看所有平板 →",
   "quick_links_title": "快速链接",
   "compare_screens": "比较屏幕",
   "compare_screens_desc": "并排对比",
-  "ppi_calculator": "PPI 计算器",
   "ppi_calculator_desc": "计算像素密度",
   "aspect_ratio_desc": "屏幕比例",
   "responsive_tester_desc": "测试您的设计",
@@ -1171,7 +1012,6 @@
   "gaming_curved_flat": "曲面 vs 平面显示器",
   "gaming_sync_tech": "G-Sync vs FreeSync",
   "gaming_monitor_fps": "FPS 和显示器指南",
-
   "footer_resources": "资源",
   "footer_company": "公司",
   "footer_iphone": "iPhone 屏幕",
@@ -1203,5 +1043,93 @@
   "device_faq_q4": "折叠屏设备会如何影响视口测试？",
   "device_faq_a4": "折叠屏在外屏和内屏下会出现差异很大的视口比例。应分别测试两种状态和横竖屏切换，避免把布局写死在单一宽度。",
   "device_faq_q5": "这些设备视口数据多久更新一次？",
-  "device_faq_a5": "我们会在主要新品发布或规格更新后同步数据。上线前的关键页面，请务必再用真机或云真机进行验证。"
+  "device_faq_a5": "我们会在主要新品发布或规格更新后同步数据。上线前的关键页面，请务必再用真机或云真机进行验证。",
+  "resolution_test_tool": "分辨率测试",
+  "resolution_test_tool_desc": "立即检查你的显示器",
+  "resolution_test_page_title": "分辨率测试 - 立即检查你的屏幕分辨率",
+  "resolution_test_page_description": "立即运行分辨率测试，查看屏幕分辨率、浏览器视口、DPR、宽高比和显示详情。免费、快速，适用于任何设备。",
+  "resolution_test_page_heading": "分辨率测试",
+  "resolution_test_page_intro": "立即检查当前屏幕分辨率、浏览器视口、DPR 和显示详情。",
+  "resolution_test_instant_heading": "即时屏幕分辨率测试",
+  "resolution_test_instant_text": "这个分辨率测试会显示当前屏幕分辨率、浏览器视口尺寸、设备像素比、宽高比和相关显示详情。它适合想快速知道“我的分辨率是多少”的普通用户，无需打开系统设置。",
+  "resolution_test_resolution_vs_viewport": "屏幕分辨率是显示器的物理像素网格，例如 1920 x 1080、2560 x 1440 或 3840 x 2160。视口尺寸是网页可用的浏览器区域。由于浏览器界面、缩放、操作系统缩放和 DPR 的影响，这两个数字经常不同。",
+  "resolution_test_results_heading": "分辨率测试结果",
+  "resolution_test_current_display": "当前显示器",
+  "resolution_test_screen_resolution": "屏幕分辨率",
+  "resolution_test_viewport_size": "视口尺寸",
+  "resolution_test_dpr": "设备像素比",
+  "resolution_test_system_browser": "系统和浏览器",
+  "resolution_test_read_heading": "如何解读分辨率测试",
+  "resolution_test_read_text": "如果屏幕分辨率是 1920 x 1080，说明显示器横向有 1,920 个物理像素，纵向有 1,080 个物理像素。如果视口更小，通常是浏览器窗口或移动浏览器界面减少了页面可用区域。如果 DPR 是 2 或 3，设备会用多个物理像素显示一个 CSS 像素，这在手机、平板和高密度笔记本上很常见。",
+  "resolution_test_use_cases_prefix": "当你检查显示设置、排查文字模糊、选择壁纸、录制教程、测试浏览器缩放，或想把当前设备与",
+  "resolution_test_standard_chart_link": "标准屏幕分辨率表",
+  "resolution_test_developer_prefix": "进行对比时，可以使用本页。需要断点测试的开发者应使用",
+  "resolution_test_responsive_link": "响应式设计测试器",
+  "resolution_test_developer_suffix": "。",
+  "resolution_test_faq_heading": "分辨率测试常见问题",
+  "resolution_test_viewport_question": "为什么浏览器视口比屏幕分辨率小？",
+  "resolution_test_viewport_answer": "视口不包含浏览器标签栏、地址栏、侧边栏、滚动条和操作系统界面。在移动设备上，缩放和 DPR 也会让 CSS 视口远小于物理屏幕分辨率。",
+  "resolution_test_responsive_question": "这和响应式测试器有什么不同？",
+  "resolution_test_responsive_answer": "不同。这个分辨率测试报告的是你当前设备和浏览器。响应式测试器会模拟多种视口尺寸，方便开发者测试手机、平板、笔记本和桌面布局。",
+  "resolution_test_compare_question": "如何把这个屏幕和另一个显示器比较？",
+  "resolution_test_compare_answer_prefix": "使用",
+  "resolution_test_compare_tool_link": "屏幕尺寸比较工具",
+  "resolution_test_compare_answer_suffix": "比较显示器、笔记本、平板、手机和电视的宽度、高度、对角线和面积。",
+  "standard_seo_meaning_heading": "这些分辨率对你意味着什么？",
+  "standard_seo_resolution_definition": "屏幕分辨率是显示器可显示的物理像素数量。像素越多，图像通常越清晰、工作空间越大，但也需要更强图形性能，并可能需要系统缩放。",
+  "standard_seo_web_reference_prefix": "对网页开发来说，分辨率只是其中一部分。你可以把本页作为参考表，然后",
+  "standard_seo_check_resolution_link": "检查当前屏幕分辨率",
+  "standard_seo_web_reference_suffix": "，将标准分辨率与真实视口和 DPR 对比。",
+  "standard_seo_buyer_context": "对日常买家来说，关键是像素数量是否匹配屏幕尺寸、观看距离、软件缩放、显卡性能和常用内容。",
+  "standard_seo_web_dev_heading": "网页开发",
+  "standard_seo_web_dev_text": "开发者应把标准分辨率当作测试参考点，而不是固定设备分类。应测试真实 CSS 视口，因为物理分辨率、DPR、缩放和浏览器界面都可能不同。",
+  "standard_seo_gaming_heading": "游戏",
+  "standard_seo_gaming_text": "游戏分辨率会直接影响 GPU 负载。1080p 仍常用于电竞，1440p 是 PC 游戏甜点，4K 更适合高端 GPU、主机、电影感游戏和更大屏幕。",
+  "standard_seo_video_heading": "视频制作",
+  "standard_seo_video_text": "视频工作应匹配剪辑时间线和导出目标。1080p 是最稳妥的交付格式，1440p 和 4K 适合需要细节、裁切空间或高质量播放的场景。",
+  "standard_seo_office_heading": "办公和生产力",
+  "standard_seo_office_text": "办公流程依赖可读文字和可用空间。1080p 适合 22-24 英寸，1440p 适合 27 英寸，4K 在 27-32 英寸且缩放正确时表现最好。",
+  "standard_seo_ppi_heading": "分辨率与显示器尺寸：怎样最清晰？",
+  "standard_seo_ppi_intro": "相同分辨率在不同尺寸屏幕上可能清晰度不同。像素密度以 PPI 衡量，屏幕越小，同样像素数量的 PPI 越高。",
+  "standard_seo_best_display_size": "最佳显示尺寸",
+  "standard_seo_approx_ppi": "约 PPI",
+  "standard_seo_common_use_case": "常见用途",
+  "standard_seo_use_1080p": "竞技游戏、办公显示器、直播",
+  "standard_seo_use_1440p": "游戏、设计工作、生产力",
+  "standard_seo_34_ultrawide": "34 英寸超宽",
+  "standard_seo_use_ultrawide": "多任务、时间线、沉浸式游戏",
+  "standard_seo_use_4k": "4K 视频、照片编辑、高细节游戏",
+  "standard_seo_use_8k": "8K 电视、制作审片、特殊工作流",
+  "standard_seo_ppi_rule": "经验上，1080p 适合 24 英寸或更小，1440p 适合约 27 英寸，4K 适合 27 英寸以上或更重视文字锐利度的场景。",
+  "standard_seo_breakpoints_heading": "每类分辨率对应的 CSS 断点",
+  "standard_seo_breakpoints_intro": "应把断点当作布局范围，而不是精确设备规则。拥有 4K 面板的设备也可能因为缩放和 DPR 暴露更小 CSS 视口。",
+  "standard_seo_breakpoints_code": "@media (max-width: 480px) { /* 小屏手机 */ }\n@media (min-width: 481px) and (max-width: 768px) { /* 大屏手机 */ }\n@media (min-width: 769px) and (max-width: 1024px) { /* 平板 */ }\n@media (min-width: 1025px) and (max-width: 1440px) { /* 笔记本 */ }\n@media (min-width: 1441px) { /* 桌面和宽屏 */ }",
+  "standard_seo_breakpoints_text": "这些断点覆盖常见布局变化，应搭配流式容器、弹性网格和响应式图片使用。",
+  "standard_seo_mobile_heading": "移动分辨率：360p 到 1080p",
+  "standard_seo_mobile_text": "手机经常报告 360 x 800、390 x 844 或 430 x 932 等 CSS 视口，即使物理面板更高密度。对布局来说，CSS 视口比营销分辨率更重要。",
+  "standard_seo_laptop_heading": "笔记本分辨率：HD 到 4K",
+  "standard_seo_laptop_text": "笔记本常见 1366 x 768、1920 x 1080、1920 x 1200、2560 x 1600、2880 x 1800、3024 x 1964 或 3840 x 2160，取决于面板尺寸和缩放。",
+  "standard_seo_ultrawide_heading": "超宽和电视分辨率",
+  "standard_seo_ultrawide_text": "超宽显示器适合横向空间比纵向空间更重要的工作。电视主要集中在 1080p 和 4K，8K 仍主要属于高端型号。",
+  "standard_seo_faq_gaming_q": "游戏用什么分辨率最好？",
+  "standard_seo_faq_gaming_a": "1080p 仍适合竞技游戏，1440p 是最均衡的 PC 游戏分辨率，4K 适合电影感游戏、主机和高端 GPU。",
+  "standard_seo_faq_1080p_q": "2026 年 1080p 还值得用吗？",
+  "standard_seo_faq_1080p_a": "值得。1080p 仍适合 24 英寸显示器、预算笔记本、直播和电竞。",
+  "standard_seo_faq_1440p_q": "1440p 比 4K 更好吗？",
+  "standard_seo_faq_1440p_a": "对 PC 游戏性价比来说，1440p 通常更好，因为它更容易跑高刷新率。4K 更适合重视最高细节的场景。",
+  "standard_seo_faq_viewport_q": "为什么高分辨率屏幕仍显示较小视口？",
+  "standard_seo_faq_viewport_a": "操作系统和浏览器会使用缩放来保持文字和控件可读，因此高密度显示器暴露的 CSS 像素可能少于物理像素。",
+  "standard_seo_faq_streaming_q": "直播或录制应该用什么分辨率？",
+  "standard_seo_faq_streaming_a": "1080p 仍是兼容性最好的直播目标。720p 适合较慢连接，1440p 或 4K 需要更高码率和上传速度。",
+  "standard_seo_faq_check_q": "如何检查当前分辨率？",
+  "standard_seo_faq_check_a_prefix": "打开",
+  "standard_seo_checker_link": "屏幕尺寸检查器",
+  "standard_seo_faq_check_a_suffix": "即可立即查看物理屏幕分辨率、浏览器视口、DPR 和相关显示详情。",
+  "standard_seo_monitor_cta_prefix": "正在选择新显示器？使用",
+  "standard_seo_compare_link": "屏幕尺寸比较工具",
+  "standard_seo_monitor_cta_middle": "比较显示尺寸，然后阅读",
+  "standard_seo_gaming_guide_link": "游戏显示器尺寸指南",
+  "standard_seo_monitor_cta_suffix": "，如果你的主要用途是游戏。",
+  "common_questions": "常见问题",
+  "resolution_test": "分辨率测试"
 }

@@ -1260,16 +1260,36 @@ class MultiLangBuilder extends ComponentBuilder {
     // 濞戞捁妗ㄧ€靛瞼绱掗幘瀵糕偓顖炲礌閺嶃劍娈堕柟璇″櫍濡绢噣宕濋悤姒琫adcrumb闁挎稑鏈ぐ渚€宕￠崶銊﹀仢缂佷究鍨荤划銊╁几濠婂啫璁查悹鍥╃帛閳?
     buildStructuredDataPayload(mainStructuredData, pageData, lang) {
         const breadcrumbStructuredData = this.generateBreadcrumbStructuredData(pageData, lang);
-        if (!breadcrumbStructuredData) {
+        const additionalStructuredData = Array.isArray(pageData.additional_structured_data)
+            ? pageData.additional_structured_data
+            : [];
+
+        if (!breadcrumbStructuredData && additionalStructuredData.length === 0) {
             return JSON.stringify(mainStructuredData, null, 2);
         }
 
         const normalizedMain = { ...mainStructuredData };
         delete normalizedMain['@context'];
 
+        const graph = [normalizedMain];
+        additionalStructuredData.forEach(item => {
+            if (item && typeof item === 'object') {
+                const normalizedItem = { ...item };
+                delete normalizedItem['@context'];
+                if (!normalizedItem.inLanguage) {
+                    normalizedItem.inLanguage = lang;
+                }
+                graph.push(normalizedItem);
+            }
+        });
+
+        if (breadcrumbStructuredData) {
+            graph.push(breadcrumbStructuredData);
+        }
+
         return JSON.stringify({
             "@context": "https://schema.org",
-            "@graph": [normalizedMain, breadcrumbStructuredData]
+            "@graph": graph
         }, null, 2);
     }
 
@@ -2431,6 +2451,7 @@ ${languageCards}
 /devices/aspect-ratio-calculator.html     /devices/aspect-ratio-calculator    301
 /devices/projection-calculator.html       /devices/projection-calculator      301
 /devices/lcd-screen-tester.html           /devices/lcd-screen-tester          301
+/resolution-test.html                     /resolution-test                    301
 
 # ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑦绋夐鐔哥€柣妤€鐗婂﹢甯窗====
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
@@ -2854,7 +2875,5 @@ if (require.main === module) {
 }
 
 module.exports = MultiLangBuilder; 
-
-
 
 

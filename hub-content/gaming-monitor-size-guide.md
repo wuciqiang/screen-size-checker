@@ -524,4 +524,4 @@ For competitive FPS, yes. The increased eye movement hurts reaction times. 24-27
 - [PPI Calculator]({{lang_prefix}}/devices/ppi-calculator)
 - [Screen Comparison Tool]({{lang_prefix}}/devices/compare)
 
-**Last Updated**: January 2025 | **Reading Time**: 14 minutes
+**Last Updated**: April 2026 | **Reading Time**: 14 minutes

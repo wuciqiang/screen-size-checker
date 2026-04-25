@@ -615,6 +615,6 @@ Não há uma escolha universal "melhor" — apenas o que é melhor **para você*
 ---
 
 **Complete sua configuração perfeita**: Confira nossos outros guias de monitores:
-- [Melhor Resolução para Jogos 2026: Guia Completo](/hub/best-gaming-resolution-2026)
+- [Melhor Resolução para Jogos 2025: Guia Completo](/hub/best-gaming-resolution-2025)
 - [Jogos 144Hz vs 240Hz: Vale a Atualização?](/hub/144hz-vs-240hz-gaming)
 - [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

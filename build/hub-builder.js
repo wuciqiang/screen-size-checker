@@ -342,7 +342,7 @@ class HubBuilder {
             return [];
         }
 
-        const faqStartMatch = rawContent.match(/^##\s+Frequently Asked Questions\s*$/im);
+        const faqStartMatch = rawContent.match(/^##\s+(Frequently Asked Questions|Questions Fréquentes|Preguntas Frecuentes|Preguntas frecuentes|Häufig gestellte Fragen|Perguntas Frequentes)\s*$/im);
         if (!faqStartMatch) {
             return [];
         }
@@ -358,6 +358,8 @@ class HubBuilder {
             const answer = sectionContent.slice(answerStart, answerEnd)
                 .replace(/```[\s\S]*?```/g, ' ')
                 .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+                .replace(/(Related Gaming Resources|Ressources Gaming|Recursos de Gaming|Recursos de Jogos Relacionados|Verwandte Gaming-Ressourcen|相关游戏资源)[\s\S]*$/i, ' ')
+                .replace(/(Last Updated|Dernière mise à jour|Última actualización|Última Atualização|Zuletzt aktualisiert|最后更新)[\s\S]*$/i, ' ')
                 .replace(/[*_`>#-]/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim();
