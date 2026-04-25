@@ -216,8 +216,6 @@ class HubBuilder {
      */
     generateHubPageHtml(page) {
         // 生成Schema markup
-        const schema = this.generateSchema(page);
-        
         // 生成相关内容推荐
         const relatedContent = this.generateRelatedContent(page);
         
@@ -251,11 +249,6 @@ class HubBuilder {
     
     <!-- Related Content -->
     ${relatedContent}
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    ${schema}
-    </script>
 </article>`;
     }
     
@@ -294,7 +287,7 @@ class HubBuilder {
         const langPrefix = page.lang === 'en' ? '' : `/${page.lang}`;
         const url = `https://screensizechecker.com${langPrefix}/hub/${page.slug}`;
         
-        return JSON.stringify({
+        return {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": page.title,
@@ -319,7 +312,61 @@ class HubBuilder {
             "keywords": page.keywords,
             "articleSection": page.category,
             "inLanguage": page.lang
-        }, null, 2);
+        };
+    }
+
+    generateFaqSchemaScript(page) {
+        const faqItems = this.extractFaqItems(page.rawContent);
+        if (faqItems.length < 2) {
+            return '';
+        }
+
+        const faqStructuredData = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map(item => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                }
+            }))
+        };
+
+        return '<script type="application/ld+json">\n' + JSON.stringify(faqStructuredData, null, 2) + '\n</script>';
+    }
+
+    extractFaqItems(rawContent) {
+        if (!rawContent) {
+            return [];
+        }
+
+        const faqStartMatch = rawContent.match(/^##\s+Frequently Asked Questions\s*$/im);
+        if (!faqStartMatch) {
+            return [];
+        }
+
+        const faqContent = rawContent.slice(faqStartMatch.index + faqStartMatch[0].length);
+        const nextSectionMatch = faqContent.match(/\n##\s+(?!#)/);
+        const sectionContent = nextSectionMatch ? faqContent.slice(0, nextSectionMatch.index) : faqContent;
+        const questionMatches = Array.from(sectionContent.matchAll(/^###\s+(.+?)\s*$/gm));
+
+        return questionMatches.map((match, index) => {
+            const answerStart = match.index + match[0].length;
+            const answerEnd = index + 1 < questionMatches.length ? questionMatches[index + 1].index : sectionContent.length;
+            const answer = sectionContent.slice(answerStart, answerEnd)
+                .replace(/```[\s\S]*?```/g, ' ')
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+                .replace(/[*_`>#-]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            return {
+                question: match[1].trim(),
+                answer
+            };
+        }).filter(item => item.question && item.answer);
     }
     
     /**
@@ -457,6 +504,8 @@ class HubBuilder {
                             hub_date: existingHubDate || page.date,
                             hub_reading_time: page.readingTime,
                             hub_author: page.author,
+                            structured_data: this.generateSchema(page),
+                            faq_structured_data: this.generateFaqSchemaScript(page),
                             // 导航状态标识
                             is_home: false,
                             is_blog: false,
