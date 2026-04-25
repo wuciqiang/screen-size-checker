@@ -211,23 +211,16 @@
         "parent_name": "设备",
         "structured_data": {
           "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Android Viewport Sizes (2026): Pixel 10, Galaxy S25 and More",
-          "description": "Updated Android viewport sizes and resolutions for recent Pixel and Galaxy devices, with CSS viewport, DPR, and pixel resolution references.",
-          "author": {
+          "@type": "Dataset",
+          "name": "Android Viewport Sizes Reference Chart 2026",
+          "description": "Updated Android viewport sizes, screen resolutions, and DPR values for recent Pixel, Galaxy, and foldable devices.",
+          "url": "https://screensizechecker.com/devices/android-viewport-sizes",
+          "creator": {
             "@type": "Organization",
             "name": "Screen Size Checker"
           },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Screen Size Checker",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://screensizechecker.com/favicon.png"
-            }
-          },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-02-08"
+          "dateModified": "2026-04-25"
         },
         "blog_url": "../blog/index.html"
       }
