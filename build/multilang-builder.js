@@ -473,6 +473,7 @@ class MultiLangBuilder extends ComponentBuilder {
                         'zh': 'zh_CN',
                         'de': 'de_DE',
                         'es': 'es_ES',
+                        'fr': 'fr_FR',
                         'pt': 'pt_BR'
                     };
                     pageData.og_locale = localeMap[lang] || 'en_US';
@@ -509,6 +510,8 @@ class MultiLangBuilder extends ComponentBuilder {
 
                         // 閻熸鍎婚銏ゆ偋閸喐鎷?
                         pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+
+                        pageData.hreflang_fr_url = `https://screensizechecker.com/fr${pageData.page_path}`;
 
                         pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
                     }
@@ -1699,6 +1702,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
+                rootPageData.hreflang_fr_url = `https://screensizechecker.com/fr${rootPageData.page_path}`;
                 rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
@@ -1812,6 +1816,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_zh_url = `https://screensizechecker.com/zh${rootPageData.page_path}`;
                 rootPageData.hreflang_de_url = `https://screensizechecker.com/de${rootPageData.page_path}`;
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
+                rootPageData.hreflang_fr_url = `https://screensizechecker.com/fr${rootPageData.page_path}`;
                 rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
@@ -1932,6 +1937,7 @@ class MultiLangBuilder extends ComponentBuilder {
         rootPageData.hreflang_zh_url = 'https://screensizechecker.com/zh/';
         rootPageData.hreflang_de_url = 'https://screensizechecker.com/de/';
         rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
+        rootPageData.hreflang_fr_url = 'https://screensizechecker.com/fr/';
         rootPageData.hreflang_pt_url = 'https://screensizechecker.com/pt/';
         
         // 濞寸姴娴烽悙鏇犳嫚閹寸偞鐎ù鐘虫构閼垫垿鎳㈠畡鏉跨悼濡炪倗鏁诲浼存偋閻熸壆鏆伴柣銊ュ閻愭洜鎷犻幋婵冨亾?
@@ -2137,6 +2143,7 @@ ${languageCards}
             { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/standard-resolutions', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' },
+            { path: '/resolution-test', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/ppi-calculator', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/projection-calculator', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
@@ -2210,14 +2217,6 @@ ${languageCards}
             }
         });
 
-        sitemapContent += `
-    <url>
-        <loc>${baseUrl}/resolution-test</loc>
-        <lastmod>${currentDate}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>`;
-        
         // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟垿宕″顒夊悅濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
         blogPages.forEach(page => {
             sitemapContent += `
@@ -2875,5 +2874,4 @@ if (require.main === module) {
 }
 
 module.exports = MultiLangBuilder; 
-
 

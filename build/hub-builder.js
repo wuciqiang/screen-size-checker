@@ -342,7 +342,7 @@ class HubBuilder {
             return [];
         }
 
-        const faqStartMatch = rawContent.match(/^##\s+(Frequently Asked Questions|Questions Fréquentes|Preguntas Frecuentes|Preguntas frecuentes|Häufig gestellte Fragen|Perguntas Frequentes)\s*$/im);
+        const faqStartMatch = rawContent.match(/^##\s+(Frequently Asked Questions|Questions Fréquentes|Preguntas Frecuentes|Preguntas frecuentes|Häufig gestellte Fragen|Perguntas Frequentes|常见问题)\s*$/im);
         if (!faqStartMatch) {
             return [];
         }
