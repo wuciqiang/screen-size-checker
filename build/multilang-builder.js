@@ -662,7 +662,8 @@ class MultiLangBuilder extends ComponentBuilder {
             { source: 'terms-of-service.html', dest: 'terms-of-service.html' },
             { source: 'structured-data.json', dest: 'structured-data.json' },
             { source: 'googlec786a02f43170c4d.html', dest: 'googlec786a02f43170c4d.html' },
-            { source: '_redirects', dest: '_redirects' }
+            { source: '_redirects', dest: '_redirects' },
+            { source: 'public', dest: '.' }
         ];
         
         resourcesToCopy.forEach(({ source, dest }) => {
@@ -764,6 +765,16 @@ class MultiLangBuilder extends ComponentBuilder {
                 }
             } else {
                 console.warn(`    Warning: ${resource} not found, skipping`);
+            }
+        }
+
+        const publicAssetsSource = path.join(this.rootPath, 'public');
+        if (fs.existsSync(publicAssetsSource)) {
+            try {
+                this.copyDirectoryRecursive(publicAssetsSource, outputDir);
+                console.log('[OK] Copied public assets to site root');
+            } catch (error) {
+                console.warn('    Warning: Could not copy public assets:', error.message);
             }
         }
         
@@ -1222,7 +1233,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     "url": "https://screensizechecker.com",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://screensizechecker.com/favicon.png"
+                        "url": "https://screensizechecker.com/logo-mark.png"
                     }
                 },
                 "mainEntityOfPage": {

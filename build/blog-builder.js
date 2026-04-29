@@ -1131,7 +1131,7 @@ class BlogBuilder {
                                             'name': 'Screen Size Checker',
                                             'logo': {
                                                 '@type': 'ImageObject',
-                                                'url': 'https://screensizechecker.com/favicon.png'
+                                                'url': 'https://screensizechecker.com/logo-mark.png'
                                             }
                                         }
                                     },

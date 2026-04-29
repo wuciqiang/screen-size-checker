@@ -38,21 +38,19 @@
 }
 
 .footer-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
     margin-bottom: 16px;
+    text-decoration: none;
 }
 
-.footer-logo-icon {
-    font-size: 32px;
-    line-height: 1;
-}
-
-.footer-logo-text {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--footer-logo-text, #ffffff);
+.footer-logo-image {
+    display: block;
+    width: 222px;
+    max-width: min(100%, 240px);
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .footer-description {
@@ -330,8 +328,8 @@
         grid-column: span 1;
     }
     
-    .footer-logo-text {
-        font-size: 18px;
+    .footer-logo-image {
+        width: 210px;
     }
     
     .footer-social {

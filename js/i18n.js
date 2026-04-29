@@ -1168,9 +1168,9 @@ export function updateStructuredData() {
                     "name": "ScreenSize.cc",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://screensize.cc/images/logo.png",
-                        "width": 200,
-                        "height": 60
+                        "url": "https://screensizechecker.com/logo.png",
+                        "width": 1400,
+                        "height": 265
                     }
                 },
                 "datePublished": "2024-01-15",

@@ -305,10 +305,10 @@ class HubBuilder {
                 "name": "Screen Size Checker",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://screensizechecker.com/favicon.png"
+                    "url": "https://screensizechecker.com/logo-mark.png"
                 }
             },
-            "image": page.featuredImage ? `https://screensizechecker.com/images/${page.featuredImage}` : "https://screensizechecker.com/favicon.png",
+            "image": page.featuredImage ? `https://screensizechecker.com/images/${page.featuredImage}` : "https://screensizechecker.com/logo-mark.png",
             "keywords": page.keywords,
             "articleSection": page.category,
             "inLanguage": page.lang
@@ -488,7 +488,7 @@ class HubBuilder {
                             og_description: page.description,
                             og_type: 'article',
                             og_url: `https://screensizechecker.com${langPrefix}/hub/${page.slug}`,
-                            og_image: page.featuredImage ? `https://screensizechecker.com/images/${page.featuredImage}` : 'https://screensizechecker.com/favicon.png',
+                            og_image: page.featuredImage ? `https://screensizechecker.com/images/${page.featuredImage}` : 'https://screensizechecker.com/logo-mark.png',
                             css_path: lang === 'en' ? '../css' : '../../css',
                             locales_path: lang === 'en' ? '../locales' : '../../locales',
                             js_path: lang === 'en' ? '../js' : '../../js',
