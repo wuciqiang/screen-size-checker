@@ -5,14 +5,29 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta name="theme-color" content="#0066cc">
 
-<!-- Google tag (gtag.js) -->
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0Y5SZGFMX"></script>
+<!-- Google tag (gtag.js) - production only -->
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-X0Y5SZGFMX');
+(function () {
+    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+    if (!isProductionHost) {
+        return;
+    }
+
+    var preconnect = document.createElement('link');
+    preconnect.rel = 'preconnect';
+    preconnect.href = 'https://www.googletagmanager.com';
+    document.head.appendChild(preconnect);
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-X0Y5SZGFMX';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-X0Y5SZGFMX');
+})();
 </script>
 
 <!-- SEO Meta Tags -->
@@ -53,27 +68,55 @@ gtag('config', 'G-X0Y5SZGFMX');
 <!-- Font Loading Optimization (downgrade to dns-prefetch to reduce early connections) -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
 
 <!-- Google Fonts - Typography System (T004) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://pagead2.googlesyndication.com">
-<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
-<!-- Google Ads - async without post-load delay for better fill on short visits -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868" crossorigin="anonymous"></script>
+<!-- Google Ads - production only and delayed until after primary page load -->
+<script>
+(function () {
+    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+    if (!isProductionHost) {
+        return;
+    }
+
+    function loadAdsense() {
+        if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
+            return;
+        }
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868';
+        document.head.appendChild(script);
+    }
+
+    function scheduleAdsense() {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAdsense, { timeout: 3000 });
+        } else {
+            setTimeout(loadAdsense, 1500);
+        }
+    }
+
+    if (document.readyState === 'complete') {
+        scheduleAdsense();
+    } else {
+        window.addEventListener('load', scheduleAdsense, { once: true });
+    }
+})();
+</script>
 
 <!-- Core Optimized CSS - Phase 1.2 Performance Optimization -->
 <!-- Merged 5 CSS files (main.css, mobile-performance.css, language-selector.css, internal-links.css, optimized-events.css) -->
 <link rel="stylesheet" href="{{css_path}}/core-optimized.css">
 
 <!-- Phase 0.2 CSS - Navigation & Internal Links Optimization -->
-<link rel="preload" href="{{css_path}}/mega-menu.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{css_path}}/mega-menu.css"></noscript>
+<link rel="stylesheet" href="{{css_path}}/mega-menu.css">
 <link rel="stylesheet" href="{{css_path}}/internal-links.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="{{css_path}}/internal-links.css"></noscript>
 <link rel="stylesheet" href="{{css_path}}/footer-optimized.css" media="print" onload="this.media='all'">
@@ -163,6 +206,10 @@ gtag('config', 'G-X0Y5SZGFMX');
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* MINIMAL LAYOUT STABILIZATION ONLY */
+body {
+	padding-top: 70px;
+}
+
 .header {
 	position: fixed;
 	top: 0;
@@ -172,8 +219,98 @@ gtag('config', 'G-X0Y5SZGFMX');
 	z-index: 1000;
 }
 
+.header-v2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1000;
+	background: var(--background-primary);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+}
+
+.main-nav,
+.nav-menu {
+	display: flex;
+	align-items: center;
+}
+
+.nav-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 4px;
+}
+
+.nav-item.has-megamenu {
+	position: relative;
+}
+
+.mega-menu {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-10px);
+	opacity: 0;
+	visibility: hidden;
+	z-index: 100;
+}
+
 .main-content {
 	margin-top: 64px;
+	padding: var(--spacing-2xl) var(--spacing-lg);
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.breadcrumb {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px var(--spacing-lg) var(--spacing-lg);
+	color: var(--text-secondary);
+	font-size: 0.875rem;
+	opacity: 1;
+	animation: none;
+}
+
+.devices-hero-section {
+	padding: var(--spacing-lg) 0 var(--spacing-2xl) 0;
+	margin-top: -32px;
+	text-align: center;
+	opacity: 1;
+	animation: none;
+}
+
+.devices-hero-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--spacing-lg);
+}
+
+.devices-hero-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin: 0 0 var(--spacing-lg) 0;
+	line-height: 1.2;
+}
+
+.devices-hero-subtitle {
+	font-size: 1.125rem;
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.6;
 }
 
 /* Ensure body can scroll properly */

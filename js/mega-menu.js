@@ -142,22 +142,26 @@
     // ========================================
     function initHoverIntent() {
         const navItems = document.querySelectorAll('.nav-item.has-megamenu, .nav-item.has-dropdown');
-        let hoverTimeout;
         
         navItems.forEach(item => {
+            let showTimeout;
+            let hideTimeout;
+
             item.addEventListener('mouseenter', function() {
-                // Clear any existing timeout
-                clearTimeout(hoverTimeout);
+                clearTimeout(showTimeout);
+                clearTimeout(hideTimeout);
                 
                 // Add slight delay before showing menu (prevents accidental opens)
-                hoverTimeout = setTimeout(() => {
+                showTimeout = setTimeout(() => {
                     this.classList.add('hover');
                 }, 100);
             });
             
             item.addEventListener('mouseleave', function() {
-                clearTimeout(hoverTimeout);
-                this.classList.remove('hover');
+                clearTimeout(showTimeout);
+                hideTimeout = setTimeout(() => {
+                    this.classList.remove('hover');
+                }, 150);
             });
         });
     }

@@ -31,7 +31,7 @@ export class ModuleLoadingOptimizer {
             'devices': {
                 critical: ['device-detector', 'i18n'],
                 deferred: ['device-comparison', 'clipboard', 'internal-links'],
-                onDemand: ['ppi-calculator', 'aspect-ratio-calculator', 'screen-comparison-fixed']
+                onDemand: []
             },
             'blog': {
                 critical: ['i18n'],
@@ -41,12 +41,12 @@ export class ModuleLoadingOptimizer {
             'calculator': {
                 critical: ['device-detector', 'i18n'],
                 deferred: ['clipboard', 'internal-links'],
-                onDemand: ['ppi-calculator', 'aspect-ratio-calculator']
+                onDemand: []
             },
             'simulator': {
                 critical: ['device-detector', 'i18n'],
                 deferred: ['simulator', 'clipboard', 'internal-links'],
-                onDemand: ['screen-comparison-fixed']
+                onDemand: []
             }
         };
     }

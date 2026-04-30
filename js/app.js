@@ -7,9 +7,7 @@ import { debounce } from './utils.js';
 import { performanceMonitor } from './performance-monitor.js';
 import { moduleLoadingOptimizer } from './module-loading-optimizer.js';
 import { initializeOptimizedEventManager } from './optimized-event-manager.js';
-import CSSOptimizer from './css-optimizer.js';
 import { initializeMobileOptimization } from './mobile-performance-optimizer.js';
-// FontLoadingOptimizer will be imported dynamically to avoid blocking
 
 // NOTE: cleaned malformed mojibake comment.
 let resourceLoadingOptimizer = null;
@@ -61,36 +59,8 @@ async function initializeApp() {
             console.warn('Mobile performance optimizer failed to initialize:', error);
         }
 
-        // PHASE 2.1: Initialize the font loading optimizer lazily
-        try {
-            const FontLoadingOptimizerModule = await import('./font-loading-optimizer.js');
-            const FontLoadingOptimizer = FontLoadingOptimizerModule.default;
-
-            new FontLoadingOptimizer({
-                preloadCriticalFonts: true,
-                enableFallback: true,
-                enableMetrics: true,
-                fontDisplay: 'swap'
-            });
-
-            console.log('Font loading optimizer initialized successfully');
-        } catch (error) {
-            console.warn('Font loading optimizer failed to initialize:', error);
-        }
-
         // PHASE 2.2: Initialize basic event listeners
         setupBasicEventListeners();
-
-        // PHASE 2.3: Initialize CSS optimizer
-        const cssOptimizer = new CSSOptimizer({
-            enableMinification: true,
-            enableCaching: true,
-            deferLoadDelay: 100,
-            enableCSSCompression: false,
-            enableCSSCaching: false,
-            enableFallbackHandling: true,
-            protectThemeCSS: true
-        });
 
         // 鐎点倖鍎肩换婊呪偓浣冨閸╁懏顨囧Ο鐟扮槰閻犱礁澧介悿鍡涙晬瀹€鈧垾妯荤┍濠婄M閻庣懓鑻崣蹇涘礉閻樼儤绁?
         setTimeout(() => {

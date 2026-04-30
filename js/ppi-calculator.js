@@ -530,6 +530,12 @@ export function updatePPICalculatorTranslations() {
  * This function is called from the main application
  */
 export function initializePPICalculator() {
+    if (window.__ppiCalculatorInitialized) {
+        console.log('PPI Calculator already initialized');
+        return;
+    }
+
+    window.__ppiCalculatorInitialized = true;
     console.log('🚀 Starting PPI Calculator initialization...');
     
     // 监听翻译更新事件

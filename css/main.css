@@ -1446,9 +1446,8 @@ noscript .noscript-hero-content {
     color: var(--text-secondary);
     font-size: 0.875rem;
     /* 添加淡入动画效果 */
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0.2s;
+    opacity: 1;
+    animation: none;
     /* 稍微延迟，让页面先加载 */
 }
 
@@ -1472,9 +1471,8 @@ noscript .noscript-hero-content {
     /* 更大的负margin，彻底消除间距 */
     text-align: center;
     /* 添加淡入动画效果 */
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.1s;
+    opacity: 1;
+    animation: none;
     /* 比面包屑导航更早显示 */
 }
 
@@ -1503,9 +1501,8 @@ noscript .noscript-hero-content {
     padding: var(--spacing-2xl) 0;
     /* 减少上下内边距，让布局更紧凑 */
     /* 添加淡入动画效果 */
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.4s;
+    opacity: 1;
+    animation: none;
     /* 在面包屑导航之后显示 */
 }
 

@@ -329,6 +329,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     
                     pageData.is_home = pagePath === 'index.html' || pagePath === '';
                     pageData.is_blog = pagePath.includes('blog/') || pagePath.startsWith('blog');
+                    pageData.is_simulator = pagePath.includes('responsive-tester');
                     
                     // 濠碘€冲€归悘澶嬨亜閻㈠憡妗ㄩ梺鏉跨Ф閻ゅ棙绋夐鐐插殥缂備礁绻楅鏇犵磾椤旇崵鍟婇悗浣冨閸╁懘鎮╅懜纰樺亾娓氬﹦绀夊ù锝堟硶閺併倝鏌婂鍥╂瀭闁汇劌瀚埀?
                     if (typeof page.config.is_gaming !== 'undefined') {
@@ -1900,6 +1901,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 const pagePath = page.output || '';
                 rootPageData.is_home = pagePath === 'index.html' || pagePath === '';
                 rootPageData.is_blog = false;
+                rootPageData.is_simulator = pagePath.includes('responsive-tester');
                 const isToolPage = pagePath.includes('calculator') || pagePath.includes('compare') || pagePath.includes('tester') || pagePath.includes('resolution');
                 const isDevicePage = pagePath.includes('iphone') || pagePath.includes('android') || pagePath.includes('ipad');
                 rootPageData.is_tools = isToolPage;

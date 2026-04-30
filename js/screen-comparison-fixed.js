@@ -26,6 +26,10 @@ function initializeComparison() {
 
     // 获取必要的DOM元素
     var compareBtn = document.getElementById('compare-btn');
+    if (compareBtn && compareBtn.dataset.initialized === 'true') {
+        console.log('Comparison tool already initialized');
+        return;
+    }
     var comparisonResults = document.getElementById('comparison-results');
     var aspect1Select = document.getElementById('aspect1-select');
     var aspect2Select = document.getElementById('aspect2-select');
