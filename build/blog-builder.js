@@ -135,7 +135,7 @@ class BlogBuilder {
      * Get hreflang URLs for a tag across all languages
      * @param {string} tag - The tag in any language
      * @param {string} currentLang - Current language code
-     * @returns {Object} hreflang URLs for en, zh, de, es
+     * @returns {Object} hreflang URLs for en, zh, de, es, pt, fr
      */
     getTagHreflangUrls(tag, currentLang) {
         const tagMapping = this.getTagMapping();
@@ -161,7 +161,9 @@ class BlogBuilder {
                 en: `${baseUrl}/blog/tag/${tagSlug}`,
                 zh: `${baseUrl}/zh/blog/tag/${tagSlug}`,
                 de: `${baseUrl}/de/blog/tag/${tagSlug}`,
-                es: `${baseUrl}/es/blog/tag/${tagSlug}`
+                es: `${baseUrl}/es/blog/tag/${tagSlug}`,
+                pt: `${baseUrl}/pt/blog/tag/${tagSlug}`,
+                fr: `${baseUrl}/fr/blog/tag/${tagSlug}`
             };
         }
 
@@ -171,7 +173,9 @@ class BlogBuilder {
             en: `${baseUrl}/blog/tag/${this.sanitizeSlug(mapping.en)}`,
             zh: `${baseUrl}/zh/blog/tag/${this.sanitizeSlug(mapping.zh)}`,
             de: `${baseUrl}/de/blog/tag/${this.sanitizeSlug(mapping.de)}`,
-            es: `${baseUrl}/es/blog/tag/${this.sanitizeSlug(mapping.es)}`
+            es: `${baseUrl}/es/blog/tag/${this.sanitizeSlug(mapping.es)}`,
+            pt: `${baseUrl}/pt/blog/tag/${this.sanitizeSlug(mapping.pt || mapping.en)}`,
+            fr: `${baseUrl}/fr/blog/tag/${this.sanitizeSlug(mapping.fr || mapping.en)}`
         };
     }
 
@@ -1211,6 +1215,8 @@ class BlogBuilder {
                                     hreflang_zh_url: hreflangUrls.zh,
                                     hreflang_de_url: hreflangUrls.de,
                                     hreflang_es_url: hreflangUrls.es,
+                                    hreflang_pt_url: hreflangUrls.pt,
+                                    hreflang_fr_url: hreflangUrls.fr,
                                     og_title: lang === 'zh' ? `标签: ${tag}` : (lang === 'pt' ? `Tag: ${tag}` : `Tag: ${tag}`),
                                     og_description: lang === 'zh' ?
                                         `浏览${tag}标签下的所有文章` :

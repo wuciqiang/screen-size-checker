@@ -457,6 +457,12 @@ class MultiLangBuilder extends ComponentBuilder {
                     // 缂佸顭峰▍?html闁告艾娴风槐鎴炵閵夈儱鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐?
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                     pageData.og_url = pageData.canonical_url;
+
+                    if (pageData.canonical_url.includes('/blog/tag/') || pageData.canonical_url.includes('/blog/category/')) {
+                        pageData.robots_directives = 'noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+                    } else {
+                        pageData.robots_directives = pageData.robots_directives || 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+                    }
                     
                     // 闁哄洤鐡ㄩ弻濂減en Graph闁轰胶澧楀畵浣圭閵夈倕鈻忛柣顫妿閻愭洜鎷犻幋婵囧€甸柣銊ュ閸炲鈧?
                     pageData.og_title = pageData.page_title || pageData.og_title;
@@ -2164,6 +2170,7 @@ ${languageCards}
             { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' },
             { path: '/resolution-test', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/ppi-calculator', priority: '0.8', changefreq: 'monthly' },
+            { path: '/devices/aspect-ratio-calculator', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/projection-calculator', priority: '0.8', changefreq: 'monthly' },
             { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
         ];
@@ -2185,31 +2192,11 @@ ${languageCards}
             { path: '/blog/black_myth_guide', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/container-queries-guide', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/responsive-debugging-checklist', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/screen-dimensions-cheat-sheet', priority: '0.8', changefreq: 'monthly' },
-            // Categories
-            { path: '/blog/category/technical', priority: '0.7', changefreq: 'monthly' },
-            { path: '/blog/category/css', priority: '0.7', changefreq: 'monthly' },
-            { path: '/blog/category/basics', priority: '0.7', changefreq: 'monthly' },
-            { path: '/blog/category/guides', priority: '0.7', changefreq: 'monthly' },
-            { path: '/blog/tag/dpr', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/retina-display', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/responsive-design', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/media-queries', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/css', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/breakpoints', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/viewport', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/web-development', priority: '0.6', changefreq: 'monthly' }
+            { path: '/blog/screen-dimensions-cheat-sheet', priority: '0.8', changefreq: 'monthly' }
         ];
         
         // 濞戞搩鍘介弸鍐偋鐟欏嫭绠掗柣銊ュ閻栵絿绮垫ィ鍐︹偓澶愭?
-        const zhBlogPages = [
-            { path: '/blog/tag/pixel-density', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/responsive-design', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/media-queries', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/breakpoints', priority: '0.6', changefreq: 'monthly' },
-            { path: '/blog/tag/retina-display', priority: '0.6', changefreq: 'monthly' }
-        ];
+        const zhBlogPages = [];
         
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
@@ -2789,8 +2776,8 @@ Disallow: /.vscode/
 Disallow: /.cursor/
 Disallow: /.kiro/
 
-# Disallow temp and test files
-Disallow: /*test*
+# Disallow temp and debug files
+Disallow: /performance-test-production.html
 Disallow: /*debug*
 Disallow: /*.json$
 Disallow: /*.md$

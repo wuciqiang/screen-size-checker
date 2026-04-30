@@ -77,6 +77,8 @@ class ComponentBuilder {
         if (!fs.existsSync(templatePath)) {
             throw new Error(`Template "${templateName}" not found at ${templatePath}`);
         }
+
+        pageData.robots_directives = pageData.robots_directives || 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
         
         let html = fs.readFileSync(templatePath, 'utf8');
         
