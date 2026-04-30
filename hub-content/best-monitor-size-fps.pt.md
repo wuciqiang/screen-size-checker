@@ -279,7 +279,7 @@ Pesquisa com 500+ profissionais de FPS em CS2, Valorant, Apex Legends, COD e Rai
 - **27" @ 1440p** = Melhor equilíbrio
 - **32" @ 4K** = Foco em imersão
 
-> **Guia Relacionado**: Não tem certeza de qual resolução escolher? Leia nossa comparação completa [Jogos 1440p vs 4K](/hub/1440p-vs-4k-gaming) para análise detalhada de desempenho.
+> **Guia Relacionado**: Não tem certeza de qual resolução escolher? Leia nossa comparação completa [Jogos 1440p vs 4K]({{lang_prefix}}/hub/1440p-vs-4k-gaming) para análise detalhada de desempenho.
 
 ## Considerações de Tamanho de Mesa
 
@@ -412,7 +412,7 @@ Pesquisa com 500+ profissionais de FPS em CS2, Valorant, Apex Legends, COD e Rai
 
 **Veredito**: Monitores ultrawide **não são recomendados para jogos FPS competitivos** mas podem ser agradáveis para jogo casual e uso misto de jogos/produtividade.
 
-> **Mergulho Profundo em Ultrawide**: Considerando jogos em ultrawide? Leia nossa comparação [Ultrawide vs Monitor Duplo para Jogos](/hub/ultrawide-vs-dual-monitor-gaming) para análise detalhada.
+> **Mergulho Profundo em Ultrawide**: Considerando jogos em ultrawide? Leia nossa comparação [Ultrawide vs Monitor Duplo para Jogos]({{lang_prefix}}/hub/ultrawide-vs-dual-monitor-gaming) para análise detalhada.
 
 ## Considerações de Orçamento
 
@@ -523,5 +523,5 @@ Mínimo: 144Hz (padrão moderno). Recomendado: 240Hz (ponto ideal competitivo). 
 
 **Pronto para completar sua configuração?** Confira nossos outros guias:
 - [Guia de resolução para jogos](/pt/hub/best-gaming-resolution)
-- [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
-- [Guia de Tamanho de Monitor Gamer: Análise Completa](/hub/gaming-monitor-size-guide)
+- [Jogos 1080p vs 1440p: Comparação de Desempenho]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Guia de Tamanho de Monitor Gamer: Análise Completa]({{lang_prefix}}/hub/gaming-monitor-size-guide)

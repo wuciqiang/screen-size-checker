@@ -279,7 +279,7 @@ Umfrage unter 500+ FPS-Profis aus CS2, Valorant, Apex Legends, COD und Rainbow S
 - **27" @ 1440p** = Beste Balance
 - **32" @ 4K** = Immersionsfokus
 
-> **Verwandter Guide**: Unsicher welche Auflösung zu wählen? Lesen Sie unseren kompletten [1440p vs 4K Gaming-Vergleich](/hub/1440p-vs-4k-gaming) für detaillierte Performance-Analyse.
+> **Verwandter Guide**: Unsicher welche Auflösung zu wählen? Lesen Sie unseren kompletten [1440p vs 4K Gaming-Vergleich]({{lang_prefix}}/hub/1440p-vs-4k-gaming) für detaillierte Performance-Analyse.
 
 ## Spielspezifische Empfehlungen
 
@@ -387,5 +387,5 @@ Minimum: 144Hz (moderner Standard). Empfohlen: 240Hz (kompetitiver Sweet Spot). 
 
 **Bereit Ihr Setup zu vervollständigen?** Sehen Sie unsere anderen Guides:
 - [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
-- [1080p vs 1440p Gaming: Performance-Vergleich](/hub/1080p-vs-1440p-gaming)
-- [Gaming Monitor Größen-Guide: Komplette Analyse](/hub/gaming-monitor-size-guide)
+- [1080p vs 1440p Gaming: Performance-Vergleich]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Gaming Monitor Größen-Guide: Komplette Analyse]({{lang_prefix}}/hub/gaming-monitor-size-guide)

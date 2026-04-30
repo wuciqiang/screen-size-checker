@@ -239,7 +239,7 @@ keywords: "G-Sync和FreeSync区别, 显示器防撕裂技术, G-Sync值得买吗
 - **价值**：AMD用户FreeSync必需
 - **范围**：整个产品线工作
 
-> **面板指南**：想了解与这些同步系统配合的显示器面板技术？阅读我们的[IPS vs TN vs VA游戏对比](/hub/ips-vs-tn-vs-va-gaming)。
+> **面板指南**：想了解与这些同步系统配合的显示器面板技术？阅读我们的[IPS vs TN vs VA游戏对比]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)。
 
 ## 定价和价值分析
 
@@ -458,6 +458,6 @@ VRR技术战争基本结束—FreeSync通过开放标准、更低成本和广泛
 ---
 
 **完善你的游戏设置**：探索我们的其他游戏显示器指南：
-- [游戏显示器vs电视：完整显示器对比](/hub/gaming-monitor-vs-tv)
-- [曲面vs平面显示器游戏：形状对比](/hub/curved-vs-flat-monitor-gaming)
-- [144Hz vs 240Hz游戏：刷新率分析](/hub/144hz-vs-240hz-gaming)
+- [游戏显示器vs电视：完整显示器对比]({{lang_prefix}}/hub/gaming-monitor-vs-tv)
+- [曲面vs平面显示器游戏：形状对比]({{lang_prefix}}/hub/curved-vs-flat-monitor-gaming)
+- [144Hz vs 240Hz游戏：刷新率分析]({{lang_prefix}}/hub/144hz-vs-240hz-gaming)

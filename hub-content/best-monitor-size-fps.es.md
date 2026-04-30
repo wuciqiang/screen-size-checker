@@ -279,7 +279,7 @@ Encuesta de 500+ pros de FPS en CS2, Valorant, Apex Legends, COD y Rainbow Six S
 - **27" @ 1440p** = Mejor balance
 - **32" @ 4K** = Enfoque inmersión
 
-> **Guía Relacionada**: ¿No estás seguro qué resolución elegir? Lee nuestra [comparación completa de 1440p vs 4K Gaming](/hub/1440p-vs-4k-gaming) para análisis detallado de rendimiento.
+> **Guía Relacionada**: ¿No estás seguro qué resolución elegir? Lee nuestra [comparación completa de 1440p vs 4K Gaming]({{lang_prefix}}/hub/1440p-vs-4k-gaming) para análisis detallado de rendimiento.
 
 ## Consideraciones de Tamaño de Escritorio
 
@@ -433,5 +433,5 @@ Mínimo: 144Hz (estándar moderno). Recomendado: 240Hz (punto óptimo competitiv
 
 **¿Listo para completar tu setup?** Consulta nuestras otras guías:
 - [Guía de resolución gaming](/es/hub/best-gaming-resolution)
-- [1080p vs 1440p Gaming: Comparación de Rendimiento](/hub/1080p-vs-1440p-gaming)
-- [Guía de Tamaño de Monitor Gaming: Análisis Completo](/hub/gaming-monitor-size-guide)
+- [1080p vs 1440p Gaming: Comparación de Rendimiento]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Guía de Tamaño de Monitor Gaming: Análisis Completo]({{lang_prefix}}/hub/gaming-monitor-size-guide)

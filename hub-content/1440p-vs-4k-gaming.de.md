@@ -43,7 +43,7 @@ Bei typischen Gaming-Betrachtungsabständen (60-80 cm vom Bildschirm):
 - Pixeldichte: ~163 PPI bei 27" (ultra-scharf)
 - Besser für nahe Betrachtung oder größere Displays (32"+)
 
-> **Verwandter Leitfaden**: Unsicher, ob 1440p das Richtige für Sie ist? Sehen Sie unseren kompletten [1080p vs 1440p Gaming-Vergleich](/hub/1080p-vs-1440p-gaming) für alle Auflösungsoptionen.
+> **Verwandter Leitfaden**: Unsicher, ob 1440p das Richtige für Sie ist? Sehen Sie unseren kompletten [1080p vs 1440p Gaming-Vergleich]({{lang_prefix}}/hub/1080p-vs-1440p-gaming) für alle Auflösungsoptionen.
 
 ## Real-World Gaming Performance (2025 Benchmarks)
 
@@ -245,7 +245,7 @@ Moderne GPUs bieten KI-gesteuertes Upscaling, das die 1440p-4K-Lücke überbrüc
 | 32" | 1440p | 92 PPI | Ausreichend |
 | 32" | 4K | 138 PPI | ⭐ **Ideal** |
 
-> **Monitor-Kaufleitfaden**: Brauchen Sie Hilfe bei der Wahl der perfekten Gaming-Monitor-Größe? Lesen Sie unseren kompletten [Gaming Monitor Größen-Leitfaden](/hub/gaming-monitor-size-guide) mit Betrachtungsabstandsberechnungen.
+> **Monitor-Kaufleitfaden**: Brauchen Sie Hilfe bei der Wahl der perfekten Gaming-Monitor-Größe? Lesen Sie unseren kompletten [Gaming Monitor Größen-Leitfaden]({{lang_prefix}}/hub/gaming-monitor-size-guide) mit Betrachtungsabstandsberechnungen.
 
 ## Expertenempfehlungen
 
@@ -334,5 +334,5 @@ Absolut. 1440p bleibt die optimale Auflösung für die meisten PC-Gamer und biet
 
 **Bereit zum Aufbau Ihres Setups?** Sehen Sie unsere anderen Leitfäden:
 - [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
-- [1080p vs 1440p Gaming: Leistungsvergleich](/hub/1080p-vs-1440p-gaming)
-- [Gaming Monitor Größen-Leitfaden: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)
+- [1080p vs 1440p Gaming: Leistungsvergleich]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
+- [Gaming Monitor Größen-Leitfaden: 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)
