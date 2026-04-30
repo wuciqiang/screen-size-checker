@@ -1,4 +1,4 @@
-<!-- Part 1: Hero Section -->
+﻿<!-- Part 1: Hero Section -->
 <section class="devices-hero-section">
     <div class="devices-hero-container">
         <h1 class="devices-hero-title" data-i18n="standard_resolutions_page_heading">标准屏幕分辨率完整指南</h1>
@@ -112,6 +112,23 @@
 <section class="device-table-section">
     <div class="section-container">
         <h2 class="section-title" data-i18n="standard_table_heading">标准分辨率表</h2>
+
+        <div class="resolution-filter-panel">
+            <label for="resolution-filter-input" data-i18n="standard_filter_label">Filter resolutions</label>
+            <input id="resolution-filter-input" type="search" placeholder="Search 1080p, 1440p, 4K, ultrawide" data-i18n-placeholder="standard_filter_placeholder">
+            <div class="resolution-filter-buttons" aria-label="Resolution use case filters">
+                <button type="button" class="resolution-filter-btn active" data-filter="all" data-i18n="standard_filter_all">All</button>
+                <button type="button" class="resolution-filter-btn" data-filter="office" data-i18n="standard_filter_office">Office</button>
+                <button type="button" class="resolution-filter-btn" data-filter="gaming" data-i18n="standard_filter_gaming">Gaming</button>
+                <button type="button" class="resolution-filter-btn" data-filter="creative" data-i18n="standard_filter_creative">Creative</button>
+                <button type="button" class="resolution-filter-btn" data-filter="tv" data-i18n="standard_filter_tv">TV</button>
+            </div>
+        </div>
+
+        <div class="standard-local-note">
+            <h3 data-i18n="standard_local_note_title">Local resolution notes</h3>
+            <p data-i18n="standard_local_note_text">Resolution choices are local: buying terms, units, popular laptop panels, TV sizes, and gaming habits vary by language market. Use the filters below as a starting point, then compare with your real viewport and PPI.</p>
+        </div>
         
         <!-- 显示器分辨率标准 -->
         <h3 class="subsection-title" data-i18n="monitor_resolutions_heading">显示器分辨率标准</h3>
@@ -126,55 +143,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr data-standard-row data-category="office tv" data-search="hd 720p 1280 720">
                         <td data-i18n="hd">HD (720p)</td>
                         <td>1280 × 720</td>
                         <td>921,600</td>
                         <td data-i18n="hd_usage">入门级显示器，较旧电视</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="office gaming tv" data-search="full hd 1080p 1920 1080">
                         <td data-i18n="full_hd">Full HD (1080p)</td>
                         <td>1920 × 1080</td>
                         <td>2,073,600</td>
                         <td data-i18n="full_hd_usage">标准显示器，主流电视</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="office creative" data-search="wuxga 1920 1200 16:10">
                         <td data-i18n="wuxga">WUXGA</td>
                         <td>1920 × 1200</td>
                         <td>2,304,000</td>
                         <td data-i18n="wuxga_usage">16:10 宽屏显示器，专业笔记本</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="gaming creative office" data-search="qhd 1440p 2560 1440">
                         <td data-i18n="qhd">QHD (1440p)</td>
                         <td>2560 × 1440</td>
                         <td>3,686,400</td>
                         <td data-i18n="qhd_usage">高端游戏显示器，专业显示器</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="gaming creative office" data-search="wqhd ultrawide 3440 1440">
                         <td data-i18n="wqhd">WQHD</td>
                         <td>3440 × 1440</td>
                         <td>4,953,600</td>
                         <td data-i18n="wqhd_usage">超宽显示器，21:9 比例</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="creative gaming tv office" data-search="uhd 4k 3840 2160">
                         <td data-i18n="uhd_4k">UHD 4K</td>
                         <td>3840 × 2160</td>
                         <td>8,294,400</td>
                         <td data-i18n="uhd_4k_usage">高端电视，专业显示器，内容创作</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="creative" data-search="dci 4k 4096 2160">
                         <td data-i18n="dci_4k">DCI 4K</td>
                         <td>4096 × 2160</td>
                         <td>8,847,360</td>
                         <td data-i18n="dci_4k_usage">影院放映标准，专业电影制作</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="creative office" data-search="5k 5120 2880">
                         <td data-i18n="5k">5K</td>
                         <td>5120 × 2880</td>
                         <td>14,745,600</td>
                         <td data-i18n="5k_usage">高端专业显示器，iMac等</td>
                     </tr>
-                    <tr>
+                    <tr data-standard-row data-category="creative tv" data-search="8k uhd 7680 4320">
                         <td data-i18n="8k">8K UHD</td>
                         <td>7680 × 4320</td>
                         <td>33,177,600</td>
@@ -285,153 +302,6 @@
                 </tbody>
             </table>
         </div>
-        
-        <!-- 社交媒体图片尺寸 -->
-        <h3 class="subsection-title" data-i18n="social_media_sizes_heading">社交媒体图片尺寸</h3>
-        
-        <!-- Facebook图片尺寸 -->
-        <h4 class="platform-title" data-i18n="facebook_sizes">Facebook图片尺寸</h4>
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="image_type">图片类型</th>
-                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
-                        <th data-i18n="aspect_ratio">宽高比</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-i18n="profile_picture">个人头像</td>
-                        <td>170 × 170</td>
-                        <td>1:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="cover_photo">封面图片</td>
-                        <td>820 × 312</td>
-                        <td>2.63:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="shared_image">分享图片</td>
-                        <td>1200 × 630</td>
-                        <td>1.91:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="event_cover">活动封面</td>
-                        <td>1920 × 1080</td>
-                        <td>16:9</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="group_cover">群组封面</td>
-                        <td>1640 × 856</td>
-                        <td>1.91:1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Instagram图片尺寸 -->
-        <h4 class="platform-title" data-i18n="instagram_sizes">Instagram图片尺寸</h4>
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="image_type">图片类型</th>
-                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
-                        <th data-i18n="aspect_ratio">宽高比</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-i18n="profile_picture">个人头像</td>
-                        <td>110 × 110</td>
-                        <td>1:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="square_post">方形帖子</td>
-                        <td>1080 × 1080</td>
-                        <td>1:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="portrait_post">竖向帖子</td>
-                        <td>1080 × 1350</td>
-                        <td>4:5</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="landscape_post">横向帖子</td>
-                        <td>1080 × 608</td>
-                        <td>1.91:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="stories">Stories</td>
-                        <td>1080 × 1920</td>
-                        <td>9:16</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Twitter图片尺寸 -->
-        <h4 class="platform-title" data-i18n="twitter_sizes">Twitter图片尺寸</h4>
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="image_type">图片类型</th>
-                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
-                        <th data-i18n="aspect_ratio">宽高比</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-i18n="profile_picture">个人头像</td>
-                        <td>400 × 400</td>
-                        <td>1:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="header_photo">横幅照片</td>
-                        <td>1500 × 500</td>
-                        <td>3:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="in_stream_photo">信息流图片</td>
-                        <td>1200 × 675</td>
-                        <td>16:9</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- YouTube图片尺寸 -->
-        <h4 class="platform-title" data-i18n="youtube_sizes">YouTube图片尺寸</h4>
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="image_type">图片类型</th>
-                        <th data-i18n="recommended_size">推荐尺寸 (像素)</th>
-                        <th data-i18n="aspect_ratio">宽高比</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-i18n="channel_profile">频道头像</td>
-                        <td>800 × 800</td>
-                        <td>1:1</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="channel_cover">频道封面</td>
-                        <td>2560 × 1440</td>
-                        <td>16:9</td>
-                    </tr>
-                    <tr>
-                        <td data-i18n="video_thumbnail">视频缩略图</td>
-                        <td>1280 × 720</td>
-                        <td>16:9</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </section>
 
@@ -490,3 +360,116 @@
 
 <!-- Related Resources Section -->
 {{component:internal-links}}
+
+<style>
+.resolution-filter-panel,
+.standard-local-note {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-card);
+}
+
+.resolution-filter-panel label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+#resolution-filter-input {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.resolution-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.resolution-filter-btn {
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.resolution-filter-btn.active,
+.resolution-filter-btn:hover,
+.resolution-filter-btn:focus {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    outline: none;
+}
+
+.standard-local-note h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    .resolution-filter-panel,
+    .standard-local-note {
+        padding: var(--spacing-md);
+    }
+
+    .resolution-filter-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resolution-filter-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('resolution-filter-input');
+    const buttons = Array.from(document.querySelectorAll('.resolution-filter-btn'));
+    const rows = Array.from(document.querySelectorAll('[data-standard-row]'));
+    let activeFilter = 'all';
+
+    function applyFilter() {
+        const query = input ? input.value.trim().toLowerCase() : '';
+
+        rows.forEach(row => {
+            const categories = row.getAttribute('data-category') || '';
+            const searchText = [
+                row.getAttribute('data-search') || '',
+                row.textContent || ''
+            ].join(' ').toLowerCase();
+            const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
+            const matchesQuery = !query || searchText.includes(query);
+            row.style.display = matchesFilter && matchesQuery ? '' : 'none';
+        });
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            activeFilter = button.getAttribute('data-filter') || 'all';
+            buttons.forEach(item => item.classList.toggle('active', item === button));
+            applyFilter();
+        });
+    });
+
+    if (input) {
+        input.addEventListener('input', applyFilter);
+    }
+});
+</script>
+

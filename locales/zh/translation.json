@@ -276,7 +276,7 @@
   "ipad_viewport_size_explanation": "在为iPad设备进行设计时，需要考虑几个重要因素：",
   "android_viewport_size_explanation": "在为Android设备进行设计时，需要考虑几个重要因素：",
   "compare_page_title": "屏幕尺寸对比工具：比较显示器尺寸和分辨率 | Screen Size Checker",
-  "compare_page_description": "对比不同设备的屏幕尺寸和规格参数",
+  "compare_page_description": "并排对比两个屏幕尺寸，查看宽度、高度、对角线、可视面积和实际差异，适合显示器、笔记本、手机、平板和电视。",
   "compare_page_heading": "屏幕尺寸对比工具",
   "compare_page_intro": "并排比较不同设备的屏幕尺寸和分辨率。这个交互式工具可以帮助您可视化显示器选择在实际尺寸中的比较效果。",
   "compare_description": "这个计算器使用精确的数学公式，基于行业标准长宽比准确计算对角线尺寸、宽度、高度和面积。所有测量结果都可以即时按比例可视化，实现真正的并排比较。",
@@ -435,7 +435,7 @@
   "theme_test": "主题切换测试",
   "toggle_theme": "切换主题",
   "standard_resolutions_page_title": "标准屏幕分辨率 2026：720p 到 8K 对照表",
-  "standard_resolutions_page_description": "一张表查看 720p、1080p、1440p、4K、5K、8K 等标准显示分辨率，包含宽高比、像素数量和用途。",
+  "standard_resolutions_page_description": "筛选 720p 到 8K 常见屏幕分辨率，查看宽高比、像素数、适合尺寸、PPI 参考和真实视口差异。",
   "standard_resolutions_page_heading": "屏幕分辨率表 2026：从 720p 到 8K 的完整参考",
   "standard_resolutions_page_intro": "在一个页面中查找标准屏幕分辨率、像素尺寸、宽高比和实际用途，适用于显示器选购、响应式断点、QA 检查和内容制作。",
   "standard_table_heading": "标准分辨率表",
@@ -516,7 +516,7 @@
   "design_point2": "利用响应式设计确保内容在不同屏幕尺寸上正确显示",
   "design_point3": "为高分辨率显示器（如Retina屏幕）准备2x或3x图像资源",
   "design_point4": "测试您的设计在各种常见分辨率下的表现",
-  "design_point5": "为社交媒体平台创建图像时，始终使用平台推荐的最新尺寸",
+  "design_point5": "分别检查物理分辨率、浏览器视口、DPR 和系统缩放，不要用一个数字概括完整显示体验。",
   "technical_implementation_heading": "技术实现",
   "tech_point1": "使用CSS媒体查询为不同屏幕尺寸调整布局",
   "tech_point2": "实现适当的viewport meta标签以确保移动设备上正确缩放",
@@ -536,7 +536,7 @@
     "optimizedTitle": "像素密度（PPI）计算器",
     "intro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
     "pageTitle": "PPI 计算器 - 轻松计算屏幕像素密度 | Screen Size Checker",
-    "pageDescription": "精确计算任何屏幕的 PPI（每英寸像素数）。只需输入分辨率和对角线尺寸，即可找到显示器、手机或电视的像素密度。",
+    "pageDescription": "根据分辨率和屏幕尺寸计算 PPI，支持显示器、笔记本、手机和电视预设，并解释清晰度与观看距离。",
     "pageHeading": "PPI 计算器",
     "pageIntro": "计算显示设备的像素密度（每英寸像素数）。输入屏幕分辨率和对角线尺寸，即可获得准确的 PPI 值。",
     "inputTitle": "输入屏幕参数",
@@ -624,6 +624,25 @@
       "standard": "标准分辨率显示器。",
       "retina": "高分辨率\"Retina\"显示器，非常适合清晰的文字和图像。",
       "professional": "超高分辨率显示器，非常适合专业创意工作。"
+    },
+    "presets": {
+      "title": "快速预设",
+      "fhd24": "24 英寸 1080p 显示器",
+      "qhd27": "27 英寸 1440p 显示器",
+      "uhd32": "32 英寸 4K 显示器",
+      "phone61": "6.1 英寸旗舰手机",
+      "laptop14": "14 英寸高分屏笔记本"
+    },
+    "resultGuide": {
+      "title": "如何解读结果",
+      "low": "低于 120 PPI：可用，但近距离看文字会有颗粒感。",
+      "medium": "120-200 PPI：大多数显示器和笔记本的舒适区间。",
+      "high": "200-300 PPI：适合阅读、设计和高分屏笔记本。",
+      "retina": "300+ PPI：接近手机级密度，观看距离比单纯像素数更重要。"
+    },
+    "localNotes": {
+      "title": "中文设备场景说明",
+      "text": "国内用户常按英寸、厘米和“2K/4K”一起判断屏幕。华为、小米、OPPO、vivo、荣耀、Redmi 等安卓手机通常需要同时看物理分辨率、DPR 和浏览器 CSS 视口；笔记本和显示器则要结合系统缩放。"
     }
   },
   "projectionCalculator": {
@@ -1132,5 +1151,26 @@
   "standard_seo_gaming_guide_link": "游戏显示器尺寸指南",
   "standard_seo_monitor_cta_suffix": "，如果你的主要用途是游戏。",
   "common_questions": "常见问题",
-  "resolution_test": "分辨率测试"
+  "resolution_test": "分辨率测试",
+  "compare_presets_title": "从常见对比开始",
+  "compare_preset_24_27": "24 英寸 vs 27 英寸显示器",
+  "compare_preset_27_32": "27 英寸 vs 32 英寸显示器",
+  "compare_preset_laptop_monitor": "笔记本屏幕 vs 外接显示器",
+  "compare_preset_phone_tablet": "手机 vs 平板",
+  "compare_result_interpretation_title": "如何理解对比结果",
+  "compare_result_interpretation_text": "不要只看对角线尺寸。宽度影响桌面空间，高度影响文档、代码和时间线的舒适度，可视面积才是真正的屏幕空间差异。32 英寸不只是比 27 英寸大一点，面积差通常才是日常体验变化最大的指标。",
+  "compare_local_note": "中文用户通常同时看英寸和厘米，也会比较国行 iPhone、iPad、华为/小米/OPPO/vivo/荣耀/Redmi 手机，以及笔记本外接 27 英寸或 32 英寸显示器的实际占桌面积。",
+  "compare_related_prefix": "如果要判断清晰度，请使用",
+  "compare_related_ppi": "PPI 计算器",
+  "compare_related_middle": "；如果要查常见分辨率，请看",
+  "compare_related_standard": "标准分辨率表",
+  "standard_filter_label": "筛选分辨率",
+  "standard_filter_placeholder": "搜索 1080p、1440p、4K、超宽屏",
+  "standard_filter_all": "全部",
+  "standard_filter_office": "办公",
+  "standard_filter_gaming": "游戏",
+  "standard_filter_creative": "创作",
+  "standard_filter_tv": "电视",
+  "standard_local_note_title": "中文场景下的分辨率说明",
+  "standard_local_note_text": "中文搜索里常见说法包括屏幕分辨率、显示器分辨率、2K/4K、手机屏幕尺寸。选购时建议同时看英寸、厘米、PPI、系统缩放和实际 CSS 视口，尤其是高分屏笔记本和国产安卓手机。"
 }

@@ -126,7 +126,7 @@
   "android_page_heading": "Tamaños de Viewport Android: Guía Completa",
   "android_page_intro": "Esta guía completa proporciona tamaños de viewport y resoluciones de pantalla detallados para dispositivos Android populares. Información esencial para desarrolladores y diseñadores web que trabajan en sitios y aplicaciones responsive.",
   "compare_page_title": "Herramienta de Comparación Visual de Tamaños de Pantalla | Comparar Monitores, Laptops y Móviles",
-  "compare_page_description": "Visualiza y compara instantáneamente tamaños de pantalla, relaciones de aspecto y dimensiones de dos monitores, laptops o móviles lado a lado. La herramienta gratuita perfecta para desarrolladores y diseñadores.",
+  "compare_page_description": "Compara dos tamaños de pantalla lado a lado. Revisa ancho, alto, diagonal, área visible y diferencias reales en monitores, laptops, móviles, tablets y TVs.",
   "compare_page_heading": "Herramienta de Comparación de Tamaños de Pantalla",
   "compare_page_intro": "Compara tamaños de pantalla y resoluciones de diferentes dispositivos lado a lado. Esta herramienta interactiva te ayuda a visualizar cómo se comparan tus opciones de pantalla en dimensiones del mundo real.",
   "screen_comparison": "Comparación de Pantallas",
@@ -280,7 +280,7 @@
   "step_5": "Paso 5",
   "step_5_desc": "Comparte tus resultados de comparación con otros",
   "standard_resolutions_page_title": "Resoluciones de pantalla estándar 2026: tabla de 720p a 8K",
-  "standard_resolutions_page_description": "Tabla de referencia de resoluciones estándar de pantalla de 720p a 8K, con dimensiones en píxeles, relación de aspecto, dispositivos habituales y usos prácticos.",
+  "standard_resolutions_page_description": "Filtra resoluciones comunes de 720p a 8K con relación de aspecto, píxeles, tamaño recomendado, contexto PPI y comportamiento de viewport.",
   "standard_resolutions_page_heading": "Resoluciones de pantalla estándar 2026: tabla de 720p a 8K",
   "standard_resolutions_page_intro": "Compara resoluciones comunes desde viewports móviles hasta pantallas 8K. La tabla combina píxeles, relación de aspecto y usos típicos para que desarrolladores, diseñadores, compradores y gamers puedan evaluar mejor cada estándar.",
   "standard_table_heading": "Tabla de Resoluciones Estándar",
@@ -376,7 +376,7 @@
   "design_point2": "Utiliza diseño responsive para asegurar que el contenido se muestre correctamente en diferentes tamaños de pantalla",
   "design_point3": "Prepara assets de imagen 2x o 3x para pantallas de alta resolución como Retina",
   "design_point4": "Prueba tus diseños en varias resoluciones comunes",
-  "design_point5": "Siempre usa los tamaños recomendados más recientes al crear imágenes para plataformas de redes sociales",
+  "design_point5": "Comprueba por separado resolución física, viewport CSS, DPR y escalado del sistema en lugar de asumir que un solo número describe toda la pantalla.",
   "technical_implementation_heading": "Implementación Técnica",
   "tech_point1": "Usa media queries de CSS para ajustar diseños para diferentes tamaños de pantalla",
   "tech_point2": "Implementa etiquetas meta viewport apropiadas para asegurar escalado correcto en dispositivos móviles",
@@ -396,7 +396,7 @@
     "optimizedTitle": "Calculadora de Densidad de Píxeles (PPI)",
     "intro": "Calcula la densidad de píxeles (píxeles por pulgada) de dispositivos de pantalla. Ingresa la resolución de pantalla y el tamaño diagonal para obtener valores PPI precisos.",
     "pageTitle": "Calculadora PPI - Densidad de Píxeles & Resolución de Pantalla | Screen Size Checker",
-    "pageDescription": "Calcula con precisión el PPI (Píxeles Por Pulgada) de cualquier pantalla. Simplemente ingresa la resolución y el tamaño diagonal para encontrar la densidad de píxeles de tu monitor, teléfono o TV.",
+    "pageDescription": "Calcula PPI con resolución y tamaño de pantalla. Usa presets para monitores, laptops, móviles y TVs, e interpreta nitidez y distancia.",
     "pageHeading": "Calculadora PPI",
     "pageIntro": "Calcula la densidad de píxeles (píxeles por pulgada) de dispositivos de pantalla. Ingresa la resolución de pantalla y el tamaño diagonal para obtener valores PPI precisos.",
     "inputTitle": "Ingresa Parámetros de Pantalla",
@@ -446,7 +446,26 @@
     "lowPPI": "Densidad Baja (72-120 PPI): Monitores tradicionales, TVs grandes",
     "mediumPPI": "Densidad Media (120-200 PPI): Laptops estándar, monitores de escritorio",
     "highPPI": "Densidad Alta (200-300 PPI): Laptops de alta resolución, tablets",
-    "veryHighPPI": "Densidad Muy Alta (300+ PPI): Smartphones, pantallas Retina"
+    "veryHighPPI": "Densidad Muy Alta (300+ PPI): Smartphones, pantallas Retina",
+    "presets": {
+      "title": "Presets rápidos",
+      "fhd24": "Monitor 24\" 1080p",
+      "qhd27": "Monitor 27\" 1440p",
+      "uhd32": "Monitor 32\" 4K",
+      "phone61": "Móvil flagship 6,1\"",
+      "laptop14": "Laptop 14\" alta densidad"
+    },
+    "resultGuide": {
+      "title": "Cómo leer el resultado",
+      "low": "Menos de 120 PPI: usable, pero el texto puede verse tosco de cerca.",
+      "medium": "120-200 PPI: cómodo para la mayoría de monitores y laptops.",
+      "high": "200-300 PPI: nítido para lectura, diseño y laptops de alta densidad.",
+      "retina": "300+ PPI: densidad de móvil; la distancia de uso importa mucho."
+    },
+    "localNotes": {
+      "title": "Notas locales de pantalla",
+      "text": "En mercados hispanohablantes se mezclan pulgadas, centímetros y términos como 2K o 4K. Usa el PPI para nitidez y luego revisa tamaño físico, distancia y escalado según el uso real."
+    }
   },
   "projectionCalculator": {
     "title": "Calculadora de Proyección",
@@ -1025,5 +1044,26 @@
   "standard_seo_gaming_guide_link": "guía de tamaño de monitor gaming",
   "standard_seo_monitor_cta_suffix": "si tu uso principal es jugar.",
   "common_questions": "Preguntas comunes",
-  "resolution_test": "Prueba de resolución"
+  "resolution_test": "Prueba de resolución",
+  "compare_presets_title": "Empieza con una comparación común",
+  "compare_preset_24_27": "Monitor 24\" vs 27\"",
+  "compare_preset_27_32": "Monitor 27\" vs 32\"",
+  "compare_preset_laptop_monitor": "Laptop vs monitor externo",
+  "compare_preset_phone_tablet": "Móvil vs tablet",
+  "compare_result_interpretation_title": "Cómo interpretar la comparación",
+  "compare_result_interpretation_text": "La diagonal puede engañar. El ancho afecta el espacio del escritorio, la altura ayuda con documentos y líneas de tiempo, y el área visible muestra el salto real en espacio de pantalla.",
+  "compare_local_note": "En español conviene cubrir tanto España como Latinoamérica: pulgadas para monitores y TVs, centímetros para espacio físico, y comparaciones frecuentes como laptop vs monitor externo o móvil vs tablet.",
+  "compare_related_prefix": "Para nitidez, calcula la densidad con la",
+  "compare_related_ppi": "calculadora de PPI",
+  "compare_related_middle": "o revisa resoluciones comunes en la",
+  "compare_related_standard": "tabla de resoluciones estándar",
+  "standard_filter_label": "Filtrar resoluciones",
+  "standard_filter_placeholder": "Buscar 1080p, 1440p, 4K, ultrawide",
+  "standard_filter_all": "Todas",
+  "standard_filter_office": "Oficina",
+  "standard_filter_gaming": "Gaming",
+  "standard_filter_creative": "Creativo",
+  "standard_filter_tv": "TV",
+  "standard_local_note_title": "Notas para usuarios en español",
+  "standard_local_note_text": "Las búsquedas mezclan resolución de pantalla, tamaño de pantalla y monitor 2K/4K. En España y Latinoamérica varían marcas, precios y unidades, así que compara resolución, PPI, pulgadas, centímetros y escalado."
 }

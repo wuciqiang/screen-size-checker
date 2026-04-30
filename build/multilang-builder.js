@@ -151,6 +151,26 @@ class MultiLangBuilder extends ComponentBuilder {
             }
             return match;
         });
+
+        // Translate placeholder attributes declared with data-i18n-placeholder.
+        result = result.replace(/<[^>]+data-i18n-placeholder="([^"]+)"[^>]*>/g, (match, key) => {
+            const translation = this.getNestedTranslation(translations, key);
+            if (!translation) {
+                return match;
+            }
+
+            const escapedTranslation = String(translation)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            if (match.includes('placeholder="')) {
+                return match.replace(/placeholder="[^"]*"/, `placeholder="${escapedTranslation}"`);
+            }
+
+            return match.replace(/>$/, ` placeholder="${escapedTranslation}">`);
+        });
         
         // 闁哄洦瀵у畷鎻捨熼埄鍐╃凡闁告瑦锕㈤崳鐑樹繆?{{t:key}}
         result = result.replace(/\{\{t:(\w+)\}\}/g, (match, key) => {

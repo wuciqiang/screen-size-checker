@@ -43,6 +43,7 @@ function initializeComparison() {
     var unitCm = document.getElementById('unit-cm');
     var comparisonTitle = document.getElementById('comparison-title');
     var comparisonVisual = document.getElementById('comparison-visual');
+    var presetButtons = document.querySelectorAll('[data-compare-preset]');
 
     // 表格元素
     var display1Header = document.getElementById('display1-header');
@@ -124,6 +125,14 @@ function initializeComparison() {
             unit1Select.value = unit2Select.value;
         });
     }
+
+    presetButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            applyComparisonPreset(button);
+            compareDisplays();
+            updateURLWithCurrentState(true);
+        });
+    });
 
     // 比较按钮点击事件
     if (compareBtn) {
@@ -229,6 +238,22 @@ function initializeComparison() {
         // 如果已有比较结果，重新计算
         if (comparisonResults.classList.contains('visible')) {
             compareDisplays();
+        }
+    }
+
+    function applyComparisonPreset(button) {
+        aspect1Select.value = button.dataset.aspect1 || '16x9';
+        aspect2Select.value = button.dataset.aspect2 || '16x9';
+        size1Input.value = button.dataset.size1 || '24';
+        size2Input.value = button.dataset.size2 || '27';
+        unit1Select.value = button.dataset.unit1 || 'inches';
+        unit2Select.value = button.dataset.unit2 || unit1Select.value;
+
+        if (customRatio1) {
+            customRatio1.style.display = aspect1Select.value === 'custom' ? 'flex' : 'none';
+        }
+        if (customRatio2) {
+            customRatio2.style.display = aspect2Select.value === 'custom' ? 'flex' : 'none';
         }
     }
 

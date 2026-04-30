@@ -118,7 +118,7 @@
   "android_page_heading": "Tailles de viewport Android : Guide complet",
   "android_page_intro": "Ce guide complet fournit les tailles de viewport et résolutions d'écran détaillées pour les appareils Android populaires. Informations essentielles pour les développeurs et designers web travaillant sur des sites et applications réactifs.",
   "compare_page_title": "Outil de comparaison visuelle de tailles d'écran (2026) | Moniteur, portable et téléphone côte à côte",
-  "compare_page_description": "Comparez les tailles d'écran et de moniteur côte à côte. Voyez la différence exacte en largeur, hauteur, diagonale et surface entre deux écrans — moniteurs, TV, portables ou téléphones.",
+  "compare_page_description": "Comparez deux tailles d’écran côte à côte. Voyez largeur, hauteur, diagonale, surface visible et différences réelles pour moniteurs, portables, téléphones, tablettes et TVs.",
   "compare_page_heading": "Comparer les tailles d'écran : Moniteur, TV, portable et téléphone",
   "compare_page_intro": "Utilisez cet outil de comparaison pour comparer les tailles d'appareils en pouces et centimètres. Évaluez rapidement les dimensions des moniteurs, les différences de taille de TV et les compromis de rapport d'aspect avant d'acheter.",
   "screen_comparison": "Comparaison d'écrans",
@@ -435,7 +435,7 @@
   "imperial": "Impérial",
   "summary": "Résumé",
   "standard_resolutions_page_title": "Résolutions d’écran standard 2026 : tableau de 720p à 8K",
-  "standard_resolutions_page_description": "Table de référence des résolutions d’écran standard de 720p à 8K, avec dimensions en pixels, ratio, appareils courants et usages pratiques.",
+  "standard_resolutions_page_description": "Filtrez les résolutions courantes de 720p à 8K avec ratio, pixels, taille idéale, contexte PPI et comportement réel du viewport.",
   "standard_resolutions_page_heading": "Résolutions d’écran standard 2026 : tableau de 720p à 8K",
   "standard_resolutions_page_intro": "Comparez les résolutions courantes, des viewports mobiles aux écrans 8K. Le tableau associe pixels, ratio et usages typiques pour aider développeurs, designers, acheteurs et joueurs à évaluer chaque standard.",
   "standard_table_heading": "Tableau des résolutions standard",
@@ -516,7 +516,7 @@
   "design_point2": "Utilisez le design réactif pour que le contenu s'affiche correctement sur toutes les tailles d'écran",
   "design_point3": "Préparez des images en 2x ou 3x pour les écrans haute résolution comme les écrans Retina",
   "design_point4": "Testez vos designs sur les résolutions courantes",
-  "design_point5": "Utilisez toujours les tailles recommandées les plus récentes pour les images des réseaux sociaux",
+  "design_point5": "Vérifiez séparément résolution physique, viewport CSS, DPR et scaling système au lieu de tout déduire d’un seul chiffre.",
   "technical_implementation_heading": "Mise en œuvre technique",
   "tech_point1": "Utilisez les media queries CSS pour adapter les mises en page aux différentes tailles d'écran",
   "tech_point2": "Utilisez les balises meta viewport correctement pour un bon rendu sur mobile",
@@ -536,7 +536,7 @@
     "optimizedTitle": "Calculateur de densité de pixels (PPI)",
     "intro": "Calculez la densité de pixels (pixels par pouce) des écrans. Entrez la résolution et la taille diagonale pour obtenir des valeurs PPI précises.",
     "pageTitle": "Calculateur PPI (Pixels par pouce) | Densité de pixels moniteur, téléphone, TV",
-    "pageDescription": "Calculez la densité de pixels (PPI) à partir de la résolution et de la taille diagonale. Comparez la netteté des moniteurs, portables, téléphones et TV.",
+    "pageDescription": "Calculez le PPI avec résolution et taille d’écran. Utilisez des préréglages pour écran, portable, téléphone et TV, puis interprétez netteté et distance.",
     "pageHeading": "Calculateur PPI",
     "pageIntro": "Calculez la densité de pixels (pixels par pouce) des écrans. Entrez la résolution et la taille diagonale pour obtenir des valeurs PPI précises.",
     "inputTitle": "Paramètres de l'écran",
@@ -624,6 +624,25 @@
       "standard": "Écran de résolution standard.",
       "retina": "Écran haute résolution « Retina », idéal pour un texte et des images nets.",
       "professional": "Écran très haute résolution, excellent pour le travail créatif professionnel."
+    },
+    "presets": {
+      "title": "Préréglages rapides",
+      "fhd24": "Écran 24\" 1080p",
+      "qhd27": "Écran 27\" 1440p",
+      "uhd32": "Écran 32\" 4K",
+      "phone61": "Téléphone 6,1\" haut de gamme",
+      "laptop14": "Portable 14\" haute densité"
+    },
+    "resultGuide": {
+      "title": "Comment lire le résultat",
+      "low": "Sous 120 PPI : utilisable, mais le texte peut paraître grossier de près.",
+      "medium": "120-200 PPI : confortable pour la plupart des écrans et portables.",
+      "high": "200-300 PPI : net pour lecture, design et laptops haute densité.",
+      "retina": "300+ PPI : densité de téléphone ; la distance de vision compte beaucoup."
+    },
+    "localNotes": {
+      "title": "Notes locales d’affichage",
+      "text": "Pour le public francophone, affichez pouces et centimètres. Utilisez le PPI pour juger la finesse, puis vérifiez taille physique, scaling et distance de vision."
     }
   },
   "aspectRatioCalculator": {
@@ -1132,5 +1151,26 @@
   "standard_seo_gaming_guide_link": "guide de taille d’écran gaming",
   "standard_seo_monitor_cta_suffix": "si votre usage principal est le jeu.",
   "common_questions": "Questions fréquentes",
-  "resolution_test": "Test de résolution"
+  "resolution_test": "Test de résolution",
+  "compare_presets_title": "Commencer avec une comparaison courante",
+  "compare_preset_24_27": "Écran 24\" vs 27\"",
+  "compare_preset_27_32": "Écran 27\" vs 32\"",
+  "compare_preset_laptop_monitor": "Portable vs écran externe",
+  "compare_preset_phone_tablet": "Téléphone vs tablette",
+  "compare_result_interpretation_title": "Comment lire la comparaison",
+  "compare_result_interpretation_text": "La diagonale seule peut tromper. La largeur joue sur la place au bureau, la hauteur aide pour documents et timelines, et la surface visible montre le vrai gain d’espace.",
+  "compare_local_note": "En français, affichez pouces et centimètres. Les comparaisons utiles sont souvent portable vs écran externe, téléphone vs tablette, ou 27 pouces vs 32 pouces pour un bureau.",
+  "compare_related_prefix": "Pour la netteté, calculez la densité avec le",
+  "compare_related_ppi": "calculateur PPI",
+  "compare_related_middle": "ou consultez les résolutions courantes dans le",
+  "compare_related_standard": "tableau des résolutions standard",
+  "standard_filter_label": "Filtrer les résolutions",
+  "standard_filter_placeholder": "Rechercher 1080p, 1440p, 4K, ultrawide",
+  "standard_filter_all": "Toutes",
+  "standard_filter_office": "Bureau",
+  "standard_filter_gaming": "Gaming",
+  "standard_filter_creative": "Création",
+  "standard_filter_tv": "TV",
+  "standard_local_note_title": "Notes pour le marché francophone",
+  "standard_local_note_text": "En français, on mélange souvent pouces, centimètres, résolution d’écran et taille d’écran. Comparez résolution, PPI, scaling et distance, surtout pour laptops haute densité et écrans 27-32 pouces."
 }

@@ -22,6 +22,7 @@ export class PPICalculator {
             screenDensity: null,
             resultDetails: null,
             contextComment: null,
+            presetButtons: [],
             errorElements: {}
         };
         
@@ -45,7 +46,7 @@ export class PPICalculator {
         try {
             this.bindElements();
             this.setupEventListeners();
-            this.updateResult();
+            this.calculate();
             console.log('✅ PPI Calculator initialized successfully');
         } catch (error) {
             console.error('❌ Failed to initialize PPI Calculator:', error);
@@ -64,6 +65,7 @@ export class PPICalculator {
         this.elements.screenDensity = document.getElementById('screen-density');
         this.elements.resultDetails = document.getElementById('result-details');
         this.elements.contextComment = document.getElementById('context-comment');
+        this.elements.presetButtons = Array.from(document.querySelectorAll('.ppi-preset-btn'));
         
         // Error message elements
         this.elements.errorElements = {
@@ -125,6 +127,31 @@ export class PPICalculator {
                 }
             });
         });
+
+        this.elements.presetButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                this.applyPreset(button);
+            });
+        });
+    }
+
+    /**
+     * Apply a common screen preset and calculate immediately.
+     * @param {HTMLButtonElement} button - Preset button with data values
+     */
+    applyPreset(button) {
+        const width = button.getAttribute('data-width');
+        const height = button.getAttribute('data-height');
+        const diagonal = button.getAttribute('data-diagonal');
+
+        if (!width || !height || !diagonal) {
+            return;
+        }
+
+        this.elements.horizontalInput.value = width;
+        this.elements.verticalInput.value = height;
+        this.elements.diagonalInput.value = diagonal;
+        this.calculate();
     }
     
     /**

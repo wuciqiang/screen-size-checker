@@ -126,7 +126,7 @@
   "android_page_heading": "Android Viewport-Größen: Vollständiger Leitfaden",
   "android_page_intro": "Dieser umfassende Leitfaden bietet detaillierte Viewport-Größen und Bildschirmauflösungen für beliebte Android-Geräte. Unverzichtbare Informationen für Webentwickler und Designer, die an responsiven Websites und Anwendungen arbeiten.",
   "compare_page_title": "Visuelles Bildschirmgrößen-Vergleichstool | Monitore, Laptops & Handys vergleichen",
-  "compare_page_description": "Visualisieren und vergleichen Sie sofort Bildschirmgrößen, Seitenverhältnisse und Abmessungen von zwei Monitoren, Laptops oder Handys nebeneinander. Das perfekte kostenlose Tool für Entwickler und Designer.",
+  "compare_page_description": "Vergleiche zwei Bildschirmgrößen mit Breite, Höhe, Diagonale und Fläche. Für Monitore, Laptops, Tablets, Smartphones und TVs.",
   "compare_page_heading": "Bildschirmgrößen-Vergleichstool",
   "compare_page_intro": "Vergleichen Sie Bildschirmgrößen und Auflösungen verschiedener Geräte nebeneinander. Dieses interaktive Tool hilft Ihnen zu visualisieren, wie Ihre Display-Auswahl in realen Abmessungen aussieht.",
   "screen_comparison": "Bildschirmvergleich",
@@ -280,7 +280,7 @@
   "step_5": "Schritt 5",
   "step_5_desc": "Teilen Sie Ihre Vergleichsergebnisse mit anderen",
   "standard_resolutions_page_title": "Standard-Bildschirmauflösungen 2026: 720p bis 8K Tabelle",
-  "standard_resolutions_page_description": "Referenztabelle für Standard-Bildschirmauflösungen von 720p bis 8K, inklusive Pixelmaßen, Seitenverhältnis, typischen Geräten und praktischen Einsatzbereichen.",
+  "standard_resolutions_page_description": "Filtere gängige Bildschirmauflösungen von 720p bis 8K mit Seitenverhältnis, Pixelzahl, idealer Größe, PPI-Kontext und Viewport-Hinweisen.",
   "standard_resolutions_page_heading": "Standard-Bildschirmauflösungen 2026: 720p bis 8K Tabelle",
   "standard_resolutions_page_intro": "Vergleichen Sie gängige Bildschirmauflösungen von mobilen Viewports bis 8K-Displays. Die Tabelle kombiniert Pixelmaße, Seitenverhältnis und typische Nutzung, damit Entwickler, Designer, Käufer und Gamer schneller die passende Auflösung einschätzen können.",
   "standard_table_heading": "Standard-Auflösungen Tabelle",
@@ -376,7 +376,7 @@
   "design_point2": "Nutzen Sie Responsive Design, um sicherzustellen, dass Inhalte auf verschiedenen Bildschirmgrößen korrekt angezeigt werden",
   "design_point3": "Bereiten Sie 2x oder 3x Bild-Assets für hochauflösende Displays wie Retina-Bildschirme vor",
   "design_point4": "Testen Sie Ihre Designs auf verschiedenen gängigen Auflösungen",
-  "design_point5": "Verwenden Sie immer die neuesten empfohlenen Größen beim Erstellen von Bildern für Social-Media-Plattformen",
+  "design_point5": "Prüfe physische Auflösung, CSS-Viewport, DPR und Betriebssystem-Skalierung getrennt, statt alles aus einer einzigen Zahl abzuleiten.",
   "technical_implementation_heading": "Technische Umsetzung",
   "tech_point1": "Verwenden Sie CSS-Media-Queries, um Layouts für verschiedene Bildschirmgrößen anzupassen",
   "tech_point2": "Implementieren Sie korrekte Viewport-Meta-Tags, um korrektes Skalieren auf mobilen Geräten sicherzustellen",
@@ -396,7 +396,7 @@
     "optimizedTitle": "Pixeldichte (PPI) Rechner",
     "intro": "Berechnen Sie die Pixeldichte (Pixel pro Zoll) von Anzeigegeräten. Geben Sie Bildschirmauflösung und Diagonalgröße ein, um genaue PPI-Werte zu erhalten.",
     "pageTitle": "PPI-Rechner - Pixeldichte & Bildschirmauflösung berechnen | Screen Size Checker",
-    "pageDescription": "Berechne präzise den PPI (Pixels Per Inch) und die Bildschirmauflösung. Gib einfach Auflösung und Diagonalgröße ein, um die Pixeldichte deines Monitors, Handys oder Fernsehers zu ermitteln.",
+    "pageDescription": "Berechne PPI aus Auflösung und Bildschirmgröße. Nutze Presets für Monitor, Laptop, Smartphone und TV und bewerte Schärfe und Abstand.",
     "pageHeading": "PPI-Rechner",
     "pageIntro": "Berechnen Sie die Pixeldichte (Pixel pro Zoll) von Anzeigegeräten. Geben Sie Bildschirmauflösung und Diagonalgröße ein, um genaue PPI-Werte zu erhalten.",
     "inputTitle": "Bildschirmparameter eingeben",
@@ -446,7 +446,26 @@
     "lowPPI": "Niedrige Dichte (72-120 PPI): Traditionelle Monitore, große Fernseher",
     "mediumPPI": "Mittlere Dichte (120-200 PPI): Standard-Laptops, Desktop-Monitore",
     "highPPI": "Hohe Dichte (200-300 PPI): Hochauflösende Laptops, Tablets",
-    "veryHighPPI": "Sehr hohe Dichte (300+ PPI): Smartphones, Retina-Displays"
+    "veryHighPPI": "Sehr hohe Dichte (300+ PPI): Smartphones, Retina-Displays",
+    "presets": {
+      "title": "Schnelle Presets",
+      "fhd24": "24\" 1080p Monitor",
+      "qhd27": "27\" 1440p Monitor",
+      "uhd32": "32\" 4K Monitor",
+      "phone61": "6,1\" Smartphone",
+      "laptop14": "14\" High-DPI-Laptop"
+    },
+    "resultGuide": {
+      "title": "So liest du das Ergebnis",
+      "low": "Unter 120 PPI: nutzbar, aber Text kann aus der Nähe grob wirken.",
+      "medium": "120-200 PPI: angenehm für die meisten Monitore und Laptops.",
+      "high": "200-300 PPI: scharf für Lesen, Design und hochauflösende Laptops.",
+      "retina": "300+ PPI: Smartphone-Klasse; der Betrachtungsabstand zählt stark."
+    },
+    "localNotes": {
+      "title": "Lokale Display-Hinweise",
+      "text": "Deutschsprachige Käufer vergleichen meist Zoll, Zentimeter und Sitzabstand. Nutze PPI für die Schärfe, aber plane Monitorgröße, Skalierung und Schreibtischtiefe gemeinsam."
+    }
   },
   "projectionCalculator": {
     "title": "Projektions-Rechner",
@@ -1024,5 +1043,26 @@
   "standard_seo_gaming_guide_link": "Gaming-Monitor-Größenleitfaden",
   "standard_seo_monitor_cta_suffix": "wenn Gaming Ihr Hauptzweck ist.",
   "common_questions": "Häufige Fragen",
-  "resolution_test": "Auflösungstest"
+  "resolution_test": "Auflösungstest",
+  "compare_presets_title": "Mit einem typischen Vergleich starten",
+  "compare_preset_24_27": "24\" vs. 27\" Monitor",
+  "compare_preset_27_32": "27\" vs. 32\" Monitor",
+  "compare_preset_laptop_monitor": "Laptop vs. externer Monitor",
+  "compare_preset_phone_tablet": "Smartphone vs. Tablet",
+  "compare_result_interpretation_title": "So liest du den Vergleich",
+  "compare_result_interpretation_text": "Die Diagonale allein reicht nicht. Breite beeinflusst den Platz auf dem Schreibtisch, Höhe hilft bei Dokumenten und Timelines, und die Fläche zeigt den tatsächlichen Zugewinn an Bildschirmraum.",
+  "compare_local_note": "Für deutschsprachige Nutzer sind Zoll und Zentimeter wichtig. Vergleiche deshalb nicht nur die Diagonale, sondern auch Stellfläche, Sitzabstand und typische Kombinationen wie Notebook plus 27-Zoll-Monitor.",
+  "compare_related_prefix": "Für die Schärfe berechne die Pixeldichte mit dem",
+  "compare_related_ppi": "PPI-Rechner",
+  "compare_related_middle": "oder prüfe gängige Auflösungen in der",
+  "compare_related_standard": "Tabelle der Standardauflösungen",
+  "standard_filter_label": "Auflösungen filtern",
+  "standard_filter_placeholder": "1080p, 1440p, 4K, Ultrawide suchen",
+  "standard_filter_all": "Alle",
+  "standard_filter_office": "Office",
+  "standard_filter_gaming": "Gaming",
+  "standard_filter_creative": "Kreativ",
+  "standard_filter_tv": "TV",
+  "standard_local_note_title": "Hinweise für deutschsprachige Nutzer",
+  "standard_local_note_text": "In Deutschland werden Monitore meist in Zoll gekauft, Schreibtischtiefe und Abstand aber oft in Zentimetern geplant. Prüfe Auflösung, Pixeldichte, Skalierung und Sitzabstand gemeinsam."
 }

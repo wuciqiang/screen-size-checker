@@ -60,12 +60,13 @@
     
     .aspect-row select, .size-row input, .size-row select {
         flex: 1;
+        min-height: 44px;
         padding: var(--spacing-sm) var(--spacing-md);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-sm);
         background-color: var(--background-primary);
         color: var(--text-primary);
-        font-size: 0.875rem;
+        font-size: 1rem;
         transition: border-color var(--transition-fast);
     }
     
@@ -88,6 +89,7 @@
     
     .custom-ratio-inputs input {
         width: 70px;
+        min-height: 44px;
         padding: var(--spacing-sm);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-sm);
@@ -103,6 +105,7 @@
     
     .comparison-btn {
         width: 100%;
+        min-height: 48px;
         padding: var(--spacing-md) var(--spacing-lg);
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
         color: white;
@@ -120,6 +123,47 @@
         transform: translateY(-2px);
         box-shadow: var(--shadow-medium);
     }
+
+    .compare-presets {
+        margin-bottom: var(--spacing-xl);
+        padding: var(--spacing-lg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background: var(--background-card);
+    }
+
+    .compare-presets-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 0 var(--spacing-md) 0;
+    }
+
+    .compare-preset-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .compare-preset-btn {
+        min-height: 44px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        background: var(--background-primary);
+        color: var(--text-primary);
+        cursor: pointer;
+        font-size: 0.875rem;
+        line-height: 1.35;
+        text-align: left;
+    }
+
+    .compare-preset-btn:hover,
+    .compare-preset-btn:focus {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        outline: none;
+    }
     
     /* Results Section Styling */
     .unit-toggle {
@@ -133,6 +177,7 @@
     
     .unit-toggle button {
         flex: 1;
+        min-height: 44px;
         padding: var(--spacing-sm) var(--spacing-md);
         border: none;
         background-color: var(--background-primary);
@@ -337,6 +382,14 @@
         height: 16px;
         filter: invert(1);
     }
+
+    .comparison-insight-box {
+        padding: var(--spacing-lg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background: var(--background-card);
+        margin-bottom: var(--spacing-xl);
+    }
     
     .url-btn {
         background-color: var(--primary-color);
@@ -385,6 +438,10 @@
     
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
+        .compare-preset-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .comparison-selectors {
             grid-template-columns: 1fr;
             gap: var(--spacing-lg);
@@ -430,6 +487,14 @@
     }
     
     @media (max-width: 480px) {
+        .compare-presets {
+            padding: var(--spacing-md);
+        }
+
+        .compare-preset-grid {
+            grid-template-columns: 1fr;
+        }
+
         .display-selector {
             padding: var(--spacing-md);
             margin-bottom: var(--spacing-md);
@@ -495,6 +560,16 @@
 <!-- Comparison Tool Section -->
 <section class="section-container">
     <div class="comparison-tool">
+    <div class="compare-presets" aria-label="Common screen size comparisons">
+        <h2 class="compare-presets-title" data-i18n="compare_presets_title">Start with a common comparison</h2>
+        <div class="compare-preset-grid">
+            <button type="button" class="compare-preset-btn" data-compare-preset data-aspect1="16x9" data-size1="24" data-unit1="inches" data-aspect2="16x9" data-size2="27" data-unit2="inches" data-i18n="compare_preset_24_27">24&quot; vs 27&quot; monitor</button>
+            <button type="button" class="compare-preset-btn" data-compare-preset data-aspect1="16x9" data-size1="27" data-unit1="inches" data-aspect2="16x9" data-size2="32" data-unit2="inches" data-i18n="compare_preset_27_32">27&quot; vs 32&quot; monitor</button>
+            <button type="button" class="compare-preset-btn" data-compare-preset data-aspect1="16x9" data-size1="14" data-unit1="inches" data-aspect2="16x9" data-size2="27" data-unit2="inches" data-i18n="compare_preset_laptop_monitor">Laptop vs desktop monitor</button>
+            <button type="button" class="compare-preset-btn" data-compare-preset data-aspect1="3x2" data-size1="6.1" data-unit1="inches" data-aspect2="4x3" data-size2="11" data-unit2="inches" data-i18n="compare_preset_phone_tablet">Phone vs tablet</button>
+        </div>
+    </div>
+
     <div class="comparison-selectors">
         <!-- Display 1 Selector -->
         <div class="display-selector">
@@ -525,7 +600,7 @@
             
             <div class="size-row">
                 <label data-i18n="size_label">Size:</label>
-                <input type="number" id="size1-input" min="1" max="200" value="52" step="0.1">
+                <input type="number" id="size1-input" min="1" max="200" value="24" step="0.1">
                 <select id="unit1-select" class="unit-select">
                     <option value="inches" data-i18n="unit_inches">Inches</option>
                     <option value="cm" data-i18n="unit_cm">Centimetres</option>
@@ -562,7 +637,7 @@
             
             <div class="size-row">
                 <label data-i18n="size_label">Size:</label>
-                <input type="number" id="size2-input" min="1" max="200" value="56" step="0.1">
+                <input type="number" id="size2-input" min="1" max="200" value="27" step="0.1">
                 <select id="unit2-select" class="unit-select">
                     <option value="inches" data-i18n="unit_inches">Inches</option>
                     <option value="cm" data-i18n="unit_cm">Centimetres</option>
@@ -580,7 +655,7 @@
             <button id="unit-cm" data-i18n="unit_toggle_cm">Use cm</button>
         </div>
         
-        <div class="comparison-title" id="comparison-title">52 inch 16x9 display vs 56 inch 16x9 display</div>
+        <div class="comparison-title" id="comparison-title">24 inch 16x9 display vs 27 inch 16x9 display</div>
         
         <div class="comparison-visual" id="comparison-visual">
             <!-- 这里将由Canvas自动填充，不需要预定义div元素 -->
@@ -592,8 +667,8 @@
                     <thead>
                         <tr>
                             <th data-i18n="stats_header">Stats</th>
-                            <th id="display1-header">52 inch 16x9</th>
-                            <th id="display2-header">56 inch 16x9</th>
+                            <th id="display1-header">24 inch 16x9</th>
+                            <th id="display2-header">27 inch 16x9</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -636,8 +711,8 @@
                     <thead>
                         <tr>
                             <th data-i18n="comparison_header">In Comparison</th>
-                            <th id="comparison1-header">52 inch 16x9</th>
-                            <th id="comparison2-header">56 inch 16x9</th>
+                            <th id="comparison1-header">24 inch 16x9</th>
+                            <th id="comparison2-header">27 inch 16x9</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -696,6 +771,12 @@
 <!-- Content Sections -->
 <section class="content-section">
     <h2 data-i18n="understanding_comparison_heading">了解设备对比</h2>
+    <div class="comparison-insight-box">
+        <h3 data-i18n="compare_result_interpretation_title">How to understand the comparison</h3>
+        <p data-i18n="compare_result_interpretation_text">Diagonal size alone can be misleading. Width affects desk space, height affects document and timeline comfort, and visible area shows the real jump in screen space. A 32 inch monitor is not just slightly larger than 27 inch; the area difference is usually the number that changes daily use.</p>
+        <p data-i18n="compare_local_note">Local note: compare in the units and device categories people actually use in your market, such as inches plus centimeters in Europe, phone vs tablet checks in mobile-first markets, or laptop vs external monitor comparisons for office buyers.</p>
+        <p><span data-i18n="compare_related_prefix">For sharpness, calculate pixel density with the</span> <a href="ppi-calculator.html" data-i18n="compare_related_ppi">PPI calculator</a> <span data-i18n="compare_related_middle">or check common resolutions in the</span> <a href="standard-resolutions.html" data-i18n="compare_related_standard">standard resolution chart</a>.</p>
+    </div>
     <h3 data-i18n="comparison_basics">对比基础知识</h3>
     <p data-i18n="comparison_explanation">在比较设备尺寸时，理解以下几个关键因素很重要：</p>
     <ul>

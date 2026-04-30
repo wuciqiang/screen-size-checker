@@ -118,7 +118,7 @@
   "android_page_heading": "Tamanhos de Viewport Android: Guia Completo",
   "android_page_intro": "Este guia abrangente fornece tamanhos detalhados de viewport e resoluções de tela para dispositivos Android populares. Informações essenciais para desenvolvedores web e designers que trabalham com sites e aplicações responsivas.",
   "compare_page_title": "Comparador de Tamanho de Tela Visual (2026) | Monitor, Laptop e Celular Lado a Lado",
-  "compare_page_description": "Visualize e compare tamanhos de tela lado a lado instantaneamente. Ferramenta gratuita para ver a diferença exata em largura, altura e área para monitores, laptops e celulares. Perfeita para upgrades.",
+  "compare_page_description": "Compare dois tamanhos de tela lado a lado. Veja largura, altura, diagonal, área visível e diferenças práticas para monitores, notebooks, celulares, tablets e TVs.",
   "compare_page_heading": "Comparar Tamanhos de Tela: Monitor, TV, Laptop e Celular",
   "compare_page_intro": "Use esta ferramenta de comparação de tamanho de tela para comparar dimensões de dispositivos em polegadas e centímetros. Avalie rapidamente dimensões de monitores, diferenças de tamanho de TV e trade-offs de proporção antes de comprar.",
   "screen_comparison": "Comparação de Tela",
@@ -435,7 +435,7 @@
   "imperial": "Imperial",
   "summary": "Resumo",
   "standard_resolutions_page_title": "Resoluções de tela padrão 2026: tabela de 720p a 8K",
-  "standard_resolutions_page_description": "Tabela de referência de resoluções padrão de tela de 720p a 8K, com dimensões em pixels, proporção, dispositivos comuns e usos práticos.",
+  "standard_resolutions_page_description": "Filtre resoluções comuns de 720p a 8K com proporção, pixels, melhor tamanho, contexto de PPI e comportamento real do viewport.",
   "standard_resolutions_page_heading": "Resoluções de tela padrão 2026: tabela de 720p a 8K",
   "standard_resolutions_page_intro": "Compare resoluções comuns de viewports móveis até telas 8K. A tabela combina pixels, proporção e usos típicos para ajudar desenvolvedores, designers, compradores e gamers a avaliar melhor cada padrão.",
   "standard_table_heading": "Tabela de Resoluções Padrão",
@@ -516,7 +516,7 @@
   "design_point2": "Utilize design responsivo para garantir que o conteúdo seja exibido corretamente em diferentes tamanhos de tela",
   "design_point3": "Prepare recursos de imagem 2x ou 3x para displays de alta resolução como telas Retina",
   "design_point4": "Teste seus designs em diversas resoluções comuns",
-  "design_point5": "Sempre use os tamanhos recomendados mais recentes ao criar imagens para plataformas de redes sociais",
+  "design_point5": "Verifique separadamente resolução física, viewport CSS, DPR e escala do sistema em vez de assumir que um único número descreve toda a experiência.",
   "technical_implementation_heading": "Implementação Técnica",
   "tech_point1": "Use media queries CSS para ajustar layouts para diferentes tamanhos de tela",
   "tech_point2": "Implemente meta tags de viewport adequadas para garantir escalonamento correto em dispositivos móveis",
@@ -536,7 +536,7 @@
     "optimizedTitle": "Calculadora de Densidade de Pixels (PPI)",
     "intro": "Calcule a densidade de pixels (pixels por polegada) de dispositivos de exibição. Insira a resolução da tela e o tamanho diagonal para obter valores precisos de PPI.",
     "pageTitle": "Calculadora PPI (Pixels Por Polegada) | Densidade de Tela para Monitor, Celular e TV",
-    "pageDescription": "Calcule a densidade de pixels (PPI) a partir da resolução da tela e do tamanho diagonal. Compare a nitidez de displays para monitores, laptops, celulares e TVs.",
+    "pageDescription": "Calcule PPI a partir da resolução e do tamanho da tela. Use atalhos para monitor, notebook, celular e TV e entenda nitidez e distância.",
     "pageHeading": "Calculadora PPI",
     "pageIntro": "Calcule a densidade de pixels (pixels por polegada) de dispositivos de exibição. Insira a resolução da tela e o tamanho diagonal para obter valores precisos de PPI.",
     "inputTitle": "Parâmetros da Tela",
@@ -624,6 +624,25 @@
       "standard": "Display de resolução padrão.",
       "retina": "Display de alta resolução 'Retina', excelente para textos e imagens nítidos.",
       "professional": "Display de resolução muito alta, excelente para trabalho criativo profissional."
+    },
+    "presets": {
+      "title": "Atalhos rápidos",
+      "fhd24": "Monitor 24\" 1080p",
+      "qhd27": "Monitor 27\" 1440p",
+      "uhd32": "Monitor 32\" 4K",
+      "phone61": "Celular topo 6,1\"",
+      "laptop14": "Notebook 14\" alta densidade"
+    },
+    "resultGuide": {
+      "title": "Como ler o resultado",
+      "low": "Abaixo de 120 PPI: funciona, mas texto pode parecer granulado de perto.",
+      "medium": "120-200 PPI: confortável para a maioria dos monitores e notebooks.",
+      "high": "200-300 PPI: nítido para leitura, design e notebooks de alta densidade.",
+      "retina": "300+ PPI: densidade de celular; a distância de uso pesa muito."
+    },
+    "localNotes": {
+      "title": "Notas locais de tela",
+      "text": "Para o Brasil, pense em polegadas, centímetros e preço por categoria. Samsung, Motorola e Xiaomi aparecem bastante em Android, enquanto notebooks e monitores exigem avaliar PPI junto com escala do Windows."
     }
   },
   "aspectRatioCalculator": {
@@ -1132,5 +1151,26 @@
   "standard_seo_gaming_guide_link": "guia de tamanho de monitor gamer",
   "standard_seo_monitor_cta_suffix": "se seu uso principal for jogos.",
   "common_questions": "Perguntas comuns",
-  "resolution_test": "Teste de resolução"
+  "resolution_test": "Teste de resolução",
+  "compare_presets_title": "Comece com uma comparação comum",
+  "compare_preset_24_27": "Monitor 24\" vs 27\"",
+  "compare_preset_27_32": "Monitor 27\" vs 32\"",
+  "compare_preset_laptop_monitor": "Notebook vs monitor externo",
+  "compare_preset_phone_tablet": "Celular vs tablet",
+  "compare_result_interpretation_title": "Como entender a comparação",
+  "compare_result_interpretation_text": "A diagonal sozinha pode enganar. A largura afeta o espaço na mesa, a altura ajuda em documentos e timelines, e a área visível mostra o ganho real de tela.",
+  "compare_local_note": "No Brasil, compare em polegadas e centímetros. Também vale considerar usos comuns como notebook com monitor externo, celular Android vs tablet e TV 4K usada como segunda tela.",
+  "compare_related_prefix": "Para nitidez, calcule a densidade com a",
+  "compare_related_ppi": "calculadora de PPI",
+  "compare_related_middle": "ou veja resoluções comuns na",
+  "compare_related_standard": "tabela de resoluções padrão",
+  "standard_filter_label": "Filtrar resoluções",
+  "standard_filter_placeholder": "Buscar 1080p, 1440p, 4K, ultrawide",
+  "standard_filter_all": "Todas",
+  "standard_filter_office": "Escritório",
+  "standard_filter_gaming": "Games",
+  "standard_filter_creative": "Criação",
+  "standard_filter_tv": "TV",
+  "standard_local_note_title": "Notas para o Brasil",
+  "standard_local_note_text": "No Brasil, monitores e TVs são vendidos em polegadas, mas espaço de mesa costuma ser medido em centímetros. Compare resolução, PPI, escala do sistema e distância antes de decidir entre Full HD, QHD e 4K."
 }

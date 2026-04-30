@@ -21,6 +21,7 @@
                         id="horizontal-pixels" 
                         class="calculator-input" 
                         placeholder="1920" 
+                        value="2560"
                         data-i18n-placeholder="ppiCalculator.horizontalPixelsPlaceholder"
                         min="1" 
                         max="10000"
@@ -37,6 +38,7 @@
                         id="vertical-pixels" 
                         class="calculator-input" 
                         placeholder="1080" 
+                        value="1440"
                         data-i18n-placeholder="ppiCalculator.verticalPixelsPlaceholder"
                         min="1" 
                         max="10000"
@@ -53,6 +55,7 @@
                         id="diagonal-inches" 
                         class="calculator-input" 
                         placeholder="15.6" 
+                        value="27"
                         data-i18n-placeholder="ppiCalculator.diagonalInchesPlaceholder"
                         min="0.1" 
                         max="100" 
@@ -61,6 +64,17 @@
                     >
                     <small class="input-help" id="diagonal-inches-help" data-i18n="ppiCalculator.diagonalInchesHelp">屏幕对角线的长度（英寸）</small>
                     <div class="error-message" id="diagonal-inches-error"></div>
+                </div>
+
+                <div class="ppi-presets" aria-label="Common PPI presets">
+                    <h3 class="preset-title" data-i18n="ppiCalculator.presets.title">Quick presets</h3>
+                    <div class="preset-grid">
+                        <button type="button" class="ppi-preset-btn" data-width="1920" data-height="1080" data-diagonal="24" data-i18n="ppiCalculator.presets.fhd24">24&quot; 1080p monitor</button>
+                        <button type="button" class="ppi-preset-btn" data-width="2560" data-height="1440" data-diagonal="27" data-i18n="ppiCalculator.presets.qhd27">27&quot; 1440p monitor</button>
+                        <button type="button" class="ppi-preset-btn" data-width="3840" data-height="2160" data-diagonal="32" data-i18n="ppiCalculator.presets.uhd32">32&quot; 4K monitor</button>
+                        <button type="button" class="ppi-preset-btn" data-width="2556" data-height="1179" data-diagonal="6.1" data-i18n="ppiCalculator.presets.phone61">6.1&quot; flagship phone</button>
+                        <button type="button" class="ppi-preset-btn" data-width="3024" data-height="1964" data-diagonal="14.2" data-i18n="ppiCalculator.presets.laptop14">14&quot; high-density laptop</button>
+                    </div>
                 </div>
             </div>
 
@@ -87,6 +101,16 @@
                         <span class="detail-value" id="screen-density">--</span>
                     </div>
                     <div class="context-comment" id="context-comment" style="display: none;"></div>
+                </div>
+
+                <div class="ppi-result-guide">
+                    <h3 data-i18n="ppiCalculator.resultGuide.title">How to read the result</h3>
+                    <ul>
+                        <li data-i18n="ppiCalculator.resultGuide.low">Below 120 PPI: usable, but text can look coarse up close.</li>
+                        <li data-i18n="ppiCalculator.resultGuide.medium">120-200 PPI: comfortable for most monitors and laptops.</li>
+                        <li data-i18n="ppiCalculator.resultGuide.high">200-300 PPI: sharp for reading, design work, and high-density laptops.</li>
+                        <li data-i18n="ppiCalculator.resultGuide.retina">300+ PPI: phone-class density where viewing distance matters more than raw pixels.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -163,6 +187,11 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="localization-note">
+            <h3 data-i18n="ppiCalculator.localNotes.title">Local display notes</h3>
+            <p data-i18n="ppiCalculator.localNotes.text">Use PPI with local buying habits in mind: monitor sizes, laptop scaling defaults, phone naming, and preferred units vary by market.</p>
         </div>
 
         <h2 data-i18n="ppiCalculator.howToUse">如何使用我们的 PPI 计算器？</h2>
@@ -301,6 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .calculator-input {
     width: 100%;
+    min-height: 44px;
     padding: var(--spacing-md);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -435,6 +465,77 @@ document.addEventListener('DOMContentLoaded', function() {
     font-style: italic;
 }
 
+.ppi-presets {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.preset-title,
+.ppi-result-guide h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.preset-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.ppi-preset-btn {
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-align: left;
+    line-height: 1.35;
+}
+
+.ppi-preset-btn:hover,
+.ppi-preset-btn:focus {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    outline: none;
+}
+
+.ppi-result-guide {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-secondary);
+}
+
+.ppi-result-guide ul {
+    margin: 0;
+    padding-left: var(--spacing-lg);
+    color: var(--text-primary);
+    line-height: 1.55;
+}
+
+.ppi-result-guide li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.localization-note {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-secondary);
+}
+
+.localization-note h3 {
+    margin-top: 0;
+}
+
 /* Content Section Styles */
 .content-section {
     padding: var(--spacing-2xl) 0;
@@ -492,6 +593,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .calculator-section-title {
         font-size: 1.125rem;
     }
+
+    .preset-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -513,7 +618,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     .calculator-input {
+        min-height: 44px;
         padding: var(--spacing-sm);
+    }
+
+    .ppi-result-guide {
+        padding: var(--spacing-md);
     }
 }
 

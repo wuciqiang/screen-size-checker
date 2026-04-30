@@ -344,7 +344,7 @@
           "@type": "WebApplication",
           "name": "Screen Size Comparison Tool",
           "description": "Visually compare any two screens side by side - monitors, TVs, laptops, or phones. See exact differences in width, height, diagonal, and area.",
-          "url": "https://screensizechecker.com/devices/compare.html",
+          "url": "https://screensizechecker.com/devices/compare",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -503,7 +503,7 @@
           "@type": "WebApplication",
           "name": "PPI Calculator",
           "description": "Calculate pixel density (PPI) from screen resolution and diagonal size to compare display sharpness.",
-          "url": "https://screensizechecker.com/devices/ppi-calculator.html",
+          "url": "https://screensizechecker.com/devices/ppi-calculator",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "offers": {

@@ -118,7 +118,7 @@
   "android_page_heading": "Android Viewport Sizes: Complete Guide",
   "android_page_intro": "This comprehensive guide provides detailed viewport sizes and screen resolutions for popular Android devices. Essential information for web developers and designers working on responsive websites and applications.",
   "compare_page_title": "Screen Size Comparison Tool - Compare Any Two Displays",
-  "compare_page_description": "Visually compare any two screens side by side - monitors, TVs, laptops, or phones. See exact differences in width, height, diagonal, and area. Perfect for upgrade decisions.",
+  "compare_page_description": "Compare two screen sizes side by side. See width, height, diagonal, visible area, and practical differences for monitors, laptops, tablets, phones, and TVs.",
   "compare_page_heading": "Screen Size Comparison Tool - Compare Any Two Display Sizes",
   "compare_page_intro": "Use this tool to compare screen sizes visually before you upgrade. Compare monitor sizes, TVs, laptops, phones, and tablets side by side with exact width, height, diagonal, and area differences.",
   "screen_comparison": "Screen Comparison",
@@ -435,7 +435,7 @@
   "imperial": "Imperial",
   "summary": "Summary",
   "standard_resolutions_page_title": "Standard Screen Resolutions 2026: 720p to 8K Chart",
-  "standard_resolutions_page_description": "All standard display resolutions in one table - 720p, 1080p, 1440p, 4K, 5K, 8K. Includes aspect ratios, pixel counts, and use cases for monitors, laptops, and mobile.",
+  "standard_resolutions_page_description": "Filter common screen resolutions from 720p to 8K. Compare aspect ratio, pixel count, best display size, PPI context, and real viewport behavior.",
   "standard_resolutions_page_heading": "Screen Resolution Chart 2026: Complete Reference from 720p to 8K",
   "standard_resolutions_page_intro": "Find standard screen resolutions, pixel dimensions, aspect ratios, and practical use cases in one reference. Use this guide for monitor buying, responsive breakpoints, QA checks, and content production.",
   "standard_table_heading": "Standard Resolutions Table",
@@ -516,7 +516,7 @@
   "design_point2": "Utilize responsive design to ensure content displays properly across different screen sizes",
   "design_point3": "Prepare 2x or 3x image assets for high-resolution displays like Retina screens",
   "design_point4": "Test your designs across various common resolutions",
-  "design_point5": "Always use the latest recommended sizes when creating images for social media platforms",
+  "design_point5": "Check physical resolution, CSS viewport, DPR, and scaling separately instead of assuming one number describes the full display experience.",
   "technical_implementation_heading": "Technical Implementation",
   "tech_point1": "Use CSS media queries to adjust layouts for different screen sizes",
   "tech_point2": "Implement proper viewport meta tags to ensure correct scaling on mobile devices",
@@ -536,7 +536,7 @@
     "optimizedTitle": "Pixel Density (PPI) Calculator",
     "intro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
     "pageTitle": "PPI Calculator (Pixels Per Inch) | Monitor, Phone, TV Pixel Density",
-    "pageDescription": "Calculate pixel density (PPI) from screen resolution and diagonal size. Compare display sharpness for monitors, laptops, phones, and TVs.",
+    "pageDescription": "Calculate PPI from resolution and screen size. Use presets for monitors, laptops, phones, and TVs, then interpret sharpness and viewing distance.",
     "pageHeading": "PPI Calculator",
     "pageIntro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
     "inputTitle": "Enter Screen Parameters",
@@ -624,6 +624,25 @@
       "standard": "Standard resolution display.",
       "retina": "High-resolution 'Retina' display, great for sharp text and images.",
       "professional": "Very high-resolution display, excellent for professional creative work."
+    },
+    "presets": {
+      "title": "Quick presets",
+      "fhd24": "24\" 1080p monitor",
+      "qhd27": "27\" 1440p monitor",
+      "uhd32": "32\" 4K monitor",
+      "phone61": "6.1\" flagship phone",
+      "laptop14": "14\" high-density laptop"
+    },
+    "resultGuide": {
+      "title": "How to read the result",
+      "low": "Below 120 PPI: usable, but text can look coarse up close.",
+      "medium": "120-200 PPI: comfortable for most monitors and laptops.",
+      "high": "200-300 PPI: sharp for reading, design work, and high-density laptops.",
+      "retina": "300+ PPI: phone-class density where viewing distance matters more than raw pixels."
+    },
+    "localNotes": {
+      "title": "Local display notes",
+      "text": "In English-speaking markets, monitors and TVs are usually sold in inches, while product teams still need CSS viewport and DPR values. Use PPI for sharpness, then compare physical size separately before buying."
     }
   },
   "aspectRatioCalculator": {
@@ -1132,5 +1151,26 @@
   "standard_seo_gaming_guide_link": "gaming monitor size guide",
   "standard_seo_monitor_cta_suffix": "if your main use case is gaming.",
   "common_questions": "Common Questions",
-  "resolution_test": "Resolution Test"
+  "resolution_test": "Resolution Test",
+  "compare_presets_title": "Start with a common comparison",
+  "compare_preset_24_27": "24\" vs 27\" monitor",
+  "compare_preset_27_32": "27\" vs 32\" monitor",
+  "compare_preset_laptop_monitor": "Laptop vs desktop monitor",
+  "compare_preset_phone_tablet": "Phone vs tablet",
+  "compare_result_interpretation_title": "How to understand the comparison",
+  "compare_result_interpretation_text": "Diagonal size alone can be misleading. Width affects desk space, height affects document and timeline comfort, and visible area shows the real jump in screen space. A 32 inch monitor is not just slightly larger than 27 inch; the area difference is usually the number that changes daily use.",
+  "compare_local_note": "Local note: use the units and device categories people actually compare in your market, such as inches plus centimeters in Europe, phone vs tablet checks in mobile-first markets, or laptop vs external monitor comparisons for office buyers.",
+  "compare_related_prefix": "For sharpness, calculate pixel density with the",
+  "compare_related_ppi": "PPI calculator",
+  "compare_related_middle": "or check common resolutions in the",
+  "compare_related_standard": "standard resolution chart",
+  "standard_filter_label": "Filter resolutions",
+  "standard_filter_placeholder": "Search 1080p, 1440p, 4K, ultrawide",
+  "standard_filter_all": "All",
+  "standard_filter_office": "Office",
+  "standard_filter_gaming": "Gaming",
+  "standard_filter_creative": "Creative",
+  "standard_filter_tv": "TV",
+  "standard_local_note_title": "Local resolution notes",
+  "standard_local_note_text": "Resolution choices are local: buying terms, units, popular laptop panels, TV sizes, and gaming habits vary by market. Use the filters below as a starting point, then compare with your real viewport and PPI."
 }
