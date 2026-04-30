@@ -2801,7 +2801,10 @@ Disallow: /.kiro/
 # Disallow temp and debug files
 Disallow: /performance-test-production.html
 Disallow: /*debug*
-Disallow: /*.json$
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /missing-*.json
+Disallow: /data/*.json
 Disallow: /*.md$
 
 # Sitemap
