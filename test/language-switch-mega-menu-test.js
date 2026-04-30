@@ -201,8 +201,9 @@ async function run() {
         );
         console.log('✅ 悬停导航后 mega menu 仍可正常展开');
 
-        await page.mouse.move(20, 20);
-        await page.waitForTimeout(400);
+        const viewport = page.viewportSize();
+        await page.mouse.move(viewport.width - 10, viewport.height - 10);
+        await page.waitForTimeout(650);
 
         const menusAfterLeave = await getVisibleMegaMenus(page);
         assert.deepStrictEqual(menusAfterLeave, [], '鼠标移开后 mega menu 应恢复隐藏');

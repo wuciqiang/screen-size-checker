@@ -1088,6 +1088,8 @@ class BlogBuilder {
                             const pageName = `blog-post-${post.id}-${lang}`;
                             const existingPage = existingBlogPagesByName.get(pageName);
                             const existingDatePublished = existingPage?.config?.structured_data?.datePublished;
+                            const postDate = post.date instanceof Date ? post.date.toISOString() : post.date;
+                            const postDateModified = post.dateModified || post.lastModified || post.updated || postDate;
 
                             generatedPages.push({
                                 name: pageName,
@@ -1128,8 +1130,8 @@ class BlogBuilder {
                                             'name': post.author,
                                             'url': `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}about`
                                         },
-                                        'datePublished': existingDatePublished || post.date.toISOString(),
-                                        'dateModified': new Date().toISOString().split('T')[0],
+                                        'datePublished': existingDatePublished || postDate,
+                                        'dateModified': postDateModified,
                                         'publisher': {
                                             '@type': 'Organization',
                                             'name': 'Screen Size Checker',

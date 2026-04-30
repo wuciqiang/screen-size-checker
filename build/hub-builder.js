@@ -287,6 +287,8 @@ class HubBuilder {
         const langPrefix = page.lang === 'en' ? '' : `/${page.lang}`;
         const url = `https://screensizechecker.com${langPrefix}/hub/${page.slug}`;
         
+        const dateModified = page.dateModified || page.lastModified || page.updated || page.date;
+
         return {
             "@context": "https://schema.org",
             "@type": "Article",
@@ -294,7 +296,7 @@ class HubBuilder {
             "description": page.description,
             "url": url,
             "datePublished": page.date,
-            "dateModified": new Date().toISOString().split('T')[0],
+            "dateModified": dateModified,
             "author": {
                 "@type": "Person",
                 "name": page.author,

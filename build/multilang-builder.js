@@ -1198,8 +1198,18 @@ class MultiLangBuilder extends ComponentBuilder {
             configStructuredData.description = pageData.description || configStructuredData.description;
             configStructuredData.inLanguage = lang;
 
-            // 闁哄洤鐡ㄩ弻濠囧籍閵夛附鍩傚☉鎾虫惈缂嶅宕滃鍡橈級闁?
-            configStructuredData.dateModified = new Date().toISOString().split('T')[0];
+            const dateModified = configStructuredData.dateModified
+                || pageData.dateModified
+                || pageData.lastModified
+                || pageData.updated
+                || configStructuredData.datePublished
+                || pageData.date;
+
+            if (dateModified) {
+                configStructuredData.dateModified = dateModified;
+            } else {
+                delete configStructuredData.dateModified;
+            }
 
             return this.buildStructuredDataPayload(configStructuredData, pageData, lang);
         }
@@ -2094,6 +2104,7 @@ class MultiLangBuilder extends ComponentBuilder {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,follow">
     <title>Screen Size Checker - Language Selection</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
@@ -2180,6 +2191,10 @@ ${languageCards}
         const currentDate = new Date().toISOString().split('T')[0];
         const baseUrl = 'https://screensizechecker.com';
         const enabledLanguages = ['en', 'zh', 'de', 'es', 'pt', 'fr']; // 闁告瑯浜滅€垫﹢宕ラ銏″剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋?
+        const cleanSitemapPath = (pagePath) => {
+            const normalizedPath = pagePath.startsWith('/') ? pagePath : `/${pagePath}`;
+            return normalizedPath.replace(/\.html$/, '');
+        };
         
         // 閻庤鐭粻鐔搞亜閻㈠憡妗ㄧ紓浣规尰閻庮垶鏁嶉崼鐔革骏.html闁告艾娴风槐鎴︽晬鐏炶棄鐖遍梺鏉胯埗loudflare Pages闁汇劌鍨奟L闁哄秶鍘х槐鈽呯窗
         const pages = [
@@ -2266,7 +2281,7 @@ ${languageCards}
             p.enabled_languages.includes('en')
         );
         hubPagesEn.forEach(page => {
-            const hubPath = page.output.startsWith('hub/') ? `/${page.output}` : page.output;
+            const hubPath = cleanSitemapPath(page.output);
             sitemapContent += `
     <url>
         <loc>${baseUrl}${hubPath}</loc>
@@ -2275,15 +2290,6 @@ ${languageCards}
         <priority>0.9</priority>
     </url>`;
         });
-        
-        // 婵烇綀顕ф慨鐐垫嫚椤撯檧鏋呴梺顐㈩槹鐎氥劍銇勯悽鍛婃〃
-        sitemapContent += `
-    <url>
-        <loc>${baseUrl}/select-language</loc>
-        <lastmod>${currentDate}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>`;
         
         // 闁告瑯浜欑拹鐔兼閻愯泛顏伴柡鍌氭川濞堟垿宕ラ婊勬殢閻犲浂鍙€閳诲牓鎮介悢绋跨亣URL闁挎稑鐗愮€氭娊寮崶褍鍤掗柛锔哄妽閻楁挳鎯勯鑲╃Э閿?
         enabledLanguages.forEach(lang => {
@@ -2333,7 +2339,7 @@ ${languageCards}
                 p.enabled_languages.includes(lang)
             );
             hubPagesLang.forEach(page => {
-                const hubPath = page.output.startsWith('hub/') ? `/${page.output}` : page.output;
+                const hubPath = cleanSitemapPath(page.output);
                 sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${hubPath}</loc>
@@ -2374,11 +2380,15 @@ ${languageCards}
         // 閻犱緤绱曢悾濠氬箑缁┌L闁轰椒鍗抽崳鐚寸窗
         // 1濞戞搩浜濋悧鎾儎椤旇偐绉?+ 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍悹浣瑰劤椤︻剚銇勯悽鍛婃〃 + 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍柛妤佽壘椤撹銇勯悽鍛婃〃 + Hub濡炪倗鏁诲?+ 1濞戞搩浜ｉ銏㈡嚊閳ь剟鏌呮径瀣仴濡炪倗鏁诲?+ 1濞戞搩浜▓锝囩矓娴ｈ鏉虹紒娑欑墵閵嗗妫?
         // + 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳濡炪倗鏁诲?+ 濞戞搩鍘介弸鍐偋鐟欏嫭绠掑銈囨暬濞?
-        const hubPagesCount = pagesConfig.pages.filter(p => p.template === 'hub-page').length;
-        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length; // 闁哄秴婀卞ú鎷屻亹閺囩姵绁查柛蹇曠埀RL
-        const languageUrls = enabledLanguages.length * (pages.length + blogPages.length); // 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳URL
-        const hubUrls = hubPagesCount; // Hub濡炪倗鏁诲浼存晬閸喎顣查柡鍫濐槼椤曘垻鎳涢埀顒婄窗
-        const otherUrls = 2; // 閻犲浂鍙€閳诲牓鏌呮径瀣仴濡炪倗鏁诲?+ 闂傚懏鍔楅～鍡涘绩鐠恒劎鎽滃銈囨暬濞?
+        const nonEnglishLanguageCount = enabledLanguages.length - 1;
+        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length;
+        const languageUrls = nonEnglishLanguageCount * (pages.length + blogPages.length);
+        const hubUrls = pagesConfig.pages.filter(p =>
+            p.template === 'hub-page' &&
+            p.enabled_languages &&
+            p.enabled_languages.some(lang => lang !== 'en' && enabledLanguages.includes(lang))
+        ).length;
+        const otherUrls = 1;
         const totalUrls = rootUrls + languageUrls + hubUrls + zhBlogPages.length + otherUrls;
         
         console.log('[OK] Multilingual sitemap generated with optimized structure');
@@ -2818,7 +2828,6 @@ Disallow: /*debug*
 Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /missing-*.json
-Disallow: /data/*.json
 Disallow: /*.md$
 
 # Sitemap
