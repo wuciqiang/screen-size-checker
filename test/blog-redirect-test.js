@@ -26,7 +26,7 @@ console.log('✅ 成功读取_redirects文件');
 const testCases = [
     {
         description: '旧英文博客首页重定向到根目录博客',
-        pattern: /^\/en\/blog\s+\/blog\s+301$/m
+        pattern: /^\/en\/blog\s+\/blog\/\s+301$/m
     },
     {
         description: '旧英文博客文章重定向（通配符）',
@@ -66,7 +66,7 @@ console.log('\n🧪 模拟重定向场景测试:');
 const simulationTests = [
     {
         url: 'https://screensizechecker.com/en/blog',
-        expectedRedirect: 'https://screensizechecker.com/blog',
+        expectedRedirect: 'https://screensizechecker.com/blog/',
         description: '旧英文博客首页访问'
     },
     {

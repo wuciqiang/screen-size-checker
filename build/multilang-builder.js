@@ -479,7 +479,11 @@ class MultiLangBuilder extends ComponentBuilder {
                     pageData.canonical_url = pageData.canonical_url.replace(/\.html$/, '');
                     pageData.og_url = pageData.canonical_url;
 
-                    if (pageData.canonical_url.includes('/blog/tag/') || pageData.canonical_url.includes('/blog/category/')) {
+                    if (
+                        pageData.canonical_url.includes('/blog/tag/') ||
+                        pageData.canonical_url.includes('/blog/category/') ||
+                        pageData.canonical_url.includes('/blog/page/')
+                    ) {
                         pageData.robots_directives = 'noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
                     } else {
                         pageData.robots_directives = pageData.robots_directives || 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
@@ -2214,7 +2218,7 @@ ${languageCards}
         
         // 閻庤鐭粻鐔煎础濮橆剦鍚傚銈囨暬濞兼壆绱掗幘瀵糕偓?
         const blogPages = [
-            { path: '/blog', priority: '0.9', changefreq: 'weekly' },
+            { path: '/blog/', priority: '0.9', changefreq: 'weekly' },
             { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/media-queries-essentials', priority: '0.8', changefreq: 'monthly' },
             { path: '/blog/viewport-basics', priority: '0.8', changefreq: 'monthly' },
@@ -2464,7 +2468,7 @@ ${languageCards}
 /en/index.html        /                   301
 
 # 闁兼槒椴搁弸鍐础濮橆剦鍚傞梺鎻掔Т閻ｉ箖宕ラ幋顖滅闁哄唲鍡欑唴鐎?闁?闁哄倹濯介惌鎯ь嚗閸曞墎绀?
-/en/blog              /blog               301
+/en/blog              /blog/              301
 /en/blog/             /blog/              301
 /en/blog/*            /blog/:splat        301
 
@@ -2552,24 +2556,46 @@ ${languageCards}
 /pt/devices/projection-calculator.html    /pt/devices/projection-calculator   301
 /pt/devices/lcd-screen-tester.html        /pt/devices/lcd-screen-tester       301
 
-# ===== Blog redirects for Portuguese (Temporary, fallback to English) =====
-/pt/blog/*                                /blog/:splat                        302
+# ===== .html redirects for French pages =====
+/fr/devices/iphone-viewport-sizes.html    /fr/devices/iphone-viewport-sizes   301
+/fr/devices/ipad-viewport-sizes.html      /fr/devices/ipad-viewport-sizes     301
+/fr/devices/android-viewport-sizes.html   /fr/devices/android-viewport-sizes  301
+/fr/devices/compare.html                  /fr/devices/compare                 301
+/fr/devices/standard-resolutions.html     /fr/devices/standard-resolutions    301
+/fr/devices/responsive-tester.html        /fr/devices/responsive-tester       301
+/fr/devices/ppi-calculator.html           /fr/devices/ppi-calculator          301
+/fr/devices/aspect-ratio-calculator.html  /fr/devices/aspect-ratio-calculator 301
+/fr/devices/projection-calculator.html    /fr/devices/projection-calculator   301
+/fr/devices/lcd-screen-tester.html        /fr/devices/lcd-screen-tester       301
 
 # ===== 闁告鑹鹃?.html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛?=====
-/blog/index.html                          /blog                               301
-/zh/blog/index.html                       /zh/blog                            301
-/de/blog/index.html                       /de/blog                            301
-/es/blog/index.html                       /es/blog                            301
+/blog/index.html                          /blog/                              301
+/zh/blog/index.html                       /zh/blog/                           301
+/de/blog/index.html                       /de/blog/                           301
+/es/blog/index.html                       /es/blog/                           301
+/pt/blog/index.html                       /pt/blog/                           301
+/fr/blog/index.html                       /fr/blog/                           301
 /blog/*.html                              /blog/:splat                        301
 /zh/blog/*.html                           /zh/blog/:splat                     301
 /de/blog/*.html                           /de/blog/:splat                     301
 /es/blog/*.html                           /es/blog/:splat                     301
+/pt/blog/*.html                           /pt/blog/:splat                     301
+/fr/blog/*.html                           /fr/blog/:splat                     301
+
+# ===== Hub .html redirects to canonical clean URLs =====
+/hub/*.html                               /hub/:splat                         301
+/zh/hub/*.html                            /zh/hub/:splat                      301
+/de/hub/*.html                            /de/hub/:splat                      301
+/es/hub/*.html                            /es/hub/:splat                      301
+/pt/hub/*.html                            /pt/hub/:splat                      301
+/fr/hub/*.html                            /fr/hub/:splat                      301
 
 # ===== 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳 index.html 闂佹彃绉撮悾楣冨触?=====
 /zh/index.html                            /zh/                                301
 /de/index.html                            /de/                                301
 /es/index.html                            /es/                                301
 /pt/index.html                            /pt/                                301
+/fr/index.html                            /fr/                                301
 
 # ===== 闁稿繑婀圭划顒併亜閻㈠憡妗ㄩ梺鎻掔Т閻ｉ箖宕?=====
 /privacy-policy.html                      /privacy-policy                     301
