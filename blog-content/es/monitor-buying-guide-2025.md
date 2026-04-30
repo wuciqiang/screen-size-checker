@@ -262,7 +262,7 @@ Una buena regla es gastar **15-25% de tu presupuesto total de PC en el monitor**
 **Guías relacionadas**:
 - [Cómo Medir el Tamaño del Monitor](/blog/how-to-measure-monitor-size)
 - [Cómo Verificar la Resolución de Pantalla](/blog/how-to-check-screen-resolution)
-- [Mejor Resolución Gaming 2025](/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)
 - [1440p vs 4K Gaming](/hub/1440p-vs-4k-gaming)
 - [IPS vs TN vs VA Gaming](/hub/ips-vs-tn-vs-va-gaming)
 

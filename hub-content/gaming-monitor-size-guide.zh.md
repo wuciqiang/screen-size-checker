@@ -17,7 +17,7 @@ keywords: "游戏显示器尺寸, 最佳游戏显示器尺寸, 24 vs 27英寸显
 **快速答案**：24英寸适合近距离观看的1080p竞技FPS游戏。27英寸是大多数玩家的最佳选择，非常适合1440p游戏，平衡沉浸感和可用性。32英寸最适合在1440p或4K下进行沉浸式单机游戏，需要足够的桌面空间。
 
 > **相关指南**： 
-> - [2025最佳游戏分辨率](./best-gaming-resolution-2025) - 为你的尺寸选择正确的分辨率
+> - [游戏分辨率选择指南](./best-gaming-resolution) - 为你的尺寸选择正确的分辨率
 > - [1080p vs 1440p游戏](./1080p-vs-1440p-gaming) - 分辨率性能对比
 
 ## 显示器尺寸和分辨率：完美搭配
@@ -278,7 +278,7 @@ keywords: "游戏显示器尺寸, 最佳游戏显示器尺寸, 24 vs 27英寸显
 ---
 
 **相关游戏资源**：
-- [2025最佳游戏分辨率：完整指南]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [游戏分辨率选择指南](/zh/hub/best-gaming-resolution)
 - [1080p vs 1440p游戏对比]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [PPI计算器]({{lang_prefix}}/devices/ppi-calculator)
 - [屏幕对比工具]({{lang_prefix}}/devices/compare)

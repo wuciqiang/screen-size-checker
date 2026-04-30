@@ -16,7 +16,7 @@ keywords: "1080p vs 1440p游戏, 1080p vs 1440p fps, 最佳游戏分辨率, 1440
 
 **快速答案**：如果你优先考虑最大FPS（240-360Hz）用于竞技游戏，预算在1200美元以下，选择1080p。如果你想要平衡的视觉和性能（100-165Hz）用于3A游戏，预算约1500-2000美元，选择1440p。
 
-> **相关资源**：如需包括4K在内的更广泛对比，请参阅我们的[2025最佳游戏分辨率指南]({{lang_prefix}}/hub/best-gaming-resolution-2025)。
+> **相关资源**：如需包括4K在内的更广泛对比，请参阅我们的[游戏分辨率选择指南](/zh/hub/best-gaming-resolution)。
 
 ## 技术现实：区别在哪里
 
@@ -239,7 +239,7 @@ keywords: "1080p vs 1440p游戏, 1080p vs 1440p fps, 最佳游戏分辨率, 1440
 ---
 
 **相关游戏资源**：
-- [2025最佳游戏分辨率：完整指南]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [游戏分辨率选择指南](/zh/hub/best-gaming-resolution)
 - [对比屏幕分辨率]({{lang_prefix}}/devices/compare)
 - [游戏配置PPI计算器]({{lang_prefix}}/devices/ppi-calculator)
 - [标准游戏分辨率参考]({{lang_prefix}}/devices/standard-resolutions)

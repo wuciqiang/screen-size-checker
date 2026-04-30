@@ -320,6 +320,6 @@ Hängt vom Workflow ab. Ultrawide besser für: Coding, Video-Bearbeitung, nahtlo
 ---
 
 **Vervollständigen Sie Ihr perfektes Setup**: Sehen Sie unsere anderen Monitor-Leitfäden:
-- [Beste Gaming-Auflösung 2025: Kompletter Leitfaden](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming: Lohnt sich das Upgrade?](/hub/144hz-vs-240hz-gaming)
 - [Gaming Monitor Größenleitfaden: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

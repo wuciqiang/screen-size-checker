@@ -332,6 +332,6 @@ Il n'y a pas de choix universellement "meilleur" — seulement ce qui est meille
 ---
 
 **Complétez votre setup parfait** : Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Guide Complet](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming : L'Upgrade Vaut-Elle le Coup ?](/fr/hub/144hz-vs-240hz-gaming)
 - [Guide des Tailles d'Écran Gaming : 24" vs 27" vs 32"](/fr/hub/gaming-monitor-size-guide)

@@ -333,6 +333,6 @@ Absolut. 1440p bleibt die optimale Auflösung für die meisten PC-Gamer und biet
 ---
 
 **Bereit zum Aufbau Ihres Setups?** Sehen Sie unsere anderen Leitfäden:
-- [Beste Gaming-Auflösung 2025: Kompletter Leitfaden](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming: Leistungsvergleich](/hub/1080p-vs-1440p-gaming)
 - [Gaming Monitor Größen-Leitfaden: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

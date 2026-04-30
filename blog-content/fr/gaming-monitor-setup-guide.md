@@ -427,7 +427,7 @@ Note : Les optimisations de Windows 11 ont beaucoup réduit la différence.
 
 ### Guides gaming associés
 
-- [Meilleure résolution gaming 2025](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming](/fr/hub/144hz-vs-240hz-gaming)
 - [G-Sync vs FreeSync Gaming](/fr/hub/g-sync-vs-freesync-gaming)
 - [IPS vs TN vs VA Gaming](/fr/hub/ips-vs-tn-vs-va-gaming)

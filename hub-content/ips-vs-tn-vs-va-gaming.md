@@ -791,6 +791,6 @@ The "best" panel depends on your priorities, but in 2025, IPS technology has adv
 ---
 
 **Build your complete setup**: Explore our other gaming monitor guides:
-- [Best Gaming Resolution 2025: Complete Analysis](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming: Is It Worth It?](/hub/144hz-vs-240hz-gaming)
 - [Ultrawide vs Dual Monitor Gaming: Setup Comparison](/hub/ultrawide-vs-dual-monitor-gaming)

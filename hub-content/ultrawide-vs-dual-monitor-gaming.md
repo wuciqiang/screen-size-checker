@@ -615,6 +615,6 @@ There's no universal "better" choice—only what's better **for you**. Ultrawide
 ---
 
 **Complete your perfect setup**: Check our other monitor guides:
-- [Best Gaming Resolution 2025: Complete Guide](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming: Worth the Upgrade?](/hub/144hz-vs-240hz-gaming)
 - [Gaming Monitor Size Guide: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

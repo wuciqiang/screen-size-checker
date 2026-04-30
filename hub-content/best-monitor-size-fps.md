@@ -330,7 +330,7 @@ Survey of 500+ FPS pros across CS2, Valorant, Apex Legends, COD, and Rainbow Six
 - Recommended: 240Hz
 - Professional: 360Hz+
 
-> **Resolution Guide**: Learn more about choosing the best resolution for your gaming needs in our [Best Gaming Resolution 2025 guide](/hub/best-gaming-resolution-2025).
+> **Resolution Guide**: Learn more about choosing the best resolution for your gaming needs in our [Gaming Resolution Guide](/hub/best-gaming-resolution).
 
 ## Game-Specific Recommendations
 
@@ -529,6 +529,6 @@ Minimum: 144Hz (modern standard). Recommended: 240Hz (competitive sweet spot). P
 ---
 
 **Ready to complete your setup?** Check out our other guides:
-- [Best Gaming Resolution 2025: Complete Guide](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming: Performance Comparison](/hub/1080p-vs-1440p-gaming)
 - [Gaming Monitor Size Guide: Complete Analysis](/hub/gaming-monitor-size-guide)

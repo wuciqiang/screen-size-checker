@@ -399,6 +399,6 @@ Absolutamente. 1440p permanece a resolução ideal para a maioria dos jogadores 
 ---
 
 **Pronto para montar sua configuração?** Confira nossos outros guias:
-- [Melhor Resolução para Jogos 2025: Guia Completo](/hub/best-gaming-resolution-2025)
+- [Guia de resolução para jogos](/pt/hub/best-gaming-resolution)
 - [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
 - [Guia de Tamanho de Monitor Gamer: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

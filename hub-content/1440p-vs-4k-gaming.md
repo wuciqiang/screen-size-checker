@@ -399,6 +399,6 @@ Absolutely. 1440p remains the optimal resolution for most PC gamers, offering ex
 ---
 
 **Ready to build your setup?** Check out our other guides:
-- [Best Gaming Resolution 2025: Complete Guide](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming: Performance Comparison](/hub/1080p-vs-1440p-gaming)
 - [Gaming Monitor Size Guide: 24" vs 27" vs 32"](/hub/gaming-monitor-size-guide)

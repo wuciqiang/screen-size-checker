@@ -285,6 +285,6 @@ Solo si eres un jugador competitivo serio, tienes una GPU de alta gama (RTX 4070
 ---
 
 **Completa tu setup**: Consulta nuestras otras guías:
-- [Mejor Resolución Gaming 2025: Guía de FPS y Calidad](/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming para FPS y calidad visual](/es/hub/best-gaming-resolution)
 - [Mejor Tamaño de Monitor para FPS Gaming: Análisis 24" vs 27"](/hub/best-monitor-size-fps)
 - [Guía de Tamaño de Monitor Gaming: Guía Completa del Comprador](/hub/gaming-monitor-size-guide)

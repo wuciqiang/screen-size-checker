@@ -550,7 +550,7 @@ Les moniteurs de qualité durent généralement **5-10 ans**. Le rétroéclairag
 **Guides associés** :
 - [Comment mesurer la taille d'un moniteur](/fr/blog/comment-mesurer-taille-moniteur)
 - [Comment vérifier la résolution de son écran](/fr/blog/comment-verifier-resolution-ecran)
-- [Meilleure résolution gaming 2025](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [1440p vs 4K pour le gaming](/fr/hub/1440p-vs-4k-gaming)
 - [IPS vs TN vs VA pour le gaming](/fr/hub/ips-vs-tn-vs-va-gaming)
 

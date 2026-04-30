@@ -386,6 +386,6 @@ Minimum: 144Hz (moderner Standard). Empfohlen: 240Hz (kompetitiver Sweet Spot). 
 ---
 
 **Bereit Ihr Setup zu vervollständigen?** Sehen Sie unsere anderen Guides:
-- [Beste Gaming-Auflösung 2025: Kompletter Guide](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming: Performance-Vergleich](/hub/1080p-vs-1440p-gaming)
 - [Gaming Monitor Größen-Guide: Komplette Analyse](/hub/gaming-monitor-size-guide)

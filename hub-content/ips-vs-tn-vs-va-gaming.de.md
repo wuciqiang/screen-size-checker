@@ -295,6 +295,6 @@ IPS-Glow ist Licht-Leckage sichtbar in Bildschirmecken beim Betrachten dunkler I
 ---
 
 **Bauen Sie Ihr komplettes Setup**: Erkunden Sie unsere anderen Gaming-Monitor-Leitfäden:
-- [Beste Gaming-Auflösung 2025: Komplette Analyse](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming: Ist es das wert?](/hub/144hz-vs-240hz-gaming)
 - [Ultrawide vs Dual Monitor Gaming: Setup-Vergleich](/hub/ultrawide-vs-dual-monitor-gaming)

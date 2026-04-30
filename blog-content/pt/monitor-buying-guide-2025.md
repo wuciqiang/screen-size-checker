@@ -563,7 +563,7 @@ Monitores de qualidade normalmente duram **5-10 anos**. Backlights LED podem dim
 **Guias relacionados**:
 - [Como Medir o Tamanho do Monitor]({{lang_prefix}}/blog/how-to-measure-monitor-size)
 - [Como Verificar a Resolução da Tela]({{lang_prefix}}/blog/how-to-check-screen-resolution)
-- [Melhor Resolução para Jogos 2025]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guia de resolução para jogos](/pt/hub/best-gaming-resolution)
 - [1440p vs 4K Gaming]({{lang_prefix}}/hub/1440p-vs-4k-gaming)
 - [IPS vs TN vs VA Gaming]({{lang_prefix}}/hub/ips-vs-tn-vs-va-gaming)
 

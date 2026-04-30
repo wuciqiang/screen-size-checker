@@ -17,7 +17,7 @@ Elegir el tamaño correcto de monitor es tan importante como elegir resolución,
 **Respuesta rápida**: 24 pulgadas es ideal para FPS competitivo en 1080p y con distancia corta. 27 pulgadas es el mejor equilibrio para gaming en 1440p. 32 pulgadas funciona mejor para single-player inmersivo, simuladores y 4K si tienes suficiente profundidad de escritorio.
 
 > **Guías relacionadas**:
-> - [Mejor resolución gaming 2025](./best-gaming-resolution-2025) - Elige la resolución adecuada para tu tamaño de monitor
+> - [Guía de resolución gaming](./best-gaming-resolution) - Elige la resolución adecuada para tu tamaño de monitor
 > - [1080p vs 1440p Gaming](./1080p-vs-1440p-gaming) - Comparación de rendimiento por resolución
 
 ## Tamaño de monitor y resolución: las mejores combinaciones
@@ -188,7 +188,7 @@ Para FPS competitivo, normalmente sí. El área extra ralentiza el escaneo visua
 ---
 
 **Recursos gaming relacionados**:
-- [Mejor resolución gaming 2025: guía completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)
 - [Comparación 1080p vs 1440p Gaming]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [Calculadora PPI]({{lang_prefix}}/devices/ppi-calculator)
 - [Herramienta de comparación de pantallas]({{lang_prefix}}/devices/compare)

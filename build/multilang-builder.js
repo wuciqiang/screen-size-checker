@@ -2467,6 +2467,20 @@ ${languageCards}
 # 闂侇偅姘ㄩ弫銈囨喆閸曨偄鐏熼柨娑欑婢у秹寮垫径濠傗挅濞达絾鐟у▓?/en/* 閻犱警鍨扮欢鐐烘煂瀹ュ懐鏆伴柛姘灥閸╁矂寮界涵鍛唴鐎?
 /en/*                 /:splat             301
 
+# Evergreen gaming resolution guide redirects
+/hub/best-gaming-resolution-2025          /hub/best-gaming-resolution         301
+/hub/best-gaming-resolution-2025.html     /hub/best-gaming-resolution         301
+/zh/hub/best-gaming-resolution-2025       /zh/hub/best-gaming-resolution      301
+/zh/hub/best-gaming-resolution-2025.html  /zh/hub/best-gaming-resolution      301
+/de/hub/best-gaming-resolution-2025       /de/hub/best-gaming-resolution      301
+/de/hub/best-gaming-resolution-2025.html  /de/hub/best-gaming-resolution      301
+/es/hub/best-gaming-resolution-2025       /es/hub/best-gaming-resolution      301
+/es/hub/best-gaming-resolution-2025.html  /es/hub/best-gaming-resolution      301
+/pt/hub/best-gaming-resolution-2025       /pt/hub/best-gaming-resolution      301
+/pt/hub/best-gaming-resolution-2025.html  /pt/hub/best-gaming-resolution      301
+/fr/hub/best-gaming-resolution-2025       /fr/hub/best-gaming-resolution      301
+/fr/hub/best-gaming-resolution-2025.html  /fr/hub/best-gaming-resolution      301
+
 # ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑩寮界涵鍛唴鐎垫澘瀚€氭娊寮崶鈺侇暭闁哄牜鍓ㄧ槐?====
 /devices/iphone-viewport-sizes.html       /devices/iphone-viewport-sizes      301
 /devices/ipad-viewport-sizes.html         /devices/ipad-viewport-sizes        301

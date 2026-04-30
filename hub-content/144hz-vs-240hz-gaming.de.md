@@ -285,6 +285,6 @@ Nur wenn Sie ein ernsthafter kompetitiver Spieler sind, eine High-End-GPU (RTX 4
 ---
 
 **Vervollständigen Sie Ihr Setup**: Sehen Sie unsere anderen Leitfäden:
-- [Beste Gaming-Auflösung 2025: FPS & Qualitätsleitfaden](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber für FPS und Bildqualität](/de/hub/best-gaming-resolution)
 - [Beste Monitor-Größe für FPS Gaming: 24" vs 27" Analyse](/hub/best-monitor-size-fps)
 - [Gaming Monitor Größenleitfaden: Kompletter Käuferleitfaden](/hub/gaming-monitor-size-guide)

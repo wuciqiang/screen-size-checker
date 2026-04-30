@@ -17,7 +17,7 @@ Die richtige Monitorgröße ist für ein Gaming-Setup genauso wichtig wie Auflö
 **Schnellantwort**: 24 Zoll ist ideal für kompetitives FPS-Gaming in 1080p bei kurzem Betrachtungsabstand. 27 Zoll ist der beste Allround-Kompromiss für 1440p-Gaming. 32 Zoll eignet sich für immersive Singleplayer-Spiele, Simulationen und 4K, wenn Sie genug Platz auf dem Schreibtisch haben.
 
 > **Verwandte Leitfäden**:
-> - [Beste Gaming-Auflösung 2025](./best-gaming-resolution-2025) - Wählen Sie die passende Auflösung für Ihre Monitorgröße
+> - [Gaming-Auflösungsratgeber](./best-gaming-resolution) - Wählen Sie die passende Auflösung für Ihre Monitorgröße
 > - [1080p vs 1440p Gaming](./1080p-vs-1440p-gaming) - Leistungsvergleich nach Auflösung
 
 ## Monitorgröße und Auflösung: Die besten Kombinationen
@@ -188,7 +188,7 @@ Für kompetitive FPS meistens ja. Die zusätzliche Fläche verlangsamt das Scann
 ---
 
 **Verwandte Gaming-Ressourcen**:
-- [Beste Gaming-Auflösung 2025: Kompletter Guide]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming-Vergleich]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [PPI-Rechner]({{lang_prefix}}/devices/ppi-calculator)
 - [Bildschirmvergleich]({{lang_prefix}}/devices/compare)

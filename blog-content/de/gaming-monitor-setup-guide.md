@@ -291,7 +291,7 @@ Viele Gamer spielen unwissentlich mit suboptimalen Einstellungen:
 
 ### Verwandte Gaming-Anleitungen
 
-- [Beste Gaming-Auflösung 2025](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming)
 - [G-Sync vs FreeSync Gaming](/hub/g-sync-vs-freesync-gaming)
 - [Monitor Kaufberatung 2025](/blog/monitor-buying-guide-2025)

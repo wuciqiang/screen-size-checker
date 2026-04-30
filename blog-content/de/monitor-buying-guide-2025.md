@@ -262,7 +262,7 @@ Eine gute Regel ist **15-25% Ihres gesamten PC-Budgets für den Monitor** auszug
 **Verwandte Anleitungen**:
 - [Monitor Größe messen](/blog/how-to-measure-monitor-size)
 - [Bildschirmauflösung prüfen](/blog/how-to-check-screen-resolution)
-- [Beste Gaming-Auflösung 2025](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [1440p vs 4K Gaming](/hub/1440p-vs-4k-gaming)
 - [IPS vs TN vs VA Gaming](/hub/ips-vs-tn-vs-va-gaming)
 

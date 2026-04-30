@@ -470,6 +470,6 @@ La "meilleure" dalle dépend de vos priorités, mais en 2025, la technologie IPS
 ---
 
 **Montez votre setup complet** : Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Analyse Complète](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming : Ça Vaut le Coup ?](/fr/hub/144hz-vs-240hz-gaming)
 - [Ultrawide vs Double Écran Gaming : Comparaison des Setups](/fr/hub/ultrawide-vs-dual-monitor-gaming)

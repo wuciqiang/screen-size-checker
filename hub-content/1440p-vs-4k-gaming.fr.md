@@ -300,7 +300,7 @@ Absolument. Le 1440p reste la résolution optimale pour la plupart des joueurs P
 ---
 
 **Prêt à monter votre setup ?** Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Guide Complet]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming : Comparatif Performances]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [Guide des Tailles d'Écran Gaming : 24" vs 27" vs 32"]({{lang_prefix}}/hub/gaming-monitor-size-guide)
 

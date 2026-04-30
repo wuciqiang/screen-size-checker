@@ -323,7 +323,7 @@ Pesquisa com 500+ profissionais de FPS em CS2, Valorant, Apex Legends, COD e Rai
 - Recomendado: 240Hz
 - Profissional: 360Hz+
 
-> **Guia de Resolução**: Saiba mais sobre como escolher a melhor resolução para suas necessidades de jogos em nosso guia [Melhor Resolução para Jogos 2025](/hub/best-gaming-resolution-2025).
+> **Guia de Resolução**: Saiba mais sobre como escolher a melhor resolução para suas necessidades de jogos em nosso guia [Guia de resolução para jogos](/pt/hub/best-gaming-resolution).
 
 ## Recomendações Específicas por Jogo
 
@@ -522,6 +522,6 @@ Mínimo: 144Hz (padrão moderno). Recomendado: 240Hz (ponto ideal competitivo). 
 ---
 
 **Pronto para completar sua configuração?** Confira nossos outros guias:
-- [Melhor Resolução para Jogos 2025: Guia Completo](/hub/best-gaming-resolution-2025)
+- [Guia de resolução para jogos](/pt/hub/best-gaming-resolution)
 - [Jogos 1080p vs 1440p: Comparação de Desempenho](/hub/1080p-vs-1440p-gaming)
 - [Guia de Tamanho de Monitor Gamer: Análise Completa](/hub/gaming-monitor-size-guide)

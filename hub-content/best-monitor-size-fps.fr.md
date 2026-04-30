@@ -303,7 +303,7 @@ C'est le standard tournoi éprouvé qui maximise le temps de réaction et vous d
 ---
 
 **Prêt à compléter votre setup ?** Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Guide Complet]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming : Comparatif Performances]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [Guide des Tailles d'Écran Gaming : Analyse Complète]({{lang_prefix}}/hub/gaming-monitor-size-guide)
 

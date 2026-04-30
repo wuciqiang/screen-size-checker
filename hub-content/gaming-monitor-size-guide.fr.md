@@ -28,7 +28,7 @@ Choisir la bonne taille d'écran compte autant que la résolution pour votre set
 **Réponse rapide** : Le 24" est parfait pour le FPS compétitif en 1080p à courte distance. Le 27" est le meilleur compromis pour la plupart des joueurs, idéal en 1440p avec un bon équilibre immersion/confort. Le 32" convient aux jeux solo immersifs en 1440p ou 4K si vous avez assez de place sur votre bureau.
 
 > **Guides liés** :
-> - [Meilleure Résolution Gaming 2025](./best-gaming-resolution-2025) - Choisir la bonne résolution pour votre taille
+> - [Guide des résolutions gaming](./best-gaming-resolution) - Choisir la bonne résolution pour votre taille
 > - [1080p vs 1440p Gaming](./1080p-vs-1440p-gaming) - Comparatif de performances
 
 ## Taille d'Écran et Résolution : Les Combinaisons Idéales
@@ -464,7 +464,7 @@ Pour le FPS compétitif, oui. Le mouvement oculaire accru nuit aux temps de réa
 ---
 
 **Ressources Gaming** :
-- [Meilleure Résolution Gaming 2025 : Guide Complet]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [Calculateur PPI]({{lang_prefix}}/devices/ppi-calculator)
 - [Outil de Comparaison d'Écrans]({{lang_prefix}}/devices/compare)

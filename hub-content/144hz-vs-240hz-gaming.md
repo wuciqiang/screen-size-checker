@@ -567,6 +567,6 @@ Most pros use 240Hz (66%), with growing 360Hz adoption (11%) among elite players
 ---
 
 **Complete your setup**: Check our other refresh rate and display guides:
-- [Best Gaming Resolution 2025: FPS & Quality Guide](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide for FPS and visual quality](/hub/best-gaming-resolution)
 - [Best Monitor Size for FPS Gaming: 24" vs 27" Analysis](/hub/best-monitor-size-fps)
 - [Gaming Monitor Size Guide: Complete Buyer's Guide](/hub/gaming-monitor-size-guide)

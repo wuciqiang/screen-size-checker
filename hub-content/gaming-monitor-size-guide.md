@@ -28,7 +28,7 @@ Choosing the right monitor size is just as important as selecting the right reso
 **Quick Answer**: 24" is ideal for competitive FPS gaming at 1080p with close viewing distances. 27" is the sweet spot for most gamers, perfect for 1440p gaming with balanced immersion and usability. 32" is best for immersive single-player gaming at 1440p or 4K with adequate desk space.
 
 > **Related Guides**: 
-> - [Best Gaming Resolution 2025](./best-gaming-resolution-2025) - Choose the right resolution for your size
+> - [Gaming Resolution Guide](./best-gaming-resolution) - Choose the right resolution for your size
 > - [1080p vs 1440p Gaming](./1080p-vs-1440p-gaming) - Resolution performance comparison
 
 ## Monitor Size & Resolution: The Perfect Pairings
@@ -519,7 +519,7 @@ For competitive FPS, yes. The increased eye movement hurts reaction times. 24-27
 ---
 
 **Related Gaming Resources**:
-- [Best Gaming Resolution 2025: Complete Guide]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide]({{lang_prefix}}/hub/best-gaming-resolution)
 - [1080p vs 1440p Gaming Comparison]({{lang_prefix}}/hub/1080p-vs-1440p-gaming)
 - [PPI Calculator]({{lang_prefix}}/devices/ppi-calculator)
 - [Screen Comparison Tool]({{lang_prefix}}/devices/compare)

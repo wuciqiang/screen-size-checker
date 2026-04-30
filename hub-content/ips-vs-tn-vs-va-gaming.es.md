@@ -295,6 +295,6 @@ IPS glow es fuga luz visible en esquinas pantalla al ver contenido oscuro en hab
 ---
 
 **Construye tu setup completo**: Explora nuestras otras guías monitor gaming:
-- [Mejor Resolución Gaming 2025: Análisis Completo](/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming: ¿Vale la Pena?](/hub/144hz-vs-240hz-gaming)
 - [Ultrawide vs Dual Monitor Gaming: Comparación Setup](/hub/ultrawide-vs-dual-monitor-gaming)

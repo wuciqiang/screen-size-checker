@@ -45,7 +45,7 @@ A resolução está no coração da experiência visual, e com Black Myth: Zhong
 
 **1440p (2560×1440)** atinge um meio-termo atraente, oferecendo significativamente mais detalhes do que 1080p, permanecendo mais acessível em termos de requisitos de hardware. Para muitos jogadores, 1440p representa o ponto ideal onde a qualidade visual encontra a praticidade de desempenho. O aumento da densidade de pixels em relação a 1080p faz uma diferença notável na clareza da imagem, particularmente em um jogo com tantos detalhes finos como Black Myth: Zhong Kui.
 
-**1080p (1920×1080)**, embora ainda viável, pode deixar parte do esplendor visual do jogo de fora. A menor densidade de pixels significa que detalhes finos em texturas e objetos distantes podem parecer mais suaves ou menos definidos do que os desenvolvedores pretendiam. Para aqueles interessados em explorar as diferenças técnicas entre essas resoluções em maior profundidade, nosso [guia abrangente de comparação de resoluções]({{lang_prefix}}/hub/best-gaming-resolution-2025) detalha os prós e contras de cada opção.
+**1080p (1920×1080)**, embora ainda viável, pode deixar parte do esplendor visual do jogo de fora. A menor densidade de pixels significa que detalhes finos em texturas e objetos distantes podem parecer mais suaves ou menos definidos do que os desenvolvedores pretendiam. Para aqueles interessados em explorar as diferenças técnicas entre essas resoluções em maior profundidade, nosso [guia abrangente de comparação de resoluções](/pt/hub/best-gaming-resolution) detalha os prós e contras de cada opção.
 
 ### Densidade de Pixels (PPI): Vendo Cada Detalhe Único
 

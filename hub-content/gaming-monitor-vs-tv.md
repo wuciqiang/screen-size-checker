@@ -611,6 +611,6 @@ The "best" choice depends on your gaming habits, space constraints, and budget. 
 ---
 
 **Complete your gaming setup**: Explore our other gaming display guides:
-- [Best Gaming Resolution 2025: Complete Analysis](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [Gaming Monitor Size Guide: Finding Your Perfect Fit](/hub/gaming-monitor-size-guide)
 - [IPS vs TN vs VA Gaming: Panel Type Comparison](/hub/ips-vs-tn-vs-va-gaming)

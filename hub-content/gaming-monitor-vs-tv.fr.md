@@ -356,7 +356,7 @@ Le "meilleur" choix dépend de vos habitudes de jeu, de vos contraintes d'espace
 ---
 
 **Complétez votre setup gaming** : Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Analyse Complète]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)
 - [Guide des Tailles d'Écran Gaming : Trouver la Taille Parfaite]({{lang_prefix}}/hub/gaming-monitor-size-guide)
 
 **Dernière mise à jour** : Janvier 2025 | **Temps de lecture** : 18 minutes

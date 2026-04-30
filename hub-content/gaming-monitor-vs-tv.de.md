@@ -237,6 +237,6 @@ OLED ist besser für Bildqualität (perfekte Schwarzwerte, unendlicher Kontrast,
 ---
 
 **Vervollständigen Sie Ihr Gaming-Setup**: Erkunden Sie unsere anderen Gaming-Display-Leitfäden:
-- [Beste Gaming-Auflösung 2025: Komplette Analyse](/hub/best-gaming-resolution-2025)
+- [Gaming-Auflösungsratgeber](/de/hub/best-gaming-resolution)
 - [Gaming-Monitor-Größen-Leitfaden: Perfekte Passform Finden](/hub/gaming-monitor-size-guide)
 - [IPS vs TN vs VA Gaming: Panel-Typ-Vergleich](/hub/ips-vs-tn-vs-va-gaming)

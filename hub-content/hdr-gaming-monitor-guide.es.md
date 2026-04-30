@@ -235,4 +235,4 @@ Implementación HDR pobre, configuraciones monitor incorrectas o monitores HDR f
 **Completa tu conocimiento display gaming**: Explora nuestras otras guías esenciales:
 - [Monitor Gaming vs TV: ¿Qué Tipo Display?](/hub/gaming-monitor-vs-tv)
 - [G-Sync vs FreeSync: Comparación Tecnología VRR](/hub/g-sync-vs-freesync-gaming)
-- [Mejor Resolución Gaming 2025: Análisis Completo](/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)

@@ -553,6 +553,6 @@ keywords: "144hz vs 240hz, 240hz值得吗, 144hz vs 240hz区别, 刷新率游戏
 ---
 
 **完成你的设置**：查看我们的其他刷新率和显示器指南：
-- [2025年最佳游戏分辨率：FPS与质量指南](/hub/best-gaming-resolution-2025)
+- [游戏分辨率选择指南](/zh/hub/best-gaming-resolution)
 - [FPS游戏最佳显示器尺寸：24英寸vs 27英寸分析](/hub/best-monitor-size-fps)
 - [游戏显示器尺寸指南：完整购买指南](/hub/gaming-monitor-size-guide)

@@ -16,7 +16,7 @@ Choosing between 1080p and 1440p is one of the most important decisions for PC g
 
 **Quick Answer**: Choose 1080p if you prioritize maximum FPS (240-360Hz) for competitive gaming with a budget under $1,200. Choose 1440p if you want balanced visuals and performance (100-165Hz) for AAA gaming with a budget around $1,500-2,000.
 
-> **Related Resource**: For a broader comparison including 4K, see our [Best Gaming Resolution 2025 Guide]({{lang_prefix}}/hub/best-gaming-resolution-2025).
+> **Related Resource**: For a broader comparison including 4K, see our [Gaming Resolution Guide]({{lang_prefix}}/hub/best-gaming-resolution).
 
 ## The Technical Reality: What Sets Them Apart
 
@@ -323,7 +323,7 @@ For older/less demanding games at medium settings, yes. For modern AAA games, yo
 ---
 
 **Related Gaming Resources**:
-- [Best Gaming Resolution 2025: Complete Guide]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide]({{lang_prefix}}/hub/best-gaming-resolution)
 - [Compare Screen Resolutions]({{lang_prefix}}/devices/compare)
 - [PPI Calculator for Gaming Setups]({{lang_prefix}}/devices/ppi-calculator)
 - [Standard Gaming Resolutions Reference]({{lang_prefix}}/devices/standard-resolutions)

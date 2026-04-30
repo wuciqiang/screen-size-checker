@@ -399,6 +399,6 @@ RTX 4070可以在中高画质（45-60 FPS）或使用DLSS质量模式驾驭4K游
 ---
 
 **准备好装机了吗？**查看我们的其他指南：
-- [2025年最佳游戏分辨率：完整指南](/hub/best-gaming-resolution-2025)
+- [游戏分辨率选择指南](/zh/hub/best-gaming-resolution)
 - [1080p vs 1440p游戏：性能对比](/hub/1080p-vs-1440p-gaming)
 - [游戏显示器尺寸指南：24英寸 vs 27英寸 vs 32英寸](/hub/gaming-monitor-size-guide)

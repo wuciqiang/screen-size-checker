@@ -16,7 +16,7 @@ Elegir entre 1080p y 1440p es una de las decisiones más importantes para los ga
 
 **Respuesta Rápida**: Elige 1080p si priorizas máximo FPS (240-360Hz) para gaming competitivo con presupuesto bajo $1,200. Elige 1440p si quieres visuales y rendimiento balanceados (100-165Hz) para gaming AAA con presupuesto alrededor de $1,500-2,000.
 
-> **Recurso Relacionado**: Para una comparación más amplia incluyendo 4K, consulta nuestra [Guía de Mejor Resolución Gaming 2025](../best-gaming-resolution-2025).
+> **Recurso Relacionado**: Para una comparación más amplia incluyendo 4K, consulta nuestra [Guía de resolución gaming](../best-gaming-resolution).
 
 ## La realidad técnica: Qué las diferencia
 
@@ -186,7 +186,7 @@ Aproximadamente **pérdida de 40-50% FPS** en 1440p comparado con 1080p en la mi
 ---
 
 **Recursos Gaming Relacionados**:
-- [Mejor Resolución Gaming 2025: Guía Completa]({{lang_prefix}}/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)
 - [Comparar Resoluciones de Pantalla]({{lang_prefix}}/devices/compare)
 - [Calculadora PPI para Configuraciones Gaming]({{lang_prefix}}/devices/ppi-calculator)
 - [Resoluciones Gaming Estándar Referencia]({{lang_prefix}}/devices/standard-resolutions)

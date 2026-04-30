@@ -401,6 +401,6 @@ Le 240Hz peut offrir 1-2% d'avantage en temps de réaction et précision de trac
 ---
 
 **Complétez votre setup** : Consultez nos autres guides :
-- [Meilleure Résolution Gaming 2025 : Guide FPS et Qualité](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming pour FPS et qualité visuelle](/fr/hub/best-gaming-resolution)
 - [Meilleure Taille d'Écran pour le FPS : Analyse 24" vs 27"](/fr/hub/best-monitor-size-fps)
 - [Guide des Tailles d'Écran Gaming : Guide d'Achat Complet](/fr/hub/gaming-monitor-size-guide)

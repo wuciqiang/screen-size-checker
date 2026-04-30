@@ -465,4 +465,4 @@ L'avenir du gaming est clairement HDR, mais seulement quand c'est bien fait. **N
 **Complétez vos connaissances gaming** : Découvrez nos autres guides :
 - [Écran Gaming vs TV : Quel Type d'Affichage ?](/fr/hub/gaming-monitor-vs-tv)
 - [G-Sync vs FreeSync : Comparatif des Technologies VRR](/fr/hub/g-sync-vs-freesync-gaming)
-- [Meilleure Résolution Gaming 2025 : Analyse Complète](/fr/hub/best-gaming-resolution-2025)
+- [Guide des résolutions gaming](/fr/hub/best-gaming-resolution)

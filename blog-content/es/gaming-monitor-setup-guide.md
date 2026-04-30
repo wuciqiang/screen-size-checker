@@ -291,7 +291,7 @@ Muchos gamers juegan sin saberlo con ajustes subóptimos:
 
 ### Guías Gaming Relacionadas
 
-- [Mejor Resolución Gaming 2025](/hub/best-gaming-resolution-2025)
+- [Guía de resolución gaming](/es/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming)
 - [G-Sync vs FreeSync Gaming](/hub/g-sync-vs-freesync-gaming)
 - [Guía Compra Monitor 2025](/blog/monitor-buying-guide-2025)

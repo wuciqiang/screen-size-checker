@@ -585,7 +585,7 @@ Use these tests:
 
 ### Related Gaming Guides
 
-- [Best Gaming Resolution 2025](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [144Hz vs 240Hz Gaming](/hub/144hz-vs-240hz-gaming)
 - [G-Sync vs FreeSync Gaming](/hub/g-sync-vs-freesync-gaming)
 - [IPS vs TN vs VA Gaming](/hub/ips-vs-tn-vs-va-gaming)

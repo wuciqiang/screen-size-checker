@@ -563,7 +563,7 @@ Quality monitors typically last **5-10 years**. LED backlights may dim over time
 **Related guides**:
 - [How to Measure Monitor Size](/blog/how-to-measure-monitor-size)
 - [How to Check Screen Resolution](/blog/how-to-check-screen-resolution)
-- [Best Gaming Resolution 2025](/hub/best-gaming-resolution-2025)
+- [Gaming Resolution Guide](/hub/best-gaming-resolution)
 - [1440p vs 4K Gaming](/hub/1440p-vs-4k-gaming)
 - [IPS vs TN vs VA Gaming](/hub/ips-vs-tn-vs-va-gaming)
 
