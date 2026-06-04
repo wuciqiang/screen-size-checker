@@ -54,6 +54,7 @@ export class AspectRatioCalculator {
         // Debounce timer
         this.debounceTimer = null;
         this.debounceDelay = 300;
+        this.hasUserInteraction = false;
     }
     
     /**
@@ -120,22 +121,26 @@ export class AspectRatioCalculator {
     setupEventListeners() {
         // Original dimensions input listeners
         this.elements.originalWidthInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.lastChangedField = 'originalWidth';
             this.debouncedCalculate();
         });
         
         this.elements.originalHeightInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.lastChangedField = 'originalHeight';
             this.debouncedCalculate();
         });
         
         // New dimensions input listeners
         this.elements.newWidthInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.lastChangedField = 'newWidth';
             this.debouncedCalculate();
         });
         
         this.elements.newHeightInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.lastChangedField = 'newHeight';
             this.debouncedCalculate();
         });
@@ -235,6 +240,7 @@ export class AspectRatioCalculator {
                         scaleFactor: this.newWidth > 0 ? this.newWidth / this.originalWidth : this.newHeight / this.originalHeight
                     });
                 }
+                this.trackCalculatorCompleted();
             } else {
                 this.isValid = false;
                 this.aspectRatio = null;
@@ -650,6 +656,7 @@ export class AspectRatioCalculator {
         // Fill original dimensions
         this.elements.originalWidthInput.value = width;
         this.elements.originalHeightInput.value = height;
+        this.hasUserInteraction = true;
         
         // Add visual feedback to inputs
         this.elements.originalWidthInput.classList.add('auto-filled');
@@ -1154,6 +1161,18 @@ export class AspectRatioCalculator {
             sessionCalculations: this.analytics.pageMetrics.calculationsPerformed
         });
     }
+
+    trackCalculatorCompleted() {
+        if (!this.hasUserInteraction || !window.ScreenSizeAnalytics || (this.newWidth <= 0 && this.newHeight <= 0)) {
+            return;
+        }
+
+        window.ScreenSizeAnalytics.trackCalculatorCompleted({
+            page_id: 'aspect-ratio-calculator',
+            tool_name: 'aspect_ratio_calculator',
+            result_type: 'aspect_ratio'
+        });
+    }
     
     /**
      * Setup scroll depth tracking
@@ -1220,50 +1239,17 @@ export class AspectRatioCalculator {
      * Send event to analytics service
      */
     sendEventToAnalytics(event) {
-        // Google Analytics 4 (if available)
-        if (typeof gtag !== 'undefined') {
-            gtag('event', event.name, {
-                event_category: 'aspect_ratio_calculator',
-                event_label: event.name,
-                custom_parameter_1: JSON.stringify(event.data),
-                session_id: event.sessionId
-            });
-        }
-        
-        // Custom analytics endpoint (if available)
-        if (navigator.sendBeacon && window.location.hostname !== 'localhost') {
-            const analyticsData = {
-                event: event.name,
-                data: event.data,
-                sessionId: event.sessionId,
-                timestamp: event.timestamp,
-                page: 'aspect-ratio-calculator'
-            };
-            
-            navigator.sendBeacon('/api/analytics', JSON.stringify(analyticsData));
-        }
+        // Legacy event collection is kept in memory for page behavior/debugging.
+        // GA4 reporting is handled by ScreenSizeAnalytics with low-cardinality params.
+        return false;
     }
     
     /**
      * Send complete analytics data
      */
     sendAnalyticsData() {
-        const analyticsReport = {
-            sessionId: this.analytics.sessionId,
-            sessionDuration: Date.now() - this.analytics.startTime,
-            pageMetrics: this.analytics.pageMetrics,
-            ratioUsage: Object.fromEntries(this.analytics.ratioUsage),
-            linkClicks: Object.fromEntries(this.analytics.linkClicks),
-            events: this.analytics.events,
-            timestamp: Date.now()
-        };
-        
-        // Send to analytics service
-        if (navigator.sendBeacon && window.location.hostname !== 'localhost') {
-            navigator.sendBeacon('/api/analytics/session', JSON.stringify(analyticsReport));
-        }
-        
-        console.log('📊 Analytics session data sent:', analyticsReport);
+        // Do not send the legacy full-session payload externally.
+        return false;
     }
     
     /**
@@ -1354,6 +1340,12 @@ export function updateAspectRatioCalculatorTranslations() {
  * Initialize Aspect Ratio Calculator
  */
 export function initializeAspectRatioCalculator() {
+    if (window.__aspectRatioCalculatorInitialized) {
+        console.log('Aspect Ratio Calculator already initialized');
+        return;
+    }
+
+    window.__aspectRatioCalculatorInitialized = true;
     console.log('🚀 Starting Aspect Ratio Calculator initialization...');
     
     // Listen for translation update events

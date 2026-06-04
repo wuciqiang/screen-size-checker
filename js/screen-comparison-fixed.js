@@ -23,6 +23,7 @@ function initializeComparison() {
     var currentUnit = 'inches';
     var lastCalculatedDisplay1 = null;
     var lastCalculatedDisplay2 = null;
+    var shouldTrackComparison = false;
 
     // 获取必要的DOM元素
     var compareBtn = document.getElementById('compare-btn');
@@ -133,6 +134,7 @@ function initializeComparison() {
     presetButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             applyComparisonPreset(button);
+            shouldTrackComparison = true;
             compareDisplays();
             updateURLWithCurrentState(true);
         });
@@ -149,6 +151,7 @@ function initializeComparison() {
                 style: compareBtn.style.cssText
             });
             try {
+                shouldTrackComparison = true;
                 compareDisplays();
                 // 更新URL，以便分享
                 updateURLWithCurrentState(true);
@@ -315,6 +318,15 @@ function initializeComparison() {
         if (shareOptions) {
             shareOptions.style.display = 'block';
         }
+
+        if (shouldTrackComparison && window.ScreenSizeAnalytics) {
+            window.ScreenSizeAnalytics.trackComparison({
+                page_id: 'compare',
+                tool_action: 'calculate',
+                result_type: 'comparison'
+            });
+        }
+        shouldTrackComparison = false;
     }
     
     // debounce函数，防止窗口大小变化时频繁更新
@@ -1085,6 +1097,7 @@ function initializeComparison() {
         // 尝试使用Clipboard API
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(currentUrl).then(function() {
+                trackShareUrlCopy();
                 showCopySuccessMessage();
             }).catch(function(err) {
                 console.error('Failed to copy: ', err);
@@ -1112,6 +1125,7 @@ function initializeComparison() {
         try {
             var successful = document.execCommand('copy');
             if (successful) {
+                trackShareUrlCopy();
                 showCopySuccessMessage();
             } else {
                 console.error('Fallback: Unable to copy');
@@ -1121,6 +1135,17 @@ function initializeComparison() {
         }
         
         document.body.removeChild(textArea);
+    }
+
+    function trackShareUrlCopy() {
+        if (window.ScreenSizeAnalytics) {
+            window.ScreenSizeAnalytics.trackCopy({
+                page_id: 'compare',
+                tool_name: 'screen_compare',
+                tool_action: 'copy_share_url',
+                result_type: 'comparison'
+            });
+        }
     }
 
     // 显示复制成功消息

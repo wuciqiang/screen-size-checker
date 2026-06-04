@@ -2099,11 +2099,13 @@ function handleRatioSelection(button) {
     scrollToCalculator();
     
     // 记录分析数据（如果有分析系统）
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'ratio_selection', {
-            'event_category': 'aspect_ratio_calculator',
-            'event_label': ratio,
-            'value': 1
+    if (window.ScreenSizeAnalytics) {
+        window.ScreenSizeAnalytics.track('ratio_selection', {
+            page_id: 'aspect-ratio-calculator',
+            tool_name: 'aspect_ratio_calculator',
+            tool_action: 'select_ratio_preset',
+            result_type: 'aspect_ratio',
+            category: 'ratio_preset'
         });
     }
 }

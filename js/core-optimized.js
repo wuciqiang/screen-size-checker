@@ -138,6 +138,13 @@ function updateDisplay() {
         applyDeviceInfo(deviceInfo);
         deviceInfoCache = deviceInfo;
         cacheTimestamp = Date.now();
+        if (window.ScreenSizeAnalytics && /^\/(?:zh|de|es|pt|fr)?\/?$/.test(window.location.pathname.replace(/\/index\.html$/, '/'))) {
+            window.ScreenSizeAnalytics.trackToolResult({
+                page_id: 'home',
+                tool_name: 'screen_size_checker',
+                result_type: 'viewport'
+            }, { onceKey: 'home_tool_result_view' });
+        }
         console.log('Device information updated successfully');
     } catch (error) {
         console.error('Error during device detection:', error);
@@ -411,6 +418,14 @@ async function handleCopyClick(event) {
         const textToCopy = targetElement.textContent || targetElement.innerText;
         const success = await copyToClipboard(textToCopy);
         const message = success ? getCopyText('copied_success') : getCopyText('copy_failed');
+        if (success && window.ScreenSizeAnalytics) {
+            window.ScreenSizeAnalytics.trackCopy({
+                page_id: 'home',
+                tool_name: 'screen_size_checker',
+                tool_action: 'copy_single',
+                result_type: targetId || 'viewport'
+            });
+        }
         showToast(message, success ? 1800 : 3000);
     } catch (error) {
         console.error('Copy failed:', error);
@@ -467,6 +482,14 @@ async function copyAllInfo() {
         const success = await copyToClipboard(textToCopy);
 
         if (success) {
+            if (window.ScreenSizeAnalytics) {
+                window.ScreenSizeAnalytics.trackCopy({
+                    page_id: 'home',
+                    tool_name: 'screen_size_checker',
+                    tool_action: 'copy_all',
+                    result_type: 'device_summary'
+                });
+            }
             showToast(getCopyText('all_info_copied'));
         } else {
             showToast(getCopyText('copy_all_failed'), 3000);

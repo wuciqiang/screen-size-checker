@@ -238,12 +238,13 @@
                 const linkHref = this.getAttribute('href');
                 const menuType = this.closest('.mega-menu') ? 'mega-menu' : 'dropdown';
                 
-                // Send event to analytics (if available)
-                if (window.gtag) {
-                    window.gtag('event', 'navigation_click', {
-                        'menu_type': menuType,
-                        'link_text': linkText,
-                        'link_url': linkHref
+                // Send low-cardinality navigation event to analytics (if available)
+                if (window.ScreenSizeAnalytics) {
+                    window.ScreenSizeAnalytics.track('navigation_click', {
+                        page_id: window.CURRENT_PAGE_ID || undefined,
+                        from_page: window.CURRENT_PAGE_ID || undefined,
+                        category: 'site_navigation',
+                        menu_type: menuType
                     });
                 }
                 

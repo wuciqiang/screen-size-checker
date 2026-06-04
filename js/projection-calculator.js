@@ -37,6 +37,7 @@ export class ProjectionCalculator {
         // Debounce timer
         this.debounceTimer = null;
         this.debounceDelay = 200;
+        this.hasUserInteraction = false;
     }
     
     /**
@@ -97,12 +98,19 @@ export class ProjectionCalculator {
      */
     setupEventListeners() {
         // Mode toggle
-        this.elements.modeDistance?.addEventListener('click', () => this.setMode('distance'));
-        this.elements.modeScreen?.addEventListener('click', () => this.setMode('screen'));
+        this.elements.modeDistance?.addEventListener('click', () => {
+            this.hasUserInteraction = true;
+            this.setMode('distance');
+        });
+        this.elements.modeScreen?.addEventListener('click', () => {
+            this.hasUserInteraction = true;
+            this.setMode('screen');
+        });
         
         // Throw ratio preset
         this.elements.throwRatioPreset?.addEventListener('change', (e) => {
             if (e.target.value) {
+                this.hasUserInteraction = true;
                 this.elements.throwRatioInput.value = e.target.value;
                 this.debouncedCalculate();
             }
@@ -116,17 +124,22 @@ export class ProjectionCalculator {
         ];
         
         inputs.forEach(input => {
-            input?.addEventListener('input', () => this.debouncedCalculate());
+            input?.addEventListener('input', () => {
+                this.hasUserInteraction = true;
+                this.debouncedCalculate();
+            });
         });
         
         // Unit change
         this.elements.distanceUnit?.addEventListener('change', () => {
+            this.hasUserInteraction = true;
             this.distanceUnit = this.elements.distanceUnit.value;
             this.debouncedCalculate();
         });
         
         // Aspect ratio change
         this.elements.aspectRatioSelect?.addEventListener('change', () => {
+            this.hasUserInteraction = true;
             this.aspectRatio = this.elements.aspectRatioSelect.value;
             this.debouncedCalculate();
         });
@@ -224,6 +237,7 @@ export class ProjectionCalculator {
             
             // Update diagram
             this.updateDiagram(distanceMeters, screenDiagonal);
+            this.trackCalculatorCompleted();
             
         } catch (error) {
             console.error('Calculation error:', error);
@@ -244,6 +258,19 @@ export class ProjectionCalculator {
         if (this.elements.resultUnit) {
             this.elements.resultUnit.textContent = this.getTranslation('projectionCalculator.inchesUnit', 'inches');
         }
+    }
+
+    trackCalculatorCompleted() {
+        if (!this.hasUserInteraction || !window.ScreenSizeAnalytics) {
+            return;
+        }
+
+        window.ScreenSizeAnalytics.trackCalculatorCompleted({
+            page_id: 'projection-calculator',
+            tool_name: 'projection_calculator',
+            result_type: 'projection',
+            tool_action: this.mode === 'distance' ? 'calculate_screen_size' : 'calculate_distance'
+        });
     }
     
     /**
@@ -406,6 +433,12 @@ export function updateProjectionCalculatorTranslations() {
  * Initialize Projection Calculator
  */
 export function initializeProjectionCalculator() {
+    if (window.__projectionCalculatorInitialized) {
+        console.log('Projection Calculator already initialized');
+        return;
+    }
+
+    window.__projectionCalculatorInitialized = true;
     console.log('🚀 Starting Projection Calculator initialization...');
     
     // Listen for translation updates

@@ -35,6 +35,7 @@ export class PPICalculator {
         // Debounce timer
         this.debounceTimer = null;
         this.debounceDelay = 300;
+        this.hasUserInteraction = false;
     }
     
     /**
@@ -93,14 +94,17 @@ export class PPICalculator {
     setupEventListeners() {
         // Input event listeners with debouncing
         this.elements.horizontalInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.debouncedCalculate();
         });
         
         this.elements.verticalInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.debouncedCalculate();
         });
         
         this.elements.diagonalInput.addEventListener('input', (e) => {
+            this.hasUserInteraction = true;
             this.debouncedCalculate();
         });
         
@@ -151,6 +155,7 @@ export class PPICalculator {
         this.elements.horizontalInput.value = width;
         this.elements.verticalInput.value = height;
         this.elements.diagonalInput.value = diagonal;
+        this.hasUserInteraction = true;
         this.calculate();
     }
     
@@ -193,6 +198,7 @@ export class PPICalculator {
                 // Update display
                 this.updateResult();
                 this.updateDetails(pixelDiagonal);
+                this.trackCalculatorCompleted();
                 
             } else {
                 // Clear results if inputs are invalid
@@ -454,6 +460,18 @@ export class PPICalculator {
     showError(type, message) {
         console.error(`PPI Calculator ${type} error:`, message);
         // Could implement a general error display here if needed
+    }
+
+    trackCalculatorCompleted() {
+        if (!this.hasUserInteraction || !window.ScreenSizeAnalytics) {
+            return;
+        }
+
+        window.ScreenSizeAnalytics.trackCalculatorCompleted({
+            page_id: 'ppi-calculator',
+            tool_name: 'ppi_calculator',
+            result_type: 'ppi'
+        });
     }
     
     /**

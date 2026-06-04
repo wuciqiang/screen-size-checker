@@ -986,8 +986,13 @@ export class InternalLinksManager {
      * 跟踪链接点击（用于统计分析）
      */
     trackLinkClick(pageId, category) {
-        // 可以在这里添加统计代码，比如Google Analytics
-        if (window.gtag) {
+        if (window.ScreenSizeAnalytics) {
+            window.ScreenSizeAnalytics.track('internal_link_click', {
+                'page_id': pageId,
+                'category': category,
+                'from_page': this.currentPageId
+            });
+        } else if (window.gtag) {
             window.gtag('event', 'internal_link_click', {
                 'page_id': pageId,
                 'category': category,
