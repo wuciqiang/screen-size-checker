@@ -565,12 +565,12 @@
     "faq5a": "Verschiedene Seitenverhältnisse haben unterschiedliche Breiten-Höhen-Proportionen. 16:9-Bildschirme sind relativ zu ihrer Höhe breiter, während 4:3-Bildschirme eher quadratisch sind."
   },
   "lcdTester": {
-    "title": "LCD-Bildschirmtest",
-    "intro": "Testen Sie Ihren Monitor auf defekte Pixel, Farbgenauigkeit und Anzeigequalität. Führen Sie umfassende Bildschirmtests im Vollbildmodus durch.",
-    "pageTitle": "LCD-Bildschirmtest - Test auf defekte Pixel & Anzeigequalität | Screen Size Checker",
-    "pageDescription": "Kostenloser Online-LCD-Bildschirmtest. Überprüfen Sie Ihren Monitor auf defekte Pixel, Farbgenauigkeit, Backlight Bleeding und Anzeigequalitätsprobleme.",
-    "pageHeading": "LCD-Bildschirmtest",
-    "pageIntro": "Testen Sie Ihren Monitor auf defekte Pixel, Farbgenauigkeit und Anzeigequalität.",
+    "title": "LCD Test",
+    "intro": "Führen Sie einen LCD Test online aus und testen Sie Ihren Monitor auf Pixelfehler, Farbgenauigkeit, Backlight Bleeding, Ghosting und Textschärfe.",
+    "pageTitle": "LCD Test: Pixelfehler und Monitor testen",
+    "pageDescription": "Kostenloser LCD Test online: Monitor auf Pixelfehler, Farben, Backlight Bleeding, Ghosting und Schärfe prüfen - direkt im Browser.",
+    "pageHeading": "LCD Test",
+    "pageIntro": "Testen Sie Ihren Monitor mit LCD Testbildern auf Pixelfehler, Farbgenauigkeit, Backlight Bleeding, Ghosting und Textschärfe.",
     "selectTest": "Test auswählen",
     "deadPixelTest": "Pixelfehlertest",
     "deadPixelDesc": "Zeigt Vollfarben an, um tote oder feststeckende Pixel auf Ihrem Bildschirm zu erkennen.",

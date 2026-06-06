@@ -1,18 +1,18 @@
 ---
-title: "Bildschirmauflösung prüfen: Komplette Anleitung (2025)"
-description: "Lernen Sie, wie Sie die Bildschirmauflösung unter Windows, Mac, Linux und mobilen Geräten prüfen. Enthält einfache Methoden, Auflösungs-Erklärungen und Tipps für optimale Anzeigeeinstellungen."
+title: "Welche Auflösung hat mein Monitor?"
+description: "Finden Sie heraus, welche Auflösung Ihr Monitor hat. Anleitung für Windows, Mac, Linux und Browser-Test mit Erklärung zu 1920×1080, 1440p und 4K."
 slug: "how-to-check-screen-resolution"
 date: "2025-01-19"
 author: "Sarah Mitchell"
 category: "guides"
 tags: ["bildschirmauflösung", "anzeigeeinstellungen", "anleitung", "grundlagen"]
 featuredImage: "how-to-check-screen-resolution.jpg"
-keywords: "Bildschirmauflösung prüfen, Auflösung anzeigen, Monitor Auflösung, Display Auflösung, Bildschirm Auflösung testen, Auflösung herausfinden"
+keywords: "welche Auflösung hat mein Monitor, Bildschirmauflösung prüfen, Monitor Auflösung anzeigen, Display Auflösung, Auflösung herausfinden"
 ---
 
-# Bildschirmauflösung prüfen: Komplette Anleitung (2025)
+# Welche Auflösung hat mein Monitor?
 
-Die Kenntnis Ihrer Bildschirmauflösung ist wichtig für die Optimierung Ihrer Display-Einstellungen, die Auswahl geeigneter Hintergrundbilder, das Einrichten von Dual-Monitoren und die Gewährleistung korrekter Software-Anzeige. Ob Sie Windows, Mac, Linux oder mobile Geräte verwenden, es gibt mehrere Wege, Ihre Bildschirmauflösung schnell und einfach zu prüfen.
+Wenn Sie sich fragen, welche Auflösung Ihr Monitor hat, finden Sie die Antwort in den Anzeigeeinstellungen von Windows, macOS oder Linux. Die Auflösung wird als Breite × Höhe in Pixeln angezeigt, zum Beispiel 1920×1080, 2560×1440 oder 3840×2160.
 
 **Schnellantwort**: Um Ihre Bildschirmauflösung zu prüfen, **Rechtsklick auf den Desktop** und wählen Sie **Anzeigeeinstellungen** (Windows) oder **Systemeinstellungen** → **Monitore** (Mac). Ihre Auflösung wird als Breite × Höhe in Pixeln angezeigt (z.B. 1920×1080, 2560×1440). Alternativ nutzen Sie unser [Screen Size Checker Tool](/) für sofortige Erkennung und detaillierte Display-Informationen.
 
