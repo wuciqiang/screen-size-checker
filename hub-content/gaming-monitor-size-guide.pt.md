@@ -3,6 +3,7 @@ title: "Seletor de tamanho de monitor gamer 2026: 24, 27 ou 32 polegadas"
 description: "Escolha o tamanho do monitor gamer com um seletor prático 2026: 24, 27, 32 polegadas, ultrawide, resolução, profundidade da mesa, distância, GPU e gênero."
 slug: "gaming-monitor-size-guide"
 date: "2026-04-30"
+dateModified: "2026-06-08"
 author: "Marcus Rivera"
 category: "gaming"
 tags: ["tamanho-monitor", "monitor-gamer", "24-polegadas", "27-polegadas", "32-polegadas", "distancia-visualizacao"]
@@ -14,7 +15,9 @@ keywords: "tamanho monitor gamer, 24 ou 27 polegadas gaming, 27 ou 32 polegadas 
 
 **Resposta rápida:** escolha **24-25 polegadas 1080p** se FPS competitivo e alto refresh são prioridade, **27 polegadas 1440p** se você quer o melhor equilíbrio para PC gaming, trabalho e uso diário, e **32 polegadas 4K** se joga single-player, console, controle ou senta mais longe. O maior monitor nem sempre é o melhor monitor.
 
-Esta página foi atualizada em 30 de abril de 2026 como seletor, não como troca de ano. Removemos porcentagens de jogadores profissionais e combinações fixas de GPU/preço porque ficam desatualizadas rápido. A recomendação agora usa critérios estáveis: densidade de pixels, profundidade da mesa, distância, gênero de jogo, taxa de atualização e ergonomia.
+Se sua dúvida principal é shooter, use esta página como seletor geral e depois veja o guia dedicado de [melhor tamanho de monitor para FPS]({{lang_prefix}}/hub/best-monitor-size-fps), com mais detalhes para FPS tático, battle royale, refresh e distância.
+
+Esta página foi atualizada em 30 de abril de 2026 como seletor, não como troca de ano. Removemos estatísticas específicas demais e combinações fixas de GPU/preço porque ficam desatualizadas rápido. A recomendação agora usa critérios estáveis: densidade de pixels, profundidade da mesa, distância, gênero de jogo, taxa de atualização e ergonomia.
 
 ## Seletor rápido
 

@@ -108,10 +108,9 @@ class HubBuilder {
                     // 将Markdown中的H1标签转换为H2，避免多个H1
                     htmlContent = htmlContent.replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>');
                     
-                    // 替换 {{lang_prefix}} 变量为正确的路径
-                    // 对于英文，lang_prefix 是 ..（因为hub在根目录下的hub文件夹）
-                    // 对于其他语言，lang_prefix 是 ../..（因为在/zh/hub/下）
-                    const langPrefix = lang === 'en' ? '..' : '../..';
+                    // Replace {{lang_prefix}} with site-root paths so hub markdown
+                    // keeps users in the current language version.
+                    const langPrefix = lang === 'en' ? '' : `/${lang}`;
                     // 替换原始的 {{lang_prefix}}
                     htmlContent = htmlContent.replace(/\{\{lang_prefix\}\}/g, langPrefix);
                     // 替换URL编码的版本 %7B%7Blang_prefix%7D%7D
@@ -135,6 +134,7 @@ class HubBuilder {
                         category: data.category || 'general',
                         tags: Array.isArray(data.tags) ? data.tags : [],
                         date: this.resolvePageDate(filePath, data.date),
+                        dateModified: data.dateModified || data.lastModified || data.updated || '',
                         author: data.author || 'Screen Size Checker Team',
                         featuredImage: data.featuredImage || '',
                         readingTime,

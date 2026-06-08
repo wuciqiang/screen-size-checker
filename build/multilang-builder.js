@@ -1331,6 +1331,9 @@ class MultiLangBuilder extends ComponentBuilder {
             if (item && typeof item === 'object') {
                 const normalizedItem = { ...item };
                 delete normalizedItem['@context'];
+                if (normalizedItem.url && pageData.canonical_url) {
+                    normalizedItem.url = pageData.canonical_url;
+                }
                 if (!normalizedItem.inLanguage) {
                     normalizedItem.inLanguage = lang;
                 }

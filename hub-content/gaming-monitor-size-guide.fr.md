@@ -3,6 +3,7 @@ title: "Sélecteur de taille d’écran gaming 2026 : 24, 27 ou 32 pouces"
 description: "Choisissez la bonne taille d’écran gaming avec un sélecteur 2026 : 24, 27, 32 pouces, ultrawide, résolution, profondeur de bureau, distance, GPU et genre de jeu."
 slug: "gaming-monitor-size-guide"
 date: "2026-04-30"
+dateModified: "2026-06-08"
 author: "Marcus Rivera"
 category: "gaming"
 tags: ["taille-ecran", "ecran-gaming", "24-pouces", "27-pouces", "32-pouces", "distance-visionnage"]
@@ -14,7 +15,9 @@ keywords: "taille ecran gaming, 24 ou 27 pouces gaming, 27 ou 32 pouces gaming, 
 
 **Réponse rapide :** choisissez **24-25 pouces 1080p** si vous jouez surtout en FPS compétitif et que vous êtes proche de l’écran, **27 pouces 1440p** si vous voulez le meilleur compromis PC gaming, travail et usage quotidien, et **32 pouces 4K** si vous privilégiez les jeux immersifs, la console, la manette ou une plus grande distance.
 
-Cette page a été réécrite le 30 avril 2026 comme outil de décision, pas comme simple changement d’année. Les pourcentages de joueurs pros et les combinaisons GPU/prix trop fragiles ont été retirés. Les recommandations reposent maintenant sur des critères durables : densité de pixels, profondeur du bureau, distance, genre de jeu, objectif de rafraîchissement et ergonomie.
+Si votre question principale concerne les shooters, utilisez cette page comme sélecteur général puis consultez le guide dédié à la [meilleure taille d’écran pour le FPS]({{lang_prefix}}/hub/best-monitor-size-fps), avec plus de détails sur FPS tactique, battle royale, refresh et distance.
+
+Cette page a été réécrite le 30 avril 2026 comme outil de décision, pas comme simple changement d’année. Les statistiques trop spécifiques et les combinaisons GPU/prix trop fragiles ont été retirées. Les recommandations reposent maintenant sur des critères durables : densité de pixels, profondeur du bureau, distance, genre de jeu, objectif de rafraîchissement et ergonomie.
 
 ## Sélecteur rapide
 
