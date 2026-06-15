@@ -2282,6 +2282,92 @@ html {
     border-bottom: none;
 }
 
+/* Affiliate resource modules */
+.affiliate-resource-box {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    background: var(--background-card);
+    box-shadow: var(--shadow-light);
+}
+
+.affiliate-resource-box h3,
+.hub-content .affiliate-resource-box h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    padding: 0;
+    border: 0;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    line-height: 1.35;
+}
+
+.affiliate-resource-box p,
+.hub-content .affiliate-resource-box p {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.affiliate-resource-box .affiliate-disclosure,
+.hub-content .affiliate-resource-box .affiliate-disclosure {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.affiliate-link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.affiliate-resource-box .affiliate-link,
+.hub-content .affiliate-resource-box .affiliate-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--background-secondary);
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.affiliate-resource-box .affiliate-link:hover,
+.affiliate-resource-box .affiliate-link:focus,
+.hub-content .affiliate-resource-box .affiliate-link:hover,
+.hub-content .affiliate-resource-box .affiliate-link:focus {
+    border-color: var(--primary-color);
+    background: var(--primary-color-light);
+    text-decoration: none;
+    outline: none;
+}
+
+[data-theme="dark"] .affiliate-resource-box {
+    background: var(--background-card);
+    border-color: var(--border-color);
+    border-left-color: var(--accent-color);
+}
+
+@media (max-width: 480px) {
+    .affiliate-link-list {
+        flex-direction: column;
+    }
+
+    .affiliate-resource-box .affiliate-link,
+    .hub-content .affiliate-resource-box .affiliate-link {
+        width: 100%;
+    }
+}
+
 /* Dark theme adjustments for device pages */
 [data-theme="dark"] .devices-hero-section {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);

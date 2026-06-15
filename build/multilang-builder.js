@@ -320,6 +320,7 @@ class MultiLangBuilder extends ComponentBuilder {
                         lang: lang,
                         lang_prefix: lang === this.defaultLanguage ? '' : `/${lang}`,
                         lang_code: lang.toUpperCase(),
+                        is_default_lang: lang === this.defaultLanguage,
                         page_content: page.page_content,
                         ...page.config
                     };
@@ -1738,6 +1739,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     lang: 'en',
                     lang_prefix: '',
                     lang_code: 'EN',
+                    is_default_lang: true,
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -1851,6 +1853,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     lang: 'en',
                     lang_prefix: '',
                     lang_code: 'EN',
+                    is_default_lang: true,
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -1978,6 +1981,7 @@ class MultiLangBuilder extends ComponentBuilder {
             lang: 'en',
             lang_prefix: '',
             lang_code: 'EN',
+            is_default_lang: true,
             page_content: indexPageConfig.page_content,
             ...indexPageConfig.config
         };

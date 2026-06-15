@@ -14333,7 +14333,7 @@
           "gaming-setup"
         ],
         "hub_date": "2025-01-19",
-        "hub_reading_time": 15,
+        "hub_reading_time": 16,
         "hub_author": "Marcus Rivera",
         "structured_data": {
           "@context": "https://schema.org",
@@ -14342,7 +14342,7 @@
           "description": "Choose the best monitor size for FPS gaming in 2026. Compare 24, 27, and 32 inch setups by competitive play, desk depth, refresh rate, resolution, and viewing distance.",
           "url": "https://screensizechecker.com/hub/best-monitor-size-fps",
           "datePublished": "2025-03-17",
-          "dateModified": "2026-06-08",
+          "dateModified": "2026-06-15",
           "author": {
             "@type": "Person",
             "name": "Marcus Rivera",

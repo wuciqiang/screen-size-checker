@@ -156,12 +156,45 @@
         }, params || {}), options);
     }
 
+    function trackAffiliateClick(params, options) {
+        return track('affiliate_click', Object.assign({
+            tool_name: 'affiliate_links',
+            tool_action: 'affiliate_click'
+        }, params || {}), options);
+    }
+
+    function handleAffiliateClick(event) {
+        var link = event.target && event.target.closest ? event.target.closest('[data-affiliate-link]') : null;
+        if (!link) {
+            return;
+        }
+
+        trackAffiliateClick({
+            affiliate_program: link.getAttribute('data-affiliate-program') || 'unknown',
+            tool_action: link.getAttribute('data-affiliate-action') || 'affiliate_click',
+            result_type: link.getAttribute('data-affiliate-result') || 'affiliate'
+        }, {
+            dedupeMs: 0
+        });
+    }
+
+    function initAffiliateTracking() {
+        document.addEventListener('click', handleAffiliateClick);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAffiliateTracking, { once: true });
+    } else {
+        initAffiliateTracking();
+    }
+
     window.ScreenSizeAnalytics = {
         track: track,
         trackToolResult: trackToolResult,
         trackCopy: trackCopy,
         trackComparison: trackComparison,
         trackCalculatorCompleted: trackCalculatorCompleted,
+        trackAffiliateClick: trackAffiliateClick,
         getPageContext: getPageContext
     };
 })();
