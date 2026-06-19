@@ -485,6 +485,7 @@ function navigateToLanguage(newLang) {
     localStorage.setItem('i18nextLng', newLang);
 
     let newPath;
+    let preserveSearchAndHash = true;
 
     // Handle different URL patterns
     if (currentPath.includes('/multilang-build/')) {
@@ -552,8 +553,15 @@ function navigateToLanguage(newLang) {
             return;
         }
 
+        const fallbackPath = getMissingTranslationFallbackPath(pagePath, newLang);
+        if (fallbackPath) {
+            newPath = fallbackPath;
+            preserveSearchAndHash = false;
+            console.log('No direct translation for this page, using section fallback:', newPath);
+        }
+
         // Build target URL based on SEO-optimized structure
-        if (newLang === 'en') {
+        if (!newPath && newLang === 'en') {
             // English: prefer root path without language prefix
             // All English pages including blog are at root level
             if (pagePath) {
@@ -562,7 +570,7 @@ function navigateToLanguage(newLang) {
                 newPath = '/';
             }
             console.log('English: using root path for SEO optimization');
-        } else {
+        } else if (!newPath) {
             // Other languages: use language prefix
             newPath = `/${newLang}`;
             if (pagePath) {
@@ -573,7 +581,7 @@ function navigateToLanguage(newLang) {
     }
 
     // Construct the full URL
-    const newUrl = newPath + currentSearch + currentHash;
+    const newUrl = newPath + (preserveSearchAndHash ? currentSearch + currentHash : '');
 
     console.log('Navigating to:', newUrl);
     console.log('Language switch mapping:', currentPath, '->', newUrl);
@@ -582,30 +590,20 @@ function navigateToLanguage(newLang) {
     window.location.href = newUrl;
 }
 
-function applyAvailableLanguageCards(languageModal) {
-    const alternateLinks = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
-    const availableLanguages = new Set(
-        alternateLinks
-            .map(link => link.getAttribute('hreflang'))
-            .filter(lang => lang && lang !== 'x-default')
-    );
+function hasDirectAlternateLanguage(lang) {
+    return Boolean(document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`));
+}
 
-    if (availableLanguages.size === 0) {
-        return;
+function getMissingTranslationFallbackPath(pagePath, targetLang) {
+    if (!pagePath || !pagePath.startsWith('blog/')) {
+        return '';
     }
 
-    const languageCards = languageModal.querySelectorAll('.language-card[data-lang]');
-    languageCards.forEach(card => {
-        const lang = card.getAttribute('data-lang');
-        if (!lang || availableLanguages.has(lang) || !card.classList.contains('active')) {
-            return;
-        }
+    if (hasDirectAlternateLanguage(targetLang)) {
+        return '';
+    }
 
-        card.classList.remove('active');
-        card.classList.add('disabled');
-        card.setAttribute('aria-disabled', 'true');
-        card.setAttribute('data-coming-soon', 'Not available for this page');
-    });
+    return targetLang === 'en' ? '/blog/' : `/${targetLang}/blog/`;
 }
 
 /**
@@ -660,8 +658,6 @@ function setupBasicLanguageSelector() {
                 closeModal();
             }
         });
-
-        applyAvailableLanguageCards(languageModal);
 
         // Setup language card clicks (direct navigation for multilang build)
         const languageCards = languageModal.querySelectorAll('.language-card.active:not(.disabled)');

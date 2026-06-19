@@ -38,7 +38,6 @@ class LanguageModal {
             return;
         }
         
-        this.applyAvailableLanguages();
         this.languageCards = this.modal.querySelectorAll('.language-card.active:not(.disabled)');
         
         // Set up event listeners
@@ -109,35 +108,6 @@ class LanguageModal {
         });
     }
 
-    /**
-     * Disable languages that are not exposed by this page's hreflang tags.
-     */
-    applyAvailableLanguages() {
-        const alternateLinks = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
-        const availableLanguages = new Set(
-            alternateLinks
-                .map(link => link.getAttribute('hreflang'))
-                .filter(lang => lang && lang !== 'x-default')
-        );
-
-        if (availableLanguages.size === 0) {
-            return;
-        }
-
-        const cards = this.modal.querySelectorAll('.language-card[data-lang]');
-        cards.forEach(card => {
-            const lang = card.getAttribute('data-lang');
-            if (!lang || availableLanguages.has(lang) || !card.classList.contains('active')) {
-                return;
-            }
-
-            card.classList.remove('active');
-            card.classList.add('disabled');
-            card.setAttribute('aria-disabled', 'true');
-            card.setAttribute('data-coming-soon', 'Not available for this page');
-        });
-    }
-    
     /**
      * Get "coming soon" text based on current language
      */
@@ -278,8 +248,14 @@ class LanguageModal {
         
         // Build target URL based on SEO-optimized structure
         let targetUrl;
+        let preserveSearchAndHash = true;
+        const fallbackUrl = this.getMissingTranslationFallbackUrl(pagePath, targetLang);
         
-        if (targetLang === 'en') {
+        if (fallbackUrl) {
+            targetUrl = fallbackUrl;
+            preserveSearchAndHash = false;
+            console.log(`No direct translation for this page, using section fallback: ${targetUrl}`);
+        } else if (targetLang === 'en') {
             // English: prefer root path without language prefix
             targetUrl = pagePath ? `/${pagePath}` : '/';
             console.log(`?? English target: using root path (${targetUrl})`);
@@ -290,10 +266,10 @@ class LanguageModal {
         }
         
         // Add search params and hash if they exist
-        if (currentSearch) {
+        if (preserveSearchAndHash && currentSearch) {
             targetUrl += currentSearch;
         }
-        if (currentHash) {
+        if (preserveSearchAndHash && currentHash) {
             targetUrl += currentHash;
         }
         
@@ -301,6 +277,22 @@ class LanguageModal {
         console.log(`📊 Language switch mapping: ${currentPath} -> ${targetUrl}`);
         
         return targetUrl;
+    }
+
+    hasDirectAlternateLanguage(lang) {
+        return Boolean(document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`));
+    }
+
+    getMissingTranslationFallbackUrl(pagePath, targetLang) {
+        if (!pagePath || !pagePath.startsWith('blog/')) {
+            return '';
+        }
+
+        if (this.hasDirectAlternateLanguage(targetLang)) {
+            return '';
+        }
+
+        return targetLang === 'en' ? '/blog/' : `/${targetLang}/blog/`;
     }
     
     /**

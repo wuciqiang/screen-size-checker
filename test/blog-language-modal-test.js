@@ -172,6 +172,11 @@ async function run() {
                 name: '博客详情页',
                 path: '/blog/device-pixel-ratio',
                 expectedZhPath: '/zh/blog/device-pixel-ratio'
+            },
+            {
+                name: 'Untranslated blog post',
+                path: '/blog/android-17-foldables-multi-window-adaptation',
+                expectedZhPath: '/zh/blog/'
             }
         ]) {
             const pageErrors = [];
@@ -203,6 +208,29 @@ async function run() {
             const afterClass = await page.$eval('#language-modal', element => element.className);
             assert.ok(afterClass.includes('show'), `${scenario.name} 点击语言按钮后未打开弹窗`);
             console.log(`✅ ${scenario.name}：语言弹窗可正常打开`);
+
+            const primaryLanguageStates = await page.$$eval(
+                '#language-modal.show .language-card[data-lang]',
+                cards => cards
+                    .filter(card => ['en', 'zh', 'de', 'es', 'pt', 'fr'].includes(card.dataset.lang))
+                    .map(card => ({
+                        lang: card.dataset.lang,
+                        active: card.classList.contains('active'),
+                        disabled: card.classList.contains('disabled'),
+                        ariaDisabled: card.getAttribute('aria-disabled')
+                    }))
+            );
+
+            assert.deepStrictEqual(
+                primaryLanguageStates,
+                ['en', 'zh', 'de', 'es', 'pt', 'fr'].map(lang => ({
+                    lang,
+                    active: true,
+                    disabled: false,
+                    ariaDisabled: null
+                })),
+                `${scenario.name} should keep all live site languages enabled`
+            );
 
             await Promise.all([
                 page.waitForURL(url => url.pathname === scenario.expectedZhPath),
