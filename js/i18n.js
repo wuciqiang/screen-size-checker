@@ -834,6 +834,7 @@ export function setupLanguageSelector() {
     // Setup new button-based language selector
     const languageToggle = document.getElementById('language-toggle');
     const languageDropdown = document.getElementById('language-dropdown');
+    const languageModalTrigger = document.getElementById('language-modal-trigger');
     
     if (languageToggle && languageDropdown) {
         console.log('Setting up language selector (new button style)');
@@ -902,8 +903,8 @@ export function setupLanguageSelector() {
         });
     }
     
-    if (!languageSelect && !languageToggle) {
-        console.error('No language selector found (neither select nor button)');
+    if (!languageSelect && !languageToggle && !languageModalTrigger) {
+        console.error('No language selector found (select, dropdown, or modal trigger)');
     }
 }
 

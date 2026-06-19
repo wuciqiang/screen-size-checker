@@ -508,6 +508,85 @@ class BlogBuilder {
 
         fs.writeFileSync(filePath, `${header}${content}`, 'utf8');
     }
+
+    escapeHtml(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    getPostUrl(post) {
+        const langPrefix = post.lang === 'en' ? '' : `/${post.lang}`;
+        return `${langPrefix}/blog/${post.slug}`;
+    }
+
+    getRelatedPosts(post, limit = 2) {
+        const currentTags = new Set(post.tags || []);
+        const candidates = Array.from(this.blogPosts.values())
+            .filter(candidate => candidate.lang === post.lang && candidate.id !== post.id)
+            .map(candidate => {
+                const sharedTags = (candidate.tags || []).filter(tag => currentTags.has(tag)).length;
+                const sameCategory = candidate.category === post.category ? 1 : 0;
+
+                return {
+                    post: candidate,
+                    score: (sameCategory * 4) + (sharedTags * 3)
+                };
+            })
+            .sort((a, b) => {
+                if (b.score !== a.score) {
+                    return b.score - a.score;
+                }
+
+                return b.post.date - a.post.date;
+            });
+
+        const related = candidates
+            .filter(candidate => candidate.score > 0)
+            .map(candidate => candidate.post);
+
+        if (related.length < limit) {
+            candidates
+                .filter(candidate => !related.includes(candidate.post))
+                .forEach(candidate => {
+                    if (related.length < limit) {
+                        related.push(candidate.post);
+                    }
+                });
+        }
+
+        return related.slice(0, limit);
+    }
+
+    generateRelatedPostsHtml(post) {
+        const relatedPosts = this.getRelatedPosts(post);
+        if (relatedPosts.length === 0) {
+            return '';
+        }
+
+        const heading = post.lang === 'zh' ? '&#30456;&#20851;&#25991;&#31456;' : 'Related Articles';
+        const cards = relatedPosts.map(relatedPost => {
+            const description = relatedPost.description
+                ? `<p>${this.escapeHtml(relatedPost.description)}</p>`
+                : '';
+
+            return `<a class="related-post-card" href="${this.getPostUrl(relatedPost)}">
+                <span class="related-post-category">${this.escapeHtml(relatedPost.category)}</span>
+                <h4>${this.escapeHtml(relatedPost.title)}</h4>
+                ${description}
+            </a>`;
+        }).join('\n            ');
+
+        return `<div class="blog-post-related">
+        <h3>${heading}</h3>
+        <div class="blog-post-related-container">
+            ${cards}
+        </div>
+    </div>`;
+    }
     
     /**
      * 生成单篇博客文章组件
@@ -515,6 +594,7 @@ class BlogBuilder {
     generatePostComponent(post) {
         // 增强文章内容中的图片标签（补齐性能属性）
         const enhancedContent = this.enhanceImages(post.content, { firstImageHighPriority: !!post.featuredImage });
+        const relatedPostsHtml = this.generateRelatedPostsHtml(post);
         
         return `<!-- Blog Post: ${post.title} -->
 <article class="blog-post">
@@ -549,13 +629,7 @@ class BlogBuilder {
         </div>
     </footer>
     
-    <div class="blog-post-related">
-        <h3>${post.lang === 'zh' ? '相关文章' : 'Related Articles'}</h3>
-        <div class="blog-post-related-container">
-            <!-- 相关文章将通过JS动态加载 -->
-            <div class="related-posts-placeholder" data-post-id="${post.id}" data-post-lang="${post.lang}"></div>
-        </div>
-    </div>
+    ${relatedPostsHtml}
 </article>`;
     }
     

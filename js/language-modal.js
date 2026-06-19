@@ -38,7 +38,8 @@ class LanguageModal {
             return;
         }
         
-        this.languageCards = this.modal.querySelectorAll('.language-card.active');
+        this.applyAvailableLanguages();
+        this.languageCards = this.modal.querySelectorAll('.language-card.active:not(.disabled)');
         
         // Set up event listeners
         this.setupEventListeners();
@@ -105,6 +106,35 @@ class LanguageModal {
         disabledCards.forEach(card => {
             // Set data attribute for CSS content
             card.setAttribute('data-coming-soon', this.getComingSoonText());
+        });
+    }
+
+    /**
+     * Disable languages that are not exposed by this page's hreflang tags.
+     */
+    applyAvailableLanguages() {
+        const alternateLinks = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+        const availableLanguages = new Set(
+            alternateLinks
+                .map(link => link.getAttribute('hreflang'))
+                .filter(lang => lang && lang !== 'x-default')
+        );
+
+        if (availableLanguages.size === 0) {
+            return;
+        }
+
+        const cards = this.modal.querySelectorAll('.language-card[data-lang]');
+        cards.forEach(card => {
+            const lang = card.getAttribute('data-lang');
+            if (!lang || availableLanguages.has(lang) || !card.classList.contains('active')) {
+                return;
+            }
+
+            card.classList.remove('active');
+            card.classList.add('disabled');
+            card.setAttribute('aria-disabled', 'true');
+            card.setAttribute('data-coming-soon', 'Not available for this page');
         });
     }
     

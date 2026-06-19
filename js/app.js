@@ -582,6 +582,32 @@ function navigateToLanguage(newLang) {
     window.location.href = newUrl;
 }
 
+function applyAvailableLanguageCards(languageModal) {
+    const alternateLinks = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+    const availableLanguages = new Set(
+        alternateLinks
+            .map(link => link.getAttribute('hreflang'))
+            .filter(lang => lang && lang !== 'x-default')
+    );
+
+    if (availableLanguages.size === 0) {
+        return;
+    }
+
+    const languageCards = languageModal.querySelectorAll('.language-card[data-lang]');
+    languageCards.forEach(card => {
+        const lang = card.getAttribute('data-lang');
+        if (!lang || availableLanguages.has(lang) || !card.classList.contains('active')) {
+            return;
+        }
+
+        card.classList.remove('active');
+        card.classList.add('disabled');
+        card.setAttribute('aria-disabled', 'true');
+        card.setAttribute('data-coming-soon', 'Not available for this page');
+    });
+}
+
 /**
  * Setup basic language selector functionality before i18n loads
  */
@@ -635,8 +661,10 @@ function setupBasicLanguageSelector() {
             }
         });
 
+        applyAvailableLanguageCards(languageModal);
+
         // Setup language card clicks (direct navigation for multilang build)
-        const languageCards = languageModal.querySelectorAll('.language-card:not(.disabled)');
+        const languageCards = languageModal.querySelectorAll('.language-card.active:not(.disabled)');
         languageCards.forEach(card => {
             card.addEventListener('click', (event) => {
                 event.preventDefault();

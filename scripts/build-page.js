@@ -110,7 +110,7 @@ function selectPages(config, requestedPages) {
     return pages;
 }
 
-function buildPageData(builder, page, lang, translations) {
+function buildPageData(builder, config, page, lang, translations) {
     const pageData = {
         lang,
         lang_prefix: lang === builder.defaultLanguage ? '' : `/${lang}`,
@@ -266,14 +266,16 @@ function buildPageData(builder, page, lang, translations) {
         pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
     }
 
+    pageData.hreflang_tags = builder.generateHreflangTags(config, page, pageData, lang);
+    pageData.current_i18n_attr = builder.generateI18nAttribute(pageData.current_key, pageData.current_name);
     pageData.structured_data = builder.generateStructuredData(pageData, lang);
     pageData.faq_structured_data = pageData.faq_structured_data || builder.generateFAQStructuredDataForPage(page.name, lang);
 
     return { pageData, outputPath };
 }
 
-function buildPageHtml(builder, page, lang, translations) {
-    const { pageData, outputPath } = buildPageData(builder, page, lang, translations);
+function buildPageHtml(builder, config, page, lang, translations) {
+    const { pageData, outputPath } = buildPageData(builder, config, page, lang, translations);
 
     let html = builder.buildPage(page.template, pageData);
     html = builder.translateContent(html, translations);
@@ -316,7 +318,7 @@ function runBuildPage(args = process.argv.slice(2)) {
                 return;
             }
 
-            const { html, outputPath } = buildPageHtml(builder, page, lang, translations);
+            const { html, outputPath } = buildPageHtml(builder, config, page, lang, translations);
             const finalOutputPath = path.join(options.outputDir, outputPath);
             fs.mkdirSync(path.dirname(finalOutputPath), { recursive: true });
             fs.writeFileSync(finalOutputPath, html, 'utf8');

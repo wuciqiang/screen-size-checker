@@ -231,6 +231,121 @@ class MultiLangBuilder extends ComponentBuilder {
         }
         return `/${lang}/${pagePath.replace('.html', '')}`;
     }
+
+    escapeHtmlAttribute(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    generateI18nAttribute(key, displayText) {
+        if (!key || key === displayText) {
+            return '';
+        }
+
+        return ` data-i18n="${this.escapeHtmlAttribute(key)}"`;
+    }
+
+    normalizeHreflangUrl(url) {
+        return String(url || '').replace(/\.html$/, '').replace(/\/$/, match => {
+            return url === 'https://screensizechecker.com/' ? match : '';
+        });
+    }
+
+    getCanonicalUrlForPageLang(page, lang) {
+        const baseUrl = 'https://screensizechecker.com';
+        let canonicalUrl = page?.config?.canonical_url;
+
+        if (!canonicalUrl) {
+            const outputPath = String(page?.output || 'index.html')
+                .replace(/\\/g, '/')
+                .replace(/\/index\.html$/i, '/')
+                .replace(/\.html$/i, '');
+            canonicalUrl = `${baseUrl}/${outputPath}`.replace(/\/+$/, '/');
+        }
+
+        canonicalUrl = canonicalUrl.replace(/\.html$/, '');
+
+        if (lang === this.defaultLanguage) {
+            return canonicalUrl.replace(`${baseUrl}/${this.defaultLanguage}/`, `${baseUrl}/`);
+        }
+
+        if (canonicalUrl === `${baseUrl}/${lang}` || canonicalUrl.startsWith(`${baseUrl}/${lang}/`)) {
+            return canonicalUrl;
+        }
+
+        if (canonicalUrl.startsWith(`${baseUrl}/`)) {
+            return canonicalUrl.replace(`${baseUrl}/`, `${baseUrl}/${lang}/`);
+        }
+
+        return canonicalUrl;
+    }
+
+    hreflangUrlExists(config, lang, url) {
+        const targetUrl = this.normalizeHreflangUrl(url);
+
+        return config.pages.some(candidatePage => {
+            const candidateLanguages = candidatePage.enabled_languages || this.enabledLanguages;
+            if (!candidateLanguages.includes(lang)) {
+                return false;
+            }
+
+            const candidateUrl = this.getCanonicalUrlForPageLang(candidatePage, lang);
+            return this.normalizeHreflangUrl(candidateUrl) === targetUrl;
+        });
+    }
+
+    getAvailableHreflangUrls(config, page, pageData, currentLang) {
+        const urls = new Map();
+
+        this.enabledLanguages.forEach(lang => {
+            const explicitUrl = page?.config?.[`hreflang_${lang}_url`];
+            if (explicitUrl && this.hreflangUrlExists(config, lang, explicitUrl)) {
+                urls.set(lang, this.normalizeHreflangUrl(explicitUrl));
+            }
+        });
+
+        const siblingPages = config.pages.filter(candidatePage => candidatePage.output === page.output);
+        const candidates = siblingPages.length > 0 ? siblingPages : [page];
+
+        candidates.forEach(candidatePage => {
+            const candidateLanguages = candidatePage.enabled_languages || this.enabledLanguages;
+            candidateLanguages.forEach(lang => {
+                if (!this.enabledLanguages.includes(lang) || urls.has(lang)) {
+                    return;
+                }
+
+                urls.set(lang, this.getCanonicalUrlForPageLang(candidatePage, lang));
+            });
+        });
+
+        if (!urls.has(currentLang)) {
+            urls.set(currentLang, pageData.canonical_url);
+        }
+
+        return urls;
+    }
+
+    generateHreflangTags(config, page, pageData, currentLang) {
+        const urls = this.getAvailableHreflangUrls(config, page, pageData, currentLang);
+        const lines = [];
+
+        this.enabledLanguages.forEach(lang => {
+            const url = urls.get(lang);
+            if (url) {
+                lines.push(`<link rel="alternate" hreflang="${lang}" href="${url}">`);
+            }
+        });
+
+        const defaultUrl = urls.get(this.defaultLanguage) || urls.get(currentLang) || Array.from(urls.values())[0];
+        if (defaultUrl) {
+            lines.push(`<link rel="alternate" hreflang="x-default" href="${defaultUrl}">`);
+        }
+
+        return lines.join('\n');
+    }
     
     // 闁汇垻鍠愰崹姘緞濮樻剚鍤旈悷灏佸亾濡炪倗鏁诲?
     buildMultiLangPages() {
@@ -547,6 +662,9 @@ class MultiLangBuilder extends ComponentBuilder {
 
                         pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
                     }
+
+                    pageData.hreflang_tags = this.generateHreflangTags(config, page, pageData, lang);
+                    pageData.current_i18n_attr = this.generateI18nAttribute(pageData.current_key, pageData.current_name);
                     
                     // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
                     pageData.structured_data = this.generateStructuredData(pageData, lang);
@@ -1769,6 +1887,8 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 rootPageData.hreflang_fr_url = `https://screensizechecker.com/fr${rootPageData.page_path}`;
                 rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
+                rootPageData.hreflang_tags = this.generateHreflangTags(config, page, rootPageData, 'en');
+                rootPageData.current_i18n_attr = this.generateI18nAttribute(rootPageData.current_key, rootPageData.current_name);
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
@@ -1884,6 +2004,8 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.hreflang_es_url = `https://screensizechecker.com/es${rootPageData.page_path}`;
                 rootPageData.hreflang_fr_url = `https://screensizechecker.com/fr${rootPageData.page_path}`;
                 rootPageData.hreflang_pt_url = `https://screensizechecker.com/pt${rootPageData.page_path}`;
+                rootPageData.hreflang_tags = this.generateHreflangTags(config, page, rootPageData, 'en');
+                rootPageData.current_i18n_attr = this.generateI18nAttribute(rootPageData.current_key, rootPageData.current_name);
                 
                 // 濠㈣泛瀚幃濠勭礄閺勫繒妲?
                 if (rootPageData.page_title_key) {
@@ -2007,6 +2129,8 @@ class MultiLangBuilder extends ComponentBuilder {
         rootPageData.hreflang_es_url = 'https://screensizechecker.com/es/';
         rootPageData.hreflang_fr_url = 'https://screensizechecker.com/fr/';
         rootPageData.hreflang_pt_url = 'https://screensizechecker.com/pt/';
+        rootPageData.hreflang_tags = this.generateHreflangTags(config, indexPageConfig, rootPageData, 'en');
+        rootPageData.current_i18n_attr = this.generateI18nAttribute(rootPageData.current_key, rootPageData.current_name);
         
         // 濞寸姴娴烽悙鏇犳嫚閹寸偞鐎ù鐘虫构閼垫垿鎳㈠畡鏉跨悼濡炪倗鏁诲浼存偋閻熸壆鏆伴柣銊ュ閻愭洜鎷犻幋婵冨亾?
         if (rootPageData.page_title_key) {
