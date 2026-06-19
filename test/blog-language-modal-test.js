@@ -182,10 +182,10 @@ async function run() {
                 expectedPath: '/zh/blog/android-17-foldables-multi-window-adaptation'
             },
             {
-                name: 'Untranslated French blog post',
+                name: 'French-translated blog post',
                 path: '/blog/android-17-foldables-multi-window-adaptation',
                 targetLang: 'fr',
-                expectedPath: '/fr/blog/'
+                expectedPath: '/fr/blog/android-17-foldables-multi-window-adaptation'
             }
         ]) {
             const pageErrors = [];
