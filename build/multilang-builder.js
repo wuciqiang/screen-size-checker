@@ -2347,28 +2347,49 @@ ${languageCards}
             { path: '/devices/lcd-screen-tester', priority: '0.8', changefreq: 'monthly' }
         ];
         
-        // 閻庤鐭粻鐔煎础濮橆剦鍚傚銈囨暬濞兼壆绱掗幘瀵糕偓?
-        const blogPages = [
-            { path: '/blog/', priority: '0.9', changefreq: 'weekly' },
-            { path: '/blog/device-pixel-ratio', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/media-queries-essentials', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/viewport-basics', priority: '0.8', changefreq: 'monthly' },
-            // How-to Guide Series (High Priority)
-            { path: '/blog/how-to-measure-monitor-size', priority: '0.9', changefreq: 'monthly' },
-            { path: '/blog/how-to-measure-laptop-screen', priority: '0.9', changefreq: 'monthly' },
-            { path: '/blog/how-to-check-screen-resolution', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/monitor-buying-guide-2025', priority: '0.9', changefreq: 'monthly' },
-            { path: '/blog/gaming-monitor-setup-guide', priority: '0.9', changefreq: 'monthly' },
-            // Other Articles
-            { path: '/blog/average-laptop-screen-size-2025', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/black_myth_guide', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/container-queries-guide', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/responsive-debugging-checklist', priority: '0.8', changefreq: 'monthly' },
-            { path: '/blog/screen-dimensions-cheat-sheet', priority: '0.8', changefreq: 'monthly' }
-        ];
-        
-        // 濞戞搩鍘介弸鍐偋鐟欏嫭绠掗柣銊ュ閻栵絿绮垫ィ鍐︹偓澶愭?
-        const zhBlogPages = [];
+        const configPath = path.join(__dirname, 'pages-config.json');
+        const pagesConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+        const blogIndexPage = { path: '/blog/', priority: '0.9', changefreq: 'weekly' };
+        const blogPriorityByPath = new Map([
+            ['/blog/device-pixel-ratio', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/media-queries-essentials', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/viewport-basics', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/how-to-measure-monitor-size', { priority: '0.9', changefreq: 'monthly' }],
+            ['/blog/how-to-measure-laptop-screen', { priority: '0.9', changefreq: 'monthly' }],
+            ['/blog/how-to-check-screen-resolution', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/monitor-buying-guide-2025', { priority: '0.9', changefreq: 'monthly' }],
+            ['/blog/gaming-monitor-setup-guide', { priority: '0.9', changefreq: 'monthly' }],
+            ['/blog/average-laptop-screen-size-2025', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/black_myth_guide', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/container-queries-guide', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/responsive-debugging-checklist', { priority: '0.8', changefreq: 'monthly' }],
+            ['/blog/screen-dimensions-cheat-sheet', { priority: '0.8', changefreq: 'monthly' }]
+        ]);
+
+        const blogPostPagesByLanguage = new Map(enabledLanguages.map(lang => [lang, []]));
+        pagesConfig.pages
+            .filter(page => page.template === 'blog-post' && page.output && Array.isArray(page.enabled_languages))
+            .forEach(page => {
+                const blogPath = cleanSitemapPath(page.output);
+                const blogMeta = blogPriorityByPath.get(blogPath) || { priority: '0.8', changefreq: 'monthly' };
+                page.enabled_languages
+                    .filter(lang => enabledLanguages.includes(lang))
+                    .forEach(lang => {
+                        blogPostPagesByLanguage.get(lang).push({
+                            path: blogPath,
+                            priority: blogMeta.priority,
+                            changefreq: blogMeta.changefreq
+                        });
+                    });
+            });
+
+        blogPostPagesByLanguage.forEach((languageBlogPages, lang) => {
+            const uniquePages = Array.from(
+                new Map(languageBlogPages.map(page => [page.path, page])).values()
+            ).sort((a, b) => a.path.localeCompare(b.path));
+            blogPostPagesByLanguage.set(lang, uniquePages);
+        });
         
         let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
@@ -2396,7 +2417,7 @@ ${languageCards}
         });
 
         // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟垿宕″顒夊悅濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
-        blogPages.forEach(page => {
+        [blogIndexPage, ...blogPostPagesByLanguage.get('en')].forEach(page => {
             sitemapContent += `
     <url>
         <loc>${baseUrl}${page.path}</loc>
@@ -2408,8 +2429,6 @@ ${languageCards}
         
         // 婵烇綀顕ф慨鐐哄冀閸︻厽绐楃憸鐗堟礈濞堟厰ub濡炪倗鏁诲浼存晬閸絽顏伴柡鍌氭矗鐎靛瞼鎲版担鍝勵暭闁哄牜鍓ㄧ槐?
         // 濞寸姴绐媋ges-config.json閻犲洩顕цぐ鍢搖b濡炪倗鏁诲?
-        const configPath = path.join(__dirname, 'pages-config.json');
-        const pagesConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         const hubPagesEn = pagesConfig.pages.filter(p => 
             p.template === 'hub-page' && 
             p.enabled_languages && 
@@ -2457,7 +2476,7 @@ ${languageCards}
             });
             
             // 婵烇綀顕ф慨鐐哄础濮橆剦鍚傚銈囨暬濞?
-            blogPages.forEach(page => {
+            [blogIndexPage, ...blogPostPagesByLanguage.get(lang)].forEach(page => {
                 sitemapContent += `
     <url>
         <loc>${baseUrl}/${lang}${page.path}</loc>
@@ -2483,19 +2502,6 @@ ${languageCards}
         <priority>0.9</priority>
     </url>`;
             });
-            
-            // 濞戞捁妗ㄩ懙鎴﹀棘閸ャ劌娼戦柛鏃傚Х婢规帡寮垫径灞剧暠闁哄秴娲ㄩ閿嬨亜閻㈠憡妗?
-            if (lang === 'zh') {
-                zhBlogPages.forEach(page => {
-                    sitemapContent += `
-    <url>
-        <loc>${baseUrl}/${lang}${page.path}</loc>
-        <lastmod>${currentDate}</lastmod>
-        <changefreq>${page.changefreq}</changefreq>
-        <priority>${page.priority}</priority>
-    </url>`;
-                });
-            }
         });
         
         // 婵烇綀顕ф慨鐐烘⒕閹邦噮娼岄柡鈧捄銊ф憸濡炪倗鏁诲?
@@ -2516,22 +2522,23 @@ ${languageCards}
         // 1濞戞搩浜濋悧鎾儎椤旇偐绉?+ 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍悹浣瑰劤椤︻剚銇勯悽鍛婃〃 + 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍柛妤佽壘椤撹銇勯悽鍛婃〃 + Hub濡炪倗鏁诲?+ 1濞戞搩浜ｉ銏㈡嚊閳ь剟鏌呮径瀣仴濡炪倗鏁诲?+ 1濞戞搩浜▓锝囩矓娴ｈ鏉虹紒娑欑墵閵嗗妫?
         // + 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳濡炪倗鏁诲?+ 濞戞搩鍘介弸鍐偋鐟欏嫭绠掑銈囨暬濞?
         const nonEnglishLanguageCount = enabledLanguages.length - 1;
-        const rootUrls = 1 + (pages.length - 1) + blogPages.length + hubPagesEn.length;
-        const languageUrls = nonEnglishLanguageCount * (pages.length + blogPages.length);
+        const rootUrls = 1 + (pages.length - 1) + 1 + blogPostPagesByLanguage.get('en').length + hubPagesEn.length;
+        const languageUrls = enabledLanguages
+            .filter(lang => lang !== 'en')
+            .reduce((total, lang) => total + pages.length + 1 + blogPostPagesByLanguage.get(lang).length, 0);
         const hubUrls = pagesConfig.pages.filter(p =>
             p.template === 'hub-page' &&
             p.enabled_languages &&
             p.enabled_languages.some(lang => lang !== 'en' && enabledLanguages.includes(lang))
         ).length;
         const otherUrls = 1;
-        const totalUrls = rootUrls + languageUrls + hubUrls + zhBlogPages.length + otherUrls;
+        const totalUrls = rootUrls + languageUrls + hubUrls + otherUrls;
         
         console.log('[OK] Multilingual sitemap generated with optimized structure');
         console.log(`    Total URLs: ${totalUrls}`);
         console.log(`    Root domain URLs: ${rootUrls} (priority 1.0-0.9)`);
         console.log(`    Language versions: ${languageUrls} (adjusted priorities)`);
         console.log(`    Gaming Hub pages: ${hubUrls} (4 languages)`);
-        console.log(`    Chinese-specific: ${zhBlogPages.length}`);
         console.log(`    Other pages: ${otherUrls}`);
     }
     

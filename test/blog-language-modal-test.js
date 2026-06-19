@@ -166,17 +166,26 @@ async function run() {
             {
                 name: '博客首页',
                 path: '/blog/',
-                expectedZhPath: '/zh/blog/'
+                targetLang: 'zh',
+                expectedPath: '/zh/blog/'
             },
             {
                 name: '博客详情页',
                 path: '/blog/device-pixel-ratio',
-                expectedZhPath: '/zh/blog/device-pixel-ratio'
+                targetLang: 'zh',
+                expectedPath: '/zh/blog/device-pixel-ratio'
             },
             {
-                name: 'Untranslated blog post',
+                name: 'Chinese-translated blog post',
                 path: '/blog/android-17-foldables-multi-window-adaptation',
-                expectedZhPath: '/zh/blog/'
+                targetLang: 'zh',
+                expectedPath: '/zh/blog/android-17-foldables-multi-window-adaptation'
+            },
+            {
+                name: 'Untranslated German blog post',
+                path: '/blog/android-17-foldables-multi-window-adaptation',
+                targetLang: 'de',
+                expectedPath: '/de/blog/'
             }
         ]) {
             const pageErrors = [];
@@ -233,8 +242,8 @@ async function run() {
             );
 
             await Promise.all([
-                page.waitForURL(url => url.pathname === scenario.expectedZhPath),
-                page.click('#language-modal.show .language-card[data-lang="zh"]')
+                page.waitForURL(url => url.pathname === scenario.expectedPath),
+                page.click(`#language-modal.show .language-card[data-lang="${scenario.targetLang}"]`)
             ]);
 
             await page.waitForTimeout(300);
@@ -243,8 +252,8 @@ async function run() {
                 [],
                 `${scenario.name} 语言切换后存在脚本报错: ${pageErrors.join(' | ')}`
             );
-            assert.strictEqual(new URL(page.url()).pathname, scenario.expectedZhPath);
-            console.log(`✅ ${scenario.name}：切换中文后跳转到 ${scenario.expectedZhPath}`);
+            assert.strictEqual(new URL(page.url()).pathname, scenario.expectedPath);
+            console.log(`✅ ${scenario.name}：切换 ${scenario.targetLang} 后跳转到 ${scenario.expectedPath}`);
         }
     } finally {
         await browser.close();
