@@ -352,8 +352,8 @@ html, body {
                 elements.resolution.textContent = resolution;
                 elements.resolution.setAttribute('data-initialized', 'true');
             } else if (!elements.resolution.hasAttribute('data-initialized')) {
-                // Use textContent instead of innerHTML for better performance
-                elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: <span>' + resolution + '</span>';
+                // Initialize label/value structure once so later updates only touch the value.
+                elements.resolution.innerHTML = "<span data-i18n=\"screen_resolution\">Screen Resolution</span>: <span>" + resolution + "</span>";
                 elements.resolution.setAttribute('data-initialized', 'true');
             } else {
                 // Only update the value part, not the label
@@ -362,7 +362,7 @@ html, body {
                     valueSpans[1].textContent = resolution;
                 } else {
                     // Fallback if structure changed
-                    elements.resolution.innerHTML = '<span data-i18n="screen_resolution">Screen Resolution</span>: <span>' + resolution + '</span>';
+                    elements.resolution.innerHTML = "<span data-i18n=\"screen_resolution\">Screen Resolution</span>: <span>" + resolution + "</span>";
                 }
             }
         }

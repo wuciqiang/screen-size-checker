@@ -241,7 +241,7 @@ function initializeShareButtons() {
     shareButtons.forEach(button => {
         button.addEventListener('click', function() {
             // 获取要分享的URL和标题
-            const url = this.getAttribute('data-url') || window.location.href;
+            const url = resolveShareUrl(this.getAttribute('data-url'));
             const title = this.getAttribute('data-title') || document.title;
             
             // 根据按钮类型执行不同的分享操作
@@ -258,6 +258,17 @@ function initializeShareButtons() {
     });
     
     console.log('✅ Share buttons initialized');
+}
+
+function resolveShareUrl(rawUrl) {
+    const canonicalUrl = document.querySelector('link[rel="canonical"]')?.href || window.location.href;
+
+    try {
+        const canonical = new URL(canonicalUrl, window.location.href);
+        return rawUrl ? new URL(rawUrl, canonical.origin).href : canonical.href;
+    } catch (error) {
+        return window.location.href;
+    }
 }
 
 /**
@@ -434,4 +445,4 @@ function fallbackCodeCopyMethod(text, button) {
     } catch (err) {
         console.error('❌ Failed to copy code: ', err);
     }
-} 
+}

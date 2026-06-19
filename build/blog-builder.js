@@ -1202,7 +1202,7 @@ class BlogBuilder {
                                         'author': {
                                             '@type': 'Person',
                                             'name': post.author,
-                                            'url': `https://screensizechecker.com/${lang === 'en' ? '' : lang + '/'}about`
+                                            'url': 'https://screensizechecker.com'
                                         },
                                         'datePublished': existingDatePublished || postDate,
                                         'dateModified': postDateModified,
