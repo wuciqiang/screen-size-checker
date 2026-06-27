@@ -482,6 +482,11 @@ html, body {
 <script>
 // Defer Umami Analytics loading to prevent blocking page load
 window.addEventListener('load', function() {
+    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+    if (!isProductionHost) {
+        return;
+    }
+
     setTimeout(function() {
         var script = document.createElement('script');
         script.async = true;
