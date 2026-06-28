@@ -67,6 +67,17 @@ function extractBlock(source, signature) {
     throw new Error(`Unclosed block: ${signature}`);
 }
 
+function extractClassMethod(source, signature) {
+    const escapedSignature = signature.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = new RegExp(`(^|\\n)[ \\t]*${escapedSignature}[ \\t]*\\{`).exec(source);
+    if (!match) {
+        throw new Error(`Class method not found: ${signature}`);
+    }
+
+    const start = match.index + match[0].lastIndexOf(signature);
+    return extractBlock(source.slice(start), signature);
+}
+
 function loadNavigateFunction(filePath) {
     const source = fs.readFileSync(filePath, 'utf8');
     const fnSource = extractBlock(source, 'function navigateToLanguage(newLang)');
@@ -96,13 +107,20 @@ function loadNavigateFunction(filePath) {
 
 function loadGetTargetUrl(filePath) {
     const source = fs.readFileSync(filePath, 'utf8');
-    const methodSource = extractBlock(source, 'getTargetUrl(targetLang)');
+    const hasAlternateSource = extractClassMethod(source, 'hasDirectAlternateLanguage(lang)');
+    const fallbackSource = extractClassMethod(source, 'getMissingTranslationFallbackUrl(pagePath, targetLang)');
+    const methodSource = extractClassMethod(source, 'getTargetUrl(targetLang)');
     const context = {
         window: {
             location: {
                 pathname: '/',
                 search: '',
                 hash: ''
+            }
+        },
+        document: {
+            querySelector() {
+                return {};
             }
         },
         console: {
@@ -113,7 +131,14 @@ function loadGetTargetUrl(filePath) {
     };
 
     vm.createContext(context);
-    vm.runInContext(`function ${methodSource}`, context);
+    vm.runInContext(
+        [
+            `function ${hasAlternateSource}`,
+            `function ${fallbackSource}`,
+            `function ${methodSource}`
+        ].join('\n'),
+        context
+    );
     return context;
 }
 
