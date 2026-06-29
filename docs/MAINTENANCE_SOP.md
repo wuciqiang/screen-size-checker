@@ -1045,7 +1045,7 @@ ls -lh multilang-build/css/
 - [ ] README.md - 项目概览和快速开始
 - [ ] BUILD_SYSTEM.md - 构建系统技术文档
 - [ ] MAINTENANCE_SOP.md - 本维护手册
-- [ ] INCREMENTAL_SEO_DEV_PLAN.md - SEO 优化计划
+- [ ] 文档归档仅保留当前执行所需内容；历史 SEO 分析、GSC/GA4 导出、未索引页面表、临时数据表统一归档到 `G:\Workspace\google-data-analysis\screensizechecker.com\`
 
 **更新时机**：
 - 新增功能后

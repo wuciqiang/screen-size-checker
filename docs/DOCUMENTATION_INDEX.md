@@ -7,12 +7,12 @@
 
 ## 📝 文档整理说明 (2026-04-07)
 
-本次整理归档了历史 SEO 优化文档和已完成的 spec，简化项目文档结构。
+本次整理归档了历史 SEO 优化文档和已完成的 spec，简化项目文档结构。历史 SEO 评审、GSC/GA4 导出、未索引页面表和临时数据表已迁出源码仓库，统一归档到 `G:\Workspace\google-data-analysis\screensizechecker.com\`。
 
 ✅ **已归档内容**：
 - `.claude/specs/active/` → `.claude/specs/archived/`
 - `.kiro/specs/` → `.claude/specs/archived/kiro-specs/`
-- `docs/SEO优化/`、`docs/GSC数据/`、`docs/excel/`、`docs/website-beautification/`
+- 历史 SEO / 数据分析归档 → `G:\Workspace\google-data-analysis\screensizechecker.com\`
 
 ✅ **已删除过时文档**（25+ 个历史记录、过时数据文档）
 
@@ -71,6 +71,7 @@ docs/
 
 | 日期 | 变更 |
 |------|------|
+| 2026-06-29 | 清理源码仓库 `docs/`，历史 SEO / 数据分析文档迁出到 `G:\Workspace\google-data-analysis\screensizechecker.com\` |
 | 2026-04-07 | **文档大整理 v3.0**：归档 specs，删除过时 SEO 历史文档 |
 | 2025-12-14 | 整理中文本地化完成后的文档 |
 | 2025-11-07 | 文档大整理 v2.0 |
