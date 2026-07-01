@@ -609,10 +609,7 @@ class MultiLangBuilder extends ComponentBuilder {
                     pageData.og_title = pageData.page_title || pageData.og_title;
                     pageData.og_description = pageData.description || pageData.og_description;
 
-                    // 閻犱礁澧介悿鍞巊:image - 濞达綀娉曢弫銈嗐亜閻㈠憡妗ㄩ柣妤冩嚀閻ｉ箖宕堕崜褍顣婚柟瀛樼墵缁垳鎷嬮妶鍛€诲ù婊庡亜濞?
-                    if (!pageData.og_image) {
-                        pageData.og_image = 'https://screensizechecker.com/images/og-default.png';
-                    }
+                    this.normalizeOgImage(pageData);
 
                     // 閻犱礁澧介悿鍞巊:locale
                     const localeMap = {
@@ -873,10 +870,12 @@ class MultiLangBuilder extends ComponentBuilder {
             'js',
             'locales',
             'data',
+            'images',
             'favicon.ico',
             'favicon.png',
             'ads.txt',
             'about.html',
+            '404.html',
             'structured-data.json',
             'privacy-policy.html',
             'terms-of-service.html',
@@ -953,6 +952,32 @@ class MultiLangBuilder extends ComponentBuilder {
                 fs.copyFileSync(sourcePath, destPath);
             }
         });
+    }
+
+    normalizeOgImage(pageData) {
+        const fallbackImage = 'https://screensizechecker.com/images/og-default.png';
+        pageData.og_image = this.normalizeImageUrl(pageData.og_image, fallbackImage);
+    }
+
+    normalizeImageUrl(imageUrl, fallbackImage) {
+        if (!imageUrl) {
+            return fallbackImage;
+        }
+
+        const imagePrefix = 'https://screensizechecker.com/images/';
+        if (!imageUrl.startsWith(imagePrefix)) {
+            return imageUrl;
+        }
+
+        const imagePath = imageUrl.slice('https://screensizechecker.com/'.length);
+        const sourcePath = path.join(this.rootPath, imagePath);
+        const blogImagePath = path.join(this.rootPath, 'blog-content', imagePath);
+
+        if (!fs.existsSync(sourcePath) && !fs.existsSync(blogImagePath)) {
+            return fallbackImage;
+        }
+
+        return imageUrl;
     }
 
     // 闂傚棗妫欓崹姘跺箑瑜戦崗姗€鎯勯幋鐐蹭粯缂侇垵宕电划?
@@ -1322,6 +1347,12 @@ class MultiLangBuilder extends ComponentBuilder {
             configStructuredData.name = pageData.page_title || configStructuredData.name;
             configStructuredData.description = pageData.description || configStructuredData.description;
             configStructuredData.inLanguage = lang;
+            if (pageData.og_image) {
+                configStructuredData.image = pageData.og_image;
+            }
+            if (configStructuredData.screenshot) {
+                configStructuredData.screenshot = this.normalizeImageUrl(configStructuredData.screenshot, pageData.og_image);
+            }
 
             const dateModified = configStructuredData.dateModified
                 || pageData.dateModified
