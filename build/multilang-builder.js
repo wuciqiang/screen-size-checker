@@ -461,7 +461,8 @@ class MultiLangBuilder extends ComponentBuilder {
                             pagePath.includes('resolution'));
                         const isDevicePage = pagePath.includes('iphone') || 
                             pagePath.includes('android') || 
-                            pagePath.includes('ipad');
+                            pagePath.includes('ipad') ||
+                            pagePath.includes('laptop');
                         
                         pageData.is_tools = isToolPage;
                         pageData.is_devices = isDevicePage;
@@ -1628,6 +1629,13 @@ class MultiLangBuilder extends ComponentBuilder {
                 ['device_faq_q4', 'device_faq_a4'],
                 ['device_faq_q5', 'device_faq_a5']
             ],
+            'laptop-screen-size-checker': [
+                ['laptop_faq_q1', 'laptop_faq_a1'],
+                ['laptop_faq_q2', 'laptop_faq_a2'],
+                ['laptop_faq_q3', 'laptop_faq_a3'],
+                ['laptop_faq_q4', 'laptop_faq_a4'],
+                ['laptop_faq_q5', 'laptop_faq_a5']
+            ],
             'standard-resolutions': [
                 ['standard_seo_faq_gaming_q', 'standard_seo_faq_gaming_a'],
                 ['standard_seo_faq_1080p_q', 'standard_seo_faq_1080p_a'],
@@ -2078,7 +2086,7 @@ class MultiLangBuilder extends ComponentBuilder {
                 rootPageData.is_blog = false;
                 rootPageData.is_simulator = pagePath.includes('responsive-tester');
                 const isToolPage = pagePath.includes('calculator') || pagePath.includes('compare') || pagePath.includes('tester') || pagePath.includes('resolution');
-                const isDevicePage = pagePath.includes('iphone') || pagePath.includes('android') || pagePath.includes('ipad');
+                const isDevicePage = pagePath.includes('iphone') || pagePath.includes('android') || pagePath.includes('ipad') || pagePath.includes('laptop');
                 rootPageData.is_tools = isToolPage;
                 rootPageData.is_devices = isDevicePage;
                 
@@ -2370,6 +2378,7 @@ ${languageCards}
             { path: '/devices/iphone-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/ipad-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/android-viewport-sizes', priority: '0.9', changefreq: 'monthly' },
+            { path: '/devices/laptop-screen-size-checker', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/compare', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/standard-resolutions', priority: '0.9', changefreq: 'monthly' },
             { path: '/devices/responsive-tester', priority: '0.9', changefreq: 'monthly' },
@@ -2670,6 +2679,7 @@ ${languageCards}
 /devices/iphone-viewport-sizes.html       /devices/iphone-viewport-sizes      301
 /devices/ipad-viewport-sizes.html         /devices/ipad-viewport-sizes        301
 /devices/android-viewport-sizes.html      /devices/android-viewport-sizes     301
+/devices/laptop-screen-size-checker.html  /devices/laptop-screen-size-checker 301
 /devices/compare.html                     /devices/compare                    301
 /devices/standard-resolutions.html        /devices/standard-resolutions       301
 /devices/responsive-tester.html           /devices/responsive-tester          301
@@ -2683,6 +2693,7 @@ ${languageCards}
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301
 /zh/devices/ipad-viewport-sizes.html      /zh/devices/ipad-viewport-sizes     301
 /zh/devices/android-viewport-sizes.html   /zh/devices/android-viewport-sizes  301
+/zh/devices/laptop-screen-size-checker.html /zh/devices/laptop-screen-size-checker 301
 /zh/devices/compare.html                  /zh/devices/compare                 301
 /zh/devices/standard-resolutions.html     /zh/devices/standard-resolutions    301
 /zh/devices/responsive-tester.html        /zh/devices/responsive-tester       301
@@ -2695,6 +2706,7 @@ ${languageCards}
 /de/devices/iphone-viewport-sizes.html    /de/devices/iphone-viewport-sizes   301
 /de/devices/ipad-viewport-sizes.html      /de/devices/ipad-viewport-sizes     301
 /de/devices/android-viewport-sizes.html   /de/devices/android-viewport-sizes  301
+/de/devices/laptop-screen-size-checker.html /de/devices/laptop-screen-size-checker 301
 /de/devices/compare.html                  /de/devices/compare                 301
 /de/devices/standard-resolutions.html     /de/devices/standard-resolutions    301
 /de/devices/responsive-tester.html        /de/devices/responsive-tester       301
@@ -2707,6 +2719,7 @@ ${languageCards}
 /es/devices/iphone-viewport-sizes.html    /es/devices/iphone-viewport-sizes   301
 /es/devices/ipad-viewport-sizes.html      /es/devices/ipad-viewport-sizes     301
 /es/devices/android-viewport-sizes.html   /es/devices/android-viewport-sizes  301
+/es/devices/laptop-screen-size-checker.html /es/devices/laptop-screen-size-checker 301
 /es/devices/compare.html                  /es/devices/compare                 301
 /es/devices/standard-resolutions.html     /es/devices/standard-resolutions    301
 /es/devices/responsive-tester.html        /es/devices/responsive-tester       301
@@ -2719,6 +2732,7 @@ ${languageCards}
 /pt/devices/iphone-viewport-sizes.html    /pt/devices/iphone-viewport-sizes   301
 /pt/devices/ipad-viewport-sizes.html      /pt/devices/ipad-viewport-sizes     301
 /pt/devices/android-viewport-sizes.html   /pt/devices/android-viewport-sizes  301
+/pt/devices/laptop-screen-size-checker.html /pt/devices/laptop-screen-size-checker 301
 /pt/devices/compare.html                  /pt/devices/compare                 301
 /pt/devices/standard-resolutions.html     /pt/devices/standard-resolutions    301
 /pt/devices/responsive-tester.html        /pt/devices/responsive-tester       301
@@ -2731,6 +2745,7 @@ ${languageCards}
 /fr/devices/iphone-viewport-sizes.html    /fr/devices/iphone-viewport-sizes   301
 /fr/devices/ipad-viewport-sizes.html      /fr/devices/ipad-viewport-sizes     301
 /fr/devices/android-viewport-sizes.html   /fr/devices/android-viewport-sizes  301
+/fr/devices/laptop-screen-size-checker.html /fr/devices/laptop-screen-size-checker 301
 /fr/devices/compare.html                  /fr/devices/compare                 301
 /fr/devices/standard-resolutions.html     /fr/devices/standard-resolutions    301
 /fr/devices/responsive-tester.html        /fr/devices/responsive-tester       301
@@ -2796,6 +2811,7 @@ ${languageCards}
             'devices/iphone-viewport-sizes.html',
             'devices/ipad-viewport-sizes.html',
             'devices/android-viewport-sizes.html',
+            'devices/laptop-screen-size-checker.html',
             'devices/compare.html',
             'devices/standard-resolutions.html',
             'devices/responsive-tester.html',

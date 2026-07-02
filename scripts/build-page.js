@@ -139,7 +139,8 @@ function buildPageData(builder, config, page, lang, translations) {
         );
         const isDevicePage = pagePath.includes('iphone') ||
             pagePath.includes('android') ||
-            pagePath.includes('ipad');
+            pagePath.includes('ipad') ||
+            pagePath.includes('laptop');
 
         pageData.is_tools = isToolPage;
         pageData.is_devices = isDevicePage;

@@ -1,0 +1,245 @@
+<section class="devices-hero-section">
+    <div class="devices-hero-container">
+        <h1 class="devices-hero-title" data-i18n="laptop_page_heading">Laptop Screen Size Checker</h1>
+        <p class="devices-hero-subtitle" data-i18n="laptop_page_intro">Check your laptop screen resolution, browser viewport, DPR, and common laptop size clues in one place.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="section-container">
+        <div class="laptop-note">
+            <h2 data-i18n="laptop_quick_answer_title">Quick answer</h2>
+            <p data-i18n="laptop_quick_answer_text">This checker can read your current resolution, viewport, DPR, aspect ratio, and color depth. Your physical laptop screen size in inches cannot be read directly by a browser, so use the model/spec sheet or measure the active display diagonally.</p>
+        </div>
+
+        <h2 data-i18n="laptop_live_results_heading">Your Current Laptop Display</h2>
+        <div class="dashboard-container laptop-results-grid">
+            <div class="info-card card-display">
+                <div class="card-header">
+                    <h3 class="card-title" data-i18n="laptop_current_display">Detected display details</h3>
+                </div>
+                <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="laptop_current_resolution">Screen resolution</span>
+                        <span class="info-value" id="screen-resolution-display" data-display-format="value"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="laptop_current_viewport">Browser viewport</span>
+                        <span class="info-value" id="viewport-display"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="laptop_current_dpr">Device pixel ratio</span>
+                        <span class="info-value" id="dpr"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="aspect_ratio">Aspect Ratio</span>
+                        <span class="info-value" id="aspect-ratio"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="color_depth">Color Depth</span>
+                        <span class="info-value" id="color-depth"><span data-i18n="detecting">Detecting...</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card card-system">
+                <div class="card-header">
+                    <h3 class="card-title" data-i18n="laptop_physical_size_heading">Physical laptop size</h3>
+                </div>
+                <div class="card-content">
+                    <p data-i18n="laptop_physical_size_text">For the actual inch size, check the laptop model name, official specs, order page, bottom sticker, or measure the active screen from one corner to the opposite corner. Do not include the bezel.</p>
+                    <ul class="info-list">
+                        <li data-i18n="laptop_physical_step_1">Look for model names like 13-inch, 14-inch, 15.6-inch, 16-inch, or 17.3-inch.</li>
+                        <li data-i18n="laptop_physical_step_2">If the model name is vague, search the exact model number plus "screen size".</li>
+                        <li data-i18n="laptop_physical_step_3">If you measure it yourself, measure only the lit display area diagonally.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 data-i18n="laptop_how_to_heading">How to Check Laptop Screen Size</h2>
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 data-i18n="laptop_method_auto_heading">Check what the browser can detect</h3>
+                <p data-i18n="laptop_method_auto_text">Use the live results above for screen resolution, viewport size, DPR, aspect ratio, and color depth. These numbers are perfect for responsive testing, screenshots, browser zoom checks, and troubleshooting blurry text.</p>
+            </div>
+            <div class="content-card">
+                <h3 data-i18n="laptop_method_specs_heading">Check the laptop model</h3>
+                <p data-i18n="laptop_method_specs_text">For the inch size, the most reliable path is the exact model spec. A laptop listed as 14-inch or 15.6-inch usually means the active display diagonal, not the whole laptop body.</p>
+            </div>
+            <div class="content-card">
+                <h3 data-i18n="laptop_method_measure_heading">Measure the diagonal</h3>
+                <p data-i18n="laptop_method_measure_text">Place a ruler or tape measure from the visible screen's bottom-left corner to the top-right corner. Keep the tape on the active display area and skip the black or metal frame.</p>
+            </div>
+        </div>
+
+        <h2 data-i18n="laptop_terms_heading">Resolution, Viewport, and Physical Size</h2>
+        <p data-i18n="laptop_terms_intro">These three numbers answer different questions. Screen resolution is the physical pixel grid. Viewport is the browser's CSS layout area. Physical size is the diagonal measurement in inches or centimeters. A 14-inch laptop can have a 1920 x 1200 panel, a 2560 x 1600 panel, or something higher, and the browser viewport may still be much smaller because of scaling.</p>
+
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="laptop_term_column">Term</th>
+                        <th data-i18n="laptop_what_it_means_column">What it means</th>
+                        <th data-i18n="laptop_how_to_use_column">How to use it</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="laptop_term_resolution">Screen resolution</td>
+                        <td data-i18n="laptop_term_resolution_meaning">The physical pixel count, such as 1920 x 1080 or 2560 x 1600.</td>
+                        <td data-i18n="laptop_term_resolution_use">Useful for image sharpness, screenshots, video capture, and native display settings.</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="laptop_term_viewport">Browser viewport</td>
+                        <td data-i18n="laptop_term_viewport_meaning">The CSS pixel area available to a web page inside the browser window.</td>
+                        <td data-i18n="laptop_term_viewport_use">Use it for responsive design, breakpoints, layout QA, and browser zoom checks.</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="laptop_term_physical">Physical screen size</td>
+                        <td data-i18n="laptop_term_physical_meaning">The active display diagonal, normally listed as 13.3, 14, 15.6, 16, or 17.3 inches.</td>
+                        <td data-i18n="laptop_term_physical_use">Use it for buying bags, replacement panels, external monitor comparisons, and comfort planning.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 data-i18n="laptop_common_sizes_heading">Common Laptop Screen Sizes</h2>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="laptop_size_column">Size</th>
+                        <th data-i18n="laptop_portability_column">Portability</th>
+                        <th data-i18n="laptop_best_for_column">Best for</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11.6" - 12.5"</td>
+                        <td data-i18n="laptop_size_12_portability">Very portable</td>
+                        <td data-i18n="laptop_size_12_best">Travel, school, light browsing</td>
+                    </tr>
+                    <tr>
+                        <td>13.3" - 14"</td>
+                        <td data-i18n="laptop_size_14_portability">Portable</td>
+                        <td data-i18n="laptop_size_14_best">Everyday work, commuting, writing, coding</td>
+                    </tr>
+                    <tr>
+                        <td>15" - 15.6"</td>
+                        <td data-i18n="laptop_size_15_portability">Balanced</td>
+                        <td data-i18n="laptop_size_15_best">Home office, study, gaming laptops, mixed use</td>
+                    </tr>
+                    <tr>
+                        <td>16"</td>
+                        <td data-i18n="laptop_size_16_portability">Medium-large</td>
+                        <td data-i18n="laptop_size_16_best">Creative work, coding, premium productivity laptops</td>
+                    </tr>
+                    <tr>
+                        <td>17" - 17.3"</td>
+                        <td data-i18n="laptop_size_17_portability">Desk-first</td>
+                        <td data-i18n="laptop_size_17_best">Gaming, CAD, video editing, desktop replacement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 data-i18n="laptop_common_resolutions_heading">Common Laptop Resolutions</h2>
+        <div class="table-container">
+            <table class="device-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="resolution">Resolution</th>
+                        <th data-i18n="aspect_ratio">Aspect Ratio</th>
+                        <th data-i18n="common_usage">Common Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1366 x 768</td>
+                        <td>16:9</td>
+                        <td data-i18n="laptop_resolution_1366_use">Budget and older laptops; cramped for modern multitasking.</td>
+                    </tr>
+                    <tr>
+                        <td>1920 x 1080</td>
+                        <td>16:9</td>
+                        <td data-i18n="laptop_resolution_1080_use">Common Full HD baseline for work, school, and gaming.</td>
+                    </tr>
+                    <tr>
+                        <td>1920 x 1200</td>
+                        <td>16:10</td>
+                        <td data-i18n="laptop_resolution_1200_use">A taller Full HD-class layout with more room for documents and code.</td>
+                    </tr>
+                    <tr>
+                        <td>2560 x 1600</td>
+                        <td>16:10</td>
+                        <td data-i18n="laptop_resolution_1600_use">Sharp premium laptop resolution, common on 13-16 inch productivity models.</td>
+                    </tr>
+                    <tr>
+                        <td>2880 x 1800</td>
+                        <td>16:10</td>
+                        <td data-i18n="laptop_resolution_1800_use">High-density laptop panels; often used with OS scaling.</td>
+                    </tr>
+                    <tr>
+                        <td>3840 x 2160</td>
+                        <td>16:9</td>
+                        <td data-i18n="laptop_resolution_4k_use">4K laptops for creative work; sharp but heavier on battery and graphics.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 data-i18n="laptop_design_heading">Laptop Breakpoints for Web Design</h2>
+        <p data-i18n="laptop_design_text">For web design, do not build for a laptop's physical inch size. Build around viewport ranges. A typical laptop viewport may sit around 1280 to 1536 CSS pixels wide, but browser zoom, OS scaling, split-screen windows, and sidebars can change it quickly. Test flexible layouts around 1024, 1280, 1366, 1440, and 1536 CSS pixels.</p>
+        <p><span data-i18n="laptop_related_prefix">Need to compare a laptop against an external display? Try the</span> <a href="compare.html" data-i18n="laptop_related_compare">screen size comparison tool</a> <span data-i18n="laptop_related_middle">or check the</span> <a href="standard-resolutions.html" data-i18n="laptop_related_standard">standard resolution chart</a>.</p>
+
+        <h2 data-i18n="laptop_faq_heading">Laptop Screen Size FAQ</h2>
+        <h3 data-i18n="laptop_faq_q1">Can a website detect my laptop screen size in inches?</h3>
+        <p data-i18n="laptop_faq_a1">No. A browser can detect resolution, viewport size, DPR, and related display data, but it cannot reliably read the physical diagonal size. Check the model specs or measure the active display.</p>
+        <h3 data-i18n="laptop_faq_q2">Why is my viewport smaller than my laptop resolution?</h3>
+        <p data-i18n="laptop_faq_a2">The viewport is reduced by browser UI, scrollbars, zoom, operating-system scaling, and window size. A high-resolution laptop may expose a smaller CSS viewport so text and controls stay readable.</p>
+        <h3 data-i18n="laptop_faq_q3">What is the most common laptop screen size?</h3>
+        <p data-i18n="laptop_faq_a3">15.6 inches is still very common, especially for mainstream and gaming laptops. 13 to 14 inch models are popular when portability matters more.</p>
+        <h3 data-i18n="laptop_faq_q4">Does laptop screen size include the bezel?</h3>
+        <p data-i18n="laptop_faq_a4">No. Laptop screen size refers to the active display area, measured diagonally. The bezel and laptop body are not included.</p>
+        <h3 data-i18n="laptop_faq_q5">What laptop resolution is best?</h3>
+        <p data-i18n="laptop_faq_a5">For many people, 1920 x 1200 or 2560 x 1600 is a comfortable laptop sweet spot. 4K is sharper for creative work, but it can use more battery and usually needs scaling.</p>
+    </div>
+</section>
+
+{{component:internal-links}}
+
+<style>
+.laptop-note {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--radius-md);
+    background: var(--background-card);
+}
+
+.laptop-note h2 {
+    margin-top: 0;
+}
+
+.laptop-results-grid {
+    margin: var(--spacing-lg) 0 var(--spacing-xl);
+}
+
+.laptop-results-grid .info-list {
+    margin-top: var(--spacing-md);
+    padding-left: 1.25rem;
+}
+
+.laptop-results-grid .info-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 640px) {
+    .laptop-note {
+        padding: var(--spacing-md);
+    }
+}
+</style>

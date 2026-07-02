@@ -358,6 +358,54 @@
       }
     },
     {
+      "name": "laptop-screen-size-checker",
+      "template": "device-page",
+      "output": "devices/laptop-screen-size-checker.html",
+      "page_content": "laptop-screen-size-checker-content",
+      "config": {
+        "page_title_key": "laptop_page_title",
+        "page_description_key": "laptop_page_description",
+        "page_heading_key": "laptop_page_heading",
+        "page_intro_key": "laptop_page_intro",
+        "page_keywords": "laptop screen size checker, what is my laptop screen size, my laptop screen size, laptop screen resolution, check laptop screen size, laptop viewport size, laptop display size",
+        "canonical_url": "https://screensizechecker.com/devices/laptop-screen-size-checker",
+        "og_title": "Laptop Screen Size Checker: Resolution, Viewport & Size Guide",
+        "og_description": "Check your laptop resolution, browser viewport, DPR and aspect ratio, then learn how to confirm the physical screen size in inches.",
+        "og_type": "WebApplication",
+        "og_url": "https://screensizechecker.com/devices/laptop-screen-size-checker",
+        "css_path": "../css",
+        "locales_path": "../locales",
+        "js_path": "../js",
+        "home_url": "../index.html",
+        "privacy_policy_url": "../privacy-policy.html",
+        "device_links_base": "",
+        "show_breadcrumb": true,
+        "current_key": "laptop_screen_size_checker",
+        "current_name": "Laptop Screen Size Checker",
+        "parent_url": "../index.html#devices",
+        "parent_key": "devices",
+        "parent_name": "Devices",
+        "structured_data": {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Laptop Screen Size Checker",
+          "description": "Check your laptop resolution, browser viewport, DPR and aspect ratio, then learn how to confirm the physical screen size in inches.",
+          "url": "https://screensizechecker.com/devices/laptop-screen-size-checker",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "datePublished": "2026-07-02",
+          "dateModified": "2026-07-02"
+        },
+        "blog_url": "../blog/index.html"
+      }
+    },
+    {
       "name": "standard-resolutions",
       "template": "device-page",
       "output": "devices/standard-resolutions.html",
