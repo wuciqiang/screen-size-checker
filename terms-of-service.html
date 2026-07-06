@@ -14,6 +14,30 @@
       gtag('config', 'G-X0Y5SZGFMX');
     </script>
 
+    <!-- Microsoft Clarity - production only with default denied consent -->
+    <script>
+    (function () {
+        var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+        if (!isProductionHost) {
+            return;
+        }
+
+        var projectId = 'xi2qv9v3dh';
+        window.clarity = window.clarity || function () {
+            (window.clarity.q = window.clarity.q || []).push(arguments);
+        };
+        window.clarity('consentv2', {
+            ad_Storage: 'denied',
+            analytics_Storage: 'denied'
+        });
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + projectId;
+        document.head.appendChild(script);
+    })();
+    </script>
+
     <title>Terms of Service | Screen Size Checker</title>
     <meta name="description" content="Terms of Service for Screen Size Checker. Understand acceptable use, disclaimers, and limitations.">
     <link rel="canonical" href="https://screensizechecker.com/terms-of-service">

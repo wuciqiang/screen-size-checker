@@ -30,6 +30,52 @@
 })();
 </script>
 
+<!-- Microsoft Clarity - production only with default denied consent -->
+<script>
+(function () {
+    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+    if (!isProductionHost) {
+        return;
+    }
+
+    var projectId = 'xi2qv9v3dh';
+    window.clarity = window.clarity || function () {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+
+    window.clarity('consentv2', {
+        ad_Storage: 'denied',
+        analytics_Storage: 'denied'
+    });
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.clarity.ms/tag/' + projectId;
+    document.head.appendChild(script);
+
+    function updateClarityConsent(analytics) {
+        window.clarity('consentv2', {
+            ad_Storage: 'denied',
+            analytics_Storage: analytics ? 'granted' : 'denied'
+        });
+    }
+
+    try {
+        var savedPrefs = localStorage.getItem('cookiePreferences');
+        if (savedPrefs) {
+            updateClarityConsent(Boolean(JSON.parse(savedPrefs).analytics));
+        }
+    } catch (error) {
+        updateClarityConsent(false);
+    }
+
+    window.addEventListener('cookieConsentChanged', function (event) {
+        var detail = event.detail || {};
+        updateClarityConsent(Boolean(detail.analytics));
+    });
+})();
+</script>
+
 <!-- SEO Meta Tags -->
 <title data-i18n="title">{{page_title}}</title>
 <meta name="description" content="{{description}}">

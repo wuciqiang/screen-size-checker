@@ -13,6 +13,12 @@ export function initCookieNotice() {
     }
 }
 
+function notifyCookieConsentChanged(preferences) {
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged', {
+        detail: preferences
+    }));
+}
+
 /**
  * Show cookie notice
  */
@@ -51,12 +57,14 @@ function showCookieNotice() {
  */
 function acceptCookies() {
     console.log('Accepting cookies...');
-    localStorage.setItem('cookieConsent', 'true');
-    localStorage.setItem('cookiePreferences', JSON.stringify({
+    const preferences = {
         necessary: true,
         analytics: true,
         preferences: true
-    }));
+    };
+    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    notifyCookieConsentChanged(preferences);
     console.log('Cookie preferences saved');
 }
 
@@ -143,13 +151,15 @@ export function showCookieSettings() {
 function saveCookiePreferences(settings) {
     console.log('Saving cookie preferences...');
     const analytics = settings.querySelector('#analytics-cookies').checked;
-    const preferences = settings.querySelector('#preferences-cookies').checked;
-    
-    localStorage.setItem('cookieConsent', 'true');
-    localStorage.setItem('cookiePreferences', JSON.stringify({
+    const preferenceCookies = settings.querySelector('#preferences-cookies').checked;
+    const preferences = {
         necessary: true,
         analytics: analytics,
-        preferences: preferences
-    }));
-    console.log('Cookie preferences saved:', { analytics, preferences });
-} 
+        preferences: preferenceCookies
+    };
+
+    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    notifyCookieConsentChanged(preferences);
+    console.log('Cookie preferences saved:', preferences);
+}

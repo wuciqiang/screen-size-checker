@@ -14,6 +14,30 @@
       gtag('config', 'G-X0Y5SZGFMX');
     </script>
 
+    <!-- Microsoft Clarity - production only with default denied consent -->
+    <script>
+    (function () {
+        var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
+        if (!isProductionHost) {
+            return;
+        }
+
+        var projectId = 'xi2qv9v3dh';
+        window.clarity = window.clarity || function () {
+            (window.clarity.q = window.clarity.q || []).push(arguments);
+        };
+        window.clarity('consentv2', {
+            ad_Storage: 'denied',
+            analytics_Storage: 'denied'
+        });
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + projectId;
+        document.head.appendChild(script);
+    })();
+    </script>
+
     <title>Privacy Policy | Screen Size Checker</title>
     <meta name="description" content="Privacy Policy for Screen Size Checker. Learn what data is processed, how cookies are used, and your rights.">
     <link rel="canonical" href="https://screensizechecker.com/privacy-policy">
@@ -99,6 +123,7 @@
             <section id="cookies" class="legal-section">
                 <h2>4. Cookies</h2>
                 <p>Cookies may be used for language selection, basic preferences, and anonymous analytics. You can manage cookies through your browser settings.</p>
+                <p>We may use Microsoft Clarity to understand how visitors interact with the website through heatmaps, session recordings, and usage analytics. Clarity is used to improve usability and diagnose interface issues.</p>
             </section>
 
             <section id="storage" class="legal-section">
@@ -116,7 +141,7 @@
                 <p>If you have questions about this policy, contact: <a href="mailto:bobo20220519@gmail.com">bobo20220519@gmail.com</a></p>
             </section>
 
-            <p class="legal-meta">Last updated: February 7, 2026</p>
+            <p class="legal-meta">Last updated: July 6, 2026</p>
             <a class="legal-cta" href="/">Back to Home</a>
         </article>
     </div>
