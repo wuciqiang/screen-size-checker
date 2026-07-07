@@ -3,6 +3,7 @@ const path = require('path');
 const marked = require('marked');
 const matter = require('gray-matter');
 const hljs = require('highlight.js');
+const { normalizeGeneratedHtmlLinks } = require('./link-normalizer');
 
 /**
  * 博客构建器 - 扩展现有构建系统处理博客内容
@@ -246,6 +247,7 @@ class BlogBuilder {
 
                     // 将Markdown中的H1标签转换为H2，避免多个H1
                     htmlContent = htmlContent.replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>');
+                    htmlContent = normalizeGeneratedHtmlLinks(htmlContent, lang);
                     
                     // 提取阅读时间（假设每分钟200字）
                     const wordCount = content.split(/\s+/).length;

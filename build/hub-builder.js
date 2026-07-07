@@ -3,6 +3,7 @@ const path = require('path');
 const marked = require('marked');
 const matter = require('gray-matter');
 const hljs = require('highlight.js');
+const { normalizeGeneratedHtmlLinks } = require('./link-normalizer');
 
 /**
  * Hub构建器 - 处理Gaming Hub等专题内容
@@ -108,13 +109,7 @@ class HubBuilder {
                     // 将Markdown中的H1标签转换为H2，避免多个H1
                     htmlContent = htmlContent.replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>');
                     
-                    // Replace {{lang_prefix}} with site-root paths so hub markdown
-                    // keeps users in the current language version.
-                    const langPrefix = lang === 'en' ? '' : `/${lang}`;
-                    // 替换原始的 {{lang_prefix}}
-                    htmlContent = htmlContent.replace(/\{\{lang_prefix\}\}/g, langPrefix);
-                    // 替换URL编码的版本 %7B%7Blang_prefix%7D%7D
-                    htmlContent = htmlContent.replace(/%7B%7Blang_prefix%7D%7D/g, langPrefix);
+                    htmlContent = normalizeGeneratedHtmlLinks(htmlContent, lang);
                     
                     // 计算阅读时间（每分钟200字）
                     const wordCount = content.split(/\s+/).length;

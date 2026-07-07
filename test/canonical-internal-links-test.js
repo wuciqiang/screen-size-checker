@@ -132,10 +132,15 @@ assert.ok(fs.existsSync(buildRoot), 'multilang-build 不存在，请先执行构
 
 const htmlFiles = walkHtmlFiles(buildRoot);
 const issues = [];
+const templateTokenIssues = [];
 let linkCount = 0;
 
 for (const filePath of htmlFiles) {
     const content = fs.readFileSync(filePath, 'utf8');
+    if (/\{\{lang_prefix\}\}|%7B%7Blang_prefix%7D%7D/i.test(content)) {
+        templateTokenIssues.push(path.relative(repoRoot, filePath).replace(/\\/g, '/'));
+    }
+
     const regex = /<a\b[^>]*\bhref=(["'])(.*?)\1/gi;
     let match;
 
@@ -152,6 +157,19 @@ for (const filePath of htmlFiles) {
             });
         }
     }
+}
+
+if (templateTokenIssues.length > 0) {
+    console.error(`❌ 发现 ${templateTokenIssues.length} 个 HTML 文件仍包含未替换的 lang_prefix 模板占位：`);
+    templateTokenIssues.slice(0, 30).forEach((file) => {
+        console.error(`   - ${file}`);
+    });
+
+    if (templateTokenIssues.length > 30) {
+        console.error(`   ... 其余 ${templateTokenIssues.length - 30} 个问题未展开`);
+    }
+
+    process.exit(1);
 }
 
 if (issues.length > 0) {
