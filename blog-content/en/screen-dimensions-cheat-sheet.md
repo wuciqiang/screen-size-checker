@@ -60,6 +60,8 @@ For a full breakdown and detailed chart with market share data, see our in-depth
 
 Need specs for a different model? Check our complete, searchable databases: [Full iPhone List](https://screensizechecker.com/devices/iphone-viewport-sizes), [Full iPad List](https://screensizechecker.com/devices/ipad-viewport-sizes), [Full Android List](https://screensizechecker.com/devices/android-viewport-sizes).
 
+If you maintain a larger device testing matrix in Excel or Google Sheets, [AI Excel Formula Generator](https://aiexcelformulagenerator.org/) can help draft formulas for filtering device lists, flagging breakpoint coverage, or calculating derived fields.
+
 ## Responsive Design Breakpoints (Cheat Sheet)
 
 Based on 2025 device usage trends, here are our recommended breakpoints:
