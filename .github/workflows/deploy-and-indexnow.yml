@@ -1,4 +1,4 @@
-name: Deploy and Submit IndexNow
+name: Deploy and Verify IndexNow Key
 
 on:
   push:
@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2  # 获取前2个commit用于diff
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -63,52 +61,3 @@ jobs:
 
           echo "❌ Failed to verify deployment after $MAX_RETRIES attempts"
           exit 1
-
-      - name: Detect changed pages
-        id: changes
-        run: |
-          # 获取变更的HTML文件
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.html$' || true)
-
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "No HTML files changed, submitting all pages"
-            echo "submit_all=true" >> $GITHUB_OUTPUT
-          else
-            echo "Changed files detected:"
-            echo "$CHANGED_FILES"
-            echo "submit_all=false" >> $GITHUB_OUTPUT
-
-            # 转换为URL列表
-            URLS=""
-            for file in $CHANGED_FILES; do
-              # 移除 multilang-build/ 前缀和 .html 后缀
-              URL=$(echo "$file" | sed 's|multilang-build/||' | sed 's|\.html$||' | sed 's|/index$||')
-              if [ -z "$URL" ]; then
-                URLS="$URLS https://screensizechecker.com/"
-              else
-                URLS="$URLS https://screensizechecker.com/$URL"
-              fi
-            done
-            echo "urls=$URLS" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Submit to IndexNow (All pages)
-        if: steps.changes.outputs.submit_all == 'true'
-        run: |
-          echo "Submitting all pages to IndexNow..."
-          node build/indexnow-submitter.js
-
-      - name: Submit to IndexNow (Changed pages only)
-        if: steps.changes.outputs.submit_all == 'false'
-        run: |
-          echo "Submitting changed pages to IndexNow..."
-          node build/indexnow-submitter.js ${{ steps.changes.outputs.urls }}
-
-      - name: Upload submission log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: indexnow-submission-log
-          path: |
-            *.log
-          retention-days: 30

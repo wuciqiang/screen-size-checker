@@ -10,7 +10,8 @@ const TESTS = {
     languageUrls: 'test/language-url-canonicalization-test.js',
     canonicalLinks: 'test/canonical-internal-links-test.js',
     blogLanguageModal: 'test/blog-language-modal-test.js',
-    languageSwitchMenu: 'test/language-switch-mega-menu-test.js'
+    languageSwitchMenu: 'test/language-switch-mega-menu-test.js',
+    indexnow: 'test/indexnow-submitter.test.js'
 };
 
 function resolveSelectedTests(args) {
