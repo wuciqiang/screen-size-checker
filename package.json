@@ -20,6 +20,8 @@
     "test:links": "node test/internal-links-checker.js",
     "test:seo": "node test/seo-tags-validator.js",
     "test:redirects": "node test/blog-redirect-test.js",
+    "test:indexnow": "node test/indexnow-submitter.test.js",
+    "submit-indexnow": "node build/indexnow-submitter.js",
     "ai:refresh-context": "node scripts/refresh-ai-context.js",
     "deploy": "node deploy.js",
     "deploy-check": "node cloudflare-deploy-check.js",

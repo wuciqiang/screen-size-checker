@@ -1,132 +1,233 @@
 const https = require('https');
-const fs = require('fs');
-const path = require('path');
 
-class IndexNowSubmitter {
-  constructor() {
-    this.apiKey = '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead';
-    this.host = 'screensizechecker.com';
-    this.endpoints = [
-      'api.indexnow.org',
-      'www.bing.com'
-    ];
-    this.logFile = path.join(__dirname, '../indexnow-submission.log');
-  }
+const DEFAULT_API_KEY = '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead';
+const DEFAULT_HOST = 'screensizechecker.com';
+const DEFAULT_ENDPOINT = 'https://api.indexnow.org/indexnow';
+const BATCH_SIZE = 10000;
 
-  log(message) {
-    const timestamp = new Date().toISOString();
-    const logMessage = `[${timestamp}] ${message}\n`;
-    console.log(message);
-    fs.appendFileSync(this.logFile, logMessage);
-  }
+function defaultGet(url) {
+  return new Promise((resolve, reject) => {
+    const parsed = new URL(url);
+    https.get(parsed, (res) => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', chunk => {
+        body += chunk;
+      });
+      res.on('end', () => {
+        resolve({ statusCode: res.statusCode, body });
+      });
+    }).on('error', reject);
+  });
+}
 
-  async submitUrls(urls) {
-    if (!Array.isArray(urls) || urls.length === 0) {
-      this.log('No URLs to submit');
-      return;
-    }
+function defaultPost(url, payload, headers) {
+  return new Promise((resolve, reject) => {
+    const parsed = new URL(url);
+    const options = {
+      hostname: parsed.hostname,
+      port: parsed.port || 443,
+      path: parsed.pathname + parsed.search,
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Length': Buffer.byteLength(payload)
+      }
+    };
 
-    const urlList = urls.map(url => {
-      if (url.startsWith('http')) return url;
-      return `https://${this.host}${url.startsWith('/') ? url : '/' + url}`;
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', chunk => {
+        body += chunk;
+      });
+      res.on('end', () => {
+        resolve({ statusCode: res.statusCode, body });
+      });
     });
 
+    req.on('error', reject);
+    req.write(payload);
+    req.end();
+  });
+}
+
+class IndexNowSubmitter {
+  constructor(options = {}) {
+    this.apiKey = options.apiKey || DEFAULT_API_KEY;
+    this.host = options.host || DEFAULT_HOST;
+    this.endpoint = options.endpoint || DEFAULT_ENDPOINT;
+    this.keyLocation = `https://${this.host}/${this.apiKey}.txt`;
+    this.httpBoundary = options.httpBoundary || {
+      get: defaultGet,
+      post: defaultPost
+    };
+  }
+
+  parseArgs(argv) {
+    const urls = [];
+    let confirmSubmit = false;
+
+    for (let i = 0; i < argv.length; i++) {
+      const arg = argv[i];
+
+      if (arg === '--') {
+        continue;
+      }
+
+      if (arg === '--url') {
+        const next = argv[++i];
+        if (!next || next.startsWith('--')) {
+          throw new Error('--url requires a value');
+        }
+        urls.push(next);
+      } else if (arg === '--confirm-submit') {
+        confirmSubmit = true;
+      } else if (arg.startsWith('--')) {
+        throw new Error(`Unknown flag: ${arg}`);
+      } else {
+        throw new Error(`Positional argument not allowed: ${arg}`);
+      }
+    }
+
+    if (urls.length === 0) {
+      throw new Error('At least one --url is required');
+    }
+
+    return { urls, confirmSubmit };
+  }
+
+  normalizeAndValidateUrl(input) {
+    if (typeof input !== 'string' || input.trim() === '') {
+      throw new Error(`Invalid URL: ${input}`);
+    }
+
+    let url;
+    try {
+      url = new URL(input);
+    } catch {
+      throw new Error(`Invalid URL: ${input}`);
+    }
+
+    if (url.protocol !== 'https:') {
+      throw new Error(`URL must use HTTPS: ${input}`);
+    }
+    if (url.hostname !== this.host) {
+      throw new Error(`URL must be on ${this.host}: ${input}`);
+    }
+    if (url.username || url.password) {
+      throw new Error(`URL must not contain credentials: ${input}`);
+    }
+    if (url.hash) {
+      throw new Error(`URL must not contain fragment: ${input}`);
+    }
+    if (url.port) {
+      throw new Error(`URL must use default HTTPS port: ${input}`);
+    }
+
+    return url.toString();
+  }
+
+  normalizeUrls(urls) {
+    const seen = new Set();
+    const result = [];
+
+    for (const url of urls) {
+      const normalized = this.normalizeAndValidateUrl(url);
+      if (!seen.has(normalized)) {
+        seen.add(normalized);
+        result.push(normalized);
+      }
+    }
+
+    return result;
+  }
+
+  createBatches(urls, batchSize = BATCH_SIZE) {
+    const batches = [];
+    for (let i = 0; i < urls.length; i += batchSize) {
+      batches.push(urls.slice(i, i + batchSize));
+    }
+    return batches;
+  }
+
+  dryRun(urls) {
+    const batches = this.createBatches(urls);
+    return {
+      endpoint: this.endpoint,
+      host: this.host,
+      urlCount: urls.length,
+      batchCount: batches.length,
+      batches
+    };
+  }
+
+  async verifyKeyFile() {
+    const { statusCode, body } = await this.httpBoundary.get(this.keyLocation);
+    if (statusCode !== 200) {
+      throw new Error(`Key file validation failed: HTTP ${statusCode}`);
+    }
+    if (body.trim() !== this.apiKey) {
+      throw new Error('Key file validation failed: content mismatch');
+    }
+  }
+
+  async submitBatch(batch) {
     const payload = JSON.stringify({
       host: this.host,
       key: this.apiKey,
-      urlList: urlList
+      keyLocation: this.keyLocation,
+      urlList: batch
     });
 
-    this.log(`Submitting ${urlList.length} URLs to IndexNow...`);
-    this.log('Sample URLs: ' + urlList.slice(0, 3).join(', '));
+    const { statusCode, body } = await this.httpBoundary.post(
+      this.endpoint,
+      payload,
+      { 'Content-Type': 'application/json; charset=utf-8' }
+    );
 
-    for (const endpoint of this.endpoints) {
-      try {
-        await this.submitToEndpoint(endpoint, payload);
-        this.log(`✓ Successfully submitted to ${endpoint}`);
-      } catch (error) {
-        this.log(`✗ Failed to submit to ${endpoint}: ${error.message}`);
-      }
+    if (statusCode !== 200 && statusCode !== 202) {
+      throw new Error(`IndexNow submission failed: HTTP ${statusCode}: ${body || ''}`);
     }
   }
 
-  submitToEndpoint(endpoint, payload) {
-    return new Promise((resolve, reject) => {
-      const options = {
-        hostname: endpoint,
-        port: 443,
-        path: '/indexnow',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-          'Content-Length': Buffer.byteLength(payload)
-        }
-      };
-
-      console.log(`Connecting to ${endpoint}...`);
-
-      const req = https.request(options, (res) => {
-        let data = '';
-        res.on('data', chunk => data += chunk);
-        res.on('end', () => {
-          console.log(`Response from ${endpoint}: ${res.statusCode}`);
-          if (data) console.log('Response body:', data);
-
-          if (res.statusCode === 200 || res.statusCode === 202) {
-            resolve();
-          } else {
-            reject(new Error(`HTTP ${res.statusCode}: ${data || res.statusMessage}`));
-          }
-        });
-      });
-
-      req.on('error', reject);
-      req.write(payload);
-      req.end();
-    });
-  }
-
-  async submitAllPages() {
-    const buildDir = path.join(__dirname, '../multilang-build');
-    if (!fs.existsSync(buildDir)) {
-      console.log('Build directory not found. Run build first.');
-      return;
+  async confirmSubmit(urls) {
+    if (urls.length === 0) {
+      throw new Error('No URLs to submit');
     }
 
-    const urls = this.collectUrls(buildDir);
-    await this.submitUrls(urls);
+    await this.verifyKeyFile();
+
+    const batches = this.createBatches(urls);
+    for (const batch of batches) {
+      await this.submitBatch(batch);
+    }
   }
 
-  collectUrls(dir, baseUrl = '', urls = []) {
-    const files = fs.readdirSync(dir);
+  async run(argv) {
+    const { urls, confirmSubmit } = this.parseArgs(argv);
+    const normalizedUrls = this.normalizeUrls(urls);
 
-    for (const file of files) {
-      const filePath = path.join(dir, file);
-      const stat = fs.statSync(filePath);
-
-      if (stat.isDirectory()) {
-        this.collectUrls(filePath, `${baseUrl}/${file}`, urls);
-      } else if (file.endsWith('.html')) {
-        const url = file === 'index.html'
-          ? baseUrl || '/'
-          : `${baseUrl}/${file.replace('.html', '')}`;
-        urls.push(url);
-      }
+    if (confirmSubmit) {
+      await this.confirmSubmit(normalizedUrls);
+      console.log(`Submitted ${normalizedUrls.length} URL(s) to IndexNow.`);
+    } else {
+      const result = this.dryRun(normalizedUrls);
+      console.log(JSON.stringify(result, null, 2));
     }
 
-    return urls;
+    return 0;
   }
 }
 
 if (require.main === module) {
   const submitter = new IndexNowSubmitter();
-
-  const args = process.argv.slice(2);
-  if (args.length > 0) {
-    submitter.submitUrls(args);
-  } else {
-    submitter.submitAllPages();
-  }
+  submitter.run(process.argv.slice(2)).then(exitCode => {
+    process.exit(exitCode);
+  }).catch(error => {
+    console.error(error.message);
+    process.exit(1);
+  });
 }
 
 module.exports = IndexNowSubmitter;
