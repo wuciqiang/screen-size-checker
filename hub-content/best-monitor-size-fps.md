@@ -25,14 +25,14 @@ Choosing the right monitor size is critical for FPS gaming performance. A larger
 
 **24-27 inches is the safest range for FPS gaming.** Choose **24-25 inch 1080p** for ranked tactical shooters and shallow desks, **27 inch 1440p** for a balanced FPS setup with better image detail, and **32 inch 4K** only if you play mostly casual FPS, controller campaigns, or sit farther back.
 
-<aside class="affiliate-resource-box" aria-label="FPS monitor shopping resources">
+<aside class="affiliate-resource-box" aria-label="FPS monitor shopping resources" data-affiliate-module data-affiliate-program="amazon" data-affiliate-placement="post_quick_answer" data-affiliate-result="monitor">
 <h3>Compare monitor options after choosing a size</h3>
 <p>Use the guide below to pick the size and resolution first, then open retailer search results to compare current models. We do not show live Amazon prices, ratings, or availability on this page.</p>
 <p class="affiliate-disclosure">As an Amazon Associate, we earn from qualifying purchases.</p>
 <div class="affiliate-link-list">
-<a class="affiliate-link" href="https://www.amazon.com/s?k=24+inch+240hz+gaming+monitor&amp;tag=qianshuixia-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_24_240hz_gaming_monitor" data-affiliate-result="monitor">24 inch 240Hz gaming monitors</a>
-<a class="affiliate-link" href="https://www.amazon.com/s?k=27+inch+1440p+165hz+gaming+monitor&amp;tag=qianshuixia-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_27_1440p_165hz_gaming_monitor" data-affiliate-result="monitor">27 inch 1440p 165Hz monitors</a>
-<a class="affiliate-link" href="https://www.amazon.com/s?k=32+inch+4k+144hz+gaming+monitor&amp;tag=qianshuixia-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_32_4k_144hz_gaming_monitor" data-affiliate-result="monitor">32 inch 4K 144Hz monitors</a>
+<a class="affiliate-link" href="https://www.amazon.com/s?k=24+inch+240hz+gaming+monitor&amp;tag=screensizechecker-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_24_240hz_gaming_monitor" data-affiliate-result="monitor">24 inch 240Hz gaming monitors</a>
+<a class="affiliate-link" href="https://www.amazon.com/s?k=27+inch+1440p+165hz+gaming+monitor&amp;tag=screensizechecker-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_27_1440p_165hz_gaming_monitor" data-affiliate-result="monitor">27 inch 1440p 165Hz monitors</a>
+<a class="affiliate-link" href="https://www.amazon.com/s?k=32+inch+4k+144hz+gaming+monitor&amp;tag=screensizechecker-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-program="amazon" data-affiliate-action="amazon_32_4k_144hz_gaming_monitor" data-affiliate-result="monitor">32 inch 4K 144Hz monitors</a>
 </div>
 </aside>
 

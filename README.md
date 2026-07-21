@@ -707,6 +707,13 @@ npm run batch-build
 
 ## 📝 更新日志
 
+### 2026-07-21 - Amazon 独立归因与模块曝光埋点
+
+- 将当前两个英文 Amazon 模块中的 6 个链接统一切换到站点专属 tracking ID `screensizechecker-20`，用于和其他站点分开统计点击、订单与收益。
+- 新增 `affiliate_module_view`：模块保持至少 50% 可见 1 秒后仅触发一次；保留现有 `affiliate_click`，并覆盖对比结果模块从隐藏到显示的场景。
+- 七个页面模板统一使用 `analytics.js?v=20260721-affiliate-view`，确保部署后加载新的埋点脚本；页面文案、SEO 元数据、布局、样式和比较逻辑保持不变。
+- 已通过 `npm run test:regression`、`npm run validate:i18n`、生成结果检查和本地浏览器事件 QA。部署后先做 T+1 事件检查，并在 `2026-07-29`、`2026-08-05` 分别复盘首个完整 7 天和 14 天窗口。
+
 ### v2.3.0 - SEO重定向优化 (2025年8月8日)
 
 #### 🎯 SEO重定向架构重构
