@@ -388,6 +388,30 @@ noscript .noscript-hero-content {
     margin-bottom: var(--spacing-xl);
 }
 
+.copy-value {
+    appearance: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.huge-number.copy-value {
+    padding: 0;
+    background: transparent;
+    border-radius: var(--radius-sm);
+}
+
+.hero-secondary.copy-value {
+    display: block;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border-radius: var(--radius-sm);
+}
+
 .hero-actions {
     margin-top: var(--spacing-xl);
     display: flex;
@@ -635,6 +659,18 @@ noscript .noscript-hero-content {
     font-variant-ligatures: common-ligatures;
     -webkit-font-feature-settings: "liga" 1, "calt" 1;
     font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.info-value.copy-value {
+    text-align: center;
+}
+
+.copy-value:hover {
+    color: var(--primary-hover);
+}
+
+.info-value.copy-value:hover {
+    background: var(--primary-color-light);
 }
 
 .info-value-textarea {
@@ -1386,6 +1422,7 @@ noscript .noscript-hero-content {
 
 /* Focus styles for accessibility */
 .copy-btn:focus-visible,
+.copy-value:focus-visible,
 .tool-card:focus-visible,
 .faq-question:focus-visible {
     outline: 2px solid var(--primary-color);
@@ -1393,6 +1430,7 @@ noscript .noscript-hero-content {
 }
 
 .copy-btn:focus:not(:focus-visible),
+.copy-value:focus:not(:focus-visible),
 .tool-card:focus:not(:focus-visible),
 .faq-question:focus:not(:focus-visible) {
     outline: none;

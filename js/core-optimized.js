@@ -405,8 +405,12 @@ function getCopyText(key) {
  * 婵犮垼娉涚€氼噣骞冩繝鍐ㄧ窞鐎广儱鎳庨悡鎴︽煙缁嬫妯€闁瑰憡濞婇幃娆撴偡閺夋寧鐦栨繛瀛樼矊椤戝嫬鈻?
  */
 async function handleCopyClick(event) {
-    const button = event.target;
-    const targetId = button.getAttribute('data-clipboard-target');
+    const trigger = event.target.closest('[data-clipboard-target]');
+    if (!trigger) {
+        return;
+    }
+
+    const targetId = trigger.getAttribute('data-clipboard-target');
     const targetElement = document.getElementById(targetId);
 
     if (!targetElement) {
@@ -422,7 +426,7 @@ async function handleCopyClick(event) {
             window.ScreenSizeAnalytics.trackCopy({
                 page_id: 'home',
                 tool_name: 'screen_size_checker',
-                tool_action: 'copy_single',
+                tool_action: trigger.classList.contains('copy-btn') ? 'copy_single' : 'copy_value',
                 result_type: targetId || 'viewport'
             });
         }
@@ -796,7 +800,7 @@ function setupAdvancedEventListeners() {
 
     // 濠电姰鍨煎▔娑氱矓閹绢喖鏄ユ俊銈呮噹缁犳澘顭块懜闈涘閻忓骏绠戦湁婵犲﹤鍠氶崕搴㈢箾?
     document.addEventListener('click', async (event) => {
-        if (event.target.classList.contains('copy-btn') && event.target.getAttribute('data-clipboard-target')) {
+        if (event.target.closest('[data-clipboard-target]')) {
             event.preventDefault();
             await handleCopyClick(event);
         }
