@@ -3,36 +3,11 @@
  */
 
 const highlightState = {
-    cssLoaded: false,
     loadingPromise: null,
 };
 
 function getHighlightScriptUrl() {
     return new URL('./highlight.min.js', import.meta.url).href;
-}
-
-function getHighlightCssUrl() {
-    return new URL('../css/highlight.min.css', import.meta.url).href;
-}
-
-function ensureHighlightStylesheet() {
-    if (highlightState.cssLoaded) {
-        return;
-    }
-
-    const stylesheetUrl = getHighlightCssUrl();
-    const existingStylesheet = document.querySelector(`link[href="${stylesheetUrl}"]`);
-
-    if (existingStylesheet) {
-        highlightState.cssLoaded = true;
-        return;
-    }
-
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = stylesheetUrl;
-    document.head.appendChild(link);
-    highlightState.cssLoaded = true;
 }
 
 function ensureHighlightScript() {
@@ -83,7 +58,6 @@ async function initializeCodeHighlighting() {
         return;
     }
 
-    ensureHighlightStylesheet();
     const highlightReady = await ensureHighlightScript();
 
     if (!highlightReady || typeof hljs === 'undefined') {

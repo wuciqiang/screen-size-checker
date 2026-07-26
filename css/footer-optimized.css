@@ -54,10 +54,22 @@
     object-position: left center;
 }
 
+.footer-logo-image-dark {
+    display: none;
+}
+
+[data-theme="dark"] .footer-logo-image-light {
+    display: none;
+}
+
+[data-theme="dark"] .footer-logo-image-dark {
+    display: block;
+}
+
 .footer-description {
     font-size: 14px;
     line-height: 1.6;
-    color: var(--footer-text-secondary, var(--text-muted));
+    color: var(--footer-text-secondary, var(--text-secondary));
     margin: 0 0 24px 0;
     max-width: 320px;
 }
@@ -205,7 +217,7 @@
 
 .footer-copyright {
     font-size: 14px;
-    color: var(--footer-text-secondary, var(--text-muted));
+    color: var(--footer-text-secondary, var(--text-secondary));
 }
 
 .footer-copyright p {

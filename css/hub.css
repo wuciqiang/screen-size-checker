@@ -18,7 +18,7 @@
 /* Hero Section */
 .hub-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-    color: white;
+    color: var(--text-inverse);
     padding: 60px 20px 80px;
     text-align: center;
     margin: 0;
@@ -188,7 +188,7 @@
 
 .hub-content table thead {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .hub-content table th {
@@ -312,7 +312,7 @@
 .hub-tag {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-    color: white;
+    color: var(--text-inverse);
     padding: 8px 20px;
     margin: 6px;
     border-radius: var(--radius-full);

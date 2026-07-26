@@ -1114,13 +1114,27 @@
 }
 
 /* 亮色主题：GitHub Light 风格配色 */
+.hljs-doctag,
 .hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_,
 .hljs-tag {
     color: #cf222e;
 }
 
 .hljs-attr,
-.hljs-attribute {
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-property,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
     color: #0550ae;
 }
 
@@ -1129,17 +1143,15 @@
     color: #0a3069;
 }
 
-.hljs-number,
-.hljs-literal {
-    color: #0550ae;
-}
-
-.hljs-comment {
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
     color: #6e7781;
 }
 
 .hljs-function,
 .hljs-built_in,
+.hljs-symbol,
 .hljs-title {
     color: #8250df;
 }
@@ -1149,20 +1161,65 @@
     color: #953800;
 }
 
-.hljs-name {
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
     color: #116329;
 }
 
-/* 暗色主题：保留原有 Material 风格配色 */
+.hljs-subst {
+    color: var(--text-primary);
+}
+
+.hljs-section {
+    color: #0550ae;
+    font-weight: 700;
+}
+
+.hljs-bullet {
+    color: #735c0f;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
+}
+
+.hljs-addition {
+    color: #116329;
+    background-color: #dafbe1;
+}
+
+.hljs-deletion {
+    color: #82071e;
+    background-color: #ffebe9;
+}
+
+/* 暗色主题：Material 风格配色 */
+[data-theme="dark"] .hljs-doctag,
 [data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-meta .hljs-keyword,
+[data-theme="dark"] .hljs-template-tag,
+[data-theme="dark"] .hljs-template-variable,
+[data-theme="dark"] .hljs-type,
+[data-theme="dark"] .hljs-variable.language_,
 [data-theme="dark"] .hljs-tag,
-[data-theme="dark"] .hljs-attr {
+[data-theme="dark"] .hljs-attr,
+[data-theme="dark"] .hljs-attribute {
     color: #c792ea;
 }
 
-[data-theme="dark"] .hljs-string,
-[data-theme="dark"] .hljs-regexp {
-    color: #89ddff;
+[data-theme="dark"] .hljs-meta,
+[data-theme="dark"] .hljs-operator,
+[data-theme="dark"] .hljs-property,
+[data-theme="dark"] .hljs-selector-attr,
+[data-theme="dark"] .hljs-selector-class,
+[data-theme="dark"] .hljs-selector-id {
+    color: #82aaff;
 }
 
 [data-theme="dark"] .hljs-number,
@@ -1170,27 +1227,53 @@
     color: #f78c6c;
 }
 
-[data-theme="dark"] .hljs-comment {
-    color: #676e95;
+[data-theme="dark"] .hljs-string,
+[data-theme="dark"] .hljs-regexp {
+    color: #89ddff;
+}
+
+[data-theme="dark"] .hljs-code,
+[data-theme="dark"] .hljs-comment,
+[data-theme="dark"] .hljs-formula {
+    color: #8b93b8;
 }
 
 [data-theme="dark"] .hljs-function,
 [data-theme="dark"] .hljs-built_in,
+[data-theme="dark"] .hljs-symbol,
 [data-theme="dark"] .hljs-title {
     color: #82aaff;
 }
 
 [data-theme="dark"] .hljs-variable,
-[data-theme="dark"] .hljs-params {
+[data-theme="dark"] .hljs-params,
+[data-theme="dark"] .hljs-subst {
     color: #eeffff;
 }
 
-[data-theme="dark"] .hljs-name {
+[data-theme="dark"] .hljs-name,
+[data-theme="dark"] .hljs-quote,
+[data-theme="dark"] .hljs-selector-pseudo,
+[data-theme="dark"] .hljs-selector-tag {
     color: #ffcb6b;
 }
 
-[data-theme="dark"] .hljs-attribute {
-    color: #c792ea;
+[data-theme="dark"] .hljs-section {
+    color: #82aaff;
+}
+
+[data-theme="dark"] .hljs-bullet {
+    color: #f78c6c;
+}
+
+[data-theme="dark"] .hljs-addition {
+    color: #c3e88d;
+    background-color: rgba(195, 232, 141, 0.1);
+}
+
+[data-theme="dark"] .hljs-deletion {
+    color: #f07178;
+    background-color: rgba(240, 113, 120, 0.1);
 }
 
 /* ====== 分页样式 ====== */
