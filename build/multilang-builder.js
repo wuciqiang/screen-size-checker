@@ -866,6 +866,27 @@ class MultiLangBuilder extends ComponentBuilder {
         console.log('\n Copying required static resources...');
         
         // 闂傚洠鍋撻悷鏇氳兌濞插潡骞掗妷銉Щ闁告帒澧庡▓鎴犳導閸曨剛鐖遍柨娑樼墔缁楀宕犻崨顔碱仾robots.txt闁告粌鐣﹔edirects闁挎稑鐭佺换鏍ㄧ濞戞娈洪柛鏂诲妽閳ь兛鑳堕弫鎾诲箣閹板墎绀?
+        const deadCssFiles = new Set([
+            'blog-mobile.css',
+            'blog-mobile-fixes.css',
+            'blog-mobile-emergency-fix.css',
+            'blog-layout-mobile.css',
+            'blog-typography-mobile.css',
+            'blog-content-responsive.css',
+            'blog-table-color-fix.css',
+            'mobile-chart-optimization.css',
+            'mobile-typography-classes.css',
+            'mobile-ui-optimization.css',
+            'mobile-performance.css',
+            'language-selector.css',
+            'optimized-events.css',
+            'comparison.css',
+            'info-items.css',
+            'highlight.min.css',
+        ]);
+
+        // Legacy CSS files above are unreferenced (merged into core-optimized.css /
+        // mobile-unified.css or superseded); sources stay in css/ but skip the output.
         const resourcesToCopy = [
             'css',
             'js',
@@ -906,7 +927,7 @@ class MultiLangBuilder extends ComponentBuilder {
             if (fs.existsSync(sourcePath)) {
                 try {
                     if (fs.statSync(sourcePath).isDirectory()) {
-                        this.copyDirectoryRecursive(sourcePath, targetPath);
+                        this.copyDirectoryRecursive(sourcePath, targetPath, resource === 'css' ? deadCssFiles : null);
                         console.log(`[OK] Copied directory: ${resource}`);
                     } else {
                         fs.copyFileSync(sourcePath, targetPath);
@@ -936,7 +957,7 @@ class MultiLangBuilder extends ComponentBuilder {
     }
 
     // 闂侇偅甯掔紞濠冨緞瀹ュ懎鐓戦柣鈺婂枛缂?
-    copyDirectoryRecursive(source, dest) {
+    copyDirectoryRecursive(source, dest, excludeFiles = null) {
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
         }
@@ -948,7 +969,9 @@ class MultiLangBuilder extends ComponentBuilder {
             const destPath = path.join(dest, item);
             
             if (fs.statSync(sourcePath).isDirectory()) {
-                this.copyDirectoryRecursive(sourcePath, destPath);
+                this.copyDirectoryRecursive(sourcePath, destPath, excludeFiles);
+            } else if (excludeFiles && excludeFiles.has(item)) {
+                return;
             } else {
                 fs.copyFileSync(sourcePath, destPath);
             }

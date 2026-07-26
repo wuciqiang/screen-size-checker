@@ -216,7 +216,7 @@
     border-radius: var(--radius-sm);
     overflow: visible; /* Changed to visible to show resize handles */
     background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-medium);
 }
 
 /* Show handles on hover */
@@ -227,7 +227,7 @@
 /* Base resize handle styles - optimized for maximum performance */
 .resize-handle {
     position: absolute;
-    background: #007bff;
+    background: var(--primary-color);
     opacity: 0.5;
     user-select: none;
     -webkit-user-select: none;
@@ -235,7 +235,7 @@
     -ms-user-select: none;
     z-index: 1001;
     border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
     /* No transitions for immediate response */
     will-change: opacity, background-color;
     pointer-events: auto;
@@ -243,14 +243,14 @@
 
 .resize-handle:hover {
     opacity: 0.8;
-    background: #0056b3;
-    box-shadow: 0 2px 12px rgba(0, 86, 179, 0.25);
+    background: var(--primary-hover);
+    box-shadow: 0 2px 12px rgba(0, 82, 214, 0.25);
 }
 
 .resize-handle:active {
     opacity: 1;
-    background: #004085;
-    box-shadow: 0 1px 6px rgba(0, 64, 133, 0.3);
+    background: var(--primary-dark);
+    box-shadow: 0 1px 6px rgba(0, 63, 173, 0.3);
 }
 
 /* Southeast corner handle (diagonal resize) */
@@ -261,7 +261,7 @@
     right: -8px;
     border-radius: 50%;
     cursor: se-resize;
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
 }
 
 /* East edge handle (horizontal resize) */
@@ -349,13 +349,13 @@
 
 /* Blog Article Enhancements */
 .cta-box {
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     color: white;
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     text-align: center;
     margin: 2rem 0;
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    box-shadow: 0 8px 25px var(--glow-color);
 }
 
 .cta-box h3 {
@@ -374,31 +374,31 @@
 .cta-button {
     display: inline-block;
     background: white;
-    color: #007bff;
+    color: var(--primary-color);
     padding: 12px 30px;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: all var(--transition-medium);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-    color: #0056b3;
+    color: var(--primary-hover);
 }
 
 .author-bio {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    background: #f8f9fa;
+    background: var(--background-secondary);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     margin: 2rem 0;
-    border-left: 4px solid #007bff;
+    border-left: 4px solid var(--primary-color);
 }
 
 .author-avatar {
@@ -407,19 +407,19 @@
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    border: 3px solid #007bff;
+    border: 3px solid var(--primary-color);
 }
 
 .author-bio h4 {
     margin: 0 0 0.5rem 0;
-    color: #007bff;
+    color: var(--primary-color);
     font-size: 1.3rem;
     font-weight: 600;
 }
 
 .author-bio p {
     margin: 0;
-    color: #6c757d;
+    color: var(--text-secondary);
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -428,16 +428,16 @@
 .blog-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     margin: 1.5rem 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-medium);
 }
 
 .blog-content img + em {
     display: block;
     text-align: center;
     font-style: italic;
-    color: #6c757d;
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-top: -1rem;
     margin-bottom: 1.5rem;
@@ -510,4 +510,28 @@
     #simulator-frame {
         min-height: 200px;
     }
-} 
+}
+
+/* Card elevation */
+.url-input-container,
+.simulator-controls,
+.simulator-custom-controls,
+.simulator-preview {
+    box-shadow: var(--shadow-sm);
+}
+
+/* Button hover & focus polish */
+.load-btn:hover,
+#apply-custom-size:hover,
+.device-buttons button:hover {
+    box-shadow: var(--shadow-light);
+}
+
+.load-btn:focus-visible,
+#apply-custom-size:focus-visible,
+.rotate-btn:focus-visible,
+.device-buttons button:focus-visible,
+.cta-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}

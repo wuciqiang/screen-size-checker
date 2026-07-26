@@ -20,56 +20,56 @@
 ## 入口与启动
 
 ### 主样式文件
-- **基础**: `base.css` - 全局基础样式、CSS变量、重置样式
-- **主样式**: `main.css` - 主要布局和组件样式
-- **核心优化**: `core-optimized.css` - 性能优化的核心样式
+- **核心优化**: `core-optimized.css` - 全站主样式表（所有模板页都加载），**设计令牌的唯一事实来源**
+- **视觉增强**: `visual-enhancements.css` - 最后加载的精修层（卡片/按钮/动效）
+- **基础**: `base.css` - 仅 `about.html` 使用（独立静态页）
 
-### 加载顺序
-1. `base.css` - 基础样式（最先加载）
-2. `core-optimized.css` - 核心优化样式
-3. 页面特定样式（按需加载）
-4. 移动端优化样式（媒体查询）
+### 加载顺序（`components/head.html` 定义，所有模板页一致）
+1. 内联 critical CSS（`components/head.html` 的 `<style>` 块，值与 core-optimized 令牌保持同步）
+2. `core-optimized.css`（阻塞）
+3. `mega-menu.css`（阻塞）
+4. `internal-links.css` → `footer-optimized.css` → `visual-enhancements.css`（media="print" onload 异步）
+5. 页面类型追加：blog → `blog.css` + `mobile-unified.css` + `blog-progress.css`；hub → `hub.css`；responsive-tester → `simulator.css`
 
 ---
 
 ## 对外接口
 
-### CSS变量系统
+### CSS变量系统（2026-07 统一后的现代化令牌）
+唯一事实来源是 `core-optimized.css` 的 `:root`（暗色覆盖在同文件 `[data-theme="dark"]`）。`components/head.html` 内联 critical CSS 手工同步同样的值；`visual-enhancements.css` 的 `:root` 只做别名，不得再定义冲突值。
 ```css
 :root {
-    /* 颜色系统 */
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
+    /* 品牌蓝（唯一主色） */
+    --primary-500: #0066FF;   /* --primary-color 别名 */
+    --primary-600: #0052d6;   /* hover */
 
-    /* 间距系统 */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
+    /* 文字（slate 灰阶） */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
 
-    /* 断点 */
-    --breakpoint-mobile: 768px;
-    --breakpoint-tablet: 1024px;
-    --breakpoint-desktop: 1280px;
+    /* 背景/边框 */
+    --background-primary: #ffffff;
+    --background-secondary: #f8fafc;
+    --background-tertiary: #f1f5f9;
+    --border-color: #e2e8f0;
 
-    /* 字体 */
-    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-size-base: 16px;
-    --line-height-base: 1.5;
+    /* 圆角统一：6/10/14/18/24 */
+    --radius-sm: 6px;  --radius-md: 10px; --radius-lg: 14px;
+
+    /* 阴影：slate 着色的柔和多层（--shadow-xs ~ --shadow-xl） */
+    /* 焦点环：--focus-ring: 0 0 0 3px rgba(0,102,255,0.25) */
 }
+/* 暗色 [data-theme="dark"]：bg #0b1220/#111a2c/#121c30/#1a2540，
+   text #e2e8f0/#94a3b8/#64748b，border #24334d/#3b4d6e，primary #4d8dff */
 ```
 
-### 响应式断点
+### 响应式断点（现状：max-width 桌面优先，勿随意改动）
 ```css
-/* 移动端优先 */
-@media (min-width: 768px) { /* 平板 */ }
-@media (min-width: 1024px) { /* 桌面 */ }
-@media (min-width: 1280px) { /* 大屏 */ }
+@media (max-width: 1024px) { /* 小桌面 */ }
+@media (max-width: 768px)  { /* 平板/手机（主断点，77+ 处） */ }
+@media (max-width: 480px)  { /* 手机 */ }
+@media (max-width: 320px)  { /* 超小屏 */ }
 ```
 
 ---
@@ -165,6 +165,10 @@ core-optimized.css (优化层)
 - 部分样式文件命名不一致
 - 缺少CSS模块化方案
 
+### 死文件（2026-07 起不再拷贝进构建输出，源文件保留仅供参考）
+以下文件无任何页面引用（内容已并入 `mobile-unified.css` / `core-optimized.css`），构建时由 `build/multilang-builder.js` 与 `scripts/build-page.js` 的排除清单跳过：
+`blog-mobile.css`、`blog-mobile-fixes.css`、`blog-mobile-emergency-fix.css`、`blog-layout-mobile.css`、`blog-typography-mobile.css`、`blog-content-responsive.css`、`blog-table-color-fix.css`、`mobile-chart-optimization.css`、`mobile-typography-classes.css`、`mobile-ui-optimization.css`、`mobile-performance.css`、`language-selector.css`、`optimized-events.css`、`comparison.css`、`info-items.css`、`highlight.min.css`
+
 ---
 
 ## 常见问题 (FAQ)
@@ -251,6 +255,14 @@ A: 使用统一的断点系统：
 ---
 
 ## 变更记录
+
+### 2026-07-26 - 前端样式现代化重构（纯显示优化）
+- 统一设计令牌到 `core-optimized.css :root`（品牌蓝 #0066FF、slate 灰阶、6/10/14/18/24 圆角、柔和多层阴影、--focus-ring）
+- 同步 `visual-enhancements.css`、`components/head.html` 内联 critical CSS、`main.css`、`base.css` 的令牌值
+- 全部在用样式表翻新排版/卡片/按钮/焦点态/暗色主题；hub 紫色调改为品牌蓝；simulator 去除 off-palette #007bff
+- 修复 `mobile-unified.css` 引用不存在变量（--card-bg 等）导致的失效样式；为 `core-optimized.css` 补回 `.copy-value` 按钮重置（修复首页 hero 数字的 UA 默认白框）
+- 16 个无引用死 CSS 文件从构建输出排除（源文件保留）
+- 未改任何 DOM 结构、class 名、JS、URL、内链
 
 ### 2025-12-29 - 初始化模块文档
 - 创建样式模块文档

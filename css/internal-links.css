@@ -9,10 +9,11 @@
     gap: 10px;
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-color, #111827);
+    letter-spacing: -0.01em;
+    color: var(--text-color, var(--text-primary));
     margin: 0 0 24px 0;
     padding-bottom: 16px;
-    border-bottom: 2px solid var(--border-color, #e5e7eb);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .module-icon {
@@ -24,16 +25,16 @@
    Module 1: Quick Links
    ======================================== */
 .quick-links-module {
-    background: var(--card-bg, #ffffff);
-    border-radius: 12px;
+    background: var(--card-bg, var(--background-card));
+    border-radius: var(--radius-lg);
     padding: 24px;
     margin-bottom: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-light);
 }
 
 [data-theme="dark"] .quick-links-module {
-    --card-bg: #2a2a2a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --card-bg: var(--background-card);
+    box-shadow: var(--shadow-light);
 }
 
 .quick-links-grid {
@@ -47,23 +48,23 @@
     align-items: center;
     gap: 12px;
     padding: 16px;
-    background: var(--hover-bg, #f9fafb);
-    border: 2px solid var(--border-color, #e5e7eb);
-    border-radius: 10px;
+    background: var(--hover-bg, var(--background-secondary));
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-medium);
     cursor: pointer;
 }
 
 .quick-link-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
-    border-color: var(--primary-color, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.15);
+    border-color: var(--primary-color);
 }
 
 [data-theme="dark"] .quick-link-card {
-    --hover-bg: #333333;
-    --border-color: #404040;
+    --hover-bg: var(--background-tertiary);
+    --border-color: #24334d;
 }
 
 .quick-link-icon {
@@ -79,27 +80,27 @@
 .quick-link-title {
     font-size: 15px;
     font-weight: 600;
-    color: var(--text-color, #111827);
+    color: var(--text-color, var(--text-primary));
     margin-bottom: 4px;
 }
 
 .quick-link-desc {
     font-size: 12px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary);
 }
 
 /* ========================================
    Module 2: Related Tools
    ======================================== */
 .related-tools-module {
-    background: var(--section-bg, #f9fafb);
-    border-radius: 12px;
+    background: var(--section-bg, var(--background-secondary));
+    border-radius: var(--radius-lg);
     padding: 32px;
     margin-bottom: 32px;
 }
 
 [data-theme="dark"] .related-tools-module {
-    --section-bg: #1f1f1f;
+    --section-bg: var(--background-secondary);
 }
 
 .related-tools-list {
@@ -113,22 +114,22 @@
     align-items: center;
     gap: 16px;
     padding: 20px;
-    background: var(--card-bg, #ffffff);
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 10px;
+    background: var(--card-bg, var(--background-card));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all var(--transition-medium);
 }
 
 .related-tool:hover {
-    transform: translateX(8px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    border-color: var(--primary-color, #2563eb);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
 }
 
 [data-theme="dark"] .related-tool {
-    --card-bg: #2a2a2a;
-    --border-color: #404040;
+    --card-bg: var(--background-card);
+    --border-color: #24334d;
 }
 
 .tool-badge {
@@ -137,13 +138,13 @@
     align-items: center;
     gap: 4px;
     padding: 12px;
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+    border-radius: var(--radius-md);
     flex-shrink: 0;
 }
 
 [data-theme="dark"] .tool-badge {
-    background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%);
+    background: linear-gradient(135deg, #1a2540 0%, #121c30 100%);
 }
 
 .badge-icon {
@@ -154,7 +155,7 @@
 .badge-label {
     font-size: 11px;
     font-weight: 600;
-    color: var(--primary-color, #2563eb);
+    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -166,26 +167,26 @@
 .tool-title {
     font-size: 17px;
     font-weight: 600;
-    color: var(--text-color, #111827);
+    color: var(--text-color, var(--text-primary));
     margin: 0 0 8px 0;
 }
 
 .tool-description {
     font-size: 14px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary);
     margin: 0;
     line-height: 1.5;
 }
 
 .tool-arrow {
     font-size: 24px;
-    color: var(--text-tertiary, #9ca3af);
-    transition: all 0.3s;
+    color: var(--text-tertiary, var(--text-muted));
+    transition: all var(--transition-medium);
     flex-shrink: 0;
 }
 
 .related-tool:hover .tool-arrow {
-    color: var(--primary-color, #2563eb);
+    color: var(--primary-color);
     transform: translateX(4px);
 }
 
@@ -193,15 +194,15 @@
    Module 3: Device Recommendations
    ======================================== */
 .device-recommendations-module {
-    background: var(--card-bg, #ffffff);
-    border-radius: 12px;
+    background: var(--card-bg, var(--background-card));
+    border-radius: var(--radius-lg);
     padding: 24px;
     margin-bottom: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-light);
 }
 
 [data-theme="dark"] .device-recommendations-module {
-    --card-bg: #2a2a2a;
+    --card-bg: var(--background-card);
 }
 
 .device-recommendation-cards {
@@ -215,29 +216,29 @@
     align-items: center;
     gap: 16px;
     padding: 16px;
-    background: var(--hover-bg, #f9fafb);
-    border: 2px solid var(--border-color, #e5e7eb);
-    border-radius: 10px;
+    background: var(--hover-bg, var(--background-secondary));
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all var(--transition-medium);
 }
 
 .device-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary-color, #2563eb);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
 }
 
 [data-theme="dark"] .device-card {
-    --hover-bg: #333333;
-    --border-color: #404040;
+    --hover-bg: var(--background-tertiary);
+    --border-color: #24334d;
 }
 
 .device-image {
     width: 60px;
     height: 60px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -245,7 +246,7 @@
 }
 
 [data-theme="dark"] .device-image {
-    background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%);
+    background: linear-gradient(135deg, #1a2540 0%, #121c30 100%);
 }
 
 .device-placeholder {
@@ -260,7 +261,7 @@
 .device-name {
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-color, #111827);
+    color: var(--text-color, var(--text-primary));
     margin: 0 0 8px 0;
 }
 
@@ -269,7 +270,7 @@
     align-items: center;
     gap: 6px;
     font-size: 13px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
@@ -278,7 +279,7 @@
 }
 
 .spec-divider {
-    color: var(--text-tertiary, #9ca3af);
+    color: var(--text-tertiary, var(--text-muted));
 }
 
 .device-tag {
@@ -287,7 +288,7 @@
     gap: 4px;
     padding: 4px 10px;
     background: var(--tag-bg, #fef3c7);
-    border-radius: 12px;
+    border-radius: var(--radius-full);
     font-size: 11px;
     font-weight: 600;
     color: var(--tag-text, #92400e);
@@ -307,14 +308,14 @@
    Module 4: Popular Guides
    ======================================== */
 .popular-guides-module {
-    background: var(--section-bg, #f9fafb);
-    border-radius: 12px;
+    background: var(--section-bg, var(--background-secondary));
+    border-radius: var(--radius-lg);
     padding: 32px;
     margin-bottom: 32px;
 }
 
 [data-theme="dark"] .popular-guides-module {
-    --section-bg: #1f1f1f;
+    --section-bg: var(--background-secondary);
 }
 
 .popular-guides-list {
@@ -328,22 +329,22 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background: var(--card-bg, #ffffff);
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 10px;
+    background: var(--card-bg, var(--background-card));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all var(--transition-medium);
 }
 
 .guide-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-color: var(--primary-color, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
 }
 
 [data-theme="dark"] .guide-item {
-    --card-bg: #2a2a2a;
-    --border-color: #404040;
+    --card-bg: var(--background-card);
+    --border-color: #24334d;
 }
 
 .guide-meta {
@@ -356,9 +357,9 @@
 .guide-category {
     display: inline-block;
     padding: 4px 10px;
-    background: var(--category-bg, #dbeafe);
-    color: var(--primary-color, #2563eb);
-    border-radius: 12px;
+    background: var(--category-bg, var(--primary-100));
+    color: var(--primary-color);
+    border-radius: var(--radius-full);
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -366,25 +367,25 @@
 }
 
 [data-theme="dark"] .guide-category {
-    --category-bg: #1e3a5f;
+    --category-bg: var(--primary-color-light);
 }
 
 .guide-reading-time {
     font-size: 12px;
-    color: var(--text-tertiary, #9ca3af);
+    color: var(--text-tertiary, var(--text-muted));
 }
 
 .guide-title {
     font-size: 17px;
     font-weight: 600;
-    color: var(--text-color, #111827);
+    color: var(--text-color, var(--text-primary));
     margin: 0 0 10px 0;
     line-height: 1.4;
 }
 
 .guide-excerpt {
     font-size: 14px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin: 0 0 16px 0;
     flex: 1;
@@ -395,7 +396,7 @@
     align-items: center;
     gap: 16px;
     padding-top: 12px;
-    border-top: 1px solid var(--border-color, #e5e7eb);
+    border-top: 1px solid var(--border-color);
 }
 
 .stat-item {
@@ -403,11 +404,11 @@
     align-items: center;
     gap: 6px;
     font-size: 12px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary);
 }
 
 .stat-item.featured {
-    color: var(--primary-color, #2563eb);
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -421,20 +422,20 @@
     align-items: center;
     justify-content: center;
     padding: 14px 28px;
-    background: var(--primary-color, #2563eb);
-    color: #ffffff;
+    background: var(--primary-color);
+    color: var(--text-inverse);
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
 }
 
 .view-all-button:hover {
-    background: var(--primary-hover, #1d4ed8);
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
 }
 
 /* ========================================
@@ -515,4 +516,16 @@
         box-shadow: none;
         border: 1px solid #e5e7eb;
     }
+}
+
+/* ========================================
+   Focus Visible Rings
+   ======================================== */
+.quick-link-card:focus-visible,
+.related-tool:focus-visible,
+.device-card:focus-visible,
+.guide-item:focus-visible,
+.view-all-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
 }

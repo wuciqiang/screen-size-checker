@@ -47,28 +47,52 @@ function parseArgs(args) {
     return options;
 }
 
-function copyRecursive(sourcePath, targetPath) {
+function copyRecursive(sourcePath, targetPath, excludeFiles = null) {
     if (!fs.existsSync(sourcePath)) return;
 
     const stats = fs.statSync(sourcePath);
     if (stats.isDirectory()) {
         fs.mkdirSync(targetPath, { recursive: true });
         fs.readdirSync(sourcePath).forEach(entry => {
-            copyRecursive(path.join(sourcePath, entry), path.join(targetPath, entry));
+            copyRecursive(path.join(sourcePath, entry), path.join(targetPath, entry), excludeFiles);
         });
         return;
     }
+
+    if (excludeFiles && excludeFiles.has(path.basename(sourcePath))) return;
 
     fs.mkdirSync(path.dirname(targetPath), { recursive: true });
     fs.copyFileSync(sourcePath, targetPath);
 }
 
+const EXCLUDED_CSS_FILES = new Set([
+    'blog-mobile.css',
+    'blog-mobile-fixes.css',
+    'blog-mobile-emergency-fix.css',
+    'blog-layout-mobile.css',
+    'blog-typography-mobile.css',
+    'blog-content-responsive.css',
+    'blog-table-color-fix.css',
+    'mobile-chart-optimization.css',
+    'mobile-typography-classes.css',
+    'mobile-ui-optimization.css',
+    'mobile-performance.css',
+    'language-selector.css',
+    'optimized-events.css',
+    'comparison.css',
+    'info-items.css',
+    'highlight.min.css',
+]);
+
+// Legacy CSS files above are unreferenced (merged into core-optimized.css /
+// mobile-unified.css or superseded); sources stay in css/ but skip the output.
 function ensurePreviewAssets(outputDir) {
     fs.rmSync(outputDir, { recursive: true, force: true });
     fs.mkdirSync(outputDir, { recursive: true });
 
     STATIC_DIRECTORIES.forEach(dirName => {
-        copyRecursive(path.join(ROOT, dirName), path.join(outputDir, dirName));
+        const exclude = dirName === 'css' ? EXCLUDED_CSS_FILES : null;
+        copyRecursive(path.join(ROOT, dirName), path.join(outputDir, dirName), exclude);
     });
 
     copyRecursive(
