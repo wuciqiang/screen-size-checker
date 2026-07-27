@@ -105,12 +105,12 @@ screen-size-checker/
 ```bash
 npm run build           # 完整构建（86页面）
 python dev-server.py    # 本地开发服务器（支持clean URLs）
-python verify-links.py  # 验证导航链接（11/11）
+npm run test:links      # 验证站内链接
 ```
 
 ### 关键脚本
 - `dev-server.py`: 本地开发服务器，自动处理.html扩展名
-- `verify-links.py`: 链接验证工具，确保所有导航链接有效
+- `test/internal-links-checker.js`: 站内链接验证工具
 
 ---
 

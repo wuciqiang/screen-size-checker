@@ -194,11 +194,9 @@ A: 检查：
 - `translation-validator.js` - 翻译验证
 - `internal-links-processor.js` - 内链处理
 - `critical-css-extractor.js` - CSS提取
-- `migrate-internal-links.js` - 内链迁移工具
 
 ### 配置文件
 - `pages-config.json` (6185+行) - 页面配置
-- `internal-links-migration-report.json` - 迁移报告
 - `internal-links-report.json` - 内链报告
 - `translation-validation-report.json` - 翻译验证报告
 

@@ -5,7 +5,7 @@
     "description": "Screen Size Checker - A modern multilingual tool to detect screen resolution, viewport size, and compare device dimensions. Built with component-based architecture.",
     "homepage": "https://screensizechecker.com"
   },
-  "generatedAt": "2026-03-18T11:40:39.000Z",
+  "generatedAt": "2026-07-27T02:24:08.855Z",
   "sourcesOfTruth": {
     "claude": "CLAUDE.md",
     "buildDocs": "docs/BUILD_SYSTEM.md",
@@ -34,18 +34,14 @@
   },
   "counts": {
     "buildScripts": 9,
-    "manualComponents": 22,
-    "generatedBlogComponents": 276,
-    "generatedHubComponents": 60,
+    "manualComponents": 24,
+    "generatedBlogComponents": 366,
+    "generatedHubComponents": 72,
     "templates": 7,
     "locales": 10,
-    "blogMarkdown": 65,
-    "hubMarkdown": 60,
-    "tests": 4
+    "blogMarkdown": 84,
+    "hubMarkdown": 72,
+    "tests": 12
   },
-  "activeSpecs": [
-    "bing-seo-optimization",
-    "website-beautification",
-    "website-style-redesign"
-  ]
+  "activeSpecs": []
 }

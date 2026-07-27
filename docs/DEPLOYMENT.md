@@ -38,9 +38,8 @@
 - SEO 关键文件存在：`multilang-build/sitemap.xml`、`multilang-build/robots.txt`
 - 重定向规则存在：`multilang-build/_redirects`
 - 链接校验（可选但推荐）：
-  - `node test/seo-tags-validator.js`
-  - `node test/internal-links-checker.js`
-  - `python verify-links.py`
+  - `npm run test:seo`
+  - `npm run test:links`
 
 ---
 
@@ -68,4 +67,3 @@
   - `_redirects` 是否仍覆盖旧路径（`/en/*` 等迁移后的兼容）
   - `canonical` / `hreflang` 是否与根域名策略一致
   - sitemap 是否仍可访问且内容正确
-
