@@ -157,6 +157,18 @@ async function openTester(page, url) {
     ));
 }
 
+function contrastRatio(foreground, background) {
+    const luminance = color => {
+        const channels = color.match(/[\d.]+/g).slice(0, 3).map(value => Number(value) / 255);
+        const linear = channels.map(value => (
+            value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
+        ));
+        return (0.2126 * linear[0]) + (0.7152 * linear[1]) + (0.0722 * linear[2]);
+    };
+    const values = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+    return (values[0] + 0.05) / (values[1] + 0.05);
+}
+
 async function assertNoHorizontalOverflow(page, label) {
     const metrics = await page.evaluate(() => ({
         clientWidth: document.documentElement.clientWidth,
@@ -192,6 +204,95 @@ async function assertPrimaryActionsInViewport(page, label) {
     }
 }
 
+async function assertCompactTopLayout(page, label, limits) {
+    const metrics = await page.evaluate(() => {
+        const readRect = selector => {
+            const rect = document.querySelector(selector).getBoundingClientRect();
+            return { bottom: Math.round(rect.bottom), top: Math.round(rect.top) };
+        };
+
+        return {
+            actions: readRect('.lcd-hero-actions'),
+            h1: readRect('#lcd-page-title'),
+            workbench: readRect('.lcd-workbench')
+        };
+    });
+
+    assert.ok(metrics.h1.top >= 0 && metrics.h1.top <= limits.h1Max, `${label} H1 starts at ${metrics.h1.top}px`);
+    assert.ok(metrics.workbench.top <= limits.workbenchMax, `${label} workbench starts at ${metrics.workbench.top}px`);
+    assert.ok(metrics.actions.bottom <= metrics.workbench.top, `${label} actions overlap the workbench`);
+}
+
+async function assertContentStructure(page, label) {
+    const structure = await page.evaluate(() => ({
+        categories: Array.from(document.querySelectorAll('[data-action="choose-category"]'), button => button.dataset.categoryTarget),
+        faqCount: document.querySelectorAll('.lcd-faq details').length,
+        finalActionCount: document.querySelectorAll('.lcd-final-action-buttons button').length,
+        preparationCount: document.querySelectorAll('.lcd-prep-list > li').length,
+        resultCount: document.querySelectorAll('.lcd-result-grid > article').length
+    }));
+
+    assert.deepStrictEqual(structure, {
+        categories: ['quick', 'pixels', 'uniformity', 'motion', 'sharpness'],
+        faqCount: 8,
+        finalActionCount: 2,
+        preparationCount: 6,
+        resultCount: 5
+    }, `${label} content structure`);
+}
+
+async function assertContentTextFits(page, label) {
+    const overflow = await page.$$eval(
+        '.lcd-tester-tool h1, .lcd-tester-tool h2, .lcd-tester-tool h3, .lcd-tester-tool p, .lcd-tester-tool summary, .lcd-tester-tool button',
+        elements => elements
+            .filter(element => element.getClientRects().length > 0 && element.scrollWidth > element.clientWidth + 1)
+            .map(element => ({
+                clientWidth: element.clientWidth,
+                scrollWidth: element.scrollWidth,
+                text: (element.textContent || '').trim().slice(0, 80)
+            }))
+    );
+    assert.deepStrictEqual(overflow, [], `${label} contains clipped text`);
+}
+
+async function assertFaqSpacing(page, label) {
+    const spacing = await page.evaluate(() => {
+        const details = document.querySelector('.lcd-faq details');
+        const summary = details.querySelector('summary');
+        const answer = details.querySelector('p');
+        const detailsRect = details.getBoundingClientRect();
+        const textNode = Array.from(summary.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+        const range = document.createRange();
+        range.selectNodeContents(textNode);
+
+        return {
+            answerInset: Math.round(answer.getBoundingClientRect().left - detailsRect.left),
+            iconInset: parseFloat(getComputedStyle(summary, '::after').right),
+            questionInset: Math.round(range.getBoundingClientRect().left - detailsRect.left)
+        };
+    });
+
+    assert.ok(spacing.questionInset >= 14, `${label} FAQ question inset is ${spacing.questionInset}px`);
+    assert.ok(spacing.answerInset >= 14, `${label} FAQ answer inset is ${spacing.answerInset}px`);
+    assert.ok(spacing.iconInset >= 14, `${label} FAQ icon inset is ${spacing.iconInset}px`);
+}
+
+async function assertVisibleControlTargets(page, selector, label) {
+    const undersized = await page.$$eval(selector, elements => elements
+        .filter(element => element.getClientRects().length > 0)
+        .map(element => {
+            const rect = element.getBoundingClientRect();
+            return {
+                height: rect.height,
+                text: (element.textContent || element.getAttribute('aria-label') || '').trim(),
+                width: rect.width
+            };
+        })
+        .filter(element => element.width < 44 || element.height < 44));
+
+    assert.deepStrictEqual(undersized, [], `${label} contains controls smaller than 44x44px`);
+}
+
 async function getTesterState(page) {
     return page.evaluate(() => {
         const tester = window.__lcdScreenTester;
@@ -223,6 +324,7 @@ async function assertClosedState(page, expectedStatus) {
     const state = await page.evaluate(() => {
         const tester = window.__lcdScreenTester;
         return {
+            backgroundInert: document.querySelector('[data-lcd-tester]').inert,
             bodyActive: document.body.classList.contains('lcd-test-active'),
             controlHideTimer: tester.controlHideTimer,
             fullscreenElement: document.fullscreenElement?.id || null,
@@ -237,6 +339,7 @@ async function assertClosedState(page, expectedStatus) {
     });
 
     assert.deepStrictEqual(state, {
+        backgroundInert: false,
         bodyActive: false,
         controlHideTimer: null,
         fullscreenElement: null,
@@ -252,7 +355,7 @@ async function assertClosedState(page, expectedStatus) {
 
 async function runDesktopFlow(browser, origin) {
     const context = await prepareContext(browser, {
-        viewport: { width: 1280, height: 800 }
+        viewport: { width: 1440, height: 900 }
     });
     const page = await context.newPage();
     const diagnostics = preparePage(page);
@@ -261,6 +364,59 @@ async function runDesktopFlow(browser, origin) {
         await openTester(page, `${origin}/devices/lcd-screen-tester`);
         await assertNoHorizontalOverflow(page, 'desktop page');
         await assertPrimaryActionsInViewport(page, 'desktop page');
+        await assertCompactTopLayout(page, 'desktop page', { h1Max: 190, workbenchMax: 340 });
+        await assertContentStructure(page, 'desktop page');
+        await assertContentTextFits(page, 'desktop page');
+        await assertFaqSpacing(page, 'desktop page');
+        const statusColors = await page.$eval('#lcd-status-text', element => ({
+            background: getComputedStyle(element.closest('.lcd-workbench')).backgroundColor,
+            foreground: getComputedStyle(element).color
+        }));
+        assert.ok(
+            contrastRatio(statusColors.foreground, statusColors.background) >= 4.5,
+            `ready status text contrast is below 4.5:1: ${JSON.stringify(statusColors)}`
+        );
+
+        const initialTabs = await page.$$eval('.lcd-tab', tabs => tabs.map(tab => ({
+            id: tab.id,
+            selected: tab.getAttribute('aria-selected'),
+            tabIndex: tab.tabIndex
+        })));
+        assert.deepStrictEqual(initialTabs, [
+            { id: 'lcd-tab-quick', selected: 'true', tabIndex: 0 },
+            { id: 'lcd-tab-pixels', selected: 'false', tabIndex: -1 },
+            { id: 'lcd-tab-uniformity', selected: 'false', tabIndex: -1 },
+            { id: 'lcd-tab-motion', selected: 'false', tabIndex: -1 },
+            { id: 'lcd-tab-sharpness', selected: 'false', tabIndex: -1 }
+        ]);
+        await page.focus('#lcd-tab-quick');
+        await page.keyboard.press('ArrowRight');
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-tab-pixels');
+        assert.strictEqual(await page.getAttribute('#lcd-tab-pixels', 'aria-selected'), 'true');
+        await page.keyboard.press('End');
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-tab-sharpness');
+        await page.keyboard.press('Home');
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-tab-quick');
+
+        await page.click('[data-action="choose-category"][data-category-target="uniformity"]');
+        await page.waitForFunction(() => (
+            window.__lcdScreenTester.activeCategory === 'uniformity'
+            && document.querySelector('.lcd-workbench').getBoundingClientRect().top <= 100
+        ));
+        assert.strictEqual(await page.getAttribute('#lcd-tab-uniformity', 'aria-selected'), 'true');
+
+        await page.focus('[data-action="choose-category"][data-category-target="sharpness"]');
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(() => (
+            window.__lcdScreenTester.activeCategory === 'sharpness'
+            && document.activeElement.id === 'lcd-tab-sharpness'
+        ));
+        assert.strictEqual(await page.getAttribute('#lcd-tab-sharpness', 'aria-selected'), 'true');
+
+        await page.focus('[data-action="return-workbench"]');
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(() => document.activeElement.id === 'lcd-tab-sharpness');
+        assert.strictEqual((await getTesterState(page)).activeCategory, 'sharpness');
 
         await page.evaluate(() => {
             window.__lcdAnalytics = [];
@@ -282,6 +438,8 @@ async function runDesktopFlow(browser, origin) {
         assert.strictEqual(state.activeCategory, 'pixels');
         assert.strictEqual(state.currentModeId, 'solid-green');
         assert.strictEqual(await page.getAttribute('#lcd-tab-pixels', 'aria-selected'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-mode="solid-green"]', 'aria-pressed'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-mode="solid-red"]', 'aria-pressed'), 'false');
         assert.strictEqual(await page.isHidden('#lcd-panel-quick'), true);
         assert.strictEqual(await page.isVisible('#lcd-panel-pixels'), true);
 
@@ -300,6 +458,8 @@ async function runDesktopFlow(browser, origin) {
         assert.strictEqual(state.grayLevel, 20);
         assert.strictEqual(state.graySteps, 64);
         assert.strictEqual(state.currentModeId, 'grayscale-bars');
+        assert.strictEqual(await page.getAttribute('[data-gray-level="20"]', 'aria-pressed'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-gray-steps="64"]', 'aria-pressed'), 'true');
 
         await page.click('#lcd-tab-motion');
         await page.click('[data-mode="motion-text"]');
@@ -310,6 +470,8 @@ async function runDesktopFlow(browser, origin) {
         assert.strictEqual(state.motionBackground, 'white');
         assert.strictEqual(state.motionSpeed, 'fast');
         assert.strictEqual(state.motionFrameActive, true);
+        assert.strictEqual(await page.getAttribute('[data-motion-bg="white"]', 'aria-pressed'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-motion-speed="fast"]', 'aria-pressed'), 'true');
 
         await page.click('#lcd-tab-sharpness');
         state = await getTesterState(page);
@@ -329,6 +491,23 @@ async function runDesktopFlow(browser, origin) {
         assert.strictEqual(await page.evaluate(() => document.fullscreenElement?.id), 'lcd-test-overlay');
         assert.strictEqual(await page.getAttribute('#lcd-test-overlay', 'aria-hidden'), 'false');
         assert.strictEqual(await page.isHidden('#lcd-overlay-pause'), true);
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-test-overlay');
+        assert.strictEqual(await page.$eval('[data-lcd-tester]', element => element.inert), true);
+        assert.deepStrictEqual(await page.evaluate(() => window.__lcdScreenTester.getCanvasTargets().map(target => target.canvas.id)), [
+            'lcd-test-canvas'
+        ]);
+        assert.strictEqual(await page.getAttribute('[data-overlay-mode="solid-blue"]', 'aria-pressed'), 'true');
+
+        await page.keyboard.press('Tab');
+        assert.strictEqual(await page.evaluate(() => document.activeElement.dataset.overlayMode), 'solid-red');
+        await page.keyboard.press('Shift+Tab');
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-overlay-exit');
+
+        await page.click('#lcd-overlay-next');
+        await page.waitForFunction(() => window.__lcdScreenTester.controlsHidden, null, { timeout: 4000 });
+        assert.strictEqual(await page.evaluate(() => document.activeElement.id), 'lcd-test-overlay');
+        await page.keyboard.press('ArrowLeft');
+        assert.strictEqual((await getTesterState(page)).controlsHidden, false);
 
         await page.keyboard.press('Space');
         assert.strictEqual((await getTesterState(page)).currentModeId, 'solid-white');
@@ -352,6 +531,9 @@ async function runDesktopFlow(browser, origin) {
         await page.evaluate(() => document.exitFullscreen());
         await page.waitForFunction(() => !window.__lcdScreenTester.overlayOpen);
         await assertClosedState(page, 'ready');
+
+        await page.click('#lcd-tab-motion');
+        await page.click('[data-mode="motion-text"]');
 
         await page.click('.lcd-hero [data-action="start-guided"]');
         await page.waitForFunction(() => window.__lcdScreenTester.stepTimer !== null);
@@ -391,6 +573,12 @@ async function runDesktopFlow(browser, origin) {
         });
         await page.waitForFunction(() => !window.__lcdScreenTester.overlayOpen, null, { timeout: 1500 });
         await assertClosedState(page, 'complete');
+        state = await getTesterState(page);
+        assert.strictEqual(state.activeCategory, 'motion');
+        assert.strictEqual(state.currentModeId, 'motion-text');
+        assert.strictEqual(await page.getAttribute('#lcd-tab-motion', 'aria-selected'), 'true');
+        assert.strictEqual(await page.isVisible('#lcd-panel-motion'), true);
+        assert.strictEqual((await page.textContent('#lcd-preview-name')).trim(), 'Scrolling Text');
 
         await page.click('.lcd-hero [data-action="start-guided"]');
         await page.dispatchEvent('#lcd-test-overlay', 'pointermove', {
@@ -409,6 +597,10 @@ async function runDesktopFlow(browser, origin) {
         assert.ok(eventNames.includes('screen_test_completed'));
         assert.ok(analytics.some(event => event.eventName === 'screen_test_exited' && event.payload.tool_action === 'early_exit'));
         assert.ok(analytics.some(event => event.eventName === 'screen_test_exited' && event.payload.tool_action === 'completed_exit'));
+        assert.ok(
+            eventNames.indexOf('screen_test_started') < eventNames.indexOf('tool_result_view'),
+            'screen_test_started should precede the first tool_result_view event'
+        );
 
         const allowedActions = new Set([
             'completed_exit', 'early_exit', 'guided_complete', 'guided_start', 'manual_start', 'view_pattern'
@@ -483,11 +675,20 @@ async function runMobileFlow(browser, origin) {
         await openTester(page, `${origin}/devices/lcd-screen-tester`);
         await assertNoHorizontalOverflow(page, 'mobile page');
         await assertPrimaryActionsInViewport(page, 'mobile page');
+        await assertCompactTopLayout(page, 'mobile page', { h1Max: 190, workbenchMax: 420 });
+        await assertContentStructure(page, 'mobile page');
+        await assertContentTextFits(page, 'mobile page');
+        await assertFaqSpacing(page, 'mobile page');
         assertCanvasDpr(await readCanvasMetrics(page, '#lcd-preview-canvas'), 3, 'mobile preview');
 
         await page.click('.lcd-hero [data-action="start-manual"]');
         await page.waitForFunction(() => window.__lcdScreenTester.overlayOpen);
         assertCanvasDpr(await readCanvasMetrics(page, '#lcd-test-canvas'), 3, 'mobile fullscreen');
+        await assertVisibleControlTargets(
+            page,
+            '#lcd-test-overlay button',
+            'mobile fullscreen'
+        );
 
         await page.dispatchEvent('#lcd-test-canvas', 'pointerdown', {
             clientX: 300,
@@ -523,6 +724,24 @@ async function runMobileFlow(browser, origin) {
     }
 }
 
+async function runWideLayoutFlow(browser, origin) {
+    const context = await prepareContext(browser, {
+        viewport: { width: 2560, height: 1305 }
+    });
+    const page = await context.newPage();
+    const diagnostics = preparePage(page);
+
+    try {
+        await openTester(page, `${origin}/devices/lcd-screen-tester`);
+        await assertNoHorizontalOverflow(page, 'wide desktop page');
+        await assertCompactTopLayout(page, 'wide desktop page', { h1Max: 190, workbenchMax: 340 });
+        await assertContentTextFits(page, 'wide desktop page');
+        assert.deepStrictEqual(diagnostics.pageErrors, [], `wide desktop page errors: ${diagnostics.pageErrors.join(' | ')}`);
+    } finally {
+        await context.close();
+    }
+}
+
 async function runLanguageFlow(browser, origin) {
     const context = await prepareContext(browser, {
         viewport: { width: 390, height: 844 }
@@ -530,6 +749,11 @@ async function runLanguageFlow(browser, origin) {
     const page = await context.newPage();
     const diagnostics = preparePage(page);
     const languages = ['en', 'zh', 'de', 'es', 'pt', 'fr'];
+    const englishTranslations = JSON.parse(fs.readFileSync(
+        path.join(repoRoot, 'locales', 'en', 'translation.json'),
+        'utf8'
+    ));
+    const expectedLcdKeys = Object.keys(englishTranslations.lcdTester).sort();
 
     try {
         for (const language of languages) {
@@ -537,12 +761,69 @@ async function runLanguageFlow(browser, origin) {
                 path.join(repoRoot, 'locales', language, 'translation.json'),
                 'utf8'
             ));
+            assert.deepStrictEqual(
+                Object.keys(translations.lcdTester).sort(),
+                expectedLcdKeys,
+                `${language} LCD translation keys should match English`
+            );
             const prefix = language === 'en' ? '' : `/${language}`;
             await openTester(page, `${origin}${prefix}/devices/lcd-screen-tester`);
 
             assert.strictEqual((await page.textContent('#lcd-page-title')).trim(), translations.lcdTester.title);
+            const invalidRenderedKeys = await page.$$eval(
+                '[data-i18n^="lcdTester."], [data-i18n-aria-label^="lcdTester."]',
+                (elements, expectedKeys) => elements.flatMap(element => [
+                    element.getAttribute('data-i18n'),
+                    element.getAttribute('data-i18n-aria-label')
+                ]).filter(Boolean).filter(key => !expectedKeys.includes(key.slice('lcdTester.'.length))),
+                expectedLcdKeys
+            );
+            assert.deepStrictEqual(invalidRenderedKeys, [], `${language} built LCD translation attributes should remain valid`);
+            const localizedText = await page.$$eval(
+                '[data-i18n^="lcdTester."]',
+                (elements, lcdTranslations) => elements.map(element => {
+                    const key = element.getAttribute('data-i18n').slice('lcdTester.'.length);
+                    return {
+                        actual: element.textContent.trim(),
+                        expected: lcdTranslations[key],
+                        key
+                    };
+                }),
+                translations.lcdTester
+            );
+            assert.strictEqual(localizedText.length, 141, `${language} should render all LCD localized text elements`);
+            assert.deepStrictEqual(
+                localizedText.filter(({ actual, expected }) => actual !== expected),
+                [],
+                `${language} LCD text should match the locale`
+            );
+            const localizedAriaLabels = await page.$$eval(
+                '[data-i18n-aria-label^="lcdTester."]',
+                (elements, lcdTranslations) => elements.map(element => {
+                    const key = element.getAttribute('data-i18n-aria-label').slice('lcdTester.'.length);
+                    return {
+                        actual: element.getAttribute('aria-label'),
+                        expected: lcdTranslations[key],
+                        key
+                    };
+                }),
+                translations.lcdTester
+            );
+            assert.strictEqual(localizedAriaLabels.length, 9, `${language} should render all LCD aria labels`);
+            assert.deepStrictEqual(
+                localizedAriaLabels.filter(({ actual, expected }) => actual !== expected),
+                [],
+                `${language} LCD aria labels should match the locale`
+            );
             await assertNoHorizontalOverflow(page, `${language} mobile page`);
             await assertPrimaryActionsInViewport(page, `${language} mobile page`);
+            await assertCompactTopLayout(page, `${language} mobile page`, { h1Max: 190, workbenchMax: 420 });
+            await assertContentTextFits(page, `${language} mobile page`);
+            assert.strictEqual(
+                (await page.textContent('.lcd-mode-choice span[data-i18n="lcdTester.modeQuickGuide"]')).trim(),
+                translations.lcdTester.modeQuickGuide
+            );
+            assert.strictEqual(await page.locator('.lcd-faq details').count(), 8);
             const overflowingButtons = await page.$$eval('.lcd-tester-tool button', buttons => (
                 buttons.filter(button => button.scrollWidth > button.clientWidth + 1).length
             ));
@@ -552,8 +833,13 @@ async function runLanguageFlow(browser, origin) {
 
             await page.click('#lcd-tab-pixels');
             await page.click('[data-mode="solid-green"]');
+            await assertVisibleControlTargets(page, '#lcd-panel-pixels button', `${language} pixel controls`);
             assert.strictEqual((await getTesterState(page)).currentModeId, 'solid-green');
             assert.strictEqual((await page.textContent('#lcd-preview-name')).trim(), translations.lcdTester.green);
+            assert.strictEqual(
+                (await page.textContent('.lcd-results article:first-child h3')).trim(),
+                translations.lcdTester.deadPixels
+            );
         }
 
         assert.deepStrictEqual(diagnostics.pageErrors, [], `localized page errors: ${diagnostics.pageErrors.join(' | ')}`);
@@ -575,13 +861,14 @@ async function run() {
     try {
         await runDesktopFlow(browser, origin);
         await runMobileFlow(browser, origin);
+        await runWideLayoutFlow(browser, origin);
         await runLanguageFlow(browser, origin);
     } finally {
         await browser.close();
         await new Promise(resolve => server.close(resolve));
     }
 
-    console.log('LCD workbench interactions, fullscreen state, DPR rendering, analytics, and six locales passed.');
+    console.log('LCD layout, content paths, workbench interactions, fullscreen state, DPR rendering, analytics, and six locales passed.');
 }
 
 run().catch(error => {

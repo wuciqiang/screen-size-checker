@@ -74,10 +74,16 @@
             this.lastStartTrigger = null;
             this.touchStart = null;
             this.viewedResultTypes = new Set();
+            this.guidedReturnState = null;
+            this.inertedElements = [];
+            this.lastInteractionType = 'pointer';
+            this.previouslyFocusedElement = null;
 
             this.cacheElements();
+            this.initializeControlSemantics();
             this.bindEvents();
             this.updateDisplayInformation();
+            this.selectCategory(this.activeCategory);
             this.selectMode(this.currentModeId, { track: false });
             this.setStatus('ready');
             this.estimateRefreshRate();
@@ -166,9 +172,15 @@
         bindEvents() {
             this.root.addEventListener('click', event => this.handleWorkbenchClick(event));
             this.overlay.addEventListener('click', event => this.handleOverlayClick(event));
-            this.overlay.addEventListener('pointermove', () => this.showControls());
+            this.overlay.addEventListener('pointermove', () => {
+                this.lastInteractionType = 'pointer';
+                this.showControls();
+            });
             this.overlay.addEventListener('pointerdown', event => this.handlePointerDown(event));
             this.overlay.addEventListener('pointerup', event => this.handlePointerUp(event));
+            this.overlay.addEventListener('pointercancel', () => {
+                this.touchStart = null;
+            });
             document.addEventListener('keydown', event => this.handleKeydown(event));
             document.addEventListener('fullscreenchange', () => this.handleFullscreenChange());
             document.addEventListener('webkitfullscreenchange', () => this.handleFullscreenChange());
@@ -188,13 +200,19 @@
         }
 
         handleWorkbenchClick(event) {
+            if (event.detail > 0) this.lastInteractionType = 'pointer';
             const action = event.target.closest('[data-action]');
             if (action && this.root.contains(action)) {
-                this.lastStartTrigger = action;
                 if (action.dataset.action === 'start-guided') {
+                    this.lastStartTrigger = action;
                     this.startGuidedTest();
                 } else if (action.dataset.action === 'start-manual') {
+                    this.lastStartTrigger = action;
                     this.startManualTest();
+                } else if (action.dataset.action === 'choose-category') {
+                    this.returnToWorkbench(action.dataset.categoryTarget);
+                } else if (action.dataset.action === 'return-workbench') {
+                    this.returnToWorkbench(this.activeCategory);
                 }
                 return;
             }
@@ -277,6 +295,7 @@
         }
 
         handlePointerDown(event) {
+            this.lastInteractionType = 'pointer';
             if (!this.overlayOpen || event.target.closest('.lcd-overlay-chrome')) return;
             this.touchStart = {
                 id: event.pointerId,
@@ -299,7 +318,19 @@
         }
 
         handleKeydown(event) {
-            if (!this.overlayOpen) return;
+            this.lastInteractionType = 'keyboard';
+
+            if (!this.overlayOpen) {
+                const tab = event.target.closest && event.target.closest('[role="tab"][data-category]');
+                if (tab && this.root.contains(tab)) this.handleTabKeydown(event, tab);
+                return;
+            }
+
+            if (event.key === 'Tab') {
+                this.showControls(true);
+                this.trapOverlayFocus(event);
+                return;
+            }
 
             if (event.key === 'Escape') {
                 event.preventDefault();
@@ -332,6 +363,44 @@
             }
         }
 
+        returnToWorkbench(category) {
+            this.selectCategory(category);
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            this.workbench.scrollIntoView({
+                behavior: reduceMotion ? 'auto' : 'smooth',
+                block: 'start'
+            });
+
+            if (this.lastInteractionType === 'keyboard') {
+                const activeTab = this.root.querySelector(`[role="tab"][data-category="${this.activeCategory}"]`);
+                if (activeTab) activeTab.focus({ preventScroll: true });
+            }
+        }
+
+        handleTabKeydown(event, currentTab) {
+            const tabs = Array.from(this.root.querySelectorAll('[role="tab"][data-category]'));
+            const currentIndex = tabs.indexOf(currentTab);
+            if (currentIndex < 0) return;
+
+            let nextIndex = currentIndex;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % tabs.length;
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+            } else if (event.key === 'Home') {
+                nextIndex = 0;
+            } else if (event.key === 'End') {
+                nextIndex = tabs.length - 1;
+            } else {
+                return;
+            }
+
+            event.preventDefault();
+            const nextTab = tabs[nextIndex];
+            this.selectCategory(nextTab.dataset.category);
+            nextTab.focus();
+        }
+
         selectCategory(category) {
             if (!['quick', 'pixels', 'uniformity', 'motion', 'sharpness'].includes(category)) return;
 
@@ -361,14 +430,18 @@
             }
 
             this.root.querySelectorAll('[data-mode]').forEach(button => {
-                button.classList.toggle('is-selected', button.dataset.mode === modeId);
+                const selected = button.dataset.mode === modeId;
+                button.classList.toggle('is-selected', selected);
+                button.setAttribute('aria-pressed', String(selected));
             });
             this.overlay.querySelectorAll('[data-overlay-mode]').forEach(button => {
-                button.classList.toggle('is-selected', button.dataset.overlayMode === modeId);
+                const selected = button.dataset.overlayMode === modeId;
+                button.classList.toggle('is-selected', selected);
+                button.setAttribute('aria-pressed', String(selected));
             });
 
             this.updateModeLabels();
-            this.renderCurrentMode();
+            this.renderCurrentMode({ animateMotion: options.animateMotion !== false });
             this.updateOverlayState();
 
             if (options.track && this.overlayOpen) {
@@ -378,7 +451,26 @@
 
         markControlSelection(selector, selectedButton) {
             selectedButton.closest('.lcd-tab-panel').querySelectorAll(selector).forEach(button => {
-                button.classList.toggle('is-selected', button === selectedButton);
+                const selected = button === selectedButton;
+                button.classList.toggle('is-selected', selected);
+                button.setAttribute('aria-pressed', String(selected));
+            });
+        }
+
+        initializeControlSemantics() {
+            const selector = [
+                '[data-mode]',
+                '[data-gray-level]',
+                '[data-gray-steps]',
+                '[data-motion-bg]',
+                '[data-motion-speed]',
+                '[data-overlay-mode]'
+            ].join(',');
+
+            [this.root, this.overlay].forEach(container => {
+                container.querySelectorAll(selector).forEach(button => {
+                    button.setAttribute('aria-pressed', String(button.classList.contains('is-selected')));
+                });
             });
         }
 
@@ -403,6 +495,10 @@
         }
 
         startGuidedTest() {
+            this.guidedReturnState = {
+                category: this.activeCategory,
+                modeId: this.currentModeId
+            };
             this.sequence = [...this.guidedSequence];
             this.sequenceIndex = 0;
             this.guidedActive = true;
@@ -416,6 +512,7 @@
         enterOverlay(startAction) {
             if (this.overlayOpen) return;
 
+            this.previouslyFocusedElement = document.activeElement;
             this.overlayOpen = true;
             this.wasNativeFullscreen = false;
             this.controlsHidden = false;
@@ -423,13 +520,15 @@
             this.overlay.classList.toggle('guided-mode', this.guidedActive);
             this.overlay.setAttribute('aria-hidden', 'false');
             document.body.classList.add('lcd-test-active');
+            this.setBackgroundInert(true);
             this.setStatus('running');
             this.message.textContent = this.t('lcdTester.testRunningMessage', 'Screen test is running in fullscreen.');
 
             const modeId = this.sequence[this.sequenceIndex] || this.currentModeId;
-            this.selectMode(modeId, { track: true });
             this.track('screen_test_started', startAction, 'screen_test');
+            this.selectMode(modeId, { track: true });
             this.showControls();
+            this.focusOverlay();
             this.requestFullscreen();
         }
 
@@ -438,6 +537,7 @@
 
             const completed = outcome === 'completed_exit' || this.guidedCompleted;
             const wasGuided = this.guidedActive;
+            const guidedReturnState = this.guidedReturnState;
             this.overlayOpen = false;
             this.clearStepTimer();
             this.clearControlHideTimer();
@@ -447,16 +547,18 @@
             this.overlay.classList.remove('guided-mode', 'controls-hidden');
             this.overlay.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('lcd-test-active');
+            this.setBackgroundInert(false);
             this.track('screen_test_exited', completed ? 'completed_exit' : 'early_exit', 'screen_test');
 
             this.guidedActive = false;
             this.paused = false;
             this.controlsHidden = false;
             this.touchStart = null;
+            this.guidedReturnState = null;
 
             if (completed) {
                 this.setStatus('complete');
-                this.message.textContent = this.t('lcdTester.testCompletedMessage', 'Guided test complete. Repeat any pattern you want to inspect again.');
+                this.message.textContent = this.t('lcdTester.testCompletedMessage', 'Guided test complete. Run any pattern again if you need a closer look.');
             } else {
                 this.setStatus('ready');
                 this.message.textContent = this.t('lcdTester.keyboardHint', 'In fullscreen, use arrow keys to move. Space pauses Guided Test or advances Manual Test. Esc exits.');
@@ -466,13 +568,88 @@
                 this.exitNativeFullscreen();
             }
 
-            if (wasGuided) {
-                this.currentModeId = 'solid-red';
+            if (wasGuided && guidedReturnState) {
+                this.selectCategory(guidedReturnState.category);
+                this.currentModeId = guidedReturnState.modeId;
             }
-            this.selectMode(this.currentModeId, { track: false });
+            this.selectMode(this.currentModeId, { track: false, animateMotion: false });
 
-            if (this.lastStartTrigger && typeof this.lastStartTrigger.focus === 'function') {
-                this.lastStartTrigger.focus({ preventScroll: true });
+            const focusTarget = this.lastStartTrigger || this.previouslyFocusedElement;
+            if (focusTarget && typeof focusTarget.focus === 'function') {
+                focusTarget.focus({ preventScroll: true });
+            }
+            this.previouslyFocusedElement = null;
+            this.lastStartTrigger = null;
+        }
+
+        setBackgroundInert(inert) {
+            if (inert) {
+                if (this.inertedElements.length > 0) return;
+
+                const elements = new Set();
+                let current = this.overlay;
+                while (current && current !== document.body) {
+                    const parent = current.parentElement;
+                    if (!parent) break;
+                    Array.from(parent.children).forEach(sibling => {
+                        if (sibling !== current) elements.add(sibling);
+                    });
+                    current = parent;
+                }
+
+                this.inertedElements = Array.from(elements).map(element => ({
+                    element,
+                    hadInert: element.hasAttribute('inert')
+                }));
+                this.inertedElements.forEach(({ element }) => {
+                    element.inert = true;
+                });
+                return;
+            }
+
+            this.inertedElements.forEach(({ element, hadInert }) => {
+                if (!hadInert) element.inert = false;
+            });
+            this.inertedElements = [];
+        }
+
+        focusOverlay() {
+            if (typeof this.overlay.focus === 'function') {
+                this.overlay.focus({ preventScroll: true });
+            }
+        }
+
+        getOverlayFocusableElements() {
+            return Array.from(this.overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]'))
+                .filter(element => (
+                    element !== this.overlay
+                    && !element.disabled
+                    && element.tabIndex >= 0
+                    && element.getClientRects().length > 0
+                ));
+        }
+
+        trapOverlayFocus(event) {
+            const focusable = this.getOverlayFocusableElements();
+            if (focusable.length === 0) {
+                event.preventDefault();
+                this.focusOverlay();
+                return;
+            }
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            const active = document.activeElement;
+
+            if (!this.overlay.contains(active) || active === this.overlay) {
+                event.preventDefault();
+                (event.shiftKey ? last : first).focus();
+            } else if (event.shiftKey && active === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && active === last) {
+                event.preventDefault();
+                first.focus();
             }
         }
 
@@ -633,11 +810,17 @@
 
             if (!keepVisible && !this.paused) {
                 this.controlHideTimer = window.setTimeout(() => {
+                    this.controlHideTimer = null;
                     const activeElement = document.activeElement;
-                    if (activeElement && activeElement.closest && activeElement.closest('.lcd-overlay-chrome')) {
-                        this.showControls();
+                    const focusInControls = Boolean(
+                        activeElement
+                        && activeElement.closest
+                        && activeElement.closest('.lcd-overlay-chrome')
+                    );
+                    if (focusInControls && this.lastInteractionType === 'keyboard') {
                         return;
                     }
+                    if (focusInControls) this.focusOverlay();
                     this.controlsHidden = true;
                     this.overlay.classList.add('controls-hidden');
                     this.updateControlToggleButton();
@@ -652,6 +835,10 @@
                 this.showControls(true);
             } else {
                 this.clearControlHideTimer();
+                const activeElement = document.activeElement;
+                if (activeElement && activeElement.closest && activeElement.closest('.lcd-overlay-chrome')) {
+                    this.focusOverlay();
+                }
                 this.controlsHidden = true;
                 this.overlay.classList.add('controls-hidden');
                 this.updateControlToggleButton();
@@ -819,11 +1006,11 @@
 
         getModeDescription(mode) {
             const descriptions = {
-                pixel: ['lcdTester.pixelModeHint', 'Use solid colors to reveal pixels that remain dark, bright, or fixed to one color.'],
-                uniformity: ['lcdTester.uniformityModeHint', 'Inspect the full panel for uneven brightness, tint, edge glow, or visible steps.'],
-                color: ['lcdTester.colorModeHint', 'Look for smooth transitions, clear color separation, and obvious tint differences.'],
-                motion: ['lcdTester.motionModeHint', 'Follow the moving edge and look for shadows, bright halos, or persistent smearing.'],
-                sharpness: ['lcdTester.sharpnessModeHint', 'Inspect fine edges and repeated lines for blur, scaling, or alignment artifacts.']
+                pixel: ['lcdTester.pixelModeHint', 'Use solid colors. Look for a pixel that stays dark, bright, or one color.'],
+                uniformity: ['lcdTester.uniformityModeHint', 'Check the full screen for uneven light, tint, edge glow, or visible bands.'],
+                color: ['lcdTester.colorModeHint', 'Look for smooth fades, clear color changes, and visible tint.'],
+                motion: ['lcdTester.motionModeHint', 'Follow the moving edge. Look for trails, bright halos, or blur.'],
+                sharpness: ['lcdTester.sharpnessModeHint', 'Check fine edges and repeated lines for blur, scaling, or poor alignment.']
             };
             const [key, fallback] = descriptions[mode.resultType] || descriptions.sharpness;
             return this.t(key, fallback);
@@ -856,7 +1043,7 @@
             this.track('tool_result_view', 'view_pattern', mode.resultType);
         }
 
-        renderCurrentMode() {
+        renderCurrentMode(options = {}) {
             const mode = this.modeById.get(this.currentModeId);
             if (!mode) return;
 
@@ -865,21 +1052,24 @@
             if (targets.length === 0) return;
 
             if (mode.type.startsWith('motion-')) {
-                this.startMotion(mode, targets);
+                if (options.animateMotion === false) {
+                    targets.forEach(target => this.drawMotionFrame(target, mode, 0));
+                } else {
+                    this.startMotion(mode, targets);
+                }
             } else {
                 targets.forEach(target => this.drawStaticMode(target, mode));
             }
         }
 
         getCanvasTargets() {
-            const targets = [];
-            const preview = this.prepareCanvas(this.previewCanvas);
-            if (preview) targets.push(preview);
             if (this.overlayOpen) {
                 const test = this.prepareCanvas(this.testCanvas);
-                if (test) targets.push(test);
+                return test ? [test] : [];
             }
-            return targets;
+
+            const preview = this.prepareCanvas(this.previewCanvas);
+            return preview ? [preview] : [];
         }
 
         prepareCanvas(canvas) {

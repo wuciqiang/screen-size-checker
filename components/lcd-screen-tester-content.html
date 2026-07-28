@@ -2,7 +2,7 @@
     <section class="lcd-hero" aria-labelledby="lcd-page-title">
         <p class="lcd-eyebrow" data-i18n="lcdTester.eyebrow">DISPLAY DIAGNOSTICS</p>
         <h1 id="lcd-page-title" class="devices-hero-title" data-i18n="lcdTester.title">LCD Test Online</h1>
-        <p class="devices-hero-subtitle" data-i18n="lcdTester.intro">Run fullscreen LCD test patterns to check dead pixels, uniformity, gradients, sharpness, and motion.</p>
+        <p class="devices-hero-subtitle" data-i18n="lcdTester.intro">Use fullscreen patterns to check dead pixels, backlight bleed, gradients, sharpness, and motion ghosting.</p>
         <div class="lcd-hero-actions" aria-label="Test actions" data-i18n-aria-label="lcdTester.testActions">
             <button class="lcd-command lcd-command-primary" type="button" data-action="start-guided">
                 <span class="lcd-command-icon" aria-hidden="true">▶</span>
@@ -23,7 +23,7 @@
                     <span id="lcd-status-text" data-i18n="lcdTester.statusReady">Ready to test</span>
                 </div>
                 <h2 id="lcd-workbench-title" data-i18n="lcdTester.workbenchTitle">Screen Test Workbench</h2>
-                <p data-i18n="lcdTester.workbenchIntro">Choose a pattern, preview it, then inspect every part of your display in fullscreen.</p>
+                <p data-i18n="lcdTester.workbenchIntro">Pick a pattern. Preview it. Then check the full screen.</p>
             </div>
 
             <dl class="lcd-display-facts" aria-label="Display information" data-i18n-aria-label="lcdTester.displayInfo">
@@ -56,7 +56,7 @@
                 <div class="lcd-preview-copy">
                     <span class="lcd-preview-kicker" data-i18n="lcdTester.preview">LIVE PREVIEW</span>
                     <strong id="lcd-preview-name">Red</strong>
-                    <span id="lcd-preview-description" data-i18n="lcdTester.pixelModeHint">Use solid colors to reveal pixels that remain dark, bright, or fixed to one color.</span>
+                    <span id="lcd-preview-description" data-i18n="lcdTester.pixelModeHint">Use solid colors. Look for a pixel that stays dark, bright, or one color.</span>
                 </div>
                 <div class="lcd-preview-corner" aria-hidden="true">
                     <span id="lcd-preview-category">PIXELS</span>
@@ -65,11 +65,11 @@
 
             <div class="lcd-control-pane">
                 <div class="lcd-tabs" role="tablist" aria-label="Test categories" data-i18n-aria-label="lcdTester.testCategories">
-                    <button id="lcd-tab-quick" class="lcd-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="lcd-panel-quick" data-category="quick" data-i18n="lcdTester.tabQuick">Quick</button>
-                    <button id="lcd-tab-pixels" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-pixels" data-category="pixels" data-i18n="lcdTester.tabPixels">Pixels</button>
-                    <button id="lcd-tab-uniformity" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-uniformity" data-category="uniformity" data-i18n="lcdTester.tabUniformity">Uniformity</button>
-                    <button id="lcd-tab-motion" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-motion" data-category="motion" data-i18n="lcdTester.tabMotion">Motion</button>
-                    <button id="lcd-tab-sharpness" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-sharpness" data-category="sharpness" data-i18n="lcdTester.tabSharpness">Sharpness</button>
+                    <button id="lcd-tab-quick" class="lcd-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="lcd-panel-quick" tabindex="0" data-category="quick" data-i18n="lcdTester.tabQuick">Quick checks</button>
+                    <button id="lcd-tab-pixels" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-pixels" tabindex="-1" data-category="pixels" data-i18n="lcdTester.tabPixels">Pixel checks</button>
+                    <button id="lcd-tab-uniformity" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-uniformity" tabindex="-1" data-category="uniformity" data-i18n="lcdTester.tabUniformity">Uniformity checks</button>
+                    <button id="lcd-tab-motion" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-motion" tabindex="-1" data-category="motion" data-i18n="lcdTester.tabMotion">Motion checks</button>
+                    <button id="lcd-tab-sharpness" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-sharpness" tabindex="-1" data-category="sharpness" data-i18n="lcdTester.tabSharpness">Sharpness checks</button>
                 </div>
 
                 <div id="lcd-panel-quick" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-quick" data-panel="quick">
@@ -81,10 +81,10 @@
                         <li><span class="lcd-sequence-number">1</span><span data-i18n="lcdTester.sequenceColors">Solid colors</span></li>
                         <li><span class="lcd-sequence-number">2</span><span data-i18n="lcdTester.sequenceDark">Dark tones</span></li>
                         <li><span class="lcd-sequence-number">3</span><span data-i18n="lcdTester.sequenceGradient">Grayscale</span></li>
-                        <li><span class="lcd-sequence-number">4</span><span data-i18n="lcdTester.sequenceMotion">Motion</span></li>
+                        <li><span class="lcd-sequence-number">4</span><span data-i18n="lcdTester.sequenceMotion">Moving patterns</span></li>
                     </ol>
                     <div class="lcd-quick-meta">
-                        <span><strong>12</strong> <span data-i18n="lcdTester.steps">steps</span></span>
+                        <span><strong>12</strong> <span data-i18n="lcdTester.steps">test steps</span></span>
                         <span><strong>5s</strong> <span data-i18n="lcdTester.perStep">per step</span></span>
                         <span data-i18n="lcdTester.pauseAnytime">Pause anytime</span>
                     </div>
@@ -162,12 +162,12 @@
                         <h3 data-i18n="lcdTester.motionPattern">Motion pattern</h3>
                         <div class="lcd-segmented">
                             <button class="is-selected" type="button" data-mode="motion-box" data-i18n="lcdTester.movingBox">Square</button>
-                            <button type="button" data-mode="motion-text" data-i18n="lcdTester.scrollingText">Text</button>
-                            <button type="button" data-mode="motion-lines" data-i18n="lcdTester.movingLines">Lines</button>
+                            <button type="button" data-mode="motion-text" data-i18n="lcdTester.scrollingText">Moving text</button>
+                            <button type="button" data-mode="motion-lines" data-i18n="lcdTester.movingLines">Moving line pattern</button>
                         </div>
                     </div>
                     <div class="lcd-control-group">
-                        <h3 data-i18n="lcdTester.motionBackground">Background</h3>
+                        <h3 data-i18n="lcdTester.motionBackground">Pattern background</h3>
                         <div class="lcd-segmented">
                             <button class="is-selected" type="button" data-motion-bg="black" data-i18n="lcdTester.black">Black</button>
                             <button type="button" data-motion-bg="gray" data-i18n="lcdTester.gray">Gray</button>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                     <div class="lcd-control-group">
-                        <h3 data-i18n="lcdTester.motionSpeed">Speed</h3>
+                        <h3 data-i18n="lcdTester.motionSpeed">Pattern speed</h3>
                         <div class="lcd-segmented">
                             <button type="button" data-motion-speed="slow" data-i18n="lcdTester.slow">Slow</button>
                             <button class="is-selected" type="button" data-motion-speed="medium" data-i18n="lcdTester.medium">Medium</button>
@@ -216,23 +216,80 @@
         </footer>
     </section>
 
+    <section class="lcd-mode-guide" aria-labelledby="lcd-mode-guide-title">
+        <div class="lcd-section-heading">
+            <p class="lcd-section-kicker" data-i18n="lcdTester.chooseByGoal">CHOOSE BY GOAL</p>
+            <h2 id="lcd-mode-guide-title" data-i18n="lcdTester.modeGuideTitle">Pick the right screen test</h2>
+            <p class="lcd-section-intro" data-i18n="lcdTester.modeGuideIntro">Start with Quick for a broad check. Use a focused mode when one issue needs a closer look.</p>
+        </div>
+        <ul class="lcd-mode-list">
+            <li>
+                <button class="lcd-mode-choice" type="button" data-action="choose-category" data-category-target="quick">
+                    <strong data-i18n="lcdTester.tabQuick">Quick test mode</strong>
+                    <span data-i18n="lcdTester.modeQuickGuide">Use this for a fast first pass. Watch for fixed dots, uneven light, hard gradient bands, and motion trails.</span>
+                    <span class="lcd-mode-choice-arrow" aria-hidden="true">→</span>
+                </button>
+            </li>
+            <li>
+                <button class="lcd-mode-choice" type="button" data-action="choose-category" data-category-target="pixels">
+                    <strong data-i18n="lcdTester.tabPixels">Pixel test mode</strong>
+                    <span data-i18n="lcdTester.modePixelsGuide">Use solid colors after you notice a tiny mark. Check whether it stays fixed while the screen color changes.</span>
+                    <span class="lcd-mode-choice-arrow" aria-hidden="true">→</span>
+                </button>
+            </li>
+            <li>
+                <button class="lcd-mode-choice" type="button" data-action="choose-category" data-category-target="uniformity">
+                    <strong data-i18n="lcdTester.tabUniformity">Uniformity test mode</strong>
+                    <span data-i18n="lcdTester.modeUniformityGuide">Use dark levels and gradients for patchy light or tint. Check the center, edges, and corners from your normal seat.</span>
+                    <span class="lcd-mode-choice-arrow" aria-hidden="true">→</span>
+                </button>
+            </li>
+            <li>
+                <button class="lcd-mode-choice" type="button" data-action="choose-category" data-category-target="motion">
+                    <strong data-i18n="lcdTester.tabMotion">Motion test mode</strong>
+                    <span data-i18n="lcdTester.modeMotionGuide">Use moving shapes when games or video look smeared. Follow both edges and note trails or bright halos.</span>
+                    <span class="lcd-mode-choice-arrow" aria-hidden="true">→</span>
+                </button>
+            </li>
+            <li>
+                <button class="lcd-mode-choice" type="button" data-action="choose-category" data-category-target="sharpness">
+                    <strong data-i18n="lcdTester.tabSharpness">Sharpness test mode</strong>
+                    <span data-i18n="lcdTester.modeSharpnessGuide">Use fine lines and text when edges look soft. Check for blur, shimmer, uneven spacing, or scaling artifacts.</span>
+                    <span class="lcd-mode-choice-arrow" aria-hidden="true">→</span>
+                </button>
+            </li>
+        </ul>
+    </section>
+
     <section class="lcd-guide-band" aria-labelledby="lcd-guide-title">
         <div class="lcd-section-heading">
             <p class="lcd-section-kicker" data-i18n="lcdTester.beforeYouStart">BEFORE YOU START</p>
-            <h2 id="lcd-guide-title" data-i18n="lcdTester.howToTest">A reliable screen check in three steps</h2>
+            <h2 id="lcd-guide-title" data-i18n="lcdTester.howToTest">Six quick steps for a cleaner result</h2>
         </div>
-        <ol class="lcd-guide-steps">
+        <ol class="lcd-prep-list">
             <li>
-                <span class="lcd-guide-number">01</span>
-                <div><h3 data-i18n="lcdTester.step1Title">Prepare the display</h3><p data-i18n="lcdTester.step1Body">Clean the panel, use its native resolution, and let brightness settle before testing.</p></div>
+                <span class="lcd-prep-number">01</span>
+                <div><h3 data-i18n="lcdTester.step1Title">Clean the screen</h3><p data-i18n="lcdTester.step1Body">Wipe away dust and fingerprints before you judge a small mark.</p></div>
             </li>
             <li>
-                <span class="lcd-guide-number">02</span>
-                <div><h3 data-i18n="lcdTester.step2Title">Inspect every area</h3><p data-i18n="lcdTester.step2Body">View each pattern from your normal position, then check edges and corners more closely.</p></div>
+                <span class="lcd-prep-number">02</span>
+                <div><h3 data-i18n="lcdTester.step2Title">Use native resolution</h3><p data-i18n="lcdTester.step2Body">Set the display to its recommended resolution before you inspect fine lines or text.</p></div>
             </li>
             <li>
-                <span class="lcd-guide-number">03</span>
-                <div><h3 data-i18n="lcdTester.step3Title">Repeat suspicious results</h3><p data-i18n="lcdTester.step3Body">Retest marks on several colors and confirm that dust or reflections are not causing them.</p></div>
+                <span class="lcd-prep-number">03</span>
+                <div><h3 data-i18n="lcdTester.step3Title">Let brightness settle</h3><p data-i18n="lcdTester.step3Body">Wait a moment after changing brightness so the picture stays steady during the test.</p></div>
+            </li>
+            <li>
+                <span class="lcd-prep-number">04</span>
+                <div><h3 data-i18n="lcdTester.step4Title">Pause auto brightness</h3><p data-i18n="lcdTester.step4Body">Turn off automatic brightness so dark and light patterns do not change the display while you inspect them.</p></div>
+            </li>
+            <li>
+                <span class="lcd-prep-number">05</span>
+                <div><h3 data-i18n="lcdTester.step5Title">Pause picture enhancements</h3><p data-i18n="lcdTester.step5Body">For SDR patterns, pause dynamic contrast and similar picture changes. Restore your settings when you finish.</p></div>
+            </li>
+            <li>
+                <span class="lcd-prep-number">06</span>
+                <div><h3 data-i18n="lcdTester.step6Title">Dim the room only when needed</h3><p data-i18n="lcdTester.step6Body">Lower room light for a backlight check. Judge any glow from your normal seat because viewing angle can change it.</p></div>
             </li>
         </ol>
     </section>
@@ -240,33 +297,38 @@
     <section class="lcd-results" aria-labelledby="lcd-results-title">
         <div class="lcd-section-heading">
             <p class="lcd-section-kicker" data-i18n="lcdTester.readingResults">READING RESULTS</p>
-            <h2 id="lcd-results-title" data-i18n="lcdTester.whatToLookFor">What each pattern can reveal</h2>
+            <h2 id="lcd-results-title" data-i18n="lcdTester.whatToLookFor">What to look for</h2>
         </div>
         <div class="lcd-result-grid">
             <article>
                 <span class="lcd-result-mark lcd-result-mark-red" aria-hidden="true"></span>
-                <h3 data-i18n="lcdTester.deadPixels">Dead or stuck pixels</h3>
-                <p data-i18n="lcdTester.deadPixelsInfo">A point that remains dark, bright, or fixed to one color while surrounding pixels change.</p>
+                <h3 data-i18n="lcdTester.deadPixels">Dead and stuck pixels</h3>
+                <p data-i18n="lcdTester.deadPixelsInfo">Check the mark on red, green, blue, white, and black. A pixel defect stays fixed. Dust or a reflection may shift, soften, or vanish after cleaning.</p>
             </article>
             <article>
                 <span class="lcd-result-mark lcd-result-mark-gray" aria-hidden="true"></span>
-                <h3 data-i18n="lcdTester.uniformityIssues">Uniformity and backlight</h3>
-                <p data-i18n="lcdTester.uniformityInfo">Uneven bright areas, tint, or edge glow that remains visible across dark patterns.</p>
+                <h3 data-i18n="lcdTester.uniformityIssues">Backlight bleed and uniformity</h3>
+                <p data-i18n="lcdTester.uniformityInfo">Use black or 5% gray in a dim room. Check from your normal seat. Edge bleed stays near the frame. Panel glow often changes with your viewing angle.</p>
             </article>
             <article>
                 <span class="lcd-result-mark lcd-result-mark-spectrum" aria-hidden="true"></span>
                 <h3 data-i18n="lcdTester.colorBanding">Gradient banding</h3>
-                <p data-i18n="lcdTester.colorBandingInfo">Abrupt steps or bands where a gradient should transition smoothly.</p>
+                <p data-i18n="lcdTester.colorBandingInfo">A smooth fade should not break into hard steps. If bands appear in only one photo or video, the source may contain them.</p>
             </article>
             <article>
                 <span class="lcd-result-mark lcd-result-mark-motion" aria-hidden="true"></span>
-                <h3 data-i18n="lcdTester.motionArtifacts">Motion trails</h3>
-                <p data-i18n="lcdTester.motionArtifactsInfo">Persistent shadows, bright halos, or smearing behind moving shapes and text.</p>
+                <h3 data-i18n="lcdTester.motionArtifacts">Motion ghosting</h3>
+                <p data-i18n="lcdTester.motionArtifactsInfo">Follow the moving edge. Trails show ghosting. Bright inverse halos can point to strong overdrive. Some blur is normal while an object moves.</p>
+            </article>
+            <article>
+                <span class="lcd-result-mark lcd-result-mark-sharpness" aria-hidden="true"></span>
+                <h3 data-i18n="lcdTester.sharpnessIssues">Sharpness and scaling</h3>
+                <p data-i18n="lcdTester.sharpnessIssuesInfo">Fine lines and text should stay distinct. If they blur or shimmer, first use native resolution and review display scaling and browser zoom.</p>
             </article>
         </div>
         <aside class="lcd-scope-note">
-            <strong data-i18n="lcdTester.scopeNoteTitle">Visual screening, not calibration</strong>
-            <p data-i18n="lcdTester.scopeNoteBody">Browser patterns help you spot visible issues. Warranty decisions depend on the exact manufacturer, model, region, and policy; instrument-grade color or response measurements require dedicated hardware.</p>
+            <strong data-i18n="lcdTester.scopeNoteTitle">A visual check, not calibration</strong>
+            <p data-i18n="lcdTester.scopeNoteBody">This test helps you spot visible issues. It does not calibrate your screen. For a claim, read the pixel policy for your model and region.</p>
         </aside>
     </section>
 
@@ -278,29 +340,63 @@
         <div class="lcd-faq-list">
             <details>
                 <summary data-i18n="lcdTester.faq1q">How do I tell dust from a dead pixel?</summary>
-                <p data-i18n="lcdTester.faq1a">Clean the screen with a suitable cloth and compare the mark on several solid colors. Dust changes appearance with angle or cleaning; a pixel defect stays aligned to the same pixel location.</p>
+                <p data-i18n="lcdTester.faq1a">Clean the screen, then check the mark on several colors. Dust may move or fade. A pixel defect stays in the same spot.</p>
             </details>
             <details>
                 <summary data-i18n="lcdTester.faq2q">Does this test measure color accuracy?</summary>
-                <p data-i18n="lcdTester.faq2a">It can reveal obvious tint, banding, and uneven color by eye. Numerical color accuracy requires a calibrated colorimeter or spectrophotometer.</p>
+                <p data-i18n="lcdTester.faq2a">This test can show visible tint, bands, and uneven color. For exact color results, use a color meter.</p>
             </details>
             <details>
-                <summary data-i18n="lcdTester.faq3q">Why should I use fullscreen?</summary>
-                <p data-i18n="lcdTester.faq3a">Fullscreen removes most browser chrome and fills edge areas, making small pixel and uniformity issues easier to inspect.</p>
+                <summary data-i18n="lcdTester.faq3q">Why test in fullscreen?</summary>
+                <p data-i18n="lcdTester.faq3a">Fullscreen hides most browser controls and fills the edges. Small pixel and backlight issues are easier to see.</p>
             </details>
             <details>
                 <summary data-i18n="lcdTester.faq4q">What should I do after finding a defect?</summary>
-                <p data-i18n="lcdTester.faq4a">Repeat the pattern, note the location, and check the support or pixel policy for your exact monitor model and purchase region.</p>
+                <p data-i18n="lcdTester.faq4a">Run the test again and note the spot. Then read the support or pixel policy for your model and region.</p>
             </details>
+            <details>
+                <summary data-i18n="lcdTester.faq5q">Do I need a dark room?</summary>
+                <p data-i18n="lcdTester.faq5a">No. Use normal room light for pixel and sharpness checks. Dim the room only for dark-screen uniformity and backlight checks.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq6q">Can I use this test on a phone or tablet?</summary>
+                <p data-i18n="lcdTester.faq6a">Yes. The patterns work on mobile screens. Some browsers keep a small system bar visible, so inspect that edge again after rotating the device.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq7q">Can a screenshot record a physical dead pixel?</summary>
+                <p data-i18n="lcdTester.faq7a">A screenshot records the image sent to the display, not the panel itself. Follow the maker's support steps if it asks for a photo or other proof.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq8q">How long does a screen test take?</summary>
+                <p data-i18n="lcdTester.faq8a">The Guided Test takes about one minute. A focused check usually takes a few more minutes when you repeat a suspicious pattern.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="lcd-final-actions" aria-labelledby="lcd-final-actions-title">
+        <div>
+            <p class="lcd-section-kicker" data-i18n="lcdTester.nextStep">NEXT STEP</p>
+            <h2 id="lcd-final-actions-title" data-i18n="lcdTester.nextTestTitle">Check the screen again</h2>
+            <p data-i18n="lcdTester.nextTestBody">Run the guided sequence for a broad pass, or return to the workbench and focus on one pattern.</p>
+        </div>
+        <div class="lcd-final-action-buttons">
+            <button class="lcd-command lcd-command-primary" type="button" data-action="start-guided">
+                <span class="lcd-command-icon" aria-hidden="true">▶</span>
+                <span data-i18n="lcdTester.runGuided">Run Guided Test</span>
+            </button>
+            <button class="lcd-command lcd-command-secondary" type="button" data-action="return-workbench">
+                <span data-i18n="lcdTester.choosePattern">Choose a Pattern</span>
+                <span class="lcd-command-icon" aria-hidden="true">↑</span>
+            </button>
         </div>
     </section>
 </div>
 
-<div id="lcd-test-overlay" class="lcd-test-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fullscreen screen test" data-i18n-aria-label="lcdTester.fullscreenTest">
+<div id="lcd-test-overlay" class="lcd-test-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fullscreen screen test" tabindex="-1" data-i18n-aria-label="lcdTester.fullscreenTest">
     <canvas id="lcd-test-canvas" class="lcd-test-canvas" aria-hidden="true"></canvas>
 
     <div class="lcd-overlay-chrome lcd-overlay-topbar">
-        <div class="lcd-overlay-mode">
+        <div class="lcd-overlay-mode" aria-live="polite" aria-atomic="true">
             <span class="lcd-overlay-kicker" data-i18n="lcdTester.nowTesting">NOW TESTING</span>
             <strong id="lcd-overlay-mode-name">Red</strong>
         </div>
@@ -342,10 +438,20 @@
 </div>
 
 <style>
+.breadcrumb {
+    padding-top: 1rem;
+    padding-bottom: 0.75rem;
+}
+
+.breadcrumb + .main-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .lcd-tester-tool {
     --lcd-accent: #0066ff;
     --lcd-accent-strong: #0052d6;
-    --lcd-green: #0f9f6e;
+    --lcd-green: #047857;
     --lcd-panel: var(--background-card, #ffffff);
     --lcd-muted: var(--background-secondary, #f8fafc);
     --lcd-border: var(--border-color, #e2e8f0);
@@ -363,7 +469,7 @@
 }
 
 .lcd-hero {
-    padding: clamp(1.25rem, 3vw, 2.5rem) 0 1.5rem;
+    padding: 0.65rem 0 0.7rem;
     text-align: center;
 }
 
@@ -399,7 +505,7 @@
     display: flex;
     justify-content: center;
     gap: 0.75rem;
-    margin-top: 1.15rem;
+    margin-top: 0.85rem;
 }
 
 .lcd-command {
@@ -431,6 +537,7 @@
 .lcd-segmented button:focus-visible,
 .lcd-overlay-button:focus-visible,
 .lcd-overlay-palette button:focus-visible,
+.lcd-mode-choice:focus-visible,
 .lcd-faq summary:focus-visible {
     outline: 3px solid rgba(0, 102, 255, 0.34);
     outline-offset: 2px;
@@ -466,6 +573,7 @@
 
 .lcd-workbench {
     overflow: hidden;
+    scroll-margin-top: 82px;
     border: 1px solid var(--lcd-border);
     border-radius: 8px;
     background: var(--lcd-panel);
@@ -837,8 +945,8 @@
 }
 
 .lcd-color-input-wrap input {
-    width: 38px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     padding: 1px;
     border: 1px solid var(--lcd-border);
     border-radius: 4px;
@@ -875,7 +983,7 @@
 .lcd-segmented button,
 .lcd-mode-button {
     min-width: 0;
-    min-height: 40px;
+    min-height: 44px;
     padding: 0.4rem 0.45rem;
     overflow-wrap: anywhere;
     border: 1px solid var(--lcd-border);
@@ -913,10 +1021,11 @@
     text-align: center;
 }
 
+.lcd-mode-guide,
 .lcd-guide-band,
 .lcd-results,
 .lcd-faq {
-    padding: clamp(2.5rem, 6vw, 4.25rem) 0 0;
+    padding: clamp(2.25rem, 5vw, 3.75rem) 0 0;
 }
 
 .lcd-section-heading {
@@ -929,37 +1038,94 @@
     font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
-.lcd-guide-steps {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
+.lcd-section-intro {
+    margin: 0.55rem 0 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+.lcd-mode-list {
     margin: 0;
     padding: 0;
     border-top: 1px solid var(--lcd-border);
+    list-style: none;
+}
+
+.lcd-mode-list li {
+    border-bottom: 1px solid var(--lcd-border);
+}
+
+.lcd-mode-choice {
+    display: grid;
+    width: 100%;
+    min-height: 64px;
+    grid-template-columns: minmax(110px, 0.25fr) minmax(0, 1fr) 24px;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0.5rem;
+    border: 0;
+    background: transparent;
+    color: var(--lcd-text-secondary);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.lcd-mode-choice:hover {
+    background: var(--lcd-muted);
+}
+
+.lcd-mode-choice strong {
+    min-width: 0;
+    color: var(--lcd-text);
+    font-size: 0.88rem;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+}
+
+.lcd-mode-choice > span:not(.lcd-mode-choice-arrow) {
+    min-width: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.lcd-mode-choice-arrow {
+    color: var(--lcd-accent);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.lcd-prep-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    padding: 0;
     border-bottom: 1px solid var(--lcd-border);
     list-style: none;
 }
 
-.lcd-guide-steps li {
+.lcd-prep-list li {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-columns: 38px minmax(0, 1fr);
     gap: 0.75rem;
-    padding: 1.25rem 1rem;
-    border-right: 1px solid var(--lcd-border);
+    padding: 1rem 0.85rem;
+    border-top: 1px solid var(--lcd-border);
 }
 
-.lcd-guide-steps li:last-child {
-    border-right: 0;
+.lcd-prep-list li:nth-child(even) {
+    border-left: 1px solid var(--lcd-border);
 }
 
-.lcd-guide-number {
+.lcd-prep-number {
     color: var(--lcd-accent);
     font-size: 0.78rem;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
 }
 
-.lcd-guide-steps h3,
+.lcd-prep-list h3,
 .lcd-result-grid h3 {
     margin: 0;
     color: var(--lcd-text);
@@ -968,7 +1134,7 @@
     letter-spacing: 0;
 }
 
-.lcd-guide-steps p,
+.lcd-prep-list p,
 .lcd-result-grid p,
 .lcd-scope-note p,
 .lcd-faq details p {
@@ -980,7 +1146,7 @@
 
 .lcd-result-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -1002,6 +1168,7 @@
 .lcd-result-mark-gray { background: linear-gradient(90deg, #050505, #8b8b8b); }
 .lcd-result-mark-spectrum { background: linear-gradient(90deg, #ff1f32, #ffd60a, #18c964, #1677ff); }
 .lcd-result-mark-motion { background: repeating-linear-gradient(90deg, #0066ff 0 5px, transparent 5px 9px); }
+.lcd-result-mark-sharpness { background: repeating-linear-gradient(90deg, var(--lcd-text) 0 2px, transparent 2px 5px); }
 
 .lcd-scope-note {
     display: grid;
@@ -1032,7 +1199,7 @@
 
 .lcd-faq summary {
     position: relative;
-    padding: 1rem 2.5rem 1rem 0;
+    padding: 1rem 3rem 1rem 1rem;
     color: var(--lcd-text);
     font-size: 0.9rem;
     font-weight: 700;
@@ -1047,7 +1214,7 @@
 .lcd-faq summary::after {
     position: absolute;
     top: 50%;
-    right: 0.3rem;
+    right: 1rem;
     content: "+";
     color: var(--lcd-accent);
     font-size: 1.25rem;
@@ -1060,7 +1227,39 @@
 
 .lcd-faq details p {
     max-width: 760px;
-    margin: -0.35rem 0 1rem;
+    margin: -0.35rem 1rem 1rem;
+}
+
+.lcd-final-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: clamp(2.25rem, 5vw, 3.75rem);
+    padding: 1.35rem 0;
+    border-top: 1px solid var(--lcd-border);
+    border-bottom: 1px solid var(--lcd-border);
+}
+
+.lcd-final-actions h2 {
+    margin: 0.3rem 0 0;
+    color: var(--lcd-text);
+    font-size: 1.2rem;
+    letter-spacing: 0;
+}
+
+.lcd-final-actions > div > p:last-child {
+    max-width: 640px;
+    margin: 0.35rem 0 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.lcd-final-action-buttons {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 0.65rem;
 }
 
 .lcd-test-overlay {
@@ -1071,6 +1270,10 @@
     background: #000000;
     color: #ffffff;
     touch-action: none;
+}
+
+.lcd-test-overlay:focus {
+    outline: none;
 }
 
 .lcd-test-overlay.is-hidden {
@@ -1163,8 +1366,8 @@
 }
 
 .lcd-overlay-palette button {
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     border: 2px solid rgba(255, 255, 255, 0.42);
     border-radius: 50%;
@@ -1290,6 +1493,11 @@ body.lcd-test-active {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .lcd-final-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
     .lcd-overlay-hint {
         display: none;
     }
@@ -1302,7 +1510,7 @@ body.lcd-test-active {
     }
 
     .lcd-hero {
-        padding-top: 0.85rem;
+        padding-top: 0.55rem;
     }
 
     .lcd-hero .devices-hero-title {
@@ -1313,7 +1521,7 @@ body.lcd-test-active {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.55rem;
-        margin-top: 0.9rem;
+        margin-top: 0.7rem;
     }
 
     .lcd-command {
@@ -1377,21 +1585,29 @@ body.lcd-test-active {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .lcd-guide-steps,
+    .lcd-prep-list,
     .lcd-result-grid {
         grid-template-columns: 1fr;
     }
 
-    .lcd-guide-steps li {
-        border-right: 0;
-        border-bottom: 1px solid var(--lcd-border);
+    .lcd-prep-list li:nth-child(even) {
+        border-left: 0;
     }
 
-    .lcd-guide-steps li:last-child {
-        border-bottom: 0;
+    .lcd-mode-choice {
+        grid-template-columns: minmax(78px, 0.35fr) minmax(0, 1fr) 18px;
+        gap: 0.65rem;
+        padding-right: 0.25rem;
+        padding-left: 0.25rem;
     }
 
     .lcd-scope-note {
+        grid-template-columns: 1fr;
+    }
+
+    .lcd-final-action-buttons {
+        display: grid;
+        width: 100%;
         grid-template-columns: 1fr;
     }
 
@@ -1403,16 +1619,18 @@ body.lcd-test-active {
 
     .lcd-overlay-palette {
         top: auto;
-        right: 0.6rem;
+        right: auto;
         bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 66px);
-        left: 0.6rem;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        transform: none;
+        left: 50%;
+        width: min(240px, calc(100vw - 1.2rem));
+        grid-template-columns: repeat(4, 44px);
+        justify-content: center;
+        transform: translateX(-50%);
     }
 
     .lcd-overlay-palette button {
-        width: 30px;
-        height: 30px;
+        width: 44px;
+        height: 44px;
         justify-self: center;
     }
 
@@ -1423,8 +1641,8 @@ body.lcd-test-active {
 
 @media (max-width: 380px) {
     .lcd-overlay-button {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
     }
 
     .lcd-overlay-controls {
@@ -1442,4 +1660,4 @@ body.lcd-test-active {
 }
 </style>
 
-<script src="{{js_path}}/lcd-screen-tester.js?v=20260727-workbench" defer></script>
+<script src="{{js_path}}/lcd-screen-tester.js?v=20260728-content-review" defer></script>

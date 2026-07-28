@@ -171,6 +171,26 @@ class MultiLangBuilder extends ComponentBuilder {
 
             return match.replace(/>$/, ` placeholder="${escapedTranslation}">`);
         });
+
+        // Translate accessible labels declared with data-i18n-aria-label.
+        result = result.replace(/<[^>]+data-i18n-aria-label="([^"]+)"[^>]*>/g, (match, key) => {
+            const translation = this.getNestedTranslation(translations, key);
+            if (!translation) {
+                return match;
+            }
+
+            const escapedTranslation = String(translation)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            if (/\saria-label="/.test(match)) {
+                return match.replace(/\saria-label="[^"]*"/, ` aria-label="${escapedTranslation}"`);
+            }
+
+            return match.replace(/>$/, ` aria-label="${escapedTranslation}">`);
+        });
         
         // 闁哄洦瀵у畷鎻捨熼埄鍐╃凡闁告瑦锕㈤崳鐑樹繆?{{t:key}}
         result = result.replace(/\{\{t:(\w+)\}\}/g, (match, key) => {
