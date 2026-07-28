@@ -1,669 +1,1445 @@
-<div class="lcd-tester-tool">
-    <!-- Hero Section -->
-    <section class="devices-hero">
-        <h1 class="devices-hero-title" data-i18n="lcdTester.title">LCD Screen Tester</h1>
-        <p class="devices-hero-subtitle" data-i18n="lcdTester.intro">Test your monitor for dead pixels, color accuracy, and display quality. Run comprehensive screen tests in fullscreen mode.</p>
+<div class="lcd-tester-tool" data-lcd-tester>
+    <section class="lcd-hero" aria-labelledby="lcd-page-title">
+        <p class="lcd-eyebrow" data-i18n="lcdTester.eyebrow">DISPLAY DIAGNOSTICS</p>
+        <h1 id="lcd-page-title" class="devices-hero-title" data-i18n="lcdTester.title">LCD Test Online</h1>
+        <p class="devices-hero-subtitle" data-i18n="lcdTester.intro">Run fullscreen LCD test patterns to check dead pixels, uniformity, gradients, sharpness, and motion.</p>
+        <div class="lcd-hero-actions" aria-label="Test actions" data-i18n-aria-label="lcdTester.testActions">
+            <button class="lcd-command lcd-command-primary" type="button" data-action="start-guided">
+                <span class="lcd-command-icon" aria-hidden="true">▶</span>
+                <span data-i18n="lcdTester.runGuided">Run Guided Test</span>
+            </button>
+            <button class="lcd-command lcd-command-secondary" type="button" data-action="start-manual">
+                <span class="lcd-command-icon" aria-hidden="true">⛶</span>
+                <span data-i18n="lcdTester.startFullscreen">Start Fullscreen</span>
+            </button>
+        </div>
     </section>
 
-    <!-- Test Control Panel -->
-    <div class="tester-container">
-        <div class="test-panel">
-            <h2 class="panel-title" data-i18n="lcdTester.selectTest">Select a Test</h2>
-            
-            <!-- Test Categories -->
-            <div class="test-categories">
-                <!-- Dead Pixel Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.deadPixelTest">Dead Pixel Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.deadPixelDesc">Display solid colors to detect dead or stuck pixels on your screen.</p>
-                    <div class="color-buttons">
-                        <button class="test-btn color-btn" data-test="solid" data-color="#FF0000" title="Red">
-                            <span class="color-preview" style="background:#FF0000"></span>
-                            <span data-i18n="lcdTester.red">Red</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#00FF00" title="Green">
-                            <span class="color-preview" style="background:#00FF00"></span>
-                            <span data-i18n="lcdTester.green">Green</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#0000FF" title="Blue">
-                            <span class="color-preview" style="background:#0000FF"></span>
-                            <span data-i18n="lcdTester.blue">Blue</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#FFFFFF" title="White">
-                            <span class="color-preview" style="background:#FFFFFF; border:1px solid #ccc"></span>
-                            <span data-i18n="lcdTester.white">White</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#000000" title="Black">
-                            <span class="color-preview" style="background:#000000"></span>
-                            <span data-i18n="lcdTester.black">Black</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#00FFFF" title="Cyan">
-                            <span class="color-preview" style="background:#00FFFF"></span>
-                            <span data-i18n="lcdTester.cyan">Cyan</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#FF00FF" title="Magenta">
-                            <span class="color-preview" style="background:#FF00FF"></span>
-                            <span data-i18n="lcdTester.magenta">Magenta</span>
-                        </button>
-                        <button class="test-btn color-btn" data-test="solid" data-color="#FFFF00" title="Yellow">
-                            <span class="color-preview" style="background:#FFFF00"></span>
-                            <span data-i18n="lcdTester.yellow">Yellow</span>
-                        </button>
-                    </div>
+    <section class="lcd-workbench" aria-labelledby="lcd-workbench-title">
+        <header class="lcd-workbench-header">
+            <div class="lcd-workbench-heading">
+                <div class="lcd-status" aria-live="polite">
+                    <span class="lcd-status-dot" aria-hidden="true"></span>
+                    <span id="lcd-status-text" data-i18n="lcdTester.statusReady">Ready to test</span>
                 </div>
+                <h2 id="lcd-workbench-title" data-i18n="lcdTester.workbenchTitle">Screen Test Workbench</h2>
+                <p data-i18n="lcdTester.workbenchIntro">Choose a pattern, preview it, then inspect every part of your display in fullscreen.</p>
+            </div>
 
-                <!-- Gradient Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.gradientTest">Gradient Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.gradientDesc">Check color uniformity and banding issues with smooth gradients.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="gradient-h">
-                            <span class="btn-icon">↔</span>
-                            <span data-i18n="lcdTester.horizontalGradient">Horizontal Gradient</span>
-                        </button>
-                        <button class="test-btn" data-test="gradient-v">
-                            <span class="btn-icon">↕</span>
-                            <span data-i18n="lcdTester.verticalGradient">Vertical Gradient</span>
-                        </button>
-                        <button class="test-btn" data-test="gradient-rgb">
-                            <span class="btn-icon">🌈</span>
-                            <span data-i18n="lcdTester.rgbGradient">RGB Gradient</span>
-                        </button>
-                    </div>
+            <dl class="lcd-display-facts" aria-label="Display information" data-i18n-aria-label="lcdTester.displayInfo">
+                <div class="lcd-display-fact">
+                    <dt data-i18n="lcdTester.viewport">Viewport</dt>
+                    <dd id="lcd-viewport-value">--</dd>
                 </div>
-
-                <!-- Gray Scale Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.grayScaleTest">Gray Scale Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.grayScaleDesc">Test grayscale rendering and contrast levels.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="grayscale-bars">
-                            <span class="btn-icon">▦</span>
-                            <span data-i18n="lcdTester.grayBars">Gray Bars</span>
-                        </button>
-                        <button class="test-btn" data-test="grayscale-gradient">
-                            <span class="btn-icon">◐</span>
-                            <span data-i18n="lcdTester.grayGradient">Gray Gradient</span>
-                        </button>
-                    </div>
+                <div class="lcd-display-fact">
+                    <dt data-i18n="lcdTester.screenResolution">Screen</dt>
+                    <dd id="lcd-screen-value">--</dd>
                 </div>
-
-                <!-- Pattern Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.patternTest">Pattern Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.patternDesc">Detect pixel alignment and sharpness issues.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="checkerboard">
-                            <span class="btn-icon">▚</span>
-                            <span data-i18n="lcdTester.checkerboard">Checkerboard</span>
-                        </button>
-                        <button class="test-btn" data-test="grid">
-                            <span class="btn-icon">▦</span>
-                            <span data-i18n="lcdTester.gridPattern">Grid Pattern</span>
-                        </button>
-                        <button class="test-btn" data-test="lines-h">
-                            <span class="btn-icon">≡</span>
-                            <span data-i18n="lcdTester.horizontalLines">Horizontal Lines</span>
-                        </button>
-                        <button class="test-btn" data-test="lines-v">
-                            <span class="btn-icon">|||</span>
-                            <span data-i18n="lcdTester.verticalLines">Vertical Lines</span>
-                        </button>
-                    </div>
+                <div class="lcd-display-fact">
+                    <dt data-i18n="lcdTester.dpr">DPR</dt>
+                    <dd id="lcd-dpr-value">--</dd>
                 </div>
-
-                <!-- Color Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.colorTest">Color Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.colorDesc">Evaluate color accuracy and display calibration.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="color-bars">
-                            <span class="btn-icon">▐</span>
-                            <span data-i18n="lcdTester.colorBars">Color Bars</span>
-                        </button>
-                        <button class="test-btn" data-test="smpte">
-                            <span class="btn-icon">📺</span>
-                            <span data-i18n="lcdTester.smptePattern">SMPTE Pattern</span>
-                        </button>
-                    </div>
+                <div class="lcd-display-fact">
+                    <dt data-i18n="lcdTester.colorDepth">Color depth</dt>
+                    <dd id="lcd-depth-value">--</dd>
                 </div>
-
-                <!-- Motion Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.motionTest">Motion Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.motionDesc">Check for ghosting and response time issues.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="motion-box">
-                            <span class="btn-icon">▶</span>
-                            <span data-i18n="lcdTester.movingBox">Moving Box</span>
-                        </button>
-                        <button class="test-btn" data-test="motion-text">
-                            <span class="btn-icon">T</span>
-                            <span data-i18n="lcdTester.scrollingText">Scrolling Text</span>
-                        </button>
-                    </div>
+                <div class="lcd-display-fact">
+                    <dt data-i18n="lcdTester.refreshRate">Refresh</dt>
+                    <dd><span id="lcd-refresh-value">--</span> <small data-i18n="lcdTester.estimated">Estimated</small></dd>
                 </div>
+            </dl>
+        </header>
 
-                <!-- Text Clarity Test -->
-                <div class="test-category">
-                    <h3 class="category-title" data-i18n="lcdTester.textTest">Text Clarity Test</h3>
-                    <p class="category-desc" data-i18n="lcdTester.textDesc">Verify text rendering and font clarity.</p>
-                    <div class="test-buttons">
-                        <button class="test-btn" data-test="text-white">
-                            <span class="btn-icon">Aa</span>
-                            <span data-i18n="lcdTester.textOnWhite">Text on White</span>
-                        </button>
-                        <button class="test-btn" data-test="text-black">
-                            <span class="btn-icon">Aa</span>
-                            <span data-i18n="lcdTester.textOnBlack">Text on Black</span>
-                        </button>
-                    </div>
+        <div class="lcd-workbench-main">
+            <div class="lcd-preview-shell">
+                <canvas id="lcd-preview-canvas" class="lcd-preview-canvas" aria-hidden="true"></canvas>
+                <div class="lcd-preview-copy">
+                    <span class="lcd-preview-kicker" data-i18n="lcdTester.preview">LIVE PREVIEW</span>
+                    <strong id="lcd-preview-name">Red</strong>
+                    <span id="lcd-preview-description" data-i18n="lcdTester.pixelModeHint">Use solid colors to reveal pixels that remain dark, bright, or fixed to one color.</span>
+                </div>
+                <div class="lcd-preview-corner" aria-hidden="true">
+                    <span id="lcd-preview-category">PIXELS</span>
                 </div>
             </div>
 
-            <!-- Auto Test Button -->
-            <div class="auto-test-section">
-                <button class="test-btn auto-test-btn" data-test="auto">
-                    <span class="btn-icon">▶</span>
-                    <span data-i18n="lcdTester.autoTest">Run All Tests (Auto)</span>
-                </button>
-                <p class="auto-test-hint" data-i18n="lcdTester.autoTestHint">Press ESC or click to exit. Press Space or Arrow keys to navigate.</p>
-            </div>
-        </div>
+            <div class="lcd-control-pane">
+                <div class="lcd-tabs" role="tablist" aria-label="Test categories" data-i18n-aria-label="lcdTester.testCategories">
+                    <button id="lcd-tab-quick" class="lcd-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="lcd-panel-quick" data-category="quick" data-i18n="lcdTester.tabQuick">Quick</button>
+                    <button id="lcd-tab-pixels" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-pixels" data-category="pixels" data-i18n="lcdTester.tabPixels">Pixels</button>
+                    <button id="lcd-tab-uniformity" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-uniformity" data-category="uniformity" data-i18n="lcdTester.tabUniformity">Uniformity</button>
+                    <button id="lcd-tab-motion" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-motion" data-category="motion" data-i18n="lcdTester.tabMotion">Motion</button>
+                    <button id="lcd-tab-sharpness" class="lcd-tab" type="button" role="tab" aria-selected="false" aria-controls="lcd-panel-sharpness" data-category="sharpness" data-i18n="lcdTester.tabSharpness">Sharpness</button>
+                </div>
 
-        <!-- Instructions -->
-        <div class="instructions-panel">
-            <h3 class="instructions-title" data-i18n="lcdTester.instructions">Instructions</h3>
-            <ul class="instructions-list">
-                <li data-i18n="lcdTester.instruction1">Click any test button to start fullscreen test</li>
-                <li data-i18n="lcdTester.instruction2">Press ESC or click anywhere to exit test</li>
-                <li data-i18n="lcdTester.instruction3">Use Arrow keys or Space to switch between colors/tests</li>
-                <li data-i18n="lcdTester.instruction4">Clean your screen before testing for accurate results</li>
-                <li data-i18n="lcdTester.instruction5">Test in a dimly lit room for best visibility</li>
-            </ul>
-        </div>
-    </div>
+                <div id="lcd-panel-quick" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-quick" data-panel="quick">
+                    <div class="lcd-panel-heading">
+                        <h3 data-i18n="lcdTester.quickTitle">A complete check in about one minute</h3>
+                        <p data-i18n="lcdTester.quickDescription">Twelve timed steps cover primary colors, dark tones, gradients, and motion.</p>
+                    </div>
+                    <ol class="lcd-sequence" aria-label="Guided test sequence" data-i18n-aria-label="lcdTester.guidedSequence">
+                        <li><span class="lcd-sequence-number">1</span><span data-i18n="lcdTester.sequenceColors">Solid colors</span></li>
+                        <li><span class="lcd-sequence-number">2</span><span data-i18n="lcdTester.sequenceDark">Dark tones</span></li>
+                        <li><span class="lcd-sequence-number">3</span><span data-i18n="lcdTester.sequenceGradient">Grayscale</span></li>
+                        <li><span class="lcd-sequence-number">4</span><span data-i18n="lcdTester.sequenceMotion">Motion</span></li>
+                    </ol>
+                    <div class="lcd-quick-meta">
+                        <span><strong>12</strong> <span data-i18n="lcdTester.steps">steps</span></span>
+                        <span><strong>5s</strong> <span data-i18n="lcdTester.perStep">per step</span></span>
+                        <span data-i18n="lcdTester.pauseAnytime">Pause anytime</span>
+                    </div>
+                    <button class="lcd-command lcd-command-primary lcd-panel-command" type="button" data-action="start-guided">
+                        <span class="lcd-command-icon" aria-hidden="true">▶</span>
+                        <span data-i18n="lcdTester.beginGuided">Begin Guided Test</span>
+                    </button>
+                </div>
 
-    <!-- Information Section -->
-    <div class="info-section">
-        <!-- What to Look For -->
-        <div class="info-card">
-            <h3 class="info-title" data-i18n="lcdTester.whatToLookFor">What to Look For</h3>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4 data-i18n="lcdTester.deadPixels">Dead Pixels</h4>
-                    <p data-i18n="lcdTester.deadPixelsInfo">Small dots that don't change color. Visible as black spots on bright colors or bright spots on black.</p>
+                <div id="lcd-panel-pixels" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-pixels" data-panel="pixels" hidden>
+                    <div class="lcd-panel-heading">
+                        <h3 data-i18n="lcdTester.pixelColors">Pixel test colors</h3>
+                        <p data-i18n="lcdTester.pixelControlsHint">Switch colors to spot pixels that do not change with the rest of the screen.</p>
+                    </div>
+                    <div class="lcd-swatch-grid" aria-label="Pixel test colors" data-i18n-aria-label="lcdTester.pixelColors">
+                        <button class="lcd-swatch is-selected" type="button" data-mode="solid-red" style="--swatch:#ff1f32"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.red">Red</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-green" style="--swatch:#18c964"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.green">Green</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-blue" style="--swatch:#1677ff"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.blue">Blue</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-white" style="--swatch:#ffffff"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.white">White</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-black" style="--swatch:#050505"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.black">Black</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-cyan" style="--swatch:#00d8e8"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.cyan">Cyan</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-magenta" style="--swatch:#f018d0"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.magenta">Magenta</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-yellow" style="--swatch:#ffd60a"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.yellow">Yellow</span></button>
+                    </div>
+                    <label class="lcd-color-control" for="lcd-custom-color">
+                        <span data-i18n="lcdTester.customColor">Custom color</span>
+                        <span class="lcd-color-input-wrap">
+                            <input id="lcd-custom-color" type="color" value="#7c3aed" aria-label="Custom color" data-i18n-aria-label="lcdTester.customColor">
+                            <output id="lcd-custom-color-value" for="lcd-custom-color">#7C3AED</output>
+                        </span>
+                    </label>
+                    <button class="lcd-command lcd-command-primary lcd-panel-command" type="button" data-action="start-manual">
+                        <span class="lcd-command-icon" aria-hidden="true">⛶</span>
+                        <span data-i18n="lcdTester.testSelectedPattern">Test selected pattern</span>
+                    </button>
                 </div>
-                <div class="info-item">
-                    <h4 data-i18n="lcdTester.stuckPixels">Stuck Pixels</h4>
-                    <p data-i18n="lcdTester.stuckPixelsInfo">Pixels that stay one color. Usually visible as bright colored dots (red, green, or blue) that don't change.</p>
+
+                <div id="lcd-panel-uniformity" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-uniformity" data-panel="uniformity" hidden>
+                    <div class="lcd-control-group">
+                        <h3 data-i18n="lcdTester.darkLevels">Dark levels</h3>
+                        <div class="lcd-segmented lcd-segmented-six" data-control="gray-level">
+                            <button class="is-selected" type="button" data-gray-level="0">0%</button>
+                            <button type="button" data-gray-level="5">5%</button>
+                            <button type="button" data-gray-level="10">10%</button>
+                            <button type="button" data-gray-level="15">15%</button>
+                            <button type="button" data-gray-level="20">20%</button>
+                            <button type="button" data-gray-level="50">50%</button>
+                        </div>
+                    </div>
+                    <div class="lcd-control-group">
+                        <h3 data-i18n="lcdTester.grayscaleSteps">Grayscale steps</h3>
+                        <div class="lcd-segmented" data-control="gray-steps">
+                            <button type="button" data-gray-steps="4">4</button>
+                            <button type="button" data-gray-steps="8">8</button>
+                            <button class="is-selected" type="button" data-gray-steps="16">16</button>
+                            <button type="button" data-gray-steps="32">32</button>
+                            <button type="button" data-gray-steps="64">64</button>
+                        </div>
+                    </div>
+                    <div class="lcd-mode-grid lcd-mode-grid-two">
+                        <button class="lcd-mode-button" type="button" data-mode="grayscale-bars" data-i18n="lcdTester.grayBars">Gray bars</button>
+                        <button class="lcd-mode-button" type="button" data-mode="grayscale-gradient" data-i18n="lcdTester.grayGradient">Gray gradient</button>
+                        <button class="lcd-mode-button" type="button" data-mode="gradient-horizontal" data-i18n="lcdTester.horizontalGradient">Horizontal gradient</button>
+                        <button class="lcd-mode-button" type="button" data-mode="gradient-vertical" data-i18n="lcdTester.verticalGradient">Vertical gradient</button>
+                        <button class="lcd-mode-button" type="button" data-mode="gradient-rgb" data-i18n="lcdTester.rgbGradient">RGB gradient</button>
+                    </div>
+                    <button class="lcd-command lcd-command-primary lcd-panel-command" type="button" data-action="start-manual">
+                        <span class="lcd-command-icon" aria-hidden="true">⛶</span>
+                        <span data-i18n="lcdTester.testSelectedPattern">Test selected pattern</span>
+                    </button>
                 </div>
-                <div class="info-item">
-                    <h4 data-i18n="lcdTester.colorBanding">Color Banding</h4>
-                    <p data-i18n="lcdTester.colorBandingInfo">Visible steps or bands in gradients instead of smooth transitions. Indicates limited color depth.</p>
+
+                <div id="lcd-panel-motion" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-motion" data-panel="motion" hidden>
+                    <div class="lcd-control-group">
+                        <h3 data-i18n="lcdTester.motionPattern">Motion pattern</h3>
+                        <div class="lcd-segmented">
+                            <button class="is-selected" type="button" data-mode="motion-box" data-i18n="lcdTester.movingBox">Square</button>
+                            <button type="button" data-mode="motion-text" data-i18n="lcdTester.scrollingText">Text</button>
+                            <button type="button" data-mode="motion-lines" data-i18n="lcdTester.movingLines">Lines</button>
+                        </div>
+                    </div>
+                    <div class="lcd-control-group">
+                        <h3 data-i18n="lcdTester.motionBackground">Background</h3>
+                        <div class="lcd-segmented">
+                            <button class="is-selected" type="button" data-motion-bg="black" data-i18n="lcdTester.black">Black</button>
+                            <button type="button" data-motion-bg="gray" data-i18n="lcdTester.gray">Gray</button>
+                            <button type="button" data-motion-bg="white" data-i18n="lcdTester.white">White</button>
+                        </div>
+                    </div>
+                    <div class="lcd-control-group">
+                        <h3 data-i18n="lcdTester.motionSpeed">Speed</h3>
+                        <div class="lcd-segmented">
+                            <button type="button" data-motion-speed="slow" data-i18n="lcdTester.slow">Slow</button>
+                            <button class="is-selected" type="button" data-motion-speed="medium" data-i18n="lcdTester.medium">Medium</button>
+                            <button type="button" data-motion-speed="fast" data-i18n="lcdTester.fast">Fast</button>
+                        </div>
+                    </div>
+                    <button class="lcd-command lcd-command-primary lcd-panel-command" type="button" data-action="start-manual">
+                        <span class="lcd-command-icon" aria-hidden="true">⛶</span>
+                        <span data-i18n="lcdTester.testSelectedPattern">Test selected pattern</span>
+                    </button>
                 </div>
-                <div class="info-item">
-                    <h4 data-i18n="lcdTester.backlight">Backlight Bleed</h4>
-                    <p data-i18n="lcdTester.backlightInfo">Light leaking around edges or corners, especially visible on black screens in dark rooms.</p>
+
+                <div id="lcd-panel-sharpness" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-sharpness" data-panel="sharpness" hidden>
+                    <div class="lcd-panel-heading">
+                        <h3 data-i18n="lcdTester.sharpnessPatterns">Sharpness patterns</h3>
+                        <p data-i18n="lcdTester.sharpnessControlsHint">Use grids, lines, bars, and text to inspect scaling and edge clarity.</p>
+                    </div>
+                    <div class="lcd-mode-grid lcd-mode-grid-two">
+                        <button class="lcd-mode-button is-selected" type="button" data-mode="checkerboard" data-i18n="lcdTester.checkerboard">Checkerboard</button>
+                        <button class="lcd-mode-button" type="button" data-mode="grid" data-i18n="lcdTester.gridPattern">Grid</button>
+                        <button class="lcd-mode-button" type="button" data-mode="lines-horizontal" data-i18n="lcdTester.horizontalLines">Horizontal lines</button>
+                        <button class="lcd-mode-button" type="button" data-mode="lines-vertical" data-i18n="lcdTester.verticalLines">Vertical lines</button>
+                        <button class="lcd-mode-button" type="button" data-mode="color-bars" data-i18n="lcdTester.colorBars">Color bars</button>
+                        <button class="lcd-mode-button" type="button" data-mode="smpte" data-i18n="lcdTester.smptePattern">SMPTE</button>
+                        <button class="lcd-mode-button" type="button" data-mode="text-white" data-i18n="lcdTester.textOnWhite">Text on white</button>
+                        <button class="lcd-mode-button" type="button" data-mode="text-black" data-i18n="lcdTester.textOnBlack">Text on black</button>
+                    </div>
+                    <button class="lcd-command lcd-command-primary lcd-panel-command" type="button" data-action="start-manual">
+                        <span class="lcd-command-icon" aria-hidden="true">⛶</span>
+                        <span data-i18n="lcdTester.testSelectedPattern">Test selected pattern</span>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Screen Types -->
-        <div class="info-card">
-            <h3 class="info-title" data-i18n="lcdTester.screenTypes">Screen Panel Types</h3>
-            <table class="info-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="lcdTester.panelType">Panel Type</th>
-                        <th data-i18n="lcdTester.colorAccuracy">Color Accuracy</th>
-                        <th data-i18n="lcdTester.responseTime">Response Time</th>
-                        <th data-i18n="lcdTester.viewingAngles">Viewing Angles</th>
-                        <th data-i18n="lcdTester.bestFor">Best For</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>IPS</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.good">Good</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.ipsUse">Professional work, photo editing</td>
-                    </tr>
-                    <tr>
-                        <td>VA</td>
-                        <td data-i18n="lcdTester.veryGood">Very Good</td>
-                        <td data-i18n="lcdTester.average">Average</td>
-                        <td data-i18n="lcdTester.good">Good</td>
-                        <td data-i18n="lcdTester.vaUse">Movies, high contrast content</td>
-                    </tr>
-                    <tr>
-                        <td>TN</td>
-                        <td data-i18n="lcdTester.average">Average</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.poor">Poor</td>
-                        <td data-i18n="lcdTester.tnUse">Competitive gaming</td>
-                    </tr>
-                    <tr>
-                        <td>OLED</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.excellent">Excellent</td>
-                        <td data-i18n="lcdTester.oledUse">Premium displays, HDR content</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <footer class="lcd-workbench-footer">
+            <p id="lcd-workbench-message" role="status" aria-live="polite" data-i18n="lcdTester.keyboardHint">In fullscreen, use arrow keys to move. Space pauses Guided Test or advances Manual Test. Esc exits.</p>
+        </footer>
+    </section>
 
-        <!-- FAQ Section -->
-        <div class="info-card faq-section">
-            <h3 class="info-title" data-i18n="lcdTester.faqTitle">Frequently Asked Questions</h3>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h4 class="faq-question" data-i18n="lcdTester.faq1q">Can dead pixels be fixed?</h4>
-                    <p class="faq-answer" data-i18n="lcdTester.faq1a">Dead pixels are usually permanent. However, stuck pixels can sometimes be fixed by running pixel-cycling software or gently massaging the affected area with a soft cloth.</p>
-                </div>
-                <div class="faq-item">
-                    <h4 class="faq-question" data-i18n="lcdTester.faq2q">How many dead pixels are acceptable?</h4>
-                    <p class="faq-answer" data-i18n="lcdTester.faq2a">Most manufacturers allow 1-5 dead pixels depending on screen class. Premium "zero dead pixel" warranties are available from some brands.</p>
-                </div>
-                <div class="faq-item">
-                    <h4 class="faq-question" data-i18n="lcdTester.faq3q">Why test in fullscreen mode?</h4>
-                    <p class="faq-answer" data-i18n="lcdTester.faq3a">Fullscreen mode ensures the test covers every pixel and removes UI elements that could hide defects. It also provides accurate color display without browser interference.</p>
-                </div>
-                <div class="faq-item">
-                    <h4 class="faq-question" data-i18n="lcdTester.faq4q">What causes backlight bleeding?</h4>
-                    <p class="faq-answer" data-i18n="lcdTester.faq4a">Backlight bleed is caused by uneven light distribution from the LED backlight, often due to manufacturing tolerances or pressure on the panel frame.</p>
-                </div>
-            </div>
+    <section class="lcd-guide-band" aria-labelledby="lcd-guide-title">
+        <div class="lcd-section-heading">
+            <p class="lcd-section-kicker" data-i18n="lcdTester.beforeYouStart">BEFORE YOU START</p>
+            <h2 id="lcd-guide-title" data-i18n="lcdTester.howToTest">A reliable screen check in three steps</h2>
         </div>
-    </div>
+        <ol class="lcd-guide-steps">
+            <li>
+                <span class="lcd-guide-number">01</span>
+                <div><h3 data-i18n="lcdTester.step1Title">Prepare the display</h3><p data-i18n="lcdTester.step1Body">Clean the panel, use its native resolution, and let brightness settle before testing.</p></div>
+            </li>
+            <li>
+                <span class="lcd-guide-number">02</span>
+                <div><h3 data-i18n="lcdTester.step2Title">Inspect every area</h3><p data-i18n="lcdTester.step2Body">View each pattern from your normal position, then check edges and corners more closely.</p></div>
+            </li>
+            <li>
+                <span class="lcd-guide-number">03</span>
+                <div><h3 data-i18n="lcdTester.step3Title">Repeat suspicious results</h3><p data-i18n="lcdTester.step3Body">Retest marks on several colors and confirm that dust or reflections are not causing them.</p></div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="lcd-results" aria-labelledby="lcd-results-title">
+        <div class="lcd-section-heading">
+            <p class="lcd-section-kicker" data-i18n="lcdTester.readingResults">READING RESULTS</p>
+            <h2 id="lcd-results-title" data-i18n="lcdTester.whatToLookFor">What each pattern can reveal</h2>
+        </div>
+        <div class="lcd-result-grid">
+            <article>
+                <span class="lcd-result-mark lcd-result-mark-red" aria-hidden="true"></span>
+                <h3 data-i18n="lcdTester.deadPixels">Dead or stuck pixels</h3>
+                <p data-i18n="lcdTester.deadPixelsInfo">A point that remains dark, bright, or fixed to one color while surrounding pixels change.</p>
+            </article>
+            <article>
+                <span class="lcd-result-mark lcd-result-mark-gray" aria-hidden="true"></span>
+                <h3 data-i18n="lcdTester.uniformityIssues">Uniformity and backlight</h3>
+                <p data-i18n="lcdTester.uniformityInfo">Uneven bright areas, tint, or edge glow that remains visible across dark patterns.</p>
+            </article>
+            <article>
+                <span class="lcd-result-mark lcd-result-mark-spectrum" aria-hidden="true"></span>
+                <h3 data-i18n="lcdTester.colorBanding">Gradient banding</h3>
+                <p data-i18n="lcdTester.colorBandingInfo">Abrupt steps or bands where a gradient should transition smoothly.</p>
+            </article>
+            <article>
+                <span class="lcd-result-mark lcd-result-mark-motion" aria-hidden="true"></span>
+                <h3 data-i18n="lcdTester.motionArtifacts">Motion trails</h3>
+                <p data-i18n="lcdTester.motionArtifactsInfo">Persistent shadows, bright halos, or smearing behind moving shapes and text.</p>
+            </article>
+        </div>
+        <aside class="lcd-scope-note">
+            <strong data-i18n="lcdTester.scopeNoteTitle">Visual screening, not calibration</strong>
+            <p data-i18n="lcdTester.scopeNoteBody">Browser patterns help you spot visible issues. Warranty decisions depend on the exact manufacturer, model, region, and policy; instrument-grade color or response measurements require dedicated hardware.</p>
+        </aside>
+    </section>
+
+    <section class="lcd-faq" aria-labelledby="lcd-faq-title">
+        <div class="lcd-section-heading">
+            <p class="lcd-section-kicker">FAQ</p>
+            <h2 id="lcd-faq-title" data-i18n="lcdTester.faqTitle">Screen test questions</h2>
+        </div>
+        <div class="lcd-faq-list">
+            <details>
+                <summary data-i18n="lcdTester.faq1q">How do I tell dust from a dead pixel?</summary>
+                <p data-i18n="lcdTester.faq1a">Clean the screen with a suitable cloth and compare the mark on several solid colors. Dust changes appearance with angle or cleaning; a pixel defect stays aligned to the same pixel location.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq2q">Does this test measure color accuracy?</summary>
+                <p data-i18n="lcdTester.faq2a">It can reveal obvious tint, banding, and uneven color by eye. Numerical color accuracy requires a calibrated colorimeter or spectrophotometer.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq3q">Why should I use fullscreen?</summary>
+                <p data-i18n="lcdTester.faq3a">Fullscreen removes most browser chrome and fills edge areas, making small pixel and uniformity issues easier to inspect.</p>
+            </details>
+            <details>
+                <summary data-i18n="lcdTester.faq4q">What should I do after finding a defect?</summary>
+                <p data-i18n="lcdTester.faq4a">Repeat the pattern, note the location, and check the support or pixel policy for your exact monitor model and purchase region.</p>
+            </details>
+        </div>
+    </section>
 </div>
 
-<!-- Fullscreen Test Overlay -->
-<div id="test-overlay" class="test-overlay hidden">
-    <canvas id="test-canvas"></canvas>
-    <div id="test-info" class="test-info">
-        <span id="test-name"></span>
-        <span id="test-hint" data-i18n="lcdTester.pressEsc">Press ESC to exit</span>
+<div id="lcd-test-overlay" class="lcd-test-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fullscreen screen test" data-i18n-aria-label="lcdTester.fullscreenTest">
+    <canvas id="lcd-test-canvas" class="lcd-test-canvas" aria-hidden="true"></canvas>
+
+    <div class="lcd-overlay-chrome lcd-overlay-topbar">
+        <div class="lcd-overlay-mode">
+            <span class="lcd-overlay-kicker" data-i18n="lcdTester.nowTesting">NOW TESTING</span>
+            <strong id="lcd-overlay-mode-name">Red</strong>
+        </div>
+        <output id="lcd-overlay-progress" class="lcd-overlay-progress">1 / 1</output>
     </div>
+
+    <div id="lcd-overlay-palette" class="lcd-overlay-chrome lcd-overlay-palette" aria-label="Pixel test colors" data-i18n-aria-label="lcdTester.pixelColors">
+        <button type="button" data-overlay-mode="solid-red" style="--swatch:#ff1f32" aria-label="Red"></button>
+        <button type="button" data-overlay-mode="solid-green" style="--swatch:#18c964" aria-label="Green"></button>
+        <button type="button" data-overlay-mode="solid-blue" style="--swatch:#1677ff" aria-label="Blue"></button>
+        <button type="button" data-overlay-mode="solid-white" style="--swatch:#ffffff" aria-label="White"></button>
+        <button type="button" data-overlay-mode="solid-black" style="--swatch:#050505" aria-label="Black"></button>
+        <button type="button" data-overlay-mode="solid-cyan" style="--swatch:#00d8e8" aria-label="Cyan"></button>
+        <button type="button" data-overlay-mode="solid-magenta" style="--swatch:#f018d0" aria-label="Magenta"></button>
+        <button type="button" data-overlay-mode="solid-yellow" style="--swatch:#ffd60a" aria-label="Yellow"></button>
+    </div>
+
+    <div class="lcd-overlay-chrome lcd-overlay-controls" role="toolbar" aria-label="Fullscreen controls" data-i18n-aria-label="lcdTester.fullscreenControls">
+        <button id="lcd-overlay-previous" class="lcd-overlay-button" type="button" data-overlay-action="previous" aria-label="Previous pattern" title="Previous pattern">
+            <span aria-hidden="true">←</span>
+        </button>
+        <button id="lcd-overlay-pause" class="lcd-overlay-button lcd-guided-only" type="button" data-overlay-action="toggle-pause" aria-label="Pause test" title="Pause test">
+            <span id="lcd-overlay-pause-icon" aria-hidden="true">Ⅱ</span>
+        </button>
+        <button id="lcd-overlay-next" class="lcd-overlay-button" type="button" data-overlay-action="next" aria-label="Next pattern" title="Next pattern">
+            <span aria-hidden="true">→</span>
+        </button>
+        <output id="lcd-overlay-countdown" class="lcd-overlay-countdown lcd-guided-only">5s</output>
+        <span class="lcd-overlay-divider" aria-hidden="true"></span>
+        <button id="lcd-overlay-toggle-controls" class="lcd-overlay-button" type="button" data-overlay-action="toggle-controls" aria-label="Hide controls" title="Hide controls">
+            <span aria-hidden="true">◉</span>
+        </button>
+        <button id="lcd-overlay-exit" class="lcd-overlay-button lcd-overlay-exit" type="button" data-overlay-action="exit" aria-label="Exit fullscreen" title="Exit fullscreen">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+
+    <p class="lcd-overlay-chrome lcd-overlay-hint" data-i18n="lcdTester.overlayHint">Arrow keys move between patterns. Space pauses Guided Test or advances Manual Test. Esc exits.</p>
 </div>
 
 <style>
-:root {
-    --tester-primary: #2563eb;
-    --tester-secondary: #64748b;
-    --tester-success: #22c55e;
-    --tester-bg: #f8fafc;
-    --tester-card-bg: #ffffff;
-    --tester-border: #e2e8f0;
-    --tester-text: #1e293b;
-    --tester-text-secondary: #64748b;
-    --tester-radius: 12px;
-    --tester-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] {
-    --tester-bg: #0f172a;
-    --tester-card-bg: #1e293b;
-    --tester-border: #334155;
-    --tester-text: #f1f5f9;
-    --tester-text-secondary: #94a3b8;
-}
-
 .lcd-tester-tool {
-    max-width: 1200px;
+    --lcd-accent: #0066ff;
+    --lcd-accent-strong: #0052d6;
+    --lcd-green: #0f9f6e;
+    --lcd-panel: var(--background-card, #ffffff);
+    --lcd-muted: var(--background-secondary, #f8fafc);
+    --lcd-border: var(--border-color, #e2e8f0);
+    --lcd-text: var(--text-primary, #0f172a);
+    --lcd-text-secondary: var(--text-secondary, #475569);
+    max-width: 1180px;
     margin: 0 auto;
-    padding: var(--spacing-lg);
+    padding: 0 var(--spacing-lg, 1.5rem) var(--spacing-3xl, 4rem);
+    color: var(--lcd-text);
 }
 
-.devices-hero {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
+.lcd-tester-tool *,
+.lcd-test-overlay * {
+    box-sizing: border-box;
 }
 
-.devices-hero-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-md);
-}
-
-.devices-hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--tester-text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.tester-container {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-}
-
-@media (max-width: 900px) {
-    .tester-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.test-panel {
-    background: var(--tester-card-bg);
-    border-radius: var(--tester-radius);
-    padding: var(--spacing-lg);
-    box-shadow: var(--tester-shadow);
-}
-
-.panel-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--tester-primary);
-}
-
-.test-categories {
-    display: grid;
-    gap: var(--spacing-lg);
-}
-
-.test-category {
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--tester-border);
-}
-
-.test-category:last-child {
-    border-bottom: none;
-}
-
-.category-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-xs);
-}
-
-.category-desc {
-    font-size: 0.875rem;
-    color: var(--tester-text-secondary);
-    margin-bottom: var(--spacing-md);
-}
-
-.color-buttons,
-.test-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-}
-
-.test-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 2px solid var(--tester-border);
-    border-radius: 8px;
-    background: var(--tester-card-bg);
-    color: var(--tester-text);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.test-btn:hover {
-    border-color: var(--tester-primary);
-    background: rgba(37, 99, 235, 0.1);
-}
-
-.test-btn:active {
-    transform: scale(0.98);
-}
-
-.color-btn .color-preview {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
-.btn-icon {
-    font-size: 1rem;
-    width: 24px;
+.lcd-hero {
+    padding: clamp(1.25rem, 3vw, 2.5rem) 0 1.5rem;
     text-align: center;
 }
 
-.auto-test-section {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 2px solid var(--tester-border);
-    text-align: center;
-}
-
-.auto-test-btn {
-    background: var(--tester-primary);
-    color: white;
-    border-color: var(--tester-primary);
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: 1rem;
-}
-
-.auto-test-btn:hover {
-    background: #1d4ed8;
-    border-color: #1d4ed8;
-}
-
-.auto-test-hint {
+.lcd-eyebrow,
+.lcd-section-kicker,
+.lcd-preview-kicker,
+.lcd-overlay-kicker {
+    margin: 0;
+    color: var(--lcd-accent);
     font-size: 0.75rem;
-    color: var(--tester-text-secondary);
-    margin-top: var(--spacing-sm);
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
 }
 
-.instructions-panel {
-    background: var(--tester-card-bg);
-    border-radius: var(--tester-radius);
-    padding: var(--spacing-lg);
-    box-shadow: var(--tester-shadow);
-    height: fit-content;
+.lcd-hero .devices-hero-title {
+    margin: 0.35rem 0 0.55rem;
+    color: var(--lcd-text);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: 0;
 }
 
-.instructions-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-md);
+.lcd-hero .devices-hero-subtitle {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--lcd-text-secondary);
+    font-size: 1rem;
+    line-height: 1.55;
 }
 
-.instructions-list {
-    list-style: none;
-    padding: 0;
+.lcd-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.15rem;
+}
+
+.lcd-command {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.05rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.lcd-command:hover {
+    transform: translateY(-1px);
+}
+
+.lcd-command:focus-visible,
+.lcd-tab:focus-visible,
+.lcd-swatch:focus-visible,
+.lcd-mode-button:focus-visible,
+.lcd-segmented button:focus-visible,
+.lcd-overlay-button:focus-visible,
+.lcd-overlay-palette button:focus-visible,
+.lcd-faq summary:focus-visible {
+    outline: 3px solid rgba(0, 102, 255, 0.34);
+    outline-offset: 2px;
+}
+
+.lcd-command-primary {
+    background: var(--lcd-accent);
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(0, 102, 255, 0.2);
+}
+
+.lcd-command-primary:hover {
+    background: var(--lcd-accent-strong);
+}
+
+.lcd-command-secondary {
+    border-color: var(--lcd-border);
+    background: var(--lcd-panel);
+    color: var(--lcd-text);
+}
+
+.lcd-command-secondary:hover {
+    border-color: var(--lcd-accent);
+    color: var(--lcd-accent);
+}
+
+.lcd-command-icon {
+    width: 1.1rem;
+    flex: 0 0 1.1rem;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.lcd-workbench {
+    overflow: hidden;
+    border: 1px solid var(--lcd-border);
+    border-radius: 8px;
+    background: var(--lcd-panel);
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+}
+
+.lcd-workbench-header {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.85fr) minmax(500px, 1.4fr);
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.15rem;
+    border-bottom: 1px solid var(--lcd-border);
+    background: var(--lcd-muted);
+}
+
+.lcd-workbench-heading h2,
+.lcd-section-heading h2 {
+    margin: 0.25rem 0 0;
+    color: var(--lcd-text);
+    font-size: 1.25rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+.lcd-workbench-heading > p {
+    margin: 0.3rem 0 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.83rem;
+    line-height: 1.45;
+}
+
+.lcd-status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--lcd-green);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lcd-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 4px rgba(15, 159, 110, 0.12);
+}
+
+.lcd-workbench[data-state="running"] .lcd-status {
+    color: var(--lcd-accent);
+}
+
+.lcd-workbench[data-state="paused"] .lcd-status {
+    color: #b36b00;
+}
+
+.lcd-workbench[data-state="complete"] .lcd-status {
+    color: var(--lcd-green);
+}
+
+.lcd-display-facts {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
     margin: 0;
 }
 
-.instructions-list li {
+.lcd-display-fact {
+    min-width: 0;
+    padding: 0.1rem 0.75rem;
+    border-left: 1px solid var(--lcd-border);
+}
+
+.lcd-display-fact dt {
+    overflow: hidden;
+    color: var(--lcd-text-secondary);
+    font-size: 0.67rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lcd-display-fact dd {
+    overflow: hidden;
+    margin: 0.25rem 0 0;
+    color: var(--lcd-text);
+    font-size: 0.84rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lcd-display-fact small {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--lcd-text-secondary);
+    font-size: 0.58rem;
+    font-weight: 500;
+}
+
+.lcd-workbench-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(350px, 0.82fr);
+    min-height: 430px;
+}
+
+.lcd-preview-shell {
     position: relative;
-    padding-left: var(--spacing-lg);
-    margin-bottom: var(--spacing-sm);
-    font-size: 0.875rem;
-    color: var(--tester-text-secondary);
-    line-height: 1.5;
+    min-width: 0;
+    min-height: 430px;
+    overflow: hidden;
+    background: #ff1f32;
+    isolation: isolate;
 }
 
-.instructions-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--tester-success);
-    font-weight: bold;
-}
-
-.info-section {
-    display: grid;
-    gap: var(--spacing-lg);
-}
-
-.info-card {
-    background: var(--tester-card-bg);
-    border-radius: var(--tester-radius);
-    padding: var(--spacing-lg);
-    box-shadow: var(--tester-shadow);
-}
-
-.info-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--tester-primary);
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-}
-
-.info-item h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-xs);
-}
-
-.info-item p {
-    font-size: 0.875rem;
-    color: var(--tester-text-secondary);
-    line-height: 1.5;
-}
-
-.info-table {
+.lcd-preview-canvas {
+    display: block;
     width: 100%;
-    border-collapse: collapse;
-    font-size: 0.875rem;
+    height: 100%;
+    min-height: 430px;
 }
 
-.info-table th,
-.info-table td {
-    padding: var(--spacing-sm) var(--spacing-md);
-    text-align: left;
-    border-bottom: 1px solid var(--tester-border);
-}
-
-.info-table th {
-    background: var(--tester-bg);
-    font-weight: 600;
-    color: var(--tester-text);
-}
-
-.info-table td {
-    color: var(--tester-text-secondary);
-}
-
-.faq-list {
+.lcd-preview-copy {
+    position: absolute;
+    z-index: 2;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
     display: grid;
-    gap: var(--spacing-md);
+    max-width: 520px;
+    gap: 0.2rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 6px;
+    background: rgba(5, 10, 20, 0.82);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
 }
 
-.faq-item {
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--tester-border);
+.lcd-preview-copy .lcd-preview-kicker {
+    color: #9fc4ff;
 }
 
-.faq-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.faq-question {
+.lcd-preview-copy strong {
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--tester-text);
-    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0;
 }
 
-.faq-answer {
-    font-size: 0.875rem;
-    color: var(--tester-text-secondary);
-    line-height: 1.6;
+.lcd-preview-copy > span:last-child {
+    color: #d7e1ef;
+    font-size: 0.76rem;
+    line-height: 1.4;
 }
 
-/* Test Overlay Styles */
-.test-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 99999;
+.lcd-preview-corner {
+    position: absolute;
+    z-index: 2;
+    top: 0.9rem;
+    left: 0.9rem;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 4px;
+    background: rgba(5, 10, 20, 0.72);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.lcd-control-pane {
+    min-width: 0;
+    border-left: 1px solid var(--lcd-border);
+    background: var(--lcd-panel);
+}
+
+.lcd-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-bottom: 1px solid var(--lcd-border);
+}
+
+.lcd-tab {
+    min-width: 0;
+    min-height: 48px;
+    padding: 0.5rem 0.35rem;
+    border: 0;
+    border-right: 1px solid var(--lcd-border);
+    border-bottom: 3px solid transparent;
+    background: var(--lcd-muted);
+    color: var(--lcd-text-secondary);
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0;
     cursor: pointer;
 }
 
-.test-overlay.hidden {
+.lcd-tab:last-child {
+    border-right: 0;
+}
+
+.lcd-tab:hover {
+    color: var(--lcd-text);
+}
+
+.lcd-tab.is-active {
+    border-bottom-color: var(--lcd-accent);
+    background: var(--lcd-panel);
+    color: var(--lcd-accent);
+}
+
+.lcd-tab-panel {
+    min-height: 380px;
+    padding: 1rem;
+}
+
+.lcd-tab-panel[hidden] {
     display: none;
 }
 
-#test-canvas {
+.lcd-panel-heading h3,
+.lcd-control-group h3 {
+    margin: 0;
+    color: var(--lcd-text);
+    font-size: 0.9rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+}
+
+.lcd-panel-heading p {
+    margin: 0.35rem 0 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.lcd-sequence {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lcd-sequence li {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--lcd-border);
+    border-radius: 6px;
+    color: var(--lcd-text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.lcd-sequence-number {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--lcd-muted);
+    color: var(--lcd-accent);
+    font-size: 0.67rem;
+    font-weight: 800;
+}
+
+.lcd-quick-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+}
+
+.lcd-quick-meta > span {
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    background: var(--lcd-muted);
+    color: var(--lcd-text-secondary);
+    font-size: 0.7rem;
+}
+
+.lcd-quick-meta strong {
+    color: var(--lcd-text);
+}
+
+.lcd-panel-command {
+    width: 100%;
+    margin-top: 0.85rem;
+}
+
+.lcd-swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+}
+
+.lcd-swatch {
+    display: grid;
+    min-width: 0;
+    min-height: 58px;
+    place-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem;
+    border: 1px solid var(--lcd-border);
+    border-radius: 6px;
+    background: var(--lcd-panel);
+    color: var(--lcd-text-secondary);
+    font: inherit;
+    font-size: 0.66rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lcd-swatch-color {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 50%;
+    background: var(--swatch);
+}
+
+.lcd-swatch:hover,
+.lcd-swatch.is-selected,
+.lcd-mode-button:hover,
+.lcd-mode-button.is-selected,
+.lcd-segmented button:hover,
+.lcd-segmented button.is-selected {
+    border-color: var(--lcd-accent);
+    color: var(--lcd-accent);
+}
+
+.lcd-swatch.is-selected,
+.lcd-mode-button.is-selected,
+.lcd-segmented button.is-selected {
+    background: color-mix(in srgb, var(--lcd-accent) 8%, var(--lcd-panel));
+    box-shadow: inset 0 0 0 1px var(--lcd-accent);
+}
+
+.lcd-color-control {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--lcd-border);
+    border-radius: 6px;
+    color: var(--lcd-text);
+    font-size: 0.77rem;
+    font-weight: 700;
+}
+
+.lcd-color-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.lcd-color-input-wrap input {
+    width: 38px;
+    height: 30px;
+    padding: 1px;
+    border: 1px solid var(--lcd-border);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.lcd-color-input-wrap output {
+    min-width: 62px;
+    color: var(--lcd-text-secondary);
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.72rem;
+}
+
+.lcd-control-group + .lcd-control-group,
+.lcd-control-group + .lcd-mode-grid {
+    margin-top: 0.85rem;
+}
+
+.lcd-control-group h3 {
+    margin-bottom: 0.45rem;
+}
+
+.lcd-segmented {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+.lcd-segmented-six {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.lcd-segmented button,
+.lcd-mode-button {
+    min-width: 0;
+    min-height: 40px;
+    padding: 0.4rem 0.45rem;
+    overflow-wrap: anywhere;
+    border: 1px solid var(--lcd-border);
+    border-radius: 5px;
+    background: var(--lcd-panel);
+    color: var(--lcd-text-secondary);
+    font: inherit;
+    font-size: 0.69rem;
+    font-weight: 650;
+    line-height: 1.25;
+    cursor: pointer;
+}
+
+.lcd-mode-grid {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.lcd-mode-grid-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lcd-workbench-footer {
+    min-height: 42px;
+    padding: 0.65rem 1rem;
+    border-top: 1px solid var(--lcd-border);
+    background: var(--lcd-muted);
+}
+
+.lcd-workbench-footer p {
+    margin: 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.75rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.lcd-guide-band,
+.lcd-results,
+.lcd-faq {
+    padding: clamp(2.5rem, 6vw, 4.25rem) 0 0;
+}
+
+.lcd-section-heading {
+    max-width: 650px;
+    margin-bottom: 1.35rem;
+}
+
+.lcd-section-heading h2 {
+    margin-top: 0.35rem;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.lcd-guide-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--lcd-border);
+    border-bottom: 1px solid var(--lcd-border);
+    list-style: none;
+}
+
+.lcd-guide-steps li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    border-right: 1px solid var(--lcd-border);
+}
+
+.lcd-guide-steps li:last-child {
+    border-right: 0;
+}
+
+.lcd-guide-number {
+    color: var(--lcd-accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.lcd-guide-steps h3,
+.lcd-result-grid h3 {
+    margin: 0;
+    color: var(--lcd-text);
+    font-size: 0.94rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+}
+
+.lcd-guide-steps p,
+.lcd-result-grid p,
+.lcd-scope-note p,
+.lcd-faq details p {
+    margin: 0.35rem 0 0;
+    color: var(--lcd-text-secondary);
+    font-size: 0.79rem;
+    line-height: 1.55;
+}
+
+.lcd-result-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.lcd-result-grid article {
+    min-width: 0;
+    padding-top: 0.9rem;
+    border-top: 3px solid var(--lcd-border);
+}
+
+.lcd-result-mark {
+    display: block;
+    width: 32px;
+    height: 8px;
+    margin-bottom: 0.8rem;
+    border-radius: 2px;
+}
+
+.lcd-result-mark-red { background: #ff1f32; }
+.lcd-result-mark-gray { background: linear-gradient(90deg, #050505, #8b8b8b); }
+.lcd-result-mark-spectrum { background: linear-gradient(90deg, #ff1f32, #ffd60a, #18c964, #1677ff); }
+.lcd-result-mark-motion { background: repeating-linear-gradient(90deg, #0066ff 0 5px, transparent 5px 9px); }
+
+.lcd-scope-note {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+    gap: 1rem;
+    margin-top: 1.6rem;
+    padding: 1rem;
+    border-left: 3px solid var(--lcd-accent);
+    background: var(--lcd-muted);
+}
+
+.lcd-scope-note strong {
+    color: var(--lcd-text);
+    font-size: 0.84rem;
+}
+
+.lcd-scope-note p {
+    margin: 0;
+}
+
+.lcd-faq-list {
+    border-top: 1px solid var(--lcd-border);
+}
+
+.lcd-faq details {
+    border-bottom: 1px solid var(--lcd-border);
+}
+
+.lcd-faq summary {
+    position: relative;
+    padding: 1rem 2.5rem 1rem 0;
+    color: var(--lcd-text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.lcd-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.lcd-faq summary::after {
+    position: absolute;
+    top: 50%;
+    right: 0.3rem;
+    content: "+";
+    color: var(--lcd-accent);
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+}
+
+.lcd-faq details[open] summary::after {
+    content: "−";
+}
+
+.lcd-faq details p {
+    max-width: 760px;
+    margin: -0.35rem 0 1rem;
+}
+
+.lcd-test-overlay {
+    position: fixed;
+    z-index: 2147483000;
+    inset: 0;
+    overflow: hidden;
+    background: #000000;
+    color: #ffffff;
+    touch-action: none;
+}
+
+.lcd-test-overlay.is-hidden {
+    display: none;
+}
+
+.lcd-test-canvas {
+    display: block;
     width: 100%;
     height: 100%;
 }
 
-.test-info {
+.lcd-overlay-chrome {
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    display: flex;
-    gap: 20px;
+    z-index: 2;
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.lcd-test-overlay.controls-hidden {
+    cursor: none;
+}
+
+.lcd-test-overlay.controls-hidden .lcd-overlay-chrome {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-.test-overlay:hover .test-info {
-    opacity: 1;
+.lcd-overlay-topbar {
+    top: max(1rem, env(safe-area-inset-top));
+    right: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    pointer-events: none;
 }
 
-#test-name {
-    font-weight: 600;
+.lcd-overlay-mode,
+.lcd-overlay-progress,
+.lcd-overlay-palette,
+.lcd-overlay-controls,
+.lcd-overlay-hint {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(5, 10, 20, 0.82);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
 }
 
-#test-hint {
-    color: #aaa;
+.lcd-overlay-mode {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .devices-hero-title {
-        font-size: 1.75rem;
+.lcd-overlay-mode .lcd-overlay-kicker {
+    color: #9fc4ff;
+    font-size: 0.62rem;
+}
+
+.lcd-overlay-mode strong {
+    font-size: 0.85rem;
+    letter-spacing: 0;
+}
+
+.lcd-overlay-progress {
+    min-width: 64px;
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    text-align: center;
+}
+
+.lcd-overlay-palette {
+    top: 50%;
+    left: 1rem;
+    display: grid;
+    gap: 0.4rem;
+    padding: 0.45rem;
+    border-radius: 6px;
+    transform: translateY(-50%);
+}
+
+.lcd-overlay-palette.is-hidden {
+    display: none;
+}
+
+.lcd-overlay-palette button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.42);
+    border-radius: 50%;
+    background: var(--swatch);
+    cursor: pointer;
+}
+
+.lcd-overlay-palette button.is-selected {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px #0066ff;
+}
+
+.lcd-overlay-controls {
+    right: 50%;
+    bottom: max(1.2rem, env(safe-area-inset-bottom));
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.38rem;
+    border-radius: 8px;
+    transform: translateX(50%);
+}
+
+.lcd-overlay-button {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.lcd-overlay-button:hover {
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.lcd-overlay-exit {
+    background: rgba(220, 38, 38, 0.82);
+}
+
+.lcd-overlay-exit:hover {
+    background: #dc2626;
+}
+
+.lcd-overlay-divider {
+    width: 1px;
+    height: 26px;
+    margin: 0 0.15rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lcd-overlay-countdown {
+    min-width: 40px;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    text-align: center;
+}
+
+.lcd-test-overlay:not(.guided-mode) .lcd-guided-only {
+    display: none;
+}
+
+.lcd-overlay-hint {
+    right: 1rem;
+    bottom: max(1.2rem, env(safe-area-inset-bottom));
+    max-width: 280px;
+    margin: 0;
+    padding: 0.55rem 0.7rem;
+    border-radius: 5px;
+    color: #d7e1ef;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    pointer-events: none;
+}
+
+body.lcd-test-active {
+    overflow: hidden;
+}
+
+@media (max-width: 980px) {
+    .lcd-workbench-header {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
     }
-    
-    .color-buttons,
-    .test-buttons {
-        justify-content: center;
+
+    .lcd-display-facts {
+        border-top: 1px solid var(--lcd-border);
+        padding-top: 0.75rem;
     }
-    
-    .test-btn {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: 0.8rem;
+
+    .lcd-display-fact:first-child {
+        border-left: 0;
     }
-    
-    .info-table {
-        font-size: 0.75rem;
+
+    .lcd-workbench-main {
+        grid-template-columns: 1fr;
     }
-    
-    .info-table th,
-    .info-table td {
-        padding: var(--spacing-xs);
+
+    .lcd-preview-shell,
+    .lcd-preview-canvas {
+        min-height: 340px;
+    }
+
+    .lcd-control-pane {
+        border-top: 1px solid var(--lcd-border);
+        border-left: 0;
+    }
+
+    .lcd-tab-panel {
+        min-height: 0;
+    }
+
+    .lcd-result-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lcd-overlay-hint {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .lcd-tester-tool {
+        padding-right: 0.85rem;
+        padding-left: 0.85rem;
+    }
+
+    .lcd-hero {
+        padding-top: 0.85rem;
+    }
+
+    .lcd-hero .devices-hero-title {
+        font-size: 2rem;
+    }
+
+    .lcd-hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+        margin-top: 0.9rem;
+    }
+
+    .lcd-command {
+        width: 100%;
+    }
+
+    .lcd-workbench-header {
+        padding: 0.85rem;
+    }
+
+    .lcd-display-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 0.7rem;
+    }
+
+    .lcd-display-fact {
+        padding: 0 0.5rem;
+    }
+
+    .lcd-display-fact:nth-child(odd) {
+        border-left: 0;
+    }
+
+    .lcd-preview-shell,
+    .lcd-preview-canvas {
+        min-height: 250px;
+    }
+
+    .lcd-preview-copy {
+        right: 0.65rem;
+        bottom: 0.65rem;
+        left: 0.65rem;
+        padding: 0.65rem;
+    }
+
+    .lcd-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lcd-tab {
+        border-bottom: 1px solid var(--lcd-border);
+    }
+
+    .lcd-tab.is-active {
+        border-bottom: 3px solid var(--lcd-accent);
+    }
+
+    .lcd-tab:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .lcd-tab-panel {
+        padding: 0.85rem;
+    }
+
+    .lcd-swatch-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .lcd-segmented-six {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lcd-guide-steps,
+    .lcd-result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lcd-guide-steps li {
+        border-right: 0;
+        border-bottom: 1px solid var(--lcd-border);
+    }
+
+    .lcd-guide-steps li:last-child {
+        border-bottom: 0;
+    }
+
+    .lcd-scope-note {
+        grid-template-columns: 1fr;
+    }
+
+    .lcd-overlay-topbar {
+        top: max(0.6rem, env(safe-area-inset-top));
+        right: 0.6rem;
+        left: 0.6rem;
+    }
+
+    .lcd-overlay-palette {
+        top: auto;
+        right: 0.6rem;
+        bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 66px);
+        left: 0.6rem;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        transform: none;
+    }
+
+    .lcd-overlay-palette button {
+        width: 30px;
+        height: 30px;
+        justify-self: center;
+    }
+
+    .lcd-overlay-controls {
+        bottom: max(0.7rem, env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 380px) {
+    .lcd-overlay-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lcd-overlay-controls {
+        gap: 0.15rem;
+        min-height: 50px;
+        padding: 0.3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lcd-command,
+    .lcd-overlay-chrome {
+        transition: none;
     }
 }
 </style>
 
-<script src="../js/lcd-screen-tester.js" defer></script>
+<script src="{{js_path}}/lcd-screen-tester.js?v=20260727-workbench" defer></script>

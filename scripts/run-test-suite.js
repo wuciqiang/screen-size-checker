@@ -12,13 +12,14 @@ const TESTS = {
     blogLanguageModal: 'test/blog-language-modal-test.js',
     languageSwitchMenu: 'test/language-switch-mega-menu-test.js',
     homeCopy: 'test/home-copy-interaction-test.js',
+    lcdScreenTester: 'test/lcd-screen-tester-interaction-test.js',
     styleSystem: 'test/style-system-regression-test.js',
     indexnow: 'test/indexnow-submitter.test.js'
 };
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'styleSystem'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem'];
     }
 
     const namedArgs = args
