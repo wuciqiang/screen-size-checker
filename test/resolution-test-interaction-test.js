@@ -49,9 +49,11 @@ async function createPage(browser, viewport) {
     page.on('pageerror', error => errors.push(error.message));
     await page.addInitScript(() => {
         window.__resolutionWrites = [];
+        window.__resolutionShares = [];
         window.__resolutionEvents = [];
         window.__resolutionCopyOptions = [];
         Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async value => window.__resolutionWrites.push(value) } });
+        Object.defineProperty(navigator, 'userAgentData', { configurable: true, value: { mobile: false } });
         window.ScreenSizeAnalytics = {
             trackToolResult: payload => window.__resolutionEvents.push(payload),
             trackCopy: (payload, options) => { window.__resolutionEvents.push(payload); window.__resolutionCopyOptions.push(options); }
@@ -70,6 +72,7 @@ async function initialize(page, origin, pathname = '/resolution-test.html') {
             trackToolResult: payload => window.__resolutionEvents.push(payload),
             trackCopy: (payload, options) => { window.__resolutionEvents.push(payload); window.__resolutionCopyOptions.push(options); }
         };
+        window.i18next = { t: (_key, fallback) => fallback };
         const module = await import('/js/resolution-test.js');
         module.initializeResolutionTest();
     });
@@ -105,11 +108,15 @@ async function checkInteractions(page) {
     }
     assert.deepStrictEqual(state.events.map(event => event.tool_action), ['view_result', 'copy_single', 'copy_single', 'copy_all']);
     assert.deepStrictEqual(state.options, [{ dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }]);
-    await page.evaluate(() => { try { delete navigator.share; } catch (error) { Object.defineProperty(navigator, 'share', { configurable: true, value: undefined }); } });
+    await page.evaluate(() => {
+        Object.defineProperty(navigator, 'share', { configurable: true, value: async payload => window.__resolutionShares.push(payload) });
+    });
     await page.locator('[data-resolution-copy="share"]').click();
     state = await page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), events: window.__resolutionEvents.slice(), options: window.__resolutionCopyOptions.slice() }));
     assert.strictEqual(state.writes.length, 4);
     assert.strictEqual(state.writes[3], 'https://screensizechecker.com/resolution-test');
+    assert.strictEqual(await page.evaluate(() => window.__resolutionShares.length), 0);
+    await page.waitForFunction(() => /Copied/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
     assert.deepStrictEqual(state.events.map(event => event.tool_action), ['view_result', 'copy_single', 'copy_single', 'copy_all', 'share_link']);
     assert.deepStrictEqual(state.options, [{ dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }]);
     const viewEvents = state.events.filter(event => event.tool_action === 'view_result');
@@ -313,6 +320,31 @@ async function run() {
 
         mobileSession = await createPage(browser, { width: 390, height: 844 });
         await initialize(mobileSession.page, origin);
+        await mobileSession.page.evaluate(() => {
+            Object.defineProperty(navigator, 'userAgentData', { configurable: true, value: { mobile: true } });
+            Object.defineProperty(navigator, 'share', { configurable: true, value: async payload => {
+                window.__resolutionShares.push(payload);
+                if (window.__resolutionShares.length === 2) throw Object.assign(new Error('cancelled'), { name: 'AbortError' });
+                if (window.__resolutionShares.length === 3) throw new Error('share failed');
+            } });
+        });
+        await mobileSession.page.locator('[data-resolution-copy="share"]').click();
+        await mobileSession.page.waitForFunction(() => window.__resolutionEvents.filter(event => event.tool_action === 'share_link').length === 1);
+        let mobileShare = await mobileSession.page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), shares: window.__resolutionShares.slice(), events: window.__resolutionEvents.slice() }));
+        assert.strictEqual(mobileShare.shares.length, 1);
+        assert.strictEqual(mobileShare.writes.length, 0);
+        assert.strictEqual(mobileShare.shares[0].url, 'https://screensizechecker.com/resolution-test');
+        assert.strictEqual(mobileShare.shares[0].title, await mobileSession.page.title());
+        assert.strictEqual(mobileShare.events.filter(event => event.tool_action === 'share_link').length, 1);
+        await mobileSession.page.waitForFunction(() => /Shared/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        await mobileSession.page.locator('[data-resolution-copy="share"]').click();
+        await mobileSession.page.waitForFunction(() => /cancelled/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        await mobileSession.page.locator('[data-resolution-copy="share"]').click();
+        await mobileSession.page.waitForFunction(() => /Copied/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        mobileShare = await mobileSession.page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), shares: window.__resolutionShares.slice(), events: window.__resolutionEvents.slice() }));
+        assert.strictEqual(mobileShare.shares.length, 3);
+        assert.deepStrictEqual(mobileShare.writes, ['https://screensizechecker.com/resolution-test']);
+        assert.strictEqual(mobileShare.events.filter(event => event.tool_action === 'share_link').length, 2);
         await checkLayout(mobileSession.page, 390);
         const mobile = await mobileSession.page.evaluate(() => ({
             scrollWidth: document.documentElement.scrollWidth,

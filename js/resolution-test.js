@@ -83,6 +83,12 @@ async function copyText(value) {
     }
 }
 
+function isMobileDevice() {
+    if (typeof navigator.userAgentData?.mobile === 'boolean') return navigator.userAgentData.mobile;
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
 export function initializeResolutionTest() {
     const root = document.querySelector('[data-resolution-test]');
     if (!root || root.dataset.initialized === 'true') return;
@@ -135,21 +141,19 @@ export function initializeResolutionTest() {
             action = 'copy_all';
         } else {
             const canonical = document.querySelector('link[rel="canonical"]')?.href || `${window.location.origin}/resolution-test`;
-            if (navigator.share) {
+            if (isMobileDevice() && typeof navigator.share === 'function') {
                 try {
                     await navigator.share({ title: document.title, url: canonical });
+                    trackCopy('share_link');
+                    showStatus(translate('resolution_test_shared', 'Shared'));
+                    return;
                 } catch (error) {
                     if (error.name === 'AbortError') {
                         showStatus(translate('resolution_test_share_cancelled', 'Share cancelled'));
                         return;
                     }
                     console.error(error);
-                    showStatus(translate('resolution_test_share_failed', 'Share failed'));
-                    return;
                 }
-                trackCopy('share_link');
-                showStatus(translate('resolution_test_shared', 'Shared'));
-                return;
             }
             value = canonical;
             action = 'share_link';
