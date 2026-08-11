@@ -7,7 +7,7 @@
     const GUIDED_STEP_MS = 5000;
     const CONTROL_HIDE_MS = 2600;
     const MAX_CANVAS_DPR = 3;
-    const DEFAULT_MODE_ID = 'solid-white';
+    const DEFAULT_MODE_ID = 'solid-black';
 
     class LCDScreenTester {
         constructor(root) {
