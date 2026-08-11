@@ -427,6 +427,7 @@ html, body {
 
     // Initialize immediately if elements exist, or wait for DOM
     function init() {
+        if (document.querySelector('[data-resolution-test]')) return;
         cacheElements();
         updateScreenInfo();
 

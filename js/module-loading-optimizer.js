@@ -63,6 +63,7 @@ export class ModuleLoadingOptimizer {
         if (path.includes('/devices/aspect-ratio-calculator')) return 'calculator';
         if (path.includes('/devices/responsive-tester')) return 'simulator';
         if (path.includes('/devices/')) return 'devices';
+        if (path.includes('/resolution-test')) return 'devices';
         
         return 'home';
     }
@@ -306,7 +307,8 @@ export class ModuleLoadingOptimizer {
             'screen-comparison-fixed': () => import('./screen-comparison-fixed.js'),
             'cookie-notice': () => import('./cookie-notice.js'),
             'font-loading-optimizer': () => import('./font-loading-optimizer.js'),
-            'utils': () => import('./utils.js')
+            'utils': () => import('./utils.js'),
+            'resolution-test': () => import('./resolution-test.js')
         };
     }
     

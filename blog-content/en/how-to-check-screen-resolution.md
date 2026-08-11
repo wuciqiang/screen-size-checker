@@ -14,7 +14,7 @@ keywords: "how to check screen resolution, find screen resolution, check display
 
 Knowing your screen resolution is essential for optimizing your display settings, choosing the right wallpapers, setting up dual monitors, and ensuring software displays correctly. Whether you're using Windows, Mac, Linux, or mobile devices, there are multiple ways to check your screen resolution quickly and easily.
 
-**Quick Answer**: To check your screen resolution, **right-click on your desktop** and select **Display Settings** (Windows) or **System Preferences** → **Displays** (Mac). Your resolution will be shown as width × height in pixels (e.g., 1920×1080, 2560×1440). Alternatively, use our [Screen Size Checker tool](/) for instant detection and detailed display information.
+**Quick Answer**: To check your screen resolution, **right-click on your desktop** and select **Display Settings** (Windows) or **System Preferences** → **Displays** (Mac). Your resolution will be shown as width × height in pixels (e.g., 1920×1080, 2560×1440). Alternatively, use our <a href="/resolution-test" data-resolution-context-link="how-to-check-quick-answer">Screen Resolution Checker</a> for instant detection and detailed display information.
 
 In this comprehensive guide, we'll cover **multiple methods** to check screen resolution across all platforms, explain what resolution numbers mean, and help you optimize your display settings.
 

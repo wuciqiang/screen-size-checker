@@ -43,7 +43,7 @@ Understanding the viewport is critical for several reasons:
 
 ## How to Check Your Viewport Size
 
-You can easily check your current viewport size using our [Screen Size Checker](/en/index.html) tool. This will display your current viewport dimensions in CSS pixels, along with other useful information like device pixel ratio and screen resolution.
+You can easily check your current viewport size using our <a href="/resolution-test" data-resolution-context-link="viewport-basics-checking">Screen Resolution Checker</a> tool. This will display your current viewport dimensions in CSS pixels, along with other useful information like device pixel ratio and screen resolution.
 
 ## Common Viewport Sizes to Consider
 

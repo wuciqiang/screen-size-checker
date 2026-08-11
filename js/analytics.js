@@ -7,7 +7,8 @@
         { match: /\/devices\/ppi-calculator(?:\/|$)?/, pageId: 'ppi-calculator', toolName: 'ppi_calculator', resultType: 'ppi' },
         { match: /\/devices\/aspect-ratio-calculator(?:\/|$)?/, pageId: 'aspect-ratio-calculator', toolName: 'aspect_ratio_calculator', resultType: 'aspect_ratio' },
         { match: /\/devices\/projection-calculator(?:\/|$)?/, pageId: 'projection-calculator', toolName: 'projection_calculator', resultType: 'projection' },
-        { match: /\/devices\/responsive-tester(?:\/|$)?/, pageId: 'responsive-tester', toolName: 'responsive_tester', resultType: 'viewport' }
+        { match: /\/devices\/responsive-tester(?:\/|$)?/, pageId: 'responsive-tester', toolName: 'responsive_tester', resultType: 'viewport' },
+        { match: /\/resolution-test(?:\/|$)?/, pageId: 'resolution-test', toolName: 'resolution_test', resultType: 'screen_info' }
     ];
 
     var sentOnce = Object.create(null);

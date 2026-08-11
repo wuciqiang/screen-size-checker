@@ -1,77 +1,448 @@
-<section class="devices-hero-section">
-    <div class="devices-hero-container">
-        <h1 class="devices-hero-title" data-i18n="resolution_test_page_heading">Resolution Test</h1>
-        <p class="devices-hero-subtitle" data-i18n="resolution_test_page_intro">Check your current screen resolution, browser viewport, DPR, and display details instantly.</p>
-    </div>
-</section>
-
-<section class="content-section">
-    <div class="section-container">
-        <h2 data-i18n="resolution_test_instant_heading">Instant Screen Resolution Test</h2>
-        <p data-i18n="resolution_test_instant_text">This resolution test shows your current screen resolution, browser viewport size, device pixel ratio, aspect ratio, and related display details. It is designed for everyday users who want a quick answer to "what is my resolution?" without opening system settings.</p>
-        <p data-i18n="resolution_test_resolution_vs_viewport">Screen resolution is the physical pixel grid of your display, such as 1920 x 1080, 2560 x 1440, or 3840 x 2160. Viewport size is the browser area available to a web page. These numbers are often different because browser chrome, zoom, operating-system scaling, and DPR all affect the CSS viewport.</p>
-
-        <h2 data-i18n="resolution_test_results_heading">Resolution Test Results</h2>
-        <div class="dashboard-container">
-            <div class="info-card card-display">
-                <div class="card-header">
-                    <h3 class="card-title" data-i18n="resolution_test_current_display">Current Display</h3>
-                </div>
-                <div class="card-content">
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="resolution_test_screen_resolution">Screen Resolution</span>
-                        <span class="info-value" id="screen-resolution-display" data-display-format="value"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="resolution_test_viewport_size">Viewport Size</span>
-                        <span class="info-value" id="viewport-display"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="aspect_ratio">Aspect Ratio</span>
-                        <span class="info-value" id="aspect-ratio"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="resolution_test_dpr">Device Pixel Ratio</span>
-                        <span class="info-value" id="dpr"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="color_depth">Color Depth</span>
-                        <span class="info-value" id="color-depth"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-card card-system">
-                <div class="card-header">
-                    <h3 class="card-title" data-i18n="resolution_test_system_browser">System and Browser</h3>
-                </div>
-                <div class="card-content">
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="operating_system">Operating System</span>
-                        <span class="info-value" id="os-info"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="browser">Browser</span>
-                        <span class="info-value" id="browser-info"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label" data-i18n="touch_support">Touch Support</span>
-                        <span class="info-value" id="touch-support"><span data-i18n="detecting">Detecting...</span></span>
-                    </div>
-                </div>
-            </div>
+<style>
+  .breadcrumb:has(+ .main-content > .resolution-test-page) {
+    display: none;
+  }
+  .main-content:has(> .resolution-test-page) {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .resolution-test-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 56px;
+  }
+  .resolution-primary-region {
+    max-width: 900px;
+  }
+  .resolution-test-hero {
+    padding: 20px 0 16px;
+  }
+  .resolution-test-hero h1 {
+    margin: 0 0 8px;
+  }
+  .resolution-test-hero p {
+    max-width: 680px;
+    margin: 0;
+  }
+  .resolution-test-results {
+    padding: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--background-card);
+  }
+  .resolution-test-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .resolution-test-metric {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--background-primary);
+  }
+  .resolution-test-metric strong {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .resolution-copy-button,
+  .resolution-test-actions button {
+    min-height: 38px;
+    padding: 7px 12px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  .resolution-test-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .resolution-test-actions .primary {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  .resolution-test-note,
+  .resolution-test-status {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  .resolution-test-guide {
+    max-width: 780px;
+    margin-top: 34px;
+  }
+  .resolution-test-guide h2 {
+    margin-top: 26px;
+  }
+  .resolution-test-faq {
+    border-top: 1px solid var(--border-color);
+  }
+  .resolution-test-faq h3 {
+    margin: 18px 0 5px;
+    font-size: 1rem;
+  }
+  .resolution-test-page a {
+    color: var(--primary-color);
+  }
+  .resolution-reference {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .resolution-reference th,
+  .resolution-reference td {
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+  @media (max-width: 600px) {
+    .resolution-test-grid {
+      grid-template-columns: 1fr;
+    }
+    .resolution-test-page {
+      padding-top: 8px;
+    }
+    .resolution-test-metric {
+      align-items: flex-start;
+    }
+    .resolution-test-metric strong {
+      max-width: 45%;
+    }
+  }
+</style>
+<div class="resolution-test-page" data-resolution-test>
+  <div class="resolution-primary-region">
+    <section class="resolution-test-hero">
+      <h1 data-i18n="resolution_test_page_heading">
+        Screen Resolution Checker
+      </h1>
+      <p data-i18n="resolution_test_page_intro">
+        Check your current screen resolution, browser viewport, device pixel
+        ratio, and display details instantly.
+      </p>
+    </section>
+    <section
+      id="resolution-results"
+      class="resolution-test-results"
+      aria-labelledby="resolution-test-results-heading"
+    >
+      <h2
+        id="resolution-test-results-heading"
+        data-i18n="resolution_test_results_heading"
+      >
+        Live Screen Results
+      </h2>
+      <div class="resolution-test-grid">
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_screen_resolution">Screen size</span
+          ><strong id="screen-resolution-display">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="screen-resolution-display"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
         </div>
-
-        <h2 data-i18n="resolution_test_read_heading">How to Read Your Resolution Test</h2>
-        <p data-i18n="resolution_test_read_text">If the screen resolution is 1920 x 1080, your display has 1,920 physical pixels across and 1,080 physical pixels down. If the viewport is smaller, the browser window or mobile browser UI is reducing the available page area. If DPR is 2 or 3, the device uses multiple physical pixels for each CSS pixel, which is common on phones, tablets, and high-density laptops.</p>
-        <p><span data-i18n="resolution_test_use_cases_prefix">Use this page when checking display settings, troubleshooting blurry text, choosing wallpapers, recording tutorials, testing browser zoom, or comparing your device against a</span> <a href="devices/standard-resolutions.html" data-i18n="resolution_test_standard_chart_link">standard screen resolution chart</a>. <span data-i18n="resolution_test_developer_prefix">Developers who need breakpoint testing should use the</span> <a href="devices/responsive-tester.html" data-i18n="resolution_test_responsive_link">responsive design tester</a> <span data-i18n="resolution_test_developer_suffix">instead.</span></p>
-
-        <h2 data-i18n="resolution_test_faq_heading">Common Resolution Test Questions</h2>
-        <h3 data-i18n="resolution_test_viewport_question">Why is my browser viewport smaller than my screen resolution?</h3>
-        <p data-i18n="resolution_test_viewport_answer">The viewport excludes browser tabs, address bars, sidebars, scrollbars, and operating-system UI. On mobile devices, scaling and DPR also make the CSS viewport much smaller than the physical screen resolution.</p>
-        <h3 data-i18n="resolution_test_responsive_question">Is this different from a responsive tester?</h3>
-        <p data-i18n="resolution_test_responsive_answer">Yes. This resolution test reports your current device and browser. A responsive tester simulates many viewport sizes so developers can test layouts across phones, tablets, laptops, and desktops.</p>
-        <h3 data-i18n="resolution_test_compare_question">How do I compare this screen with another display?</h3>
-        <p><span data-i18n="resolution_test_compare_answer_prefix">Use the</span> <a href="devices/compare.html" data-i18n="resolution_test_compare_tool_link">screen size comparison tool</a> <span data-i18n="resolution_test_compare_answer_suffix">to compare width, height, diagonal, and area between monitors, laptops, tablets, phones, and TVs.</span></p>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_viewport_size">Browser viewport</span
+          ><strong id="viewport-display">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="viewport-display"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_dpr">Device pixel ratio</span
+          ><strong id="dpr">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="dpr"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="aspect_ratio">Aspect ratio</span
+          ><strong id="aspect-ratio">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="aspect-ratio"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="color_depth">Color depth</span
+          ><strong id="color-depth">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="color-depth"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_orientation">Orientation</span
+          ><strong id="orientation">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="orientation"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_available_area">Available area</span
+          ><strong id="available-area">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="available-area"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_window_size"
+            >Browser outer window</span
+          ><strong id="window-size">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="window-size"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="resolution-test-metric">
+          <span data-i18n="resolution_test_estimated_pixels"
+            >Estimated display pixels</span
+          ><strong id="estimated-pixels">Detecting...</strong
+          ><button
+            class="resolution-copy-button"
+            data-resolution-copy-target="estimated-pixels"
+            type="button"
+            data-i18n="resolution_test_copy"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+      <div class="resolution-test-actions">
+        <button
+          class="primary"
+          data-resolution-copy="all"
+          type="button"
+          data-i18n="resolution_test_copy_all"
+        >
+          Copy all</button
+        ><button
+          data-resolution-copy="share"
+          type="button"
+          data-i18n="resolution_test_share"
+        >
+          Share
+        </button>
+      </div>
+      <p class="resolution-test-note" data-i18n="resolution_test_accuracy_note">
+        Values are reported by your browser. Browser zoom and operating-system
+        scaling can affect them. Estimated display pixels do not guarantee
+        native panel resolution.
+      </p>
+      <p
+        class="resolution-test-status"
+        role="status"
+        aria-live="polite"
+        data-resolution-status
+      ></p>
+    </section>
+  </div>
+  <section class="resolution-test-guide resolution-guide-content">
+    <h2 data-i18n="resolution_test_guide_heading">
+      How to read screen resolution results
+    </h2>
+    <p data-i18n="resolution_test_guide_text">
+      Screen resolution is the width and height a browser reports in CSS pixels.
+      The viewport is the page workspace left after browser controls, sidebars,
+      scrollbars, and mobile UI take space. A 1920 x 1080 screen can have a
+      smaller viewport when a window is not maximized. Record both values when
+      diagnosing layout behavior.
+    </p>
+    <p data-i18n="resolution_test_guide_text_2">
+      Device pixel ratio, or DPR, relates CSS pixels to device pixels. DPR helps
+      explain responsive breakpoints, image density, and screenshots, but it
+      does not identify a panel model or native mode. Estimated pixels are
+      calculated from browser dimensions and DPR, so zoom and operating-system
+      scaling can change the report without changing the physical display.
+    </p>
+    <h2 data-i18n="resolution_test_steps_heading">
+      How to read the live result
+    </h2>
+    <ol>
+      <li data-i18n="resolution_test_step_1">
+        Start with screen size and viewport size. Record both when reporting a
+        layout issue.
+      </li>
+      <li data-i18n="resolution_test_step_2">
+        Check DPR and aspect ratio to understand density and shape.
+      </li>
+      <li data-i18n="resolution_test_step_3">
+        Use available area and browser outer window to explain reduced
+        workspace.
+      </li>
+      <li data-i18n="resolution_test_step_4">
+        Compare orientation and color depth when testing a device or screenshot
+        workflow.
+      </li>
+    </ol>
+    <h2 data-i18n="resolution_test_troubleshooting_heading">
+      Troubleshoot blurry or unexpected results
+    </h2>
+    <p data-i18n="resolution_test_troubleshooting_text">
+      If text looks soft, reset browser zoom to 100 percent and compare another
+      browser. Check display settings and the application that looks blurry,
+      then reload this page. A browser-reported value can differ from a monitor
+      specification because zoom, scaling, window chrome, and rendering choices
+      affect the page coordinate system. This checker intentionally reports
+      browser-observable measurements rather than claiming certainty about a
+      panel's native mode.
+    </p>
+    <h2 data-i18n="resolution_test_reference_heading">
+      Common resolution reference
+    </h2>
+    <table class="resolution-reference">
+      <caption data-i18n="resolution_test_reference_caption">
+        Common formats and typical uses
+      </caption>
+      <thead>
+        <tr>
+          <th data-i18n="resolution_test_reference_format">Format</th>
+          <th data-i18n="resolution_test_reference_use">Typical use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1280 x 720</td>
+          <td data-i18n="resolution_test_reference_720">
+            HD video and compact laptops
+          </td>
+        </tr>
+        <tr>
+          <td>1920 x 1080</td>
+          <td data-i18n="resolution_test_reference_1080">
+            Full HD monitors and video
+          </td>
+        </tr>
+        <tr>
+          <td>2560 x 1440</td>
+          <td data-i18n="resolution_test_reference_1440">
+            High-density desktop work
+          </td>
+        </tr>
+        <tr>
+          <td>3840 x 2160</td>
+          <td data-i18n="resolution_test_reference_4k">
+            4K media and large displays
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <span data-i18n="resolution_test_reference_text"
+        >These are reference formats, not a diagnosis of your hardware. Use the
+        live result for the current browser session and the</span
+      >
+      <a
+        href="devices/standard-resolutions.html"
+        data-i18n="resolution_test_standard_link"
+        data-resolution-context-link="resolution-test-guide-standard"
+        >standard resolution chart</a
+      ><span data-i18n="resolution_test_reference_suffix">
+        for a broader list.</span
+      >
+    </p>
+    <h2 data-i18n="resolution_test_developer_heading">Developer and QA uses</h2>
+    <p>
+      <span data-i18n="resolution_test_developer_text"
+        >Developers can record viewport, DPR, aspect ratio, and orientation
+        alongside a bug report. QA teams can reproduce a breakpoint condition,
+        compare a phone and laptop session, verify screenshot targets, and check
+        whether a responsive layout changes at the expected width. For
+        fixed-size simulations, use the</span
+      >
+      <a
+        href="devices/responsive-tester.html"
+        data-i18n="resolution_test_responsive_link"
+        >responsive design tester</a
+      ><span data-i18n="resolution_test_developer_suffix">.</span>
+    </p>
+    <h2 data-i18n="resolution_test_faq_heading">Resolution checker FAQ</h2>
+    <div class="resolution-test-faq">
+      <h3 data-i18n="resolution_test_viewport_question">
+        Why is my viewport smaller than my screen?
+      </h3>
+      <p data-i18n="resolution_test_viewport_answer">
+        Browser controls and mobile interface areas reduce the space available
+        to a web page, so viewport dimensions are often smaller than screen
+        dimensions.
+      </p>
+      <h3 data-i18n="resolution_test_dpr_question">
+        Does DPR reveal my native panel resolution?
+      </h3>
+      <p data-i18n="resolution_test_dpr_answer">
+        No. DPR is a browser-reported scale relationship, not a guarantee of
+        native panel resolution.
+      </p>
+      <h3 data-i18n="resolution_test_orientation_question">
+        What does orientation mean?
+      </h3>
+      <p data-i18n="resolution_test_orientation_answer">
+        Orientation labels the reported screen as landscape, portrait, or square
+        by comparing its width and height.
+      </p>
+      <h3 data-i18n="resolution_test_available_question">
+        What is available area?
+      </h3>
+      <p data-i18n="resolution_test_available_answer">
+        Available area is the browser-reported screen space that remains
+        available around system UI.
+      </p>
+      <h3 data-i18n="resolution_test_share_question">
+        Can I share these results?
+      </h3>
+      <p data-i18n="resolution_test_share_answer">
+        The Share button uses Web Share when available and otherwise copies the
+        canonical checker URL.
+      </p>
+      <h3 data-i18n="resolution_test_update_question">
+        Do values update when I resize?
+      </h3>
+      <p data-i18n="resolution_test_update_answer">
+        Yes. Values refresh after a resize or orientation change.
+      </p>
     </div>
-</section>
+  </section>
+</div>

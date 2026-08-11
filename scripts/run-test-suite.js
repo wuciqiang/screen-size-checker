@@ -14,12 +14,13 @@ const TESTS = {
     homeCopy: 'test/home-copy-interaction-test.js',
     lcdScreenTester: 'test/lcd-screen-tester-interaction-test.js',
     styleSystem: 'test/style-system-regression-test.js',
+    resolutionTest: 'test/resolution-test-interaction-test.js',
     indexnow: 'test/indexnow-submitter.test.js'
 };
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem', 'resolutionTest'];
     }
 
     const namedArgs = args

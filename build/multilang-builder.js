@@ -1672,6 +1672,14 @@ class MultiLangBuilder extends ComponentBuilder {
                 ['device_faq_q4', 'device_faq_a4'],
                 ['device_faq_q5', 'device_faq_a5']
             ],
+            'resolution-test': [
+                ['resolution_test_viewport_question', 'resolution_test_viewport_answer'],
+                ['resolution_test_dpr_question', 'resolution_test_dpr_answer'],
+                ['resolution_test_orientation_question', 'resolution_test_orientation_answer'],
+                ['resolution_test_available_question', 'resolution_test_available_answer'],
+                ['resolution_test_share_question', 'resolution_test_share_answer'],
+                ['resolution_test_update_question', 'resolution_test_update_answer']
+            ],
             'laptop-screen-size-checker': [
                 ['laptop_faq_q1', 'laptop_faq_a1'],
                 ['laptop_faq_q2', 'laptop_faq_a2'],

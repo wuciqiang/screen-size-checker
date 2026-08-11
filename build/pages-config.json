@@ -156,10 +156,10 @@
         "page_description_key": "resolution_test_page_description",
         "page_heading_key": "resolution_test_page_heading",
         "page_intro_key": "resolution_test_page_intro",
-        "page_keywords": "resolution test, screen resolution test, what is my resolution, check screen resolution, display resolution test",
+        "page_keywords": "screen resolution checker, resolution test, display resolution checker, developer screen validation",
         "canonical_url": "https://screensizechecker.com/resolution-test",
-        "og_title": "Resolution Test - Check Your Screen Resolution Instantly",
-        "og_description": "Run an instant resolution test to see your screen resolution, browser viewport, DPR, aspect ratio, and display details.",
+        "og_title": "Screen Resolution Checker | Live Test",
+        "og_description": "Use the Screen Resolution Checker to see your screen resolution, browser viewport, DPR, aspect ratio, and display details.",
         "og_type": "WebApplication",
         "og_url": "https://screensizechecker.com/resolution-test",
         "css_path": "css",
@@ -170,15 +170,15 @@
         "device_links_base": "devices/",
         "show_breadcrumb": true,
         "current_key": "resolution_test",
-        "current_name": "Resolution Test",
+        "current_name": "Screen Resolution Checker",
         "parent_url": "",
         "parent_key": "",
         "parent_name": "",
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Resolution Test",
-          "description": "Run an instant resolution test to see screen resolution, browser viewport, device pixel ratio, aspect ratio, and display details.",
+          "name": "Screen Resolution Checker",
+          "description": "Use the Screen Resolution Checker to see screen resolution, browser viewport, device pixel ratio, aspect ratio, and display details.",
           "url": "https://screensizechecker.com/resolution-test",
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
@@ -188,7 +188,7 @@
             "priceCurrency": "USD"
           },
           "datePublished": "2026-04-25",
-          "dateModified": "2026-04-25"
+          "dateModified": "2026-08-11"
         },
         "blog_url": "blog/index.html"
       }

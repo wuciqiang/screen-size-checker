@@ -25,6 +25,10 @@ let languageModalModule = null;
 // Global initialization flag
 let isInitialized = false;
 
+function isResolutionTestPage() {
+    return Boolean(document.querySelector('[data-resolution-test]'));
+}
+
 /**
  * Initialize the complete application with performance optimization
  */
@@ -167,7 +171,7 @@ async function initializeNonCriticalModules() {
         }
 
         // 闂佸憡甯楃换鍌烇綖閹版澘绀岄柡宓啫娈ラ梺鍛婃⒒婵儳霉閸ヮ剚鍎嶉柛鏇ㄥ櫘閸熷骸顭跨捄鐑樺妞ゃ儱鎳庨湁閻庯綆浜濋悵銈嗕繆椤栨せ鍋撻搹顐淮闂佹寧绋戦悧鍛椤撱垹绀岄柡宥庡亜椤ｅジ鏌￠崼顐㈠⒕缂?
-        if (deviceDetectorModule) {
+        if (deviceDetectorModule && !isResolutionTestPage()) {
             const deviceDetectorStartTime = performance.now();
             await deviceDetectorModule.updateDisplay();
 
@@ -212,7 +216,7 @@ async function initializeNonCriticalModules() {
             }
 
             // NOTE: cleaned malformed mojibake comment.
-            if (!deviceDetectorModule) {
+            if (!deviceDetectorModule && !isResolutionTestPage()) {
                 console.log('Device detector failed to load, using basic viewport updates');
                 window.addEventListener('resize', debounce(updateViewportDisplay, 100));
             }
@@ -228,6 +232,11 @@ async function initializeNonCriticalModules() {
 function loadPageSpecificModulesOptimized() {
     const currentPath = window.location.pathname;
     console.log('Loading page-specific modules for path:', currentPath);
+    if (currentPath.includes('/resolution-test')) {
+        moduleLoadingOptimizer.loadModule('resolution-test')
+            .then(module => module.initializeResolutionTest())
+            .catch(error => console.error('Failed to load or initialize resolution test module:', error));
+    }
 
     // 婵炶揪缍€濞夋洟寮妶鍛傜喖鍨鹃搹顐淮闂佸憡姊绘慨鎯归崶銊ヮ嚤婵☆垰鎼褔鏌涢敐鍐ㄥ閻庡灚绮撳Λ渚€鍩€椤掑嫬绀夐柣妯煎劋缁佷即鏌ｅΔ鍐╁殌闁伙綁绠栧畷婵嬫偄鐠囨彃骞嬪┑鈽嗗灙閳ь剝娅曢崑?
     if (currentPath.includes('ppi-calculator')) {
@@ -356,6 +365,7 @@ function loadPageSpecificModules() {
 /**
  * 闂佸搫娲ら悺銊╁蓟婵犲洤绀嗘繝闈涙－濞兼鏌￠崟顐⑩挃闁靛洦宀稿畷鎰兜妞嬪海顦繛鎴炴尭缁夊磭娆㈡搴㈠皫闁哄稄濡囬懝绶?8next闂佺懓鐡ㄩ悧鏇㈠矗閻愵剛顩烽柡宥庡亰閸忓洨绱? */
 function updateInitialDisplayValues() {
+    if (isResolutionTestPage()) return;
     try {
         console.log('Initializing display values...');
 
@@ -462,7 +472,9 @@ function setupBasicEventListeners() {
     setupBasicLanguageSelector();
 
     // Viewport size update on window resize (critical for screen checker)
-    window.addEventListener('resize', debounce(updateViewportDisplay, 100));
+    if (!isResolutionTestPage()) {
+        window.addEventListener('resize', debounce(updateViewportDisplay, 100));
+    }
 
     // FAQ toggle functionality
     setupFAQToggles();
@@ -811,11 +823,11 @@ function setupAdvancedEventListeners() {
                     i18nModule.updateUIElements();
                 }
 
-                if (deviceDetectorModule) {
+                if (deviceDetectorModule && !isResolutionTestPage()) {
                     await deviceDetectorModule.updateDisplay();
                 }
 
-                updateViewportDisplay();
+                if (!isResolutionTestPage()) updateViewportDisplay();
 
                 console.log('UI updated after language change');
             } catch (error) {
@@ -953,6 +965,7 @@ function setupFAQToggles() {
  * Update viewport display in hero section
  */
 function updateViewportDisplay() {
+    if (isResolutionTestPage()) return;
     const viewportDisplay = document.getElementById('viewport-display');
     const screenResolutionDisplay = document.getElementById('screen-resolution-display');
 
