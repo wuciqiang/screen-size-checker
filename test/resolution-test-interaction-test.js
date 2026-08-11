@@ -90,6 +90,39 @@ async function checkInteractions(page) {
         assert.strictEqual(await page.locator(`.resolution-test-metric:has(#${target}) .resolution-copy-button[data-resolution-copy-target="${target}"]`).count(), 1, `${target} button and value must share a metric`);
     }
     await controls.first().click();
+    const feedback = await page.evaluate(() => {
+        const status = document.querySelector('[data-resolution-status]');
+        const toast = document.querySelector('#toast');
+        return {
+            role: status?.getAttribute('role'),
+            live: status?.getAttribute('aria-live'),
+            text: status?.textContent,
+            clipped: getComputedStyle(status).clip,
+            position: getComputedStyle(status).position,
+            width: getComputedStyle(status).width,
+            height: getComputedStyle(status).height,
+            toastText: toast?.querySelector('.toast-message')?.textContent,
+            toastVisible: toast?.classList.contains('show'),
+            toastSuccess: toast?.classList.contains('success'),
+            toastPosition: getComputedStyle(toast).position,
+            toastRect: toast?.getBoundingClientRect().toJSON(),
+            headerRect: document.querySelector('.header-v2, .header')?.getBoundingClientRect().toJSON(),
+            innerWidth: window.innerWidth
+        };
+    });
+    assert.strictEqual(feedback.role, 'status');
+    assert.strictEqual(feedback.live, 'polite');
+    assert.strictEqual(feedback.text, 'Copied');
+    assert.match(feedback.clipped, /0px/);
+    assert.strictEqual(feedback.position, 'absolute');
+    assert.ok(parseFloat(feedback.width) <= 1 && parseFloat(feedback.height) <= 1);
+    assert.strictEqual(feedback.toastText, 'Copied');
+    assert.strictEqual(feedback.toastVisible, true);
+    assert.strictEqual(feedback.toastSuccess, true);
+    assert.strictEqual(feedback.toastPosition, 'fixed');
+    assert.ok(feedback.toastRect.top >= feedback.headerRect.bottom);
+    assert.ok(feedback.innerWidth - feedback.toastRect.right >= 0 && feedback.innerWidth - feedback.toastRect.right <= 32);
+    assert.ok(feedback.toastRect.left >= 0 && feedback.toastRect.right <= feedback.innerWidth);
     let state = await page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), events: window.__resolutionEvents.slice(), options: window.__resolutionCopyOptions.slice() }));
     assert.strictEqual(state.writes.length, 1);
     assert.deepStrictEqual(state.events.map(event => event.tool_action), ['view_result', 'copy_single']);
@@ -119,6 +152,16 @@ async function checkInteractions(page) {
     await page.waitForFunction(() => /Copied/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
     assert.deepStrictEqual(state.events.map(event => event.tool_action), ['view_result', 'copy_single', 'copy_single', 'copy_all', 'share_link']);
     assert.deepStrictEqual(state.options, [{ dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }]);
+    await page.waitForTimeout(1200);
+    await controls.first().click();
+    await page.waitForTimeout(1200);
+    assert.strictEqual(await page.locator('#toast.show').count(), 1, 'retrigger must survive the first toast deadline');
+    await page.waitForTimeout(1200);
+    assert.strictEqual(await page.locator('#toast.show').count(), 0, 'toast must dismiss after the retriggered deadline');
+    assert.strictEqual(await page.locator('#toast.success, #toast.info, #toast.error').count(), 0, 'toast type classes must be cleaned up');
+    state = await page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), events: window.__resolutionEvents.slice(), options: window.__resolutionCopyOptions.slice() }));
+    assert.deepStrictEqual(state.events.map(event => event.tool_action), ['view_result', 'copy_single', 'copy_single', 'copy_all', 'share_link', 'copy_single']);
+    assert.deepStrictEqual(state.options, [{ dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }, { dedupeMs: 0 }]);
     const viewEvents = state.events.filter(event => event.tool_action === 'view_result');
     assert.strictEqual(viewEvents.length, 1);
     for (const event of state.events) {
@@ -337,10 +380,24 @@ async function run() {
         assert.strictEqual(mobileShare.shares[0].title, await mobileSession.page.title());
         assert.strictEqual(mobileShare.events.filter(event => event.tool_action === 'share_link').length, 1);
         await mobileSession.page.waitForFunction(() => /Shared/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        const mobileSuccessToast = await mobileSession.page.locator('#toast').evaluate(toast => {
+            const style = getComputedStyle(toast);
+            const rect = toast.getBoundingClientRect();
+            const header = document.querySelector('.header-v2, .header')?.getBoundingClientRect();
+            return { text: toast.querySelector('.toast-message')?.textContent, fixed: style.position === 'fixed', shown: toast.classList.contains('show'), success: toast.classList.contains('success'), top: rect.top, left: rect.left, right: rect.right, width: rect.width, headerBottom: header?.bottom };
+        });
+        assert.strictEqual(mobileSuccessToast.text, 'Shared');
+        assert.strictEqual(mobileSuccessToast.fixed, true);
+        assert.strictEqual(mobileSuccessToast.shown, true);
+        assert.strictEqual(mobileSuccessToast.success, true);
+        assert.ok(mobileSuccessToast.top >= mobileSuccessToast.headerBottom);
+        assert.ok(mobileSuccessToast.left >= 0 && mobileSuccessToast.right <= 390);
         await mobileSession.page.locator('[data-resolution-copy="share"]').click();
         await mobileSession.page.waitForFunction(() => /cancelled/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        assert.deepStrictEqual(await mobileSession.page.locator('#toast').evaluate(toast => ({ text: toast.querySelector('.toast-message')?.textContent, info: toast.classList.contains('info') })), { text: 'Share cancelled', info: true });
         await mobileSession.page.locator('[data-resolution-copy="share"]').click();
         await mobileSession.page.waitForFunction(() => /Copied/.test(document.querySelector('[data-resolution-status]')?.textContent || ''));
+        assert.deepStrictEqual(await mobileSession.page.locator('#toast').evaluate(toast => ({ text: toast.querySelector('.toast-message')?.textContent, success: toast.classList.contains('success') })), { text: 'Copied', success: true });
         mobileShare = await mobileSession.page.evaluate(() => ({ writes: window.__resolutionWrites.slice(), shares: window.__resolutionShares.slice(), events: window.__resolutionEvents.slice() }));
         assert.strictEqual(mobileShare.shares.length, 3);
         assert.deepStrictEqual(mobileShare.writes, ['https://screensizechecker.com/resolution-test']);

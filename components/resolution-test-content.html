@@ -75,6 +75,22 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
   }
+  .resolution-test-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  body:has([data-resolution-test]) .toast {
+    top: 78px;
+    right: 16px;
+    bottom: auto;
+  }
   .resolution-test-guide { margin-top:34px; }
   .resolution-guide-band { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px; padding:22px 0; border-top:1px solid var(--border-color); }
   .resolution-guide-band > * { min-width: 0; }
@@ -112,6 +128,12 @@
       padding-top: 8px;
     }
     .resolution-results-toolbar { align-items:flex-start; flex-direction:column; }
+    body:has([data-resolution-test]) .toast {
+      top: 78px;
+      right: 8px;
+      left: 8px;
+      width: auto;
+    }
   }
 </style>
 <div class="resolution-test-page" data-resolution-test>

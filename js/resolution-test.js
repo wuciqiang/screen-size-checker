@@ -39,9 +39,21 @@ function setText(id, value) {
     if (element) element.textContent = value;
 }
 
-function showStatus(message) {
+let resolutionStatusTimer;
+
+function showStatus(message, type = 'success') {
     const status = document.querySelector('[data-resolution-status]');
     if (status) status.textContent = message;
+    const toast = document.getElementById('toast');
+    const toastMessage = toast?.querySelector('.toast-message');
+    if (!toast || !toastMessage) return;
+    toastMessage.textContent = message;
+    clearTimeout(resolutionStatusTimer);
+    toast.classList.remove('success', 'info', 'error', 'show');
+    toast.classList.add(type, 'show');
+    resolutionStatusTimer = setTimeout(() => {
+        toast.classList.remove('show', 'success', 'info', 'error');
+    }, type === 'error' ? 3200 : 2200);
 }
 
 function trackView() {
@@ -149,7 +161,7 @@ export function initializeResolutionTest() {
                     return;
                 } catch (error) {
                     if (error.name === 'AbortError') {
-                        showStatus(translate('resolution_test_share_cancelled', 'Share cancelled'));
+                        showStatus(translate('resolution_test_share_cancelled', 'Share cancelled'), 'info');
                         return;
                     }
                     console.error(error);
@@ -164,7 +176,7 @@ export function initializeResolutionTest() {
             showStatus(translate('copied_success', 'Copied'));
         } catch (error) {
             console.error(error);
-            showStatus(translate('copy_all_failed', 'Copy failed'));
+            showStatus(translate('copy_all_failed', 'Copy failed'), 'error');
         }
     });
 }
