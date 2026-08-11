@@ -121,6 +121,44 @@ async function checkInteractions(page) {
     }
 }
 
+async function checkLayout(page, width) {
+    const layout = await page.evaluate(() => {
+        const root = document.querySelector('.resolution-test-page');
+        const metrics = [...document.querySelectorAll('.resolution-test-metric')];
+        const overlap = metrics.some(metric => {
+            const label = metric.querySelector('span').getBoundingClientRect();
+            const value = metric.querySelector('strong').getBoundingClientRect();
+            const button = metric.querySelector('button').getBoundingClientRect();
+            return label.right > metric.getBoundingClientRect().right || value.right > metric.getBoundingClientRect().right ||
+                button.right > metric.getBoundingClientRect().right || label.bottom > value.top || button.bottom > value.top;
+        });
+        return {
+            overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+            overlap,
+            supportColumns: getComputedStyle(document.querySelector('.resolution-support-grid')).gridTemplateColumns.split(' ').length,
+            dashboardColumns: getComputedStyle(document.querySelector('.resolution-test-dashboard')).gridTemplateColumns.split(' ').length,
+            faqColumns: getComputedStyle(document.querySelector('.resolution-test-faq')).gridTemplateColumns.split(' ').length,
+            faqItems: [...document.querySelectorAll('.resolution-faq-item')].length,
+            faqPairs: [...document.querySelectorAll('.resolution-faq-item')].every(item => item.querySelector('h3')?.nextElementSibling?.tagName === 'P'),
+            svg: [...document.querySelectorAll('.resolution-copy-button svg')].every(svg => {
+                const button = svg.parentElement.getBoundingClientRect();
+                const icon = svg.getBoundingClientRect();
+                return icon.width <= 18 && icon.height <= 18 && Math.abs((icon.left + icon.width / 2) - (button.left + button.width / 2)) <= 1 && Math.abs((icon.top + icon.height / 2) - (button.top + button.height / 2)) <= 1;
+            }),
+            darkText: getComputedStyle(root).color
+        };
+    });
+    assert.strictEqual(layout.overflow, false, `${width}px page must not overflow horizontally`);
+    assert.strictEqual(layout.overlap, false, `${width}px metric controls must not overlap`);
+    assert.strictEqual(layout.supportColumns, width >= 720 ? 2 : 1, `${width}px support grid columns`);
+    assert.strictEqual(layout.dashboardColumns, width >= 1040 ? 2 : 1, `${width}px dashboard columns`);
+    assert.strictEqual(layout.faqColumns, width >= 720 ? 2 : 1, `${width}px FAQ columns`);
+    assert.strictEqual(layout.faqItems, 6, `${width}px FAQ item count`);
+    assert.strictEqual(layout.faqPairs, true, `${width}px FAQ item pairs`);
+    assert.strictEqual(layout.svg, true, `${width}px copy icons must remain compact`);
+    return layout;
+}
+
 async function checkFullRuntimeLocale(browser, origin, locale) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const page = await context.newPage();
@@ -241,6 +279,32 @@ async function run() {
         assert.ok(results && results.y <= 260, `desktop results top must be <=260, got ${results && results.y}`);
         assert.strictEqual(await desktop.page.locator('[data-resolution-test] main').count(), 0);
         await checkInteractions(desktop.page);
+        await checkLayout(desktop.page, 1440);
+        const lightThemeText = await desktop.page.evaluate(() => getComputedStyle(document.querySelector('.resolution-test-page')).color);
+        const darkTheme = await desktop.page.evaluate(() => {
+            const root = document.documentElement;
+            const previous = root.getAttribute('data-theme');
+            root.setAttribute('data-theme', 'dark');
+            const page = document.querySelector('.resolution-test-page');
+            const style = getComputedStyle(page);
+            const probe = document.createElement('span');
+            probe.style.color = 'var(--text-primary)';
+            page.appendChild(probe);
+            const tokenColor = getComputedStyle(probe).color;
+            probe.remove();
+            return { token: tokenColor, color: style.color, previous };
+        });
+        assert.strictEqual(darkTheme.color, darkTheme.token, 'dark theme page text must use the dark text token');
+        assert.notStrictEqual(darkTheme.color, lightThemeText, 'dark theme text must differ from light text');
+        await desktop.page.evaluate(previous => {
+            if (previous === null) document.documentElement.removeAttribute('data-theme');
+            else document.documentElement.setAttribute('data-theme', previous);
+        }, darkTheme.previous);
+        for (const width of [936, 768]) {
+            await desktop.page.setViewportSize({ width, height: 900 });
+            await checkLayout(desktop.page, width);
+        }
+        await desktop.page.setViewportSize({ width: 1440, height: 900 });
         assert.deepStrictEqual(desktop.errors, [], `desktop page errors: ${desktop.errors.join(' | ')}`);
         assert.ok((await desktop.page.title()).includes('Screen Resolution Checker'));
         assert.strictEqual(await desktop.page.locator('link[rel="canonical"]').getAttribute('href'), 'https://screensizechecker.com/resolution-test');
@@ -249,6 +313,7 @@ async function run() {
 
         mobileSession = await createPage(browser, { width: 390, height: 844 });
         await initialize(mobileSession.page, origin);
+        await checkLayout(mobileSession.page, 390);
         const mobile = await mobileSession.page.evaluate(() => ({
             scrollWidth: document.documentElement.scrollWidth,
             clientWidth: document.documentElement.clientWidth,
@@ -268,6 +333,10 @@ async function run() {
             );
         }
         assert.deepStrictEqual(mobileSession.errors, [], `mobile page errors: ${mobileSession.errors.join(' | ')}`);
+        const narrow = await createPage(browser, { width: 320, height: 844 });
+        await initialize(narrow.page, origin);
+        await checkLayout(narrow.page, 320);
+        await narrow.context.close();
 
         for (const locale of locales) await checkFullRuntimeLocale(browser, origin, locale);
 

@@ -94,6 +94,23 @@ export function initializeResolutionTest() {
     const update = () => {
         const values = readResults();
         ids.forEach((id, index) => setText(id, values[keys[index]]));
+        const copyLabel = translate('resolution_test_copy', 'Copy');
+        labels.forEach((label, index) => {
+            const button = label.parentElement.querySelector('.resolution-copy-button');
+            if (button) {
+                const name = `${copyLabel} ${label.textContent.trim()}`;
+                button.setAttribute('aria-label', name);
+                button.title = name;
+            }
+        });
+        [['all', 'resolution_test_copy_all', 'Copy all'], ['share', 'resolution_test_share', 'Share']].forEach(([action, key, fallback]) => {
+            const button = root.querySelector(`[data-resolution-copy="${action}"]`);
+            if (button) {
+                const name = translate(key, fallback);
+                button.setAttribute('aria-label', name);
+                button.title = name;
+            }
+        });
         return values;
     };
 

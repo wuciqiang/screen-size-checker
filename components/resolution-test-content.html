@@ -10,10 +10,10 @@
     max-width: 1100px;
     margin: 0 auto;
     padding: 24px 16px 56px;
+    color: var(--text-primary);
   }
-  .resolution-primary-region {
-    max-width: 900px;
-  }
+  .resolution-primary-region,
+  .resolution-test-guide { max-width: none; }
   .resolution-test-hero {
     padding: 20px 0 16px;
   }
@@ -24,48 +24,48 @@
     max-width: 680px;
     margin: 0;
   }
-  .resolution-test-results {
-    padding: 18px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--background-card);
-  }
-  .resolution-test-grid {
+  .resolution-test-results { padding: 18px 0 0; }
+  .resolution-results-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
+  .resolution-results-toolbar h2 { margin:0; }
+  .resolution-test-dashboard {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-bottom: 16px;
+    grid-template-columns: minmax(280px, .92fr) minmax(0, 1.5fr);
+    gap: 14px;
+    align-items: stretch;
   }
+  .resolution-featured-panel, .resolution-support-panel { padding:16px; border:1px solid var(--border-color); border-radius:8px; background:var(--background-card); }
+  .resolution-support-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); }
   .resolution-test-metric {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    min-height: 44px;
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--background-primary);
+    display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto; gap:4px 10px; min-width:0; min-height:62px; padding:11px 10px; border-bottom:1px solid var(--border-color);
   }
-  .resolution-test-metric strong {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
+  .resolution-featured-panel { display:flex; align-items:center; }
+  .resolution-featured-panel .resolution-test-metric { width:100%; min-height:116px; padding:18px 4px; border-bottom:0; }
+  .resolution-featured-panel .resolution-test-metric span { font-size:1rem; font-weight:700; }
+  .resolution-featured-panel .resolution-test-metric strong { font-size:1.75rem; }
+  .resolution-test-metric span { grid-column:1; grid-row:1; min-width:0; }
+  .resolution-test-metric strong { grid-column:1 / -1; grid-row:2; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .resolution-copy-button { grid-column:2; grid-row:1; }
   .resolution-copy-button,
   .resolution-test-actions button {
-    min-height: 38px;
-    padding: 7px 12px;
+    width:32px; height:32px; min-height:32px; padding:0;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
     background: transparent;
     color: var(--primary-color);
     cursor: pointer;
+    display:inline-flex; align-items:center; justify-content:center;
   }
+  .resolution-copy-button svg { width:16px; height:16px; display:block; }
+  .resolution-test-page button:not(.primary):hover { background:var(--background-hover, var(--background-primary)); }
+  .resolution-test-page button.primary:hover { background:var(--primary-color); filter:brightness(0.92); }
+  .resolution-test-page button:focus-visible { outline:2px solid var(--primary-color); outline-offset:2px; }
   .resolution-test-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
+  .resolution-test-actions button { width:auto; height:38px; padding:7px 12px; display:inline-flex; align-items:center; gap:7px; }
+  .resolution-test-actions svg { width:16px; height:16px; flex:0 0 auto; }
   .resolution-test-actions .primary {
     background: var(--primary-color);
     color: #fff;
@@ -75,16 +75,19 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
   }
-  .resolution-test-guide {
-    max-width: 780px;
-    margin-top: 34px;
-  }
+  .resolution-test-guide { margin-top:34px; }
+  .resolution-guide-band { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px; padding:22px 0; border-top:1px solid var(--border-color); }
+  .resolution-guide-band > * { min-width: 0; }
+  .resolution-test-guide .resolution-guide-band h2 { margin-top: 0; }
+  .resolution-guide-developer { display:block; }
   .resolution-test-guide h2 {
     margin-top: 26px;
   }
   .resolution-test-faq {
     border-top: 1px solid var(--border-color);
+    display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px 28px;
   }
+  .resolution-faq-item { min-width:0; }
   .resolution-test-faq h3 {
     margin: 18px 0 5px;
     font-size: 1rem;
@@ -102,19 +105,13 @@
     border: 1px solid var(--border-color);
     text-align: left;
   }
-  @media (max-width: 600px) {
-    .resolution-test-grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 1039px) { .resolution-test-dashboard { grid-template-columns:1fr; } }
+  @media (max-width: 719px) {
+    .resolution-support-grid, .resolution-test-faq, .resolution-guide-band { grid-template-columns:1fr; }
     .resolution-test-page {
       padding-top: 8px;
     }
-    .resolution-test-metric {
-      align-items: flex-start;
-    }
-    .resolution-test-metric strong {
-      max-width: 45%;
-    }
+    .resolution-results-toolbar { align-items:flex-start; flex-direction:column; }
   }
 </style>
 <div class="resolution-test-page" data-resolution-test>
@@ -133,36 +130,27 @@
       class="resolution-test-results"
       aria-labelledby="resolution-test-results-heading"
     >
-      <h2
+      <div class="resolution-results-toolbar"><h2
         id="resolution-test-results-heading"
         data-i18n="resolution_test_results_heading"
       >
         Live Screen Results
-      </h2>
-      <div class="resolution-test-grid">
-        <div class="resolution-test-metric">
+      </h2><div class="resolution-test-actions"><button class="primary" data-resolution-copy="all" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-i18n="resolution_test_copy_all">Copy all</span></button><button data-resolution-copy="share" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg><span data-i18n="resolution_test_share">Share</span></button></div></div>
+      <div class="resolution-test-dashboard"><div class="resolution-featured-panel"><div class="resolution-test-metric">
           <span data-i18n="resolution_test_screen_resolution">Screen size</span
           ><strong id="screen-resolution-display">Detecting...</strong
           ><button
             class="resolution-copy-button"
             data-resolution-copy-target="screen-resolution-display"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
-        </div>
-        <div class="resolution-test-metric">
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div><div class="resolution-support-panel"><div class="resolution-support-grid"><div class="resolution-test-metric">
           <span data-i18n="resolution_test_viewport_size">Browser viewport</span
           ><strong id="viewport-display">Detecting...</strong
           ><button
             class="resolution-copy-button"
             data-resolution-copy-target="viewport-display"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="resolution_test_dpr">Device pixel ratio</span
@@ -171,10 +159,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="dpr"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="aspect_ratio">Aspect ratio</span
@@ -183,10 +168,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="aspect-ratio"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="color_depth">Color depth</span
@@ -195,10 +177,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="color-depth"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="resolution_test_orientation">Orientation</span
@@ -207,10 +186,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="orientation"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="resolution_test_available_area">Available area</span
@@ -219,10 +195,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="available-area"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="resolution_test_window_size"
@@ -232,10 +205,7 @@
             class="resolution-copy-button"
             data-resolution-copy-target="window-size"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
         <div class="resolution-test-metric">
           <span data-i18n="resolution_test_estimated_pixels"
@@ -245,28 +215,9 @@
             class="resolution-copy-button"
             data-resolution-copy-target="estimated-pixels"
             type="button"
-            data-i18n="resolution_test_copy"
-          >
-            Copy
-          </button>
+          ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
-      </div>
-      <div class="resolution-test-actions">
-        <button
-          class="primary"
-          data-resolution-copy="all"
-          type="button"
-          data-i18n="resolution_test_copy_all"
-        >
-          Copy all</button
-        ><button
-          data-resolution-copy="share"
-          type="button"
-          data-i18n="resolution_test_share"
-        >
-          Share
-        </button>
-      </div>
+      </div></div></div>
       <p class="resolution-test-note" data-i18n="resolution_test_accuracy_note">
         Values are reported by your browser. Browser zoom and operating-system
         scaling can affect them. Estimated display pixels do not guarantee
@@ -281,6 +232,8 @@
     </section>
   </div>
   <section class="resolution-test-guide resolution-guide-content">
+    <div class="resolution-guide-band">
+      <div>
     <h2 data-i18n="resolution_test_guide_heading">
       How to read screen resolution results
     </h2>
@@ -298,6 +251,8 @@
       calculated from browser dimensions and DPR, so zoom and operating-system
       scaling can change the report without changing the physical display.
     </p>
+      </div>
+      <div>
     <h2 data-i18n="resolution_test_steps_heading">
       How to read the live result
     </h2>
@@ -318,6 +273,10 @@
         workflow.
       </li>
     </ol>
+      </div>
+    </div>
+    <div class="resolution-guide-band">
+      <div>
     <h2 data-i18n="resolution_test_troubleshooting_heading">
       Troubleshoot blurry or unexpected results
     </h2>
@@ -330,6 +289,8 @@
       browser-observable measurements rather than claiming certainty about a
       panel's native mode.
     </p>
+      </div>
+      <div>
     <h2 data-i18n="resolution_test_reference_heading">
       Common resolution reference
     </h2>
@@ -384,6 +345,9 @@
         for a broader list.</span
       >
     </p>
+      </div>
+    </div>
+    <div class="resolution-guide-band resolution-guide-developer">
     <h2 data-i18n="resolution_test_developer_heading">Developer and QA uses</h2>
     <p>
       <span data-i18n="resolution_test_developer_text"
@@ -399,9 +363,10 @@
         >responsive design tester</a
       ><span data-i18n="resolution_test_developer_suffix">.</span>
     </p>
+    </div>
     <h2 data-i18n="resolution_test_faq_heading">Resolution checker FAQ</h2>
     <div class="resolution-test-faq">
-      <h3 data-i18n="resolution_test_viewport_question">
+      <div class="resolution-faq-item"><h3 data-i18n="resolution_test_viewport_question">
         Why is my viewport smaller than my screen?
       </h3>
       <p data-i18n="resolution_test_viewport_answer">
@@ -409,40 +374,41 @@
         to a web page, so viewport dimensions are often smaller than screen
         dimensions.
       </p>
-      <h3 data-i18n="resolution_test_dpr_question">
+      </div><div class="resolution-faq-item"><h3 data-i18n="resolution_test_dpr_question">
         Does DPR reveal my native panel resolution?
       </h3>
       <p data-i18n="resolution_test_dpr_answer">
         No. DPR is a browser-reported scale relationship, not a guarantee of
         native panel resolution.
       </p>
-      <h3 data-i18n="resolution_test_orientation_question">
+      </div><div class="resolution-faq-item"><h3 data-i18n="resolution_test_orientation_question">
         What does orientation mean?
       </h3>
       <p data-i18n="resolution_test_orientation_answer">
         Orientation labels the reported screen as landscape, portrait, or square
         by comparing its width and height.
       </p>
-      <h3 data-i18n="resolution_test_available_question">
+      </div><div class="resolution-faq-item"><h3 data-i18n="resolution_test_available_question">
         What is available area?
       </h3>
       <p data-i18n="resolution_test_available_answer">
         Available area is the browser-reported screen space that remains
         available around system UI.
       </p>
-      <h3 data-i18n="resolution_test_share_question">
+      </div><div class="resolution-faq-item"><h3 data-i18n="resolution_test_share_question">
         Can I share these results?
       </h3>
       <p data-i18n="resolution_test_share_answer">
         The Share button uses Web Share when available and otherwise copies the
         canonical checker URL.
       </p>
-      <h3 data-i18n="resolution_test_update_question">
+      </div><div class="resolution-faq-item"><h3 data-i18n="resolution_test_update_question">
         Do values update when I resize?
       </h3>
       <p data-i18n="resolution_test_update_answer">
         Yes. Values refresh after a resize or orientation change.
       </p>
+      </div>
     </div>
   </section>
 </div>
