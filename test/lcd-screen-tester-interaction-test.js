@@ -362,6 +362,21 @@ async function runDesktopFlow(browser, origin) {
 
     try {
         await openTester(page, `${origin}/devices/lcd-screen-tester`);
+        const initialState = await getTesterState(page);
+        assert.strictEqual(initialState.currentModeId, 'solid-white');
+        assert.strictEqual(await page.textContent('#lcd-preview-name'), 'White');
+        assert.strictEqual(await page.textContent('#lcd-overlay-mode-name'), 'White');
+        assert.strictEqual(await page.getAttribute('[data-mode="solid-white"]', 'aria-pressed'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-mode="solid-red"]', 'aria-pressed'), 'false');
+        assert.strictEqual(await page.getAttribute('[data-overlay-mode="solid-white"]', 'aria-pressed'), 'true');
+        assert.strictEqual(await page.getAttribute('[data-overlay-mode="solid-red"]', 'aria-pressed'), 'false');
+        const initialPreviewPixel = await page.$eval('#lcd-preview-canvas', canvas => {
+            const context = canvas.getContext('2d');
+            if (!context) throw new Error('Preview canvas 2D context is unavailable');
+            const pixel = context.getImageData(Math.floor(canvas.width / 2), Math.floor(canvas.height / 2), 1, 1).data;
+            return Array.from(pixel);
+        });
+        assert.deepStrictEqual(initialPreviewPixel, [255, 255, 255, 255]);
         await assertNoHorizontalOverflow(page, 'desktop page');
         await assertPrimaryActionsInViewport(page, 'desktop page');
         await assertCompactTopLayout(page, 'desktop page', { h1Max: 190, workbenchMax: 340 });
@@ -702,7 +717,7 @@ async function runMobileFlow(browser, origin) {
             pointerId: 11,
             pointerType: 'touch'
         });
-        assert.strictEqual((await getTesterState(page)).currentModeId, 'solid-green');
+        assert.strictEqual((await getTesterState(page)).currentModeId, 'solid-black');
 
         await page.setViewportSize({ width: 412, height: 780 });
         await page.waitForFunction(() => {

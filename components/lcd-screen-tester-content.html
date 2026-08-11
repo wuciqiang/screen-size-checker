@@ -55,7 +55,7 @@
                 <canvas id="lcd-preview-canvas" class="lcd-preview-canvas" aria-hidden="true"></canvas>
                 <div class="lcd-preview-copy">
                     <span class="lcd-preview-kicker" data-i18n="lcdTester.preview">LIVE PREVIEW</span>
-                    <strong id="lcd-preview-name">Red</strong>
+                    <strong id="lcd-preview-name">White</strong>
                     <span id="lcd-preview-description" data-i18n="lcdTester.pixelModeHint">Use solid colors. Look for a pixel that stays dark, bright, or one color.</span>
                 </div>
                 <div class="lcd-preview-corner" aria-hidden="true">
@@ -100,10 +100,10 @@
                         <p data-i18n="lcdTester.pixelControlsHint">Switch colors to spot pixels that do not change with the rest of the screen.</p>
                     </div>
                     <div class="lcd-swatch-grid" aria-label="Pixel test colors" data-i18n-aria-label="lcdTester.pixelColors">
-                        <button class="lcd-swatch is-selected" type="button" data-mode="solid-red" style="--swatch:#ff1f32"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.red">Red</span></button>
+                        <button class="lcd-swatch" type="button" data-mode="solid-red" style="--swatch:#ff1f32"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.red">Red</span></button>
                         <button class="lcd-swatch" type="button" data-mode="solid-green" style="--swatch:#18c964"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.green">Green</span></button>
                         <button class="lcd-swatch" type="button" data-mode="solid-blue" style="--swatch:#1677ff"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.blue">Blue</span></button>
-                        <button class="lcd-swatch" type="button" data-mode="solid-white" style="--swatch:#ffffff"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.white">White</span></button>
+                        <button class="lcd-swatch is-selected" type="button" data-mode="solid-white" style="--swatch:#ffffff"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.white">White</span></button>
                         <button class="lcd-swatch" type="button" data-mode="solid-black" style="--swatch:#050505"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.black">Black</span></button>
                         <button class="lcd-swatch" type="button" data-mode="solid-cyan" style="--swatch:#00d8e8"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.cyan">Cyan</span></button>
                         <button class="lcd-swatch" type="button" data-mode="solid-magenta" style="--swatch:#f018d0"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.magenta">Magenta</span></button>
@@ -398,7 +398,7 @@
     <div class="lcd-overlay-chrome lcd-overlay-topbar">
         <div class="lcd-overlay-mode" aria-live="polite" aria-atomic="true">
             <span class="lcd-overlay-kicker" data-i18n="lcdTester.nowTesting">NOW TESTING</span>
-            <strong id="lcd-overlay-mode-name">Red</strong>
+            <strong id="lcd-overlay-mode-name">White</strong>
         </div>
         <output id="lcd-overlay-progress" class="lcd-overlay-progress">1 / 1</output>
     </div>
@@ -407,7 +407,7 @@
         <button type="button" data-overlay-mode="solid-red" style="--swatch:#ff1f32" aria-label="Red"></button>
         <button type="button" data-overlay-mode="solid-green" style="--swatch:#18c964" aria-label="Green"></button>
         <button type="button" data-overlay-mode="solid-blue" style="--swatch:#1677ff" aria-label="Blue"></button>
-        <button type="button" data-overlay-mode="solid-white" style="--swatch:#ffffff" aria-label="White"></button>
+        <button class="is-selected" type="button" data-overlay-mode="solid-white" style="--swatch:#ffffff" aria-label="White"></button>
         <button type="button" data-overlay-mode="solid-black" style="--swatch:#050505" aria-label="Black"></button>
         <button type="button" data-overlay-mode="solid-cyan" style="--swatch:#00d8e8" aria-label="Cyan"></button>
         <button type="button" data-overlay-mode="solid-magenta" style="--swatch:#f018d0" aria-label="Magenta"></button>

@@ -7,6 +7,7 @@
     const GUIDED_STEP_MS = 5000;
     const CONTROL_HIDE_MS = 2600;
     const MAX_CANVAS_DPR = 3;
+    const DEFAULT_MODE_ID = 'solid-white';
 
     class LCDScreenTester {
         constructor(root) {
@@ -38,10 +39,10 @@
                 'motion-box'
             ];
 
-            this.currentModeId = 'solid-red';
+            this.currentModeId = DEFAULT_MODE_ID;
             this.activeCategory = 'quick';
             this.lastModeByCategory = {
-                pixels: 'solid-red',
+                pixels: DEFAULT_MODE_ID,
                 uniformity: 'dark-level',
                 motion: 'motion-box',
                 sharpness: 'checkerboard'
@@ -484,7 +485,7 @@
         }
 
         startManualTest() {
-            const mode = this.modeById.get(this.currentModeId) || this.modeById.get('solid-red');
+            const mode = this.modeById.get(this.currentModeId) || this.modeById.get(DEFAULT_MODE_ID);
             const category = mode.category;
             this.sequence = [...this.categoryModes[category]];
             this.sequenceIndex = Math.max(0, this.sequence.indexOf(mode.id));
