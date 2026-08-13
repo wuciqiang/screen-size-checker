@@ -20841,6 +20841,2776 @@
         "is_devices": false,
         "is_gaming": true
       }
+    },
+    {
+      "name": "black-screen",
+      "template": "color-page",
+      "output": "black-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/black-screen",
+        "og_url": "https://screensizechecker.com/black-screen",
+        "og_type": "website",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "page_title": "Black Screen - Fullscreen Pure Black Background",
+        "description": "Open a black screen (#000000) for dark-room viewing and black-level or backlight-bleed checks. Use it fullscreen or download free 1080p and 4K PNGs.",
+        "page_keywords": "black screen, fullscreen black screen, #000000, black level check, backlight bleed check, OLED black screen, black background download",
+        "og_title": "Black Screen - Fullscreen Pure Black Background",
+        "og_description": "Open a fullscreen black screen in exact #000000 for dark-room viewing and black-level or backlight-bleed checks, with free 1080p and 4K PNG downloads.",
+        "page_heading": "Black Screen",
+        "color_name": "Black",
+        "hex": "#000000",
+        "rgb": "rgb(0, 0, 0)",
+        "intent_note": "This is a plain black field for dark viewing and black-level inspection, not a power-off command or a complete panel diagnostic.",
+        "color_intro": "Fill the display with solid black. Use it to keep a nearby screen visually quiet, inspect dark scenes, or find edge glow in a dim room. The PNG downloads provide the same numeric black as a static background.",
+        "technical": "This page renders #000000, or rgb(0, 0, 0). OLED pixels can switch off individually for black, while LCD panels still rely on a backlight and light blocking. Black content may reduce power on some OLED devices, but the result depends on the display, brightness, settings, and surrounding interface.",
+        "sections": [
+          {
+            "title": "Dark-room viewing",
+            "text": "Use the black field when a bright browser window would distract from a movie, presentation, photo setup, or other low-light task. It changes the displayed pixels but does not turn off the monitor."
+          },
+          {
+            "title": "Black level and backlight bleed",
+            "text": "In a dim room, inspect the field for corner glow, cloudy patches, edge bleed, or pixels that remain visibly colored. Use the LCD Screen Tester for a guided multi-pattern check."
+          },
+          {
+            "title": "OLED and LCD behavior",
+            "text": "OLED creates black by reducing or switching off individual pixel emission. LCD black depends on the panel blocking a still-active backlight, so some glow or lifted black can remain."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Does a black screen always save power?",
+            "a": "No. Black may reduce power on some OLED devices. LCD backlights can stay active. Brightness, settings, and the rest of the interface also affect consumption."
+          },
+          {
+            "q": "How can I check for backlight bleed?",
+            "a": "View the black field in a dim room at your normal brightness and distance. Inspect the edges and corners for uneven glow. Do not press the panel."
+          },
+          {
+            "q": "Does this page turn the monitor off?",
+            "a": "No. It only sends black pixel values to the display. Use the device power control or operating-system sleep setting when you need the panel off."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "how_to_title": "How to use this black screen",
+        "locales": {
+          "zh": {
+            "page_title": "黑色屏幕 - 检查黑位、漏光与亮点",
+            "og_title": "黑色屏幕 - 检查黑位、漏光与亮点",
+            "og_description": "打开 #000000 黑色屏幕，在暗室观察黑位、边缘发光和亮点。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #000000 黑色屏幕，在暗室观察黑位、边缘发光和亮点。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "黑色屏幕, 黑屏, #000000, 黑位检查, 漏光检查, OLED 黑色, 黑色背景下载",
+            "page_heading": "黑色屏幕",
+            "color_name": "黑色",
+            "intent_note": "这是用于暗室观察和黑位检查的纯黑区域，不是关机指令，也不能单独完成面板诊断。",
+            "color_intro": "让附近的屏幕显示纯黑，使其在视觉上保持低调。可用它观察暗场表现，并在昏暗房间检查边缘发光和亮度不均。下载的 PNG 使用相同数值的黑色，可作为静态背景。",
+            "technical": "本页显示 #000000，即 rgb(0, 0, 0)。OLED 可逐像素降低或关闭发光来呈现黑色；LCD 仍依靠背光和液晶遮光。黑色内容可能降低部分 OLED 设备的功耗，但实际结果还取决于面板、亮度、设置和周围界面。",
+            "how_to_title": "如何使用黑色屏幕",
+            "sections": [
+              {
+                "title": "暗室观看",
+                "text": "在电影、演示、摄影布景或其他低光任务中，黑色区域不会像明亮浏览器窗口那样分散注意力。它只改变像素，并不会关闭显示器。"
+              },
+              {
+                "title": "检查黑位和漏光",
+                "text": "在昏暗房间以日常亮度观看，留意角落光晕、云状斑块、边缘漏光以及仍带颜色的像素。需要多种图案时可使用液晶屏幕测试器。"
+              },
+              {
+                "title": "OLED 与 LCD 的差异",
+                "text": "OLED 可降低或关闭单个像素的发光来显示黑色。LCD 需要遮住仍在工作的背光，因此可能出现光晕或偏亮的黑位。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "黑色屏幕一定省电吗？",
+                "a": "不一定。黑色可能让部分 OLED 设备降低功耗，而 LCD 背光仍可能保持开启；亮度、设置和其他界面也会影响耗电。"
+              },
+              {
+                "q": "怎样检查屏幕漏光？",
+                "a": "在昏暗房间以平时的亮度和观看距离显示黑色，观察边缘和角落是否有不均匀发光，不要按压面板。"
+              },
+              {
+                "q": "这个页面会关闭显示器吗？",
+                "a": "不会。它只是向显示器发送黑色像素值。需要关屏时，请使用设备电源或操作系统的休眠设置。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Schwarzer Bildschirm - Schwarzwert und Backlight-Bleeding prüfen",
+            "og_title": "Schwarzer Bildschirm - Schwarzwert und Backlight-Bleeding prüfen",
+            "og_description": "Zeigen Sie #000000 in einem dunklen Raum, um Schwarzwert, Randaufhellung und helle Pixel zu prüfen. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #000000 in einem dunklen Raum, um Schwarzwert, Randaufhellung und helle Pixel zu prüfen. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "schwarzer Bildschirm, schwarzes Vollbild, #000000, Schwarzwert prüfen, Backlight Bleeding, OLED Schwarz, schwarzer Hintergrund",
+            "page_heading": "Schwarzer Bildschirm",
+            "color_name": "Schwarz",
+            "intent_note": "Die schwarze Fläche dient der Betrachtung im Dunkeln und der Schwarzwertprüfung; sie schaltet das Gerät nicht aus und ersetzt keine vollständige Paneldiagnose.",
+            "color_intro": "Füllen Sie ein nahes Display mit reinem Schwarz, damit es visuell unauffällig bleibt. Prüfen Sie damit dunkle Szenen, Randaufhellungen und ungleichmäßige Beleuchtung in einem dunklen Raum. Die PNGs liefern denselben numerischen Schwarzwert als statische Datei.",
+            "technical": "Die Seite rendert #000000 beziehungsweise rgb(0, 0, 0). OLED-Pixel können für Schwarz einzeln dimmen oder erlöschen, während LCDs weiterhin eine Hintergrundbeleuchtung blockieren müssen. Schwarze Inhalte können bei manchen OLED-Geräten Energie sparen; entscheidend sind jedoch Panel, Helligkeit, Einstellungen und die übrige Oberfläche.",
+            "how_to_title": "So verwenden Sie den schwarzen Bildschirm",
+            "sections": [
+              {
+                "title": "Betrachtung im dunklen Raum",
+                "text": "Nutzen Sie die schwarze Fläche, wenn ein helles Browserfenster bei Film, Präsentation, Fotografie oder einer anderen Aufgabe bei wenig Licht stören würde. Die Pixel ändern sich, der Monitor bleibt eingeschaltet."
+              },
+              {
+                "title": "Schwarzwert und Backlight-Bleeding",
+                "text": "Prüfen Sie in einem dunklen Raum Ecken, Ränder, wolkige Flecken und sichtbar farbige Pixel. Für mehrere Muster steht der LCD-Bildschirmtester zur Verfügung."
+              },
+              {
+                "title": "Verhalten von OLED und LCD",
+                "text": "OLED erzeugt Schwarz durch gedimmte oder abgeschaltete Pixel. LCDs müssen eine weiterhin aktive Hintergrundbeleuchtung blockieren, weshalb Aufhellungen oder ein angehobener Schwarzwert bleiben können."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Spart ein schwarzer Bildschirm immer Energie?",
+                "a": "Nein. Bei manchen OLED-Geräten sinkt der Verbrauch, während die LCD-Hintergrundbeleuchtung aktiv bleibt. Helligkeit, Einstellungen und die übrige Oberfläche zählen ebenfalls."
+              },
+              {
+                "q": "Wie prüfe ich Backlight-Bleeding?",
+                "a": "Zeigen Sie Schwarz bei normaler Helligkeit und Entfernung in einem dunklen Raum und achten Sie auf ungleichmäßiges Leuchten an Kanten und Ecken, ohne das Panel zu drücken."
+              },
+              {
+                "q": "Schaltet diese Seite den Monitor aus?",
+                "a": "Nein. Sie sendet nur schwarze Pixelwerte. Zum Ausschalten verwenden Sie den Netzschalter oder die Energiesparfunktion des Betriebssystems."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla negra - Comprueba negros, fugas de luz y píxeles brillantes",
+            "og_title": "Pantalla negra - Comprueba negros, fugas de luz y píxeles brillantes",
+            "og_description": "Muestra #000000 en una habitación oscura para revisar el nivel de negro, los bordes y los píxeles luminosos. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #000000 en una habitación oscura para revisar el nivel de negro, los bordes y los píxeles luminosos. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla negra, pantalla negra completa, #000000, nivel de negro, fuga de luz, negro OLED, fondo negro",
+            "page_heading": "Pantalla negra",
+            "color_name": "Negro",
+            "intent_note": "Es un campo negro para observar escenas oscuras y revisar el nivel de negro; no apaga el dispositivo ni constituye un diagnóstico completo del panel.",
+            "color_intro": "Rellena de negro puro un monitor cercano para que resulte visualmente discreto. Úsalo para observar escenas oscuras o buscar brillo en los bordes e iluminación irregular en una habitación tenue. Los PNG conservan el mismo negro numérico.",
+            "technical": "La página muestra #000000, o rgb(0, 0, 0). Los píxeles OLED pueden reducir o apagar su emisión individual, mientras que un panel LCD sigue bloqueando una luz de fondo activa. El negro puede reducir el consumo en algunos OLED, pero el resultado depende del panel, el brillo, los ajustes y el resto de la interfaz.",
+            "how_to_title": "Cómo usar la pantalla negra",
+            "sections": [
+              {
+                "title": "Visualización en una habitación oscura",
+                "text": "Usa el campo negro cuando una ventana brillante distraiga durante una película, una presentación, una sesión de fotos u otra tarea con poca luz. Cambia los píxeles, pero no apaga el monitor."
+              },
+              {
+                "title": "Nivel de negro y fuga de luz",
+                "text": "En una habitación tenue, busca brillo en las esquinas, manchas nubladas, fugas en los bordes o píxeles que sigan mostrando color. Para más patrones, utiliza el comprobador de panel LCD."
+              },
+              {
+                "title": "Comportamiento de OLED y LCD",
+                "text": "OLED crea el negro reduciendo o apagando píxeles individuales. LCD depende de bloquear una retroiluminación activa, por lo que puede conservar brillo o un negro elevado."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Una pantalla negra siempre ahorra energía?",
+                "a": "No. Puede reducir el consumo en algunos dispositivos OLED, mientras la retroiluminación LCD permanece activa; también influyen el brillo, los ajustes y el resto de la interfaz."
+              },
+              {
+                "q": "¿Cómo reviso una fuga de luz?",
+                "a": "Muestra el campo negro en una habitación oscura, con tu brillo y distancia habituales, y observa bordes y esquinas sin presionar el panel."
+              },
+              {
+                "q": "¿Esta página apaga el monitor?",
+                "a": "No. Solo envía valores de píxel negros. Para apagarlo, utiliza el control de encendido o el modo de suspensión del sistema."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela preta - Verifique preto, vazamento de luz e pixels brilhantes",
+            "og_title": "Tela preta - Verifique preto, vazamento de luz e pixels brilhantes",
+            "og_description": "Exiba #000000 em um ambiente escuro para observar o nível de preto, as bordas e pixels luminosos. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #000000 em um ambiente escuro para observar o nível de preto, as bordas e pixels luminosos. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela preta, tela preta em tela cheia, #000000, verificar nível de preto, vazamento de luz, preto OLED, fundo preto",
+            "page_heading": "Tela preta",
+            "color_name": "Preto",
+            "intent_note": "É uma área preta para observar cenas escuras e verificar o nível de preto; ela não desliga o aparelho nem substitui um diagnóstico completo do painel.",
+            "color_intro": "Preencha um monitor próximo com preto puro para deixá-lo visualmente discreto. Use-o para observar cenas escuras ou procurar brilho nas bordas e iluminação irregular em um ambiente escuro. Os PNGs mantêm o mesmo preto numérico.",
+            "technical": "A página exibe #000000, ou rgb(0, 0, 0). Pixels OLED podem reduzir ou desligar a emissão individualmente, enquanto um painel LCD continua bloqueando uma luz de fundo ativa. O preto pode reduzir o consumo em alguns OLED, mas o resultado depende do painel, brilho, configurações e restante da interface.",
+            "how_to_title": "Como usar a tela preta",
+            "sections": [
+              {
+                "title": "Visualização em ambiente escuro",
+                "text": "Use o campo preto quando uma janela clara atrapalhar um filme, apresentação, sessão de fotos ou outra atividade com pouca luz. Ele muda os pixels, mas não desliga o monitor."
+              },
+              {
+                "title": "Nível de preto e vazamento de luz",
+                "text": "Em um ambiente escuro, observe brilho nos cantos, manchas nubladas, vazamento nas bordas ou pixels que continuam coloridos. Para vários padrões, use o testador de painel LCD."
+              },
+              {
+                "title": "Comportamento de OLED e LCD",
+                "text": "O OLED cria o preto reduzindo ou desligando pixels individuais. O LCD precisa bloquear uma luz de fundo ainda ativa, por isso algum brilho ou preto elevado pode permanecer."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Uma tela preta sempre economiza energia?",
+                "a": "Não. Ela pode reduzir o consumo em alguns dispositivos OLED, enquanto a luz de fundo LCD continua ativa; brilho, configurações e outras interfaces também contam."
+              },
+              {
+                "q": "Como verificar vazamento de luz?",
+                "a": "Exiba o campo preto em um ambiente escuro, com brilho e distância normais, e observe bordas e cantos sem pressionar o painel."
+              },
+              {
+                "q": "Esta página desliga o monitor?",
+                "a": "Não. Ela apenas envia valores de pixels pretos. Use o botão de energia ou o modo de suspensão do sistema para desligar o painel."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran noir - Vérifier niveau de noir, fuites et pixels lumineux",
+            "og_title": "Écran noir - Vérifier niveau de noir, fuites et pixels lumineux",
+            "og_description": "Affichez #000000 dans une pièce sombre pour observer le niveau de noir, les bords et les pixels lumineux. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #000000 dans une pièce sombre pour observer le niveau de noir, les bords et les pixels lumineux. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran noir, écran noir plein écran, #000000, vérifier niveau de noir, fuite de rétroéclairage, noir OLED, fond noir",
+            "page_heading": "Écran noir",
+            "color_name": "Noir",
+            "intent_note": "Ce champ noir sert à observer les scènes sombres et le niveau de noir ; il n’éteint pas l’appareil et ne constitue pas un diagnostic complet de dalle.",
+            "color_intro": "Remplissez de noir pur un écran voisin pour le rendre visuellement discret. Utilisez-le pour observer les scènes sombres ou chercher des halos de bord et une lumière irrégulière dans une pièce sombre. Les PNG conservent la même valeur numérique de noir.",
+            "technical": "La page affiche #000000, soit rgb(0, 0, 0). Les pixels OLED peuvent réduire ou couper leur émission individuellement, tandis qu’une dalle LCD doit bloquer un rétroéclairage toujours actif. Le noir peut réduire la consommation sur certains OLED, mais le résultat dépend de la dalle, de la luminosité, des réglages et du reste de l’interface.",
+            "how_to_title": "Comment utiliser l’écran noir",
+            "sections": [
+              {
+                "title": "Observation dans le noir",
+                "text": "Utilisez le champ noir lorsqu’une fenêtre claire gênerait un film, une présentation, une séance photo ou une autre activité en faible lumière. Les pixels changent, mais le moniteur reste allumé."
+              },
+              {
+                "title": "Niveau de noir et fuites de lumière",
+                "text": "Dans une pièce sombre, observez les halos aux coins, les taches nuageuses, les fuites sur les bords et les pixels qui restent colorés. Pour plusieurs motifs, utilisez le testeur de dalle LCD."
+              },
+              {
+                "title": "Comportement OLED et LCD",
+                "text": "L’OLED crée le noir en diminuant ou en coupant chaque pixel. Le LCD doit bloquer un rétroéclairage actif, ce qui peut laisser un halo ou un noir relevé."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Un écran noir économise-t-il toujours de l’énergie ?",
+                "a": "Non. Il peut réduire la consommation de certains appareils OLED, tandis que le rétroéclairage LCD reste actif ; luminosité, réglages et autres éléments de l’interface comptent aussi."
+              },
+              {
+                "q": "Comment vérifier une fuite de rétroéclairage ?",
+                "a": "Affichez le champ noir dans une pièce sombre, avec votre luminosité et votre distance habituelles, puis observez bords et coins sans appuyer sur la dalle."
+              },
+              {
+                "q": "Cette page éteint-elle le moniteur ?",
+                "a": "Non. Elle envoie uniquement des valeurs de pixels noires. Utilisez le bouton d’alimentation ou la veille du système pour éteindre l’écran."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "red-screen",
+      "template": "color-page",
+      "output": "red-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/red-screen",
+        "og_url": "https://screensizechecker.com/red-screen",
+        "og_type": "website",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "page_title": "Red Screen - Fullscreen Pure Red Background Tool",
+        "description": "Open a red screen (#FF0000) for red-channel inspection and low-light creative backgrounds. Use it fullscreen or download free 1080p and 4K PNGs.",
+        "page_keywords": "red screen, fullscreen red screen, #FF0000, red channel check, red background, low light task screen, red background download",
+        "og_title": "Red Screen - Fullscreen Pure Red Background Tool",
+        "og_description": "Open a fullscreen red screen in exact #FF0000 for red-channel inspection and low-light creative tasks, with free 1080p and 4K PNG downloads.",
+        "page_heading": "Red Screen",
+        "color_name": "Red",
+        "hex": "#FF0000",
+        "rgb": "rgb(255, 0, 0)",
+        "intent_note": "This is an exact red field for red-channel inspection and creative low-light use, not a medical, night-vision, or safety tool.",
+        "color_intro": "Fill the display with solid red. Use it to inspect the red channel, create a bold backdrop, or add a low-light accent at comfortable brightness. Download the PNG for the same numeric red in an editor or presentation.",
+        "technical": "This page renders #FF0000, or rgb(255, 0, 0), with green and blue set to zero. Red is often used in dark-adapted settings. Its effect depends on screen brightness, panel output, ambient light, and individual vision. This field makes no medical or night-vision guarantee.",
+        "sections": [
+          {
+            "title": "Red-channel inspection",
+            "text": "A pure red field isolates the display's red channel, making dark, weak, stuck, or off-color areas easier to notice. Compare green and blue fields or use the LCD Screen Tester for deeper diagnosis."
+          },
+          {
+            "title": "Low-light task accent",
+            "text": "At reduced brightness, red can be a less visually disruptive accent for astronomy notes, backstage work, or darkroom-adjacent tasks. Adjust it for comfort and for the requirements of the activity."
+          },
+          {
+            "title": "Bold creative backdrop",
+            "text": "Use saturated red behind a small subject, in a streaming scene, or bounced onto a wall for a strong accent. Camera exposure, white balance, display settings, and room surfaces affect the recorded shade."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Can a red screen inspect the red channel?",
+            "a": "Yes. #FF0000 drives the red channel while green and blue remain at zero, making some red-channel differences easier to notice."
+          },
+          {
+            "q": "Does this preserve night vision?",
+            "a": "It is commonly used for dark-adapted tasks, but the page makes no guarantee; brightness, viewing time, environment, and individual vision all matter."
+          },
+          {
+            "q": "Is #FF0000 a calibrated red light?",
+            "a": "No. It is the exact CSS red pixel value, while the display's spectrum and visible output depend on its panel and settings."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "how_to_title": "How to use this red screen",
+        "locales": {
+          "zh": {
+            "page_title": "红色屏幕 - 检查红色通道与低光背景",
+            "og_title": "红色屏幕 - 检查红色通道与低光背景",
+            "og_description": "打开 #FF0000 红色屏幕，检查红色通道或制作低光创意背景。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #FF0000 红色屏幕，检查红色通道或制作低光创意背景。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "红色屏幕, 红屏, #FF0000, 红色通道检查, 低光背景, 直播背景, 红色背景下载",
+            "page_heading": "红色屏幕",
+            "color_name": "红色",
+            "intent_note": "这是用于红色通道观察和低光创作用途的纯红色区域，不是医疗、夜视或安全工具。",
+            "color_intro": "显示纯红色可以单独观察红色通道，也能作为摄影或直播背景，或在合适亮度下为低光任务增加色彩点缀。PNG 下载适合在编辑器或演示文稿中复用相同的红色。",
+            "technical": "本页显示 #FF0000，即 rgb(255, 0, 0)，绿色和蓝色通道为零。红色常用于暗适应环境，但亮度、面板输出、环境光和个人视觉都会影响结果，因此不作医疗或夜视保证。",
+            "how_to_title": "如何使用红色屏幕",
+            "sections": [
+              {
+                "title": "检查红色通道",
+                "text": "纯红色只驱动红色通道，暗淡、失效或偏色区域更容易显现。需要定位原因时，再比较绿色和蓝色页面或使用液晶屏幕测试器。"
+              },
+              {
+                "title": "低光任务点缀",
+                "text": "降低亮度后，红色可作为天文记录、后台工作或暗室附近任务中较少打扰视线的点缀。请根据环境和任务调整亮度。"
+              },
+              {
+                "title": "醒目的创意背景",
+                "text": "用饱和红色衬托小型主体、直播画面或墙面反光，可形成强烈视觉重点。相机曝光、白平衡、屏幕设置和房间表面会改变拍摄到的色调。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "红色屏幕能检查红色通道吗？",
+                "a": "可以。#FF0000 让红色通道保持最大值，同时将绿色和蓝色设为零，便于发现部分通道差异。"
+              },
+              {
+                "q": "它能保留夜视能力吗？",
+                "a": "它常用于暗适应任务，但页面不作保证；亮度、观看时间、环境和个人视觉都会影响体验。"
+              },
+              {
+                "q": "#FF0000 是校准红光吗？",
+                "a": "不是。这是 CSS 的精确红色像素值，屏幕的光谱和实际可见输出取决于面板及设置。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Roter Bildschirm - Rotkanal und dunkle Hintergründe prüfen",
+            "og_title": "Roter Bildschirm - Rotkanal und dunkle Hintergründe prüfen",
+            "og_description": "Zeigen Sie #FF0000 für eine Rotkanalprüfung und kreative Hintergründe bei wenig Licht. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #FF0000 für eine Rotkanalprüfung und kreative Hintergründe bei wenig Licht. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "roter Bildschirm, rotes Vollbild, #FF0000, Rotkanal prüfen, Hintergrund bei wenig Licht, roter Hintergrund",
+            "page_heading": "Roter Bildschirm",
+            "color_name": "Rot",
+            "intent_note": "Die rote Fläche dient der Rotkanalprüfung und kreativen Nutzung bei wenig Licht; sie ist weder Medizin- noch Nachtsicht- oder Sicherheitswerkzeug.",
+            "color_intro": "Ein vollständig rotes Display isoliert den Rotkanal, eignet sich als Foto- oder Streaming-Hintergrund und setzt bei angenehmer Helligkeit einen Akzent für Aufgaben im Dunkeln. Die PNGs bewahren denselben Rotwert.",
+            "technical": "Die Seite rendert #FF0000 beziehungsweise rgb(255, 0, 0); Grün und Blau stehen auf null. Rot wird häufig bei dunkeladaptierten Aufgaben genutzt, doch Helligkeit, Panel, Umgebungslicht und individuelles Sehen bestimmen das Ergebnis.",
+            "how_to_title": "So verwenden Sie den roten Bildschirm",
+            "sections": [
+              {
+                "title": "Rotkanal prüfen",
+                "text": "Das reine Rot isoliert den Rotkanal, sodass dunkle, schwache oder verfärbte Stellen auffallen. Vergleichen Sie bei Bedarf Grün und Blau oder nutzen Sie den LCD-Bildschirmtester."
+              },
+              {
+                "title": "Akzent bei wenig Licht",
+                "text": "Bei reduzierter Helligkeit kann Rot bei Sternbeobachtung, Bühnenarbeit oder ähnlichen Aufgaben weniger störend wirken. Passen Sie die Helligkeit an Umgebung und Aufgabe an."
+              },
+              {
+                "title": "Kräftiger kreativer Hintergrund",
+                "text": "Sattes Rot hinter einem kleinen Motiv, in einer Streaming-Szene oder als Wandreflex erzeugt einen starken Akzent. Kamera, Weißabgleich, Display und Raumflächen verändern den aufgezeichneten Ton."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Prüft ein roter Bildschirm den Rotkanal?",
+                "a": "Ja. #FF0000 setzt den Rotkanal auf den Maximalwert und Grün sowie Blau auf null, wodurch manche Unterschiede leichter sichtbar werden."
+              },
+              {
+                "q": "Erhält Rot die Nachtsicht?",
+                "a": "Rot wird oft für dunkeladaptierte Aufgaben genutzt, aber diese Seite gibt keine Garantie; Helligkeit, Dauer, Umgebung und Sehvermögen spielen mit."
+              },
+              {
+                "q": "Ist #FF0000 ein kalibriertes Rotlicht?",
+                "a": "Nein. Es ist der exakte CSS-Pixelwert; Spektrum und sichtbare Ausgabe hängen von Panel und Einstellungen ab."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla roja - Revisa el canal rojo y crea fondos para poca luz",
+            "og_title": "Pantalla roja - Revisa el canal rojo y crea fondos para poca luz",
+            "og_description": "Muestra #FF0000 para comprobar el canal rojo y crear fondos con poca luz. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #FF0000 para comprobar el canal rojo y crear fondos con poca luz. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla roja, pantalla roja completa, #FF0000, comprobar canal rojo, fondo para poca luz, fondo rojo, descarga PNG",
+            "page_heading": "Pantalla roja",
+            "color_name": "Rojo",
+            "intent_note": "Es un campo rojo para revisar el canal rojo y usarlo en contextos creativos con poca luz; no es una herramienta médica, de visión nocturna ni de seguridad.",
+            "color_intro": "Rellena la pantalla de rojo puro para aislar el canal rojo. Úsala como fondo para fotos o streaming o como acento en tareas con poca luz. Ajusta el brillo para que resulte cómodo. El PNG conserva el mismo rojo numérico.",
+            "technical": "La página muestra #FF0000, o rgb(255, 0, 0), con verde y azul en cero. El rojo se usa a menudo en entornos adaptados a la oscuridad. El brillo, el panel, la luz ambiente y la visión individual cambian el resultado. No ofrece garantías médicas ni de visión nocturna.",
+            "how_to_title": "Cómo usar la pantalla roja",
+            "sections": [
+              {
+                "title": "Comprueba el canal rojo",
+                "text": "El rojo puro aísla el canal rojo y facilita ver zonas oscuras, débiles o con otro tono. Compara las pantallas verde y azul o usa el comprobador LCD para investigar más."
+              },
+              {
+                "title": "Acento para poca luz",
+                "text": "Con brillo reducido, el rojo puede resultar menos molesto en anotaciones astronómicas, trabajo entre bastidores u otras tareas de poca luz. Ajusta el brillo al entorno."
+              },
+              {
+                "title": "Fondo creativo intenso",
+                "text": "Usa rojo saturado detrás de un objeto pequeño, en una escena de streaming o reflejado en una pared. La exposición, el balance de blancos, la pantalla y la superficie cambian el tono grabado."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Una pantalla roja revisa el canal rojo?",
+                "a": "Sí. #FF0000 lleva el canal rojo al máximo y deja verde y azul en cero, lo que facilita notar algunas diferencias."
+              },
+              {
+                "q": "¿Conserva la visión nocturna?",
+                "a": "Se usa a menudo en tareas adaptadas a la oscuridad, pero la página no ofrece garantías: influyen brillo, tiempo, entorno y visión."
+              },
+              {
+                "q": "¿Es #FF0000 una luz roja calibrada?",
+                "a": "No. Es un valor de píxel CSS exacto; el espectro y la salida visible dependen del panel y los ajustes."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela vermelha - Verifique o canal vermelho e fundos para pouca luz",
+            "og_title": "Tela vermelha - Verifique o canal vermelho e fundos para pouca luz",
+            "og_description": "Exiba #FF0000 para verificar o canal vermelho e criar fundos com pouca luz. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #FF0000 para verificar o canal vermelho e criar fundos com pouca luz. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela vermelha, tela vermelha em tela cheia, #FF0000, verificar canal vermelho, fundo para pouca luz, fundo vermelho",
+            "page_heading": "Tela vermelha",
+            "color_name": "Vermelho",
+            "intent_note": "É uma área vermelha para inspeção do canal vermelho e uso criativo com pouca luz; não é ferramenta médica, de visão noturna ou de segurança.",
+            "color_intro": "Preencha a tela com vermelho puro para isolar o canal vermelho. Use-a como fundo para fotos ou streaming ou como destaque em tarefas com pouca luz. Ajuste o brilho para ficar confortável. O PNG mantém o mesmo vermelho numérico.",
+            "technical": "A página exibe #FF0000, ou rgb(255, 0, 0), com verde e azul em zero. O vermelho é usado em ambientes adaptados à escuridão. Brilho, painel, luz ambiente e visão individual mudam o resultado. A página não oferece garantias médicas nem de visão noturna.",
+            "how_to_title": "Como usar a tela vermelha",
+            "sections": [
+              {
+                "title": "Verifique o canal vermelho",
+                "text": "O vermelho puro isola o canal vermelho e facilita notar áreas escuras, fracas ou com outra cor. Compare as telas verde e azul ou use o testador LCD para investigar."
+              },
+              {
+                "title": "Destaque em pouca luz",
+                "text": "Com brilho reduzido, o vermelho pode incomodar menos em anotações de astronomia, trabalho de bastidores e tarefas parecidas. Ajuste ao ambiente."
+              },
+              {
+                "title": "Fundo criativo intenso",
+                "text": "Use vermelho saturado atrás de um objeto pequeno, em uma cena de streaming ou refletido na parede. Exposição, balanço de branco, tela e superfícies mudam o tom registrado."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Uma tela vermelha verifica o canal vermelho?",
+                "a": "Sim. #FF0000 deixa o canal vermelho no máximo e verde e azul em zero, facilitando perceber algumas diferenças."
+              },
+              {
+                "q": "Ela preserva a visão noturna?",
+                "a": "É comum em tarefas adaptadas ao escuro, mas a página não oferece garantia; brilho, duração, ambiente e visão influenciam."
+              },
+              {
+                "q": "#FF0000 é uma luz vermelha calibrada?",
+                "a": "Não. É um valor exato de pixel CSS; espectro e saída visível dependem do painel e das configurações."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran rouge - Vérifier le canal rouge et créer un fond en faible lumière",
+            "og_title": "Écran rouge - Vérifier le canal rouge et créer un fond en faible lumière",
+            "og_description": "Affichez #FF0000 pour vérifier le canal rouge ou créer un fond en faible lumière. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #FF0000 pour vérifier le canal rouge ou créer un fond en faible lumière. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran rouge, écran rouge plein écran, #FF0000, vérifier canal rouge, fond faible lumière, fond rouge",
+            "page_heading": "Écran rouge",
+            "color_name": "Rouge",
+            "intent_note": "Ce champ rouge sert à observer le canal rouge et à créer un fond en faible lumière. Ce n’est ni un outil médical, ni une aide à la vision nocturne, ni un signal de sécurité.",
+            "color_intro": "Remplissez l’écran de rouge pur pour isoler le canal rouge. Utilisez-le comme fond photo ou vidéo, ou comme accent en faible lumière. Réglez une luminosité confortable. Le PNG conserve la même valeur numérique.",
+            "technical": "La page affiche #FF0000, soit rgb(255, 0, 0), avec le vert et le bleu à zéro. Le rouge est utilisé dans des environnements adaptés à l’obscurité. Luminosité, dalle, lumière ambiante et vision individuelle modifient le résultat. La page ne garantit aucun effet médical ou de vision nocturne.",
+            "how_to_title": "Comment utiliser l’écran rouge",
+            "sections": [
+              {
+                "title": "Vérifier le canal rouge",
+                "text": "Le rouge pur isole le canal rouge et rend certaines zones sombres, faibles ou décolorées plus visibles. Comparez les écrans vert et bleu ou utilisez le testeur LCD."
+              },
+              {
+                "title": "Accent en faible lumière",
+                "text": "À luminosité réduite, le rouge peut être moins gênant pour des notes d’astronomie, un travail en coulisses ou d’autres tâches en faible lumière. Réglez-le selon le contexte."
+              },
+              {
+                "title": "Fond créatif intense",
+                "text": "Un rouge saturé derrière un petit sujet, dans une scène vidéo ou réfléchi sur un mur crée un accent fort. Exposition, balance des blancs, écran et surfaces changent le ton capté."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Un écran rouge permet-il de vérifier le canal rouge ?",
+                "a": "Oui. #FF0000 met le canal rouge au maximum et le vert ainsi que le bleu à zéro, ce qui facilite l’observation de certaines différences."
+              },
+              {
+                "q": "Préserve-t-il la vision nocturne ?",
+                "a": "Il est souvent utilisé pour les tâches adaptées à l’obscurité, mais la page ne donne aucune garantie : luminosité, durée, environnement et vision comptent."
+              },
+              {
+                "q": "#FF0000 est-il une lumière rouge calibrée ?",
+                "a": "Non. Il s’agit d’une valeur de pixel CSS exacte ; le spectre et le rendu visible dépendent de la dalle et des réglages."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "green-screen",
+      "template": "color-page",
+      "output": "green-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/green-screen",
+        "page_title": "Green Screen - Fullscreen Chroma Key Background",
+        "description": "Open a green screen (#00FF00) for chroma-key setup and green-channel checks. Use it fullscreen or download free 1080p and 4K PNG backgrounds.",
+        "page_keywords": "green screen, fullscreen green screen, chroma key background, #00FF00, green channel check, green background download",
+        "og_title": "Green Screen - Fullscreen Chroma Key Background",
+        "og_description": "Open a fullscreen green screen in exact #00FF00 for chroma-key setup and green-channel checks, with free 1080p and 4K PNG downloads.",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/green-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Green Screen",
+        "color_name": "Green",
+        "hex": "#00FF00",
+        "rgb": "rgb(0, 255, 0)",
+        "intent_note": "This is an exact solid green field for chroma-key preparation and green-channel inspection, not video editing software.",
+        "color_intro": "Open the solid field fullscreen to frame a small chroma-key shot, inspect a green background, or check how your display renders its green channel. Use the PNG downloads when you need the same pixel value as a static backdrop in an editor or presentation.",
+        "technical": "This page renders the exact CSS color #00FF00, or rgb(0, 255, 0), with red and blue set to zero. Production keying may use a different green, and even lighting, exposure, camera white balance, display settings, and ambient light all affect the recorded result.",
+        "sections": [
+          {
+            "title": "Chroma-key setup",
+            "text": "Use the fullscreen field as a quick background for small objects, video-call framing, or a keyer preview. Keep the subject separated from the display and check the camera view for green spill before recording."
+          },
+          {
+            "title": "Green-channel inspection",
+            "text": "A pure green field isolates the display's green channel, making dark, weak, or off-color areas easier to notice. Use the dedicated LCD Screen Tester for a guided multi-pattern diagnosis."
+          },
+          {
+            "title": "Even coverage matters",
+            "text": "A usable key depends on consistent color and exposure across the frame, not maximum brightness. Check for screen reflections, hotspots, and edge falloff, then adjust the display and camera for a flatter background."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Is #00FF00 the standard production chroma-key green?",
+            "a": "Not always. #00FF00 is exact CSS green, while studios may use a different fabric, paint, or digital key color chosen for their camera and software."
+          },
+          {
+            "q": "Can this page remove a video background?",
+            "a": "No. It supplies a solid green field or PNG; background removal still happens in your camera, streaming app, or video editor."
+          },
+          {
+            "q": "Why does the green look different through my camera?",
+            "a": "Camera exposure, white balance, picture profiles, display brightness, and room light can change the recorded color. The page's pixel value remains #00FF00."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this green screen",
+        "locales": {
+          "zh": {
+            "page_title": "绿色屏幕 - 色键背景与绿色通道检查",
+            "og_title": "绿色屏幕 - 色键背景与绿色通道检查",
+            "og_description": "打开 #00FF00 绿色屏幕，用于色键准备和绿色通道检查。可免费下载 1080p 与 4K PNG 背景。",
+            "description": "打开 #00FF00 绿色屏幕，用于色键准备和绿色通道检查。可免费下载 1080p 与 4K PNG 背景。",
+            "page_keywords": "绿色屏幕, 绿幕, #00FF00, 色键背景, 绿色通道检查, 绿色背景下载",
+            "page_heading": "绿色屏幕",
+            "color_name": "绿色",
+            "intent_note": "这是用于色键准备和绿色通道观察的纯绿色区域，不是视频编辑软件。",
+            "color_intro": "全屏显示纯绿色，可为小型色键拍摄、视频通话构图或绿色通道检查提供快速背景。需要固定素材时，可下载相同像素值的 PNG。",
+            "technical": "本页显示精确的 CSS 绿色 #00FF00，即 rgb(0, 255, 0)，红色和蓝色为零。实际抠像可能使用其他绿色；均匀照明、曝光、相机白平衡、屏幕设置和环境光都会影响记录结果。",
+            "how_to_title": "如何使用绿色屏幕",
+            "sections": [
+              {
+                "title": "色键拍摄准备",
+                "text": "把全屏绿色作为小物体、视频通话或抠像预览的快速背景。让主体与屏幕保持距离，并在拍摄前检查相机画面中的绿光溢出。"
+              },
+              {
+                "title": "检查绿色通道",
+                "text": "纯绿色会单独突出绿色通道，让暗淡、失效或偏色区域更容易看到。需要多图案检查时请使用液晶屏幕测试器。"
+              },
+              {
+                "title": "保持背景均匀",
+                "text": "可用的色键背景依靠整个画面颜色和曝光一致，而不是最高亮度。检查反光、热点和边缘变暗，再同时调整屏幕与相机。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#00FF00 是标准的专业抠像绿吗？",
+                "a": "不一定。#00FF00 是精确的 CSS 绿色，片场可能根据相机和软件选择其他布料、涂料或数字绿色。"
+              },
+              {
+                "q": "这个页面能自动去除视频背景吗？",
+                "a": "不能。它提供纯绿色页面或 PNG，真正的背景移除仍由相机、直播应用或视频编辑器完成。"
+              },
+              {
+                "q": "为什么相机里的绿色不一样？",
+                "a": "曝光、白平衡、画面配置、屏幕亮度和房间光线都会改变拍摄效果，即使像素值仍是 #00FF00。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Grüner Bildschirm - Chroma-Key-Hintergrund und Grünkanal prüfen",
+            "og_title": "Grüner Bildschirm - Chroma-Key-Hintergrund und Grünkanal prüfen",
+            "og_description": "Zeigen Sie #00FF00 für Chroma-Key-Aufnahmen und eine Grünkanalprüfung. Laden Sie kostenlose PNG-Hintergründe in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #00FF00 für Chroma-Key-Aufnahmen und eine Grünkanalprüfung. Laden Sie kostenlose PNG-Hintergründe in 1080p und 4K herunter.",
+            "page_keywords": "grüner Bildschirm, Greenscreen, #00FF00, Chroma-Key-Hintergrund, Grünkanal prüfen, grüner Hintergrund",
+            "page_heading": "Grüner Bildschirm",
+            "color_name": "Grün",
+            "intent_note": "Die grüne Fläche dient der Chroma-Key-Vorbereitung und Grünkanalprüfung; sie ist keine Videoschnittsoftware.",
+            "color_intro": "Die Vollbildfläche eignet sich als schneller Hintergrund für kleine Chroma-Key-Aufnahmen, Bildausschnitte bei Videoanrufen oder die Kontrolle des Grünkanals. Die PNGs liefern denselben Pixelwert für Schnitt und Präsentation.",
+            "technical": "Die Seite rendert das CSS-Grün #00FF00 beziehungsweise rgb(0, 255, 0); Rot und Blau stehen auf null. Für echte Keying-Produktionen kann ein anderer Grünton verwendet werden. Gleichmäßiges Licht, Belichtung, Weißabgleich, Display und Raumlicht beeinflussen das Ergebnis.",
+            "how_to_title": "So verwenden Sie den grünen Bildschirm",
+            "sections": [
+              {
+                "title": "Chroma-Key vorbereiten",
+                "text": "Nutzen Sie das Vollbild als schnellen Hintergrund für kleine Motive, Videoanrufe oder eine Keyer-Vorschau. Halten Sie Abstand und achten Sie vor der Aufnahme auf grünes Streulicht."
+              },
+              {
+                "title": "Grünkanal prüfen",
+                "text": "Reines Grün isoliert den Grünkanal und macht dunkle, schwache oder verfärbte Stellen sichtbar. Für weitere Muster hilft der LCD-Bildschirmtester."
+              },
+              {
+                "title": "Gleichmäßige Fläche schaffen",
+                "text": "Ein brauchbarer Key verlangt gleichmäßige Farbe und Belichtung über das ganze Bild, nicht maximale Helligkeit. Prüfen Sie Reflexe, Hotspots und Randabfall und stimmen Sie Display und Kamera ab."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Ist #00FF00 das Standardgrün für Chroma-Key?",
+                "a": "Nicht immer. #00FF00 ist exaktes CSS-Grün; Produktionen wählen je nach Kamera und Software anderes Tuch, andere Farbe oder einen anderen Digitalwert."
+              },
+              {
+                "q": "Entfernt diese Seite einen Videohintergrund?",
+                "a": "Nein. Sie liefert eine grüne Fläche oder PNG-Datei; die Entfernung erfolgt weiterhin in Kamera, Streaming-App oder Schnittprogramm."
+              },
+              {
+                "q": "Warum sieht Grün durch die Kamera anders aus?",
+                "a": "Belichtung, Weißabgleich, Bildprofil, Displayhelligkeit und Raumlicht verändern die Aufnahme, obwohl der Pixelwert #00FF00 bleibt."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla verde - Fondo de croma y revisión del canal verde",
+            "og_title": "Pantalla verde - Fondo de croma y revisión del canal verde",
+            "og_description": "Muestra #00FF00 para preparar un fondo de croma y revisar el canal verde. Descarga gratis fondos PNG en 1080p y 4K.",
+            "description": "Muestra #00FF00 para preparar un fondo de croma y revisar el canal verde. Descarga gratis fondos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla verde, fondo de croma, #00FF00, canal verde, fondo verde, descarga PNG",
+            "page_heading": "Pantalla verde",
+            "color_name": "Verde",
+            "intent_note": "Es un campo verde para preparar el croma y observar el canal verde; no es un programa de edición de vídeo.",
+            "color_intro": "Abre el campo verde a pantalla completa para preparar una toma con croma o revisar un fondo. También permite observar el canal verde. Los PNG conservan el mismo valor para editores y presentaciones.",
+            "technical": "La página muestra el verde CSS exacto #00FF00, o rgb(0, 255, 0), con rojo y azul a cero. Una producción puede usar otro verde; la iluminación uniforme, exposición, balance de blancos, pantalla y luz ambiente alteran el resultado.",
+            "how_to_title": "Cómo usar la pantalla verde",
+            "sections": [
+              {
+                "title": "Prepara el croma",
+                "text": "Usa el campo completo como fondo rápido para objetos, videollamadas o una vista previa del recortador. Separa el sujeto de la pantalla y revisa el derrame verde antes de grabar."
+              },
+              {
+                "title": "Revisa el canal verde",
+                "text": "El verde puro aísla el canal verde y facilita ver zonas oscuras, débiles o con otro color. Para más patrones, usa el comprobador LCD."
+              },
+              {
+                "title": "Mantén una cobertura uniforme",
+                "text": "Un buen croma necesita color y exposición uniformes en todo el encuadre, no el brillo máximo. Comprueba reflejos, puntos calientes y pérdida en los bordes; ajusta pantalla y cámara."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Es #00FF00 el verde estándar para croma?",
+                "a": "No siempre. #00FF00 es el verde CSS exacto, pero cada producción puede elegir tela, pintura o valor digital según su cámara y software."
+              },
+              {
+                "q": "¿Esta página elimina un fondo de vídeo?",
+                "a": "No. Ofrece un campo verde o un PNG; la eliminación se hace en la cámara, la aplicación de streaming o el editor."
+              },
+              {
+                "q": "¿Por qué la cámara muestra otro verde?",
+                "a": "La exposición, el balance de blancos, el perfil de imagen, el brillo y la luz del cuarto cambian la grabación aunque el píxel siga siendo #00FF00."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela verde - Fundo de chroma key e verificação do canal verde",
+            "og_title": "Tela verde - Fundo de chroma key e verificação do canal verde",
+            "og_description": "Exiba #00FF00 para preparar chroma key e verificar o canal verde. Baixe fundos PNG gratuitos em 1080p e 4K.",
+            "description": "Exiba #00FF00 para preparar chroma key e verificar o canal verde. Baixe fundos PNG gratuitos em 1080p e 4K.",
+            "page_keywords": "tela verde, fundo chroma key, #00FF00, verificar canal verde, fundo verde, download PNG",
+            "page_heading": "Tela verde",
+            "color_name": "Verde",
+            "intent_note": "É uma área verde para preparar chroma key e observar o canal verde; não é um software de edição de vídeo.",
+            "color_intro": "Abra o campo verde em tela cheia para preparar uma gravação com chroma key ou revisar o fundo. Ele também permite verificar o canal verde. Os PNGs mantêm o mesmo valor para editores e apresentações.",
+            "technical": "A página exibe o verde CSS exato #00FF00, ou rgb(0, 255, 0), com vermelho e azul em zero. Uma produção pode usar outro verde; iluminação uniforme, exposição, balanço de branco, tela e luz ambiente mudam o resultado.",
+            "how_to_title": "Como usar a tela verde",
+            "sections": [
+              {
+                "title": "Prepare o chroma key",
+                "text": "Use o campo cheio como fundo rápido para objetos, chamadas de vídeo ou prévia do recorte. Afaste o objeto da tela e verifique o vazamento verde antes de gravar."
+              },
+              {
+                "title": "Verifique o canal verde",
+                "text": "O verde puro isola o canal verde e facilita notar áreas escuras, fracas ou com outra cor. Para mais padrões, use o testador LCD."
+              },
+              {
+                "title": "Mantenha a cobertura uniforme",
+                "text": "Um chroma key consistente exige cor e exposição uniformes em todo o quadro, não brilho máximo. Observe reflexos, pontos quentes e escurecimento nas bordas e ajuste tela e câmera."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#00FF00 é o verde padrão de chroma key?",
+                "a": "Nem sempre. #00FF00 é o verde CSS exato, mas cada produção escolhe tecido, tinta ou valor digital conforme câmera e software."
+              },
+              {
+                "q": "Esta página remove fundo de vídeo?",
+                "a": "Não. Ela oferece um campo verde ou PNG; a remoção acontece na câmera, no app de streaming ou no editor."
+              },
+              {
+                "q": "Por que a câmera mostra outro verde?",
+                "a": "Exposição, balanço de branco, perfil de imagem, brilho e luz do ambiente alteram a gravação, mesmo com o pixel em #00FF00."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran vert - Fond chroma key et vérification du canal vert",
+            "og_title": "Écran vert - Fond chroma key et vérification du canal vert",
+            "og_description": "Affichez #00FF00 pour préparer un fond chroma key et vérifier le canal vert. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #00FF00 pour préparer un fond chroma key et vérifier le canal vert. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran vert, fond chroma key, #00FF00, vérifier canal vert, fond vert, téléchargement PNG",
+            "page_heading": "Écran vert",
+            "color_name": "Vert",
+            "intent_note": "Ce champ vert sert à préparer un chroma key et à observer le canal vert ; ce n’est pas un logiciel de montage vidéo.",
+            "color_intro": "Ouvrez le champ vert en plein écran pour préparer une prise chroma key ou vérifier le fond. Il permet aussi d’observer le canal vert. Les PNG gardent la même valeur pour le montage et les présentations.",
+            "technical": "La page affiche le vert CSS exact #00FF00, soit rgb(0, 255, 0), avec le rouge et le bleu à zéro. Une production peut choisir un autre vert ; éclairage uniforme, exposition, balance des blancs, écran et lumière ambiante modifient le résultat.",
+            "how_to_title": "Comment utiliser l’écran vert",
+            "sections": [
+              {
+                "title": "Préparer le chroma key",
+                "text": "Utilisez le champ comme fond rapide pour un petit objet, un appel vidéo ou un aperçu de détourage. Éloignez le sujet de l’écran et vérifiez les débordements verts avant de filmer."
+              },
+              {
+                "title": "Vérifier le canal vert",
+                "text": "Le vert pur isole le canal vert et rend visibles certaines zones sombres, faibles ou décolorées. Pour d’autres motifs, utilisez le testeur LCD."
+              },
+              {
+                "title": "Garder une surface uniforme",
+                "text": "Un bon détourage demande une couleur et une exposition régulières sur toute l’image, pas une luminosité maximale. Contrôlez reflets, points chauds et bords plus sombres, puis réglez écran et caméra."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#00FF00 est-il le vert standard du chroma key ?",
+                "a": "Pas toujours. #00FF00 est le vert CSS exact, mais une production choisit toile, peinture ou valeur numérique selon sa caméra et son logiciel."
+              },
+              {
+                "q": "Cette page retire-t-elle un arrière-plan vidéo ?",
+                "a": "Non. Elle fournit un champ vert ou un PNG ; le retrait se fait dans la caméra, l’application de streaming ou le logiciel de montage."
+              },
+              {
+                "q": "Pourquoi le vert diffère-t-il sur la caméra ?",
+                "a": "Exposition, balance des blancs, profil d’image, luminosité et lumière de la pièce changent l’image captée même si le pixel reste #00FF00."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "blue-screen",
+      "template": "color-page",
+      "output": "blue-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/blue-screen",
+        "page_title": "Blue Screen - Fullscreen Solid Blue Background",
+        "description": "Open a blue screen (#0000FF) for blue-channel checks and creative backdrops. Use it fullscreen or download free 1080p and 4K PNG backgrounds.",
+        "page_keywords": "blue screen, fullscreen blue screen, solid blue background, #0000FF, blue channel check, blue background download",
+        "og_title": "Blue Screen - Fullscreen Solid Blue Background",
+        "og_description": "Open a plain fullscreen blue field in exact #0000FF for blue-channel checks and creative backdrops, with free 1080p and 4K PNG downloads.",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/blue-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Blue Screen",
+        "color_name": "Blue",
+        "hex": "#0000FF",
+        "rgb": "rgb(0, 0, 255)",
+        "intent_note": "This is a plain solid blue color field, not a Windows error screen, BSOD imitation, or system diagnostic.",
+        "color_intro": "Fill the display with solid blue. Use it as a photo or streaming backdrop, a cool ambient accent, or a visual check of the blue channel. The PNGs provide the same numeric color for slides, overlays, and editing.",
+        "technical": "This page renders #0000FF, or rgb(0, 0, 255), with only the blue channel at full numeric value. Blue can appear less bright than red or green, and its appearance varies with panel type, display settings, brightness, and ambient light. It is a color utility, not a sleep aid or calibrated light source.",
+        "sections": [
+          {
+            "title": "Plain blue, not a BSOD",
+            "text": "The page shows one uninterrupted blue field without error text, crash graphics, or troubleshooting claims. It neither imitates nor diagnoses a Windows blue screen of death."
+          },
+          {
+            "title": "Blue-channel inspection",
+            "text": "A #0000FF field isolates the blue channel so dark, weak, or discolored areas are easier to notice. Compare it with the red and green pages, or use the LCD Screen Tester for guided patterns."
+          },
+          {
+            "title": "Creative backdrop and ambient color",
+            "text": "Use the blue field behind a small subject, in a streaming layout, or bounced onto a wall as a cool accent. Camera settings and room surfaces will change the recorded shade."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Is this related to the Windows blue screen of death?",
+            "a": "No. This tool only displays a solid blue background and does not imitate, trigger, or diagnose a Windows error."
+          },
+          {
+            "q": "Why can pure blue look dimmer than other colors?",
+            "a": "Human vision and display panels respond differently to each channel, so full-value blue may look less bright than full-value red, green, or yellow."
+          },
+          {
+            "q": "Is a blue screen intended to improve sleep?",
+            "a": "No. This page makes no sleep-related claim; it is simply a solid blue field for visual checks and creative use."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this blue screen",
+        "locales": {
+          "zh": {
+            "page_title": "蓝色屏幕 - 检查蓝色通道与冷色背景",
+            "og_title": "蓝色屏幕 - 检查蓝色通道与冷色背景",
+            "og_description": "打开 #0000FF 蓝色屏幕，检查蓝色通道或制作冷色背景。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #0000FF 蓝色屏幕，检查蓝色通道或制作冷色背景。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "蓝色屏幕, 蓝屏, #0000FF, 蓝色通道检查, 冷色背景, 蓝色背景下载",
+            "page_heading": "蓝色屏幕",
+            "color_name": "蓝色",
+            "intent_note": "这是纯蓝色区域，不是 Windows 错误屏幕或蓝屏死机的仿制品，也不能诊断系统故障。",
+            "color_intro": "显示纯蓝色，可作为摄影或直播背景、冷色环境点缀，也能观察面板的蓝色通道。下载的 PNG 适合幻灯片、叠加层和编辑项目。",
+            "technical": "本页显示 #0000FF，即 rgb(0, 0, 255)，只有蓝色通道达到数值最大值。蓝色在许多屏幕上看起来比红色或绿色暗，外观还会受面板、亮度、设置和环境光影响；它不是助眠或校准光源。",
+            "how_to_title": "如何使用蓝色屏幕",
+            "sections": [
+              {
+                "title": "纯蓝色，不是系统蓝屏",
+                "text": "本页只有一整块蓝色，没有错误文字、崩溃图形或故障排查信息。它不会仿真、触发或诊断 Windows 蓝屏。"
+              },
+              {
+                "title": "检查蓝色通道",
+                "text": "显示 #0000FF 可单独观察蓝色通道，让暗淡、失效或偏色区域更容易显现。需要更多图案时，可比较红色和绿色页面或使用液晶屏幕测试器。"
+              },
+              {
+                "title": "创意背景与冷色环境光",
+                "text": "把蓝色用于小型主体、直播画面或墙面反光，形成冷色点缀。相机设置和房间表面会改变记录到的色调。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "这个页面与 Windows 蓝屏有关吗？",
+                "a": "无关。它只显示纯蓝背景，不会模仿、触发或诊断 Windows 系统错误。"
+              },
+              {
+                "q": "为什么纯蓝色看起来比其他颜色暗？",
+                "a": "人眼和显示面板对各颜色通道的响应不同。因此，满值蓝色可能比满值红色、绿色或黄色显得更暗。"
+              },
+              {
+                "q": "蓝色屏幕能帮助改善睡眠吗？",
+                "a": "不能。本页不提供助眠效果，只用于颜色观察和创作背景。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Blauer Bildschirm - Blaukanal und kühle Hintergründe prüfen",
+            "og_title": "Blauer Bildschirm - Blaukanal und kühle Hintergründe prüfen",
+            "og_description": "Zeigen Sie #0000FF für eine Blaukanalprüfung und kühle Hintergründe. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #0000FF für eine Blaukanalprüfung und kühle Hintergründe. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "blauer Bildschirm, blaues Vollbild, #0000FF, Blaukanal prüfen, blauer Hintergrund",
+            "page_heading": "Blauer Bildschirm",
+            "color_name": "Blau",
+            "intent_note": "Dies ist eine einfarbig blaue Fläche. Sie ist kein Windows-Fehlerbild oder Bluescreen-Abbild und dient nicht zur Systemdiagnose.",
+            "color_intro": "Füllen Sie das Display mit reinem Blau für Foto- oder Streaming-Hintergründe, einen kühlen Akzent oder eine Kontrolle des Blaukanals. Die PNGs eignen sich für Folien, Overlays und Schnittprojekte.",
+            "technical": "Die Seite rendert #0000FF beziehungsweise rgb(0, 0, 255); nur der Blaukanal steht auf dem Maximalwert. Blau wirkt oft dunkler als Rot oder Grün, und Panel, Helligkeit, Einstellungen sowie Raumlicht verändern die Wahrnehmung. Es ist weder Schlafhilfe noch kalibrierte Lichtquelle.",
+            "how_to_title": "So verwenden Sie den blauen Bildschirm",
+            "sections": [
+              {
+                "title": "Reines Blau, kein Bluescreen",
+                "text": "Die Seite zeigt nur eine durchgehende blaue Fläche ohne Fehlermeldung oder Diagnosehinweis. Sie imitiert und diagnostiziert keinen Windows-Bluescreen."
+              },
+              {
+                "title": "Blaukanal prüfen",
+                "text": "#0000FF isoliert den Blaukanal, sodass dunkle, schwache oder verfärbte Stellen auffallen. Vergleichen Sie Rot und Grün oder nutzen Sie den LCD-Bildschirmtester für weitere Muster."
+              },
+              {
+                "title": "Kreativer Hintergrund und kühler Akzent",
+                "text": "Verwenden Sie Blau hinter einem kleinen Motiv, in einer Streaming-Szene oder als Reflex an der Wand. Kamera und Raumflächen verändern den aufgezeichneten Farbton."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Hat diese Seite mit dem Windows-Bluescreen zu tun?",
+                "a": "Nein. Das Werkzeug zeigt nur einen einfarbig blauen Hintergrund. Es ahmt keinen Windows-Fehler nach und löst oder diagnostiziert ihn nicht."
+              },
+              {
+                "q": "Warum wirkt reines Blau dunkler als andere Farben?",
+                "a": "Das menschliche Auge und Displays reagieren auf Farbkanäle unterschiedlich. Blau mit vollem Wert kann daher dunkler als Rot, Grün oder Gelb wirken."
+              },
+              {
+                "q": "Soll ein blauer Bildschirm den Schlaf verbessern?",
+                "a": "Nein. Die Seite macht keine Aussage zum Schlaf. Sie zeigt nur eine blaue Fläche für Sichtprüfungen und kreative Zwecke."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla azul - Revisa el canal azul y crea fondos fríos",
+            "og_title": "Pantalla azul - Revisa el canal azul y crea fondos fríos",
+            "og_description": "Muestra #0000FF para comprobar el canal azul y crear fondos fríos. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #0000FF para comprobar el canal azul y crear fondos fríos. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla azul, pantalla azul completa, #0000FF, canal azul, fondo azul, fondo frío",
+            "page_heading": "Pantalla azul",
+            "color_name": "Azul",
+            "intent_note": "Es un campo azul uniforme. No imita ni diagnostica una pantalla de error o BSOD de Windows.",
+            "color_intro": "Rellena la pantalla de azul puro para usarla como fondo de foto o streaming, como acento ambiental frío o para observar el canal azul. Los PNG sirven para diapositivas y edición.",
+            "technical": "La página muestra #0000FF, o rgb(0, 0, 255), con solo el canal azul en su valor máximo. Puede parecer menos brillante que el rojo o el verde; el panel, el brillo, los ajustes y la luz ambiente cambian su aspecto. No es una luz calibrada ni una ayuda para dormir.",
+            "how_to_title": "Cómo usar la pantalla azul",
+            "sections": [
+              {
+                "title": "Azul liso, no una pantalla de error",
+                "text": "La página muestra un campo azul continuo sin texto de error, gráficos de fallo ni diagnóstico. No imita, activa ni diagnostica la pantalla azul de Windows."
+              },
+              {
+                "title": "Revisa el canal azul",
+                "text": "El campo #0000FF aísla el canal azul y facilita ver zonas oscuras, débiles o con otro tono. Compara las pantallas roja y verde o usa el comprobador LCD para más patrones."
+              },
+              {
+                "title": "Fondo creativo y color ambiental",
+                "text": "Usa el azul detrás de un objeto pequeño, en una escena de streaming o reflejado en una pared como acento frío. La cámara y las superficies cambian el tono grabado."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Está relacionado con la pantalla azul de Windows?",
+                "a": "No. La herramienta solo muestra un fondo azul uniforme. No imita, provoca ni diagnostica un error de Windows."
+              },
+              {
+                "q": "¿Por qué el azul puro puede parecer más oscuro?",
+                "a": "La vista humana y los paneles responden de forma distinta a cada canal. El azul al máximo puede parecer menos brillante que el rojo, verde o amarillo."
+              },
+              {
+                "q": "¿Esta pantalla azul está pensada para mejorar el sueño?",
+                "a": "No. La página no hace afirmaciones sobre el sueño. Es un campo azul para revisiones visuales y usos creativos."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela azul - Verifique o canal azul e fundos frios",
+            "og_title": "Tela azul - Verifique o canal azul e fundos frios",
+            "og_description": "Exiba #0000FF para verificar o canal azul e criar fundos frios. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #0000FF para verificar o canal azul e criar fundos frios. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela azul, tela azul em tela cheia, #0000FF, canal azul, fundo azul, fundo frio",
+            "page_heading": "Tela azul",
+            "color_name": "Azul",
+            "intent_note": "É um campo azul uniforme. Não imita nem diagnostica uma tela de erro ou BSOD do Windows.",
+            "color_intro": "Preencha a tela com azul puro para fotos, streaming, um destaque ambiente frio ou a inspeção do canal azul. Os PNGs servem para slides, sobreposições e edição.",
+            "technical": "A página exibe #0000FF, ou rgb(0, 0, 255), com apenas o canal azul no valor máximo. Ele pode parecer menos brilhante que vermelho ou verde; painel, brilho, configurações e luz ambiente alteram a aparência. Não é luz calibrada nem recurso para melhorar o sono.",
+            "how_to_title": "Como usar a tela azul",
+            "sections": [
+              {
+                "title": "Azul puro, não erro do sistema",
+                "text": "A página mostra apenas um campo azul contínuo, sem texto de erro, gráfico de falha ou diagnóstico. Ela não imita, provoca nem diagnostica a tela azul do Windows."
+              },
+              {
+                "title": "Verifique o canal azul",
+                "text": "O campo #0000FF isola o canal azul e facilita notar áreas escuras, fracas ou com outra cor. Compare as telas vermelha e verde ou use o testador LCD."
+              },
+              {
+                "title": "Fundo criativo e destaque frio",
+                "text": "Use o azul atrás de um objeto pequeno, em uma cena de streaming ou refletido na parede como destaque frio. Câmera e superfícies alteram o tom registrado."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Esta página tem relação com a tela azul do Windows?",
+                "a": "Não. A ferramenta mostra apenas um fundo azul uniforme. Ela não imita, provoca nem diagnostica um erro do Windows."
+              },
+              {
+                "q": "Por que o azul puro pode parecer mais escuro?",
+                "a": "A visão humana e os painéis respondem de modo diferente a cada canal. O azul no valor máximo pode parecer menos brilhante que vermelho, verde ou amarelo."
+              },
+              {
+                "q": "Esta tela azul foi feita para melhorar o sono?",
+                "a": "Não. A página não faz afirmações sobre sono. É uma área azul para verificações visuais e usos criativos."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran bleu - Vérifier le canal bleu et créer un fond froid",
+            "og_title": "Écran bleu - Vérifier le canal bleu et créer un fond froid",
+            "og_description": "Affichez #0000FF pour vérifier le canal bleu et créer un fond froid. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #0000FF pour vérifier le canal bleu et créer un fond froid. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran bleu, écran bleu plein écran, #0000FF, canal bleu, fond bleu, fond froid",
+            "page_heading": "Écran bleu",
+            "color_name": "Bleu",
+            "intent_note": "C’est un champ bleu uni. Il n’imite ni ne diagnostique un écran d’erreur ou BSOD de Windows.",
+            "color_intro": "Remplissez l’écran de bleu pur pour un fond photo ou vidéo, une touche ambiante froide ou l’observation du canal bleu. Les PNG conviennent aux diapositives et au montage.",
+            "technical": "La page affiche #0000FF, soit rgb(0, 0, 255), avec le seul canal bleu à sa valeur maximale. Il peut sembler moins lumineux que le rouge ou le vert ; dalle, luminosité, réglages et lumière ambiante changent son aspect. Ce n’est ni une lumière calibrée ni une aide au sommeil.",
+            "how_to_title": "Comment utiliser l’écran bleu",
+            "sections": [
+              {
+                "title": "Bleu uni, pas un écran d’erreur",
+                "text": "La page affiche un champ bleu continu sans texte d’erreur, graphisme de panne ni diagnostic. Elle n’imite, ne déclenche et ne diagnostique pas l’écran bleu de Windows."
+              },
+              {
+                "title": "Vérifier le canal bleu",
+                "text": "Le champ #0000FF isole le canal bleu et rend visibles certaines zones sombres, faibles ou décolorées. Comparez les écrans rouge et vert ou utilisez le testeur LCD."
+              },
+              {
+                "title": "Fond créatif et accent froid",
+                "text": "Utilisez le bleu derrière un petit sujet, dans une scène vidéo ou en reflet sur un mur pour un accent froid. Caméra et surfaces modifient le ton capté."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Cette page concerne-t-elle l’écran bleu de Windows ?",
+                "a": "Non. L’outil affiche seulement un fond bleu uni. Il n’imite, ne déclenche et ne diagnostique aucune erreur Windows."
+              },
+              {
+                "q": "Pourquoi le bleu pur paraît-il plus sombre ?",
+                "a": "La vision humaine et les dalles réagissent différemment à chaque canal. Le bleu maximal peut donc sembler moins lumineux que le rouge, le vert ou le jaune."
+              },
+              {
+                "q": "Cet écran bleu est-il censé améliorer le sommeil ?",
+                "a": "Non. La page ne fait aucune promesse liée au sommeil. C’est un champ bleu destiné aux contrôles visuels et aux usages créatifs."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "yellow-screen",
+      "template": "color-page",
+      "output": "yellow-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/yellow-screen",
+        "page_title": "Yellow Screen - Fullscreen Bright Yellow Background",
+        "og_title": "Yellow Screen - Fullscreen Bright Yellow Background",
+        "og_description": "Open a fullscreen yellow screen in exact #FFFF00 for high-visibility backgrounds and red-green channel checks, with free 1080p and 4K PNG downloads.",
+        "description": "Open a yellow screen (#FFFF00) for high-visibility backgrounds and red-green channel checks. Use it fullscreen or download free 1080p and 4K PNGs.",
+        "page_keywords": "yellow screen, fullscreen yellow screen, bright yellow background, #FFFF00, red green channel check, yellow background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/yellow-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Yellow Screen",
+        "color_name": "Yellow",
+        "hex": "#FFFF00",
+        "rgb": "rgb(255, 255, 0)",
+        "intent_note": "This exact yellow field is for high-visibility backgrounds, creative light, and combined red-green inspection, not a safety signal standard.",
+        "color_intro": "Fill the display with solid yellow. Use it for a high-visibility background, a bright ambient accent, or a combined red-green channel check. Download the PNG when you need the same numeric color as a static asset.",
+        "technical": "This page renders #FFFF00, or rgb(255, 255, 0), with red and green at full numeric value and blue at zero. Saturated yellow can feel intense at high brightness. It is an emissive screen color, not certified safety-yellow material or a measured light source.",
+        "sections": [
+          {
+            "title": "Combined channel inspection",
+            "text": "Yellow drives red and green together, so a weak channel can appear as an orange, green, or dark area against the field. Compare the separate red and green pages when you need to isolate the cause."
+          },
+          {
+            "title": "High-visibility creative background",
+            "text": "Use the saturated field behind small products, text layouts, thumbnails, or presentation elements that need immediate visual emphasis. Appearance still changes with the display, camera, and surrounding light."
+          },
+          {
+            "title": "Brightness and viewing comfort",
+            "text": "#FFFF00 is visually intense on many displays because two channels are high at once. Reduce brightness and shorten viewing time if the field feels harsh, especially in a dark room."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Why does yellow look brighter than many other pure colors?",
+            "a": "Yellow combines high red and green values. Human vision is sensitive to this part of the visible spectrum, so yellow often looks very bright."
+          },
+          {
+            "q": "Can yellow help reveal pixel or channel problems?",
+            "a": "It can reveal differences in the red-green combination. Use separate red and green fields or the LCD Screen Tester to inspect each channel."
+          },
+          {
+            "q": "Is #FFFF00 the same as regulated safety yellow?",
+            "a": "No. #FFFF00 is a CSS screen color; physical signs, paint, clothing, and safety materials follow separate color and reflectance standards."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this yellow screen",
+        "locales": {
+          "zh": {
+            "page_title": "黄色屏幕 - 高亮背景与红绿通道检查",
+            "og_title": "黄色屏幕 - 高亮背景与红绿通道检查",
+            "og_description": "打开 #FFFF00 黄色屏幕，用于高可见度背景和红绿通道联合检查。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #FFFF00 黄色屏幕，用于高可见度背景和红绿通道联合检查。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "黄色屏幕, 黄屏, #FFFF00, 高亮黄色背景, 红绿通道检查, 黄色背景下载",
+            "page_heading": "黄色屏幕",
+            "color_name": "黄色",
+            "intent_note": "这是用于高可见度背景、创意光和红绿通道联合观察的纯黄色区域，不是认证的安全信号标准。",
+            "color_intro": "显示纯黄色，可制作醒目背景、增加明亮环境色，或联合检查红绿通道。下载 PNG 可在编辑器或演示中复用相同数值的黄色。",
+            "technical": "本页显示 #FFFF00，即 rgb(255, 255, 0)，红色和绿色为最大值，蓝色为零。高亮度下饱和黄色可能很刺眼；它是发光屏幕颜色，不是认证的安全黄色材料或实测光源。",
+            "how_to_title": "如何使用黄色屏幕",
+            "sections": [
+              {
+                "title": "联合检查红色和绿色通道",
+                "text": "黄色同时驱动红色和绿色，通道变弱时区域可能偏橙、偏绿或变暗。需要隔离原因时，分别比较红色和绿色页面。"
+              },
+              {
+                "title": "高可见度创意背景",
+                "text": "将饱和黄色用于小产品、文字排版、缩略图或演示元素，突出需要立即吸引注意力的内容。显示器、相机和环境光仍会改变外观。"
+              },
+              {
+                "title": "控制亮度与观看舒适度",
+                "text": "#FFFF00 在许多屏幕上很强烈，因为两个通道同时为高值。如果画面刺眼，尤其在暗室中，请降低亮度并缩短观看时间。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "为什么黄色通常显得很亮？",
+                "a": "黄色同时使用高数值的红色和绿色。人眼对此波段较敏感，因此它常显得很亮。"
+              },
+              {
+                "q": "黄色能帮助发现像素或通道问题吗？",
+                "a": "它能显示红绿组合中的差异。若要检查单个通道，请使用红色、绿色页面或液晶屏幕测试器。"
+              },
+              {
+                "q": "#FFFF00 等同于规范的安全黄吗？",
+                "a": "不等同。#FFFF00 是 CSS 屏幕颜色，实体标志、油漆、服装和安全材料采用其他色彩与反射标准。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Gelber Bildschirm - Heller Hintergrund und Rot-Grün-Prüfung",
+            "og_title": "Gelber Bildschirm - Heller Hintergrund und Rot-Grün-Prüfung",
+            "og_description": "Zeigen Sie #FFFF00 für auffällige Hintergründe und eine gemeinsame Rot-Grün-Prüfung. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #FFFF00 für auffällige Hintergründe und eine gemeinsame Rot-Grün-Prüfung. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "gelber Bildschirm, gelbes Vollbild, #FFFF00, Rot-Grün-Kanäle prüfen, gelber Hintergrund",
+            "page_heading": "Gelber Bildschirm",
+            "color_name": "Gelb",
+            "intent_note": "Die gelbe Fläche dient auffälligen Hintergründen, kreativem Licht und der gemeinsamen Rot-Grün-Prüfung; sie ist kein genormtes Sicherheitssignal.",
+            "color_intro": "Füllen Sie das Display mit Gelb. Nutzen Sie es als auffälligen Hintergrund, hellen Lichtakzent oder für eine gemeinsame Rot-Grün-Prüfung. Die PNGs liefern denselben numerischen Gelbwert für Bearbeitung und Präsentationen.",
+            "technical": "Die Seite rendert #FFFF00 beziehungsweise rgb(255, 255, 0); Rot und Grün stehen auf dem Maximum, Blau auf null. Sattes Gelb kann bei hoher Helligkeit anstrengend wirken und ist weder zertifiziertes Sicherheitsgelb noch eine gemessene Lichtquelle.",
+            "how_to_title": "So verwenden Sie den gelben Bildschirm",
+            "sections": [
+              {
+                "title": "Rot- und Grünkanal gemeinsam prüfen",
+                "text": "Gelb treibt Rot und Grün zugleich an. Ein schwacher Kanal kann deshalb als orange, grünliche oder dunkle Stelle erscheinen. Vergleichen Sie Rot und Grün einzeln, wenn die Ursache wichtig ist."
+              },
+              {
+                "title": "Auffälliger kreativer Hintergrund",
+                "text": "Sattes Gelb hebt kleine Produkte, Textlayouts, Vorschaubilder oder Präsentationselemente hervor. Display, Kamera und Raumlicht verändern dennoch die Wirkung."
+              },
+              {
+                "title": "Helligkeit und Sehkomfort",
+                "text": "Viele Displays zeigen #FFFF00 sehr intensiv, weil zwei Kanäle hoch stehen. Senken Sie die Helligkeit und verkürzen Sie die Betrachtung, wenn es in einem dunklen Raum unangenehm wird."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Warum wirkt Gelb oft heller als andere reine Farben?",
+                "a": "Gelb kombiniert hohe Rot- und Grünwerte. Das menschliche Auge ist in diesem Spektralbereich besonders empfindlich, daher wirkt Gelb oft sehr hell."
+              },
+              {
+                "q": "Kann Gelb Pixel- oder Kanalprobleme zeigen?",
+                "a": "Es kann Unterschiede in der Rot-Grün-Kombination zeigen. Prüfen Sie einzelne Kanäle mit roten und grünen Flächen oder dem LCD-Bildschirmtester."
+              },
+              {
+                "q": "Entspricht #FFFF00 einem geregelten Sicherheitsgelb?",
+                "a": "Nein. #FFFF00 ist eine CSS-Bildschirmfarbe. Schilder, Farben, Kleidung und Sicherheitsmaterialien folgen eigenen Farb- und Reflexionsnormen."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla amarilla - Fondo brillante y revisión de canales",
+            "og_title": "Pantalla amarilla - Fondo brillante y revisión de canales",
+            "og_description": "Muestra #FFFF00 para fondos visibles y una revisión conjunta de los canales rojo y verde. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #FFFF00 para fondos visibles y una revisión conjunta de los canales rojo y verde. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla amarilla, pantalla amarilla completa, #FFFF00, fondo amarillo brillante, canales rojo verde, descarga",
+            "page_heading": "Pantalla amarilla",
+            "color_name": "Amarillo",
+            "intent_note": "Es un campo amarillo para fondos muy visibles, luz creativa y revisión conjunta de rojo y verde; no es una señal de seguridad normalizada.",
+            "color_intro": "Muestra el campo amarillo a pantalla completa como fondo visible, acento luminoso o revisión conjunta del rojo y el verde. El PNG conserva el mismo valor para editores y presentaciones.",
+            "technical": "La página muestra #FFFF00, o rgb(255, 255, 0), con rojo y verde al máximo y azul a cero. El amarillo saturado puede resultar intenso con mucho brillo; es un color emitido por la pantalla, no un material de seguridad certificado.",
+            "how_to_title": "Cómo usar la pantalla amarilla",
+            "sections": [
+              {
+                "title": "Revisa juntos los canales rojo y verde",
+                "text": "El amarillo activa rojo y verde a la vez. Un canal débil puede verse como una zona naranja, verdosa u oscura. Compara los campos rojo y verde por separado para aislar la causa."
+              },
+              {
+                "title": "Fondo creativo de alta visibilidad",
+                "text": "Usa el amarillo saturado detrás de productos pequeños, textos, miniaturas o presentaciones que necesiten destacar. La pantalla, la cámara y la luz del entorno cambian el resultado."
+              },
+              {
+                "title": "Controla el brillo y la comodidad",
+                "text": "#FFFF00 puede resultar intenso porque dos canales están altos. Baja el brillo y reduce el tiempo de exposición si molesta, sobre todo en una habitación oscura."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Por qué el amarillo parece más brillante que otros colores?",
+                "a": "El amarillo combina valores altos de rojo y verde. La vista humana es muy sensible en esta zona del espectro, por eso suele parecer brillante."
+              },
+              {
+                "q": "¿Puede el amarillo revelar problemas de píxeles o canales?",
+                "a": "Puede mostrar diferencias en la combinación rojo-verde. Usa campos rojo y verde o el comprobador LCD para revisar cada canal."
+              },
+              {
+                "q": "¿#FFFF00 equivale al amarillo de seguridad reglamentado?",
+                "a": "No. #FFFF00 es un color CSS de pantalla. Señales, pintura, ropa y materiales de seguridad siguen otras normas de color y reflectancia."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela amarela - Fundo brilhante e verificação de canais",
+            "og_title": "Tela amarela - Fundo brilhante e verificação de canais",
+            "og_description": "Exiba #FFFF00 para fundos visíveis e verificação conjunta dos canais vermelho e verde. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #FFFF00 para fundos visíveis e verificação conjunta dos canais vermelho e verde. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela amarela, tela amarela em tela cheia, #FFFF00, fundo amarelo brilhante, canais vermelho verde",
+            "page_heading": "Tela amarela",
+            "color_name": "Amarelo",
+            "intent_note": "É uma área amarela para fundos muito visíveis, luz criativa e inspeção conjunta de vermelho e verde; não é um sinal de segurança padronizado.",
+            "color_intro": "Use o campo amarelo em tela cheia como fundo visível, destaque luminoso ou verificação conjunta do vermelho e do verde. O PNG mantém o mesmo valor para editores e apresentações.",
+            "technical": "A página exibe #FFFF00, ou rgb(255, 255, 0), com vermelho e verde no máximo e azul em zero. O amarelo saturado pode ser intenso em alto brilho; é uma cor emitida pela tela, não um material de segurança certificado.",
+            "how_to_title": "Como usar a tela amarela",
+            "sections": [
+              {
+                "title": "Verifique os canais vermelho e verde juntos",
+                "text": "O amarelo aciona vermelho e verde ao mesmo tempo. Um canal fraco pode aparecer como área laranja, esverdeada ou escura. Compare vermelho e verde separados para isolar a causa."
+              },
+              {
+                "title": "Fundo criativo de alta visibilidade",
+                "text": "Use amarelo saturado atrás de produtos, textos, miniaturas ou apresentações que precisam chamar atenção. Tela, câmera e luz do ambiente alteram o resultado."
+              },
+              {
+                "title": "Controle o brilho e o conforto",
+                "text": "#FFFF00 pode ser intenso porque dois canais estão altos. Reduza o brilho e o tempo de visualização se incomodar, especialmente em ambiente escuro."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Por que o amarelo parece mais claro que outras cores?",
+                "a": "O amarelo combina valores altos de vermelho e verde. A visão humana é sensível a essa faixa do espectro, por isso ele costuma parecer muito claro."
+              },
+              {
+                "q": "Amarelo pode revelar problemas de pixels ou canais?",
+                "a": "Pode mostrar diferenças na combinação vermelho-verde. Use telas vermelha e verde ou o testador LCD para examinar cada canal."
+              },
+              {
+                "q": "#FFFF00 é igual ao amarelo de segurança regulamentado?",
+                "a": "Não. #FFFF00 é uma cor CSS de tela. Sinais, tintas, roupas e materiais de segurança seguem outras normas de cor e refletância."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran jaune - Fond lumineux et vérification rouge-vert",
+            "og_title": "Écran jaune - Fond lumineux et vérification rouge-vert",
+            "og_description": "Affichez #FFFF00 pour un fond visible et une vérification conjointe du rouge et du vert. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #FFFF00 pour un fond visible et une vérification conjointe du rouge et du vert. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran jaune, écran jaune plein écran, #FFFF00, fond jaune vif, canaux rouge vert",
+            "page_heading": "Écran jaune",
+            "color_name": "Jaune",
+            "intent_note": "Ce champ jaune sert aux fonds très visibles, à une lumière créative et à l’observation du rouge et du vert. Ce n’est pas un signal de sécurité normalisé.",
+            "color_intro": "Utilisez le champ jaune comme fond visible, accent lumineux ou contrôle conjoint du rouge et du vert. Le PNG garde la même valeur pour le montage et les présentations.",
+            "technical": "La page affiche #FFFF00, soit rgb(255, 255, 0), avec le rouge et le vert au maximum et le bleu à zéro. Le jaune saturé peut être agressif à forte luminosité ; c’est une couleur émise par l’écran, pas un matériau de sécurité certifié.",
+            "how_to_title": "Comment utiliser l’écran jaune",
+            "sections": [
+              {
+                "title": "Vérifier ensemble les canaux rouge et vert",
+                "text": "Le jaune active le rouge et le vert à la fois. Un canal faible peut donner une zone orange, verdâtre ou sombre. Comparez les champs rouge et vert pour isoler la cause."
+              },
+              {
+                "title": "Fond créatif très visible",
+                "text": "Utilisez le jaune saturé pour des produits, textes, vignettes ou éléments de présentation qui doivent attirer l’attention. Écran, caméra et lumière ambiante changent le rendu."
+              },
+              {
+                "title": "Régler la luminosité et le confort",
+                "text": "#FFFF00 peut être intense puisque deux canaux sont élevés. Baissez la luminosité et réduisez la durée si le champ devient agressif, surtout dans le noir."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Pourquoi le jaune paraît-il plus lumineux que d’autres couleurs ?",
+                "a": "Le jaune combine des valeurs élevées de rouge et de vert. La vision humaine est sensible à cette zone du spectre, donc il paraît souvent très lumineux."
+              },
+              {
+                "q": "Le jaune peut-il révéler un problème de pixel ou de canal ?",
+                "a": "Il peut montrer un écart dans la combinaison rouge-vert. Utilisez les champs rouge et vert ou le testeur LCD pour isoler chaque canal."
+              },
+              {
+                "q": "#FFFF00 correspond-il à un jaune de sécurité réglementé ?",
+                "a": "Non. #FFFF00 est une couleur CSS d’écran. Signalisation, peintures, vêtements et matériaux de sécurité suivent d’autres normes de couleur et de réflectance."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "orange-screen",
+      "template": "color-page",
+      "output": "orange-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/orange-screen",
+        "page_title": "Orange Screen - Fullscreen Warm Orange Background",
+        "og_title": "Orange Screen - Fullscreen Warm Orange Background",
+        "og_description": "Open a fullscreen orange screen in standard #FFA500 for warm creative backdrops and UI contrast checks, with free 1080p and 4K PNG downloads.",
+        "description": "Open an orange screen (#FFA500) for warm creative backdrops and UI contrast checks. Use it fullscreen or download free 1080p and 4K PNG backgrounds.",
+        "page_keywords": "orange screen, fullscreen orange screen, warm orange background, #FFA500, UI contrast check, orange background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/orange-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Orange Screen",
+        "color_name": "Orange",
+        "hex": "#FFA500",
+        "rgb": "rgb(255, 165, 0)",
+        "intent_note": "This is a standard CSS orange color tool for creative backgrounds and informal contrast checks. It is not an operating-system error screen or calibrated tungsten lighting.",
+        "color_intro": "Use the orange field as a warm backdrop, an ambient accent reflected from a wall, or a surface for informal UI checks. The PNG downloads provide the same numeric color for editing and presentations.",
+        "technical": "The page renders standard CSS orange #FFA500, or rgb(255, 165, 0). A display does not reproduce the spectrum or calibrated color temperature of a tungsten lamp. A visual preview does not replace measured accessibility contrast testing.",
+        "sections": [
+          {
+            "title": "Warm creative backdrop",
+            "text": "Orange adds a warm, energetic background to product photos, streaming scenes, thumbnails, and presentation graphics. Use the downloaded file when a live display is impractical."
+          },
+          {
+            "title": "Ambient color accent",
+            "text": "A monitor can bounce a soft orange accent onto a nearby neutral wall in a dim room. Surface color, display brightness, camera exposure, and white balance all change the recorded result."
+          },
+          {
+            "title": "Informal UI contrast check",
+            "text": "Place light, dark, and cool-toned interface elements against the field to spot obvious readability problems in a warm theme. Use a dedicated contrast-ratio tool for pass-or-fail accessibility decisions."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Can this orange screen replace a tungsten photo light?",
+            "a": "No. #FFA500 only looks warm; a display has a different spectrum and is not a calibrated tungsten or color-temperature reference."
+          },
+          {
+            "q": "Why use orange for a quick UI check?",
+            "a": "A saturated warm background can expose text, icons, and buttons that lose definition. It is a visual preview, not a measured contrast audit."
+          },
+          {
+            "q": "Is #FFA500 a universal real-world orange?",
+            "a": "No. It is the named CSS color orange; sunsets, printed inks, paint, safety materials, and fabrics can all use different orange values."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this orange screen",
+        "locales": {
+          "zh": {
+            "page_title": "橙色屏幕 - 暖色背景与界面对比预览",
+            "og_title": "橙色屏幕 - 暖色背景与界面对比预览",
+            "og_description": "打开 #FFA500 橙色屏幕，用于暖色背景和界面对比预览。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #FFA500 橙色屏幕，用于暖色背景和界面对比预览。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "橙色屏幕, 橙屏, #FFA500, 暖橙色背景, 界面对比预览, 橙色背景下载",
+            "page_heading": "橙色屏幕",
+            "color_name": "橙色",
+            "intent_note": "这是标准 CSS 橙色工具，用于创作背景和非正式对比观察。它不是操作系统错误屏幕，也不是校准的钨丝灯。",
+            "color_intro": "将橙色屏幕用作暖色背景、墙面反射光或界面对比预览。下载 PNG 可在编辑器和演示中复用相同数值的橙色。",
+            "technical": "本页显示标准 CSS 橙色 #FFA500，即 rgb(255, 165, 0)。显示器无法复现钨丝灯的光谱或校准色温。视觉观察也不能替代测量的无障碍对比度测试。",
+            "how_to_title": "如何使用橙色屏幕",
+            "sections": [
+              {
+                "title": "暖色创意背景",
+                "text": "橙色为产品照片、直播画面、缩略图和演示图形带来温暖而有活力的背景。无法使用实时屏幕时，可下载 PNG 文件。"
+              },
+              {
+                "title": "环境光色彩点缀",
+                "text": "显示器可以把柔和的橙色反射到昏暗房间的中性墙面。墙面颜色、屏幕亮度、相机曝光和白平衡都会改变记录结果。"
+              },
+              {
+                "title": "非正式界面对比预览",
+                "text": "把浅色、深色和冷色界面元素放在橙色上，快速发现暖色主题中的明显可读性问题。无障碍通过与否仍需使用专门的对比度工具测量。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "橙色屏幕能替代钨丝摄影灯吗？",
+                "a": "不能。#FFA500 只是视觉上偏暖。显示器的光谱不同，也不是校准的钨丝灯或色温基准。"
+              },
+              {
+                "q": "为什么用橙色做快速界面对比检查？",
+                "a": "饱和暖色背景能暴露失去边界的文字、图标和按钮。但这只是视觉预览，不是测量后的对比度审核。"
+              },
+              {
+                "q": "#FFA500 是通用的实体橙色吗？",
+                "a": "不是。它是 CSS 命名色。日落、印刷油墨、油漆、安全材料和织物可能使用不同的橙色。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Oranger Bildschirm - Warmer Hintergrund und UI-Kontrast",
+            "og_title": "Oranger Bildschirm - Warmer Hintergrund und UI-Kontrast",
+            "og_description": "Zeigen Sie #FFA500 für warme Hintergründe und eine informelle UI-Kontrastprüfung. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #FFA500 für warme Hintergründe und eine informelle UI-Kontrastprüfung. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "oranger Bildschirm, oranges Vollbild, #FFA500, warmer Hintergrund, UI-Kontrast prüfen",
+            "page_heading": "Oranger Bildschirm",
+            "color_name": "Orange",
+            "intent_note": "Dies ist ein CSS-Orange-Farbwerkzeug für kreative Hintergründe und informelle Kontrastprüfungen. Es ist kein Betriebssystem-Fehlerbild und kein kalibriertes Wolframlicht.",
+            "color_intro": "Nutzen Sie die orange Fläche als warmen Hintergrund, als Wandreflex oder für informelle UI-Prüfungen. Die PNGs liefern denselben numerischen Orangewert für Bearbeitung und Präsentationen.",
+            "technical": "Die Seite rendert CSS-Orange #FFA500 beziehungsweise rgb(255, 165, 0). Trotz der warmen Wirkung bildet ein Display weder das Spektrum noch die kalibrierte Farbtemperatur einer Glühlampe ab; die Sichtprüfung ersetzt keine gemessene Kontrastprüfung.",
+            "how_to_title": "So verwenden Sie den orangen Bildschirm",
+            "sections": [
+              {
+                "title": "Warmer kreativer Hintergrund",
+                "text": "Orange gibt Produktfotos, Streaming-Szenen, Vorschaubildern und Präsentationen einen warmen, energischen Hintergrund. Wenn ein Display unpraktisch ist, laden Sie die PNG-Datei herunter."
+              },
+              {
+                "title": "Warmes Umgebungslicht",
+                "text": "Ein Monitor kann in einem dunklen Raum einen weichen orangen Akzent auf eine neutrale Wand werfen. Wandfarbe, Displayhelligkeit, Belichtung und Weißabgleich verändern das Ergebnis."
+              },
+              {
+                "title": "Informelle UI-Kontrastprüfung",
+                "text": "Setzen Sie helle, dunkle und kühle UI-Elemente auf die Fläche, um offensichtliche Lesbarkeitsprobleme zu erkennen. Für Barrierefreiheitsentscheidungen brauchen Sie ein Kontrastverhältnis-Werkzeug."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Ersetzt dieser orange Bildschirm ein Wolfram-Fotolicht?",
+                "a": "Nein. #FFA500 wirkt nur warm. Ein Display hat ein anderes Spektrum und ist keine kalibrierte Wolfram- oder Farbtemperaturreferenz."
+              },
+              {
+                "q": "Warum eignet sich Orange für eine schnelle UI-Prüfung?",
+                "a": "Ein gesättigter warmer Hintergrund kann Text, Symbole und Schaltflächen mit schwachen Konturen zeigen. Das bleibt eine Vorschau und ist keine gemessene Kontrastprüfung."
+              },
+              {
+                "q": "Ist #FFA500 ein universelles Orange?",
+                "a": "Nein. Es ist die benannte CSS-Farbe Orange. Sonnenuntergänge, Druckfarben, Lacke, Sicherheitsmaterialien und Stoffe können andere Orangetöne verwenden."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla naranja - Fondo cálido y vista previa de contraste",
+            "og_title": "Pantalla naranja - Fondo cálido y vista previa de contraste",
+            "og_description": "Muestra #FFA500 para fondos cálidos y una revisión visual del contraste de interfaces. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #FFA500 para fondos cálidos y una revisión visual del contraste de interfaces. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla naranja, pantalla naranja completa, #FFA500, fondo naranja cálido, contraste de interfaz",
+            "page_heading": "Pantalla naranja",
+            "color_name": "Naranja",
+            "intent_note": "Es una herramienta de color naranja CSS para fondos y revisiones informales de contraste. No es una pantalla de error del sistema ni una luz de tungsteno calibrada.",
+            "color_intro": "Usa el campo naranja como fondo cálido, reflejo de pared o superficie para revisar una interfaz. El PNG conserva el mismo valor para editores y presentaciones.",
+            "technical": "La página muestra el naranja CSS #FFA500, o rgb(255, 165, 0). Aunque parece cálido, una pantalla no reproduce el espectro ni la temperatura calibrada de una lámpara de tungsteno; la vista previa no sustituye una prueba de contraste medida.",
+            "how_to_title": "Cómo usar la pantalla naranja",
+            "sections": [
+              {
+                "title": "Fondo creativo cálido",
+                "text": "El naranja aporta un fondo cálido y enérgico a fotos de productos, escenas de streaming, miniaturas y presentaciones. Descarga el PNG cuando no convenga usar la pantalla en directo."
+              },
+              {
+                "title": "Acento de luz ambiental",
+                "text": "Un monitor puede reflejar un toque naranja suave sobre una pared neutra en una habitación tenue. El color de la superficie, el brillo, la exposición y el balance de blancos cambian el resultado."
+              },
+              {
+                "title": "Vista previa informal del contraste",
+                "text": "Coloca elementos claros, oscuros y fríos sobre el campo para detectar problemas evidentes de lectura en un tema cálido. Usa una herramienta de contraste para una decisión de accesibilidad."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Puede esta pantalla naranja sustituir una luz de tungsteno?",
+                "a": "No. #FFA500 solo parece cálido. La pantalla tiene otro espectro y no es una referencia calibrada de tungsteno o temperatura de color."
+              },
+              {
+                "q": "¿Por qué usar naranja para una revisión rápida de interfaz?",
+                "a": "Un fondo cálido y saturado puede revelar textos, iconos y botones con poca definición. Es una vista previa, no una auditoría de contraste medida."
+              },
+              {
+                "q": "¿#FFA500 es un naranja universal?",
+                "a": "No. Es el color CSS llamado naranja. Puestas de sol, tintas, pinturas, materiales de seguridad y telas pueden usar otros tonos."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela laranja - Fundo quente e prévia de contraste",
+            "og_title": "Tela laranja - Fundo quente e prévia de contraste",
+            "og_description": "Exiba #FFA500 para fundos quentes e uma prévia do contraste da interface. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #FFA500 para fundos quentes e uma prévia do contraste da interface. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela laranja, tela laranja em tela cheia, #FFA500, fundo laranja quente, contraste de interface",
+            "page_heading": "Tela laranja",
+            "color_name": "Laranja",
+            "intent_note": "É uma ferramenta de cor laranja CSS para fundos e verificações informais de contraste. Não é uma tela de erro do sistema nem uma luz de tungstênio calibrada.",
+            "color_intro": "Use o campo laranja como fundo quente, reflexo na parede ou superfície para verificar uma interface. O PNG mantém o mesmo valor para editores e apresentações.",
+            "technical": "A página exibe o laranja CSS #FFA500, ou rgb(255, 165, 0). Apesar do aspecto quente, a tela não reproduz o espectro nem a temperatura calibrada de uma lâmpada de tungstênio; a prévia não substitui um teste de contraste medido.",
+            "how_to_title": "Como usar a tela laranja",
+            "sections": [
+              {
+                "title": "Fundo criativo quente",
+                "text": "O laranja dá um fundo quente e enérgico a fotos de produtos, cenas de streaming, miniaturas e apresentações. Baixe o PNG quando a tela ao vivo não for prática."
+              },
+              {
+                "title": "Destaque de luz ambiente",
+                "text": "Um monitor pode refletir um toque laranja suave em uma parede neutra num ambiente escuro. A superfície, o brilho, a exposição e o balanço de branco alteram o resultado."
+              },
+              {
+                "title": "Prévia informal de contraste da interface",
+                "text": "Coloque elementos claros, escuros e frios sobre o campo para perceber problemas evidentes de leitura. Para acessibilidade, use uma ferramenta de proporção de contraste medida."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Esta tela laranja substitui uma luz de tungstênio?",
+                "a": "Não. #FFA500 apenas parece quente. A tela tem outro espectro e não é uma referência calibrada de tungstênio ou temperatura de cor."
+              },
+              {
+                "q": "Por que usar laranja em uma verificação rápida de interface?",
+                "a": "Um fundo quente e saturado pode revelar textos, ícones e botões sem definição. É uma prévia visual, não uma auditoria de contraste medida."
+              },
+              {
+                "q": "#FFA500 é um laranja universal?",
+                "a": "Não. É a cor CSS chamada laranja. Pôr do sol, tintas, pinturas, materiais de segurança e tecidos podem usar outros tons."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran orange - Fond chaleureux et aperçu du contraste",
+            "og_title": "Écran orange - Fond chaleureux et aperçu du contraste",
+            "og_description": "Affichez #FFA500 pour un fond chaud et un aperçu du contraste d’interface. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #FFA500 pour un fond chaud et un aperçu du contraste d’interface. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran orange, écran orange plein écran, #FFA500, fond orange chaud, contraste interface",
+            "page_heading": "Écran orange",
+            "color_name": "Orange",
+            "intent_note": "C’est un outil de couleur orange CSS pour les fonds et les contrôles informels de contraste. Il ne s’agit pas d’un écran d’erreur système ni d’une lampe tungstène calibrée.",
+            "color_intro": "Utilisez le champ orange comme fond chaud, reflet mural ou surface pour vérifier une interface. Le PNG garde la même valeur pour le montage et les présentations.",
+            "technical": "La page affiche l’orange CSS #FFA500, soit rgb(255, 165, 0). Un écran ne reproduit ni le spectre ni la température calibrée d’une lampe tungstène. Cet aperçu ne remplace pas un test de contraste mesuré.",
+            "how_to_title": "Comment utiliser l’écran orange",
+            "sections": [
+              {
+                "title": "Fond créatif chaleureux",
+                "text": "L’orange apporte un fond chaud et énergique aux photos de produits, scènes vidéo, vignettes et présentations. Téléchargez le PNG si l’écran en direct est peu pratique."
+              },
+              {
+                "title": "Accent de lumière ambiante",
+                "text": "Un moniteur peut renvoyer une touche orange douce sur un mur neutre dans une pièce sombre. Surface, luminosité, exposition et balance des blancs changent le résultat."
+              },
+              {
+                "title": "Aperçu informel du contraste d’interface",
+                "text": "Placez des éléments clairs, sombres et froids sur le champ pour repérer un problème évident de lisibilité. Un outil de ratio de contraste reste nécessaire pour l’accessibilité."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Cet écran orange remplace-t-il une lampe tungstène ?",
+                "a": "Non. #FFA500 paraît seulement chaud. Un écran possède un autre spectre et ne constitue pas une référence tungstène ou de température de couleur calibrée."
+              },
+              {
+                "q": "Pourquoi utiliser l’orange pour vérifier rapidement une interface ?",
+                "a": "Un fond chaud et saturé peut révéler des textes, icônes ou boutons mal définis. Cela reste un aperçu, pas un audit de contraste mesuré."
+              },
+              {
+                "q": "#FFA500 est-il un orange universel ?",
+                "a": "Non. C’est la couleur CSS nommée orange. Couchers de soleil, encres, peintures, matériaux de sécurité et tissus peuvent employer d’autres tons."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "purple-screen",
+      "template": "color-page",
+      "output": "purple-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/purple-screen",
+        "page_title": "Purple Screen - Fullscreen Purple Background Tool",
+        "og_title": "Purple Screen - Fullscreen Purple Background Tool",
+        "og_description": "Open a fullscreen purple screen in exact #800080 for dark mid-tone inspection and creative backdrops, with free 1080p and 4K PNG downloads.",
+        "description": "Open a purple screen (#800080) for dark mid-tone inspection and creative backdrops. Use it fullscreen or download free 1080p and 4K PNG backgrounds.",
+        "page_keywords": "purple screen, fullscreen purple screen, #800080, purple background, display uniformity check, purple background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/purple-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Purple Screen",
+        "color_name": "Purple",
+        "hex": "#800080",
+        "rgb": "rgb(128, 0, 128)",
+        "intent_note": "This is standard CSS purple for dark mid-tone inspection and creative backgrounds, distinct from full-intensity magenta.",
+        "color_intro": "Fill the screen with solid purple. Use it to inspect a dark mixed-color field, create a photo or streaming backdrop, or add an ambient accent. Download the PNG for the same numeric value in an editor or presentation.",
+        "technical": "This page renders #800080, or rgb(128, 0, 128), with equal numeric red and blue values at 128 and green at zero. Full red plus full blue is brighter magenta #FF00FF, not this purple. Display settings, panel type, and room light affect its appearance.",
+        "sections": [
+          {
+            "title": "Dark mid-tone inspection",
+            "text": "A darker purple field can make uneven illumination, tint patches, and abrupt tonal transitions easier to notice. Look for areas that drift toward red, blue, gray, or black across the panel."
+          },
+          {
+            "title": "Creative photo and streaming backdrop",
+            "text": "Use purple behind a small subject, as a streaming scene background, or bounced onto a wall as an accent. It is a mood color rather than a standard chroma-key background."
+          },
+          {
+            "title": "Purple compared with magenta",
+            "text": "CSS purple #800080 uses red and blue at numeric 128, while magenta #FF00FF uses both at 255 and appears much brighter. Check the HEX value when a design calls for a specific shade."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "What exact purple does this page use?",
+            "a": "It uses #800080, or rgb(128, 0, 128), with equal numeric red and blue values and no green."
+          },
+          {
+            "q": "Why does purple look bluer on another display?",
+            "a": "Panels, color temperature, profiles, brightness, and ambient light can shift the visible balance even though both displays receive the same pixel values."
+          },
+          {
+            "q": "Is purple suitable for removing a video background?",
+            "a": "It is not a standard chroma-key color. Use it as a visible backdrop or accent, and choose green or blue when a workflow requires background keying."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this purple screen",
+        "locales": {
+          "zh": {
+            "page_title": "紫色屏幕 - 全屏紫色背景工具",
+            "og_title": "紫色屏幕 - 全屏紫色背景工具",
+            "og_description": "打开 #800080 紫色屏幕，观察深色中间调或制作创意背景。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #800080 紫色屏幕，观察深色中间调或制作创意背景。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "紫色屏幕, 紫屏, #800080, 中间调检查, 屏幕均匀性, 紫色背景下载",
+            "page_heading": "紫色屏幕",
+            "color_name": "紫色",
+            "intent_note": "这是标准 CSS 紫色，用于深色中间调观察和创意背景，与高强度品红色不同。",
+            "color_intro": "显示纯紫色，检查深色混合区域，制作照片或直播背景，或增加环境色。下载 PNG 可在编辑器和演示中复用相同数值。",
+            "technical": "本页显示 #800080，即 rgb(128, 0, 128)，红色和蓝色数值相等且为 128，绿色为零。红蓝都为 255 的 #FF00FF 是更亮的品红色，不是本页紫色；屏幕设置、面板和环境光会影响外观。",
+            "how_to_title": "如何使用紫色屏幕",
+            "sections": [
+              {
+                "title": "观察深色中间调",
+                "text": "较暗的紫色平场能让亮度不均、偏色斑块和突兀的色调过渡更容易看到。留意面板上是否有区域偏红、偏蓝、偏灰或接近黑色。"
+              },
+              {
+                "title": "摄影和直播背景",
+                "text": "把紫色用于小型主体、直播场景或墙面反光。它是氛围色，不是标准色键背景。"
+              },
+              {
+                "title": "紫色与品红色的区别",
+                "text": "CSS 紫色 #800080 的红蓝数值为 128，而品红色 #FF00FF 的两者均为 255，后者明显更亮。需要指定色调时请核对 HEX 值。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "本页使用什么紫色？",
+                "a": "它使用 #800080，即 rgb(128, 0, 128)。红蓝通道数值相同，绿色为零。"
+              },
+              {
+                "q": "为什么另一台显示器上的紫色更偏蓝？",
+                "a": "面板、色温、色彩配置、亮度和环境光会改变视觉平衡。两台设备接收的像素值仍可相同。"
+              },
+              {
+                "q": "紫色适合去除视频背景吗？",
+                "a": "它不是常用的色键颜色。若工作流程需要抠像，请使用绿色或蓝色；紫色更适合作为可见背景。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Violetter Bildschirm - Vollbild-Hintergrund",
+            "og_title": "Violetter Bildschirm - Vollbild-Hintergrund",
+            "og_description": "Zeigen Sie #800080 für dunkle Mitteltöne oder kreative Hintergründe. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #800080 für dunkle Mitteltöne oder kreative Hintergründe. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "violetter Bildschirm, violettes Vollbild, #800080, Mitteltöne prüfen, Displayuniformität",
+            "page_heading": "Violetter Bildschirm",
+            "color_name": "Violett",
+            "intent_note": "Dies ist standardisiertes CSS-Violett zur Prüfung dunkler Mitteltöne und für kreative Hintergründe, nicht das hellere Vollton-Magenta.",
+            "color_intro": "Füllen Sie das Display mit Violett. Prüfen Sie ein dunkles Mischfarbfeld oder nutzen Sie es als Foto-, Streaming- oder Lichtakzent. Die PNGs liefern denselben numerischen Wert für Bearbeitung und Präsentationen.",
+            "technical": "Die Seite rendert #800080 beziehungsweise rgb(128, 0, 128): Rot und Blau stehen gleich bei 128, Grün bei null. #FF00FF mit beiden Kanälen auf 255 ist deutlich helleres Magenta, nicht dieses Violett; Panel, Einstellungen und Raumlicht verändern die Ansicht.",
+            "how_to_title": "So verwenden Sie den violetten Bildschirm",
+            "sections": [
+              {
+                "title": "Dunkle Mitteltöne prüfen",
+                "text": "Ein dunkles Violett kann ungleichmäßige Ausleuchtung, Farbstichflecken und abrupte Tonübergänge sichtbar machen. Achten Sie auf Bereiche, die in Rot, Blau, Grau oder Schwarz kippen."
+              },
+              {
+                "title": "Foto- und Streaming-Hintergrund",
+                "text": "Nutzen Sie Violett hinter einem kleinen Motiv, in einer Streaming-Szene oder als Wandreflex. Es ist eine Stimmungsfarbe, kein standardisierter Chroma-Key-Hintergrund."
+              },
+              {
+                "title": "Violett und Magenta unterscheiden",
+                "text": "CSS-Violett #800080 verwendet Rot und Blau mit 128; Magenta #FF00FF nutzt beide mit 255 und ist deutlich heller. Prüfen Sie den HEX-Wert für einen bestimmten Farbton."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Welches Violett zeigt diese Seite?",
+                "a": "Sie verwendet #800080 beziehungsweise rgb(128, 0, 128). Rot und Blau haben denselben Wert, Grün steht auf null."
+              },
+              {
+                "q": "Warum wirkt Violett auf einem anderen Display blauer?",
+                "a": "Panel, Farbtemperatur, Profile, Helligkeit und Raumlicht können das sichtbare Verhältnis verschieben. Beide Displays können trotzdem dieselben Pixelwerte erhalten."
+              },
+              {
+                "q": "Eignet sich Violett zum Entfernen eines Videohintergrunds?",
+                "a": "Es ist keine übliche Chroma-Key-Farbe. Nutzen Sie Grün oder Blau für Freistellung und Violett als sichtbaren Hintergrund oder Akzent."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla morada - Fondo a pantalla completa",
+            "og_title": "Pantalla morada - Fondo a pantalla completa",
+            "og_description": "Muestra #800080 para revisar tonos medios oscuros o crear un fondo. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #800080 para revisar tonos medios oscuros o crear un fondo. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla morada, pantalla morada completa, #800080, tonos medios, uniformidad de pantalla",
+            "page_heading": "Pantalla morada",
+            "color_name": "Morado",
+            "intent_note": "Es el morado CSS estándar para observar tonos medios oscuros y crear fondos; se diferencia del magenta de máxima intensidad.",
+            "color_intro": "Muestra un campo morado para revisar un tono mixto oscuro o crear un fondo de foto o streaming. El PNG conserva el mismo valor para editores y presentaciones.",
+            "technical": "La página muestra #800080, o rgb(128, 0, 128), con rojo y azul iguales a 128 y verde a cero. #FF00FF, con ambos canales a 255, es magenta más brillante y no este morado; el panel, los ajustes y la luz ambiente cambian su aspecto.",
+            "how_to_title": "Cómo usar la pantalla morada",
+            "sections": [
+              {
+                "title": "Revisa los tonos medios oscuros",
+                "text": "Un campo morado oscuro puede revelar iluminación irregular, manchas de tono y transiciones bruscas. Busca zonas que viren a rojo, azul, gris o negro."
+              },
+              {
+                "title": "Fondo para fotos y streaming",
+                "text": "Usa el morado detrás de un objeto pequeño, en una escena de streaming o reflejado en una pared. Es un color ambiental, no un fondo de croma estándar."
+              },
+              {
+                "title": "Diferencia entre morado y magenta",
+                "text": "El morado CSS #800080 usa rojo y azul a 128; el magenta #FF00FF los lleva a 255 y es mucho más brillante. Comprueba el valor HEX cuando necesites un tono concreto."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Qué tono morado usa esta página?",
+                "a": "Usa #800080, o rgb(128, 0, 128). Rojo y azul tienen el mismo valor y verde está en cero."
+              },
+              {
+                "q": "¿Por qué el morado parece más azul en otra pantalla?",
+                "a": "El panel, la temperatura de color, los perfiles, el brillo y la luz ambiente pueden cambiar el equilibrio visible. Los valores de píxel pueden ser iguales."
+              },
+              {
+                "q": "¿Sirve el morado para eliminar un fondo de vídeo?",
+                "a": "No es un color de croma habitual. Usa verde o azul para el recorte y reserva el morado como fondo visible o acento."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela roxa - Fundo roxo em tela cheia",
+            "og_title": "Tela roxa - Fundo roxo em tela cheia",
+            "og_description": "Exiba #800080 para observar tons médios escuros ou criar um fundo. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #800080 para observar tons médios escuros ou criar um fundo. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela roxa, tela roxa em tela cheia, #800080, tons médios, uniformidade da tela",
+            "page_heading": "Tela roxa",
+            "color_name": "Roxo",
+            "intent_note": "É o roxo CSS padrão para observar tons médios escuros e criar fundos, diferente do magenta de intensidade máxima.",
+            "color_intro": "Use um campo roxo para verificar um tom misto escuro ou criar um fundo para foto ou streaming. O PNG mantém o mesmo valor para editores e apresentações.",
+            "technical": "A página exibe #800080, ou rgb(128, 0, 128), com vermelho e azul em 128 e verde em zero. #FF00FF, com os dois canais em 255, é magenta mais brilhante, não este roxo; painel, configurações e luz ambiente alteram a aparência.",
+            "how_to_title": "Como usar a tela roxa",
+            "sections": [
+              {
+                "title": "Observe tons médios escuros",
+                "text": "Um campo roxo escuro pode revelar iluminação irregular, manchas de tonalidade e transições abruptas. Procure áreas que puxem para vermelho, azul, cinza ou preto."
+              },
+              {
+                "title": "Fundo para fotos e streaming",
+                "text": "Use roxo atrás de um objeto pequeno, em uma cena de streaming ou refletido na parede. É uma cor de atmosfera, não um fundo padrão de chroma key."
+              },
+              {
+                "title": "Roxo e magenta são diferentes",
+                "text": "O roxo CSS #800080 usa vermelho e azul em 128; o magenta #FF00FF usa ambos em 255 e é muito mais brilhante. Confira o HEX quando precisar de um tom exato."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Qual tom de roxo esta página usa?",
+                "a": "Ela usa #800080, ou rgb(128, 0, 128). Vermelho e azul têm o mesmo valor, e verde fica em zero."
+              },
+              {
+                "q": "Por que o roxo parece mais azul em outra tela?",
+                "a": "Painel, temperatura de cor, perfis, brilho e luz ambiente podem mudar o equilíbrio visível. Os valores de pixel ainda podem ser iguais."
+              },
+              {
+                "q": "Roxo serve para remover um fundo de vídeo?",
+                "a": "Não é uma cor comum de chroma key. Use verde ou azul para recorte e deixe o roxo como fundo visível ou destaque."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran violet - Fond violet plein écran",
+            "og_title": "Écran violet - Fond violet plein écran",
+            "og_description": "Affichez #800080 pour observer les tons moyens sombres ou créer un fond. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #800080 pour observer les tons moyens sombres ou créer un fond. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran violet, écran violet plein écran, #800080, tons moyens, uniformité écran",
+            "page_heading": "Écran violet",
+            "color_name": "Violet",
+            "intent_note": "Il s’agit du violet CSS standard pour observer les tons moyens sombres et créer un décor, distinct du magenta à pleine intensité.",
+            "color_intro": "Utilisez un champ violet pour observer un ton mélangé sombre ou créer un fond photo ou vidéo. Le PNG garde la même valeur pour le montage et les présentations.",
+            "technical": "La page affiche #800080, soit rgb(128, 0, 128), avec rouge et bleu à 128 et vert à zéro. #FF00FF, avec les deux canaux à 255, est un magenta bien plus lumineux, pas ce violet ; dalle, réglages et lumière ambiante changent l’aspect.",
+            "how_to_title": "Comment utiliser l’écran violet",
+            "sections": [
+              {
+                "title": "Observer les tons moyens sombres",
+                "text": "Un violet sombre peut révéler éclairage irrégulier, taches de dominante et transitions brusques. Cherchez les zones qui tirent vers le rouge, le bleu, le gris ou le noir."
+              },
+              {
+                "title": "Fond photo et vidéo",
+                "text": "Utilisez le violet derrière un petit sujet, dans une scène vidéo ou en reflet sur un mur. C’est une couleur d’ambiance, pas un fond chroma key standard."
+              },
+              {
+                "title": "Distinguer violet et magenta",
+                "text": "Le violet CSS #800080 utilise rouge et bleu à 128 ; le magenta #FF00FF met les deux à 255 et paraît bien plus lumineux. Vérifiez la valeur HEX pour une teinte précise."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Quel violet cette page utilise-t-elle ?",
+                "a": "Elle utilise #800080, soit rgb(128, 0, 128). Le rouge et le bleu ont la même valeur, et le vert vaut zéro."
+              },
+              {
+                "q": "Pourquoi le violet paraît-il plus bleu sur un autre écran ?",
+                "a": "Dalle, température de couleur, profils, luminosité et lumière ambiante peuvent modifier l’équilibre visible. Les valeurs de pixels peuvent rester identiques."
+              },
+              {
+                "q": "Le violet convient-il pour retirer un fond vidéo ?",
+                "a": "Ce n’est pas une couleur chroma key standard. Utilisez le vert ou le bleu pour le détourage, et gardez le violet comme fond visible."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "pink-screen",
+      "template": "color-page",
+      "output": "pink-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/pink-screen",
+        "page_title": "Pink Screen - Fullscreen Soft Pink Background Tool",
+        "og_title": "Pink Screen - Fullscreen Soft Pink Background Tool",
+        "og_description": "Open a fullscreen pink screen in exact #FFC0CB for soft photo backdrops and warm color comparisons, with free 1080p and 4K PNG downloads.",
+        "description": "Open a pink screen (#FFC0CB) for soft photo backdrops and warm color comparisons. Use it fullscreen or download free 1080p and 4K PNG backgrounds.",
+        "page_keywords": "pink screen, fullscreen pink screen, soft pink background, #FFC0CB, warm color comparison, pink background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/pink-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Pink Screen",
+        "color_name": "Pink",
+        "hex": "#FFC0CB",
+        "rgb": "rgb(255, 192, 203)",
+        "intent_note": "This is a soft solid pink field for visible backdrops, fill light, and warm color comparison, not a standard chroma-key color.",
+        "color_intro": "Use the pink field as a soft backdrop for small products or crafts. It can also provide warm fill for a close video shot or a comparison field across displays. The PNG downloads provide the same numeric color for editing and presentations.",
+        "technical": "The page renders classic CSS pink #FFC0CB, or rgb(255, 192, 203). Panel type, color temperature, night-light filters, brightness, and ambient light change its apparent warmth and brightness. It is not a calibrated color reference.",
+        "sections": [
+          {
+            "title": "Soft backdrop and fill light",
+            "text": "Pink provides a light, warm surface behind crafts, product photos, slides, and streaming elements. At moderate display brightness it can also add a gentle fill to a nearby subject."
+          },
+          {
+            "title": "Warm color comparison",
+            "text": "Show the same field on two screens to spot an obvious shift toward peach, salmon, magenta, or washed-out white. The comparison is visual only and does not replace display calibration."
+          },
+          {
+            "title": "Not a chroma-key standard",
+            "text": "Pink overlaps with many skin and clothing tones, so background-removal software can also remove parts of a subject. Use green or blue for keying and reserve pink for a visible background."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "What shade of pink is shown here?",
+            "a": "The field uses classic CSS pink #FFC0CB, or rgb(255, 192, 203). Its numeric value is fixed while its appearance depends on the display and surroundings."
+          },
+          {
+            "q": "Can pink replace a green screen?",
+            "a": "No. Pink is not a standard chroma-key color and often overlaps with subject colors, especially skin tones and clothing."
+          },
+          {
+            "q": "Why can this pink look orange or washed out?",
+            "a": "Warm color temperature, night-light filters, high brightness, panel differences, and ambient light can shift or reduce the visible pink tone."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this pink screen",
+        "locales": {
+          "zh": {
+            "page_title": "粉色屏幕 - 柔和背景与暖色比较",
+            "og_title": "粉色屏幕 - 柔和背景与暖色比较",
+            "og_description": "打开 #FFC0CB 粉色屏幕，用于柔和摄影背景、补光和暖色比较。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #FFC0CB 粉色屏幕，用于柔和摄影背景、补光和暖色比较。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "粉色屏幕, 粉屏, #FFC0CB, 柔和粉色背景, 补光, 暖色比较",
+            "page_heading": "粉色屏幕",
+            "color_name": "粉色",
+            "intent_note": "这是用于可见背景、补光和暖色比较的柔和粉色区域，不是标准色键背景。",
+            "color_intro": "将粉色屏幕用作小型产品或手工品的柔和背景，也可为近距离视频补光或比较不同屏幕。下载 PNG 可在编辑器和演示中复用相同数值的粉色。",
+            "technical": "本页显示经典 CSS 粉色 #FFC0CB，即 rgb(255, 192, 203)。面板、色温、夜间模式、亮度和环境光会改变其暖度与亮度，因此它不是校准色彩基准。",
+            "how_to_title": "如何使用粉色屏幕",
+            "sections": [
+              {
+                "title": "柔和背景与补光",
+                "text": "粉色可作为手作、产品照片、幻灯片和直播元素的浅色暖背景。把亮度调到适中时，也能为附近主体提供柔和补光。"
+              },
+              {
+                "title": "比较暖色表现",
+                "text": "在两台屏幕上显示同一平场，可观察是否明显偏向桃色、鲑红、品红或发白。这只是视觉比较，不能替代显示器校准。"
+              },
+              {
+                "title": "不是标准色键颜色",
+                "text": "粉色与许多肤色和服装颜色接近，抠像软件可能一并移除主体。需要抠像时使用绿色或蓝色。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "本页显示什么粉色？",
+                "a": "它使用经典 CSS 粉色 #FFC0CB，即 rgb(255, 192, 203)。数值固定，外观会受屏幕和环境影响。"
+              },
+              {
+                "q": "粉色能替代绿幕吗？",
+                "a": "不能。粉色不是常用色键颜色，而且容易与肤色或服装颜色重叠。"
+              },
+              {
+                "q": "为什么粉色会显得偏橙或发白？",
+                "a": "偏暖色温、护眼滤镜、高亮度、面板差异和环境光都可能改变或减弱粉色。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Rosa Bildschirm - Weicher Hintergrund und warme Farbvergleiche",
+            "og_title": "Rosa Bildschirm - Weicher Hintergrund und warme Farbvergleiche",
+            "og_description": "Zeigen Sie #FFC0CB für weiche Foto-Hintergründe, Aufhellung und warme Farbvergleiche. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #FFC0CB für weiche Foto-Hintergründe, Aufhellung und warme Farbvergleiche. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "rosa Bildschirm, rosanes Vollbild, #FFC0CB, weicher Hintergrund, Aufhellung, Farbvergleich",
+            "page_heading": "Rosa Bildschirm",
+            "color_name": "Rosa",
+            "intent_note": "Die weiche rosa Fläche dient als sichtbarer Hintergrund, Aufhellung und warmer Farbvergleich, nicht als standardisierter Chroma-Key-Hintergrund.",
+            "color_intro": "Nutzen Sie die rosa Fläche als weichen Hintergrund für kleine Produkte oder Handarbeiten. Sie eignet sich auch als Aufhellung oder zum Vergleich mehrerer Displays. Die PNGs liefern denselben numerischen Rosawert für Bearbeitung und Präsentationen.",
+            "technical": "Die Seite rendert CSS-Rosa #FFC0CB beziehungsweise rgb(255, 192, 203). Panel, Farbtemperatur, Nachtfilter, Helligkeit und Raumlicht verändern Wärme und Helligkeit; die Fläche ist kein kalibrierter Farbreferenzwert.",
+            "how_to_title": "So verwenden Sie den rosa Bildschirm",
+            "sections": [
+              {
+                "title": "Weicher Hintergrund und Aufhellung",
+                "text": "Rosa bietet eine helle, warme Fläche für Bastelarbeiten, Produktfotos, Folien und Streaming-Elemente. Bei mittlerer Helligkeit kann es ein nahes Motiv sanft aufhellen."
+              },
+              {
+                "title": "Warme Farbtöne vergleichen",
+                "text": "Zeigen Sie dieselbe Fläche auf zwei Displays und achten Sie auf einen sichtbaren Stich in Pfirsich, Lachs, Magenta oder Weiß. Das bleibt eine Sichtprüfung und ersetzt keine Kalibrierung."
+              },
+              {
+                "title": "Kein Standard für Chroma Key",
+                "text": "Rosa überschneidet sich mit vielen Haut- und Kleidungsfarben, sodass Software auch Teile des Motivs entfernen kann. Verwenden Sie Grün oder Blau zum Keying."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Welchen Rosaton zeigt die Seite?",
+                "a": "Sie zeigt klassisches CSS-Rosa #FFC0CB beziehungsweise rgb(255, 192, 203). Der Wert bleibt fest, die Darstellung hängt von Display und Umgebung ab."
+              },
+              {
+                "q": "Kann Rosa einen Greenscreen ersetzen?",
+                "a": "Nein. Rosa ist keine übliche Chroma-Key-Farbe und überschneidet sich oft mit Haut- oder Kleidungsfarben."
+              },
+              {
+                "q": "Warum wirkt dieses Rosa orange oder ausgewaschen?",
+                "a": "Eine warme Farbtemperatur, Nachtfilter, hohe Helligkeit, Panelunterschiede und Raumlicht können den sichtbaren Rosaton verschieben oder abschwächen."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla rosa - Fondo suave y comparación de tonos cálidos",
+            "og_title": "Pantalla rosa - Fondo suave y comparación de tonos cálidos",
+            "og_description": "Muestra #FFC0CB para fondos suaves, luz de relleno y comparaciones cálidas. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #FFC0CB para fondos suaves, luz de relleno y comparaciones cálidas. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla rosa, pantalla rosa completa, #FFC0CB, fondo rosa suave, luz de relleno, comparar color",
+            "page_heading": "Pantalla rosa",
+            "color_name": "Rosa",
+            "intent_note": "Es un campo rosa suave para fondos visibles, luz de relleno y comparaciones cálidas; no es un fondo de croma estándar.",
+            "color_intro": "Usa el campo rosa como fondo suave para productos o manualidades. También sirve como luz de relleno o para comparar varias pantallas. El PNG conserva el mismo valor para editores y presentaciones.",
+            "technical": "La página muestra el rosa CSS clásico #FFC0CB, o rgb(255, 192, 203). El panel, la temperatura de color, los filtros nocturnos, el brillo y la luz ambiente cambian su calidez y luminosidad; no es una referencia calibrada.",
+            "how_to_title": "Cómo usar la pantalla rosa",
+            "sections": [
+              {
+                "title": "Fondo suave y luz de relleno",
+                "text": "El rosa ofrece una superficie clara y cálida para manualidades, productos, diapositivas y elementos de streaming. Con brillo moderado también puede iluminar suavemente un objeto cercano."
+              },
+              {
+                "title": "Compara los tonos cálidos",
+                "text": "Muestra el mismo campo en dos pantallas y busca un cambio evidente hacia melocotón, salmón, magenta o blanco lavado. Es una comparación visual, no una calibración."
+              },
+              {
+                "title": "No es un color estándar de croma",
+                "text": "El rosa se parece a muchos tonos de piel y prendas, así que el software puede eliminar parte del sujeto. Usa verde o azul para hacer croma."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Qué tono rosa muestra la página?",
+                "a": "Muestra el rosa CSS clásico #FFC0CB, o rgb(255, 192, 203). El valor es fijo, pero la pantalla y el entorno cambian su aspecto."
+              },
+              {
+                "q": "¿Puede el rosa sustituir una pantalla verde?",
+                "a": "No. El rosa no es un color de croma habitual y suele coincidir con tonos de piel o ropa."
+              },
+              {
+                "q": "¿Por qué este rosa parece naranja o deslavado?",
+                "a": "Una temperatura cálida, los filtros nocturnos, el brillo alto, el panel y la luz ambiente pueden cambiar o reducir el tono rosa."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela rosa - Fundo suave e comparação de tons quentes",
+            "og_title": "Tela rosa - Fundo suave e comparação de tons quentes",
+            "og_description": "Exiba #FFC0CB para fundos suaves, luz de preenchimento e comparações de tons quentes. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #FFC0CB para fundos suaves, luz de preenchimento e comparações de tons quentes. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela rosa, tela rosa em tela cheia, #FFC0CB, fundo rosa suave, luz de preenchimento, comparar cores",
+            "page_heading": "Tela rosa",
+            "color_name": "Rosa",
+            "intent_note": "É uma área rosa suave para fundos visíveis, luz de preenchimento e comparação de tons quentes; não é fundo padrão de chroma key.",
+            "color_intro": "Use o campo rosa como fundo suave para produtos ou artesanato. Ele também serve como luz de preenchimento ou para comparar várias telas. O PNG mantém o mesmo valor para editores e apresentações.",
+            "technical": "A página exibe o rosa CSS clássico #FFC0CB, ou rgb(255, 192, 203). Painel, temperatura de cor, filtros noturnos, brilho e luz ambiente alteram a tonalidade quente e a luminosidade. A página não é uma referência calibrada.",
+            "how_to_title": "Como usar a tela rosa",
+            "sections": [
+              {
+                "title": "Fundo suave e luz de preenchimento",
+                "text": "O rosa oferece uma superfície clara e quente para artesanato, produtos, slides e elementos de streaming. Com brilho moderado, também pode iluminar suavemente um objeto próximo."
+              },
+              {
+                "title": "Compare tons quentes",
+                "text": "Mostre o mesmo campo em duas telas e observe mudanças para pêssego, salmão, magenta ou branco lavado. É uma comparação visual, não calibração."
+              },
+              {
+                "title": "Não é cor padrão de chroma key",
+                "text": "O rosa se aproxima de tons de pele e roupas, então o software pode remover partes do assunto. Use verde ou azul para chroma key."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Qual tom de rosa aparece nesta página?",
+                "a": "Ela mostra o rosa CSS clássico #FFC0CB, ou rgb(255, 192, 203). O valor é fixo, mas tela e ambiente mudam sua aparência."
+              },
+              {
+                "q": "Rosa pode substituir uma tela verde?",
+                "a": "Não. Rosa não é uma cor comum de chroma key e costuma coincidir com tons de pele ou roupa."
+              },
+              {
+                "q": "Por que este rosa parece laranja ou desbotado?",
+                "a": "Temperatura de cor quente, filtros noturnos, brilho alto, diferenças de painel e luz ambiente podem mudar ou reduzir o tom rosa."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran rose - Fond doux et comparaison de tons chauds",
+            "og_title": "Écran rose - Fond doux et comparaison de tons chauds",
+            "og_description": "Affichez #FFC0CB pour un fond doux, une lumière d’appoint et des comparaisons chaudes. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #FFC0CB pour un fond doux, une lumière d’appoint et des comparaisons chaudes. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran rose, écran rose plein écran, #FFC0CB, fond rose doux, lumière d’appoint, comparer couleurs",
+            "page_heading": "Écran rose",
+            "color_name": "Rose",
+            "intent_note": "Ce champ rose doux sert de décor visible, de lumière d’appoint et de comparaison chaude ; ce n’est pas un fond chroma key standard.",
+            "color_intro": "Utilisez le champ rose comme fond doux pour des objets ou des créations. Il sert aussi de lumière d’appoint ou à comparer plusieurs écrans. Le PNG garde la même valeur pour le montage et les présentations.",
+            "technical": "La page affiche le rose CSS #FFC0CB, soit rgb(255, 192, 203). Dalle, température de couleur, filtres nocturnes, luminosité et lumière ambiante modifient sa teinte chaude et sa clarté. Ce n’est pas une référence calibrée.",
+            "how_to_title": "Comment utiliser l’écran rose",
+            "sections": [
+              {
+                "title": "Fond doux et lumière d’appoint",
+                "text": "Le rose offre une surface claire et chaude pour l’artisanat, les produits, les diapositives et les éléments vidéo. À luminosité modérée, il peut aussi éclairer doucement un sujet proche."
+              },
+              {
+                "title": "Comparer les teintes chaudes",
+                "text": "Affichez le même champ sur deux écrans et cherchez un glissement vers le pêche, le saumon, le magenta ou le blanc délavé. Il s’agit d’une comparaison visuelle, pas d’une calibration."
+              },
+              {
+                "title": "Pas une couleur chroma key standard",
+                "text": "Le rose se rapproche de nombreux teints et vêtements ; le logiciel peut donc retirer une partie du sujet. Utilisez le vert ou le bleu pour le détourage."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Quelle nuance de rose cette page affiche-t-elle ?",
+                "a": "Elle affiche le rose CSS classique #FFC0CB, soit rgb(255, 192, 203). La valeur est fixe, mais l’écran et l’environnement modifient son aspect."
+              },
+              {
+                "q": "Le rose peut-il remplacer un fond vert ?",
+                "a": "Non. Le rose n’est pas une couleur chroma key standard et recoupe souvent les teintes de peau ou de vêtements."
+              },
+              {
+                "q": "Pourquoi ce rose paraît-il orange ou délavé ?",
+                "a": "Une température chaude, les filtres nocturnes, une forte luminosité, la dalle et la lumière ambiante peuvent déplacer ou atténuer le rose."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "gray-screen",
+      "template": "color-page",
+      "output": "gray-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/gray-screen",
+        "page_title": "Gray Screen - Fullscreen Uniformity and Banding Check",
+        "og_title": "Gray Screen - Fullscreen Uniformity and Banding Check",
+        "og_description": "Open a fullscreen gray screen in exact #808080 to inspect uniformity, banding, and dirty screen effect, with free 1080p and 4K PNG downloads.",
+        "description": "Open a gray screen (#808080) to inspect uniformity, banding, and dirty screen effect. Use it fullscreen or download free 1080p and 4K PNGs.",
+        "page_keywords": "gray screen, fullscreen gray screen, #808080, display uniformity check, banding test, dirty screen effect, gray background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/gray-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "Gray Screen",
+        "color_name": "Gray",
+        "hex": "#808080",
+        "rgb": "rgb(128, 128, 128)",
+        "intent_note": "This is an equal-channel sRGB midpoint for flat-field inspection and neutral backdrops. It is not a physical paint swatch. It is not a calibrated 18% photographic gray card.",
+        "color_intro": "Fill the display with solid gray to inspect broad uniformity, banding, dirty screen effect, and tint variation without the intensity of white. The same field also works as a quiet neutral backdrop, and the PNG downloads provide its exact numeric value as a file.",
+        "technical": "All three sRGB channels are numerically equal at 128, the midpoint of the 0-255 encoded range. Because sRGB encoding is nonlinear, #808080 is not 50% display luminance, and it is not a calibrated 18% photographic gray card. Panel settings and ambient light still affect its appearance.",
+        "sections": [
+          {
+            "title": "Uniformity and dirty screen effect",
+            "text": "Mid-gray can reveal broad cloudy patches, edge shading, vertical bands, and tint changes that hide in detailed images. Inspect from a normal viewing distance, then move closer only to investigate a specific area."
+          },
+          {
+            "title": "Banding and tonal behavior",
+            "text": "A flat field can expose abrupt bands or contours. One gray level does not replace a full gradient test. Use the LCD Screen Tester for guided grayscale and color patterns."
+          },
+          {
+            "title": "Neutral UI and image backdrop",
+            "text": "Equal encoded red, green, and blue values provide a visually quiet background for interface mockups, screenshots, and small product images. It is neutral by numeric definition, not a guarantee of calibrated neutral appearance."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Is #808080 the same as an 18% gray card?",
+            "a": "No. An 18% gray card is a physical reflectance reference for photography, while #808080 is the numeric midpoint of encoded sRGB values."
+          },
+          {
+            "q": "Is #808080 equal to 50% screen brightness?",
+            "a": "No. sRGB values are nonlinear, so a numeric channel value of 128 does not produce half the luminance of 255."
+          },
+          {
+            "q": "What should I look for on a gray screen?",
+            "a": "Look for broad streaks, cloudy patches, edge darkening, unexpected bands, or areas with a green, magenta, warm, or cool tint."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this gray screen",
+        "locales": {
+          "zh": {
+            "page_title": "灰色屏幕 - 检查均匀性、条带与偏色",
+            "og_title": "灰色屏幕 - 检查均匀性、条带与偏色",
+            "og_description": "打开 #808080 灰色屏幕，观察均匀性、条带、脏屏效应和偏色。可免费下载 1080p 与 4K PNG。",
+            "description": "打开 #808080 灰色屏幕，观察均匀性、条带、脏屏效应和偏色。可免费下载 1080p 与 4K PNG。",
+            "page_keywords": "灰色屏幕, 灰屏, #808080, 屏幕均匀性, 条带测试, 脏屏效应, 灰色背景",
+            "page_heading": "灰色屏幕",
+            "color_name": "灰色",
+            "intent_note": "这是用于平场检查和中性背景的等通道 sRGB 中点。它不是实体油漆色卡，也不是校准的 18% 摄影灰卡。",
+            "color_intro": "显示纯灰色，观察大范围均匀性、条带、脏屏效应和偏色，也可作为中性背景。下载 PNG 可获得相同数值的静态灰色文件。",
+            "technical": "三个 sRGB 通道的数值均为 128。本页显示 #808080，即 rgb(128, 128, 128)，它是 0-255 编码范围的中点。sRGB 编码是非线性的，因此 #808080 不是屏幕亮度的 50%。它也不是校准的 18% 摄影灰卡。面板设置和环境光仍会影响外观。",
+            "how_to_title": "如何使用灰色屏幕",
+            "sections": [
+              {
+                "title": "观察均匀性与脏屏效应",
+                "text": "中灰能显示大范围云状斑块、边缘变暗、垂直条带和偏色，这些问题在复杂图像中可能不明显。先以正常距离观察，再靠近确认。"
+              },
+              {
+                "title": "检查条带与色调变化",
+                "text": "平场有助于发现不应出现的突兀条带或轮廓，但单一灰度不能替代完整渐变测试。需要引导式检查时使用液晶屏幕测试器。"
+              },
+              {
+                "title": "中性界面与图片背景",
+                "text": "等数值的红、绿、蓝通道提供安静的截图、界面稿和小型产品图背景。它在数值上中性，不保证经过校准的视觉中性。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#808080 等同于 18% 灰卡吗？",
+                "a": "不等同。18% 灰卡是摄影用的实体反射基准，#808080 是编码 sRGB 数值的中点。"
+              },
+              {
+                "q": "#808080 等于屏幕亮度的 50% 吗？",
+                "a": "不等于。sRGB 数值是非线性的，通道值 128 不会产生 255 一半的亮度。"
+              },
+              {
+                "q": "灰色屏幕上应检查什么？",
+                "a": "查看大范围条纹、云状斑块、边缘变暗、异常条带，以及偏绿、偏品红、偏暖或偏冷的区域。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Grauer Bildschirm - Uniformität, Banding und Farbstiche prüfen",
+            "og_title": "Grauer Bildschirm - Uniformität, Banding und Farbstiche prüfen",
+            "og_description": "Zeigen Sie #808080, um Uniformität, Banding, Dirty-Screen-Effekt und Farbstiche zu prüfen. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "description": "Zeigen Sie #808080, um Uniformität, Banding, Dirty-Screen-Effekt und Farbstiche zu prüfen. Laden Sie kostenlose PNGs in 1080p und 4K herunter.",
+            "page_keywords": "grauer Bildschirm, graues Vollbild, #808080, Displayuniformität, Banding-Test, Dirty Screen Effect",
+            "page_heading": "Grauer Bildschirm",
+            "color_name": "Grau",
+            "intent_note": "Dies ist ein gleichkanaliger sRGB-Mittelwert für Flächenprüfungen und neutrale Hintergründe. Er ist kein physisches Farbfeld und keine kalibrierte 18%-Graukarte.",
+            "color_intro": "Füllen Sie das Display mit Grau, um Uniformität, Banding, Dirty-Screen-Effekt und Farbstiche ohne die Intensität von Weiß zu prüfen. Die Fläche eignet sich auch als ruhiger Hintergrund. Die PNGs liefern denselben numerischen Grauwert als Datei.",
+            "technical": "Alle drei sRGB-Kanäle stehen bei 128: #808080 beziehungsweise rgb(128, 128, 128), der Mittelpunkt des codierten Bereichs 0-255. Wegen der nichtlinearen sRGB-Codierung ist #808080 weder halbe Displayluminanz noch eine kalibrierte 18%-Graukarte; Panel und Raumlicht beeinflussen die Ansicht.",
+            "how_to_title": "So verwenden Sie den grauen Bildschirm",
+            "sections": [
+              {
+                "title": "Uniformität und Dirty-Screen-Effekt",
+                "text": "Mittelgrau macht wolkige Flächen, Randabschattung, vertikale Bänder und Farbstiche sichtbar, die in detailreichen Bildern verborgen bleiben. Beobachten Sie zunächst aus normaler Entfernung. Gehen Sie nur für einen bestimmten Bereich näher heran."
+              },
+              {
+                "title": "Banding und Tonverhalten",
+                "text": "Eine Vollfläche kann abrupte Bänder oder Konturen zeigen, ersetzt aber keinen vollständigen Verlaufstest. Für geführte Graustufen- und Farbmuster nutzen Sie den LCD-Bildschirmtester."
+              },
+              {
+                "title": "Neutrale UI- und Bildfläche",
+                "text": "Gleiche codierte Rot-, Grün- und Blauwerte ergeben einen ruhigen Hintergrund für Mockups, Screenshots und kleine Produktbilder. Numerisch neutral bedeutet nicht automatisch sichtbar kalibriert neutral."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Ist #808080 dasselbe wie eine 18%-Graukarte?",
+                "a": "Nein. Eine 18%-Graukarte ist eine physische Reflexionsreferenz für Fotografie. #808080 ist der numerische Mittelpunkt codierter sRGB-Werte."
+              },
+              {
+                "q": "Entspricht #808080 halber Bildschirmhelligkeit?",
+                "a": "Nein. sRGB-Werte sind nichtlinear. Ein Kanalwert von 128 erzeugt nicht die halbe Luminanz von 255."
+              },
+              {
+                "q": "Worauf sollte ich bei einer grauen Fläche achten?",
+                "a": "Achten Sie auf breite Streifen, wolkige Flecken, dunkle Ränder, unerwartete Bänder sowie grüne, magentafarbene, warme oder kühle Bereiche."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla gris - Revisa uniformidad, bandas y dominantes",
+            "og_title": "Pantalla gris - Revisa uniformidad, bandas y dominantes",
+            "og_description": "Muestra #808080 para revisar uniformidad, bandas, efecto de pantalla sucia y dominantes. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #808080 para revisar uniformidad, bandas, efecto de pantalla sucia y dominantes. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla gris, pantalla gris completa, #808080, uniformidad, prueba de bandas, efecto pantalla sucia",
+            "page_heading": "Pantalla gris",
+            "color_name": "Gris",
+            "intent_note": "Es un punto medio sRGB con canales iguales para revisar campos uniformes y usar fondos neutros. No es una muestra de pintura física ni una tarjeta gris fotográfica calibrada del 18 %.",
+            "color_intro": "Muestra un campo gris para revisar uniformidad, bandas, efecto de pantalla sucia y cambios de tono sin la intensidad del blanco. También sirve como fondo neutro. El PNG conserva el mismo valor como archivo.",
+            "technical": "Los tres canales sRGB tienen el valor 128: #808080, o rgb(128, 128, 128), el punto medio del rango codificado 0-255. Los valores sRGB no son lineales. #808080 no equivale a media luminancia ni a una tarjeta gris calibrada del 18 %. El panel y la luz ambiente influyen.",
+            "how_to_title": "Cómo usar la pantalla gris",
+            "sections": [
+              {
+                "title": "Uniformidad y efecto de pantalla sucia",
+                "text": "El gris medio revela manchas amplias, bordes oscuros, bandas verticales y dominantes ocultas en imágenes detalladas. Obsérvalo primero a una distancia normal. Acércate solo para revisar una zona concreta."
+              },
+              {
+                "title": "Bandas y comportamiento tonal",
+                "text": "Un campo liso ayuda a ver bandas o contornos bruscos, pero no sustituye una prueba de degradado completa. Usa el comprobador LCD para patrones guiados."
+              },
+              {
+                "title": "Fondo neutro para interfaz e imágenes",
+                "text": "Los valores codificados iguales de rojo, verde y azul crean un fondo discreto para maquetas, capturas y productos pequeños. Es neutro por número, no una garantía de neutralidad calibrada."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿#808080 equivale a una tarjeta gris del 18 %?",
+                "a": "No. Una tarjeta gris del 18 % es una referencia física de reflectancia. #808080 es el punto medio numérico de valores sRGB codificados."
+              },
+              {
+                "q": "¿#808080 equivale al 50 % de brillo?",
+                "a": "No. Los valores sRGB no son lineales. Un canal en 128 no produce la mitad de luminancia que 255."
+              },
+              {
+                "q": "¿Qué debo buscar en una pantalla gris?",
+                "a": "Busca franjas amplias, manchas, bordes oscuros, bandas inesperadas y zonas con dominante verde, magenta, cálida o fría."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela cinza - Verifique uniformidade, faixas e tonalidades",
+            "og_title": "Tela cinza - Verifique uniformidade, faixas e tonalidades",
+            "og_description": "Exiba #808080 para observar uniformidade, faixas, efeito de tela suja e tonalidades. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #808080 para observar uniformidade, faixas, efeito de tela suja e tonalidades. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela cinza, tela cinza em tela cheia, #808080, uniformidade, teste de faixas, efeito tela suja",
+            "page_heading": "Tela cinza",
+            "color_name": "Cinza",
+            "intent_note": "É um ponto médio sRGB com canais iguais para verificar campos uniformes e criar fundos neutros. Não é uma amostra de tinta física nem um cartão cinza fotográfico calibrado de 18%.",
+            "color_intro": "Use um campo cinza para observar uniformidade, faixas, efeito de tela suja e mudanças de tom sem a intensidade do branco. Ele também serve como fundo neutro. O PNG mantém o mesmo valor como arquivo.",
+            "technical": "Os três canais sRGB têm valor 128: #808080, ou rgb(128, 128, 128), o ponto médio do intervalo codificado 0-255. Como a codificação sRGB não é linear, #808080 não representa metade da luminância nem um cartão cinza calibrado de 18%; painel e luz ambiente influenciam a aparência.",
+            "how_to_title": "Como usar a tela cinza",
+            "sections": [
+              {
+                "title": "Uniformidade e efeito de tela suja",
+                "text": "O cinza médio revela manchas amplas, bordas escuras, faixas verticais e tonalidades ocultas em imagens detalhadas. Observe primeiro à distância normal. Aproxime-se apenas para verificar uma área específica."
+              },
+              {
+                "title": "Faixas e comportamento tonal",
+                "text": "Um campo liso ajuda a mostrar faixas ou contornos abruptos, mas não substitui um teste completo de gradiente. Use os padrões guiados do testador LCD."
+              },
+              {
+                "title": "Fundo neutro para interface e imagens",
+                "text": "Valores codificados iguais de vermelho, verde e azul criam um fundo discreto para mockups, capturas e produtos pequenos. É neutro numericamente, não uma garantia de neutralidade calibrada."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#808080 é igual a um cartão cinza de 18%?",
+                "a": "Não. Um cartão cinza de 18% é uma referência física de refletância. #808080 é o ponto médio numérico de valores sRGB codificados."
+              },
+              {
+                "q": "#808080 equivale a 50% do brilho da tela?",
+                "a": "Não. Valores sRGB não são lineares. Um canal em 128 não produz metade da luminância de 255."
+              },
+              {
+                "q": "O que devo procurar em uma tela cinza?",
+                "a": "Procure faixas largas, manchas, bordas escuras, bandas inesperadas e áreas esverdeadas, magenta, quentes ou frias."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran gris - Vérifier uniformité, bandes et dominantes",
+            "og_title": "Écran gris - Vérifier uniformité, bandes et dominantes",
+            "og_description": "Affichez #808080 pour observer uniformité, bandes, effet de dalle sale et dominantes. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "description": "Affichez #808080 pour observer uniformité, bandes, effet de dalle sale et dominantes. Téléchargez des PNG gratuits en 1080p et 4K.",
+            "page_keywords": "écran gris, écran gris plein écran, #808080, uniformité, test de bandes, effet dalle sale",
+            "page_heading": "Écran gris",
+            "color_name": "Gris",
+            "intent_note": "Ce milieu sRGB à canaux égaux sert aux champs uniformes et aux fonds neutres. Ce n’est pas un nuancier de peinture physique ni une charte grise photo calibrée à 18 %.",
+            "color_intro": "Utilisez un champ gris pour observer uniformité, bandes, effet de dalle sale et variations de teinte sans l’intensité du blanc. Il sert aussi de fond neutre. Le PNG garde la même valeur dans un fichier.",
+            "technical": "Les trois canaux sRGB valent 128 : #808080, soit rgb(128, 128, 128), le milieu de la plage codée 0-255. Les valeurs sRGB ne sont pas linéaires. #808080 ne représente ni la moitié de la luminance ni une charte grise calibrée à 18 %. Dalle et lumière ambiante influencent l’aspect.",
+            "how_to_title": "Comment utiliser l’écran gris",
+            "sections": [
+              {
+                "title": "Uniformité et effet de dalle sale",
+                "text": "Le gris moyen révèle des taches, des bords sombres, des bandes verticales et des dominantes cachées par les images détaillées. Regardez d’abord à distance normale. Approchez-vous seulement pour examiner une zone précise."
+              },
+              {
+                "title": "Bandes et comportement tonal",
+                "text": "Un champ uni aide à repérer bandes ou contours brusques, mais ne remplace pas un test complet de dégradé. Utilisez les motifs guidés du testeur LCD."
+              },
+              {
+                "title": "Fond neutre pour interface et images",
+                "text": "Des valeurs codées identiques en rouge, vert et bleu créent un fond discret pour maquettes, captures et petits produits. La neutralité numérique ne garantit pas une neutralité visuelle calibrée."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "#808080 correspond-il à une charte grise à 18 % ?",
+                "a": "Non. Une charte grise à 18 % est une référence physique de réflectance. #808080 est le milieu numérique de valeurs sRGB codées."
+              },
+              {
+                "q": "#808080 équivaut-il à 50 % de luminosité ?",
+                "a": "Non. Les valeurs sRGB ne sont pas linéaires. Un canal à 128 ne produit pas la moitié de la luminance de 255."
+              },
+              {
+                "q": "Que faut-il chercher sur un écran gris ?",
+                "a": "Cherchez de larges stries, des taches, des bords sombres, des bandes inattendues et des zones vertes, magenta, chaudes ou froides."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "white-screen",
+      "template": "color-page",
+      "output": "white-screen.html",
+      "page_content": "pure-color-screen-content",
+      "enabled_languages": [
+        "en",
+        "zh",
+        "de",
+        "es",
+        "pt",
+        "fr"
+      ],
+      "config": {
+        "canonical_url": "https://screensizechecker.com/white-screen",
+        "page_title": "White Screen - Fullscreen White Background and Light",
+        "og_title": "White Screen - Fullscreen White Background and Light",
+        "og_description": "Open a fullscreen white screen in exact #FFFFFF to spot dust, smudges, and pixel issues or use soft fill light, with free 1080p and 4K PNG downloads.",
+        "description": "Open a white screen (#FFFFFF) to spot dust, smudges, and pixel issues or use it for tracing and fill light. Download free 1080p and 4K PNGs.",
+        "page_keywords": "white screen, fullscreen white screen, #FFFFFF, monitor dust check, pixel check, tracing light, video call fill light, white background download",
+        "og_type": "website",
+        "og_url": "https://screensizechecker.com/white-screen",
+        "og_image": "https://screensizechecker.com/images/og-default.png",
+        "css_path": "css",
+        "locales_path": "locales",
+        "js_path": "js",
+        "home_url": "index.html",
+        "blog_url": "blog/index.html",
+        "privacy_policy_url": "privacy-policy.html",
+        "page_heading": "White Screen",
+        "color_name": "White",
+        "hex": "#FFFFFF",
+        "rgb": "rgb(255, 255, 255)",
+        "intent_note": "This is a plain white field for visibility, tracing, and fill light, not a color-calibration or full display-diagnostic tool.",
+        "color_intro": "Fill the display with solid white to make dust, fingerprints, coating marks, and dark pixels easier to see. At a comfortable brightness, it can serve as a tracing surface or soft fill for a video call. The PNG downloads provide a static white background.",
+        "technical": "This page renders #FFFFFF, or rgb(255, 255, 255), with all three channels at full numeric value. Perceived brightness and white point depend on the panel, brightness, color temperature, filters, and ambient light. This field is a viewing aid, not a calibration reference.",
+        "sections": [
+          {
+            "title": "Spot dust, smudges, and dark pixels",
+            "text": "A white field makes surface marks and pixels that stay dark or off-color stand out against the display. Use it to locate the area, then power the screen off before cleaning with the method recommended by the manufacturer."
+          },
+          {
+            "title": "Tracing and light-table use",
+            "text": "Place thin paper over a suitable flat display at low pressure and moderate brightness to trace a simple outline or inspect translucent material. Protect the panel from sharp tools, moisture, and heavy pressure."
+          },
+          {
+            "title": "Soft fill for video calls",
+            "text": "Face the white field toward you at a comfortable brightness to add broad, soft illumination when a dedicated lamp is unavailable. Display white point and room light will affect skin tone, so adjust the setup by eye."
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Can a white screen help find dead pixels?",
+            "a": "It can make dark or incorrectly colored pixels easier to notice. Compare red, green, blue, and black fields or use the LCD Screen Tester to investigate further."
+          },
+          {
+            "q": "Should I clean the display while the white field is on?",
+            "a": "Use the field only to locate marks. Power the display off, let it cool, and follow the manufacturer's cleaning instructions before wiping it."
+          },
+          {
+            "q": "Can this white field replace a calibrated photo light?",
+            "a": "No. It can provide convenient soft fill, but its brightness, spectrum, and white point vary by display and settings."
+          }
+        ],
+        "page_family": "pure-color",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "how_to_title": "How to use this white screen",
+        "locales": {
+          "zh": {
+            "page_title": "白色屏幕 - 检查灰尘、污渍与暗像素",
+            "og_title": "白色屏幕 - 检查灰尘、污渍与暗像素",
+            "og_description": "打开 #FFFFFF 白色屏幕，查找灰尘、指纹、污渍和暗像素。免费用于描图和柔和补光，也可下载 1080p 与 4K PNG。",
+            "description": "打开 #FFFFFF 白色屏幕，查找灰尘、指纹、污渍和暗像素。免费用于描图和柔和补光，也可下载 1080p 与 4K PNG。",
+            "page_keywords": "白色屏幕, 白屏, #FFFFFF, 屏幕灰尘检查, 暗像素检查, 描图灯, 视频补光, 白色背景下载",
+            "page_heading": "白色屏幕",
+            "color_name": "白色",
+            "intent_note": "这是用于观察、描图和补光的纯白色区域，不是色彩校准工具，也不能替代完整的显示器诊断。",
+            "color_intro": "让屏幕显示纯白，可以更容易看到灰尘、指纹、涂层痕迹和暗像素。将亮度调到舒适水平后，也能作为简单描图台或视频通话补光；下载的 PNG 则提供静态白色背景。",
+            "technical": "本页显示 #FFFFFF，即 rgb(255, 255, 255)，三个通道均为数值最大值。感知亮度和白点会受到面板、亮度、色温设置、护眼滤镜及环境光影响，因此它只是观察辅助，不是校准基准。",
+            "how_to_title": "如何使用白色屏幕",
+            "sections": [
+              {
+                "title": "查找灰尘、污渍和暗像素",
+                "text": "纯白背景会让表面痕迹以及持续发暗或偏色的像素更显眼。先用它定位问题区域，再按照制造商建议关机清洁屏幕。"
+              },
+              {
+                "title": "描图和简易透光台",
+                "text": "在合适的平面屏幕上铺一张薄纸，将亮度调低并轻放纸张，可描出简单轮廓或观察半透明材料。避免尖锐工具、液体和用力按压面板。"
+              },
+              {
+                "title": "视频通话柔和补光",
+                "text": "把白色区域朝向自己并调到舒适亮度，在没有专用灯时提供宽而柔和的光线。屏幕白点和房间灯光会改变肤色，最好按实际画面微调。"
+              }
+            ],
+            "faqs": [
+              {
+                "q": "白色屏幕能帮助找到坏点吗？",
+                "a": "它能让暗点或明显偏色的像素更容易被发现。需要进一步判断时，可比较红、绿、蓝、黑色页面，或使用液晶屏幕测试器。"
+              },
+              {
+                "q": "白色页面显示时可以清洁屏幕吗？",
+                "a": "页面只用于定位污渍。清洁前应关闭屏幕并等待其冷却，再遵循制造商的擦拭说明。"
+              },
+              {
+                "q": "白色屏幕能替代校准摄影灯吗？",
+                "a": "不能。它可以提供方便的柔和补光，但亮度、光谱和白点会随屏幕及设置变化。"
+              }
+            ]
+          },
+          "de": {
+            "page_title": "Weißer Bildschirm - Staub, Flecken und dunkle Pixel prüfen",
+            "og_title": "Weißer Bildschirm - Staub, Flecken und dunkle Pixel prüfen",
+            "og_description": "Zeigen Sie #FFFFFF im Vollbild, um Staub, Abdrücke und dunkle Pixel zu finden. Nutzen Sie es zum Nachzeichnen oder als Aufhelllicht. PNGs in 1080p und 4K.",
+            "description": "Zeigen Sie #FFFFFF im Vollbild, um Staub, Abdrücke und dunkle Pixel zu finden. Nutzen Sie es zum Nachzeichnen oder als Aufhelllicht. PNGs in 1080p und 4K.",
+            "page_keywords": "weißer Bildschirm, weißer Vollbildschirm, #FFFFFF, Staub auf Monitor prüfen, Pixeltest, Zeichenlicht, Hintergrund herunterladen",
+            "page_heading": "Weißer Bildschirm",
+            "color_name": "Weiß",
+            "intent_note": "Die weiße Fläche dient der Sichtprüfung, zum Nachzeichnen und als Aufhellung; sie ist weder ein Kalibrierziel noch eine vollständige Displaydiagnose.",
+            "color_intro": "Füllen Sie das Display mit reinem Weiß, damit Staub, Fingerabdrücke, Beschichtungsflecken und dunkle Pixel auffallen. Bei angenehmer Helligkeit eignet es sich außerdem als einfache Leuchtfläche oder weiches Licht für einen Videoanruf; die PNGs liefern denselben Weißwert als statischen Hintergrund.",
+            "technical": "Diese Seite rendert #FFFFFF beziehungsweise rgb(255, 255, 255); alle drei Kanäle stehen auf ihrem numerischen Maximum. Wahrgenommene Helligkeit und Weißpunkt hängen von Panel, Helligkeit, Farbtemperatur, Filtern und Umgebungslicht ab, daher ist die Fläche kein Kalibrierstandard.",
+            "how_to_title": "So verwenden Sie den weißen Bildschirm",
+            "sections": [
+              {
+                "title": "Staub, Flecken und dunkle Pixel finden",
+                "text": "Auf einer weißen Fläche werden Oberflächenmarken und Pixel, die dunkel oder verfärbt bleiben, deutlich sichtbar. Grenzen Sie die Stelle ein, schalten Sie das Display aus und reinigen Sie es nach Herstellerangaben."
+              },
+              {
+                "title": "Nachzeichnen und Leuchtfläche",
+                "text": "Legen Sie dünnes Papier mit wenig Druck auf ein geeignetes flaches Display und reduzieren Sie die Helligkeit, um eine einfache Kontur nachzuzeichnen. Schützen Sie das Panel vor Werkzeugen, Feuchtigkeit und Druck."
+              },
+              {
+                "title": "Weiches Licht für Videoanrufe",
+                "text": "Richten Sie die weiße Fläche bei komfortabler Helligkeit auf Ihr Gesicht, wenn keine Lampe zur Hand ist. Weißpunkt und Raumlicht verändern den Hautton, deshalb sollte die Einstellung nach dem Bild erfolgen."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Kann ein weißer Bildschirm tote Pixel sichtbar machen?",
+                "a": "Dunkle oder falsch gefärbte Pixel fallen dadurch leichter auf. Vergleichen Sie zusätzlich rote, grüne, blaue und schwarze Flächen oder nutzen Sie den LCD-Bildschirmtester."
+              },
+              {
+                "q": "Soll ich den Bildschirm bei angezeigtem Weiß reinigen?",
+                "a": "Verwenden Sie die Fläche nur zum Finden der Stelle. Schalten Sie das Display aus, lassen Sie es abkühlen und befolgen Sie die Reinigungshinweise des Herstellers."
+              },
+              {
+                "q": "Ersetzt die weiße Fläche ein kalibriertes Fotolicht?",
+                "a": "Nein. Sie kann bequemes weiches Licht liefern, aber Helligkeit, Spektrum und Weißpunkt unterscheiden sich je nach Display und Einstellungen."
+              }
+            ]
+          },
+          "es": {
+            "page_title": "Pantalla blanca - Detecta polvo, manchas y píxeles oscuros",
+            "og_title": "Pantalla blanca - Detecta polvo, manchas y píxeles oscuros",
+            "og_description": "Muestra #FFFFFF para localizar polvo, huellas y píxeles oscuros. También sirve para calcar y aportar luz de relleno. Descarga gratis archivos PNG en 1080p y 4K.",
+            "description": "Muestra #FFFFFF para localizar polvo, huellas y píxeles oscuros. También sirve para calcar y aportar luz de relleno. Descarga gratis archivos PNG en 1080p y 4K.",
+            "page_keywords": "pantalla blanca, pantalla blanca completa, #FFFFFF, comprobar polvo del monitor, píxeles oscuros, luz para calcar, fondo blanco",
+            "page_heading": "Pantalla blanca",
+            "color_name": "Blanco",
+            "intent_note": "Es un campo blanco para observar, calcar y aportar luz de relleno; no es una herramienta de calibración ni un diagnóstico completo del panel.",
+            "color_intro": "Rellena la pantalla de blanco puro para ver mejor el polvo, las huellas, las marcas del recubrimiento y los píxeles oscuros. Con un brillo cómodo también funciona como superficie sencilla para calcar o como luz suave en una videollamada; los PNG conservan el mismo blanco numérico.",
+            "technical": "La página muestra #FFFFFF, o rgb(255, 255, 255). El brillo y el punto blanco percibidos dependen del panel, del nivel de brillo, de la temperatura de color, de los filtros y de la luz ambiente. Este campo no es una referencia de calibración.",
+            "how_to_title": "Cómo usar la pantalla blanca",
+            "sections": [
+              {
+                "title": "Localiza polvo, manchas y píxeles oscuros",
+                "text": "El campo blanco resalta las marcas de la superficie y los píxeles que permanecen oscuros o con otro tono. Úsalo para localizar la zona, apaga la pantalla y límpiala según las indicaciones del fabricante."
+              },
+              {
+                "title": "Calcar y usar como mesa de luz",
+                "text": "Coloca papel fino sobre una pantalla plana adecuada, con poca presión y brillo moderado, para calcar un contorno sencillo o revisar material translúcido. Evita herramientas afiladas, humedad y presión fuerte."
+              },
+              {
+                "title": "Luz suave para videollamadas",
+                "text": "Orienta el campo blanco hacia ti con un brillo cómodo para añadir iluminación amplia cuando no tengas una lámpara. El punto blanco de la pantalla y la luz del cuarto cambiarán el tono de piel."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "¿Una pantalla blanca ayuda a encontrar píxeles muertos?",
+                "a": "Puede hacer más visibles los píxeles oscuros o con un color incorrecto. Para investigar mejor, compara las pantallas roja, verde, azul y negra, o usa el comprobador de panel LCD."
+              },
+              {
+                "q": "¿Puedo limpiar la pantalla mientras aparece el blanco?",
+                "a": "Usa el campo solo para localizar manchas. Apaga el dispositivo, deja que se enfríe y sigue las instrucciones de limpieza del fabricante."
+              },
+              {
+                "q": "¿Sustituye esta pantalla a una luz fotográfica calibrada?",
+                "a": "No. Aporta una luz de relleno práctica, pero su brillo, espectro y punto blanco varían según la pantalla y sus ajustes."
+              }
+            ]
+          },
+          "pt": {
+            "page_title": "Tela branca - Encontre poeira, manchas e pixels escuros",
+            "og_title": "Tela branca - Encontre poeira, manchas e pixels escuros",
+            "og_description": "Exiba #FFFFFF para localizar poeira, marcas e pixels escuros. Também serve para decalque e luz de preenchimento. Baixe PNGs gratuitos em 1080p e 4K.",
+            "description": "Exiba #FFFFFF para localizar poeira, marcas e pixels escuros. Também serve para decalque e luz de preenchimento. Baixe PNGs gratuitos em 1080p e 4K.",
+            "page_keywords": "tela branca, tela branca em tela cheia, #FFFFFF, verificar poeira no monitor, teste de pixels, luz para decalque, fundo branco",
+            "page_heading": "Tela branca",
+            "color_name": "Branco",
+            "intent_note": "É uma área branca para inspeção visual, decalque e luz de preenchimento; não é uma ferramenta de calibração nem um diagnóstico completo do painel.",
+            "color_intro": "Preencha a tela com branco puro para destacar poeira, marcas de dedos, manchas do revestimento e pixels escuros. Com brilho confortável, ela também serve como superfície para decalque ou luz suave em uma chamada de vídeo. Os PNGs mantêm o mesmo branco numérico.",
+            "technical": "Esta página exibe #FFFFFF, ou rgb(255, 255, 255), com os três canais no valor numérico máximo. O brilho e o ponto branco percebidos dependem do painel, brilho, temperatura de cor, filtros e luz ambiente, portanto a área não é uma referência de calibração.",
+            "how_to_title": "Como usar a tela branca",
+            "sections": [
+              {
+                "title": "Veja poeira, manchas e pixels escuros",
+                "text": "O campo branco destaca marcas na superfície e pixels que continuam escuros ou com outra cor. Use-o para localizar o ponto, desligue a tela e limpe conforme as instruções do fabricante."
+              },
+              {
+                "title": "Decalque e mesa de luz simples",
+                "text": "Coloque papel fino sobre uma tela plana adequada, com pouca pressão e brilho moderado, para traçar um contorno simples ou observar material translúcido. Proteja o painel de ferramentas, umidade e pressão excessiva."
+              },
+              {
+                "title": "Luz suave para chamadas de vídeo",
+                "text": "Aponte o campo branco para o rosto com brilho confortável para criar uma iluminação ampla quando não houver uma lâmpada. O ponto branco da tela e a luz do ambiente alteram o tom da pele."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Uma tela branca ajuda a encontrar pixels mortos?",
+                "a": "Ela pode tornar pixels escuros ou com cor incorreta mais fáceis de notar. Compare também as telas vermelha, verde, azul e preta, ou use o testador de painel LCD."
+              },
+              {
+                "q": "Devo limpar a tela enquanto o branco está aberto?",
+                "a": "Use o campo apenas para localizar a mancha. Desligue a tela, espere esfriar e siga o método de limpeza indicado pelo fabricante."
+              },
+              {
+                "q": "A tela branca substitui uma luz fotográfica calibrada?",
+                "a": "Não. Ela oferece uma luz de preenchimento prática, mas brilho, espectro e ponto branco variam conforme a tela e as configurações."
+              }
+            ]
+          },
+          "fr": {
+            "page_title": "Écran blanc - Repérer poussière, traces et pixels sombres",
+            "og_title": "Écran blanc - Repérer poussière, traces et pixels sombres",
+            "og_description": "Affichez #FFFFFF en plein écran pour repérer poussière, traces et pixels sombres. Utilisez-le pour décalquer ou comme lumière d’appoint. PNG 1080p et 4K.",
+            "description": "Affichez #FFFFFF en plein écran pour repérer poussière, traces et pixels sombres. Utilisez-le pour décalquer ou comme lumière d’appoint. PNG 1080p et 4K.",
+            "page_keywords": "écran blanc, écran blanc plein écran, #FFFFFF, vérifier poussière moniteur, pixels sombres, lumière de décalque, fond blanc",
+            "page_heading": "Écran blanc",
+            "color_name": "Blanc",
+            "intent_note": "Cette surface blanche sert à observer, décalquer et fournir une lumière d’appoint ; ce n’est ni une cible de calibration ni un diagnostic complet de dalle.",
+            "color_intro": "Remplissez l’écran de blanc pur pour faire ressortir poussière, traces de doigts, marques de revêtement et pixels sombres. À luminosité confortable, il sert aussi à décalquer ou à fournir une lumière douce pour un appel vidéo. Les PNG gardent la même valeur de blanc.",
+            "technical": "La page affiche #FFFFFF, soit rgb(255, 255, 255), avec les trois canaux à leur valeur maximale. La luminosité et le point blanc perçus dépendent de la dalle, du niveau de luminosité, de la température de couleur, des filtres et de la lumière ambiante. Ce champ n’est pas une référence de calibration.",
+            "how_to_title": "Comment utiliser l’écran blanc",
+            "sections": [
+              {
+                "title": "Repérer poussière, traces et pixels sombres",
+                "text": "Le champ blanc rend visibles les marques de surface et les pixels qui restent sombres ou décolorés. Servez-vous-en pour localiser la zone, puis éteignez l’écran avant de le nettoyer selon les consignes du fabricant."
+              },
+              {
+                "title": "Décalque et table lumineuse",
+                "text": "Posez une feuille fine sur une dalle plate adaptée, sans appuyer et avec une luminosité modérée, pour décalquer un contour simple ou observer un matériau translucide. Évitez outils pointus, humidité et forte pression."
+              },
+              {
+                "title": "Lumière douce pour les appels vidéo",
+                "text": "Orientez le champ blanc vers votre visage à une luminosité confortable pour obtenir un éclairage large lorsqu’aucune lampe n’est disponible. Le point blanc et la lumière de la pièce modifieront le teint."
+              }
+            ],
+            "faqs": [
+              {
+                "q": "Un écran blanc aide-t-il à trouver les pixels morts ?",
+                "a": "Il rend les pixels sombres ou mal colorés plus faciles à repérer. Comparez aussi les écrans rouge, vert, bleu et noir, ou utilisez le testeur de dalle LCD."
+              },
+              {
+                "q": "Faut-il nettoyer l’écran quand le blanc est affiché ?",
+                "a": "Utilisez le champ uniquement pour localiser les traces. Éteignez l’écran, laissez-le refroidir et suivez la méthode de nettoyage du fabricant."
+              },
+              {
+                "q": "Cet écran blanc remplace-t-il une lumière photo calibrée ?",
+                "a": "Non. Il fournit un appoint pratique, mais sa luminosité, son spectre et son point blanc varient selon l’écran et ses réglages."
+              }
+            ]
+          }
+        }
+      }
     }
   ]
 }

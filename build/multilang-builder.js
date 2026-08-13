@@ -7,7 +7,120 @@ const { TranslationValidator } = require('./translation-validator');
 const InternalLinksProcessor = require('./internal-links-processor');
 const CriticalCSSExtractor = require('./critical-css-extractor');
 
+const PURE_COLOR_UI = {
+    en: { pure: 'Pure color screen', controls: 'Color controls', colorScreens: 'Color screens', faq: 'Frequently asked questions', related: 'Related tools', technical: 'Technical note', home: 'Home', tools: 'Tools', lcd: 'LCD Screen Tester', resolution: 'Screen Resolution Checker', standard: 'Standard Resolutions', exit: 'Exit', fullscreen: 'Enter fullscreen', copyHex: 'Copy HEX', copyRgb: 'Copy RGB', download1080: 'Download 1080p', download4k: 'Download 4K', wake: 'Keep screen awake', lcdPrefix: 'For deeper pixel diagnosis, use the', resolutionPrefix: 'To inspect actual dimensions, use the', copySuccess: '{label} copied to clipboard.', copyFailure: 'Could not copy {label}.', downloadStarted: 'Downloading {size} PNG.', downloadFailure: 'Could not generate the image.', active: 'Fullscreen active. Press Escape to exit.', exited: 'Exited fullscreen.', fallback: 'Fullscreen not available. Showing full-page color. Press Escape to exit.', downloadUnsupported: 'Image download is not supported in this browser.', screenSuffix: 'screen' },
+    zh: { pure: '纯色屏幕', controls: '颜色控制', colorScreens: '颜色屏幕', faq: '常见问题', related: '相关工具', technical: '技术说明', home: '首页', tools: '工具', lcd: 'LCD 屏幕测试器', resolution: '屏幕分辨率检查器', standard: '标准分辨率', exit: '退出', fullscreen: '进入全屏', copyHex: '复制 HEX', copyRgb: '复制 RGB', download1080: '下载 1080p', download4k: '下载 4K', wake: '保持屏幕唤醒', lcdPrefix: '如需深入检查像素，请使用', resolutionPrefix: '如需检查实际尺寸，请使用', copySuccess: '已复制 {label}。', copyFailure: '无法复制 {label}。', downloadStarted: '正在下载 {size} PNG。', downloadFailure: '无法生成图片。', active: '已进入全屏，按 Escape 退出。', exited: '已退出全屏。', fallback: '全屏不可用，正在显示整页颜色。按 Escape 退出。', downloadUnsupported: '此浏览器不支持图片下载。', screenSuffix: '屏幕' },
+    de: { pure: 'Reine Farbfläche', controls: 'Farbsteuerung', colorScreens: 'Farbflächen', faq: 'Häufige Fragen', related: 'Verwandte Werkzeuge', technical: 'Technischer Hinweis', home: 'Startseite', tools: 'Werkzeuge', lcd: 'LCD-Bildschirmtester', resolution: 'Bildschirmauflösungsprüfung', standard: 'Standardauflösungen', exit: 'Beenden', fullscreen: 'Vollbild öffnen', copyHex: 'HEX kopieren', copyRgb: 'RGB kopieren', download1080: '1080p herunterladen', download4k: '4K herunterladen', wake: 'Bildschirm aktiv halten', lcdPrefix: 'Für eine genauere Pixeldiagnose verwenden Sie den', resolutionPrefix: 'Für die tatsächlichen Abmessungen verwenden Sie die', copySuccess: '{label} in die Zwischenablage kopiert.', copyFailure: '{label} konnte nicht kopiert werden.', downloadStarted: '{size}-PNG wird heruntergeladen.', downloadFailure: 'Bild konnte nicht erstellt werden.', active: 'Vollbild aktiv. Zum Beenden Escape drücken.', exited: 'Vollbild beendet.', fallback: 'Vollbild nicht verfügbar. Die Farbfläche wird seitenfüllend angezeigt. Escape zum Beenden.', downloadUnsupported: 'Dieser Browser unterstützt keine Bilddownloads.', screenSuffix: 'Bildschirm' },
+    es: { pure: 'Pantalla de color puro', controls: 'Controles de color', colorScreens: 'Pantallas de color', faq: 'Preguntas frecuentes', related: 'Herramientas relacionadas', technical: 'Nota técnica', home: 'Inicio', tools: 'Herramientas', lcd: 'Probador de pantalla LCD', resolution: 'Comprobador de resolución', standard: 'Resoluciones estándar', exit: 'Salir', fullscreen: 'Entrar en pantalla completa', copyHex: 'Copiar HEX', copyRgb: 'Copiar RGB', download1080: 'Descargar 1080p', download4k: 'Descargar 4K', wake: 'Mantener pantalla activa', lcdPrefix: 'Para un diagnóstico más profundo de píxeles, usa el', resolutionPrefix: 'Para revisar las dimensiones reales, usa el', copySuccess: '{label} copiado al portapapeles.', copyFailure: 'No se pudo copiar {label}.', downloadStarted: 'Descargando PNG de {size}.', downloadFailure: 'No se pudo generar la imagen.', active: 'Pantalla completa activa. Pulsa Escape para salir.', exited: 'Se salió de la pantalla completa.', fallback: 'Pantalla completa no disponible. Se muestra el color en toda la página. Pulsa Escape para salir.', downloadUnsupported: 'Este navegador no admite descargas de imágenes.', screenSuffix: 'pantalla' },
+    pt: { pure: 'Tela de cor pura', controls: 'Controles de cor', colorScreens: 'Telas de cor', faq: 'Perguntas frequentes', related: 'Ferramentas relacionadas', technical: 'Nota técnica', home: 'Início', tools: 'Ferramentas', lcd: 'Testador de tela LCD', resolution: 'Verificador de resolução', standard: 'Resoluções padrão', exit: 'Sair', fullscreen: 'Entrar em tela cheia', copyHex: 'Copiar HEX', copyRgb: 'Copiar RGB', download1080: 'Baixar 1080p', download4k: 'Baixar 4K', wake: 'Manter tela ativa', lcdPrefix: 'Para uma análise mais detalhada dos pixels, use o', resolutionPrefix: 'Para verificar as dimensões reais, use o', copySuccess: '{label} copiado para a área de transferência.', copyFailure: 'Não foi possível copiar {label}.', downloadStarted: 'Baixando PNG de {size}.', downloadFailure: 'Não foi possível gerar a imagem.', active: 'Tela cheia ativa. Pressione Escape para sair.', exited: 'Tela cheia encerrada.', fallback: 'Tela cheia indisponível. A cor ocupa a página. Pressione Escape para sair.', downloadUnsupported: 'Este navegador não suporta downloads de imagens.', screenSuffix: 'tela' },
+    fr: { pure: 'Écran de couleur unie', controls: 'Commandes de couleur', colorScreens: 'Écrans de couleur', faq: 'Questions fréquentes', related: 'Outils associés', technical: 'Note technique', home: 'Accueil', tools: 'Outils', lcd: 'Testeur d’écran LCD', resolution: 'Vérificateur de résolution', standard: 'Résolutions standard', exit: 'Quitter', fullscreen: 'Passer en plein écran', copyHex: 'Copier HEX', copyRgb: 'Copier RGB', download1080: 'Télécharger 1080p', download4k: 'Télécharger 4K', wake: 'Garder l’écran actif', lcdPrefix: 'Pour examiner les pixels plus en détail, utilisez le', resolutionPrefix: 'Pour vérifier les dimensions réelles, utilisez le', copySuccess: '{label} copié dans le presse-papiers.', copyFailure: 'Impossible de copier {label}.', downloadStarted: 'Téléchargement du PNG {size}.', downloadFailure: 'Impossible de générer l’image.', active: 'Plein écran actif. Appuyez sur Échap pour quitter.', exited: 'Plein écran quitté.', fallback: 'Plein écran indisponible. La couleur remplit la page. Appuyez sur Échap pour quitter.', downloadUnsupported: 'Ce navigateur ne prend pas en charge le téléchargement d’images.', screenSuffix: 'écran' }
+};
+Object.assign(PURE_COLOR_UI.en, { wakeEnabled: 'Screen wake lock enabled.', wakePaused: 'Screen wake lock paused.', wakeDisabled: 'Screen wake lock disabled.', wakeFailed: 'Could not keep the screen awake.' });
+Object.assign(PURE_COLOR_UI.zh, { wakeEnabled: '已开启屏幕唤醒锁定。', wakePaused: '屏幕唤醒锁定已暂停。', wakeDisabled: '已关闭屏幕唤醒锁定。', wakeFailed: '无法保持屏幕唤醒。' });
+Object.assign(PURE_COLOR_UI.de, { wakeEnabled: 'Bildschirmaktivierung ist eingeschaltet.', wakePaused: 'Bildschirmaktivierung pausiert.', wakeDisabled: 'Bildschirmaktivierung ausgeschaltet.', wakeFailed: 'Der Bildschirm konnte nicht aktiv gehalten werden.' });
+Object.assign(PURE_COLOR_UI.es, { wakeEnabled: 'La pantalla permanecerá activa.', wakePaused: 'La activación de pantalla está pausada.', wakeDisabled: 'La pantalla ya no se mantendrá activa.', wakeFailed: 'No se pudo mantener activa la pantalla.' });
+Object.assign(PURE_COLOR_UI.pt, { wakeEnabled: 'O bloqueio de suspensão da tela foi ativado.', wakePaused: 'O bloqueio de suspensão da tela foi pausado.', wakeDisabled: 'O bloqueio de suspensão da tela foi desativado.', wakeFailed: 'Não foi possível manter a tela ativa.' });
+Object.assign(PURE_COLOR_UI.fr, { wakeEnabled: 'Le maintien de l’écran est activé.', wakePaused: 'Le maintien de l’écran est en pause.', wakeDisabled: 'Le maintien de l’écran est désactivé.', wakeFailed: 'Impossible de garder l’écran actif.' });
+const PURE_COLOR_LANGS = ['en', 'zh', 'de', 'es', 'pt', 'fr'];
+const PURE_COLOR_UI_LABELS = Object.fromEntries(
+    Object.entries(PURE_COLOR_UI).map(([lang, ui]) => [lang, ui.colorScreens])
+);
+
 class MultiLangBuilder extends ComponentBuilder {
+    getColorScreensLink(lang) {
+        if (!this.enabledLanguages.includes(lang) || !PURE_COLOR_UI_LABELS[lang]) {
+            throw new Error(`Missing pure-color UI locale: ${lang}`);
+        }
+        const prefix = lang === 'en' ? '' : `/${lang}`;
+        return `<li><a href="${prefix}/white-screen">${PURE_COLOR_UI_LABELS[lang]}</a></li>`;
+    }
+    getColorScreensFooterLink(lang) { return this.getColorScreensLink(lang); }
+    getColorScreensHeaderLink(lang) { return this.getColorScreensLink(lang); }
+
+    getColorPages(config) {
+        const definitions = [
+            ['white-screen', '#FFFFFF', 'rgb(255, 255, 255)'], ['black-screen', '#000000', 'rgb(0, 0, 0)'],
+            ['red-screen', '#FF0000', 'rgb(255, 0, 0)'], ['green-screen', '#00FF00', 'rgb(0, 255, 0)'],
+            ['blue-screen', '#0000FF', 'rgb(0, 0, 255)'], ['yellow-screen', '#FFFF00', 'rgb(255, 255, 0)'],
+            ['orange-screen', '#FFA500', 'rgb(255, 165, 0)'], ['purple-screen', '#800080', 'rgb(128, 0, 128)'],
+            ['pink-screen', '#FFC0CB', 'rgb(255, 192, 203)'], ['gray-screen', '#808080', 'rgb(128, 128, 128)']
+        ];
+        const pages = config.pages.filter(page => page.template === 'color-page');
+        if (pages.length !== definitions.length) throw new Error('Invalid pure-color family count');
+        const result = definitions.map(([name, hex, rgb]) => {
+            const matches = pages.filter(page => page.name === name);
+            if (matches.length !== 1) throw new Error(`Invalid pure-color page: ${name}`);
+            const page = matches[0];
+            const required = page.config || {};
+            if (page.output !== `${name}.html` || page.page_content !== 'pure-color-screen-content' || JSON.stringify(page.enabled_languages) !== JSON.stringify(this.enabledLanguages) || required.page_family !== 'pure-color' || required.canonical_url !== `https://screensizechecker.com/${name}` || required.hex !== hex || required.rgb !== rgb) throw new Error(`Invalid pure-color metadata: ${name}`);
+            if (!required.page_title || !required.description || !required.color_name || !required.intent_note || !required.color_intro || !required.technical || !required.how_to_title || !required.datePublished || !required.dateModified || !Array.isArray(required.sections) || required.sections.length !== 3 || !Array.isArray(required.faqs) || required.faqs.length !== 3) throw new Error(`Incomplete pure-color config: ${name}`);
+            if (!required.locales || typeof required.locales !== 'object') throw new Error(`Missing pure-color locales: ${name}`);
+            this.enabledLanguages.slice(1).forEach(lang => {
+                const overlay = required.locales[lang];
+                if (!overlay || typeof overlay !== 'object') throw new Error(`Missing pure-color locale ${lang}: ${name}`);
+                ['page_title', 'og_title', 'og_description', 'description', 'page_keywords', 'page_heading', 'color_name', 'intent_note', 'color_intro', 'technical', 'how_to_title'].forEach(key => { if (typeof overlay[key] !== 'string' || !overlay[key].trim()) throw new Error(`Missing pure-color locale field ${lang}.${key}: ${name}`); });
+                if (!Array.isArray(overlay.sections) || overlay.sections.length !== 3 || overlay.sections.some(item => !item || typeof item.title !== 'string' || typeof item.text !== 'string' || !item.title.trim() || !item.text.trim())) throw new Error(`Invalid pure-color locale sections ${lang}: ${name}`);
+                if (!Array.isArray(overlay.faqs) || overlay.faqs.length !== 3 || overlay.faqs.some(item => !item || typeof item.q !== 'string' || typeof item.a !== 'string' || !item.q.trim() || !item.a.trim())) throw new Error(`Invalid pure-color locale faqs ${lang}: ${name}`);
+            });
+            return page;
+        });
+        if (new Set(result.map(page => page.config.canonical_url)).size !== 10 || new Set(result.map(page => page.config.hex)).size !== 10) throw new Error('Duplicate pure-color canonical URL or hex');
+        return result;
+    }
+    prepareColorPageData(config, page, pageData) {
+        if (page.template !== 'color-page') return;
+        const colors = this.getColorPages(config);
+        if (!colors.includes(page)) throw new Error(`Page is not a validated pure-color family member: ${page.name}`);
+        const configData = page.config;
+        const overlay = pageData.lang === this.defaultLanguage ? {} : configData.locales[pageData.lang];
+        if (pageData.lang !== this.defaultLanguage && !overlay) throw new Error(`Missing pure-color locale: ${page.name}/${pageData.lang}`);
+        Object.assign(pageData, overlay || {});
+        pageData.name = pageData.name || page.name;
+        pageData.title = pageData.title || pageData.page_title;
+        pageData.og_title = pageData.og_title || pageData.page_title;
+        pageData.og_description = pageData.og_description || pageData.description;
+        pageData.current_name = pageData.current_name || pageData.page_heading;
+        const commonUi = PURE_COLOR_UI[pageData.lang];
+        if (!commonUi) throw new Error(`Missing pure-color UI locale: ${pageData.lang}`);
+        pageData.breadcrumb_home = commonUi.home;
+        pageData.parent_name = commonUi.tools;
+        pageData.current_key = page.name;
+        pageData.home_url = pageData.lang === 'en' ? '/' : `/${pageData.lang}/`;
+        pageData.parent_url = `${pageData.lang === 'en' ? '' : `/${pageData.lang}`}/#tools`;
+        pageData.parent_key = 'tools';
+        pageData.show_breadcrumb = true;
+        pageData.is_tools = true;
+        pageData.is_devices = false;
+        pageData.is_gaming = false;
+        if (typeof pageData.color_intro !== 'string' || typeof pageData.intent_note !== 'string' || typeof pageData.technical !== 'string') throw new Error(`Missing pure-color prose: ${page.name}`);
+        const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+        pageData.color_sections = pageData.sections.map(section => `<section><h3>${escapeHtml(section.title)}</h3><p>${escapeHtml(section.text)}</p></section>`).join('');
+        const faqs = pageData.faqs;
+        pageData.visible_faq = faqs.map(item => `<details><summary>${escapeHtml(item.q)}</summary><p>${escapeHtml(item.a)}</p></details>`).join('');
+        const prefix = pageData.lang === 'en' ? '' : `/${pageData.lang}`;
+        const labels = commonUi;
+        const colorName = pageData.color_name;
+        const stage = ({
+            en: `Open the ${colorName} screen in fullscreen`, zh: `全屏打开${colorName}屏幕`, de: `Die ${colorName}-Farbfläche im Vollbild öffnen`,
+            es: `Abrir la pantalla ${colorName} a pantalla completa`, pt: `Abrir a tela ${colorName} em tela cheia`, fr: `Ouvrir l’écran ${colorName} en plein écran`
+        })[pageData.lang];
+        pageData.ui = { ...labels, stage };
+        pageData.ui_pure = pageData.ui.pure; pageData.ui_stage = pageData.ui.stage; pageData.ui_exit = pageData.ui.exit; pageData.ui_fullscreen = pageData.ui.fullscreen; pageData.ui_copy_hex = pageData.ui.copyHex; pageData.ui_copy_rgb = pageData.ui.copyRgb; pageData.ui_download_1080 = pageData.ui.download1080; pageData.ui_download_4k = pageData.ui.download4k; pageData.ui_wake = pageData.ui.wake; pageData.ui_controls = pageData.ui.controls; pageData.ui_color_screens = pageData.ui.colorScreens; pageData.ui_technical = pageData.ui.technical; pageData.ui_faq = pageData.ui.faq; pageData.ui_related = pageData.ui.related; pageData.ui_lcd = pageData.ui.lcd; pageData.ui_resolution = pageData.ui.resolution; pageData.ui_lcd_prefix = pageData.ui.lcdPrefix; pageData.ui_resolution_prefix = pageData.ui.resolutionPrefix; pageData.ui_lcd_href = `${prefix}/devices/lcd-screen-tester`; pageData.ui_resolution_href = `${prefix}/resolution-test`;
+        pageData.ui.copySuccess = ({ en: '{label} copied to clipboard.', zh: '已复制 {label}。', de: '{label} in die Zwischenablage kopiert.', es: '{label} copiado al portapapeles.', pt: '{label} copiado para a área de transferência.', fr: '{label} copié dans le presse-papiers.' })[pageData.lang]; pageData.ui.copyFailure = ({ en: 'Could not copy {label}.', zh: '无法复制 {label}。', de: '{label} konnte nicht kopiert werden.', es: 'No se pudo copiar {label}.', pt: 'Não foi possível copiar {label}.', fr: 'Impossible de copier {label}.' })[pageData.lang]; pageData.ui.downloadStarted = ({ en: 'Downloading {size} PNG.', zh: '正在下载 {size} PNG。', de: '{size}-PNG wird heruntergeladen.', es: 'Descargando PNG de {size}.', pt: 'Baixando PNG de {size}.', fr: 'Téléchargement du PNG {size}.' })[pageData.lang]; pageData.ui.downloadFailure = ({ en: 'Could not generate the image.', zh: '无法生成图片。', de: 'Bild konnte nicht erstellt werden.', es: 'No se pudo generar la imagen.', pt: 'Não foi possível gerar a imagem.', fr: 'Impossible de générer l’image.' })[pageData.lang]; pageData.ui.active = ({ en: 'Fullscreen active. Press Escape to exit.', zh: '已进入全屏，按 Escape 退出。', de: 'Vollbild aktiv. Zum Beenden Escape drücken.', es: 'Pantalla completa activa. Pulsa Escape para salir.', pt: 'Tela cheia ativa. Pressione Escape para sair.', fr: 'Plein écran actif. Appuyez sur Échap pour quitter.' })[pageData.lang]; pageData.ui.exited = ({ en: 'Exited fullscreen.', zh: '已退出全屏。', de: 'Vollbild beendet.', es: 'Se salió de la pantalla completa.', pt: 'Tela cheia encerrada.', fr: 'Plein écran quitté.' })[pageData.lang]; pageData.ui.fallback = ({ en: 'Fullscreen not available. Showing full-page color. Press Escape to exit.', zh: '全屏不可用，正在显示整页颜色。按 Escape 退出。', de: 'Vollbild nicht verfügbar. Farbfläche über die ganze Seite. Escape zum Beenden.', es: 'Pantalla completa no disponible. Se muestra el color en toda la página. Pulsa Escape para salir.', pt: 'Tela cheia indisponível. A cor ocupa a página. Pressione Escape para sair.', fr: 'Plein écran indisponible. La couleur remplit la page. Appuyez sur Échap pour quitter.' })[pageData.lang]; pageData.ui.downloadUnsupported = ({ en: 'Image download is not supported in this browser.', zh: '此浏览器不支持图片下载。', de: 'Dieser Browser unterstützt keine Bilddownloads.', es: 'Este navegador no admite descargas de imágenes.', pt: 'Este navegador não suporta downloads de imagens.', fr: 'Ce navigateur ne prend pas en charge le téléchargement d’images.' })[pageData.lang]; pageData.ui_json = JSON.stringify(pageData.ui).replace(/"/g, '&quot;');
+        const swatchLabel = {
+            en: data => `${data.color_name} screen`, zh: data => `${data.color_name}屏幕`, de: data => `${data.color_name}-Bildschirm`,
+            es: data => `Pantalla ${data.color_name}`, pt: data => `Tela ${data.color_name}`, fr: data => `Écran ${data.color_name}`
+        }[pageData.lang];
+        pageData.related_color_links = colors.map(item => {
+            const data = item.config.locales?.[pageData.lang] || item.config;
+            const label = swatchLabel(data);
+            return `<a class="color-swatch-link" href="${prefix}/${item.name}" aria-label="${escapeHtml(label)}" title="${escapeHtml(`${label} - ${item.config.hex}`)}"${item.name === page.name ? ' aria-current="page"' : ''}><span class="color-swatch-chip" aria-hidden="true" style="--swatch-color: ${escapeHtml(item.config.hex)}"></span><span class="color-swatch-label">${escapeHtml(data.color_name)}</span></a>`;
+        }).join('');
+        const relatedTools = [[`${prefix}/`, labels.home, ({ en: 'Check your current display dimensions.', zh: '查看当前显示尺寸。', de: 'Aktuelle Anzeigemaße prüfen.', es: 'Consulta las dimensiones actuales de tu pantalla.', pt: 'Confira as dimensões atuais da tela.', fr: 'Vérifiez les dimensions actuelles de votre écran.' })[pageData.lang]], [`${prefix}/devices/lcd-screen-tester`, labels.lcd, ({ en: 'Inspect pixels, color, and ghosting.', zh: '检查像素、颜色和残影。', de: 'Pixel, Farben und Nachleuchten prüfen.', es: 'Revisa píxeles, color y retención.', pt: 'Inspecione pixels, cores e retenção.', fr: 'Inspectez les pixels, les couleurs et la rémanence.' })[pageData.lang]], [`${prefix}/resolution-test`, labels.resolution, ({ en: 'Measure your live viewport and resolution.', zh: '测量实时视口和分辨率。', de: 'Viewport und Auflösung messen.', es: 'Mide tu ventana y resolución actuales.', pt: 'Meça a viewport e a resolução atuais.', fr: 'Mesurez votre viewport et votre résolution.' })[pageData.lang]], [`${prefix}/devices/standard-resolutions`, labels.standard, ({ en: 'Browse common screen dimensions.', zh: '浏览常见屏幕尺寸。', de: 'Gängige Bildschirmmaße durchsuchen.', es: 'Consulta dimensiones de pantalla habituales.', pt: 'Consulte dimensões comuns de tela.', fr: 'Parcourez les dimensions d’écran courantes.' })[pageData.lang]]];
+        pageData.related_tools = relatedTools.map(([href, title, description]) => `<a class="related-tool-link" href="${href}"><strong>${escapeHtml(title)}</strong><span>${escapeHtml(description)}</span></a>`).join('');
+        pageData.structured_data = {'@context':'https://schema.org','@type':'WebApplication','name':pageData.page_title,'url':pageData.canonical_url,'description':pageData.description,'applicationCategory':'UtilityApplication','operatingSystem':'Any','inLanguage':pageData.lang,'offers':{'@type':'Offer','price':'0','priceCurrency':'USD'},'featureList':[`${pageData.color_name} fullscreen preview`,`Exact ${pageData.hex} display`,`1080p and 4K PNG downloads`],'datePublished':pageData.datePublished,'dateModified':pageData.dateModified,'isAccessibleForFree':true};
+        pageData.faq_structured_data = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(item=>({'@type':'Question',name:item.q,acceptedAnswer:{'@type':'Answer',text:item.a}}))})}</script>`;
+    }
     constructor() {
         super();
         this.supportedLanguages = ['en', 'zh', 'fr', 'de', 'es', 'ja', 'ko', 'ru', 'pt', 'it'];
@@ -459,6 +572,8 @@ class MultiLangBuilder extends ComponentBuilder {
                         page_content: page.page_content,
                         ...page.config
                     };
+                    pageData.color_screens_footer_link = this.getColorScreensFooterLink(lang);
+                    pageData.color_screens_header_link = this.getColorScreensHeaderLink(lang);
                     
                     // 婵烇綀顕ф慨鐐碘偓浣冨閸╁懘鎮╅懜纰樺亾娴ｅ湱鍨奸悹?
                     const pagePath = page.path || page.config.path || outputPath || '';
@@ -486,6 +601,11 @@ class MultiLangBuilder extends ComponentBuilder {
                         
                         pageData.is_tools = isToolPage;
                         pageData.is_devices = isDevicePage;
+                        pageData.is_gaming = false;
+                    }
+                    if (page.template === 'color-page') {
+                        pageData.is_tools = true;
+                        pageData.is_devices = false;
                         pageData.is_gaming = false;
                     }
                     
@@ -518,7 +638,9 @@ class MultiLangBuilder extends ComponentBuilder {
                         }
                     }
                     // 濞ｅ浂鍠楅娓別scription婵炲鍔岄崣鍡涙焻閺勫繒甯嗛柨娑樻湰閺侇噣骞愭担鍝ャ偟濠靛倹顨堥悙鏇犳嫚閹达附鏆?
-                    if (translations['description']) {
+                    if (page.template === 'color-page') {
+                        pageData.description = page.config.description;
+                    } else if (translations['description']) {
                         pageData.description = translations['description'];
                     } else if (pageData.page_description_key) {
                         const descriptionValue = this.getNestedTranslation(translations, pageData.page_description_key);
@@ -630,6 +752,8 @@ class MultiLangBuilder extends ComponentBuilder {
                     pageData.og_title = pageData.page_title || pageData.og_title;
                     pageData.og_description = pageData.description || pageData.og_description;
 
+                    this.prepareColorPageData(config, page, pageData);
+
                     this.normalizeOgImage(pageData);
 
                     // 閻犱礁澧介悿鍞巊:locale
@@ -668,24 +792,26 @@ class MultiLangBuilder extends ComponentBuilder {
                         pageData.hreflang_en_url = pageData.hreflang_root_url;
 
                         // 濞戞搩鍘介弸鍐偋閸喐鎷?
-                        pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+                        if (page.template !== 'color-page') pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
 
                         // 鐎垫壆鏌夐銏ゆ偋閸喐鎷?
-                        pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
+                        if (page.template !== 'color-page') pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
 
                         // 閻熸鍎婚銏ゆ偋閸喐鎷?
-                        pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+                        if (page.template !== 'color-page') pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
 
-                        pageData.hreflang_fr_url = `https://screensizechecker.com/fr${pageData.page_path}`;
+                        if (page.template !== 'color-page') pageData.hreflang_fr_url = `https://screensizechecker.com/fr${pageData.page_path}`;
 
-                        pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
+                        if (page.template !== 'color-page') pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
                     }
 
                     pageData.hreflang_tags = this.generateHreflangTags(config, page, pageData, lang);
-                    pageData.current_i18n_attr = this.generateI18nAttribute(pageData.current_key, pageData.current_name);
+                    pageData.current_i18n_attr = page.template === 'color-page' ? '' : this.generateI18nAttribute(pageData.current_key, pageData.current_name);
                     
                     // 婵烇綀顕ф慨鐐电磼閹惧鈧垶宕犻弽銊︽闁?
-                    pageData.structured_data = this.generateStructuredData(pageData, lang);
+                    pageData.structured_data = page.template === 'color-page'
+                        ? this.buildStructuredDataPayload(pageData.structured_data, pageData, lang)
+                        : this.generateStructuredData(pageData, lang);
                     
                     // 濞戞挾鍎ら悧瀹犵疀閸愩劋绱ｉ柛蹇曞厴閵嗗妫冮姀鈩冩殘闁稿浚妾禔Q缂備焦鎸婚悗顖炲礌閺嶃劍娈堕柟璇″櫙缁辨繈骞撻幇顒€纾砈ERP閻庨潧鐬肩划銊╁几濠婂嫭绨氬ù?
                     pageData.faq_structured_data = pageData.faq_structured_data || this.generateFAQStructuredDataForPage(page.name, lang);
@@ -773,7 +899,7 @@ class MultiLangBuilder extends ComponentBuilder {
         );
 
         // 濠㈣泛绉撮崺妤呮濞嗘劏鍋撴担鐣屻偒婵犙勫姧缁辨瑩宕ｉ鍕垫Щ闁告帒鐖煎〒鍓佹啺娴ｇ儤鐣遍柡鍌氭矗濞嗩澁绱?
-        this.copyRequiredStaticResources(outputDir);
+        this.copyRequiredStaticResources(outputDir, config);
         
         // 闂傚棗妫欓崹姘跺箑瑜戦崗姗€鎯勯幋鐐蹭粯缂侇垵宕电划?
         this.integratePerformanceMonitoring(outputDir);
@@ -882,7 +1008,7 @@ class MultiLangBuilder extends ComponentBuilder {
     }
 
     // 濠㈣泛绉撮崺妤勭疀閸涢偊娲ｉ柣銊ュ濞笺倝骞€娴ｇ晫銈繝褎鍔х槐娆撴焼閸喖甯冲璺虹Т閸╂寮甸鍕剻闁活潿鍔庡▓鎴犳嫚椤撯檧鏋呴柣鈺婂枛缂嶅稄绱?
-    copyRequiredStaticResources(outputDir) {
+    copyRequiredStaticResources(outputDir, pagesConfig) {
         console.log('\n Copying required static resources...');
         
         // 闂傚洠鍋撻悷鏇氳兌濞插潡骞掗妷銉Щ闁告帒澧庡▓鎴犳導閸曨剛鐖遍柨娑樼墔缁楀宕犻崨顔碱仾robots.txt闁告粌鐣﹔edirects闁挎稑鐭佺换鏍ㄧ濞戞娈洪柛鏂诲妽閳ь兛鑳堕弫鎾诲箣閹板墎绀?
@@ -972,7 +1098,7 @@ class MultiLangBuilder extends ComponentBuilder {
         }
         
         // 闁汇垻鍠愰崹姘濡搫顕ч柣銊ュ灣redirects闁告粌顔憃bots.txt闁哄倸娲ｅ▎?
-        this.generateRedirectsFile(outputDir);
+        this.generateRedirectsFile(outputDir, pagesConfig);
         this.generateRobotsFile(outputDir);
     }
 
@@ -1553,6 +1679,15 @@ class MultiLangBuilder extends ComponentBuilder {
             return null;
         }
 
+        if (pageData.page_family === 'pure-color') {
+            const homeUrl = new URL(pageData.home_url, pageData.canonical_url).toString();
+            const parentUrl = new URL(pageData.parent_url, pageData.canonical_url).toString();
+            return {"@type":"BreadcrumbList","itemListElement":[
+                {"@type":"ListItem","position":1,"item":{"@id":homeUrl,"name":pageData.breadcrumb_home}},
+                {"@type":"ListItem","position":2,"item":{"@id":parentUrl,"name":pageData.parent_name}},
+                {"@type":"ListItem","position":3,"item":{"@id":pageData.canonical_url,"name":pageData.current_name}}
+            ]};
+        }
         let parsed;
         try {
             parsed = new URL(pageData.canonical_url);
@@ -1565,7 +1700,7 @@ class MultiLangBuilder extends ComponentBuilder {
             return null;
         }
 
-        const supportedLangs = ['en', 'zh', 'de', 'es'];
+        const supportedLangs = PURE_COLOR_LANGS;
         const hasLangPrefix = supportedLangs.includes(rawSegments[0]);
         const langPrefix = hasLangPrefix ? `/${rawSegments[0]}` : '';
         const segments = hasLangPrefix ? rawSegments.slice(1) : rawSegments;
@@ -1950,6 +2085,8 @@ class MultiLangBuilder extends ComponentBuilder {
                     lang_prefix: '',
                     lang_code: 'EN',
                     is_default_lang: true,
+                    color_screens_footer_link: this.getColorScreensFooterLink('en'),
+                    color_screens_header_link: this.getColorScreensHeaderLink('en'),
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -2066,6 +2203,8 @@ class MultiLangBuilder extends ComponentBuilder {
                     lang_prefix: '',
                     lang_code: 'EN',
                     is_default_lang: true,
+                    color_screens_footer_link: this.getColorScreensFooterLink('en'),
+                    color_screens_header_link: this.getColorScreensHeaderLink('en'),
                     page_content: page.page_content,
                     ...page.config
                 };
@@ -2196,6 +2335,8 @@ class MultiLangBuilder extends ComponentBuilder {
             lang_prefix: '',
             lang_code: 'EN',
             is_default_lang: true,
+            color_screens_footer_link: this.getColorScreensFooterLink('en'),
+            color_screens_header_link: this.getColorScreensHeaderLink('en'),
             page_content: indexPageConfig.page_content,
             ...indexPageConfig.config
         };
@@ -2596,6 +2737,20 @@ ${languageCards}
     </url>`;
             });
         });
+
+        this.getColorPages(pagesConfig).forEach(page => {
+            enabledLanguages.forEach(lang => {
+                const colorPath = cleanSitemapPath(page.config.canonical_url.replace(baseUrl, ''));
+                const localizedPath = lang === 'en' ? colorPath : `/${lang}${colorPath}`;
+                sitemapContent += `
+    <url>
+        <loc>${baseUrl}${localizedPath}</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`;
+            });
+        });
         
         // 婵烇綀顕ф慨鐐烘⒕閹邦噮娼岄柡鈧捄銊ф憸濡炪倗鏁诲?
         sitemapContent += `
@@ -2615,10 +2770,11 @@ ${languageCards}
         // 1濞戞搩浜濋悧鎾儎椤旇偐绉?+ 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍悹浣瑰劤椤︻剚銇勯悽鍛婃〃 + 闁哄秴婀卞ú鎷屻亹閺囩姵鐣遍柛妤佽壘椤撹銇勯悽鍛婃〃 + Hub濡炪倗鏁诲?+ 1濞戞搩浜ｉ銏㈡嚊閳ь剟鏌呮径瀣仴濡炪倗鏁诲?+ 1濞戞搩浜▓锝囩矓娴ｈ鏉虹紒娑欑墵閵嗗妫?
         // + 閻犲浂鍙€閳诲牓鎮ч崼鐔告嫳濡炪倗鏁诲?+ 濞戞搩鍘介弸鍐偋鐟欏嫭绠掑銈囨暬濞?
         const nonEnglishLanguageCount = enabledLanguages.length - 1;
-        const rootUrls = 1 + (pages.length - 1) + 1 + blogPostPagesByLanguage.get('en').length + hubPagesEn.length;
+        const rootUrls = 1 + (pages.length - 1) + 1 + blogPostPagesByLanguage.get('en').length + hubPagesEn.length + this.getColorPages(pagesConfig).length;
+        const colorPageCount = this.getColorPages(pagesConfig).length;
         const languageUrls = enabledLanguages
             .filter(lang => lang !== 'en')
-            .reduce((total, lang) => total + pages.length + 1 + blogPostPagesByLanguage.get(lang).length, 0);
+            .reduce((total, lang) => total + pages.length + 1 + blogPostPagesByLanguage.get(lang).length + colorPageCount, 0);
         const hubUrls = pagesConfig.pages.filter(p =>
             p.template === 'hub-page' &&
             p.enabled_languages &&
@@ -2685,9 +2841,16 @@ ${languageCards}
     }
     
     // 闁汇垻鍠愰崹姘濡搫顕ч柣銊ュ灣redirects闁哄倸娲ｅ▎?
-    generateRedirectsFile(outputDir) {
+    generateRedirectsFile(outputDir, pagesConfig) {
         console.log('\n Generating optimized _redirects file...');
         
+        if (!pagesConfig || !Array.isArray(pagesConfig.pages)) {
+            throw new Error('Redirect generation requires validated pages config.');
+        }
+        const colorRedirects = this.getColorPages(pagesConfig).flatMap(page => this.enabledLanguages.map(lang => {
+            const prefix = lang === 'en' ? '' : `/${lang}`;
+            return `/${lang === 'en' ? '' : `${lang}/`}${page.name}.html                         ${prefix}/${page.name}                       301`;
+        })).join('\n');
         const redirectsContent = `# Cloudflare Pages 闂佹彃绉撮悾楣冨触閹达箑甯崇紓鍐惧枟閺嬪啯绂?
 # URL 缂備焦鎸婚悗顖涙交娴ｇ洅鈺呮晬濮樺啿顏伴柡鍌氭搐閸炲鈧綊鈧稓鐭?/en/* 閺夆晙鑳朵簺闁告帞澧楅悧瀵告崉椤栨氨绐?/*
 
@@ -2739,6 +2902,9 @@ ${languageCards}
 /devices/projection-calculator.html       /devices/projection-calculator      301
 /devices/lcd-screen-tester.html           /devices/lcd-screen-tester          301
 /resolution-test.html                     /resolution-test                    301
+
+# ===== Pure-color .html redirects to canonical clean URLs =====
+${colorRedirects}
 
 # ===== .html 闁告艾娴风槐鎴︽煂瀹ュ懐鏆伴柛姘煀缁辨瑦绋夐鐔哥€柣妤€鐗婂﹢甯窗====
 /zh/devices/iphone-viewport-sizes.html    /zh/devices/iphone-viewport-sizes   301

@@ -15,12 +15,14 @@ const TESTS = {
     lcdScreenTester: 'test/lcd-screen-tester-interaction-test.js',
     styleSystem: 'test/style-system-regression-test.js',
     resolutionTest: 'test/resolution-test-interaction-test.js',
-    indexnow: 'test/indexnow-submitter.test.js'
+    indexnow: 'test/indexnow-submitter.test.js',
+    pureColorPages: 'test/pure-color-pages-test.js',
+    pureColorInteraction: 'test/pure-color-pages-interaction-test.js'
 };
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem', 'resolutionTest'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem', 'resolutionTest', 'pureColorPages', 'pureColorInteraction'];
     }
 
     const namedArgs = args

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+  {{component:head}}
+  <link rel="stylesheet" href="{{css_path}}/pure-color-screen.css">
+</head>
+<body>
+  {{component:header-mega-menu}}
+  {{component:language-modal}}
+  <main class="color-page">
+    {{component:breadcrumb}}
+    {{page_content}}
+  </main>
+  {{component:footer-optimized}}
+  {{component:toast}}
+  <script src="{{js_path}}/analytics.js?v=20260721-affiliate-view" defer></script>
+  <script src="{{js_path}}/app.js" type="module"></script>
+  <script src="{{js_path}}/mega-menu.js" defer></script>
+  <script type="module" src="{{js_path}}/internal-links.js" defer></script>
+  <script src="{{js_path}}/pure-color-screen.js" defer></script>
+</body>
+</html>

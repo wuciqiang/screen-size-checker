@@ -138,11 +138,13 @@ function buildPageData(builder, config, page, lang, translations) {
     const pageData = {
         lang,
         lang_prefix: lang === builder.defaultLanguage ? '' : `/${lang}`,
+        is_default_lang: lang === builder.defaultLanguage,
         lang_code: lang.toUpperCase(),
         page_content: page.page_content,
         ...page.config
     };
-
+    pageData.color_screens_footer_link = builder.getColorScreensFooterLink(lang);
+    pageData.color_screens_header_link = builder.getColorScreensHeaderLink(lang);
     const outputPath = builder.getOutputPath(page.output, lang);
     const pagePath = page.path || page.config.path || outputPath || '';
 
@@ -190,7 +192,9 @@ function buildPageData(builder, config, page, lang, translations) {
         if (introValue) pageData.page_intro = introValue;
     }
 
-    if (translations.description) {
+    if (page.template === 'color-page') {
+        pageData.description = page.config.description;
+    } else if (translations.description) {
         pageData.description = translations.description;
     } else if (pageData.page_description_key) {
         const descriptionValue = builder.getNestedTranslation(translations, pageData.page_description_key);
@@ -257,6 +261,8 @@ function buildPageData(builder, config, page, lang, translations) {
     pageData.og_title = pageData.page_title || pageData.og_title;
     pageData.og_description = pageData.description || pageData.og_description;
 
+    builder.prepareColorPageData(config, page, pageData);
+
     if (!pageData.og_image) {
         pageData.og_image = 'https://screensizechecker.com/images/og-default.png';
     }
@@ -266,7 +272,8 @@ function buildPageData(builder, config, page, lang, translations) {
         zh: 'zh_CN',
         de: 'de_DE',
         es: 'es_ES',
-        pt: 'pt_BR'
+        pt: 'pt_BR',
+        fr: 'fr_FR'
     };
     pageData.og_locale = localeMap[lang] || 'en_US';
     pageData.base_url = 'https://screensizechecker.com';
@@ -285,15 +292,21 @@ function buildPageData(builder, config, page, lang, translations) {
             ? 'https://screensizechecker.com/'
             : `https://screensizechecker.com${pageData.page_path}`;
         pageData.hreflang_en_url = pageData.hreflang_root_url;
-        pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
-        pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
-        pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
-        pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
+        if (page.template !== 'color-page') {
+            pageData.hreflang_zh_url = `https://screensizechecker.com/zh${pageData.page_path}`;
+            pageData.hreflang_de_url = `https://screensizechecker.com/de${pageData.page_path}`;
+            pageData.hreflang_es_url = `https://screensizechecker.com/es${pageData.page_path}`;
+            pageData.hreflang_pt_url = `https://screensizechecker.com/pt${pageData.page_path}`;
+        }
     }
 
     pageData.hreflang_tags = builder.generateHreflangTags(config, page, pageData, lang);
-    pageData.current_i18n_attr = builder.generateI18nAttribute(pageData.current_key, pageData.current_name);
-    pageData.structured_data = builder.generateStructuredData(pageData, lang);
+    pageData.current_i18n_attr = page.template === 'color-page'
+        ? ''
+        : builder.generateI18nAttribute(pageData.current_key, pageData.current_name);
+    pageData.structured_data = page.template === 'color-page'
+        ? builder.buildStructuredDataPayload(pageData.structured_data, pageData, lang)
+        : builder.generateStructuredData(pageData, lang);
     pageData.faq_structured_data = pageData.faq_structured_data || builder.generateFAQStructuredDataForPage(page.name, lang);
 
     return { pageData, outputPath };
