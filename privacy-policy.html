@@ -4,39 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0Y5SZGFMX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-X0Y5SZGFMX');
-    </script>
-
-    <!-- Microsoft Clarity - production only with default denied consent -->
-    <script>
-    (function () {
-        var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
-        if (!isProductionHost) {
-            return;
-        }
-
-        var projectId = 'xi2qv9v3dh';
-        window.clarity = window.clarity || function () {
-            (window.clarity.q = window.clarity.q || []).push(arguments);
-        };
-        window.clarity('consentv2', {
-            ad_Storage: 'denied',
-            analytics_Storage: 'denied'
-        });
-
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.clarity.ms/tag/' + projectId;
-        document.head.appendChild(script);
-    })();
-    </script>
+    <link rel="stylesheet" href="css/consent-runtime.css">
+    <script src="js/consent-runtime.js"></script>
 
     <title>Privacy Policy | Screen Size Checker</title>
     <meta name="description" content="Privacy Policy for Screen Size Checker. Learn what data is processed, how cookies are used, and your rights.">
@@ -85,7 +54,7 @@
                     <li><a href="#intro">1. Introduction</a></li>
                     <li><a href="#collect">2. Information We Process</a></li>
                     <li><a href="#use">3. How Information Is Used</a></li>
-                    <li><a href="#cookies">4. Cookies</a></li>
+                    <li><a href="#cookies">4. Cookies and third-party services</a></li>
                     <li><a href="#storage">5. Data Storage</a></li>
                     <li><a href="#rights">6. Your Rights</a></li>
                     <li><a href="#contact">7. Contact</a></li>
@@ -121,9 +90,10 @@
             </section>
 
             <section id="cookies" class="legal-section">
-                <h2>4. Cookies</h2>
-                <p>Cookies may be used for language selection, basic preferences, and anonymous analytics. You can manage cookies through your browser settings.</p>
-                <p>We may use Microsoft Clarity to understand how visitors interact with the website through heatmaps, session recordings, and usage analytics. Clarity is used to improve usability and diagnose interface issues.</p>
+                <h2>4. Cookies and third-party services</h2>
+                <p>Google Analytics 4 may process usage events when analytics is allowed. Microsoft Clarity may process heatmaps, session recordings, and usage analytics only when analytics is allowed.</p>
+                <p>Google AdSense and its advertising partners may process information to serve advertising. In regions outside the EEA, UK, and Switzerland, advertising and analytics default to on only when the browser does not send a Global Privacy Control signal; you can change these choices below. In the EEA, UK, and Switzerland, Google Privacy &amp; Messaging manages the applicable consent choices. Unknown regions use restricted defaults.</p>
+                <p>Use <button type="button" class="privacy-settings-button" data-privacy-settings>Privacy choices</button> to review available choices. Browser-local tool measurements, such as viewport and screen dimensions, are used to provide the tools.</p>
             </section>
 
             <section id="storage" class="legal-section">
@@ -141,7 +111,7 @@
                 <p>If you have questions about this policy, contact: <a href="mailto:bobo20220519@gmail.com">bobo20220519@gmail.com</a></p>
             </section>
 
-            <p class="legal-meta">Last updated: July 6, 2026</p>
+            <p class="legal-meta">Last updated: August 21, 2026</p>
             <a class="legal-cta" href="/">Back to Home</a>
         </article>
     </div>
@@ -157,6 +127,7 @@
                 <a href="/privacy-policy">Privacy Policy</a>
                 <span class="footer-divider">•</span>
                 <a href="/terms-of-service">Terms of Service</a>
+                <button type="button" class="privacy-settings-button" data-privacy-settings>Privacy choices</button>
             </div>
         </div>
     </div>

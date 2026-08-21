@@ -992,7 +992,7 @@ export class InternalLinksManager {
                 'category': category,
                 'from_page': this.currentPageId
             });
-        } else if (window.gtag) {
+        } else if (window.gtag && window.ScreenSizeConsent && window.ScreenSizeConsent.canUseAnalytics()) {
             window.gtag('event', 'internal_link_click', {
                 'page_id': pageId,
                 'category': category,

@@ -5,76 +5,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta name="theme-color" content="#0066cc">
 
-<!-- Google tag (gtag.js) - production only -->
-<script>
-(function () {
-    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
-    if (!isProductionHost) {
-        return;
-    }
-
-    var preconnect = document.createElement('link');
-    preconnect.rel = 'preconnect';
-    preconnect.href = 'https://www.googletagmanager.com';
-    document.head.appendChild(preconnect);
-
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-X0Y5SZGFMX';
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-X0Y5SZGFMX');
-})();
-</script>
-
-<!-- Microsoft Clarity - production only with default denied consent -->
-<script>
-(function () {
-    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
-    if (!isProductionHost) {
-        return;
-    }
-
-    var projectId = 'xi2qv9v3dh';
-    window.clarity = window.clarity || function () {
-        (window.clarity.q = window.clarity.q || []).push(arguments);
-    };
-
-    window.clarity('consentv2', {
-        ad_Storage: 'denied',
-        analytics_Storage: 'denied'
-    });
-
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.clarity.ms/tag/' + projectId;
-    document.head.appendChild(script);
-
-    function updateClarityConsent(analytics) {
-        window.clarity('consentv2', {
-            ad_Storage: 'denied',
-            analytics_Storage: analytics ? 'granted' : 'denied'
-        });
-    }
-
-    try {
-        var savedPrefs = localStorage.getItem('cookiePreferences');
-        if (savedPrefs) {
-            updateClarityConsent(Boolean(JSON.parse(savedPrefs).analytics));
-        }
-    } catch (error) {
-        updateClarityConsent(false);
-    }
-
-    window.addEventListener('cookieConsentChanged', function (event) {
-        var detail = event.detail || {};
-        updateClarityConsent(Boolean(detail.analytics));
-    });
-})();
-</script>
+<!-- Consent runtime must initialize before every Google tag. -->
+<link rel="stylesheet" href="{{css_path}}/consent-runtime.css">
+<script src="{{js_path}}/consent-runtime.js"></script>
 
 <!-- SEO Meta Tags -->
 <title data-i18n="title">{{page_title}}</title>
@@ -114,42 +47,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
-
-<!-- Google Ads - production only and delayed until after primary page load -->
-<script>
-(function () {
-    var isProductionHost = /(^|\.)screensizechecker\.com$/.test(window.location.hostname);
-    if (!isProductionHost) {
-        return;
-    }
-
-    function loadAdsense() {
-        if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
-            return;
-        }
-
-        var script = document.createElement('script');
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212629010224868';
-        document.head.appendChild(script);
-    }
-
-    function scheduleAdsense() {
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAdsense, { timeout: 3000 });
-        } else {
-            setTimeout(loadAdsense, 1500);
-        }
-    }
-
-    if (document.readyState === 'complete') {
-        scheduleAdsense();
-    } else {
-        window.addEventListener('load', scheduleAdsense, { once: true });
-    }
-})();
-</script>
 
 <!-- Core Optimized CSS - Phase 1.2 Performance Optimization -->
 <!-- Merged 5 CSS files (main.css, mobile-performance.css, language-selector.css, internal-links.css, optimized-events.css) -->
@@ -534,7 +431,15 @@ window.addEventListener('load', function() {
         return;
     }
 
-    setTimeout(function() {
+    var umamiLoaded = false;
+    function loadUmamiIfAllowed() {
+        if (!window.ScreenSizeConsent || !window.ScreenSizeConsent.canUseAnalytics()) {
+            return;
+        }
+        if (umamiLoaded) {
+            return;
+        }
+        umamiLoaded = true;
         var script = document.createElement('script');
         script.async = true;
         script.src = 'https://umami-blue-zeta.vercel.app/script.js';
@@ -544,7 +449,11 @@ window.addEventListener('load', function() {
             console.warn('Umami Analytics failed to load - continuing without analytics');
         };
         document.head.appendChild(script);
-    }, 1500); // Delay 1.5 seconds after page load
+    }
+
+    window.addEventListener('screenSizeConsentReady', loadUmamiIfAllowed, { once: true });
+    window.addEventListener('screenSizeConsentChanged', loadUmamiIfAllowed);
+    setTimeout(loadUmamiIfAllowed, 1500); // Delay 1.5 seconds after page load
 });
 </script>
 

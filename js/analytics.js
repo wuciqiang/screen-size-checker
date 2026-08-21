@@ -103,6 +103,9 @@
 
     function track(eventName, params, options) {
         var opts = options || {};
+        if (!window.ScreenSizeConsent || !window.ScreenSizeConsent.canUseAnalytics()) {
+            return false;
+        }
         if (opts.onceKey) {
             if (sentOnce[opts.onceKey]) {
                 return false;

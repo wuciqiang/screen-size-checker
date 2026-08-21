@@ -17,7 +17,8 @@ const TESTS = {
     resolutionTest: 'test/resolution-test-interaction-test.js',
     indexnow: 'test/indexnow-submitter.test.js',
     pureColorPages: 'test/pure-color-pages-test.js',
-    pureColorInteraction: 'test/pure-color-pages-interaction-test.js'
+    pureColorInteraction: 'test/pure-color-pages-interaction-test.js',
+    consentRuntime: 'test/consent-runtime-test.js'
 };
 
 function resolveSelectedTests(args) {
