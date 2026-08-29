@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 
-    const GUIDED_STEP_MS = 5000;
+    const GUIDED_STEP_MS = 4000;
     const CONTROL_HIDE_MS = 2600;
     const MAX_CANVAS_DPR = 3;
     const DEFAULT_MODE_ID = 'solid-black';
@@ -167,6 +167,8 @@
             this.overlayPalette = this.overlay.querySelector('#lcd-overlay-palette');
             this.overlayPause = this.overlay.querySelector('#lcd-overlay-pause');
             this.overlayPauseIcon = this.overlay.querySelector('#lcd-overlay-pause-icon');
+            this.overlayNext = this.overlay.querySelector('#lcd-overlay-next');
+            this.overlayNextIcon = this.overlay.querySelector('#lcd-overlay-next-icon');
             this.overlayToggleControls = this.overlay.querySelector('#lcd-overlay-toggle-controls');
         }
 
@@ -538,6 +540,9 @@
 
             const completed = outcome === 'completed_exit' || this.guidedCompleted;
             const wasGuided = this.guidedActive;
+            const guidedExitAction = wasGuided && !completed
+                ? this.getGuidedExitAction()
+                : 'early_exit';
             const guidedReturnState = this.guidedReturnState;
             this.overlayOpen = false;
             this.clearStepTimer();
@@ -549,7 +554,7 @@
             this.overlay.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('lcd-test-active');
             this.setBackgroundInert(false);
-            this.track('screen_test_exited', completed ? 'completed_exit' : 'early_exit', 'screen_test');
+            this.track('screen_test_exited', completed ? 'completed_exit' : guidedExitAction, 'screen_test');
 
             this.guidedActive = false;
             this.paused = false;
@@ -581,6 +586,15 @@
             }
             this.previouslyFocusedElement = null;
             this.lastStartTrigger = null;
+        }
+
+        getGuidedExitAction() {
+            const total = Math.max(1, this.sequence.length);
+            const startEnd = Math.ceil(total / 3);
+            const middleEnd = Math.ceil(total * 2 / 3);
+            if (this.sequenceIndex < startEnd) return 'early_exit_start';
+            if (this.sequenceIndex < middleEnd) return 'early_exit_middle';
+            return 'early_exit_end';
         }
 
         setBackgroundInert(inert) {
@@ -942,6 +956,7 @@
             const total = Math.max(1, this.sequence.length);
             const current = Math.min(total, this.sequenceIndex + 1);
             this.overlayProgress.textContent = `${current} / ${total}`;
+            this.updateNextButton();
 
             const mode = this.modeById.get(this.currentModeId);
             const showPalette = Boolean(mode && mode.category === 'pixels');
@@ -962,10 +977,9 @@
             });
 
             const previousLabel = this.t('lcdTester.previousPattern', 'Previous pattern');
-            const nextLabel = this.t('lcdTester.nextPattern', 'Next pattern');
             const exitLabel = this.t('lcdTester.exitFullscreen', 'Exit fullscreen');
             this.setButtonLabel('#lcd-overlay-previous', previousLabel);
-            this.setButtonLabel('#lcd-overlay-next', nextLabel);
+            this.updateNextButton();
             this.setButtonLabel('#lcd-overlay-exit', exitLabel);
 
             this.overlay.querySelectorAll('[data-overlay-mode]').forEach(button => {
@@ -984,6 +998,17 @@
             if (!button) return;
             button.setAttribute('aria-label', label);
             button.title = label;
+        }
+
+        updateNextButton() {
+            if (!this.overlayNext || !this.overlayNextIcon) return;
+            const isFinalGuidedStep = this.guidedActive
+                && this.sequenceIndex === this.sequence.length - 1;
+            const key = isFinalGuidedStep ? 'lcdTester.statusComplete' : 'lcdTester.nextPattern';
+            const fallback = isFinalGuidedStep ? 'Test complete' : 'Next pattern';
+            const label = this.t(key, fallback);
+            this.overlayNextIcon.textContent = isFinalGuidedStep ? '✓' : '→';
+            this.setButtonLabel('#lcd-overlay-next', label);
         }
 
         setStatus(state) {

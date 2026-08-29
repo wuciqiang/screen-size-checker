@@ -578,7 +578,7 @@ async function runDesktopFlow(browser, origin) {
         await page.click('#lcd-overlay-next');
         state = await getTesterState(page);
         assert.strictEqual(state.sequenceIndex, 2);
-        assert.ok(state.remainingStepMs > 4500 && state.remainingStepMs <= 5000);
+        assert.ok(state.remainingStepMs > 3000 && state.remainingStepMs <= 4000);
         await page.click('#lcd-overlay-previous');
         assert.strictEqual((await getTesterState(page)).sequenceIndex, 1);
 
@@ -586,8 +586,11 @@ async function runDesktopFlow(browser, origin) {
             const tester = window.__lcdScreenTester;
             tester.sequenceIndex = tester.sequence.length - 1;
             tester.selectMode(tester.sequence[tester.sequenceIndex], { track: true });
-            tester.startStepTimer(80);
+            tester.updateNextButton();
         });
+        assert.strictEqual(await page.textContent('#lcd-overlay-next-icon'), '✓');
+        assert.strictEqual(await page.getAttribute('#lcd-overlay-next', 'aria-label'), 'Test complete');
+        await page.click('#lcd-overlay-next');
         await page.waitForFunction(() => !window.__lcdScreenTester.overlayOpen, null, { timeout: 1500 });
         await assertClosedState(page, 'complete');
         state = await getTesterState(page);
@@ -607,12 +610,30 @@ async function runDesktopFlow(browser, origin) {
         await page.click('#lcd-overlay-exit');
         await assertClosedState(page, 'ready');
 
+        for (const sequenceIndex of [0, 4, 8]) {
+            await page.click('.lcd-hero [data-action="start-guided"]');
+            await page.waitForFunction(() => window.__lcdScreenTester.overlayOpen);
+            await page.evaluate(index => {
+                const tester = window.__lcdScreenTester;
+                tester.sequenceIndex = index;
+                tester.updateNextButton();
+                tester.exitTest('early_exit');
+            }, sequenceIndex);
+            await assertClosedState(page, 'ready');
+        }
+
         const analytics = await page.evaluate(() => window.__lcdAnalytics);
         const eventNames = analytics.map(event => event.eventName);
         assert.ok(eventNames.includes('screen_test_started'));
         assert.ok(eventNames.includes('tool_result_view'));
         assert.ok(eventNames.includes('screen_test_completed'));
         assert.ok(analytics.some(event => event.eventName === 'screen_test_exited' && event.payload.tool_action === 'early_exit'));
+        for (const stage of ['early_exit_start', 'early_exit_middle', 'early_exit_end']) {
+            assert.ok(
+                analytics.some(event => event.eventName === 'screen_test_exited' && event.payload.tool_action === stage),
+                `Missing guided early-exit stage: ${stage}`
+            );
+        }
         assert.ok(analytics.some(event => event.eventName === 'screen_test_exited' && event.payload.tool_action === 'completed_exit'));
         assert.ok(
             eventNames.indexOf('screen_test_started') < eventNames.indexOf('tool_result_view'),
@@ -620,7 +641,7 @@ async function runDesktopFlow(browser, origin) {
         );
 
         const allowedActions = new Set([
-            'completed_exit', 'early_exit', 'guided_complete', 'guided_start', 'manual_start', 'view_pattern'
+            'completed_exit', 'early_exit', 'early_exit_start', 'early_exit_middle', 'early_exit_end', 'guided_complete', 'guided_start', 'manual_start', 'view_pattern'
         ]);
         const allowedResults = new Set([
             'color', 'motion', 'pixel', 'screen_test', 'sharpness', 'uniformity'
