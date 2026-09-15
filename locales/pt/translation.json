@@ -1078,7 +1078,7 @@
   "static_hero_title": "Verificador de Tamanho de Tela - Detecte a Resolução do Seu Display",
   "noscript_hero_title": "Verificador de Tamanho de Tela - Ative o JavaScript para Detecção em Tempo Real",
   "tool_intro_title": "Como Verificar o Tamanho da Sua Tela",
-  "tool_intro_description": "Nosso verificador de tamanho de tela exibe instantaneamente a resolução da tela do seu dispositivo, tamanho do viewport e densidade de pixels. Esta ferramenta é essencial para desenvolvedores web, designers UI/UX e profissionais de QA que precisam testar designs responsivos em diferentes dispositivos.",
+  "tool_intro_description": "Nosso verificador de tamanho de tela exibe instantaneamente a resolução da tela do seu dispositivo, tamanho do viewport e densidade de pixels. Esta ferramenta é essencial para desenvolvedores web, designers UI/UX e profissionais de QA que precisam testar designs responsivos em diferentes dispositivos, além de ajudar você a comparar diferentes",
   "tool_intro_for_developers": "Para Desenvolvedores",
   "tool_intro_for_developers_desc": "Teste designs responsivos e depure problemas de viewport",
   "tool_intro_for_designers": "Para Designers",

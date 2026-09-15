@@ -1064,7 +1064,7 @@
   "static_hero_title": "What Is My Screen Size & Resolution?",
   "noscript_hero_title": "Screen Size Checker - Enable JavaScript for Real-time Detection",
   "tool_intro_title": "Screen Resolution Test and Screen Size Checker",
-  "tool_intro_description": "Use this screen resolution test and screen size checker to answer questions like \"what is my screen resolution\", \"what is my display size\", and \"what is my viewport size\". It reports physical screen resolution, browser viewport, aspect ratio, DPR, color depth, operating system, and browser details on phones, tablets, laptops, desktop monitors, and TVs.",
+  "tool_intro_description": "Use this screen resolution test and screen size checker to answer questions like \"what is my screen resolution\", \"what is my display size\", and \"what is my viewport size\". It reports physical screen resolution, browser viewport, aspect ratio, DPR, color depth, operating system, and browser details on phones, tablets, laptops, desktop monitors, and TVs, while also helping you compare different",
   "tool_intro_for_developers": "For Developers",
   "tool_intro_for_developers_desc": "Test responsive designs and debug viewport issues",
   "tool_intro_for_designers": "For Designers",

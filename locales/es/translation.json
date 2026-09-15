@@ -895,7 +895,7 @@
   "static_hero_title": "Screen Size Checker - Detecta la Resolución de tu Pantalla",
   "noscript_hero_title": "Screen Size Checker - Habilita JavaScript para Detección en Tiempo Real",
   "tool_intro_title": "Cómo Verificar el Tamaño de tu Pantalla",
-  "tool_intro_description": "Nuestro screen size checker muestra instantáneamente la resolución de pantalla, tamaño de viewport y densidad de píxeles de tu dispositivo. Esta herramienta es esencial para desarrolladores web, diseñadores UI/UX y profesionales de QA que necesitan probar diseños responsive en diferentes dispositivos.",
+  "tool_intro_description": "Nuestro screen size checker muestra instantáneamente la resolución de pantalla, tamaño de viewport y densidad de píxeles de tu dispositivo. Esta herramienta es esencial para desarrolladores web, diseñadores UI/UX y profesionales de QA que necesitan probar diseños responsive en diferentes dispositivos, y también te ayuda a comparar diferentes",
   "tool_intro_for_developers": "Para Desarrolladores",
   "tool_intro_for_developers_desc": "Prueba diseños responsive y depura problemas de viewport",
   "tool_intro_for_designers": "Para Diseñadores",

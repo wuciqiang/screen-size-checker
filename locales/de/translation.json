@@ -895,7 +895,7 @@
   "static_hero_title": "Screen Size Checker - Erkennen Sie Ihre Display-Auflösung",
   "noscript_hero_title": "Screen Size Checker - Aktivieren Sie JavaScript für Echtzeit-Erkennung",
   "tool_intro_title": "So überprüfen Sie Ihre Bildschirmgröße",
-  "tool_intro_description": "Unser Screen Size Checker zeigt sofort die Bildschirmauflösung, Viewport-Größe und Pixeldichte Ihres Geräts an. Dieses Tool ist unverzichtbar für Webentwickler, UI/UX-Designer und QA-Profis, die responsive Designs auf verschiedenen Geräten testen müssen.",
+  "tool_intro_description": "Unser Screen Size Checker zeigt sofort die Bildschirmauflösung, Viewport-Größe und Pixeldichte Ihres Geräts an. Dieses Tool ist unverzichtbar für Webentwickler, UI/UX-Designer und QA-Profis, die responsive Designs auf verschiedenen Geräten testen müssen, und hilft Ihnen außerdem beim Vergleich verschiedener",
   "tool_intro_for_developers": "Für Entwickler",
   "tool_intro_for_developers_desc": "Testen Sie responsive Designs und debuggen Sie Viewport-Probleme",
   "tool_intro_for_designers": "Für Designer",
