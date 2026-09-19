@@ -70,6 +70,7 @@
             this.controlHideTimer = null;
             this.resizeFrame = null;
             this.motionFrame = null;
+            this.motionGeneration = 0;
             this.refreshFrame = null;
             this.translationRefreshTimer = null;
             this.lastStartTrigger = null;
@@ -1352,9 +1353,14 @@
         }
 
         startMotion(mode, targets) {
+            const generation = ++this.motionGeneration;
             this.motionPosition = 0;
             this.motionLastTimestamp = null;
             const animate = timestamp => {
+                if (generation !== this.motionGeneration) {
+                    this.motionFrame = null;
+                    return;
+                }
                 if (document.hidden) {
                     this.motionFrame = null;
                     return;
@@ -1421,6 +1427,7 @@
         }
 
         cancelMotion() {
+            this.motionGeneration += 1;
             if (this.motionFrame !== null) {
                 window.cancelAnimationFrame(this.motionFrame);
                 this.motionFrame = null;
