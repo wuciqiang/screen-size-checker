@@ -79,7 +79,9 @@ for (const darkTheme of [false, true]) {
 }
 
 const hubCss = read('css/hub.css');
-for (const selector of ['.hub-hero', '.hub-content table thead', '.hub-tag']) {
+// Saturated surfaces need inverse text. The editorial hero uses page colors;
+// its light/dark contrast is checked against the rendered page in E2E acceptance.
+for (const selector of ['.hub-content table thead', '.hub-tag']) {
     assert.match(getBlock(hubCss, selector), /color:\s*var\(--text-inverse\)/);
 }
 
