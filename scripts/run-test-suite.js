@@ -12,6 +12,7 @@ const TESTS = {
     blogLanguageModal: 'test/blog-language-modal-test.js',
     languageSwitchMenu: 'test/language-switch-mega-menu-test.js',
     homeCopy: 'test/home-copy-interaction-test.js',
+    comparisonLocalization: 'test/screen-comparison-localization-test.js',
     lcdScreenTester: 'test/lcd-screen-tester-interaction-test.js',
     styleSystem: 'test/style-system-regression-test.js',
     resolutionTest: 'test/resolution-test-interaction-test.js',
@@ -23,7 +24,7 @@ const TESTS = {
 
 function resolveSelectedTests(args) {
     if (args.includes('--smoke')) {
-        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'lcdScreenTester', 'styleSystem', 'resolutionTest', 'pureColorPages', 'pureColorInteraction'];
+        return ['validation', 'seo', 'links', 'cleanUrls', 'languageUrls', 'canonicalLinks', 'blogLanguageModal', 'languageSwitchMenu', 'homeCopy', 'comparisonLocalization', 'lcdScreenTester', 'styleSystem', 'resolutionTest', 'pureColorPages', 'pureColorInteraction'];
     }
 
     const namedArgs = args

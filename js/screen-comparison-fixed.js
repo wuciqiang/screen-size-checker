@@ -405,9 +405,11 @@ function initializeComparison() {
     function getLocalizedText(key, defaultText) {
         // 检查是否存在i18next库和translate函数
         if (window.i18next && typeof window.i18next.t === 'function') {
-            if (typeof window.i18next.exists === 'function' && !window.i18next.exists(key)) return defaultText;
+            var hasExists = typeof window.i18next.exists === 'function';
+            if (hasExists && !window.i18next.exists(key)) return defaultText;
             var translated = window.i18next.t(key, { defaultValue: defaultText });
-            return translated && translated !== key ? translated : defaultText;
+            if (typeof translated !== 'string' || !translated) return defaultText;
+            return hasExists || translated !== key ? translated : defaultText;
         }
         return defaultText;
     }
