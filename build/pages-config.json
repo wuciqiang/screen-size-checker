@@ -11,7 +11,7 @@
         "page_keywords": "screen size, viewport size, screen resolution, browser detection, device pixel ratio, responsive design",
         "canonical_url": "https://screensizechecker.com/",
         "og_title": "What Is My Screen Size? Instant Screen Resolution Checker",
-        "og_description": "See your exact screen resolution, viewport, DPR, and pixel density in one click. Works on any device - no install, no signup.",
+        "og_description": "Check your browser-reported screen size, viewport and device pixel ratio. Understand CSS pixels and find out how to measure your screen in inches.",
         "og_type": "website",
         "og_url": "https://screensizechecker.com/",
         "css_path": "css",
@@ -27,7 +27,7 @@
           "@type": "WebApplication",
           "name": "What Is My Screen Size? Instant Screen Resolution Checker",
           "url": "https://screensizechecker.com/",
-          "description": "See your exact screen resolution, viewport, DPR, and pixel density in one click. Works on any device - no install, no signup.",
+          "description": "Check your browser-reported screen size, viewport and device pixel ratio. Understand CSS pixels and find out how to measure your screen in inches.",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Any",
           "inLanguage": "en",
@@ -70,11 +70,6 @@
             "name": "Screen Size Checker",
             "operatingSystem": "Any",
             "applicationCategory": "DeveloperApplication"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://screensizechecker.com/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
           }
         }
       }

@@ -51,11 +51,11 @@
                                 <span class="resolution-value">1920×1080</span>
                             </li>
                             <li class="noscript-resolution-item">
-                                <span class="resolution-name">HD</span>
+                                <span class="resolution-name">WXGA</span>
                                 <span class="resolution-value">1366×768</span>
                             </li>
                             <li class="noscript-resolution-item">
-                                <span class="resolution-name">MacBook Pro</span>
+                                <span class="resolution-name">WXGA+</span>
                                 <span class="resolution-value">1440×900</span>
                             </li>
                             <li class="noscript-resolution-item">
@@ -63,12 +63,12 @@
                                 <span class="resolution-value">3840×2160</span>
                             </li>
                             <li class="noscript-resolution-item">
-                                <span class="resolution-name">iPhone 14</span>
-                                <span class="resolution-value">390×844</span>
+                                <span class="resolution-name">QHD</span>
+                                <span class="resolution-value">2560×1440</span>
                             </li>
                             <li class="noscript-resolution-item">
-                                <span class="resolution-name">iPad Pro</span>
-                                <span class="resolution-value">1024×1366</span>
+                                <span class="resolution-name">WUXGA</span>
+                                <span class="resolution-value">1920×1200</span>
                             </li>
                         </ul>
                     </div>
@@ -91,10 +91,7 @@
                             <div class="noscript-browser-section">
                                 <h4 class="noscript-browser-name">Firefox</h4>
                                 <ol class="noscript-steps">
-                                    <li>Click the three lines menu</li>
-                                    <li>Settings > Privacy & Security</li>
-                                    <li>Permissions > Settings (next to Block new requests asking to allow notifications)</li>
-                                    <li>Uncheck "Block new requests asking to allow notifications"</li>
+                                    <li><a href="https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-pages" data-i18n="noscript_how_to_enable">How to Enable JavaScript</a></li>
                                 </ol>
                             </div>
                             <div class="noscript-browser-section">
@@ -128,6 +125,10 @@
             <a href="https://testgrid.io/blog/common-screen-resolutions/">screen resolution sizes</a> across devices.
         </p>
         <p><a href="resolution-test.html" data-resolution-context-link="home-tool-intro" data-i18n="resolution_test_tool">Check your current screen resolution</a></p>
+        {{#if is_default_lang}}
+        <p>Need the size in inches? <a href="devices/laptop-screen-size-checker.html">Learn how to measure a laptop screen</a>. For pixel dimensions such as 1920 × 1080 or 3840 × 2160, use the <a href="devices/standard-resolutions.html">screen resolution chart</a>.</p>
+        <p>How detection works: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen/width">browser screen dimensions</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth">viewport width</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio">device pixel ratio</a>.</p>
+        {{/if}}
         <div class="tool-intro-grid">
             <div class="tool-intro-item">
                 <h3 class="tool-intro-item-title">
