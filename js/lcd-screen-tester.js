@@ -1358,7 +1358,6 @@
             this.motionLastTimestamp = null;
             const animate = timestamp => {
                 if (generation !== this.motionGeneration) {
-                    this.motionFrame = null;
                     return;
                 }
                 if (document.hidden) {

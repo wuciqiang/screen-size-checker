@@ -353,6 +353,52 @@ async function assertClosedState(page, expectedStatus) {
     });
 }
 
+async function assertStaleMotionFramePreservesReplacement(page) {
+    const state = await page.evaluate(() => {
+        const tester = window.__lcdScreenTester;
+        const originalRequestAnimationFrame = window.requestAnimationFrame;
+        const originalCancelAnimationFrame = window.cancelAnimationFrame;
+        const callbacks = new Map();
+        let nextFrameId = 0;
+
+        window.requestAnimationFrame = callback => {
+            const frameId = ++nextFrameId;
+            callbacks.set(frameId, callback);
+            return frameId;
+        };
+        window.cancelAnimationFrame = frameId => callbacks.delete(frameId);
+
+        try {
+            const mode = tester.modeById.get('motion-box');
+            const targets = tester.getCanvasTargets();
+            tester.startMotion(mode, targets);
+            const staleFrameId = tester.motionFrame;
+            const staleCallback = callbacks.get(staleFrameId);
+
+            tester.cancelMotion();
+            tester.startMotion(mode, targets);
+            const replacementFrameId = tester.motionFrame;
+            staleCallback(16);
+
+            return {
+                afterStaleCallback: tester.motionFrame,
+                replacementFrameId
+            };
+        } finally {
+            tester.cancelMotion();
+            window.requestAnimationFrame = originalRequestAnimationFrame;
+            window.cancelAnimationFrame = originalCancelAnimationFrame;
+            tester.renderCurrentMode({ animateMotion: false });
+        }
+    });
+
+    assert.strictEqual(
+        state.afterStaleCallback,
+        state.replacementFrameId,
+        'a stale motion callback must preserve the replacement frame handle'
+    );
+}
+
 async function runDesktopFlow(browser, origin) {
     const context = await prepareContext(browser, {
         viewport: { width: 1440, height: 900 }
@@ -362,6 +408,7 @@ async function runDesktopFlow(browser, origin) {
 
     try {
         await openTester(page, `${origin}/devices/lcd-screen-tester`);
+        await assertStaleMotionFramePreservesReplacement(page);
         const initialState = await getTesterState(page);
         assert.strictEqual(initialState.currentModeId, 'solid-black');
         assert.strictEqual(await page.textContent('#lcd-preview-name'), 'Black');
