@@ -317,6 +317,7 @@
       "output": "devices/compare.html",
       "page_content": "compare-content",
       "config": {
+        "is_compare": true,
         "page_title_key": "compare_page_title",
         "page_description_key": "compare_page_description",
         "page_heading_key": "compare_page_heading",

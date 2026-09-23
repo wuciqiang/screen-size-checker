@@ -549,6 +549,9 @@
 <!-- Comparison Tool Section -->
 <section class="section-container">
     <div class="comparison-tool">
+    <span id="ratio-width-label" class="compare-sr-only" data-i18n="width_short">width</span>
+    <span id="ratio-height-label" class="compare-sr-only" data-i18n="height_short">height</span>
+    <span id="compare-unit-label" class="compare-sr-only" data-i18n="unit">Unit</span>
     <div class="compare-presets" aria-label="Common screen size comparisons">
         <h2 class="compare-presets-title" data-i18n="compare_presets_title">Start with a common comparison</h2>
         <div class="compare-preset-grid">
@@ -562,10 +565,10 @@
     <div class="comparison-selectors">
         <!-- Display 1 Selector -->
         <div class="display-selector">
-            <h3 data-i18n="display_1">Display 1</h3>
+            <h3 id="display1-label" data-i18n="display_1">Display 1</h3>
             
             <div class="aspect-row">
-                <label data-i18n="aspect_label">Aspect:</label>
+                <label for="aspect1-select" data-i18n="aspect_label">Aspect:</label>
                 <select id="aspect1-select" class="aspect-select">
                     <option value="16x9" data-i18n="aspect_16x9">16 x 9 Widescreen</option>
                     <option value="16x10" data-i18n="aspect_16x10">16 x 10 Widescreen</option>
@@ -582,15 +585,15 @@
             </div>
             
             <div id="custom-ratio1" class="custom-ratio-inputs">
-                <input type="number" id="custom-width1" min="1" max="100" value="16">
+                <input type="number" id="custom-width1" min="1" max="100" step="any" required value="16" aria-labelledby="display1-label ratio-width-label">
                 <span>x</span>
-                <input type="number" id="custom-height1" min="1" max="100" value="9">
+                <input type="number" id="custom-height1" min="1" max="100" step="any" required value="9" aria-labelledby="display1-label ratio-height-label">
             </div>
             
             <div class="size-row">
-                <label data-i18n="size_label">Size:</label>
-                <input type="number" id="size1-input" min="1" max="200" value="24" step="0.1">
-                <select id="unit1-select" class="unit-select">
+                <label for="size1-input" data-i18n="size_label">Size:</label>
+                <input type="number" id="size1-input" min="1" max="200" required value="24" step="any">
+                <select id="unit1-select" class="unit-select" aria-labelledby="display1-label compare-unit-label">
                     <option value="inches" data-i18n="unit_inches">Inches</option>
                     <option value="cm" data-i18n="unit_cm">Centimetres</option>
                 </select>
@@ -599,10 +602,10 @@
         
         <!-- Display 2 Selector -->
         <div class="display-selector">
-            <h3 data-i18n="display_2">Display 2</h3>
+            <h3 id="display2-label" data-i18n="display_2">Display 2</h3>
             
             <div class="aspect-row">
-                <label data-i18n="aspect_label">Aspect:</label>
+                <label for="aspect2-select" data-i18n="aspect_label">Aspect:</label>
                 <select id="aspect2-select" class="aspect-select">
                     <option value="16x9" data-i18n="aspect_16x9">16 x 9 Widescreen</option>
                     <option value="16x10" data-i18n="aspect_16x10">16 x 10 Widescreen</option>
@@ -619,15 +622,15 @@
             </div>
             
             <div id="custom-ratio2" class="custom-ratio-inputs">
-                <input type="number" id="custom-width2" min="1" max="100" value="16">
+                <input type="number" id="custom-width2" min="1" max="100" step="any" required value="16" aria-labelledby="display2-label ratio-width-label">
                 <span>x</span>
-                <input type="number" id="custom-height2" min="1" max="100" value="9">
+                <input type="number" id="custom-height2" min="1" max="100" step="any" required value="9" aria-labelledby="display2-label ratio-height-label">
             </div>
             
             <div class="size-row">
-                <label data-i18n="size_label">Size:</label>
-                <input type="number" id="size2-input" min="1" max="200" value="27" step="0.1">
-                <select id="unit2-select" class="unit-select">
+                <label for="size2-input" data-i18n="size_label">Size:</label>
+                <input type="number" id="size2-input" min="1" max="200" required value="27" step="any">
+                <select id="unit2-select" class="unit-select" aria-labelledby="display2-label compare-unit-label">
                     <option value="inches" data-i18n="unit_inches">Inches</option>
                     <option value="cm" data-i18n="unit_cm">Centimetres</option>
                 </select>
@@ -640,8 +643,8 @@
     <!-- Results Section (Initially Hidden) -->
     <div id="comparison-results" class="comparison-results">
         <div class="unit-toggle">
-            <button id="unit-inches" class="active" data-i18n="unit_toggle_inches">Inches</button>
-            <button id="unit-cm" data-i18n="unit_toggle_cm">Use cm</button>
+            <button id="unit-inches" class="active" aria-pressed="true" data-i18n="unit_toggle_inches">Inches</button>
+            <button id="unit-cm" aria-pressed="false" data-i18n="unit_toggle_cm">Use cm</button>
         </div>
         
         <div class="comparison-title" id="comparison-title">24 inch 16x9 display vs 27 inch 16x9 display</div>
@@ -651,11 +654,11 @@
         </div>
         
         <div class="comparison-tables">
-            <div class="table-wrapper">
+            <div class="table-wrapper" role="region" tabindex="0" aria-labelledby="stats-table-label">
                 <table class="stats-table" id="stats-table">
                     <thead>
                         <tr>
-                            <th data-i18n="stats_header">Stats</th>
+                            <th id="stats-table-label" scope="col" data-i18n="stats_header">Stats</th>
                             <th id="display1-header">24 inch 16x9</th>
                             <th id="display2-header">27 inch 16x9</th>
                         </tr>
@@ -695,11 +698,11 @@
                 </table>
             </div>
             
-            <div class="table-wrapper">
+            <div class="table-wrapper" role="region" tabindex="0" aria-labelledby="comparison-table-label">
                 <table class="comparison-table" id="comparison-table">
                     <thead>
                         <tr>
-                            <th data-i18n="comparison_header">In Comparison</th>
+                            <th id="comparison-table-label" scope="col" data-i18n="comparison_header">In Comparison</th>
                             <th id="comparison1-header">24 inch 16x9</th>
                             <th id="comparison2-header">27 inch 16x9</th>
                         </tr>
@@ -776,7 +779,6 @@
     <div class="comparison-insight-box">
         <h3 data-i18n="compare_result_interpretation_title">How to understand the comparison</h3>
         <p data-i18n="compare_result_interpretation_text">Diagonal size alone can be misleading. Width affects desk space, height affects document and timeline comfort, and visible area shows the real jump in screen space. A 32 inch monitor is not just slightly larger than 27 inch; the area difference is usually the number that changes daily use.</p>
-        <p data-i18n="compare_local_note">Local note: compare in the units and device categories people actually use in your market, such as inches plus centimeters in Europe, phone vs tablet checks in mobile-first markets, or laptop vs external monitor comparisons for office buyers.</p>
         <p><span data-i18n="compare_related_prefix">For sharpness, calculate pixel density with the</span> <a href="ppi-calculator.html" data-i18n="compare_related_ppi">PPI calculator</a> <span data-i18n="compare_related_middle">or check common resolutions in the</span> <a href="standard-resolutions.html" data-i18n="compare_related_standard">standard resolution chart</a>.</p>
     </div>
     <h3 data-i18n="comparison_basics">对比基础知识</h3>

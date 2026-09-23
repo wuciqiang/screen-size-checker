@@ -2,11 +2,14 @@
 <html lang="{{lang}}">
 <head>
     {{component:head}}
+    {{#if is_compare}}
+    <link rel="stylesheet" href="{{css_path}}/compare-page.css">
+    {{/if}}
     {{#if is_simulator}}
     <link rel="stylesheet" href="{{css_path}}/simulator.css">
     {{/if}}
 </head>
-<body>
+<body{{#if is_compare}} class="comparison-page"{{/if}}>
     {{component:header-mega-menu}}
     
     {{component:breadcrumb}}

@@ -49,6 +49,24 @@ function initializeComparison() {
     var comparisonTitle = document.getElementById('comparison-title');
     var comparisonVisual = document.getElementById('comparison-visual');
     var presetButtons = document.querySelectorAll('[data-compare-preset]');
+    var themeObserver = null;
+
+    function getCanvasTextColor() {
+        var element = comparisonVisual || document.body;
+        // Read the theme token directly: inherited color can still be transitioning.
+        var color = element ? window.getComputedStyle(element).getPropertyValue('--text-primary').trim() : '';
+        return color || '#000';
+    }
+
+    if (window.MutationObserver) {
+        themeObserver = new MutationObserver(function() {
+            if (lastCalculatedDisplay1 && lastCalculatedDisplay2) {
+                updateVisual(lastCalculatedDisplay1, lastCalculatedDisplay2);
+            }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+        if (document.body) themeObserver.observe(document.body, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+    }
 
     // 表格元素
     var display1Header = document.getElementById('display1-header');
@@ -120,23 +138,13 @@ function initializeComparison() {
         });
     }
 
-    // 同步单位选择器变化
-    if (unit1Select && unit2Select) {
-        unit1Select.addEventListener('change', function() {
-            unit2Select.value = unit1Select.value;
-        });
-
-        unit2Select.addEventListener('change', function() {
-            unit1Select.value = unit2Select.value;
-        });
-    }
+    updateOutputUnitButtons();
 
     presetButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             applyComparisonPreset(button);
             shouldTrackComparison = true;
-            compareDisplays();
-            updateURLWithCurrentState(true);
+            if (compareDisplays()) updateURLWithCurrentState(true);
         });
     });
 
@@ -152,9 +160,8 @@ function initializeComparison() {
             });
             try {
                 shouldTrackComparison = true;
-                compareDisplays();
+                if (compareDisplays()) updateURLWithCurrentState(true);
                 // 更新URL，以便分享
-                updateURLWithCurrentState(true);
             } catch (error) {
                 console.error('❌ Error in compareDisplays:', error);
             }
@@ -215,10 +222,10 @@ function initializeComparison() {
             updateTables(lastCalculatedDisplay1, lastCalculatedDisplay2, 
                         calculateComparison(lastCalculatedDisplay1, lastCalculatedDisplay2));
             updateTitle(
-                lastCalculatedDisplay1.diagonal, 
-                lastCalculatedDisplay1.aspectRatio, 
-                lastCalculatedDisplay2.diagonal, 
-                lastCalculatedDisplay2.aspectRatio, 
+                lastCalculatedDisplay1,
+                lastCalculatedDisplay1.aspectRatio,
+                lastCalculatedDisplay2,
+                lastCalculatedDisplay2.aspectRatio,
                 currentUnit
             );
             updateVisual(lastCalculatedDisplay1, lastCalculatedDisplay2);
@@ -231,6 +238,7 @@ function initializeComparison() {
 
     // 切换单位（英寸/厘米）
     function switchUnit(unit) {
+        if (unit !== 'inches' && unit !== 'cm') return;
         currentUnit = unit;
 
         // 更新UI
@@ -241,10 +249,12 @@ function initializeComparison() {
             unitInches.classList.remove('active');
             unitCm.classList.add('active');
         }
+        updateOutputUnitButtons();
 
         // 如果已有比较结果，重新计算
         if (comparisonResults.classList.contains('visible')) {
             compareDisplays();
+            updateURLWithCurrentState(true);
         }
     }
 
@@ -266,18 +276,20 @@ function initializeComparison() {
 
     // 比较两个显示器
     function compareDisplays() {
-        if (comparisonResults) {
-            comparisonResults.classList.add('visible');
+        if (!validateComparisonInputs(true)) {
+            hideComparisonResults();
+            return false;
         }
+        if (comparisonResults) comparisonResults.classList.add('visible');
 
         // 获取显示器1的信息
         var aspect1 = getAspectRatio(aspect1Select.value, customWidth1.value, customHeight1.value);
-        var size1 = parseFloat(size1Input.value) || 52;
+        var size1 = parseFloat(size1Input.value);
         var unit1 = unit1Select.value;
 
         // 获取显示器2的信息
         var aspect2 = getAspectRatio(aspect2Select.value, customWidth2.value, customHeight2.value);
-        var size2 = parseFloat(size2Input.value) || 56;
+        var size2 = parseFloat(size2Input.value);
         var unit2 = unit2Select.value;
 
         // 统一单位为英寸进行计算
@@ -305,7 +317,7 @@ function initializeComparison() {
         var comparison = calculateComparison(display1, display2);
 
         // 更新标题
-        updateTitle(size1, aspect1, size2, aspect2, unit1);
+        updateTitle(display1, aspect1, display2, aspect2, currentUnit);
 
         // 更新表格
         updateTables(display1, display2, comparison);
@@ -327,8 +339,56 @@ function initializeComparison() {
             });
         }
         shouldTrackComparison = false;
+        return true;
+    }
+
+    function updateOutputUnitButtons() {
+        if (unitInches) unitInches.setAttribute('aria-pressed', currentUnit === 'inches' ? 'true' : 'false');
+        if (unitCm) unitCm.setAttribute('aria-pressed', currentUnit === 'cm' ? 'true' : 'false');
     }
     
+    function hideComparisonResults() {
+        if (comparisonResults) comparisonResults.classList.remove('visible');
+        var shareOptions = document.getElementById('share-options');
+        if (shareOptions) shareOptions.style.display = 'none';
+        lastCalculatedDisplay1 = null;
+        lastCalculatedDisplay2 = null;
+    }
+
+    function selectHasValue(select, value) {
+        if (!select || !value) return false;
+        return Array.prototype.some.call(select.options || [], function(option) { return option.value === value; });
+    }
+
+    function validPositiveInput(input, max) {
+        if (!input) return false;
+        if (typeof input.checkValidity === 'function' && !input.checkValidity()) return false;
+        var value = Number(input.value);
+        return input.value !== '' && Number.isFinite(value) && value > 0 && (!max || value <= max);
+    }
+
+    function validateComparisonInputs(showNativeError) {
+        var valid = validPositiveInput(size1Input) && validPositiveInput(size2Input);
+        valid = valid && selectHasValue(aspect1Select, aspect1Select && aspect1Select.value);
+        valid = valid && selectHasValue(aspect2Select, aspect2Select && aspect2Select.value);
+        valid = valid && selectHasValue(unit1Select, unit1Select && unit1Select.value);
+        valid = valid && selectHasValue(unit2Select, unit2Select && unit2Select.value);
+        if (aspect1Select && aspect1Select.value === 'custom') {
+            valid = valid && validPositiveInput(customWidth1, 100) && validPositiveInput(customHeight1, 100);
+        }
+        if (aspect2Select && aspect2Select.value === 'custom') {
+            valid = valid && validPositiveInput(customWidth2, 100) && validPositiveInput(customHeight2, 100);
+        }
+        if (!valid && showNativeError) {
+            [size1Input, size2Input, customWidth1, customHeight1, customWidth2, customHeight2].some(function(input) {
+                if (!input || typeof input.reportValidity !== 'function' || input.checkValidity()) return false;
+                input.reportValidity();
+                return true;
+            });
+        }
+        return valid;
+    }
+
     // debounce函数，防止窗口大小变化时频繁更新
     function debounce(func, wait) {
         var timeout;
@@ -345,7 +405,9 @@ function initializeComparison() {
     function getLocalizedText(key, defaultText) {
         // 检查是否存在i18next库和translate函数
         if (window.i18next && typeof window.i18next.t === 'function') {
-            return window.i18next.t(key) || defaultText;
+            if (typeof window.i18next.exists === 'function' && !window.i18next.exists(key)) return defaultText;
+            var translated = window.i18next.t(key, { defaultValue: defaultText });
+            return translated && translated !== key ? translated : defaultText;
         }
         return defaultText;
     }
@@ -458,8 +520,11 @@ function initializeComparison() {
     }
 
     // 更新标题
-    function updateTitle(size1, aspect1, size2, aspect2, unit) {
-        var unitText = unit === 'cm' ? 'cm' : 'inch';
+    function updateTitle(display1, aspect1, display2, aspect2, unit) {
+        var unitText = unit === 'cm' ? 'cm' : 'in';
+        var conversion = unit === 'cm' ? CM_PER_INCH : 1;
+        var size1 = formatNumber(display1.diagonal * conversion);
+        var size2 = formatNumber(display2.diagonal * conversion);
         var isMobile = window.innerWidth < 768;
 
         // 格式化宽高比显示
@@ -473,7 +538,7 @@ function initializeComparison() {
         
         // 在移动设备上使用更简洁的标题格式
         if (isMobile) {
-            title = size1 + '" ' + aspect1Text + ' ' + vsWord + ' ' + size2 + '" ' + aspect2Text;
+            title = size1 + ' ' + unitText + ' ' + aspect1Text + ' ' + vsWord + ' ' + size2 + ' ' + unitText + ' ' + aspect2Text;
         } else {
             title = size1 + ' ' + unitText + ' ' + aspect1Text + ' ' + displayWord + ' ' + 
                    vsWord + ' ' + size2 + ' ' + unitText + ' ' + aspect2Text + ' ' + displayWord;
@@ -482,8 +547,8 @@ function initializeComparison() {
         comparisonTitle.textContent = title;
 
         // 更新表头 - 保持简洁的表头格式
-        var header1 = isMobile ? (size1 + '" ' + aspect1Text) : (size1 + ' ' + unitText + ' ' + aspect1Text);
-        var header2 = isMobile ? (size2 + '" ' + aspect2Text) : (size2 + ' ' + unitText + ' ' + aspect2Text);
+        var header1 = size1 + ' ' + unitText + ' ' + aspect1Text;
+        var header2 = size2 + ' ' + unitText + ' ' + aspect2Text;
         
         display1Header.textContent = header1;
         display2Header.textContent = header2;
@@ -574,10 +639,10 @@ function initializeComparison() {
     // 格式化详细比较文本，包含更多对比指标
     function formatDetailedComparison(comparisonData, isSecond, isMobile) {
         // 反转第一个设备的值，使其显示为比第二个设备小/大
-        var diagonalDiff = isSecond ? comparisonData.diagonalDiff : -comparisonData.diagonalDiff;
-        var widthDiff = isSecond ? comparisonData.widthDiff : -comparisonData.widthDiff;
-        var heightDiff = isSecond ? comparisonData.heightDiff : -comparisonData.heightDiff;
-        var areaDiff = isSecond ? comparisonData.areaDiff : -comparisonData.areaDiff;
+        var diagonalDiff = isSecond ? comparisonData.diagonalDiff : inversePercentage(comparisonData.diagonalDiff);
+        var widthDiff = isSecond ? comparisonData.widthDiff : inversePercentage(comparisonData.widthDiff);
+        var heightDiff = isSecond ? comparisonData.heightDiff : inversePercentage(comparisonData.heightDiff);
+        var areaDiff = isSecond ? comparisonData.areaDiff : inversePercentage(comparisonData.areaDiff);
         
         // 获取本地化文本
         var largerText = getLocalizedText('larger', '更大');
@@ -666,8 +731,8 @@ function initializeComparison() {
     function formatComparison(diagonalDiff, areaDiff, isSecond, isMobile) {
         // 反转第一个设备的值，使其显示为比第二个设备小/大
         if (!isSecond) {
-            diagonalDiff = -diagonalDiff;
-            areaDiff = -areaDiff;
+            diagonalDiff = inversePercentage(diagonalDiff);
+            areaDiff = inversePercentage(areaDiff);
         }
         
         // 获取本地化文本
@@ -860,7 +925,7 @@ function initializeComparison() {
         // 根据屏幕尺寸调整字体大小
         var fontSize = window.innerWidth <= 480 ? 10 : (window.innerWidth <= 768 ? 11 : 12);
         
-        ctx.fillStyle = 'rgba(70, 130, 180, 1)';
+        ctx.fillStyle = getCanvasTextColor();
         ctx.font = 'bold ' + fontSize + 'px Arial';
         ctx.textAlign = 'center';
         // 宽度标注
@@ -876,7 +941,7 @@ function initializeComparison() {
         var width2Text = formatNumber(currentUnit === 'inches' ? display2.width : display2.width * CM_PER_INCH) + unit;
         var height2Text = formatNumber(currentUnit === 'inches' ? display2.height : display2.height * CM_PER_INCH) + unit;
         
-        ctx.fillStyle = 'rgba(60, 179, 113, 1)';
+        ctx.fillStyle = getCanvasTextColor();
         // 宽度标注
         ctx.fillText(width2Text, left2 + scaledWidth2/2, top2 + scaledHeight2 + 15);
         // 高度标注
@@ -899,7 +964,7 @@ function initializeComparison() {
         ctx.fillRect(legendX, legendY, legendSize, legendSize);
         ctx.strokeRect(legendX, legendY, legendSize, legendSize);
         
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = getCanvasTextColor();
         ctx.font = legendFontSize + 'px Arial';
         ctx.textAlign = 'left';
         var display1Name = display1Header.textContent || getLocalizedText('display_1', 'Display 1');
@@ -912,7 +977,7 @@ function initializeComparison() {
         ctx.fillRect(legendX, legendY, legendSize, legendSize);
         ctx.strokeRect(legendX, legendY, legendSize, legendSize);
         
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = getCanvasTextColor();
         ctx.font = legendFontSize + 'px Arial';
         var display2Name = display2Header.textContent || getLocalizedText('display_2', 'Display 2');
         ctx.fillText(display2Name, legendX + legendSize + 5, legendY + legendSize - 2);
@@ -931,7 +996,7 @@ function initializeComparison() {
         ctx.stroke();
         
         // 对角线文字
-        ctx.fillStyle = 'rgba(70, 130, 180, 1)';
+        ctx.fillStyle = getCanvasTextColor();
         ctx.save();
         var angle = Math.atan2(scaledHeight1, scaledWidth1);
         ctx.translate(left1 + scaledWidth1/2, top1 + scaledHeight1/2);
@@ -947,7 +1012,7 @@ function initializeComparison() {
         ctx.stroke();
         
         // 对角线文字
-        ctx.fillStyle = 'rgba(60, 179, 113, 1)';
+        ctx.fillStyle = getCanvasTextColor();
         ctx.save();
         var angle = Math.atan2(scaledHeight2, scaledWidth2);
         ctx.translate(left2 + scaledWidth2/2, top2 + scaledHeight2/2);
@@ -958,6 +1023,7 @@ function initializeComparison() {
 
     // 更新URL参数以反映当前状态
     function updateURLWithCurrentState(setCompareTrue) {
+        if (!validateComparisonInputs(false)) return;
         if (!window.history || !window.location) {
             return; // 如果不支持history API，则不执行操作
         }
@@ -1004,6 +1070,7 @@ function initializeComparison() {
         }
         
         var params = new URLSearchParams(window.location.search);
+        var invalidURLState = false;
         
         // 检查是否有参数
         if (params.toString() === '') {
@@ -1011,7 +1078,8 @@ function initializeComparison() {
         }
         
         // 设置显示器1参数
-        if (params.has('a1')) {
+        if (params.has('a1') && !selectHasValue(aspect1Select, params.get('a1'))) invalidURLState = true;
+        if (params.has('a1') && selectHasValue(aspect1Select, params.get('a1'))) {
             aspect1Select.value = params.get('a1');
             if (params.get('a1') === 'custom' && customRatio1) {
                 customRatio1.style.display = 'flex';
@@ -1020,10 +1088,12 @@ function initializeComparison() {
             }
         }
         if (params.has('s1')) size1Input.value = params.get('s1');
-        if (params.has('u1')) unit1Select.value = params.get('u1');
+        if (params.has('u1') && !selectHasValue(unit1Select, params.get('u1'))) invalidURLState = true;
+        if (params.has('u1') && selectHasValue(unit1Select, params.get('u1'))) unit1Select.value = params.get('u1');
         
         // 设置显示器2参数
-        if (params.has('a2')) {
+        if (params.has('a2') && !selectHasValue(aspect2Select, params.get('a2'))) invalidURLState = true;
+        if (params.has('a2') && selectHasValue(aspect2Select, params.get('a2'))) {
             aspect2Select.value = params.get('a2');
             if (params.get('a2') === 'custom' && customRatio2) {
                 customRatio2.style.display = 'flex';
@@ -1032,15 +1102,17 @@ function initializeComparison() {
             }
         }
         if (params.has('s2')) size2Input.value = params.get('s2');
-        if (params.has('u2')) unit2Select.value = params.get('u2');
+        if (params.has('u2') && !selectHasValue(unit2Select, params.get('u2'))) invalidURLState = true;
+        if (params.has('u2') && selectHasValue(unit2Select, params.get('u2'))) unit2Select.value = params.get('u2');
         
         // 设置单位
-        if (params.has('unit')) {
+        if (params.has('unit') && params.get('unit') !== 'inches' && params.get('unit') !== 'cm') invalidURLState = true;
+        if (params.has('unit') && (params.get('unit') === 'inches' || params.get('unit') === 'cm')) {
             switchUnit(params.get('unit'));
         }
         
         // 检查是否应该显示比较结果
-        if (params.has('compare') && params.get('compare') === 'true') {
+        if (!invalidURLState && params.has('compare') && params.get('compare') === 'true') {
             shouldShowComparisonOnLoad = true;
             // 自动执行比较
             setTimeout(function() {
@@ -1051,6 +1123,7 @@ function initializeComparison() {
     
     // 社交媒体分享
     function shareToSocialMedia(platform) {
+        if (!validateComparisonInputs(true)) return;
         updateURLWithCurrentState(true); // 确保URL包含最新状态并设置compare=true
         
         var currentUrl = encodeURIComponent(window.location.href);
@@ -1090,6 +1163,7 @@ function initializeComparison() {
 
     // 复制当前URL到剪贴板
     function copyCurrentUrlToClipboard() {
+        if (!validateComparisonInputs(true)) return;
         updateURLWithCurrentState(true); // 确保URL包含最新状态
         
         var currentUrl = window.location.href;
@@ -1135,6 +1209,11 @@ function initializeComparison() {
         }
         
         document.body.removeChild(textArea);
+    }
+
+    function inversePercentage(value) {
+        var base = 1 + value / 100;
+        return base === 0 ? -100 : (-value / base);
     }
 
     function trackShareUrlCopy() {
