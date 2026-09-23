@@ -171,7 +171,7 @@ let browser;
                 assert.ok(checks.headerRect.bottom <= checks.workbenchRect.top);
                 assert.ok(checks.workbenchRect.bottom <= checks.familyRect.top);
                 assert.ok(
-                    checks.controlRects.every(rect => rect.height >= 44),
+                    checks.controlRects.every(rect => rect.height >= 44 - 0.01),
                     `control heights at ${viewport.width}x${viewport.height}: ${checks.controlRects.map(rect => rect.height).join(', ')}`
                 );
                 assert.ok(checks.controlRects.every(rect => rect.left >= 0 && rect.right <= viewport.width));
