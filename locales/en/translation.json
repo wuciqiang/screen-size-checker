@@ -160,7 +160,7 @@
   "frame_tablet": "Tablet",
   "frame_laptop": "Laptop",
   "current_size": "Current Size:",
-  "invalid_custom_size_alert": "Please enter valid positive numbers for width and height.",
+  "invalid_custom_size_alert": "Please enter width and height within the supported range.",
   "website_load_error": "Failed to load website. It may be blocked by security policies.",
   "responsive_design_tips": "Responsive Design Tips",
   "why_responsive_design": "Why Responsive Design Matters",

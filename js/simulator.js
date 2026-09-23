@@ -120,6 +120,16 @@ function applyCustomSize() {
         return;
     }
 
+    // Let the browser enforce the declared input bounds before applying a
+    // value. This keeps the preview and its size label in sync with the
+    // advertised 50–3840 × 50–2160 px range.
+    if (!widthInput.checkValidity() || !heightInput.checkValidity()) {
+        widthInput.reportValidity();
+        heightInput.reportValidity();
+        console.warn('Custom size is outside the supported range');
+        return;
+    }
+
     const width = parseInt(widthInput.value, 10);
     const height = parseInt(heightInput.value, 10);
 
@@ -150,7 +160,28 @@ function rotateDevice() {
 
     if (!isNaN(currentWidth) && !isNaN(currentHeight)) {
         console.log(`Rotating from ${currentWidth}×${currentHeight} to ${currentHeight}×${currentWidth}`);
-        setPreviewSize(currentHeight, currentWidth);
+
+        // Rotation swaps the axes, so validate the resulting values against
+        // the same bounds exposed by the custom inputs before applying them.
+        const widthInput = document.getElementById('custom-width');
+        const heightInput = document.getElementById('custom-height');
+        const nextWidth = currentHeight;
+        const nextHeight = currentWidth;
+        const withinRange = (input, value) => {
+            if (!input) return true;
+            const min = Number(input.min);
+            const max = Number(input.max);
+            return (!Number.isFinite(min) || value >= min) &&
+                (!Number.isFinite(max) || value <= max);
+        };
+
+        if (!withinRange(widthInput, nextWidth) || !withinRange(heightInput, nextHeight)) {
+            console.warn(`Unable to rotate: resulting dimensions are outside the supported range (width=${nextWidth}, height=${nextHeight})`);
+            showToast(window.i18next && window.i18next.t ? window.i18next.t('invalid_custom_size_alert') : 'Please enter width and height within the supported range.');
+            return;
+        }
+
+        setPreviewSize(nextWidth, nextHeight);
     } else {
         console.warn(`Unable to rotate: invalid dimensions (width=${currentWidth}, height=${currentHeight})`);
     }
@@ -279,9 +310,11 @@ function makeIframeResizable() {
         display: inline-block;
         border: 2px solid #ddd;
         border-radius: 8px;
-        overflow: visible;
+        overflow: auto;
         background: #fff;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        box-sizing: border-box;
     `;
 
     // Cache DOM elements for performance
@@ -769,4 +802,4 @@ window.loadWebsite = loadWebsite;
 
 window.setupSimulatorListeners = setupSimulatorListeners;
 window.initializeSimulator = initializeSimulator;
-// } 
+// }

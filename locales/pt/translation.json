@@ -154,7 +154,7 @@
   "frame_tablet": "Tablet",
   "frame_laptop": "Laptop",
   "current_size": "Tamanho Atual:",
-  "invalid_custom_size_alert": "Por favor, insira números positivos válidos para largura e altura.",
+  "invalid_custom_size_alert": "Insira uma largura e uma altura dentro do intervalo permitido.",
   "website_load_error": "Falha ao carregar o site. Pode estar bloqueado por políticas de segurança.",
   "responsive_design_tips": "Dicas de Design Responsivo",
   "why_responsive_design": "Por que o Design Responsivo é Importante",

@@ -107,7 +107,7 @@
   "frame_tablet": "平板",
   "frame_laptop": "笔记本",
   "current_size": "当前尺寸：",
-  "invalid_custom_size_alert": "请输入有效的正数作为宽度和高度。",
+  "invalid_custom_size_alert": "请输入支持范围内的宽度和高度。",
   "website_load_error": "加载网站失败。可能是由于安全策略限制。",
   "responsive_design_tips": "响应式设计提示",
   "why_responsive_design": "为什么响应式设计很重要",

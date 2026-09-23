@@ -154,7 +154,7 @@
   "frame_tablet": "Tablette",
   "frame_laptop": "Portable",
   "current_size": "Taille actuelle :",
-  "invalid_custom_size_alert": "Veuillez entrer des nombres positifs valides pour la largeur et la hauteur.",
+  "invalid_custom_size_alert": "Saisissez une largeur et une hauteur dans la plage prise en charge.",
   "website_load_error": "Impossible de charger le site. Il est peut-être bloqué par des politiques de sécurité.",
   "responsive_design_tips": "Conseils de design réactif",
   "why_responsive_design": "Pourquoi le design réactif est important",

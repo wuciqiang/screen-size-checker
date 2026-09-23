@@ -214,7 +214,8 @@
     display: inline-block;
     border: 2px solid var(--border-color);
     border-radius: var(--radius-sm);
-    overflow: visible; /* Changed to visible to show resize handles */
+    overflow: auto;
+    box-sizing: border-box;
     background: #fff;
     box-shadow: var(--shadow-medium);
 }
@@ -333,6 +334,7 @@
     transition: all var(--transition-medium);
     max-width: 100%;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 #simulator-frame {
@@ -342,7 +344,7 @@
     box-sizing: border-box;
     min-height: 300px;
     min-width: 320px;
-    max-width: 100%;
+    max-width: none;
 }
 
 
