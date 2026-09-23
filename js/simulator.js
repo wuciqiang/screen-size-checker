@@ -310,7 +310,8 @@ function makeIframeResizable() {
         display: inline-block;
         border: 2px solid #ddd;
         border-radius: 8px;
-        overflow: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
         background: #fff;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         max-width: 100%;
@@ -403,9 +404,9 @@ function makeIframeResizable() {
 
     // Create resize handles with improved styling
     const handles = [
-        { direction: 'se', cursor: 'se-resize', width: '16px', height: '16px', bottom: '-8px', right: '-8px', borderRadius: '50%' },
-        { direction: 'e', cursor: 'e-resize', width: '8px', height: '100%', top: '0', right: '-4px', borderRadius: '0' },
-        { direction: 's', cursor: 's-resize', width: '100%', height: '8px', bottom: '-4px', left: '0', borderRadius: '0' }
+        { direction: 'se', cursor: 'se-resize', width: '16px', height: '16px', bottom: '2px', right: '2px', borderRadius: '50%' },
+        { direction: 'e', cursor: 'e-resize', width: '8px', height: '64px', top: 'calc(50% - 32px)', right: '2px', borderRadius: '4px' },
+        { direction: 's', cursor: 's-resize', width: '64px', height: '8px', bottom: '2px', left: 'calc(50% - 32px)', borderRadius: '4px' }
     ];
 
     handles.forEach(({ direction, cursor, width, height, bottom, right, top, left, borderRadius }) => {
