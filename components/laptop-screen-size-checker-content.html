@@ -1,7 +1,7 @@
 <section class="devices-hero-section">
     <div class="devices-hero-container">
         <h1 class="devices-hero-title" data-i18n="laptop_page_heading">Laptop Screen Size Checker</h1>
-        <p class="devices-hero-subtitle" data-i18n="laptop_page_intro">Check your laptop screen resolution, browser viewport, DPR, and common laptop size clues in one place.</p>
+        <p class="devices-hero-subtitle" data-i18n="laptop_page_intro">Check your laptop's reported screen dimensions, browser viewport, DPR, and physical-size clues in one place.</p>
     </div>
 </section>
 
@@ -9,7 +9,7 @@
     <div class="section-container">
         <div class="laptop-note">
             <h2 data-i18n="laptop_quick_answer_title">Quick answer</h2>
-            <p data-i18n="laptop_quick_answer_text">This checker can read your current resolution, viewport, DPR, aspect ratio, and color depth. Your physical laptop screen size in inches cannot be read directly by a browser, so use the model/spec sheet or measure the active display diagonally.</p>
+            <p data-i18n="laptop_quick_answer_text">This checker can read browser-reported screen dimensions in CSS pixels, your viewport, DPR, aspect ratio, and color depth. It cannot reliably determine your laptop's physical screen size in inches, so use the model/spec sheet or measure the active display diagonally.</p>
         </div>
 
         <h2 data-i18n="laptop_live_results_heading">Your Current Laptop Display</h2>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="card-content">
                     <div class="info-row">
-                        <span class="info-label" data-i18n="laptop_current_resolution">Screen resolution</span>
+                        <span class="info-label" data-i18n="laptop_current_resolution">Reported screen dimensions (CSS px)</span>
                         <span class="info-value" id="screen-resolution-display" data-display-format="value"><span data-i18n="detecting">Detecting...</span></span>
                     </div>
                     <div class="info-row">
@@ -61,7 +61,7 @@
         <div class="content-grid">
             <div class="content-card">
                 <h3 data-i18n="laptop_method_auto_heading">Check what the browser can detect</h3>
-                <p data-i18n="laptop_method_auto_text">Use the live results above for screen resolution, viewport size, DPR, aspect ratio, and color depth. These numbers are perfect for responsive testing, screenshots, browser zoom checks, and troubleshooting blurry text.</p>
+                <p data-i18n="laptop_method_auto_text">Use the live results above for reported screen dimensions, viewport size, DPR, aspect ratio, and color depth. These numbers help with responsive testing, screenshots, browser zoom checks, and troubleshooting blurry text.</p>
             </div>
             <div class="content-card">
                 <h3 data-i18n="laptop_method_specs_heading">Check the laptop model</h3>
@@ -73,8 +73,8 @@
             </div>
         </div>
 
-        <h2 data-i18n="laptop_terms_heading">Resolution, Viewport, and Physical Size</h2>
-        <p data-i18n="laptop_terms_intro">These three numbers answer different questions. Screen resolution is the physical pixel grid. Viewport is the browser's CSS layout area. Physical size is the diagonal measurement in inches or centimeters. A 14-inch laptop can have a 1920 x 1200 panel, a 2560 x 1600 panel, or something higher, and the browser viewport may still be much smaller because of scaling.</p>
+        <h2 data-i18n="laptop_terms_heading">Screen Dimensions, Viewport, and Physical Size</h2>
+        <p data-i18n="laptop_terms_intro">These three numbers answer different questions. Reported screen dimensions are the width and height exposed by the browser in CSS pixels; they do not confirm the panel's native resolution. Viewport is the browser's CSS layout area. Physical size is the diagonal measurement in inches or centimeters. A 14-inch laptop can use different panel resolutions, and the browser viewport may still be much smaller because of scaling.</p>
 
         <div class="table-container">
             <table class="device-table">
@@ -87,9 +87,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-i18n="laptop_term_resolution">Screen resolution</td>
-                        <td data-i18n="laptop_term_resolution_meaning">The physical pixel count, such as 1920 x 1080 or 2560 x 1600.</td>
-                        <td data-i18n="laptop_term_resolution_use">Useful for image sharpness, screenshots, video capture, and native display settings.</td>
+                        <td data-i18n="laptop_term_resolution">Reported screen dimensions</td>
+                        <td data-i18n="laptop_term_resolution_meaning">The width and height exposed by the browser in CSS pixels, such as 1920 x 1080 or 2560 x 1600. They do not confirm the panel's native resolution.</td>
+                        <td data-i18n="laptop_term_resolution_use">Useful for layout checks, screenshots, video capture, and comparing the current browser session; confirm native display settings separately.</td>
                     </tr>
                     <tr>
                         <td data-i18n="laptop_term_viewport">Browser viewport</td>
@@ -105,14 +105,14 @@
             </table>
         </div>
 
-        <h2 data-i18n="laptop_common_sizes_heading">Common Laptop Screen Sizes</h2>
+        <h2 data-i18n="laptop_common_sizes_heading">Example Laptop Screen Sizes</h2>
         <div class="table-container">
             <table class="device-table">
                 <thead>
                     <tr>
                         <th data-i18n="laptop_size_column">Size</th>
                         <th data-i18n="laptop_portability_column">Portability</th>
-                        <th data-i18n="laptop_best_for_column">Best for</th>
+                        <th data-i18n="laptop_best_for_column">Typical fit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -145,7 +145,7 @@
             </table>
         </div>
 
-        <h2 data-i18n="laptop_common_resolutions_heading">Common Laptop Resolutions</h2>
+        <h2 data-i18n="laptop_common_resolutions_heading">Example Laptop Resolutions</h2>
         <div class="table-container">
             <table class="device-table">
                 <thead>
@@ -159,32 +159,32 @@
                     <tr>
                         <td>1366 x 768</td>
                         <td>16:9</td>
-                        <td data-i18n="laptop_resolution_1366_use">Budget and older laptops; cramped for modern multitasking.</td>
+                        <td data-i18n="laptop_resolution_1366_use">A legacy or lower-resolution format still seen in some laptops; it may provide less workspace.</td>
                     </tr>
                     <tr>
                         <td>1920 x 1080</td>
                         <td>16:9</td>
-                        <td data-i18n="laptop_resolution_1080_use">Common Full HD baseline for work, school, and gaming.</td>
+                        <td data-i18n="laptop_resolution_1080_use">A 16:9 Full HD format for work, school, and gaming.</td>
                     </tr>
                     <tr>
                         <td>1920 x 1200</td>
                         <td>16:10</td>
-                        <td data-i18n="laptop_resolution_1200_use">A taller Full HD-class layout with more room for documents and code.</td>
+                        <td data-i18n="laptop_resolution_1200_use">A 16:10 format with extra vertical pixels for documents and code.</td>
                     </tr>
                     <tr>
                         <td>2560 x 1600</td>
                         <td>16:10</td>
-                        <td data-i18n="laptop_resolution_1600_use">Sharp premium laptop resolution, common on 13-16 inch productivity models.</td>
+                        <td data-i18n="laptop_resolution_1600_use">A higher-density 16:10 format used in some 13-16 inch laptops; scaling depends on the panel and operating system.</td>
                     </tr>
                     <tr>
                         <td>2880 x 1800</td>
                         <td>16:10</td>
-                        <td data-i18n="laptop_resolution_1800_use">High-density laptop panels; often used with OS scaling.</td>
+                        <td data-i18n="laptop_resolution_1800_use">A high-density 16:10 format; operating-system scaling may help with legibility.</td>
                     </tr>
                     <tr>
                         <td>3840 x 2160</td>
                         <td>16:9</td>
-                        <td data-i18n="laptop_resolution_4k_use">4K laptops for creative work; sharp but heavier on battery and graphics.</td>
+                        <td data-i18n="laptop_resolution_4k_use">A 4K 16:9 format used in some creative-focused laptops; it may increase graphics and battery demands.</td>
                     </tr>
                 </tbody>
             </table>
@@ -196,15 +196,15 @@
 
         <h2 data-i18n="laptop_faq_heading">Laptop Screen Size FAQ</h2>
         <h3 data-i18n="laptop_faq_q1">Can a website detect my laptop screen size in inches?</h3>
-        <p data-i18n="laptop_faq_a1">No. A browser can detect resolution, viewport size, DPR, and related display data, but it cannot reliably read the physical diagonal size. Check the model specs or measure the active display.</p>
-        <h3 data-i18n="laptop_faq_q2">Why is my viewport smaller than my laptop resolution?</h3>
+        <p data-i18n="laptop_faq_a1">No. A browser can report screen dimensions, viewport size, DPR, and related display data, but it cannot reliably determine the physical diagonal size or confirm the panel's native resolution. Check the model specs or display settings, or measure the active display.</p>
+        <h3 data-i18n="laptop_faq_q2">Why is my viewport smaller than my laptop's reported screen dimensions?</h3>
         <p data-i18n="laptop_faq_a2">The viewport is reduced by browser UI, scrollbars, zoom, operating-system scaling, and window size. A high-resolution laptop may expose a smaller CSS viewport so text and controls stay readable.</p>
         <h3 data-i18n="laptop_faq_q3">What is the most common laptop screen size?</h3>
-        <p data-i18n="laptop_faq_a3">15.6 inches is still very common, especially for mainstream and gaming laptops. 13 to 14 inch models are popular when portability matters more.</p>
+        <p data-i18n="laptop_faq_a3">There is no single size that is most common across every market and laptop category. 13-14 inch models prioritize portability, while 15-16 inch models provide more workspace; check the exact model when size matters.</p>
         <h3 data-i18n="laptop_faq_q4">Does laptop screen size include the bezel?</h3>
         <p data-i18n="laptop_faq_a4">No. Laptop screen size refers to the active display area, measured diagonally. The bezel and laptop body are not included.</p>
         <h3 data-i18n="laptop_faq_q5">What laptop resolution is best?</h3>
-        <p data-i18n="laptop_faq_a5">For many people, 1920 x 1200 or 2560 x 1600 is a comfortable laptop sweet spot. 4K is sharper for creative work, but it can use more battery and usually needs scaling.</p>
+        <p data-i18n="laptop_faq_a5">There is no single best laptop resolution. 1920 x 1200 and 2560 x 1600 are examples of 16:10 formats; comfort depends on panel size, scaling, workload, battery, graphics, and budget. 4K is sharper for creative work, but it can use more battery and usually needs scaling.</p>
     </div>
 </section>
 
