@@ -358,8 +358,18 @@ async function run() {
         assert.deepStrictEqual(desktop.errors, [], `desktop page errors: ${desktop.errors.join(' | ')}`);
         assert.ok((await desktop.page.title()).includes('Screen Resolution Checker'));
         assert.strictEqual(await desktop.page.locator('link[rel="canonical"]').getAttribute('href'), 'https://screensizechecker.com/resolution-test');
-        const guideWords = await desktop.page.locator('.resolution-guide-content').innerText();
-        assert.ok(guideWords.trim().split(/\s+/).length >= 700 && guideWords.trim().split(/\s+/).length <= 900, 'English guide must contain 700-900 words');
+        const guideText = (await desktop.page.locator('.resolution-guide-content').innerText()).replace(/\s+/g, ' ').trim();
+        const guideTopics = [
+            { name: 'CSS viewport context', patterns: [/CSS pixels/i, /viewport/i, /current page workspace/i] },
+            { name: 'DPR and scaling limits', patterns: [/DPR/i, /device pixels/i, /estimated pixels/i, /browser zoom/i, /operating-system scaling/i] },
+            { name: 'native mode distinction', patterns: [/native or recommended mode/i] },
+            { name: 'hardware diagnosis boundary', patterns: [/not a hardware diagnosis/i, /does not determine a panel's native mode/i] },
+            { name: 'developer QA context', patterns: [/Developer and QA uses/i, /active monitor/i, /color depth/i, /test path/i] }
+        ];
+        guideTopics.forEach(topic => {
+            assert.ok(topic.patterns.every(pattern => pattern.test(guideText)),
+                `English guide must retain ${topic.name} guidance`);
+        });
 
         mobileSession = await createPage(browser, { width: 390, height: 844 });
         await initialize(mobileSession.page, origin);
