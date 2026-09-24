@@ -86,8 +86,8 @@
         "page_intro_key": "iphone_page_intro",
         "page_keywords": "iphone viewport sizes, iphone 17 viewport, iphone 17 pro max resolution, iphone 16e viewport, iphone screen dimensions, responsive design",
         "canonical_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
-        "og_title": "iPhone Viewport Sizes 2026: CSS Pixels, DPR & Resolution Chart",
-        "og_description": "Look up iPhone 17, 16, 15, SE, Pro and Pro Max CSS viewport sizes, DPR, screen resolution, model year and device dimensions for responsive design QA.",
+        "og_title": "iPhone Viewport Reference: Resolution, Screen Size & PPI",
+        "og_description": "Find selected iPhone models and compare sourced display specifications with CSS viewport and DPR references. Unverified references are marked in the table.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
         "css_path": "../css",
@@ -105,8 +105,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPhone Viewport Sizes 2026: CSS Pixels, DPR & Resolution Chart",
-          "description": "Look up iPhone 17, 16, 15, SE, Pro and Pro Max CSS viewport sizes, DPR, screen resolution, model year and device dimensions for responsive design QA.",
+          "headline": "iPhone Viewport Reference: Resolution, Screen Size & PPI",
+          "description": "Find selected iPhone models and compare sourced display specifications with CSS viewport and DPR references. Unverified references are marked in the table.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -120,24 +120,9 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-06-08"
+          "dateModified": "2026-09-24"
         },
-        "additional_structured_data": [
-          {
-            "@context": "https://schema.org",
-            "@type": "Dataset",
-            "name": "iPhone Viewport Sizes Reference Chart 2026",
-            "description": "Look up iPhone 17, 16, 15, SE, Pro and Pro Max CSS viewport sizes, DPR, screen resolution, model year and device dimensions for responsive design QA.",
-            "url": "https://screensizechecker.com/devices/iphone-viewport-sizes",
-            "creator": {
-              "@type": "Organization",
-              "name": "Screen Size Checker"
-            },
-            "license": "https://screensizechecker.com/terms-of-service",
-            "datePublished": "2025-04-22",
-            "dateModified": "2026-06-08"
-          }
-        ],
+        "additional_structured_data": [],
         "blog_url": "../blog/index.html"
       }
     },
@@ -200,8 +185,8 @@
         "page_intro_key": "ipad_page_intro",
         "page_keywords": "ipad viewport sizes, ipad pro 13 m4 viewport, ipad air m3 viewport, ipad mini a17 pro resolution, ipad screen dimensions",
         "canonical_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
-        "og_title": "iPad Viewport Sizes 2026: Pro, Air, mini CSS & DPR Chart",
-        "og_description": "Look up iPad Pro M4, iPad Air M3, iPad mini A17 Pro, iPad A16 and older CSS viewport sizes, DPR, screen resolution and model dimensions.",
+        "og_title": "iPad Viewport Reference: Resolution, Screen Size & PPI",
+        "og_description": "Find selected iPad Pro, Air, mini and iPad models. Compare sourced display specifications; CSS viewport and DPR references are marked where unverified.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/ipad-viewport-sizes",
         "css_path": "../css",
@@ -219,8 +204,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "iPad Viewport Sizes 2026: Pro, Air, mini CSS & DPR Chart",
-          "description": "Look up iPad Pro M4, iPad Air M3, iPad mini A17 Pro, iPad A16 and older CSS viewport sizes, DPR, screen resolution and model dimensions.",
+          "headline": "iPad Viewport Reference: Resolution, Screen Size & PPI",
+          "description": "Find selected iPad Pro, Air, mini and iPad models. Compare sourced display specifications; CSS viewport and DPR references are marked where unverified.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -234,9 +219,10 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-06-08"
+          "dateModified": "2026-09-24"
         },
-        "blog_url": "../blog/index.html"
+        "blog_url": "../blog/index.html",
+        "additional_structured_data": []
       }
     },
     {
@@ -251,8 +237,8 @@
         "page_intro_key": "android_page_intro",
         "page_keywords": "android viewport sizes, pixel 10 viewport, galaxy s25 resolution, android screen dimensions, css viewport dpr",
         "canonical_url": "https://screensizechecker.com/devices/android-viewport-sizes",
-        "og_title": "Android Viewport Sizes 2026: Pixel, Galaxy, Foldables CSS Chart",
-        "og_description": "Check Android CSS viewport sizes, DPR and screen resolutions for Pixel 10, Galaxy S25, foldables, Xiaomi, OPPO, vivo, Honor and more.",
+        "og_title": "Android Viewport Reference: Pixel, Galaxy & Foldables",
+        "og_description": "Search Pixel, Galaxy and other Android models, including cover and main displays on foldables. Compare sourced hardware specifications with unverified CSS and DPR references.",
         "og_type": "article",
         "og_url": "https://screensizechecker.com/devices/android-viewport-sizes",
         "css_path": "../css",
@@ -270,8 +256,8 @@
         "structured_data": {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Android Viewport Sizes 2026: Pixel, Galaxy, Foldables CSS Chart",
-          "description": "Check Android CSS viewport sizes, DPR and screen resolutions for Pixel 10, Galaxy S25, foldables, Xiaomi, OPPO, vivo, Honor and more.",
+          "headline": "Android Viewport Reference: Pixel, Galaxy & Foldables",
+          "description": "Search Pixel, Galaxy and other Android models, including cover and main displays on foldables. Compare sourced hardware specifications with unverified CSS and DPR references.",
           "author": {
             "@type": "Organization",
             "name": "Screen Size Checker"
@@ -285,24 +271,9 @@
             }
           },
           "datePublished": "2025-04-22",
-          "dateModified": "2026-06-08"
+          "dateModified": "2026-09-24"
         },
-        "additional_structured_data": [
-          {
-            "@context": "https://schema.org",
-            "@type": "Dataset",
-            "name": "Android Viewport Sizes Reference Chart 2026",
-            "description": "Check Android CSS viewport sizes, DPR and screen resolutions for Pixel 10, Galaxy S25, foldables, Xiaomi, OPPO, vivo, Honor and more.",
-            "url": "https://screensizechecker.com/devices/android-viewport-sizes",
-            "creator": {
-              "@type": "Organization",
-              "name": "Screen Size Checker"
-            },
-            "license": "https://screensizechecker.com/terms-of-service",
-            "datePublished": "2025-04-22",
-            "dateModified": "2026-06-08"
-          }
-        ],
+        "additional_structured_data": [],
         "blog_url": "../blog/index.html"
       }
     },

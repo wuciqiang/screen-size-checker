@@ -1,8 +1,8 @@
 <!-- Part 1: Hero Section -->
 <section class="devices-hero-section">
     <div class="devices-hero-container">
-        <h1 class="devices-hero-title" data-i18n="android_page_heading">Android 视口尺寸完整指南</h1>
-        <p class="devices-hero-subtitle" data-i18n="android_page_intro">这份综合指南提供了热门Android设备的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。</p>
+        <h1 class="devices-hero-title" data-i18n="android_page_heading">Android Viewport Reference: Pixel, Galaxy &amp; Foldables</h1>
+        <p class="devices-hero-subtitle" data-i18n="android_page_intro">Search Pixel, Galaxy and other Android models, including cover and main displays on foldables. Compare sourced hardware specifications with unverified CSS and DPR references.</p>
     </div>
 </section>
 
@@ -11,10 +11,11 @@
 <section class="device-data-status-section">
     <div class="section-container">
         <div class="device-data-status-box">
-            <p><strong data-i18n="device_data_status_title">Data status:</strong> <span data-i18n="device_data_status_updated">Last updated: 2026-02-08 (UTC)</span></p>
-            <p><strong data-i18n="device_data_status_sources_label">Sources:</strong> <span data-i18n="device_data_status_sources_value">Official Apple, Google, and Samsung specification pages</span></p>
-            <p><strong data-i18n="device_data_status_method_label">Method:</strong> <span data-i18n="device_data_status_method_value">iPhone and iPad values are mainly resolution divided by DPR. Android CSS viewport and DPR can vary by display scaling, browser UI, and system settings.</span></p>
-            <p><strong data-i18n="android_quick_answer_title">Quick answer:</strong> <span data-i18n="android_quick_answer_text">Use this Android viewport chart as a practical range for Pixel, Galaxy, foldable, and popular phone layouts; final CSS viewport values can change with scaling and browser UI.</span></p>
+            <p><strong data-i18n="device_data_status_title">Data status:</strong> <span data-i18n="device_data_status_updated">Data review: 2026-09-24 (UTC). See individual source access dates in the table.</span></p>
+            <p><strong data-i18n="device_data_status_sources_label">Sources:</strong> <span data-i18n="device_data_status_sources_value">Each source link supports only the hardware fields quoted in its details. Missing specifications are marked for verification.</span></p>
+            <p><strong data-i18n="device_data_status_method_label">Method:</strong> <span data-i18n="device_data_status_method_value">CSS viewport and DPR references have not been independently verified. Native resolution is a hardware specification, not the browser viewport. Display scaling, browser controls, orientation and window size can change the space available to a page. Hardware dimensions are shown short edge × long edge; quoted diagonals follow the manufacturer’s measurement convention.</span></p>
+            <p><strong data-i18n="android_quick_answer_title">Quick answer:</strong> <span data-i18n="android_quick_answer_text">Search for your model, open its source details, then measure the viewport in the browser you need to support. Choose breakpoints where your content needs them.</span></p>
+            <p><a href="{{home_url}}" data-i18n="device_measure_current">Check your current browser viewport</a></p>
         </div>
     </div>
 </section>
@@ -22,296 +23,37 @@
 <!-- Device Table Section -->
 <section class="device-table-section">
     <div class="section-container">
-        <h2 class="section-title" data-i18n="device_table_heading">Android 视口尺寸表</h2>
+        <h2 class="section-title" data-i18n="device_table_heading">Viewport Sizes Table</h2>
         
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="device_table_model">机型</th>
-                        <th data-i18n="device_table_viewport">视口尺寸</th>
-                        <th data-i18n="device_table_resolution">屏幕分辨率</th>
-                        <th data-i18n="device_table_dpr">DPR</th>
-                        <th data-i18n="device_table_year">发布年份</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Google Pixel 10 Pro XL</td>
-                        <td>414 × 921</td>
-                        <td>1344 × 2992</td>
-                        <td>3.25</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 10 Pro</td>
-                        <td>410 × 914</td>
-                        <td>1280 × 2856</td>
-                        <td>3.125</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 10</td>
-                        <td>412 × 923</td>
-                        <td>1080 × 2424</td>
-                        <td>2.625</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 10 Pro Fold (Cover / Main)</td>
-                        <td>412 × 923 / 692 × 717</td>
-                        <td>1080 × 2424 / 2076 × 2152</td>
-                        <td>2.625 / 3.0</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S25 Ultra</td>
-                        <td>412 × 891</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S25+</td>
-                        <td>412 × 891</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S25</td>
-                        <td>360 × 780</td>
-                        <td>1080 × 2340</td>
-                        <td>3.0</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>Huawei Mate 70 Pro</td>
-                        <td>411 x 885</td>
-                        <td>1316 x 2832</td>
-                        <td>3.2</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Xiaomi 15 Pro</td>
-                        <td>412 x 914</td>
-                        <td>1440 x 3200</td>
-                        <td>3.5</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>OPPO Find X8 Pro</td>
-                        <td>395 x 869</td>
-                        <td>1264 x 2780</td>
-                        <td>3.2</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>vivo X200 Pro</td>
-                        <td>394 x 875</td>
-                        <td>1260 x 2800</td>
-                        <td>3.2</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Honor Magic7 Pro</td>
-                        <td>400 x 875</td>
-                        <td>1280 x 2800</td>
-                        <td>3.2</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy Z Fold6 (Cover / Main)</td>
-                        <td>323 × 792 / 619 × 720</td>
-                        <td>968 × 2376 / 1856 × 2160</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy Z Flip6</td>
-                        <td>393 × 960</td>
-                        <td>1080 × 2640</td>
-                        <td>2.75</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S24 Ultra</td>
-                        <td>412 × 891</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S24+</td>
-                        <td>412 × 891</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S24</td>
-                        <td>360 × 780</td>
-                        <td>1080 × 2340</td>
-                        <td>3.0</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 9 Pro XL</td>
-                        <td>414 × 921</td>
-                        <td>1344 × 2992</td>
-                        <td>3.25</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 9 Pro</td>
-                        <td>410 × 914</td>
-                        <td>1280 × 2856</td>
-                        <td>3.125</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 9</td>
-                        <td>412 × 923</td>
-                        <td>1080 × 2424</td>
-                        <td>2.625</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 8 Pro</td>
-                        <td>412 × 921</td>
-                        <td>1344 × 2992</td>
-                        <td>3.25</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 8</td>
-                        <td>412 × 915</td>
-                        <td>1080 × 2400</td>
-                        <td>2.625</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S23 Ultra</td>
-                        <td>412 × 915</td>
-                        <td>1440 × 3088</td>
-                        <td>3.5</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S23+</td>
-                        <td>384 × 854</td>
-                        <td>1080 × 2340</td>
-                        <td>2.8125</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S23</td>
-                        <td>360 × 780</td>
-                        <td>1080 × 2340</td>
-                        <td>3.0</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 7 Pro</td>
-                        <td>412 × 892</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 7</td>
-                        <td>412 × 915</td>
-                        <td>1080 × 2400</td>
-                        <td>2.625</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S22 Ultra</td>
-                        <td>412 × 915</td>
-                        <td>1440 × 3088</td>
-                        <td>3.5</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S22+</td>
-                        <td>384 × 854</td>
-                        <td>1080 × 2340</td>
-                        <td>2.8125</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S22</td>
-                        <td>360 × 780</td>
-                        <td>1080 × 2340</td>
-                        <td>3.0</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 6 Pro</td>
-                        <td>412 × 915</td>
-                        <td>1440 × 3120</td>
-                        <td>3.5</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>Google Pixel 6</td>
-                        <td>412 × 915</td>
-                        <td>1080 × 2400</td>
-                        <td>2.625</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S21 Ultra</td>
-                        <td>384 × 854</td>
-                        <td>1440 × 3200</td>
-                        <td>3.75</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S21+</td>
-                        <td>384 × 854</td>
-                        <td>1080 × 2400</td>
-                        <td>2.8125</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung Galaxy S21</td>
-                        <td>360 × 800</td>
-                        <td>1080 × 2400</td>
-                        <td>3.0</td>
-                        <td>2021</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        {{component:device-reference-table}}
     </div>
 </section>
 
 <!-- Understanding Viewport Sizes -->
 <section class="understanding-section">
     <div class="section-container">
-        <h2 class="section-title" data-i18n="understanding_viewport_heading">理解视口尺寸</h2>
+        <h2 class="section-title" data-i18n="understanding_viewport_heading">Understanding Viewport Sizes</h2>
         
         <div class="content-grid">
             <div class="content-card">
-                <h3 data-i18n="viewport_basics">视口基础</h3>
+                <h3 data-i18n="viewport_basics">Viewport Basics</h3>
                 <ul>
-                    <li><strong data-i18n="viewport_size_point1">视口尺寸：</strong> <span data-i18n="viewport_size_point1_desc">网站可以使用的CSS像素可见区域</span></li>
-                    <li><strong data-i18n="viewport_size_point2">屏幕分辨率：</strong> <span data-i18n="viewport_size_point2_desc">设备上物理像素的实际数量</span></li>
-                    <li><strong data-i18n="viewport_size_point3">设备像素比 (DPR)：</strong> <span data-i18n="viewport_size_point3_desc">物理像素与CSS像素的比值</span></li>
-                    <li><strong data-i18n="orientation">方向：</strong> <span data-i18n="android_orientation_desc">Android设备支持竖屏和横屏模式</span></li>
+                    <li><strong data-i18n="viewport_size_point1">Viewport Size:</strong> <span data-i18n="viewport_size_point1_desc">The visible area in CSS pixels that your website can use</span></li>
+                    <li><strong data-i18n="viewport_size_point2">Screen Resolution:</strong> <span data-i18n="viewport_size_point2_desc">The actual number of physical pixels on the device</span></li>
+                    <li><strong data-i18n="viewport_size_point3">Device Pixel Ratio (DPR):</strong> <span data-i18n="viewport_size_point3_desc">The ratio between physical pixels and CSS pixels</span></li>
+                    <li><strong data-i18n="orientation">Orientation:</strong> <span data-i18n="android_orientation_desc">Android devices support both portrait and landscape modes</span></li>
                 </ul>
-                <p><a href="../resolution-test.html" data-resolution-context-link="android-viewport" data-i18n="resolution_test_tool">Check your current screen resolution</a></p>
+                <p><a href="../resolution-test.html" data-resolution-context-link="android-viewport" data-i18n="resolution_test_tool">Resolution Test</a></p>
             </div>
             
             <div class="content-card">
-                <h3 data-i18n="design_considerations">设计考虑</h3>
+                <h3 data-i18n="design_considerations">Design Considerations</h3>
                 <ul>
-                    <li data-i18n="android_design_point1">为各种屏幕尺寸和密度设计</li>
-                    <li data-i18n="android_design_point2">考虑不同的宽高比</li>
-                    <li data-i18n="android_design_point3">为触摸交互优化</li>
-                    <li data-i18n="android_design_point4">使用适当的媒体查询</li>
-                    <li data-i18n="android_design_point5">考虑可折叠设备</li>
+                    <li data-i18n="android_design_point1">Design for various screen sizes and densities</li>
+                    <li data-i18n="android_design_point2">Consider different aspect ratios</li>
+                    <li data-i18n="android_design_point3">Optimize for touch interactions</li>
+                    <li data-i18n="android_design_point4">Use appropriate media queries</li>
+                    <li data-i18n="android_design_point5">Consider foldable devices</li>
                 </ul>
             </div>
         </div>
@@ -327,7 +69,7 @@
             <div class="faq-item">
                 <button class="faq-question" data-i18n="device_faq_q1">What is the difference between viewport size and screen resolution?</button>
                 <div class="faq-answer">
-                    <p data-i18n="device_faq_a1">Viewport size is the CSS pixel area your layout uses, while screen resolution is the device's physical pixel count. They are related by DPR, but browser UI and scaling can change the effective viewport.</p>
+                    <p data-i18n="device_faq_a1">A CSS viewport is the area a browser uses to lay out a page. Native resolution counts the display panel’s physical pixels. DPR describes the scale between device and CSS pixels; dividing native resolution by DPR does not reliably give the browser viewport.</p>
                 </div>
             </div>
 
@@ -355,7 +97,7 @@
             <div class="faq-item">
                 <button class="faq-question" data-i18n="device_faq_q5">How often is this device viewport data updated?</button>
                 <div class="faq-answer">
-                    <p data-i18n="device_faq_a5">We update this data after major device launches and specification changes. Always verify critical production cases on real devices or cloud test labs.</p>
+                    <p data-i18n="device_faq_a5">The review date describes this batch, not a claim that every field was measured that day. Source details show the access date and the fields supported. CSS viewport and DPR references remain unverified unless a measurement is explicitly documented.</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const renderDeviceReferenceTable = require('./device-reference-table');
 
 class ComponentBuilder {
     constructor() {
@@ -26,9 +27,8 @@ class ComponentBuilder {
         const files = this.getComponentFiles(componentDir);
         files.forEach(filePath => {
             const name = path.basename(filePath, '.html');
-            const content = fs.readFileSync(filePath, 'utf8');
             const relativePath = path.relative(this.rootPath, filePath).replace(/\\/g, '/');
-
+            const content = fs.readFileSync(filePath, 'utf8');
             if (this.components.has(name)) {
                 console.warn(`Duplicate component "${name}" detected, overriding with ${relativePath}`);
             }
@@ -84,6 +84,10 @@ class ComponentBuilder {
         
         // 统一的组件处理方法
         html = this.processAllComponents(html, pageData);
+        const deviceFamily = renderDeviceReferenceTable.getFamilyForPage(pageData.page_content);
+        if (deviceFamily) {
+            html = html.replace('</head>', `${renderDeviceReferenceTable.renderAssets(pageData)}\n</head>`);
+        }
         
         return html;
     }
@@ -148,6 +152,14 @@ class ComponentBuilder {
             
             // 3. 处理简单的组件引用：{{component:name}}
             result = result.replace(/\{\{component:([\w-]+)\}\}/g, (match, componentName) => {
+                if (componentName === 'device-reference-table') {
+                    const family = renderDeviceReferenceTable.getFamilyForPage(pageData.page_content);
+                    if (!family) {
+                        throw new Error('Device reference table used outside a supported device page');
+                    }
+                    return renderDeviceReferenceTable.render({ rootPath: this.rootPath, family, lang: pageData.lang || 'en' });
+                }
+
                 // 检查是否是变量引用
                 if (pageData[componentName]) {
                     const actualComponentName = pageData[componentName];

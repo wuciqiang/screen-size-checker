@@ -1,0 +1,190 @@
+.device-reference {
+    --drt-text: var(--text-primary, #17212b);
+    --drt-muted: var(--text-secondary, #536273);
+    --drt-border: var(--border-color, #d8e0e8);
+    --drt-surface: var(--background-primary, #fff);
+    --drt-subtle: var(--background-secondary, #f4f7f9);
+    --drt-link: var(--primary-color, #075ec8);
+    color: var(--drt-text);
+    max-width: 100%;
+    min-width: 0;
+}
+
+[data-theme="dark"] .device-reference {
+    --drt-text: var(--text-primary, #e5edf5);
+    --drt-muted: var(--text-secondary, #aab6c3);
+    --drt-border: var(--border-color, #46525f);
+    --drt-surface: var(--background-primary, #17212b);
+    --drt-subtle: var(--background-secondary, #202c38);
+    --drt-link: var(--primary-color, #8bb8ff);
+}
+
+.device-reference .drt-controls {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block: 1rem;
+}
+
+.device-reference .drt-controls[hidden],
+.device-reference [hidden] {
+    display: none !important;
+}
+
+.device-reference .drt-controls label {
+    display: grid;
+    gap: 0.35rem;
+    min-width: min(13rem, 100%);
+    color: var(--drt-muted);
+    font-size: 0.9rem;
+}
+
+.device-reference .drt-controls input,
+.device-reference .drt-controls select,
+.device-reference .drt-controls button {
+    min-height: 2.65rem;
+    max-width: 100%;
+    border: 1px solid var(--drt-border);
+    border-radius: 4px;
+    padding: 0.45rem 0.65rem;
+    background: var(--drt-surface);
+    color: var(--drt-text);
+    font: inherit;
+}
+
+.device-reference .drt-controls input {
+    width: min(23rem, 100%);
+}
+
+.device-reference .drt-controls button {
+    cursor: pointer;
+}
+
+.device-reference .drt-controls :focus-visible,
+.device-reference .drt-scroll:focus-visible,
+.device-reference a:focus-visible,
+.device-reference summary:focus-visible {
+    outline: 3px solid var(--drt-link);
+    outline-offset: 2px;
+}
+
+.device-reference .drt-count,
+.device-reference .drt-scroll-hint {
+    margin: 0.5rem 0;
+    color: var(--drt-muted);
+    font-size: 0.92rem;
+}
+
+.device-reference .drt-scroll {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    border: 1px solid var(--drt-border);
+    border-radius: 5px;
+    background: var(--drt-surface);
+    -webkit-overflow-scrolling: touch;
+}
+
+.device-reference .drt-table {
+    display: table;
+    width: 100%;
+    min-width: 860px;
+    overflow: visible;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.device-reference .drt-table th,
+.device-reference .drt-table td {
+    padding: 0.8rem 0.85rem;
+    border-bottom: 1px solid var(--drt-border);
+    vertical-align: top;
+}
+
+.device-reference .drt-table thead th {
+    background: var(--drt-subtle);
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+.device-reference .drt-table tbody th {
+    min-width: 12rem;
+    font-weight: 600;
+}
+
+.device-reference .drt-model,
+.device-reference .drt-manufacturer,
+.device-reference .drt-state,
+.device-reference .drt-legacy-year {
+    display: block;
+}
+
+.device-reference .drt-manufacturer,
+.device-reference .drt-state,
+.device-reference .drt-legacy-year {
+    margin-top: 0.22rem;
+    color: var(--drt-muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
+.device-reference .drt-status,
+.device-reference .drt-pending {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--drt-muted);
+    font-size: 0.78rem;
+}
+
+.device-reference .drt-value {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.device-reference a {
+    color: var(--drt-link);
+}
+
+.device-reference .drt-details {
+    margin-top: 0.5rem;
+    max-width: 20rem;
+    color: var(--drt-muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
+.device-reference .drt-details summary {
+    cursor: pointer;
+    color: var(--drt-link);
+}
+
+.device-reference .drt-details dl {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.25rem 0.55rem;
+    overflow-wrap: anywhere;
+}
+
+.device-reference .drt-details dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.device-reference .drt-details q {
+    overflow-wrap: anywhere;
+}
+
+.device-reference .drt-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}

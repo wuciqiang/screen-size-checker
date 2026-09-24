@@ -1,8 +1,8 @@
 <!-- Part 1: Hero Section -->
 <section class="devices-hero-section">
     <div class="devices-hero-container">
-        <h1 class="devices-hero-title" data-i18n="iphone_page_heading">iPhone 视口尺寸完整指南</h1>
-        <p class="devices-hero-subtitle" data-i18n="iphone_page_intro">这份综合指南提供了所有iPhone机型的详细视口尺寸和屏幕分辨率。对于开发响应式网站和应用程序的网页开发者和设计师来说是必不可少的信息。</p>
+        <h1 class="devices-hero-title" data-i18n="iphone_page_heading">iPhone Viewport Reference: Resolution, Screen Size &amp; PPI</h1>
+        <p class="devices-hero-subtitle" data-i18n="iphone_page_intro">Find selected iPhone models and compare sourced display specifications with CSS viewport and DPR references. Unverified references are marked in the table.</p>
     </div>
 </section>
 
@@ -11,10 +11,11 @@
 <section class="device-data-status-section">
     <div class="section-container">
         <div class="device-data-status-box">
-            <p><strong data-i18n="device_data_status_title">Data status:</strong> <span data-i18n="device_data_status_updated">Last updated: 2026-02-08 (UTC)</span></p>
-            <p><strong data-i18n="device_data_status_sources_label">Sources:</strong> <span data-i18n="device_data_status_sources_value">Official Apple, Google, and Samsung specification pages</span></p>
-            <p><strong data-i18n="device_data_status_method_label">Method:</strong> <span data-i18n="device_data_status_method_value">iPhone and iPad values are mainly resolution divided by DPR. Android CSS viewport and DPR can vary by display scaling, browser UI, and system settings.</span></p>
-            <p><strong data-i18n="iphone_quick_answer_title">Quick answer:</strong> <span data-i18n="iphone_quick_answer_text">Start with the latest iPhone models at the top, then compare CSS viewport size, DPR, physical resolution, and model year before setting responsive breakpoints.</span></p>
+            <p><strong data-i18n="device_data_status_title">Data status:</strong> <span data-i18n="device_data_status_updated">Data review: 2026-09-24 (UTC). See individual source access dates in the table.</span></p>
+            <p><strong data-i18n="device_data_status_sources_label">Sources:</strong> <span data-i18n="device_data_status_sources_value">Each source link supports only the hardware fields quoted in its details. Missing specifications are marked for verification.</span></p>
+            <p><strong data-i18n="device_data_status_method_label">Method:</strong> <span data-i18n="device_data_status_method_value">CSS viewport and DPR references have not been independently verified. Native resolution is a hardware specification, not the browser viewport. Display scaling, browser controls, orientation and window size can change the space available to a page. Hardware dimensions are shown short edge × long edge; quoted diagonals follow the manufacturer’s measurement convention.</span></p>
+            <p><strong data-i18n="iphone_quick_answer_title">Quick answer:</strong> <span data-i18n="iphone_quick_answer_text">Search for your model, open its source details, then measure the viewport in the browser you need to support. Choose breakpoints where your content needs them.</span></p>
+            <p><a href="{{home_url}}" data-i18n="device_measure_current">Check your current browser viewport</a></p>
         </div>
     </div>
 </section>
@@ -22,237 +23,41 @@
 <!-- Part 2: Device Table Section -->
 <section class="device-table-section">
     <div class="section-container">
-        <h2 class="section-title" data-i18n="device_table_heading">视口尺寸表</h2>
-        <div class="table-container">
-            <table class="device-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="device_table_model">机型</th>
-                        <th data-i18n="device_table_viewport">视口尺寸</th>
-                        <th data-i18n="device_table_resolution">屏幕分辨率</th>
-                        <th data-i18n="device_table_dpr">DPR</th>
-                        <th data-i18n="device_table_year">发布年份</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>iPhone 17 Pro Max</td>
-                        <td>440 × 956</td>
-                        <td>1320 × 2868</td>
-                        <td>3</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 17 Pro</td>
-                        <td>402 × 874</td>
-                        <td>1206 × 2622</td>
-                        <td>3</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 17 Air</td>
-                        <td>420 × 912</td>
-                        <td>1260 × 2736</td>
-                        <td>3</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 17</td>
-                        <td>402 × 874</td>
-                        <td>1206 × 2622</td>
-                        <td>3</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 16e</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2025</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 16 Pro Max</td>
-                        <td>430 × 932</td>
-                        <td>1290 × 2796</td>
-                        <td>3</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 16 Pro</td>
-                        <td>393 × 852</td>
-                        <td>1179 × 2556</td>
-                        <td>3</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 16 Plus</td>
-                        <td>428 × 926</td>
-                        <td>1284 × 2778</td>
-                        <td>3</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 16</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2024</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 15 Pro Max</td>
-                        <td>430 × 932</td>
-                        <td>1290 × 2796</td>
-                        <td>3</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 15 Pro</td>
-                        <td>393 × 852</td>
-                        <td>1179 × 2556</td>
-                        <td>3</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 15 Plus</td>
-                        <td>428 × 926</td>
-                        <td>1284 × 2778</td>
-                        <td>3</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 15</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 14 Pro Max</td>
-                        <td>430 × 932</td>
-                        <td>1290 × 2796</td>
-                        <td>3</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 14 Pro</td>
-                        <td>393 × 852</td>
-                        <td>1179 × 2556</td>
-                        <td>3</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 14 Plus</td>
-                        <td>428 × 926</td>
-                        <td>1284 × 2778</td>
-                        <td>3</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 14</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone SE (3rd generation)</td>
-                        <td>375 × 667</td>
-                        <td>750 × 1334</td>
-                        <td>2</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 13 Pro Max</td>
-                        <td>428 × 926</td>
-                        <td>1284 × 2778</td>
-                        <td>3</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 13 Pro</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 13</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 13 mini</td>
-                        <td>375 × 812</td>
-                        <td>1080 × 2340</td>
-                        <td>3</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 12 Pro Max</td>
-                        <td>428 × 926</td>
-                        <td>1284 × 2778</td>
-                        <td>3</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 12 Pro</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 12</td>
-                        <td>390 × 844</td>
-                        <td>1170 × 2532</td>
-                        <td>3</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td>iPhone 12 mini</td>
-                        <td>375 × 812</td>
-                        <td>1080 × 2340</td>
-                        <td>3</td>
-                        <td>2020</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2 class="section-title" data-i18n="device_table_heading">Viewport Sizes Table</h2>
+        {{component:device-reference-table}}
     </div>
 </section>
 
 <!-- Part 3: Understanding Viewport Sizes -->
 <section class="device-table-section">
     <div class="section-container">
-        <h2 class="section-title" data-i18n="understanding_viewport_heading">理解视口尺寸</h2>
+        <h2 class="section-title" data-i18n="understanding_viewport_heading">Understanding Viewport Sizes</h2>
         
-        <h3 data-i18n="viewport_basics">视口基础知识</h3>
-        <p data-i18n="viewport_size_explanation">在为iPhone设备进行设计时，理解视口尺寸和屏幕分辨率之间的区别至关重要：</p>
+        <h3 data-i18n="viewport_basics">Viewport Basics</h3>
+        <p data-i18n="viewport_size_explanation">When designing for devices, it's important to understand the difference between viewport sizes and screen resolutions:</p>
         
         <ul>
-            <li><strong data-i18n="viewport_size_point1">视口尺寸：</strong> <span data-i18n="viewport_size_point1_desc">您的网站可以使用的CSS像素可见区域</span></li>
-            <li><strong data-i18n="viewport_size_point2">屏幕分辨率：</strong> <span data-i18n="viewport_size_point2_desc">设备上实际的物理像素数量</span></li>
-            <li><strong data-i18n="viewport_size_point3">设备像素比 (DPR)：</strong> <span data-i18n="viewport_size_point3_desc">物理像素与CSS像素之间的比率</span></li>
+            <li><strong data-i18n="viewport_size_point1">Viewport Size:</strong> <span data-i18n="viewport_size_point1_desc">The visible area in CSS pixels that your website can use</span></li>
+            <li><strong data-i18n="viewport_size_point2">Screen Resolution:</strong> <span data-i18n="viewport_size_point2_desc">The actual number of physical pixels on the device</span></li>
+            <li><strong data-i18n="viewport_size_point3">Device Pixel Ratio (DPR):</strong> <span data-i18n="viewport_size_point3_desc">The ratio between physical pixels and CSS pixels</span></li>
         </ul>
         
-        <p><a href="../resolution-test.html" data-resolution-context-link="iphone-viewport" data-i18n="resolution_test_tool">Check your current screen resolution</a></p>
-        <h3 data-i18n="design_considerations">设计考虑</h3>
+        <p><a href="../resolution-test.html" data-resolution-context-link="iphone-viewport" data-i18n="resolution_test_tool">Resolution Test</a></p>
+        <h3 data-i18n="design_considerations">Design Considerations</h3>
         <ul>
-            <li data-i18n="best_practices_point1">使用响应式设计技术</li>
-            <li data-i18n="best_practices_point2">在多个iPhone机型上进行测试</li>
-            <li data-i18n="best_practices_point3">考虑刘海和主页指示器区域</li>
-            <li data-i18n="best_practices_point4">针对不同方向进行优化</li>
-            <li data-i18n="best_practices_point5">使用适当的媒体查询</li>
+            <li data-i18n="best_practices_point1">Consider different screen sizes and densities</li>
+            <li data-i18n="best_practices_point2">Consider various aspect ratios</li>
+            <li data-i18n="best_practices_point3">Optimize for different orientations</li>
+            <li data-i18n="best_practices_point4">Test on multiple devices</li>
+            <li data-i18n="best_practices_point5">Consider foldable and dual-screen devices</li>
         </ul>
         
-        <h3 data-i18n="technical_implementation">技术实现</h3>
+        <h3 data-i18n="technical_implementation">Technical Implementation</h3>
         <ul>
-            <li data-i18n="technical_point1">实现适当的视口元标签</li>
-            <li data-i18n="technical_point2">有效使用CSS媒体查询</li>
-            <li data-i18n="technical_point3">考虑安全区域插入</li>
-            <li data-i18n="technical_point4">针对不同DPR值进行优化</li>
+            <li data-i18n="technical_point1">Implement proper viewport meta tags</li>
+            <li data-i18n="technical_point2">Use CSS media queries effectively</li>
+            <li data-i18n="technical_point3">Consider safe area insets</li>
+            <li data-i18n="technical_point4">Optimize for different DPR values</li>
         </ul>
     </div>
 </section>
@@ -266,7 +71,7 @@
             <div class="faq-item">
                 <button class="faq-question" data-i18n="device_faq_q1">What is the difference between viewport size and screen resolution?</button>
                 <div class="faq-answer">
-                    <p data-i18n="device_faq_a1">Viewport size is the CSS pixel area your layout uses, while screen resolution is the device's physical pixel count. They are related by DPR, but browser UI and scaling can change the effective viewport.</p>
+                    <p data-i18n="device_faq_a1">A CSS viewport is the area a browser uses to lay out a page. Native resolution counts the display panel’s physical pixels. DPR describes the scale between device and CSS pixels; dividing native resolution by DPR does not reliably give the browser viewport.</p>
                 </div>
             </div>
 
@@ -294,7 +99,7 @@
             <div class="faq-item">
                 <button class="faq-question" data-i18n="device_faq_q5">How often is this device viewport data updated?</button>
                 <div class="faq-answer">
-                    <p data-i18n="device_faq_a5">We update this data after major device launches and specification changes. Always verify critical production cases on real devices or cloud test labs.</p>
+                    <p data-i18n="device_faq_a5">The review date describes this batch, not a claim that every field was measured that day. Source details show the access date and the fields supported. CSS viewport and DPR references remain unverified unless a measurement is explicitly documented.</p>
                 </div>
             </div>
         </div>

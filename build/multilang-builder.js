@@ -1515,6 +1515,9 @@ class MultiLangBuilder extends ComponentBuilder {
             const configStructuredData = { ...pageData.structured_data };
             configStructuredData.url = pageData.canonical_url || configStructuredData.url;
             configStructuredData.name = pageData.page_title || configStructuredData.name;
+            if (['iphone-content', 'ipad-content', 'android-content'].includes(pageData.page_content)) {
+                configStructuredData.headline = pageData.page_title;
+            }
             configStructuredData.description = pageData.description || configStructuredData.description;
             configStructuredData.inLanguage = lang;
             if (pageData.og_image) {
