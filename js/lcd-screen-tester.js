@@ -54,6 +54,7 @@
             this.motionSpeed = 'medium';
             this.motionPosition = 0;
             this.motionLastTimestamp = null;
+            this.motionEnabled = true;
 
             this.overlayOpen = false;
             this.guidedActive = false;
@@ -483,7 +484,7 @@
             if (!currentMode || currentMode.category !== 'motion') {
                 this.selectMode(this.lastModeByCategory.motion || 'motion-box', { track: false });
             } else {
-                this.renderCurrentMode();
+                this.renderCurrentMode({ animateMotion: true });
             }
         }
 
@@ -571,9 +572,7 @@
                 this.message.textContent = this.t('lcdTester.keyboardHint', 'In fullscreen, use arrow keys to move. Space pauses Guided Test or advances Manual Test. Esc exits.');
             }
 
-            if (!options.skipFullscreenExit) {
-                this.exitNativeFullscreen();
-            }
+            const fullscreenExit = options.skipFullscreenExit ? null : this.exitNativeFullscreen();
 
             if (wasGuided && guidedReturnState) {
                 this.selectCategory(guidedReturnState.category);
@@ -582,8 +581,21 @@
             this.selectMode(this.currentModeId, { track: false, animateMotion: false });
 
             const focusTarget = this.lastStartTrigger || this.previouslyFocusedElement;
-            if (focusTarget && typeof focusTarget.focus === 'function') {
-                focusTarget.focus({ preventScroll: true });
+            const restoreFocus = () => {
+                if (focusTarget && focusTarget.isConnected && typeof focusTarget.focus === 'function') {
+                    focusTarget.focus({ preventScroll: true });
+                }
+            };
+            restoreFocus();
+            if (fullscreenExit && typeof fullscreenExit.then === 'function') {
+                fullscreenExit.then(() => {
+                    // Native fullscreen can prevent focus leaving the overlay until
+                    // its exit settles. Do not steal focus from a new interaction.
+                    if (!this.overlayOpen && (document.activeElement === document.body
+                        || this.overlay.contains(document.activeElement))) {
+                        restoreFocus();
+                    }
+                });
             }
             this.previouslyFocusedElement = null;
             this.lastStartTrigger = null;
@@ -798,7 +810,7 @@
 
             try {
                 const result = exit.call(document);
-                if (result && typeof result.catch === 'function') result.catch(() => {});
+                if (result && typeof result.catch === 'function') return result.catch(() => {});
             } catch (error) {
                 // The overlay state has already been restored.
             }
@@ -1071,6 +1083,11 @@
         }
 
         renderCurrentMode(options = {}) {
+            // Keep an exited preview still across resize, theme and visibility
+            // redraws. Only an explicit mode/control action changes this intent.
+            if (typeof options.animateMotion === 'boolean') {
+                this.motionEnabled = options.animateMotion;
+            }
             const mode = this.modeById.get(this.currentModeId);
             if (!mode) return;
 
@@ -1079,7 +1096,7 @@
             if (targets.length === 0) return;
 
             if (mode.type.startsWith('motion-')) {
-                if (options.animateMotion === false) {
+                if (!this.motionEnabled || document.hidden) {
                     targets.forEach(target => this.drawMotionFrame(target, mode, 0));
                 } else {
                     this.startMotion(mode, targets);
