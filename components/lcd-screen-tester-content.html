@@ -97,7 +97,7 @@
                 <div id="lcd-panel-pixels" class="lcd-tab-panel" role="tabpanel" aria-labelledby="lcd-tab-pixels" data-panel="pixels" hidden>
                     <div class="lcd-panel-heading">
                         <h3 data-i18n="lcdTester.pixelColors">Pixel test colors</h3>
-                        <p data-i18n="lcdTester.pixelControlsHint">Switch colors to spot pixels that do not change with the rest of the screen.</p>
+                        <p data-i18n="lcdTester.pixelControlsHint">Use fullscreen and switch between red, green, blue, white, and black. Recheck the same spot and note its color and position.</p>
                     </div>
                     <div class="lcd-swatch-grid" aria-label="Pixel test colors" data-i18n-aria-label="lcdTester.pixelColors">
                         <button class="lcd-swatch" type="button" data-mode="solid-red" style="--swatch:#ff1f32"><span class="lcd-swatch-color"></span><span data-i18n="lcdTester.red">Red</span></button>
@@ -302,8 +302,8 @@
         <div class="lcd-result-grid">
             <article>
                 <span class="lcd-result-mark lcd-result-mark-red" aria-hidden="true"></span>
-                <h3 data-i18n="lcdTester.deadPixels">Dead and stuck pixels</h3>
-                <p data-i18n="lcdTester.deadPixelsInfo">Check the mark on red, green, blue, white, and black. A pixel defect stays fixed. Dust or a reflection may shift, soften, or vanish after cleaning.</p>
+                <h3 data-i18n="lcdTester.deadPixels">Dead, stuck, and bright pixels</h3>
+                <p data-i18n="lcdTester.deadPixelsInfo">A dead pixel stays dark on white or colored backgrounds. A stuck pixel keeps one color. Bright pixels or subpixels stay lit on black: white can indicate a whole pixel, while red, green, or blue can indicate a subpixel. These clues can overlap.</p>
             </article>
             <article>
                 <span class="lcd-result-mark lcd-result-mark-gray" aria-hidden="true"></span>
@@ -328,7 +328,7 @@
         </div>
         <aside class="lcd-scope-note">
             <strong data-i18n="lcdTester.scopeNoteTitle">A visual check, not calibration</strong>
-            <p data-i18n="lcdTester.scopeNoteBody">This test helps you spot visible issues. It does not calibrate your screen. For a claim, read the pixel policy for your model and region.</p>
+            <p data-i18n="lcdTester.scopeNoteBody">This is a visual check, not calibration or a hardware diagnosis. The test cannot repair pixels or determine warranty coverage. For next steps, check the manufacturer's pixel policy for your exact model and region.</p>
         </aside>
     </section>
 
@@ -340,7 +340,7 @@
         <div class="lcd-faq-list">
             <details>
                 <summary data-i18n="lcdTester.faq1q">How do I tell dust from a dead pixel?</summary>
-                <p data-i18n="lcdTester.faq1a">Clean the screen, then check the mark on several colors. Dust may move or fade. A pixel defect stays in the same spot.</p>
+                <p data-i18n="lcdTester.faq1a">Clean the screen as the manufacturer recommends; reflected light can make dust look like a faulty pixel. Recheck on several solid colors. A mark staying in one place is a clue, not proof of a pixel defect.</p>
             </details>
             <details>
                 <summary data-i18n="lcdTester.faq2q">Does this test measure color accuracy?</summary>
