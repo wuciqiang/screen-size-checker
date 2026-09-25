@@ -1,5 +1,41 @@
 // simulator.js - Device simulator module
 
+let responsiveTestStarted = false;
+
+function getResponsiveViewportBucket(width, source) {
+    if (source === 'custom' || source === 'drag') return 'custom';
+    if (width <= 480) return 'narrow';
+    if (width <= 1024) return 'medium';
+    return 'wide';
+}
+
+function trackResponsiveStart(interactionSource) {
+    if (responsiveTestStarted) return;
+    responsiveTestStarted = true;
+
+    const analytics = window.ScreenSizeAnalytics;
+    if (analytics && typeof analytics.track === 'function') {
+        analytics.track('responsive_test_started', {
+            tool_name: 'responsive_tester',
+            tool_action: 'start',
+            result_type: 'viewport',
+            interaction_source: interactionSource
+        }, { onceKey: 'responsive_test_started' });
+    }
+}
+
+function trackResponsivePreview(width, source) {
+    const analytics = window.ScreenSizeAnalytics;
+    if (analytics && typeof analytics.trackToolResult === 'function') {
+        analytics.trackToolResult({
+            tool_name: 'responsive_tester',
+            tool_action: 'preview_view',
+            result_type: 'viewport',
+            viewport_bucket: getResponsiveViewportBucket(width, source)
+        }, { dedupeMs: 0 });
+    }
+}
+
 /**
  * Set preview size for device simulation
  * @param {number} width - Width in pixels
@@ -135,6 +171,8 @@ function applyCustomSize() {
 
     if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
         setPreviewSize(width, height);
+        trackResponsiveStart('custom');
+        trackResponsivePreview(width, 'custom');
     } else {
         console.warn(`Invalid custom size values: width=${width}, height=${height}`);
         // Provide feedback for invalid input
@@ -182,6 +220,8 @@ function rotateDevice() {
         }
 
         setPreviewSize(nextWidth, nextHeight);
+        trackResponsiveStart('rotate');
+        trackResponsivePreview(nextWidth, 'rotate');
     } else {
         console.warn(`Unable to rotate: invalid dimensions (width=${currentWidth}, height=${currentHeight})`);
     }
@@ -395,6 +435,8 @@ function makeIframeResizable() {
         document.body.style.userSelect = '';
         document.body.classList.remove('resizing');
 
+        trackResponsivePreview(frame.offsetWidth, 'drag');
+
         // Remove global listeners
         document.removeEventListener('mousemove', globalMouseMove);
         document.removeEventListener('mouseup', globalMouseUp);
@@ -453,6 +495,8 @@ function makeIframeResizable() {
         handle.addEventListener('mousedown', (e) => {
             e.preventDefault();
             e.stopPropagation();
+
+            trackResponsiveStart('drag');
 
             // Set drag state
             dragState.isDragging = true;
@@ -553,6 +597,8 @@ function setupSimulatorListeners() {
 
             if (!isNaN(width) && !isNaN(height)) {
                 setPreviewSize(width, height);
+                trackResponsiveStart('preset');
+                trackResponsivePreview(width, 'preset');
             } else {
                 console.warn(`Invalid dimensions on button: ${button.textContent}`);
             }
@@ -585,6 +631,7 @@ function setupSimulatorListeners() {
         console.log("Setting up URL input and load button");
         loadButton.addEventListener('click', () => {
             console.log(`Load button clicked with URL: ${urlInput.value}`);
+            trackResponsiveStart('url');
             loadWebsite(urlInput.value);
         });
 
@@ -592,6 +639,7 @@ function setupSimulatorListeners() {
         urlInput.addEventListener('keypress', (event) => {
             if (event.key === 'Enter') {
                 console.log(`Enter pressed with URL: ${urlInput.value}`);
+                trackResponsiveStart('url');
                 loadWebsite(urlInput.value);
             }
         });

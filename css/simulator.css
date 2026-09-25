@@ -349,6 +349,42 @@
     max-width: none;
 }
 
+/* Actionable QA checklist */
+.responsive-checklist-section {
+    padding: var(--spacing-xl) 0 0;
+}
+
+.responsive-checklist-card {
+    margin: 0;
+}
+
+.responsive-checklist-card > p {
+    max-width: 78ch;
+}
+
+.responsive-checklist {
+    display: grid;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.responsive-checklist li::marker {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.responsive-checklist-links {
+    margin-bottom: 0;
+}
+
+.responsive-checklist-links a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 
 
 /* Blog Article Enhancements */

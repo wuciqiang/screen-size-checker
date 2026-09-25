@@ -260,7 +260,15 @@ class MultiLangBuilder extends ComponentBuilder {
             
             const translation = this.getNestedTranslation(translations, key);
             if (translation) {
-                return match.replace(originalText, translation);
+                // Replace only the text node. A plain string replacement can
+                // accidentally rewrite the same text inside data-i18n="..."
+                // (for example, "and" in responsive_checklist_and).
+                const textStart = match.indexOf('>');
+                const textEnd = match.lastIndexOf('<');
+                if (textStart !== -1 && textEnd > textStart) {
+                    return `${match.slice(0, textStart + 1)}${translation}${match.slice(textEnd)}`;
+                }
+                return match;
             }
             return match;
         });
