@@ -20,7 +20,9 @@ const TESTS = {
     indexnow: 'test/indexnow-submitter.test.js',
     pureColorPages: 'test/pure-color-pages-test.js',
     pureColorInteraction: 'test/pure-color-pages-interaction-test.js',
-    consentRuntime: 'test/consent-runtime-test.js'
+    consentRuntime: 'test/consent-runtime-test.js',
+    monetizationContract: 'test/monetization-contract-test.js',
+    manualAdsInteraction: 'test/manual-ads-interaction-test.js'
 };
 
 function resolveSelectedTests(args) {

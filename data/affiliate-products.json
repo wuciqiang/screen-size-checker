@@ -1,0 +1,82 @@
+{
+  "marketplace": "amazon.com",
+  "affiliateTag": "screensizechecker-20",
+  "marketAssumption": "United States Amazon storefront; visitor-country mix is not inferred from source code.",
+  "products": {
+    "alienware-aw2524hf": {
+      "id": "alienware-aw2524hf",
+      "model": "Dell Alienware AW2524HF",
+      "asin": "B0CK3TG7P6",
+      "marketplace": "amazon.com",
+      "affiliateUrl": "https://www.amazon.com/dp/B0CK3TG7P6?tag=screensizechecker-20",
+      "specs": ["24.5-inch", "1920×1080", "480Hz native / 500Hz overclocked", "Fast IPS", "VESA pattern: verify in Dell mounting sheet"],
+      "bestFor": "Competitive FPS players with a compact desk and a GPU that can sustain very high frame rates.",
+      "reason": "The 24.5-inch 1080p format keeps the whole HUD in view while the native 480Hz mode targets high-FPS competitive play.",
+      "limitation": "The 500Hz mode is an overclocked mode and the display still needs a DisplayPort connection and a compatible GPU; confirm the monitor's exact VESA pattern and weight before using an arm.",
+      "image": null,
+      "imageLicenseSource": null,
+      "verifiedAt": "2026-09-30",
+      "enabled": true,
+      "evidence": [
+        "https://www.dell.com/en-us/shop/alienware-25-gaming-monitor-aw2524hf/apd/210-bhft/monitors-monitor-accessories",
+        "https://www.rtings.com/monitor/reviews/dell/alienware-aw2524h",
+        "https://www.amazon.com/dp/B0CK3TG7P6"
+      ],
+      "priceObservation": "Amazon US detail page was reachable on 2026-09-30; price is intentionally not stored or published.",
+      "purchaseObservation": "Amazon US page returned 200 on 2026-09-30; stock, delivery, seller and regional eligibility were not treated as stable facts.",
+      "commissionEvidence": "Use the account's current Amazon Associates fee schedule; this implementation makes no category or rate claim.",
+      "commissionEvidenceUrl": "https://affiliate-program.amazon.com/help/operating/advertisingfees"
+    },
+    "lg-27gp850-b": {
+      "id": "lg-27gp850-b",
+      "model": "LG 27GP850-B UltraGear",
+      "asin": "B093MTSTKD",
+      "marketplace": "amazon.com",
+      "affiliateUrl": "https://www.amazon.com/dp/B093MTSTKD?tag=screensizechecker-20",
+      "specs": ["27-inch", "2560×1440", "165Hz", "Nano IPS", "VESA 100×100mm"],
+      "bestFor": "Players who want a 27-inch 1440p screen for mixed gaming, work and media use.",
+      "reason": "The 27-inch QHD combination gives a useful detail and workspace step up while retaining a high refresh rate for games.",
+      "limitation": "1440p needs more GPU headroom than 1080p, and the panel's HDR and contrast are not a substitute for a dedicated high-contrast display; check the stand footprint and arm load separately.",
+      "image": null,
+      "imageLicenseSource": null,
+      "verifiedAt": "2026-09-30",
+      "enabled": true,
+      "evidence": [
+        "https://www.lg.com/us/monitors/lg-27gp850-b-gaming-monitor",
+        "https://www.rtings.com/monitor/reviews/lg/27gp850-b",
+        "https://www.amazon.com/dp/B093MTSTKD"
+      ],
+      "priceObservation": "Amazon US detail page was reachable on 2026-09-30; price is intentionally not stored or published.",
+      "purchaseObservation": "Amazon US page returned 200 on 2026-09-30; stock, delivery, seller and regional eligibility were not treated as stable facts.",
+      "commissionEvidence": "Use the account's current Amazon Associates fee schedule; this implementation makes no category or rate claim.",
+      "commissionEvidenceUrl": "https://affiliate-program.amazon.com/help/operating/advertisingfees"
+    },
+    "ergotron-lx": {
+      "id": "ergotron-lx",
+      "model": "Ergotron LX Monitor Arm (Polished Aluminum)",
+      "asin": "B00358RIRC",
+      "marketplace": "amazon.com",
+      "affiliateUrl": "https://www.amazon.com/dp/B00358RIRC?tag=screensizechecker-20",
+      "specs": ["7–25 lb monitor load", "75×75mm or 100×100mm VESA", "Supports screens up to 34 inches", "Single-monitor desk mount"],
+      "bestFor": "A compatible monitor on a desk where reclaiming stand depth matters.",
+      "reason": "Its published load and VESA range can cover many 24–27-inch monitors while moving the stand footprint off the desktop.",
+      "limitation": "It does not prove compatibility with every monitor: check the monitor-only weight, VESA pattern, desk thickness and clamp clearance before purchase.",
+      "image": null,
+      "imageLicenseSource": null,
+      "verifiedAt": "2026-09-30",
+      "enabled": true,
+      "evidence": [
+        "https://www.ergotron.com/en-us/products/product-details/45-241-224",
+        "https://www.amazon.com/dp/B00358RIRC"
+      ],
+      "priceObservation": "Amazon US detail page was reachable on 2026-09-30; price is intentionally not stored or published.",
+      "purchaseObservation": "Amazon US page returned 200 on 2026-09-30; stock, delivery, seller and regional eligibility were not treated as stable facts.",
+      "commissionEvidence": "Use the account's current Amazon Associates fee schedule; this implementation makes no category or rate claim.",
+      "commissionEvidenceUrl": "https://affiliate-program.amazon.com/help/operating/advertisingfees"
+    }
+  },
+  "contexts": {
+    "compare": ["alienware-aw2524hf", "lg-27gp850-b", "ergotron-lx"],
+    "best-monitor-size-fps": ["alienware-aw2524hf", "lg-27gp850-b", "ergotron-lx"]
+  }
+}

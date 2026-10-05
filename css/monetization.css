@@ -1,0 +1,103 @@
+/* Affiliate product cards and manual-ad migration hooks. */
+.affiliate-product-recommendations {
+    margin-top: calc(var(--spacing-xl) * 1.25);
+}
+
+.affiliate-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.affiliate-product-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-primary);
+}
+
+.affiliate-product-card h4 {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+}
+
+.affiliate-product-specs {
+    margin: 0 0 var(--spacing-md);
+    padding-left: 1.1rem;
+    color: var(--text-secondary);
+    font-size: .86rem;
+    line-height: 1.45;
+}
+
+.affiliate-product-card p {
+    margin: 0 0 var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.affiliate-product-limitation {
+    flex: 1;
+}
+
+main .affiliate-resource-box.affiliate-product-recommendations .affiliate-product-cta,
+.affiliate-resource-box .affiliate-product-cta,
+.hub-content .affiliate-resource-box .affiliate-product-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    margin-top: var(--spacing-sm);
+    padding: .625rem .875rem;
+    border-radius: var(--radius-sm);
+    background: var(--primary-color);
+    color: var(--text-inverse) !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+main .affiliate-resource-box.affiliate-product-recommendations .affiliate-product-cta:hover,
+main .affiliate-resource-box.affiliate-product-recommendations .affiliate-product-cta:focus-visible,
+.affiliate-resource-box .affiliate-product-cta:hover,
+.affiliate-resource-box .affiliate-product-cta:focus-visible,
+.hub-content .affiliate-resource-box .affiliate-product-cta:hover,
+.hub-content .affiliate-resource-box .affiliate-product-cta:focus-visible {
+    background: var(--primary-hover);
+    color: var(--text-inverse) !important;
+}
+
+.affiliate-secondary-links {
+    margin-bottom: 0;
+}
+
+.manual-ad-slot {
+    min-height: 122px;
+    margin: calc(var(--spacing-xl) * 1.5) 0;
+    padding: var(--spacing-md);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.manual-ad-empty {
+    min-height: 90px;
+    display: grid;
+    place-items: center;
+    color: var(--text-muted);
+    font-size: .8rem;
+}
+
+@media (max-width: 900px) {
+    .affiliate-product-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .affiliate-product-card { padding: var(--spacing-sm); }
+    .manual-ad-slot { margin: var(--spacing-xl) 0; }
+}

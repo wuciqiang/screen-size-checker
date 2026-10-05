@@ -37,7 +37,7 @@ function fixtureHtml({ language = 'en', withModule = true } = {}) {
 </style></head>
 <body>
 ${withModule ? `<aside id="affiliate-module" data-affiliate-module data-affiliate-module-id="fixture_module" data-affiliate-program="amazon" data-affiliate-placement="fixture_placement" data-affiliate-result="monitor">
-    <a id="affiliate-link" href="https://www.amazon.com/s?k=monitor&amp;tag=screensizechecker-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-link-id="fixture_amazon_monitor" data-affiliate-program="amazon" data-affiliate-action="fixture_amazon_monitor" data-affiliate-result="monitor">Open retailer search</a>
+    <a id="affiliate-link" href="https://www.amazon.com/s?k=monitor&amp;tag=screensizechecker-20" target="_blank" rel="sponsored nofollow noopener" data-affiliate-link data-affiliate-link-id="fixture_amazon_monitor" data-affiliate-program="amazon" data-affiliate-action="fixture_amazon_monitor" data-affiliate-result="monitor" data-affiliate-product="fixture-monitor" data-affiliate-marketplace="amazon.com">Open retailer search</a>
 </aside>` : '<button id="tool-action" type="button">Calculate</button>'}
 <div id="below-module"></div>
 </body></html>`;
@@ -239,6 +239,8 @@ async function testRepeatedInitializationAndClicks(browser) {
         assert.strictEqual((await events(page, 'affiliate_click')).length, 2, 'two real clicks must preserve the existing two-event policy');
         const click = (await events(page, 'affiliate_click'))[0];
         assert.strictEqual(click.payload.link_id, 'fixture_amazon_monitor');
+        assert.strictEqual(click.payload.product_id, 'fixture-monitor');
+        assert.strictEqual(click.payload.marketplace, 'amazon.com');
         assert.strictEqual(click.payload.module_id, 'fixture_module');
         assert.strictEqual(blockedRequests.length, 0, 'external navigation must be intercepted before a request');
         assert.strictEqual(await page.evaluate(() => window.__blockedNavigations), 2);

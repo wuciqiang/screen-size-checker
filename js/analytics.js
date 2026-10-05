@@ -200,6 +200,8 @@
             tool_action: link.getAttribute('data-affiliate-action') || 'affiliate_click',
             result_type: link.getAttribute('data-affiliate-result') || 'affiliate',
             link_id: link.getAttribute('data-affiliate-link-id') || 'unknown',
+            product_id: link.getAttribute('data-affiliate-product') || 'unknown',
+            marketplace: link.getAttribute('data-affiliate-marketplace') || 'unknown',
             module_id: module ? (module.getAttribute('data-affiliate-module-id') || 'unknown') : 'unknown',
             category: module ? (module.getAttribute('data-affiliate-placement') || 'unknown') : 'unknown'
         }, {

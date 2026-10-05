@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "client": "ca-pub-9212629010224868",
+  "slots": {
+    "compare_results_after": "4384333605",
+    "best_monitor_size_fps_after_guidance": "8343759915"
+  },
+  "notes": "Slots are provisioned in AdSense and must remain real numeric unit IDs. The build must never invent a slot."
+}

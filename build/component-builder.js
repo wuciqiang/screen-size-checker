@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const renderDeviceReferenceTable = require('./device-reference-table');
+const { getConfig: getAffiliateConfig, renderAffiliateProducts } = require('./affiliate-products');
+const { getSlot: getManualAdSlot, getClient: getManualAdClient, escapeAttribute } = require('./manual-ad-config');
 
 class ComponentBuilder {
     constructor() {
@@ -78,7 +80,11 @@ class ComponentBuilder {
             throw new Error(`Template "${templateName}" not found at ${templatePath}`);
         }
 
-        pageData.robots_directives = pageData.robots_directives || 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+        pageData = {
+            ...pageData,
+            affiliate_tag: escapeAttribute(pageData.affiliate_tag || getAffiliateConfig().affiliateTag),
+            robots_directives: pageData.robots_directives || 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
+        };
         
         let html = fs.readFileSync(templatePath, 'utf8');
         
@@ -108,6 +114,29 @@ class ComponentBuilder {
         while (hasChanges && iterations < 15) {
             const originalResult = result;
             iterations++;
+
+            result = result.replace(/<div\s+data-affiliate-product-component="([^"]+)"\s*><\/div>/g, (match, context) => {
+                const component = this.components.get('affiliate-product-recommendations');
+                if (!component) return '<!-- Component not found: affiliate-product-recommendations -->';
+                const contextPageData = {
+                    ...pageData,
+                    affiliate_product_cards: renderAffiliateProducts(context),
+                    affiliate_product_module_id: `${context.replace(/[^a-z0-9]+/gi, '_')}_products`,
+                    affiliate_product_placement: context === 'compare' ? 'comparison_results' : 'post_buying_guidance'
+                };
+                return this.processAllComponents(component, contextPageData, depth + 1);
+            });
+
+            result = result.replace(/<div\s+data-manual-ad-position="([^"]+)"\s*><\/div>/g, (match, position) => {
+                const component = this.components.get('manual-ad');
+                if (!component) return '<!-- Component not found: manual-ad -->';
+                return this.processAllComponents(component, {
+                    ...pageData,
+                    manual_ad_slot: escapeAttribute(getManualAdSlot(position)),
+                    manual_ad_position: position,
+                    manual_ad_client: escapeAttribute(getManualAdClient())
+                }, depth + 1);
+            });
             
             // 1. 首先处理最复杂的嵌套组件引用：{{component:{{variable}}}}
             result = result.replace(/\{\{component:\{\{(\w+)\}\}\}\}/g, (match, variableName) => {
