@@ -28,7 +28,7 @@ function fixtureHtml({ slotId = '123456', clientId = 'ca-pub-9212629010224868' }
     return `<!doctype html>
 <html><head><meta charset="utf-8"></head><body>
 <aside id="manual-ad" data-manual-ad-slot="${slotId}" data-ad-client="${clientId}" aria-label="Advertisement">
-    <div data-manual-ad-empty>Manual ad slot pending.</div>
+    <div class="manual-ad-label">Advertisement</div><div data-manual-ad-content style="width:320px;height:250px"></div>
 </aside>
 </body></html>`;
 }

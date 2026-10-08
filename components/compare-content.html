@@ -735,7 +735,6 @@
 
         {{#if is_default_lang}}
         <div data-affiliate-product-component="compare"></div>
-        <div data-manual-ad-position="compare_results_after"></div>
         {{/if}}
         
         <!-- Share Section -->
@@ -764,6 +763,10 @@
     </div>
     </div>
 </section>
+
+{{#if is_default_lang}}
+<div data-manual-ad-position="compare_results_after"></div>
+{{/if}}
 
 <!-- Content Sections -->
 <section class="content-section">
