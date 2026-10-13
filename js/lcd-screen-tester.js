@@ -60,6 +60,7 @@
             this.guidedActive = false;
             this.guidedCompleted = false;
             this.paused = false;
+            this.visibilitySuspended = false;
             this.sequence = [];
             this.sequenceIndex = 0;
             this.remainingStepMs = GUIDED_STEP_MS;
@@ -509,6 +510,7 @@
             this.guidedActive = true;
             this.guidedCompleted = false;
             this.paused = false;
+            this.visibilitySuspended = false;
             this.remainingStepMs = GUIDED_STEP_MS;
             this.enterOverlay('guided_start');
             this.startStepTimer(GUIDED_STEP_MS);
@@ -560,6 +562,7 @@
 
             this.guidedActive = false;
             this.paused = false;
+            this.visibilitySuspended = false;
             this.controlsHidden = false;
             this.touchStart = null;
             this.guidedReturnState = null;
@@ -892,8 +895,22 @@
         handleVisibilityChange() {
             if (document.hidden) {
                 this.cancelMotion();
+                if (this.guidedActive && this.overlayOpen && !this.paused) {
+                    this.remainingStepMs = Math.max(0, this.stepDeadline - performance.now());
+                    this.clearStepTimer();
+                    this.paused = true;
+                    this.visibilitySuspended = true;
+                    this.setStatus('paused');
+                    this.updatePauseButton();
+                    this.updateCountdown();
+                }
             } else {
                 this.renderCurrentMode();
+                if (this.visibilitySuspended && this.guidedActive && this.overlayOpen) {
+                    this.visibilitySuspended = false;
+                    this.paused = false;
+                    this.startStepTimer(Math.max(100, this.remainingStepMs));
+                }
             }
         }
 
