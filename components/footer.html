@@ -1,4 +1,86 @@
 <footer class="footer">
+    <style>
+        .badge-marquee {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto 18px;
+            max-width: 1100px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+        }
+        .badge-marquee__track {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            gap: 34px;
+            animation: badge-marquee-scroll 32s linear infinite;
+            will-change: transform;
+        }
+        .badge-marquee:hover .badge-marquee__track,
+        .badge-marquee:focus-within .badge-marquee__track {
+            animation-play-state: paused;
+        }
+        .badge-marquee__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex: 0 0 auto;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: inherit;
+            opacity: 0.7;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: opacity 0.18s ease;
+        }
+        .badge-marquee__item:hover { opacity: 1; }
+        .badge-marquee__dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 9999px;
+            background: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16);
+            flex: 0 0 auto;
+        }
+        @keyframes badge-marquee-scroll {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(-50%, 0, 0); }
+        }
+        @media (max-width: 640px) {
+            .badge-marquee__track { gap: 24px; animation-duration: 24s; }
+            .badge-marquee__item { font-size: 10px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .badge-marquee__track { animation: none; }
+        }
+    </style>
+    <div class="badge-marquee" aria-label="Listed on these directories">
+        <div class="badge-marquee__track">
+            <a class="badge-marquee__item" href="https://www.producthunt.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>Product Hunt</span></a>
+            <a class="badge-marquee__item" href="https://startupbase.io" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>StartupBase</span></a>
+            <a class="badge-marquee__item" href="https://webgora.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>webgora</span></a>
+            <a class="badge-marquee__item" href="https://futuretools.io" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>FutureTools</span></a>
+            <a class="badge-marquee__item" href="https://aiagentslive.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>AI Agents Live</span></a>
+            <a class="badge-marquee__item" href="https://www.listedai.co" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>ListedAI</span></a>
+            <a class="badge-marquee__item" href="https://www.scriptbyai.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>ScriptByAI</span></a>
+            <a class="badge-marquee__item" href="https://www.insidr.ai" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>Insidr.ai</span></a>
+            <a class="badge-marquee__item" href="https://everlist.dev" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>EverList</span></a>
+            <a class="badge-marquee__item" href="https://www.s5-style.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>s5-style</span></a>
+            <a class="badge-marquee__item" href="https://www.producthunt.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>Product Hunt</span></a>
+            <a class="badge-marquee__item" href="https://startupbase.io" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>StartupBase</span></a>
+            <a class="badge-marquee__item" href="https://webgora.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>webgora</span></a>
+            <a class="badge-marquee__item" href="https://futuretools.io" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>FutureTools</span></a>
+            <a class="badge-marquee__item" href="https://aiagentslive.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>AI Agents Live</span></a>
+            <a class="badge-marquee__item" href="https://www.listedai.co" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>ListedAI</span></a>
+            <a class="badge-marquee__item" href="https://www.scriptbyai.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>ScriptByAI</span></a>
+            <a class="badge-marquee__item" href="https://www.insidr.ai" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>Insidr.ai</span></a>
+            <a class="badge-marquee__item" href="https://everlist.dev" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>EverList</span></a>
+            <a class="badge-marquee__item" href="https://www.s5-style.com" target="_blank" rel="noopener noreferrer"><span class="badge-marquee__dot" aria-hidden="true"></span><span>s5-style</span></a>
+        </div>
+    </div>
     <div class="footer-container">
         <div class="footer-links">
             <a href="{{privacy_policy_url}}" data-i18n="privacy_policy">隐私政策</a>
