@@ -28,6 +28,7 @@ export class AspectRatioCalculator {
         this.aspectRatio = null;
         this.isValid = false;
         this.lastChangedField = null; // Track which field was last changed
+        this.lastNewField = null; // Track which resized dimension drives the output
         
         // DOM elements
         this.elements = {
@@ -213,17 +214,36 @@ export class AspectRatioCalculator {
                 // Calculate aspect ratio
                 this.aspectRatio = this.calculateAspectRatio(this.originalWidth, this.originalHeight);
                 
-                // Perform calculations based on which field was last changed
-                if (this.lastChangedField === 'newWidth' && this.newWidth > 0) {
-                    // Calculate new height based on new width
-                    const calculatedHeight = (this.originalHeight / this.originalWidth) * this.newWidth;
-                    this.newHeight = calculatedHeight;
-                    this.elements.newHeightInput.value = calculatedHeight.toFixed(2);
-                } else if (this.lastChangedField === 'newHeight' && this.newHeight > 0) {
-                    // Calculate new width based on new height
-                    const calculatedWidth = (this.originalWidth / this.originalHeight) * this.newHeight;
-                    this.newWidth = calculatedWidth;
-                    this.elements.newWidthInput.value = calculatedWidth.toFixed(2);
+                // Remember which resized dimension the user is driving, so editing
+                // the original size recomputes the resized output
+                if (this.lastChangedField === 'newWidth' || this.lastChangedField === 'newHeight') {
+                    this.lastNewField = this.lastChangedField;
+                }
+                
+                if (this.lastNewField === 'newWidth') {
+                    if (newWidthValid && this.newWidth > 0) {
+                        // Calculate new height based on new width
+                        const calculatedHeight = (this.originalHeight / this.originalWidth) * this.newWidth;
+                        this.newHeight = calculatedHeight;
+                        this.elements.newHeightInput.value = calculatedHeight.toFixed(2);
+                    } else if (!newWidthValid) {
+                        // Invalid new width: no computed result
+                        this.newWidth = 0;
+                        this.newHeight = 0;
+                        this.elements.newHeightInput.value = '';
+                    }
+                } else if (this.lastNewField === 'newHeight') {
+                    if (newHeightValid && this.newHeight > 0) {
+                        // Calculate new width based on new height
+                        const calculatedWidth = (this.originalWidth / this.originalHeight) * this.newHeight;
+                        this.newWidth = calculatedWidth;
+                        this.elements.newWidthInput.value = calculatedWidth.toFixed(2);
+                    } else if (!newHeightValid) {
+                        // Invalid new height: no computed result
+                        this.newWidth = 0;
+                        this.newHeight = 0;
+                        this.elements.newWidthInput.value = '';
+                    }
                 }
                 
                 this.isValid = true;

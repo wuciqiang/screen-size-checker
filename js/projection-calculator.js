@@ -76,6 +76,11 @@ export class ProjectionCalculator {
         this.elements.screenSizeInput = document.getElementById('screen-size');
         this.elements.aspectRatioSelect = document.getElementById('projection-aspect-ratio');
         
+        // Error message elements
+        this.elements.throwRatioError = document.getElementById('throw-ratio-error');
+        this.elements.distanceError = document.getElementById('distance-error');
+        this.elements.screenSizeError = document.getElementById('screen-size-error');
+        
         // Results
         this.elements.mainResult = document.getElementById('main-result');
         this.elements.resultLabel = document.getElementById('result-label');
@@ -183,17 +188,30 @@ export class ProjectionCalculator {
      */
     calculate() {
         try {
-            // Get input values
-            this.throwRatio = parseFloat(this.elements.throwRatioInput?.value) || 1.5;
-            this.distance = parseFloat(this.elements.distanceInput?.value) || 3;
-            this.screenSize = parseFloat(this.elements.screenSizeInput?.value) || 100;
+            // Read unit at calculate time (form restore can change it without a change event)
+            if (this.elements.distanceUnit) {
+                this.distanceUnit = this.elements.distanceUnit.value === 'ft' ? 'ft' : 'm';
+            }
             this.aspectRatio = this.elements.aspectRatioSelect?.value || '16:9';
             
-            // Validate throw ratio
-            if (this.throwRatio <= 0 || this.throwRatio > 5) {
-                this.showError('Invalid throw ratio');
+            // Validate inputs; invalid values never fall back to defaults
+            this.clearFieldErrors();
+            const throwRatio = this.readField(this.elements.throwRatioInput, this.elements.throwRatioError);
+            const distance = this.mode === 'distance'
+                ? this.readField(this.elements.distanceInput, this.elements.distanceError)
+                : this.distance;
+            const screenSize = this.mode === 'screen'
+                ? this.readField(this.elements.screenSizeInput, this.elements.screenSizeError)
+                : this.screenSize;
+            
+            if (throwRatio === null || distance === null || screenSize === null) {
+                this.showPlaceholders();
                 return;
             }
+            
+            this.throwRatio = throwRatio;
+            this.distance = distance;
+            this.screenSize = screenSize;
             
             // Get aspect ratio data
             const arData = this.aspectRatios[this.aspectRatio];
@@ -243,6 +261,67 @@ export class ProjectionCalculator {
             console.error('Calculation error:', error);
             this.showError('Calculation error');
         }
+    }
+    
+    /**
+     * Read and validate a numeric field against its HTML min/max.
+     * Shows the field error and returns null when invalid.
+     */
+    readField(input, errorElement) {
+        if (!input) return null;
+        const raw = String(input.value).trim();
+        const value = raw === '' ? NaN : Number(raw);
+        const min = parseFloat(input.getAttribute('min'));
+        const max = parseFloat(input.getAttribute('max'));
+        
+        let message = null;
+        if (!isFinite(value)) {
+            message = this.getTranslation('ppiCalculator.errorInvalidNumber', 'Please enter a valid number');
+        } else if (value <= 0) {
+            message = this.getTranslation('ppiCalculator.errorNegativeValue', 'Value must be greater than 0');
+        } else if ((isFinite(min) && value < min) || (isFinite(max) && value > max)) {
+            message = this.getRangeMessage(min, max);
+        }
+        
+        if (message) {
+            input.classList.add('error');
+            if (errorElement) errorElement.textContent = message;
+            return null;
+        }
+        return value;
+    }
+    
+    getRangeMessage(min, max) {
+        if (window.i18next && window.i18next.t) {
+            const translated = window.i18next.t('ppiCalculator.errorOutOfRange', { min, max });
+            if (translated && translated !== 'ppiCalculator.errorOutOfRange') return translated;
+        }
+        return `Value must be between ${min} and ${max}`;
+    }
+    
+    /**
+     * Clear all field errors
+     */
+    clearFieldErrors() {
+        [
+            [this.elements.throwRatioInput, this.elements.throwRatioError],
+            [this.elements.distanceInput, this.elements.distanceError],
+            [this.elements.screenSizeInput, this.elements.screenSizeError]
+        ].forEach(([input, errorElement]) => {
+            input?.classList.remove('error');
+            if (errorElement && errorElement.textContent) errorElement.textContent = '';
+        });
+    }
+    
+    /**
+     * Show placeholder results while inputs are invalid
+     */
+    showPlaceholders() {
+        ['mainResult', 'screenWidth', 'screenHeight', 'screenArea', 'viewingDistance', 'distanceLabel', 'screenLabel'].forEach(key => {
+            if (this.elements[key]) {
+                this.elements[key].textContent = '--';
+            }
+        });
     }
     
     /**
@@ -325,7 +404,9 @@ export class ProjectionCalculator {
         if (this.elements.viewingDistance) {
             const minViewM = (diagonal * 1.5 * this.conversions.inToCm) / 100;
             const maxViewM = (diagonal * 2.5 * this.conversions.inToCm) / 100;
-            this.elements.viewingDistance.textContent = `${minViewM.toFixed(1)}-${maxViewM.toFixed(1)}m`;
+            this.elements.viewingDistance.textContent = this.distanceUnit === 'ft'
+                ? `${(minViewM * this.conversions.mToFt).toFixed(1)}-${(maxViewM * this.conversions.mToFt).toFixed(1)}ft`
+                : `${minViewM.toFixed(1)}-${maxViewM.toFixed(1)}m`;
         }
     }
     

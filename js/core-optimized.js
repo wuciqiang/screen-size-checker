@@ -33,6 +33,9 @@ function calculateAspectRatio(width, height) {
     };
 
     const divisor = gcd(width, height);
+    if (!divisor || !isFinite(divisor)) {
+        return '--';
+    }
     const aspectWidth = width / divisor;
     const aspectHeight = height / divisor;
 
@@ -51,6 +54,19 @@ function calculateAspectRatio(width, height) {
         }
     }
 
+    // Reduced forms that are marketed under a common name (8:5 panels are 16:10, ultrawides are 21:9)
+    const ratioAliases = {
+        '8:5': '16:10',
+        '7:3': '21:9',
+        '64:27': '21:9',
+        '43:18': '21:9',
+        '12:5': '21:9'
+    };
+    const alias = ratioAliases[`${aspectWidth}:${aspectHeight}`];
+    if (alias) {
+        return alias;
+    }
+
     return `${aspectWidth}:${aspectHeight}`;
 }
 
@@ -59,6 +75,14 @@ function calculateAspectRatio(width, height) {
 let deviceInfoCache = null;
 let cacheTimestamp = 0;
 const CACHE_DURATION = 30000;
+
+/**
+ * Format DPR with up to 2 decimals, trailing zeros trimmed.
+ */
+function formatDpr(value) {
+    const dpr = Number(value) || 1;
+    return String(parseFloat(dpr.toFixed(2)));
+}
 
 /**
  * 闂備浇銆€閸嬫捇鏌涢锝嗙闁艰尙濞€閹鎷呴悷鏉垮Б濡炪倧瀵岄崜姘辩矚闁秴鐒洪柛鎰屽懐顦ラ梻浣瑰缁嬫垿鎮ч崨顖涱潟妞ゆ挶鍨圭粈宀勬煛瀹ュ骸浜滄い锝呫偢閺岋繝宕奸銏犫挄缂?
@@ -159,7 +183,7 @@ function applyDeviceInfo(deviceInfo) {
     requestAnimationFrame(() => {
         updateScreenResolution(deviceInfo);
         updateViewportSize(deviceInfo);
-        updateElementText('dpr', Math.round(deviceInfo.devicePixelRatio));
+        updateElementText('dpr', formatDpr(deviceInfo.devicePixelRatio));
         updateElementText('color-depth', `${deviceInfo.colorDepth}-bit`);
         updateElementText('os-info', deviceInfo.operatingSystem);
         updateElementText('browser-info', deviceInfo.browserInfo);

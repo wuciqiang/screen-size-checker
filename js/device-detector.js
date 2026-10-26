@@ -123,6 +123,14 @@ async function collectDeviceInfo() {
 }
 
 /**
+ * 格式化 DPR：最多两位小数，去除末尾的 0
+ */
+function formatDpr(value) {
+    const dpr = Number(value) || 1;
+    return String(parseFloat(dpr.toFixed(2)));
+}
+
+/**
  * 应用设备信息到UI
  * @param {Object} deviceInfo - 设备信息对象
  */
@@ -131,7 +139,7 @@ function applyDeviceInfo(deviceInfo) {
     requestAnimationFrame(() => {
         updateScreenResolutionOptimized(deviceInfo);
         updateViewportSizeOptimized(deviceInfo);
-        setTextContent('dpr', Math.round(deviceInfo.devicePixelRatio));
+        setTextContent('dpr', formatDpr(deviceInfo.devicePixelRatio));
         setTextContent('color-depth', `${deviceInfo.colorDepth}-bit`);
         setTextContent('os-info', deviceInfo.operatingSystem);
         setTextContent('browser-info', deviceInfo.browserInfo);
@@ -199,6 +207,10 @@ function performViewportUpdate() {
         
         // 更新宽高比显示
         setTextContent('aspect-ratio', deviceInfoCache.aspectRatio);
+        
+        // 页面缩放或切换显示器会改变 DPR，随视口更新一并刷新
+        deviceInfoCache.devicePixelRatio = window.devicePixelRatio || 1;
+        setTextContent('dpr', formatDpr(deviceInfoCache.devicePixelRatio));
     }
     
     console.log('Viewport size updated with optimized debounce:', viewport);

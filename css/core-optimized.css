@@ -425,7 +425,7 @@ body {
 .hero-section {
     padding: var(--spacing-3xl) var(--spacing-lg);
     text-align: center;
-    margin-top: 64px;
+    margin-top: 0; /* header offset comes from body padding */
 }
 
 .hero-container {
@@ -1644,6 +1644,10 @@ a.button:focus-visible,
         padding: var(--spacing-xl) var(--spacing-md);
     }
 
+    .hero-section {
+        padding-top: var(--spacing-xl);
+    }
+
     .hero-title {
         font-size: 2.5rem;
         gap: var(--spacing-xs);
@@ -2246,7 +2250,7 @@ html {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     color: white;
     padding: var(--spacing-lg) 0 var(--spacing-2xl) 0;
-    margin-top: -32px;
+    margin-top: 0;
     text-align: center;
     opacity: 1;
     animation: none;
@@ -2272,6 +2276,29 @@ html {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+}
+
+/* Device/tool pages: the fixed-header offset is already provided by body padding,
+   so avoid stacking breadcrumb, main-content and hero spacing */
+body:not(.comparison-page) .breadcrumb:has(+ .main-content > .devices-hero-section) {
+    padding-top: 24px;
+    padding-bottom: var(--spacing-md);
+}
+
+body:not(.comparison-page) .breadcrumb + .main-content:has(> .devices-hero-section) {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (max-width: 768px) {
+    .devices-hero-title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .devices-hero-section {
+        padding-bottom: var(--spacing-xl);
+    }
 }
 
 

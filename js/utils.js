@@ -17,6 +17,9 @@ export function calculateAspectRatio(width, height) {
     };
     
     const divisor = gcd(width, height);
+    if (!divisor || !isFinite(divisor)) {
+        return '--';
+    }
     const aspectWidth = width / divisor;
     const aspectHeight = height / divisor;
     
@@ -35,6 +38,19 @@ export function calculateAspectRatio(width, height) {
         if (aspectWidth === w && aspectHeight === h) {
             return ratio;
         }
+    }
+
+    // Reduced forms that are marketed under a common name (8:5 panels are 16:10, ultrawides are 21:9)
+    const ratioAliases = {
+        '8:5': '16:10',
+        '7:3': '21:9',
+        '64:27': '21:9',
+        '43:18': '21:9',
+        '12:5': '21:9'
+    };
+    const alias = ratioAliases[`${aspectWidth}:${aspectHeight}`];
+    if (alias) {
+        return alias;
     }
     
     return `${aspectWidth}:${aspectHeight}`;

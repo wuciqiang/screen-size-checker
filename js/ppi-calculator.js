@@ -28,8 +28,8 @@ export class PPICalculator {
         
         // Validation constraints
         this.constraints = {
-            pixels: { min: 1, max: 10000 },
-            diagonal: { min: 0.1, max: 100 }
+            pixels: { min: 1, max: 20000 },
+            diagonal: { min: 0.1, max: 300 }
         };
         
         // Debounce timer
