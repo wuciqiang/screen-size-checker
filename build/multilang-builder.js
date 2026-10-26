@@ -3375,6 +3375,17 @@ if (require.main === module) {
         if (builder.validateComponents()) {
             builder.buildMultiLangPages();
             writeBuildId('multilang-build');
+
+            // Step 3: real per-URL sitemap <lastmod> (needs all HTML and sitemap.xml written)
+            console.log('\n Step 3: Computing sitemap lastmod...');
+            const lastmodRun = require('child_process').spawnSync(
+                process.execPath,
+                [path.join(__dirname, 'sitemap-lastmod.js'), 'multilang-build'],
+                { stdio: 'inherit' }
+            );
+            if (lastmodRun.status !== 0) {
+                throw new Error('sitemap lastmod step failed');
+            }
         }
     })().catch(error => {
         console.error('[ERROR] Build process failed:', error);

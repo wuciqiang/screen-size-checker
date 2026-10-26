@@ -194,7 +194,7 @@ class IndexNowSubmitter {
     }
   }
 
-  async submitBatch(batch) {
+  async submitBatch(batch, index = 1, total = 1) {
     const payload = JSON.stringify({
       host: this.host,
       key: this.apiKey,
@@ -211,6 +211,8 @@ class IndexNowSubmitter {
     if (statusCode !== 200 && statusCode !== 202) {
       throw new Error(`IndexNow submission failed: HTTP ${statusCode}: ${body || ''}`);
     }
+
+    console.log(`IndexNow batch ${index}/${total}: HTTP ${statusCode}, ${batch.length} URL(s), ${new Date().toISOString()}`);
   }
 
   async confirmSubmit(urls) {
@@ -221,8 +223,8 @@ class IndexNowSubmitter {
     await this.verifyKeyFile();
 
     const batches = this.createBatches(urls);
-    for (const batch of batches) {
-      await this.submitBatch(batch);
+    for (let i = 0; i < batches.length; i++) {
+      await this.submitBatch(batches[i], i + 1, batches.length);
     }
   }
 

@@ -23,6 +23,7 @@
     "test:redirects": "node test/blog-redirect-test.js",
     "test:indexnow-changeset": "node test/indexnow-changeset.test.js",
     "test:indexnow": "node test/indexnow-submitter.test.js && node test/indexnow-changeset.test.js",
+    "test:lastmod": "node test/sitemap-lastmod.test.js",
     "submit-indexnow": "node build/indexnow-submitter.js",
     "ai:refresh-context": "node scripts/refresh-ai-context.js",
     "deploy": "node deploy.js",

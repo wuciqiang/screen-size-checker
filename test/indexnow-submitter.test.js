@@ -271,6 +271,27 @@ const tests = {
     assert.strictEqual(JSON.parse(postCalls[1].payload).urlList.length, 1);
   },
 
+  'confirmSubmit logs one line per successful batch': async () => {
+    const urls = [];
+    for (let i = 0; i < 10001; i++) {
+      urls.push(`https://screensizechecker.com/page-${i}`);
+    }
+    const mock = createMockHttp();
+    const submitter = new IndexNowSubmitter({ httpBoundary: mock.boundary });
+    const lines = [];
+    const origLog = console.log;
+    console.log = (...a) => lines.push(a.join(' '));
+    try {
+      await submitter.confirmSubmit(urls);
+    } finally {
+      console.log = origLog;
+    }
+    const batchLines = lines.filter(l => l.startsWith('IndexNow batch '));
+    assert.strictEqual(batchLines.length, 2);
+    assert.ok(/^IndexNow batch 1\/2: HTTP 200, 10000 URL\(s\), \d{4}-\d{2}-\d{2}T[\d:.]+Z$/.test(batchLines[0]), batchLines[0]);
+    assert.ok(/^IndexNow batch 2\/2: HTTP 200, 1 URL\(s\), /.test(batchLines[1]), batchLines[1]);
+  },
+
   'run default is dry run': async () => {
     const mock = createMockHttp();
     const submitter = new IndexNowSubmitter({ httpBoundary: mock.boundary });
