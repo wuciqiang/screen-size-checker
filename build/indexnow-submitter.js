@@ -1,3 +1,4 @@
+const fs = require('fs');
 const https = require('https');
 
 const DEFAULT_API_KEY = '965fb3d0413453519401afd900e344bcb6c11ba665d7ba5e1a0e134cc9b8dead';
@@ -67,6 +68,7 @@ class IndexNowSubmitter {
   parseArgs(argv) {
     const urls = [];
     let confirmSubmit = false;
+    let usedUrlsFile = false;
 
     for (let i = 0; i < argv.length; i++) {
       const arg = argv[i];
@@ -81,6 +83,13 @@ class IndexNowSubmitter {
           throw new Error('--url requires a value');
         }
         urls.push(next);
+      } else if (arg === '--urls-file') {
+        const next = argv[++i];
+        if (!next || next.startsWith('--')) {
+          throw new Error('--urls-file requires a value');
+        }
+        urls.push(...this.readUrlsFile(next));
+        usedUrlsFile = true;
       } else if (arg === '--confirm-submit') {
         confirmSubmit = true;
       } else if (arg.startsWith('--')) {
@@ -90,11 +99,24 @@ class IndexNowSubmitter {
       }
     }
 
-    if (urls.length === 0) {
+    if (urls.length === 0 && !usedUrlsFile) {
       throw new Error('At least one --url is required');
     }
 
     return { urls, confirmSubmit };
+  }
+
+  readUrlsFile(file) {
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch (error) {
+      throw new Error(`Cannot read --urls-file ${file}: ${error.message}`);
+    }
+    if (!data || !Array.isArray(data.urls)) {
+      throw new Error(`--urls-file ${file} must contain a "urls" array`);
+    }
+    return data.urls;
   }
 
   normalizeAndValidateUrl(input) {
@@ -207,6 +229,11 @@ class IndexNowSubmitter {
   async run(argv) {
     const { urls, confirmSubmit } = this.parseArgs(argv);
     const normalizedUrls = this.normalizeUrls(urls);
+
+    if (normalizedUrls.length === 0) {
+      console.log('Nothing to submit (empty URL list).');
+      return 0;
+    }
 
     if (confirmSubmit) {
       await this.confirmSubmit(normalizedUrls);

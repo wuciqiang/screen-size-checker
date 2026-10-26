@@ -3320,6 +3320,19 @@ function processTemplate(templatePath, config, lang) {
 }
 
 // 濠碘€冲€归悘澶愭儎鐎涙ê澶嶉弶鈺傚姌椤㈡垵顫㈤妶鍫濆闁哄牜鍓ㄧ槐婵嬪箥瑜戦、鎴炲緞濮樻剚鍤旈悷灏佸亾闁哄瀚紓?
+// Build marker used by the IndexNow deploy workflow to confirm which commit is live.
+function writeBuildId(outputDir) {
+    let id = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA;
+    if (!id) {
+        try {
+            id = require('child_process').execSync('git rev-parse HEAD', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+        } catch (e) {
+            id = '';
+        }
+    }
+    fs.writeFileSync(path.join(outputDir, 'build-id.txt'), (id || 'unknown') + '\n');
+}
+
 if (require.main === module) {
     (async () => {
         const builder = new MultiLangBuilder();
@@ -3361,6 +3374,7 @@ if (require.main === module) {
         console.log('\n Step 2: Building multilingual pages...');
         if (builder.validateComponents()) {
             builder.buildMultiLangPages();
+            writeBuildId('multilang-build');
         }
     })().catch(error => {
         console.error('[ERROR] Build process failed:', error);

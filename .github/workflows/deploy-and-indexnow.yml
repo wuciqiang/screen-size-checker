@@ -5,6 +5,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Serialize runs so two deploys never diff against the same stale manifest.
+concurrency:
+  group: indexnow-deploy
+  cancel-in-progress: false
+
+env:
+  SITE_BASE: https://screensizechecker.com
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,8 +30,48 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Previous manifest = hashes of the last successfully handled deploy.
+      # No exact key exists for this run, so restore-keys picks the newest prefix match.
+      # restore and save must use the same path: actions/cache derives the cache version from it.
+      - name: Restore previous IndexNow manifest
+        id: restore-manifest
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow-manifest
+          key: indexnow-manifest-${{ github.run_id }}
+          restore-keys: |
+            indexnow-manifest-
+
       - name: Build site
         run: npm run build
+
+      - name: Generate manifest and changeset
+        id: changeset
+        run: |
+          PREV=missing
+          if [ -f .indexnow-manifest/manifest.json ]; then
+            cp .indexnow-manifest/manifest.json prev-manifest.json
+            PREV=prev-manifest.json
+          fi
+          mkdir -p .indexnow-manifest
+          node build/indexnow-changeset.js manifest --dir multilang-build --base "$SITE_BASE" --out .indexnow-manifest/manifest.json
+          node build/indexnow-changeset.js diff --prev "$PREV" --next .indexnow-manifest/manifest.json --out changeset.json --max-urls 50
+          MODE=$(node -p "require('./changeset.json').mode")
+          COUNT=$(node -p "require('./changeset.json').urls.length")
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Changeset (mode=$MODE, $COUNT URL(s)):"
+          cat changeset.json
+          {
+            echo "### IndexNow changeset"
+            echo ""
+            echo "- mode: \`$MODE\`"
+            echo "- URLs: $COUNT"
+            echo ""
+            echo '```json'
+            cat changeset.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # Cloudflare Pages 会自动部署 multilang-build 目录
       # 这里只需要等待部署完成
@@ -61,3 +109,50 @@ jobs:
 
           echo "❌ Failed to verify deployment after $MAX_RETRIES attempts"
           exit 1
+
+      # Confirm the live site serves THIS commit before telling search engines about it.
+      # On timeout the job fails and the manifest is NOT saved, so the next run
+      # diffs against the old manifest and re-detects these changes.
+      - name: Wait for this commit to be live (build-id.txt)
+        run: |
+          MAX_RETRIES=20
+          for i in $(seq 1 $MAX_RETRIES); do
+            LIVE=$(curl -s --max-time 20 -H 'Cache-Control: no-cache' "$SITE_BASE/build-id.txt?cb=$GITHUB_RUN_ID-$i" | tr -d '[:space:]')
+            echo "Attempt $i/$MAX_RETRIES: live build-id=${LIVE:0:40} expected=$GITHUB_SHA"
+            if [ "$LIVE" = "$GITHUB_SHA" ]; then
+              echo "✓ Live site serves this commit"
+              exit 0
+            fi
+            if [ "$i" -lt "$MAX_RETRIES" ]; then sleep 30; fi
+          done
+          echo "❌ Live build-id never matched $GITHUB_SHA; not saving manifest"
+          exit 1
+
+      - name: Warn about bulk change (submission skipped)
+        if: steps.changeset.outputs.mode == 'bulk-skip'
+        run: |
+          MSG="IndexNow bulk-skip: ${{ steps.changeset.outputs.count }} URLs changed (limit 50), likely a sitewide template change. Nothing was submitted; submit manually if desired."
+          echo "::warning title=IndexNow bulk-skip::$MSG"
+          echo "## :warning: $MSG" >> "$GITHUB_STEP_SUMMARY"
+
+      # Dry run when auto-submit is off: the log shows exactly what would be sent.
+      - name: IndexNow dry run (auto-submit disabled)
+        id: indexnow-dry-run
+        if: steps.changeset.outputs.mode == 'submit' && vars.INDEXNOW_AUTO_SUBMIT != 'true'
+        run: node build/indexnow-submitter.js --urls-file changeset.json
+
+      - name: Submit changed URLs to IndexNow
+        id: indexnow-submit
+        if: steps.changeset.outputs.mode == 'submit' && vars.INDEXNOW_AUTO_SUBMIT == 'true'
+        run: node build/indexnow-submitter.js --urls-file changeset.json --confirm-submit
+
+      # Reached only when every prior step succeeded (default success() condition),
+      # i.e. mode is seed/noop/bulk-skip, or submit succeeded, or the dry run ran
+      # because INDEXNOW_AUTO_SUBMIT is off (saved too, otherwise the same changes
+      # would be re-listed on every run). A failed submit or a build-id timeout
+      # fails the job earlier, so the old manifest is kept and re-diffed next run.
+      - name: Save new IndexNow manifest
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow-manifest
+          key: indexnow-manifest-${{ github.run_id }}
