@@ -1108,10 +1108,7 @@ class BlogBuilder {
                             show_breadcrumb: true,
                             current_key: 'blog',
                             current_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog'),
-                            parent_url: `../`,
-                            blog_sidebar: `blog-sidebar-${lang}`,
-                            parent_key: 'home',
-                            parent_name: lang === 'zh' ? '首页' : (lang === 'pt' ? 'Início' : 'Home')
+                            blog_sidebar: `blog-sidebar-${lang}`
                         }
                     });
 
@@ -1148,10 +1145,7 @@ class BlogBuilder {
                                 privacy_policy_url: '../../../../privacy-policy',
                                 current_key: 'blog',
                                 current_name: lang === 'zh' ? '博客' : (lang === 'pt' ? 'Blog' : 'Blog'),
-                                parent_url: `../../`,
-                                blog_sidebar: `blog-sidebar-${lang}`,
-                                parent_key: 'home',
-                                parent_name: lang === 'zh' ? '首页' : (lang === 'pt' ? 'Início' : 'Home')
+                                blog_sidebar: `blog-sidebar-${lang}`
                             }
                         });
                     }

@@ -803,7 +803,6 @@ function initializeSimulator() {
         'Custom Height Input': document.getElementById('custom-height'),
         'Apply Button': document.getElementById('apply-custom-size'),
         'Rotate Button': document.getElementById('rotate-device'),
-        'Frame Options': document.querySelectorAll('.frame-options input[type="radio"]').length,
         'Preview Container': document.getElementById('simulator-container'),
         'Size Display': document.getElementById('simulator-size-display'),
         'Preview Frame': document.getElementById('simulator-frame')

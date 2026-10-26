@@ -69,10 +69,9 @@ export class AspectRatioCalculator {
             this.bindElements();
             this.setupEventListeners();
             this.setupMobileOptimizations();
-            this.setupKeyboardNavigation();
             // Temporarily disable link preview to fix page issues
             // this.setupLinkPreview();
-            this.updateDisplay();
+            this.calculate();
             console.log('✅ Aspect Ratio Calculator initialized successfully');
         } catch (error) {
             console.error('❌ Failed to initialize Aspect Ratio Calculator:', error);

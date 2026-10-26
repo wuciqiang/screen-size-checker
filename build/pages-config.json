@@ -750,10 +750,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-en",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-en"
       }
     },
     {
@@ -783,10 +780,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-en",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-en"
       }
     },
     {
@@ -816,10 +810,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-en",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-en"
       }
     },
     {
@@ -3113,10 +3104,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "博客",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-zh",
-        "parent_key": "home",
-        "parent_name": "首页"
+        "blog_sidebar": "blog-sidebar-zh"
       }
     },
     {
@@ -3146,10 +3134,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "博客",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-zh",
-        "parent_key": "home",
-        "parent_name": "首页"
+        "blog_sidebar": "blog-sidebar-zh"
       }
     },
     {
@@ -3179,10 +3164,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "博客",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-zh",
-        "parent_key": "home",
-        "parent_name": "首页"
+        "blog_sidebar": "blog-sidebar-zh"
       }
     },
     {
@@ -5590,10 +5572,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-de",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-de"
       }
     },
     {
@@ -5623,10 +5602,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-de",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-de"
       }
     },
     {
@@ -5656,10 +5632,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-de",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-de"
       }
     },
     {
@@ -8029,10 +8002,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-es",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-es"
       }
     },
     {
@@ -8062,10 +8032,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-es",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-es"
       }
     },
     {
@@ -8095,10 +8062,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-es",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-es"
       }
     },
     {
@@ -10468,10 +10432,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-pt",
-        "parent_key": "home",
-        "parent_name": "Início"
+        "blog_sidebar": "blog-sidebar-pt"
       }
     },
     {
@@ -10501,10 +10462,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-pt",
-        "parent_key": "home",
-        "parent_name": "Início"
+        "blog_sidebar": "blog-sidebar-pt"
       }
     },
     {
@@ -10534,10 +10492,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-pt",
-        "parent_key": "home",
-        "parent_name": "Início"
+        "blog_sidebar": "blog-sidebar-pt"
       }
     },
     {
@@ -12869,10 +12824,7 @@
         "show_breadcrumb": true,
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../",
-        "blog_sidebar": "blog-sidebar-fr",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-fr"
       }
     },
     {
@@ -12902,10 +12854,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-fr",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-fr"
       }
     },
     {
@@ -12935,10 +12884,7 @@
         "privacy_policy_url": "../../../../privacy-policy",
         "current_key": "blog",
         "current_name": "Blog",
-        "parent_url": "../../",
-        "blog_sidebar": "blog-sidebar-fr",
-        "parent_key": "home",
-        "parent_name": "Home"
+        "blog_sidebar": "blog-sidebar-fr"
       }
     },
     {
