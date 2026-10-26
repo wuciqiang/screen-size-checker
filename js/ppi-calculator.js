@@ -66,6 +66,8 @@ export class PPICalculator {
         this.elements.screenDensity = document.getElementById('screen-density');
         this.elements.resultDetails = document.getElementById('result-details');
         this.elements.contextComment = document.getElementById('context-comment');
+        this.elements.liveValue = document.getElementById('ppi-live-value');
+        this.elements.liveDensity = document.getElementById('ppi-live-density');
         this.elements.presetButtons = Array.from(document.querySelectorAll('.ppi-preset-btn'));
         
         // Error message elements
@@ -292,6 +294,19 @@ export class PPICalculator {
     }
     
     /**
+     * Mirror result and density label into the mobile live result bar (optional element)
+     */
+    syncLiveResult() {
+        if (this.elements.liveValue) {
+            this.elements.liveValue.textContent = this.elements.resultValue.textContent;
+        }
+        if (this.elements.liveDensity) {
+            const hasResult = this.isValid && this.result > 0;
+            this.elements.liveDensity.textContent = hasResult ? this.elements.screenDensity.textContent : '';
+        }
+    }
+
+    /**
      * Get contextual comment based on PPI value
      * @returns {string} - Contextual comment for the PPI result
      */
@@ -341,6 +356,7 @@ export class PPICalculator {
             this.elements.contextComment.textContent = contextComment;
             this.elements.contextComment.style.display = 'block';
         }
+        this.syncLiveResult();
     }
     
     /**
@@ -354,6 +370,12 @@ export class PPICalculator {
         }
         if (this.elements.screenDensity) {
             this.elements.screenDensity.textContent = '--';
+        }
+        if (this.elements.liveValue) {
+            this.elements.liveValue.textContent = '--';
+        }
+        if (this.elements.liveDensity) {
+            this.elements.liveDensity.textContent = '';
         }
     }
     

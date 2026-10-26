@@ -179,8 +179,10 @@ async function checkLayout(page, width) {
             const label = metric.querySelector('span').getBoundingClientRect();
             const value = metric.querySelector('strong').getBoundingClientRect();
             const button = metric.querySelector('button').getBoundingClientRect();
+            const intersects = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
             return label.right > metric.getBoundingClientRect().right || value.right > metric.getBoundingClientRect().right ||
-                button.right > metric.getBoundingClientRect().right || label.bottom > value.top || button.bottom > value.top;
+                button.right > metric.getBoundingClientRect().right || label.bottom > value.top ||
+                intersects(button, label) || intersects(button, value);
         });
         return {
             overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,

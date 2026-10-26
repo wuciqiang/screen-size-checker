@@ -41,7 +41,7 @@
   .resolution-featured-panel { display:flex; align-items:center; }
   .resolution-featured-panel .resolution-test-metric { width:100%; min-height:116px; padding:18px 4px; border-bottom:0; }
   .resolution-featured-panel .resolution-test-metric span { font-size:1rem; font-weight:700; }
-  .resolution-featured-panel .resolution-test-metric strong { font-size:1.75rem; }
+  .resolution-featured-panel .resolution-test-metric strong { font-size:2.25rem; }
   .resolution-test-metric span { grid-column:1; grid-row:1; min-width:0; }
   .resolution-test-metric strong { grid-column:1 / -1; grid-row:2; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-variant-numeric:tabular-nums; }
   .resolution-copy-button { grid-column:2; grid-row:1; }
@@ -54,6 +54,15 @@
     color: var(--primary-color);
     cursor: pointer;
     display:inline-flex; align-items:center; justify-content:center;
+  }
+  .resolution-copy-button {
+    border-color: transparent;
+    color: var(--text-secondary);
+  }
+  .resolution-copy-button:hover,
+  .resolution-copy-button:focus-visible {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
   }
   .resolution-copy-button svg { width:16px; height:16px; display:block; }
   .resolution-test-page button:not(.primary):hover { background:var(--background-hover, var(--background-primary)); }
@@ -125,6 +134,12 @@
   @media (max-width: 768px) {
     .resolution-copy-button { width:40px; height:40px; min-height:40px; }
     .resolution-test-actions button { min-height:40px; }
+    .resolution-test-metric { min-height:56px; padding:6px 4px; align-items:center; gap:0 10px; }
+    .resolution-test-metric strong { grid-column:1; }
+    .resolution-copy-button { grid-row:1 / span 2; align-self:center; }
+    .resolution-featured-panel { padding:10px 12px; }
+    .resolution-featured-panel .resolution-test-metric { min-height:72px; padding:8px 4px; }
+    .resolution-featured-panel .resolution-test-metric strong { font-size:1.5rem; }
   }
   @media (max-width: 719px) {
     .resolution-support-grid, .resolution-test-faq, .resolution-guide-band { grid-template-columns:1fr; }

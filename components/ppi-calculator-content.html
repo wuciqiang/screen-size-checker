@@ -76,6 +76,7 @@
                         <button type="button" class="ppi-preset-btn" data-width="3024" data-height="1964" data-diagonal="14.2" data-i18n="ppiCalculator.presets.laptop14">14&quot; high-density laptop</button>
                     </div>
                 </div>
+                <div class="ppi-live-result" aria-hidden="true"><span class="ppi-live-value" id="ppi-live-value">--</span> <span class="ppi-live-unit" data-i18n="ppiCalculator.ppiUnit">PPI</span> <span class="ppi-live-density" id="ppi-live-density"></span></div>
             </div>
 
             <!-- Result Display -->
@@ -577,6 +578,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .content-section li {
     margin-bottom: var(--spacing-sm);
+}
+
+/* Mobile live result bar */
+.ppi-live-result {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Global html/body overflow-x:hidden makes body a scroll container and breaks position:sticky */
+    html:has(.ppi-live-result),
+    body:has(.ppi-live-result) {
+        overflow-x: clip;
+    }
+
+    .ppi-live-result {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        position: sticky;
+        bottom: 12px;
+        z-index: 20;
+        margin-top: var(--spacing-md);
+        padding: 10px 14px;
+        background: var(--background-card);
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        box-shadow: var(--shadow-medium, 0 4px 12px rgba(0, 0, 0, 0.15));
+        color: var(--text-primary);
+    }
+
+    .ppi-live-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: var(--primary-color);
+    }
+
+    .ppi-live-unit {
+        font-weight: 600;
+    }
+
+    .ppi-live-density {
+        margin-left: auto;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
 }
 
 /* Responsive Design */
