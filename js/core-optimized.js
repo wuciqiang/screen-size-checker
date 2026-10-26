@@ -70,6 +70,45 @@ function calculateAspectRatio(width, height) {
     return `${aspectWidth}:${aspectHeight}`;
 }
 
+// Friendly aspect-ratio label for display. Keep calculateAspectRatio untouched; this wraps it.
+// Classic-script copy of formatAspectRatioDisplay in js/utils.js (keep in sync;
+// test/aspect-ratio-display-test.js checks parity).
+const DISPLAY_COMMON_RATIOS = [
+    ['16:9', 16, 9], ['16:10', 16, 10], ['4:3', 4, 3], ['3:2', 3, 2], ['5:4', 5, 4],
+    ['21:9', 21, 9], ['32:9', 32, 9], ['1:1', 1, 1],
+    ['9:16', 9, 16], ['10:16', 10, 16], ['3:4', 3, 4], ['2:3', 2, 3], ['9:19.5', 9, 19.5]
+];
+
+function formatAspectRatioDisplay(width, height) {
+    const ratio = calculateAspectRatio(width, height);
+    if (ratio === '--') {
+        return ratio;
+    }
+    if (DISPLAY_COMMON_RATIOS.some(([name]) => name === ratio)) {
+        return ratio;
+    }
+
+    const [aspectWidth, aspectHeight] = ratio.split(':').map(Number);
+    const value = aspectWidth / aspectHeight;
+    let closest = null;
+    let closestError = Infinity;
+    for (const [name, w, h] of DISPLAY_COMMON_RATIOS) {
+        const target = w / h;
+        const error = Math.abs(value - target) / target;
+        if (error <= 0.03 && error < closestError) {
+            closest = name;
+            closestError = error;
+        }
+    }
+    if (closest) {
+        return `≈ ${closest} (${ratio})`;
+    }
+    if (aspectWidth > 50 || aspectHeight > 50) {
+        return `${value.toFixed(2)}:1`;
+    }
+    return ratio;
+}
+
 // ====== 闂佽崵濮抽悞锕傚磿閹跺壙鍥敆閳ь剝鐏嬮梺閫炲苯澧棁澶愭倵閿濆骸浜炲鐟邦儔閻擃偊宕惰閺嗘瑥鈹戦鐣屾创闁?======
 
 let deviceInfoCache = null;
@@ -100,7 +139,7 @@ function collectDeviceInfo() {
         touchSupported: 'ontouchstart' in window || navigator.maxTouchPoints > 0
     };
 
-    info.aspectRatio = calculateAspectRatio(info.viewportWidth, info.viewportHeight);
+    info.aspectRatio = formatAspectRatioDisplay(info.viewportWidth, info.viewportHeight);
     info.operatingSystem = detectOperatingSystem();
     info.browserInfo = detectBrowser();
 
@@ -1453,6 +1492,7 @@ if (typeof window !== 'undefined') {
     window.navigateToLanguage = navigateToLanguage;
     window.updateDisplay = updateDisplay;
     window.calculateAspectRatio = calculateAspectRatio;
+    window.formatAspectRatioDisplay = formatAspectRatioDisplay;
     window.debounce = debounce;
 
     console.log('Core functions exposed to global scope for compatibility');

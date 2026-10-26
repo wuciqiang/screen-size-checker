@@ -328,6 +328,18 @@
     .footer-bottom-links {
         justify-content: center;
     }
+
+    /* Touch targets: footer links at least 40px tall */
+    .footer-links {
+        gap: 0;
+    }
+
+    .footer-links li a,
+    .footer-bottom-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+    }
 }
 
 @media (max-width: 480px) {

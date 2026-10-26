@@ -1,21 +1,15 @@
+import { formatAspectRatioDisplay } from './utils.js';
+
 function translate(key, fallback) {
     return window.i18next && typeof window.i18next.t === 'function'
         ? window.i18next.t(key, fallback)
         : fallback;
 }
 
-function gcd(a, b) {
-    while (b) {
-        [a, b] = [b, a % b];
-    }
-    return a;
-}
-
 function readResults() {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
     const dpr = window.devicePixelRatio || 1;
-    const divisor = gcd(screenWidth, screenHeight);
     const orientation = screenWidth === screenHeight
         ? 'square'
         : screenWidth > screenHeight ? 'landscape' : 'portrait';
@@ -25,7 +19,7 @@ function readResults() {
         screen: `${screenWidth} x ${screenHeight} ${cssPixels}`,
         viewport: `${window.innerWidth} x ${window.innerHeight} ${cssPixels}`,
         dpr: String(dpr),
-        aspect: `${screenWidth / divisor}:${screenHeight / divisor}`,
+        aspect: formatAspectRatioDisplay(screenWidth, screenHeight),
         depth: `${window.screen.colorDepth || 0}-${translate('resolution_test_bits', 'bit')}`,
         orientation: translate(`resolution_test_orientation_${orientation}`, orientation),
         available: `${window.screen.availWidth} x ${window.screen.availHeight} ${cssPixels}`,

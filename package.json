@@ -19,6 +19,7 @@
     "test:validation": "node test/simple-validation.js",
     "test:links": "node test/internal-links-checker.js",
     "test:seo": "node test/seo-tags-validator.js",
+    "test:aspect-display": "node test/aspect-ratio-display-test.js",
     "test:redirects": "node test/blog-redirect-test.js",
     "test:indexnow-changeset": "node test/indexnow-changeset.test.js",
     "test:indexnow": "node test/indexnow-submitter.test.js && node test/indexnow-changeset.test.js",

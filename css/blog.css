@@ -1375,3 +1375,8 @@
         padding: 0 var(--spacing-sm);
     }
 }
+
+/* Blog index: breathing room between the blue banner and the "Latest Articles" heading */
+.blog-hero + .blog-featured {
+    padding-top: var(--spacing-xl);
+}

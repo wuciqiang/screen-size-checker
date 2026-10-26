@@ -1,7 +1,7 @@
 // device-detector.js - Device and browser information detection
 
 import { setTextContent } from './i18n.js';
-import { calculateAspectRatio } from './utils.js';
+import { formatAspectRatioDisplay } from './utils.js';
 
 // 设备信息缓存
 let deviceInfoCache = null;
@@ -111,7 +111,7 @@ async function collectDeviceInfo() {
     };
     
     // 计算宽高比
-    info.aspectRatio = calculateAspectRatio(info.viewportWidth, info.viewportHeight);
+    info.aspectRatio = formatAspectRatioDisplay(info.viewportWidth, info.viewportHeight);
     
     // 检测操作系统（优化版本）
     info.operatingSystem = detectOperatingSystemOptimized();
@@ -203,7 +203,7 @@ function performViewportUpdate() {
     if (deviceInfoCache) {
         deviceInfoCache.viewportWidth = width;
         deviceInfoCache.viewportHeight = height;
-        deviceInfoCache.aspectRatio = calculateAspectRatio(width, height);
+        deviceInfoCache.aspectRatio = formatAspectRatioDisplay(width, height);
         
         // 更新宽高比显示
         setTextContent('aspect-ratio', deviceInfoCache.aspectRatio);

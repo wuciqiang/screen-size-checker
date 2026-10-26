@@ -238,6 +238,12 @@ body:not(.comparison-page) .breadcrumb:has(+ .main-content > .devices-hero-secti
 	padding-bottom: var(--spacing-md);
 }
 
+/* Blog pages: same breadcrumb spacing as device pages (header offset already comes from body padding) */
+body:not(.comparison-page) .breadcrumb:has(+ .main-content.blog-main) {
+	padding-top: 24px;
+	padding-bottom: var(--spacing-md);
+}
+
 body:not(.comparison-page) .breadcrumb + .main-content:has(> .devices-hero-section) {
 	margin-top: 0;
 	padding-top: 0;
@@ -265,12 +271,19 @@ body:not(.comparison-page) .breadcrumb + .main-content:has(> .devices-hero-secti
 
 @media (max-width: 768px) {
 	.devices-hero-title {
-		font-size: 1.8rem;
-		margin-bottom: var(--spacing-md);
+		font-size: 1.5rem;
+		line-height: 1.25;
+		margin-bottom: var(--spacing-sm);
 	}
 
 	.devices-hero-section {
-		padding-bottom: var(--spacing-xl);
+		padding-top: var(--spacing-md);
+		padding-bottom: var(--spacing-md);
+	}
+
+	.devices-hero-subtitle {
+		font-size: 0.9375rem;
+		line-height: 1.5;
 	}
 }
 
@@ -305,7 +318,10 @@ html, body {
         const viewport = window.innerWidth + ' × ' + window.innerHeight;
         const resolution = screen.width + ' × ' + screen.height;
         const dpr = window.devicePixelRatio || 1;
-        const aspectRatio = (window.innerWidth / window.innerHeight).toFixed(2);
+        // formatAspectRatioDisplay is exposed by core-optimized.js (deferred); fall back to the decimal ratio until it loads
+        const aspectRatio = typeof window.formatAspectRatioDisplay === 'function'
+            ? window.formatAspectRatioDisplay(window.innerWidth, window.innerHeight)
+            : (window.innerWidth / window.innerHeight).toFixed(2) + ':1';
 
         // Only update viewport if it changed (avoid unnecessary DOM updates)
         if (elements.viewport && viewport !== lastViewport) {
@@ -336,7 +352,7 @@ html, body {
 
         // Update other critical info with textContent for better performance
         if (elements.dpr) elements.dpr.textContent = dpr + 'x';
-        if (elements.aspect) elements.aspect.textContent = aspectRatio + ':1';
+        if (elements.aspect) elements.aspect.textContent = aspectRatio;
         if (elements.colorDepth) elements.colorDepth.textContent = screen.colorDepth + ' bits';
     }
 

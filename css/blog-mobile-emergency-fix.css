@@ -13,7 +13,7 @@
     border-radius: 4px !important;
     color: #e0e0e0 !important;
     padding: 4px 8px !important;
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
     font-weight: 500 !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;
@@ -72,7 +72,7 @@
     /* 移动端复制按钮 - 保持与PC端相同的位置和样式 */
     .code-copy-button {
         padding: 6px 10px !important;
-        font-size: 0.7rem !important;
+        font-size: 0.75rem !important;
         height: 28px !important;
         width: auto !important;
         max-width: 70px !important;
@@ -86,7 +86,7 @@
     
     /* 移动端语言标签 */
     .code-language-label {
-        font-size: 0.65rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -94,14 +94,14 @@
 @media (max-width: 480px) {
     .code-copy-button {
         padding: 4px 8px;
-        font-size: 0.65rem;
+        font-size: 0.75rem;
         height: 26px;
         width: auto;
         max-width: 60px;
     }
     
     .code-language-label {
-        font-size: 0.6rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -237,7 +237,7 @@ html body [class*="copy-btn"] {
     border-radius: 4px !important;
     color: #e0e0e0 !important;
     padding: 4px 8px !important;
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
     font-weight: 500 !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;

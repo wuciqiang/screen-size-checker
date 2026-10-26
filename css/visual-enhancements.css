@@ -302,7 +302,7 @@ summary:focus-visible {
     color: var(--text-secondary);
     opacity: 1;
     box-shadow: none;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     line-height: 1;
 }
 
@@ -759,6 +759,20 @@ main a:not(.btn):not(.button):not(.card):hover {
 /* ============================================
    无障碍 - 尊重用户偏好
    ============================================ */
+
+/* Mobile touch targets: copy buttons on the home info dashboard reach 40px */
+@media (max-width: 768px) {
+    .info-dashboard .copy-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.5rem;
+        right: 0;
+    }
+
+    .info-dashboard .info-row-full .info-label {
+        padding-right: 2.9rem;
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
     *,

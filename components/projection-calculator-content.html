@@ -22,7 +22,7 @@
 
                 <!-- Throw Ratio Input -->
                 <div class="input-group">
-                    <label for="throw-ratio" class="input-label" data-i18n="projectionCalculator.throwRatio">Throw Ratio</label>
+                    <label for="throw-ratio" id="throw-ratio-label" class="input-label" data-i18n="projectionCalculator.throwRatio">Throw Ratio</label>
                     <div class="input-with-preset">
                         <input 
                             type="number" 
@@ -34,7 +34,7 @@
                             step="0.01"
                             value="1.5"
                         >
-                        <select id="throw-ratio-preset" class="preset-select">
+                        <select id="throw-ratio-preset" class="preset-select" aria-labelledby="throw-ratio-label">
                             <option value="" data-i18n="projectionCalculator.customRatio">Custom</option>
                             <option value="0.38">Ultra Short Throw (0.38)</option>
                             <option value="0.5">Short Throw (0.5)</option>
@@ -50,7 +50,7 @@
 
                 <!-- Distance Input (Mode 1) -->
                 <div class="input-group" id="distance-input-group">
-                    <label for="projector-distance" class="input-label" data-i18n="projectionCalculator.distance">Projector Distance</label>
+                    <label for="projector-distance" id="projector-distance-label" class="input-label" data-i18n="projectionCalculator.distance">Projector Distance</label>
                     <div class="input-with-unit">
                         <input 
                             type="number" 
@@ -62,7 +62,7 @@
                             step="0.1"
                             value="3"
                         >
-                        <select id="distance-unit" class="unit-select">
+                        <select id="distance-unit" class="unit-select" aria-labelledby="projector-distance-label">
                             <option value="m" data-i18n="projectionCalculator.meters">meters</option>
                             <option value="ft" data-i18n="projectionCalculator.feet">feet</option>
                         </select>
