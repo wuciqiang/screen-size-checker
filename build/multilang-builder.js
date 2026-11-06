@@ -1050,6 +1050,7 @@ class MultiLangBuilder extends ComponentBuilder {
             'favicon.ico',
             'favicon.png',
             'ads.txt',
+            'llms.txt',
             'about.html',
             '404.html',
             'structured-data.json',
@@ -3209,52 +3210,11 @@ ${colorRedirects}
         const enabledLangs = this.enabledLanguages; // ['en', 'zh', 'de', 'es']
         const disabledLangs = this.supportedLanguages.filter(l => !enabledLangs.includes(l));
 
-        // Generate Allow rules for enabled languages
-        const allowLangRules = enabledLangs.map(l => `Allow: /${l}/`).join('\n');
-        const allowBlogRules = enabledLangs.map(l => `Allow: /${l}/blog/`).join('\n');
-        const allowDeviceRules = enabledLangs.map(l => `Allow: /${l}/devices/`).join('\n');
-        const allowHubRules = enabledLangs.map(l => `Allow: /${l}/hub/`).join('\n');
-
-        // Generate Disallow rules for disabled languages
-        const disallowLangRules = disabledLangs.map(l => `Disallow: /${l}/`).join('\n');
-
-        const robotsContent = `# robots.txt for screensizechecker.com
+        // Single `*` group: a named Googlebot/Bingbot group would make those crawlers ignore every Disallow below.
+        const robotsContent = `# robots.txt for https://screensizechecker.com/
 # Last updated: ${new Date().toISOString().split('T')[0]}
-# Optimized for SEO redirect architecture
-# Enabled languages: ${enabledLangs.join(', ')}
 
-# Allow all crawlers to access main content
 User-agent: *
-Allow: /
-
-# Explicitly allow enabled language versions
-${allowLangRules}
-
-# Allow static resources
-Allow: /css/
-Allow: /js/
-Allow: /locales/
-
-# Allow important pages
-Allow: /privacy-policy
-Allow: /select-language
-
-# Allow blog content for all enabled languages
-Allow: /blog/
-${allowBlogRules}
-
-# Allow device pages for all enabled languages
-Allow: /devices/
-${allowDeviceRules}
-
-# Allow hub pages for all enabled languages
-Allow: /hub/
-${allowHubRules}
-
-# Disallow disabled language versions
-${disallowLangRules}
-
-# Disallow build directories and temp files
 Disallow: /build/
 Disallow: /multilang-build/
 Disallow: /node_modules/
@@ -3262,8 +3222,6 @@ Disallow: /.git/
 Disallow: /.vscode/
 Disallow: /.cursor/
 Disallow: /.kiro/
-
-# Disallow temp and debug files
 Disallow: /performance-test-production.html
 Disallow: /*debug*
 Disallow: /package.json
@@ -3271,19 +3229,8 @@ Disallow: /package-lock.json
 Disallow: /missing-*.json
 Disallow: /*.md$
 
-# Sitemap
 Sitemap: https://screensizechecker.com/sitemap.xml
-
-# Crawler-specific rules
-User-agent: Googlebot
-Crawl-delay: 1
-
-User-agent: Bingbot
-Crawl-delay: 2
-
-# Default crawl delay
-User-agent: *
-Crawl-delay: 5`;
+`;
 
         fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
         console.log('[OK] Generated optimized robots.txt file');

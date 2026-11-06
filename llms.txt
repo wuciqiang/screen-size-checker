@@ -1,0 +1,33 @@
+# Screen Size Checker
+
+> Browser-based tools that report the screen resolution, CSS viewport size and device pixel ratio the current browser reports, plus reference charts for monitor, laptop and phone displays. Everything runs client-side; no sign-up, no upload.
+
+## Tools
+- [Screen resolution check](https://screensizechecker.com/): shows the resolution, CSS viewport size and device pixel ratio your browser reports.
+- [Resolution test](https://screensizechecker.com/resolution-test): prints the display resolution and viewport of the device you are using right now.
+- [Screen size comparison](https://screensizechecker.com/devices/compare): puts two screen sizes side by side in inches and centimetres.
+- [Standard resolution chart](https://screensizechecker.com/devices/standard-resolutions): 720p through 8K with pixel counts, approximate PPI and CSS breakpoint ranges.
+- [PPI calculator](https://screensizechecker.com/devices/ppi-calculator): pixels per inch from a diagonal size and a resolution, with PPI values for example phones, laptops, monitors and TVs.
+- [Aspect ratio calculator](https://screensizechecker.com/devices/aspect-ratio-calculator): resizes a width and height pair while keeping the original ratio.
+- [Projector throw ratio calculator](https://screensizechecker.com/devices/projection-calculator): throw ratio, screen size and viewing distance for a projector.
+- [LCD and dead pixel test](https://screensizechecker.com/devices/lcd-screen-tester): full-screen colour pages for spotting dead pixels, backlight bleed and ghosting.
+- [Laptop screen size checker](https://screensizechecker.com/devices/laptop-screen-size-checker): the browser-reported dimensions, viewport, DPR and aspect ratio of a laptop, and how to confirm its physical size in inches.
+- [Responsive design tester](https://screensizechecker.com/devices/responsive-tester): loads a URL at preset or custom CSS viewport sizes.
+- [iPhone viewport sizes](https://screensizechecker.com/devices/iphone-viewport-sizes): CSS viewport width and device pixel ratio per iPhone model.
+- [iPad viewport sizes](https://screensizechecker.com/devices/ipad-viewport-sizes): the same values per iPad model.
+- [Android viewport sizes](https://screensizechecker.com/devices/android-viewport-sizes): CSS viewport sizes, DPR and resolutions for Pixel, Galaxy, foldables and other Android phones.
+
+## Articles
+- [How to check screen resolution](https://screensizechecker.com/blog/how-to-check-screen-resolution): steps for Windows 11, macOS, Linux, iOS and Android.
+- [Average laptop screen size](https://screensizechecker.com/blog/average-laptop-screen-size-2025): what the common 13 to 17 inch sizes mean in resolution and PPI.
+- [Screen dimensions cheat sheet](https://screensizechecker.com/blog/screen-dimensions-cheat-sheet): the viewport and resolution numbers worth keeping open while designing.
+- [Device pixel ratio](https://screensizechecker.com/blog/device-pixel-ratio): how CSS pixels map to device pixels.
+
+## Monitor guides
+- [1080p vs 1440p for gaming](https://screensizechecker.com/hub/1080p-vs-1440p-gaming): pixel count, PPI at common sizes, and what each resolution costs in frame rate.
+- [144Hz vs 240Hz](https://screensizechecker.com/hub/144hz-vs-240hz-gaming): whether 240Hz is worth it, judged by frame time, latency, motion clarity and GPU headroom.
+- [Best monitor size for FPS games](https://screensizechecker.com/hub/best-monitor-size-fps): 24, 27 and 32 inch monitors compared by pixel density, desk distance and frame rate.
+- [IPS vs TN vs VA](https://screensizechecker.com/hub/ips-vs-tn-vs-va-gaming): panel behaviour, response time and viewing angles.
+
+## Notes
+- A browser can report CSS pixels, device pixel ratio and the screen resolution only. The physical size of a screen in inches cannot be read from a web page, so no tool here claims to measure it.
