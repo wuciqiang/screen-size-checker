@@ -650,6 +650,15 @@
         "dell4k": "Dell UltraSharp 4K",
         "samsung4ktv": "Samsung 4K TV",
         "ipadpro": "iPad Pro 12.9\""
+      },
+      "category": "Categoria",
+      "diagonal": "Diagonal",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
+      "categories": {
+        "phone": "Celular",
+        "laptop": "Notebook",
+        "monitor": "Monitor",
+        "tv": "TV"
       }
     },
     "context": {
@@ -675,7 +684,9 @@
     "localNotes": {
       "title": "Notas locais de tela",
       "text": "Para o Brasil, pense em polegadas, centímetros e preço por categoria. Samsung, Motorola e Xiaomi aparecem bastante em Android, enquanto notebooks e monitores exigem avaliar PPI junto com escala do Windows."
-    }
+    },
+    "whatIsGoodPPI": "Qual é um bom PPI?",
+    "goodPPIText": "Um bom PPI depende da distância de visualização. Um celular de 6,1 polegadas com 2556×1179 chega a 460. Notebooks ficam em 141 com 15,6 polegadas 1080p, 166 com 13,3 polegadas 1080p e 189 com 16 polegadas 2560×1600. Monitores vão de 82 (27 polegadas 1080p) a 163 (27 polegadas 4K). TVs são as mais baixas: 80 com 55 polegadas 4K e 68 com 65 polegadas 4K."
   },
   "aspectRatioCalculator": {
     "title": "Calculadora de Proporção de Tela",

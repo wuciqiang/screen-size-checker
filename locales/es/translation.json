@@ -485,7 +485,22 @@
       "resolution_test_developer_heading": "Usos para desarrollo y QA",
       "resolution_test_developer_text": "Registra viewport, DPR, proporción y orientación. Para simulaciones fijas usa el",
       "resolution_test_responsive_link": "probador responsive"
-    }
+    },
+    "referenceTable": {
+      "category": "Categoría",
+      "diagonal": "Diagonal",
+      "resolution": "Resolución",
+      "ppi": "PPI",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
+      "categories": {
+        "phone": "Teléfono",
+        "laptop": "Portátil",
+        "monitor": "Monitor",
+        "tv": "TV"
+      }
+    },
+    "whatIsGoodPPI": "¿Qué PPI es bueno?",
+    "goodPPIText": "Un buen PPI depende de la distancia de visión. Un teléfono de 6,1 pulgadas a 2556×1179 llega a 460. Los portátiles rondan 141 en 15,6 pulgadas 1080p, 166 en 13,3 pulgadas 1080p y 189 en 16 pulgadas 2560×1600. Los monitores van de 82 (27 pulgadas 1080p) a 163 (27 pulgadas 4K). Los televisores son los más bajos: 80 en 55 pulgadas 4K y 68 en 65 pulgadas 4K."
   },
   "projectionCalculator": {
     "title": "Calculadora de Proyección",

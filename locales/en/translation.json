@@ -551,10 +551,10 @@
   "breakpoints_large_range": "1536px and above",
   "ppiCalculator": {
     "title": "PPI Calculator",
-    "optimizedTitle": "Pixel Density (PPI) Calculator",
-    "intro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
-    "pageTitle": "PPI Calculator (Pixels Per Inch) | Monitor, Phone, TV Pixel Density",
-    "pageDescription": "Calculate PPI from resolution and screen size. Use presets for monitors, laptops, phones, and TVs, then interpret sharpness and viewing distance.",
+    "optimizedTitle": "Screen PPI Calculator: Pixels Per Inch",
+    "intro": "Use this screen PPI calculator to find the pixel density of a display. Enter a diagonal size in inches and a resolution, and it returns the PPI. The table below lists common laptop, monitor, phone and TV sizes, from a 6.1-inch phone to a 65-inch TV.",
+    "pageTitle": "PPI Calculator: Pixel Density for Monitors, Phones & TVs",
+    "pageDescription": "Work out screen pixel density from a diagonal size and resolution. Includes a PPI table for common laptop, monitor, phone and TV sizes.",
     "pageHeading": "PPI Calculator",
     "pageIntro": "Calculate the pixel density (pixels per inch) of display devices. Enter screen resolution and diagonal size to get accurate PPI values.",
     "inputTitle": "Enter Screen Parameters",
@@ -600,6 +600,8 @@
     "exampleCalculation": "For example: A 15.6-inch 1920×1080 display has a PPI value of approximately 141.21, meaning each inch contains about 141 pixel points.",
     "ppiVsDpi": "PPI vs DPI: What's the Difference?",
     "ppiVsDpiExplanation": "PPI and DPI are often confused, but they have different application scenarios. PPI (Pixels Per Inch) is mainly used to describe the pixel density of digital display devices, while DPI (Dots Per Inch) is mainly used to describe the resolution of printing devices. In the context of web design and screen display, we typically use PPI to measure display quality.",
+    "whatIsGoodPPI": "What is a good PPI?",
+    "goodPPIText": "A good PPI depends on viewing distance. A 6.1-inch phone at 2556×1179 reaches 460. Laptops run 141 at 15.6-inch 1080p, 166 at 13.3-inch 1080p and 189 at 16-inch 2560×1600. Monitors span 82 (27-inch 1080p) to 163 (27-inch 4K). TVs are lowest: 80 at 55-inch 4K, 68 at 65-inch 4K.",
     "commonPPIValues": "Common PPI Value Reference",
     "lowPPI": "Low Density (72-120 PPI): Traditional monitors, large TVs",
     "mediumPPI": "Medium Density (120-200 PPI): Standard laptops, desktop monitors",
@@ -630,12 +632,21 @@
       "resolution": "Resolution",
       "size": "Size",
       "ppi": "PPI",
+      "category": "Category",
+      "diagonal": "Diagonal",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
       "devices": {
         "iphone15pro": "iPhone 15 Pro",
         "macbookpro16": "MacBook Pro 16\"",
         "dell4k": "Dell UltraSharp 4K",
         "samsung4ktv": "Samsung 4K TV",
         "ipadpro": "iPad Pro 12.9\""
+      },
+      "categories": {
+        "phone": "Phone",
+        "laptop": "Laptop",
+        "monitor": "Monitor",
+        "tv": "TV"
       }
     },
     "context": {
@@ -763,7 +774,7 @@
   "projectionCalculator": {
     "title": "Projector Distance Calculator",
     "intro": "Calculate the optimal projector distance and screen size for your room. Enter your projector's throw ratio and desired screen size to get precise installation measurements.",
-    "pageTitle": "Projector Distance Calculator | Throw Ratio, Screen Size & Viewing Distance",
+    "pageTitle": "Throw Ratio Calculator: Projector Distance & Screen Size",
     "pageDescription": "Plan projector placement with throw ratio, room distance, and target screen size. Useful for home theater, office, and classroom setups.",
     "pageHeading": "Projector Distance Calculator",
     "pageIntro": "Calculate the optimal projector distance and screen size for your room.",

@@ -650,6 +650,15 @@
         "dell4k": "Dell UltraSharp 4K",
         "samsung4ktv": "Samsung 4K TV",
         "ipadpro": "iPad Pro 12.9\""
+      },
+      "category": "Catégorie",
+      "diagonal": "Diagonale",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
+      "categories": {
+        "phone": "Téléphone",
+        "laptop": "Ordinateur portable",
+        "monitor": "Écran",
+        "tv": "Téléviseur"
       }
     },
     "context": {
@@ -675,7 +684,9 @@
     "localNotes": {
       "title": "Notes locales d’affichage",
       "text": "Pour le public francophone, affichez pouces et centimètres. Utilisez le PPI pour juger la finesse, puis vérifiez taille physique, scaling et distance de vision."
-    }
+    },
+    "whatIsGoodPPI": "Quel est un bon PPI ?",
+    "goodPPIText": "Un bon PPI dépend de la distance de visionnage. Un téléphone de 6,1 pouces en 2556×1179 atteint 460. Les ordinateurs portables sont à 141 en 15,6 pouces 1080p, 166 en 13,3 pouces 1080p et 189 en 16 pouces 2560×1600. Les écrans vont de 82 (27 pouces 1080p) à 163 (27 pouces 4K). Les téléviseurs sont les plus bas : 80 en 55 pouces 4K, 68 en 65 pouces 4K."
   },
   "aspectRatioCalculator": {
     "title": "Calculateur de rapport d'aspect",

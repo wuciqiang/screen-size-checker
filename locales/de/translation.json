@@ -485,7 +485,22 @@
       "resolution_test_developer_heading": "Für Entwicklung und QA",
       "resolution_test_developer_text": "Dokumentieren Sie Viewport, DPR, Seitenverhältnis und Ausrichtung. Für feste Simulationen nutzen Sie den",
       "resolution_test_responsive_link": "Responsive-Tester"
-    }
+    },
+    "referenceTable": {
+      "category": "Kategorie",
+      "diagonal": "Diagonale",
+      "resolution": "Auflösung",
+      "ppi": "PPI",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
+      "categories": {
+        "phone": "Smartphone",
+        "laptop": "Laptop",
+        "monitor": "Monitor",
+        "tv": "Fernseher"
+      }
+    },
+    "whatIsGoodPPI": "Was ist ein guter PPI-Wert?",
+    "goodPPIText": "Ein guter PPI-Wert hängt vom Betrachtungsabstand ab. Ein 6,1-Zoll-Smartphone mit 2556×1179 erreicht 460. Laptops liegen bei 141 (15,6 Zoll, 1080p), 166 (13,3 Zoll, 1080p) und 189 (16 Zoll, 2560×1600). Monitore reichen von 82 (27 Zoll, 1080p) bis 163 (27 Zoll, 4K). Fernseher liegen am niedrigsten: 80 bei 55 Zoll 4K, 68 bei 65 Zoll 4K."
   },
   "projectionCalculator": {
     "title": "Projektions-Rechner",

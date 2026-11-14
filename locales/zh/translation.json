@@ -630,6 +630,15 @@
         "dell4k": "Dell UltraSharp 4K",
         "samsung4ktv": "Samsung 4K TV",
         "ipadpro": "iPad Pro 12.9\""
+      },
+      "category": "类别",
+      "diagonal": "对角线",
+      "footnote": "1080p = 1920×1080 · 1440p = 2560×1440 · 4K = 3840×2160",
+      "categories": {
+        "phone": "手机",
+        "laptop": "笔记本",
+        "monitor": "显示器",
+        "tv": "电视"
       }
     },
     "context": {
@@ -655,7 +664,9 @@
     "localNotes": {
       "title": "中文设备场景说明",
       "text": "国内用户常按英寸、厘米和“2K/4K”一起判断屏幕。华为、小米、OPPO、vivo、荣耀、Redmi 等安卓手机通常需要同时看物理分辨率、DPR 和浏览器 CSS 视口；笔记本和显示器则要结合系统缩放。"
-    }
+    },
+    "whatIsGoodPPI": "多少 PPI 算好？",
+    "goodPPIText": "PPI 是否够用取决于观看距离。6.1 英寸、2556×1179 的手机可达 460。笔记本方面，15.6 英寸 1080p 为 141，13.3 英寸 1080p 为 166，16 英寸 2560×1600 为 189。显示器从 82（27 英寸 1080p）到 163（27 英寸 4K）不等。电视最低：55 英寸 4K 为 80，65 英寸 4K 为 68。"
   },
   "projectionCalculator": {
     "title": "投影仪距离计算器",
